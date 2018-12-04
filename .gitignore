@@ -8,3 +8,4 @@ mytestsite
 www_rnames
 /static
 .DS_Store
+/rnames/settings.py
