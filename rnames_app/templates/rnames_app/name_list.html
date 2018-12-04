@@ -1,20 +1,12 @@
-{% load static %}
-<html>
-    <head>
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="{% static 'css/rnames_app.css' %}">
-        <title>RNames</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">RNames</a></h1>
-        </div>
-        {% for name in names %}
-            <div>
-                <p>name: {{ name.name }}</p>
-                <p>{{ name.created_at }}</p>
+{% extends 'rnames_app/base.html' %}
+
+{% block content %}
+    {% for name in names %}
+        <div class="post">
+            <div class="date">
+                {{ name.created_at }}
             </div>
-        {% endfor %}
-    </body>
-</html>
+            <h2><a href="{% url 'name_detail' pk=name.pk %}">{{ name.name }}</a></h2>
+        </div>
+    {% endfor %}
+{% endblock %}

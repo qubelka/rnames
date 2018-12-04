@@ -1,0 +1,12 @@
+{% extends 'rnames_app/base.html' %}
+
+{% block content %}
+    <div class="name">
+        {% if name.created_at %}
+            <div class="date">
+                {{ name.created_at }}
+            </div>
+        {% endif %}
+        <h2>{{ name.name }}</h2>
+    </div>
+{% endblock %}
