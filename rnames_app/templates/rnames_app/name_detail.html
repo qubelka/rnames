@@ -7,6 +7,9 @@
                 {{ name.created_at }}
             </div>
         {% endif %}
+        {% if user.is_authenticated %}
+          <a class="btn btn-default" href="{% url 'name_edit' pk=name.pk %}"><span class="fa fa-pencil"></span></a>
+        {% endif %}
         <h2>{{ name.name }}</h2>
     </div>
 {% endblock %}
