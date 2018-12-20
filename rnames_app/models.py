@@ -122,7 +122,7 @@ class StratigraphicQualifier(BaseModel):
     """
     Model representing a Stratigraphic Qualifier Name in RNames (e.g. Lithostratigraphy, Chemostratigraphy, Sequence stratigraphy, Asolute age, Chronostratigraphy, Biostratigraphy, etc.)
     """
-    name = models.CharField(max_length=200, unique=True, help_text="Enter a a Stratigraphic Qualifier Name (e.g. Lithostratigraphy, Chemostratigraphy, Sequence stratigraphy, Asolute age, Chronostratigraphy, Biostratigraphy, etc.)")
+    name = models.CharField(max_length=200, unique=True, help_text="Enter a Stratigraphic Qualifier Name (e.g. Lithostratigraphy, Chemostratigraphy, Sequence stratigraphy, Asolute age, Chronostratigraphy, Biostratigraphy, etc.)")
 
 
     class Meta:
@@ -139,3 +139,37 @@ class StratigraphicQualifier(BaseModel):
         String for representing the Model object (in Admin site etc.)
         """
         return '%s (%s)' % (self.id,self.name)
+
+class Qualifier(BaseModel):
+    """
+    Model representing a Qualifier in RNames (e.g. Eon/Chronostratigraphy, Era/Chronostratigraphy, Formation/Lithostratigraphy, etc.)
+    """
+    qualifier_name = models.ForeignKey(QualifierName, on_delete=models.CASCADE)
+    stratigraphic_qualifier = models.ForeignKey(StratigraphicQualifier, on_delete=models.CASCADE)
+    LEVEL = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+        (6, '6'),
+        (7, '7'),
+    )
+
+    level = models.PositiveSmallIntegerField(choices=LEVEL, default=1, blank=False, help_text='The level within the Qualifier hiearchy')
+
+    class Meta:
+        ordering = ['stratigraphic_qualifier', 'level', 'qualifier_name']
+        unique_together = ('qualifier_name', 'stratigraphic_qualifier',)
+
+    def get_absolute_url(self):
+        """
+        Returns the url to access a particular qualifier instance.
+        """
+        return reverse('qualifier-detail', args=[str(self.id)])
+
+    def __str__(self):
+        """
+        String for representing the Model object (in Admin site etc.)
+        """
+        return '%s (%s / %s - %s)' % (self.id,self.qualifier_name, self.stratigraphic_qualifier, self.level)

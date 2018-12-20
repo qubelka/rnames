@@ -37,3 +37,7 @@ def name_edit(request, pk):
     else:
         form = NameForm(instance=name)
     return render(request, 'rnames_app/name_edit.html', {'form': form})
+
+def qualifier_detail(request, pk):
+    qualifier = get_object_or_404(Qualifier, pk=pk)
+    return render(request, 'rnames_app/qualifier_detail.html', {'qualifier': qualifier})
