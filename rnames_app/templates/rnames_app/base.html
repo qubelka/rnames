@@ -7,11 +7,37 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>RNames</title>
     </head>
+    <style>
+    /* Tooltip container */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    }
+
+    /* Tooltip text */
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;
+      border-radius: 6px;
+
+      /* Position the tooltip text - see examples below! */
+      position: absolute;
+      z-index: 1;
+    }
+
+    /* Show the tooltip text when you mouse over the tooltip container */
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+    </style>
+
     <body>
         <div class="page-header">
-            {% if user.is_authenticated %}
-              <a href="{% url 'name_new' %}" class="top-menu"><span class="fa fa-plus"></span></a>
-            {% endif %}
             <h1><a href="/">RNames</a></h1>
         </div>
         <div class="content container">
