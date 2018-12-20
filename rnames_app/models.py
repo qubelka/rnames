@@ -173,3 +173,28 @@ class Qualifier(BaseModel):
         String for representing the Model object (in Admin site etc.)
         """
         return '%s (%s / %s - %s)' % (self.id,self.qualifier_name, self.stratigraphic_qualifier, self.level)
+
+
+class StructuredName(BaseModel):
+    """
+    Model representing a StructuredName - a combination of Name, Qualifier and Location in RNames (e.g. 1a / TimeSlice_Webby / Global, 451.08 / absolute Time / Global, etc.)
+    """
+    qualifier = models.ForeignKey(Qualifier, on_delete=models.CASCADE)
+    name = models.ForeignKey(Name, on_delete=models.CASCADE)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ['name', 'qualifier', 'location']
+        unique_together = ('name', 'qualifier', 'location',)
+
+    def get_absolute_url(self):
+        """
+        Returns the url to access a particular structured name instance.
+        """
+        return reverse('structured-name-detail', args=[str(self.id)])
+
+    def __str__(self):
+        """
+        String for representing the Model object (in Admin site etc.)
+        """
+        return '%s (%s / %s - %s)' % (self.id,self.name, self.qualifier, self.location)
