@@ -1,8 +1,20 @@
 from django.conf import settings
 from django.db import models
+from django.db.models.query import QuerySet
 from django.utils import timezone
 from django_userforeignkey.models.fields import UserForeignKey
 from django.core.validators import MaxValueValidator, MinValueValidator
+
+class CustomQuerySet(QuerySet):
+    def delete(self):
+        self.update(is_active=False)
+
+class ActiveManager(models.Manager):
+    def is_active(self):
+        return self.model.objects.filter(is_active=True)
+
+    def get_queryset(self):
+        return CustomQuerySet(self.model, using=self._db)
 
 # https://medium.com/@KevinPavlish/add-common-fields-to-all-your-django-models-bce033ac2cdc
 class BaseModel(models.Model):
@@ -15,12 +27,21 @@ class BaseModel(models.Model):
     created_by = UserForeignKey(auto_user_add=True, verbose_name="The user that is automatically assigned", related_name='createdby_%(class)s')
     modified_by = UserForeignKey(auto_user=True, verbose_name="The user that is automatically assigned", related_name='modifiedby_%(class)s')
 
-    DELETED = (
-        (1, 'Deleted'),
-        (0, 'Active'),
-    )
+#    DELETED = (
+#        (1, 'Deleted'),
+#        (0, 'Active'),
+#    )
 
-    is_deleted = models.PositiveSmallIntegerField(choices=DELETED, default=0, blank=True, help_text='Is the record deleted')
+#    is_deleted = models.PositiveSmallIntegerField(choices=DELETED, default=0, blank=True, help_text='Is the record deleted')
+# https://stackoverflow.com/questions/5190313/django-booleanfield-how-to-set-the-default-value-to-true
+    is_active = models.BooleanField(default=True, help_text='Is the record active')
+
+    objects = ActiveManager()
+
+# https://stackoverflow.com/questions/4825815/prevent-delete-in-django-model
+    def delete(self):
+        self.is_active = False
+        self.save()
 
     class Meta:
         abstract = True
@@ -45,7 +66,7 @@ class Name(BaseModel):
         """
         String for representing the Model object (in Admin site etc.)
         """
-        return '%s (%s)' % (self.id,self.name)
+        return '%s' % (self.name)
 
 
 class Reference(BaseModel):
@@ -58,7 +79,7 @@ class Reference(BaseModel):
     link = models.URLField(max_length=200, help_text="Enter a valid URL for the reference", blank=True, null=True,)
 
     class Meta:
-        ordering = ["title"]
+        ordering = ['first_author', 'year', 'title']
 
     def get_absolute_url(self):
         """
@@ -70,7 +91,7 @@ class Reference(BaseModel):
         """
         String for representing the Model object (in Admin site etc.)
         """
-        return '%s (%s, %s: %s)' % (self.id, self.first_author, self.year, self.title)
+        return '%s, %s: %s' % (self.first_author, self.year, self.title)
 
 class Location(BaseModel):
     """
@@ -92,7 +113,7 @@ class Location(BaseModel):
         """
         String for representing the Model object (in Admin site etc.)
         """
-        return '%s (%s)' % (self.id,self.name)
+        return '%s' % (self.name)
 
 
 class QualifierName(BaseModel):
@@ -115,7 +136,7 @@ class QualifierName(BaseModel):
         """
         String for representing the Model object (in Admin site etc.)
         """
-        return '%s (%s)' % (self.id,self.name)
+        return '%s' % (self.name)
 
 
 class StratigraphicQualifier(BaseModel):
@@ -138,7 +159,7 @@ class StratigraphicQualifier(BaseModel):
         """
         String for representing the Model object (in Admin site etc.)
         """
-        return '%s (%s)' % (self.id,self.name)
+        return '%s' % (self.name)
 
 class Qualifier(BaseModel):
     """
@@ -172,7 +193,7 @@ class Qualifier(BaseModel):
         """
         String for representing the Model object (in Admin site etc.)
         """
-        return '%s (%s / %s - %s)' % (self.id,self.qualifier_name, self.stratigraphic_qualifier, self.level)
+        return '%s / %s - %s' % (self.qualifier_name, self.stratigraphic_qualifier, self.level)
 
 
 class StructuredName(BaseModel):
@@ -197,4 +218,35 @@ class StructuredName(BaseModel):
         """
         String for representing the Model object (in Admin site etc.)
         """
-        return '%s (%s / %s - %s)' % (self.id,self.name, self.qualifier, self.location)
+        return '%s - %s - %s' % (self.name, self.qualifier, self.location)
+
+
+class Relation(BaseModel):
+    """
+    Model representing a Relation between two Structured Names in RNames (e.g. Likhall-Bed-Sweden/466.72-absolute Time-Global, etc.)
+    """
+    reference = models.ForeignKey(Reference, on_delete=models.CASCADE)
+    name_one = models.ForeignKey(StructuredName, on_delete=models.CASCADE, related_name='nameone_%(class)s')
+    name_two = models.ForeignKey(StructuredName, on_delete=models.CASCADE, related_name='nametwo_%(class)s')
+    BELONGS = (
+        (1, 'Yes'),
+        (0, 'No'),
+    )
+
+    belongs_to = models.PositiveSmallIntegerField(choices=BELONGS, default=0, blank=True, help_text='Belongs to')
+
+    class Meta:
+        ordering = ['reference', 'name_one', 'name_two']
+        unique_together = ('reference', 'name_one', 'name_two',)
+
+    def get_absolute_url(self):
+        """
+        Returns the url to access a particular relation instance.
+        """
+        return reverse('relation-detail', args=[str(self.id)])
+
+    def __str__(self):
+        """
+        String for representing the Model object (in Admin site etc.)
+        """
+        return '%s | %s' % (self.name_one, self.name_two)

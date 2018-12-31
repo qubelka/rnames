@@ -4,7 +4,8 @@ from .models import Name
 from .forms import NameForm
 
 def name_list(request):
-    names = Name.objects.order_by('name')
+    names = Name.objects.is_active().order_by('name')
+#    names = Name.objects.order_by('name')
     return render(request, 'rnames_app/name_list.html', {'names': names})
 
 def name_detail(request, pk):
