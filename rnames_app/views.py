@@ -17,8 +17,8 @@ def name_new(request):
         form = NameForm(request.POST)
         if form.is_valid():
             name = form.save(commit=False)
-            name.created_by_id = request.user.id
-            name.created_at = timezone.now()
+#            name.created_by_id = request.user.id
+#            name.created_at = timezone.now()
             name.save()
             return redirect('name_detail', pk=name.pk)
     else:
@@ -31,8 +31,8 @@ def name_edit(request, pk):
         form = NameForm(request.POST, instance=name)
         if form.is_valid():
             name = form.save(commit=False)
-            name.created_by_id = request.user.id
-            name.created_at = timezone.now()
+#            name.created_by_id = request.user.id
+#            name.created_at = timezone.now()
             name.save()
             return redirect('name_detail', pk=name.pk)
     else:
