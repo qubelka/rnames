@@ -4,6 +4,7 @@ from django.db.models.query import QuerySet
 from django.utils import timezone
 from django_userforeignkey.models.fields import UserForeignKey
 from django.core.validators import MaxValueValidator, MinValueValidator
+from simple_history.models import HistoricalRecords
 
 class CustomQuerySet(QuerySet):
     def delete(self):
@@ -26,16 +27,12 @@ class BaseModel(models.Model):
     modified_on = models.DateTimeField(auto_now=True)
     created_by = UserForeignKey(auto_user_add=True, verbose_name="The user that is automatically assigned", related_name='createdby_%(class)s')
     modified_by = UserForeignKey(auto_user=True, verbose_name="The user that is automatically assigned", related_name='modifiedby_%(class)s')
-
-#    DELETED = (
-#        (1, 'Deleted'),
-#        (0, 'Active'),
-#    )
-
-#    is_deleted = models.PositiveSmallIntegerField(choices=DELETED, default=0, blank=True, help_text='Is the record deleted')
+# https://django-simple-history.readthedocs.io/en/2.6.0/index.html
+    history = HistoricalRecords(
+        history_change_reason_field=models.TextField(null=True),
+        inherit=True)
 # https://stackoverflow.com/questions/5190313/django-booleanfield-how-to-set-the-default-value-to-true
     is_active = models.BooleanField(default=True, help_text='Is the record active')
-
     objects = ActiveManager()
 
 # https://stackoverflow.com/questions/4825815/prevent-delete-in-django-model
