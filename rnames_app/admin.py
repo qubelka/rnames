@@ -6,6 +6,10 @@ from .models import Name, Reference, Location, QualifierName, StratigraphicQuali
 
 class RelationHistoryAdmin(SimpleHistoryAdmin):
     history_list_display = ["belongs_to"]
+    raw_id_fields = ('name_one', 'name_two',)
+
+class RelationAdmin(admin.ModelAdmin):
+    raw_id_fields = ('name_one', 'name_two',)
 
 admin.site.register(Name, SimpleHistoryAdmin)
 admin.site.register(Reference, SimpleHistoryAdmin)
