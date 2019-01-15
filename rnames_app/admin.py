@@ -5,11 +5,16 @@ from .models import Name, Reference, Location, QualifierName, StratigraphicQuali
 # admin.site.register([Name, Reference, Location, QualifierName, StratigraphicQualifier, Qualifier, StructuredName, Relation,])
 
 class RelationHistoryAdmin(SimpleHistoryAdmin):
-    history_list_display = ["belongs_to"]
+    history_list_display = ['belongs_to']
     raw_id_fields = ('name_one', 'name_two',)
 
 class RelationAdmin(admin.ModelAdmin):
     raw_id_fields = ('name_one', 'name_two',)
+
+class ReferenceAdmin(admin.ModelAdmin):
+    list_display = ['first_author', 'year', ]
+    list_display_links = ['first_author', ]
+    search_fields = ['first_author', ]
 
 admin.site.register(Name, SimpleHistoryAdmin)
 admin.site.register(Reference, SimpleHistoryAdmin)
