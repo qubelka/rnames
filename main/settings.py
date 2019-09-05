@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'simple_history',
     'rest_framework',
     'rnames_app',
+    'mb',
 ]
 
 MIDDLEWARE = [

@@ -15,11 +15,11 @@ from .views import(
 urlpatterns = [
 #    re_path('api/getNames/$', NameList.as_view(), name='NameList'),
 #    path('api/getName/<int:pk>/', views.NameDetail.as_view(), name='NameDetail'),
-    url('api/references/$', ReferenceListAPIView.as_view(), name='list'),
-    path('api/references/create/', ReferenceCreateAPIView.as_view(), name='create'),
-    path('api/reference/<int:pk>/', ReferenceDetailAPIView.as_view(), name='detail'),
-    path('api/reference/<int:pk>/delete/', ReferenceDeleteAPIView.as_view(), name='delete'),
-    path('api/reference/<int:pk>/update/', ReferenceUpdateAPIView.as_view(), name='update'),
+    url('rnames/api/references/$', ReferenceListAPIView.as_view(), name='list'),
+    path('rnames/api/references/create/', ReferenceCreateAPIView.as_view(), name='create'),
+    path('rnames/api/reference/<int:pk>/', ReferenceDetailAPIView.as_view(), name='detail'),
+    path('rnames/api/reference/<int:pk>/delete/', ReferenceDeleteAPIView.as_view(), name='delete'),
+    path('rnames/api/reference/<int:pk>/update/', ReferenceUpdateAPIView.as_view(), name='update'),
 #    re_path('api/getNames/$', NameList.as_view(), name='NameList'),
 ]
 
