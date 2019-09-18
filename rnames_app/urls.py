@@ -4,6 +4,7 @@ from . import views
 #from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
+    path('', views.name_list, name='name_list'),
     path('rnames/', views.name_list, name='name_list'),
     path('rnames/name/<int:pk>/', views.name_detail, name='name_detail'),
     path('rnames/name/new', views.name_new, name='name_new'),
