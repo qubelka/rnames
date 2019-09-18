@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include('mb.urls')),
     path('', include('rnames_app.urls')),
     path('', include('rnames_app.api.urls')),
+#    path('', include('catalog.urls')),
 ]
