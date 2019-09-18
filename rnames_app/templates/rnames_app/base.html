@@ -1,47 +1,52 @@
-<!DOCTYPE html>
+{% load static %}
 <html>
-<head>
-<style>
-.item1 { grid-area: header; }
-.item2 { grid-area: menu; }
-.item3 { grid-area: main; }
-.item4 { grid-area: right; }
-.item5 { grid-area: footer; }
+    <head>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/rnames_app.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>RNames</title>
+    </head>
+    <style>
+    /* Tooltip container */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    }
 
-.grid-container {
-  display: grid;
-  grid-template-areas:
-    'header header header header header header'
-    'menu main main main right right'
-    'menu footer footer footer footer footer';
-  grid-gap: 1px;
-  background-color: #2196F3;
-  padding: 1px;
-  grid-template-columns: 40px auto auto auto 40px;
-  grid-template-rows: 80px 500px 40px;
-}
+    /* Tooltip text */
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;
+      border-radius: 6px;
 
-.grid-container > div {
-  background-color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  padding: 2px 0;
-  font-size: 30px;
-}
-</style>
-</head>
-<body>
+      /* Position the tooltip text - see examples below! */
+      position: absolute;
+      z-index: 1;
+    }
 
-<h1>Grid Layout</h1>
+    /* Show the tooltip text when you mouse over the tooltip container */
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+    </style>
 
-<p>This grid layout contains six columns and three rows:</p>
-
-<div class="grid-container">
-  <div class="item1">Header</div>
-  <div class="item2">Menu</div>
-  <div class="item3">Main</div>
-  <div class="item4">Right</div>
-  <div class="item5">Footer</div>
-</div>
-
-</body>
+    <body>
+        <div class="page-header">
+            <h1><a href="/">RNames</a></h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
