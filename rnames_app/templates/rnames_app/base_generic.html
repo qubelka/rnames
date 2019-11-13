@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://use.fontawesome.com/baa70f3cd3.js"></script>
+{% block title %}
+  <title>RNames</title>
+{% endblock %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RNames is a stratigraphical database">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 10px;
+  text-align: left;
+  font-size: 15px;
+  color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 10%;
+  padding: 10px;
+  font-size: 12px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 80%;
+  background-color: #f1f1f1;
+  /* height: 300px; only for demonstration, should be removed */
+}
+
+aside {
+  float: left;
+  padding: 20px;
+  width: 10%;
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article, aside {
+    width: 100%;
+    height: auto;
+  }
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+</style>
+</head>
+<body>
+
+<header id="top">
+  <h2>RNames</h2>
+</header>
+
+<section>
+  <nav>
+    <h3>Main Menu</h3>
+    <ul>
+      <li><a class="list-group-item" href="/"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp;Home</a></li>
+      <li><a href="#">Search Stage Slices</a></li>
+      <li><a href="#">Search Time Slices</a></li>
+      <li><a href="#">Search Global Stages</a></li>
+      <li><a href="{% url 'reference-list'%}">References</a></li>
+    </ul>
+    {% block nav %}
+      {% if user.is_authenticated %}
+      <ul>
+        <li>User: {{ user.get_username }}</li>
+        <li><a href="{% url 'structuredname-list'%}">Manage Structured Names</a></li>
+        <li><a href="{% url 'location-list'%}">Manage Locations</a></li>
+        <li><a href="{% url 'name-list'%}">Manage Names</a></li>
+        <li><a href="{% url 'qualifier-list'%}">Manage Qualifiers</a></li>
+        <hr>
+        <li><a href="{% url 'logout'%}?next={% url 'index'%}">Logout</a></li>
+      {% else %}
+      <ul>
+        <hr>
+        <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+      </ul>
+      {% endif %}
+    </ul>
+    {% endblock %}
+
+  </nav>
+
+  {% block content %}
+  <article>
+    <h2><a name="C4">Welcome to RNames</a></h2>
+    <p>RNames is a relational database linking stratigraphic names with each other that are considered to be time-equivalent or time-overlapping.</p>
+    <p>Each link in the database is drawn from a published reference and is considered as an expressed opinion. The sum of published opinions can be used to correlate a certain name with another name and ultimately to bin within a certain time frame. This is what this database is for. (<a href="{% url 'rnames-detail'%}" target="_blank">more</a>)</p>
+    <p>Currently RNames contains {{ num_names }} Stratigraphic names, {{ num_opinions }} Opinions, and {{ num_references }} References.</p>
+    <img src="https://rnames.luomus.fi/images/argentine.jpg" alt="Geologists at work" align="middle" height="275" width="900">
+    <p></p>
+    <table width="100%">
+      <tr>
+        <td width="50%">RNames is hosted by the <a href="https://www.luomus.fi/en" target="_blank">Finnish Museum of Natural History</a>, an independent research institution functioning under the University of Helsinki.</td>
+        <td width="50%">Rnames was developed by Björn Kröger & Kari Lintulaakso and is based on <a href="http://www.dfg.de/en/" target="_blank">Deutsche Forschungsgemeinschaft</a> (DFG) personal funding, KR 2095/7-1</td>
+      </tr>
+    </table>
+  </article>
+  {% endblock %}
+
+  <aside>
+  </aside>
+
+</section>
+
+<footer>
+  <p>© 2019 RNames <a href="#top">Back to Top</a></p>
+</footer>
+
+</body>
+</html>

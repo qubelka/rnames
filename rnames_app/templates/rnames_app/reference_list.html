@@ -1,0 +1,41 @@
+{% extends "rnames_app\base_generic.html" %}
+
+{% block content %}
+
+<article>
+  <form action="" method="get">
+      {{ filter.form.as_p }}
+      <input type="submit" />
+  </form>
+
+  {% if filter.qs %}
+    <table style="width:100%">
+      <tr>
+        <th>First Author</th>
+        <th>Year</th>
+        <th>Title</th>
+        <th>Link</th>
+      </tr>
+
+      {% for x in filter.qs %}
+        <tr>
+          <td>{{ x.first_author }}</td>
+          <td>{{ x.year }}</td>
+
+          {% if user.is_authenticated %}
+            <td><a href="{{ x.get_absolute_url }}">{{ x.title }}</td>
+          {% else %}
+            <td>{{ x.title }}</td>
+          {% endif %}
+
+          <td><a href="{{ x.link }}" target="_blank">{{ x.link }}</a></td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>There are no References available.</p>
+  {% endif %}
+
+</article>
+
+{% endblock %}

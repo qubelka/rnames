@@ -1,16 +1,46 @@
 from django.conf.urls import url
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 from . import views
 #from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
-    path('', views.name_list, name='name_list'),
-    path('rnames/', views.name_list, name='name_list'),
-    path('rnames/name/<int:pk>/', views.name_detail, name='name_detail'),
-    path('rnames/name/new', views.name_new, name='name_new'),
-    path('rnames/name/<int:pk>/edit/', views.name_edit, name='name_edit'),
+    path('', views.index, name='index'),
+#    path('', views.name_list, name='name-list'),
+    path('rnames/', views.name_list, name='name-list'),
+    path('rnames/locations', views.location_list, name='location-list'),
+    path('rnames/location/<int:pk>/', views.location_detail, name='location-detail'),
+    path('rnames/location/<int:pk>/delete/', views.location_delete.as_view(), name='location-delete'),
+    path('rnames/location/<int:pk>/edit/', views.location_edit, name='location-edit'),
+    path('rnames/location/new', views.location_new, name='location-new'),
+    path('rnames/name/new', views.name_new, name='name-new'),
+    path('rnames/name/<int:pk>/', views.name_detail, name='name-detail'),
+    path('rnames/name/<int:pk>/delete/', views.name_delete.as_view(), name='name-delete'),
+    path('rnames/name/<int:pk>/edit/', views.name_edit, name='name-edit'),
+    path('rnames/qualifiers', views.qualifier_list, name='qualifier-list'),
+    path('rnames/qualifier/new', views.qualifier_new, name='qualifier-new'),
     path('rnames/qualifier/<int:pk>/', views.qualifier_detail, name='qualifier-detail'),
-    url(r'^search/$', views.user_search, name='user_search'),
+    path('rnames/qualifier/<int:pk>/delete/', views.qualifier_delete.as_view(), name='qualifier-delete'),
+    path('rnames/qualifier/<int:pk>/edit/', views.qualifier_edit, name='qualifier-edit'),
+    path('rnames/references', views.reference_list, name='reference-list'),
+    path('rnames/reference/new', views.reference_new, name='reference-new'),
+    path('rnames/reference/<int:pk>/', views.reference_detail, name='reference-detail'),
+    path('rnames/reference/<int:pk>/edit/', views.reference_edit, name='reference-edit'),
+    path('rnames/relations', views.relation_list, name='relation-list'),
+    path('rnames/relation/new', views.relation_new, name='relation-new'),
+    path('rnames/relation/<int:pk>/', views.relation_detail, name='relation-detail'),
+    path('rnames/relation/<int:pk>/edit/', views.relation_edit, name='relation-edit'),
+    path('rnames/relation/<int:pk>/delete/', views.relation_delete.as_view(), name='relation-delete'),
+    path('rnames/rnames_detail', views.rnames_detail, name='rnames-detail'),
+    path('rnames/structured_names', views.structuredname_list, name='structuredname-list'),
+    path('rnames/structured_name/new', views.structuredname_new, name='structuredname-new'),
+    path('rnames/structured_name/<int:pk>/', views.structuredname_detail, name='structuredname-detail'),
+    path('rnames/structured_name/<int:pk>/delete/', views.structuredname_delete.as_view(), name='structuredname-delete'),
+    path('rnames/structured_name/<int:pk>/edit/', views.structuredname_edit, name='structuredname-edit'),
+    url(r'^search/$', views.user_search, name='user-search'),
 ]
 
+#Add Django site authentication urls (for login, logout, password management)
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+]
 #urlpatterns = format_suffix_patterns(urlpatterns)

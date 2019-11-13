@@ -1,0 +1,14 @@
+{% extends "rnames_app/base_generic.html" %}
+
+{% block content %}
+
+<h1>Delete Location</h1>
+
+<p>Are you sure you want to delete the Location: {{ location }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" action="" value="Yes, delete." />
+</form>
+
+{% endblock %}

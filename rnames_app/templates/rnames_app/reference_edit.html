@@ -1,0 +1,11 @@
+{% extends 'rnames_app/base_generic.html' %}
+
+{% block content %}
+  <article>
+      <h2>Edit Reference</h2>
+      <form method="POST" class="reference-form">{% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="save btn btn-default">Save</button>
+      </form>
+  </article>
+{% endblock %}

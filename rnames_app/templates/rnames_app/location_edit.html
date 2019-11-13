@@ -3,8 +3,8 @@
 {% block content %}
   <article>
     {% if user.is_authenticated %}
-      <h2>Edit Name</h2>
-      <form method="POST" class="name-form">{% csrf_token %}
+      <h2>Edit Location</h2>
+      <form method="POST" class="location-form">{% csrf_token %}
           {{ form.as_p }}
           <button type="submit" class="save btn btn-default">Save</button>
       </form>

@@ -1,6 +1,7 @@
-{% extends 'rnames_app/base.html' %}
+{% extends 'rnames_app/base_generic.html' %}
 
 {% block content %}
+<article>
     <div class="name">
         {% if name.created_at %}
             <div class="date">
@@ -8,8 +9,10 @@
             </div>
         {% endif %}
         {% if user.is_authenticated %}
-          <a class="btn btn-default" href="{% url 'name_edit' pk=name.pk %}"><span class="fa fa-pencil"></span></a>
+          <a class="btn btn-default" href="{% url 'name-edit' pk=name.pk %}"><span class="fa fa-pencil-square-o"></span></a>
+          <a class="btn btn-default" href="{% url 'name-delete' pk=name.pk %}"><span class="fa  fa-trash-o"></span></a>          
         {% endif %}
         <h2>{{ name.name }}</h2>
     </div>
+  </article>
 {% endblock %}

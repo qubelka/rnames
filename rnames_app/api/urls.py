@@ -10,6 +10,7 @@ from .views import(
     ReferenceDetailAPIView,
     ReferenceListAPIView,
     ReferenceUpdateAPIView,
+    RelationListAPIView,
     )
 
 urlpatterns = [
@@ -20,6 +21,7 @@ urlpatterns = [
     path('rnames/api/reference/<int:pk>/', ReferenceDetailAPIView.as_view(), name='detail'),
     path('rnames/api/reference/<int:pk>/delete/', ReferenceDeleteAPIView.as_view(), name='delete'),
     path('rnames/api/reference/<int:pk>/update/', ReferenceUpdateAPIView.as_view(), name='update'),
+    url('rnames/api/relations/$', RelationListAPIView.as_view(), name='list'),
 #    re_path('api/getNames/$', NameList.as_view(), name='NameList'),
 ]
 

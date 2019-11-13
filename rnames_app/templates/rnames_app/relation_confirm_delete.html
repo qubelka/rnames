@@ -1,0 +1,19 @@
+{% extends "rnames_app/base_generic.html" %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+  <h1>Delete Relation</h1>
+
+  <p>Are you sure you want to delete the Relation: <b><i>{{ relation }}</i></b>?</p>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" action="" value="Yes, delete." />
+  </form>
+  <p><a href="{{request.path}}">Back</a></p>
+{% else %}
+  <p><a href="{% url 'login'%}?next={{request.path}}">Please login first</a></p>
+{% endif %}
+
+{% endblock %}

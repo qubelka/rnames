@@ -1,0 +1,32 @@
+{% extends 'rnames_app/base_generic.html' %}
+
+{% block content %}
+<article>
+    <div class="qualifier">
+        {% if qualifier.created_at %}
+            <div class="date">
+                {{ qualifier.created_at }}
+            </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+          <a class="btn btn-default" href="{% url 'qualifier-edit' pk=qualifier.pk %}"><span class="fa fa-pencil-square-o"></span></a>
+          <a class="btn btn-default" href="{% url 'qualifier-delete' pk=qualifier.pk %}"><span class="fa  fa-trash-o"></span></a>
+        {% endif %}
+        <h2>Qualifier</h2>
+        <table style="width:100%">
+          <tr>
+            <td>Qualifier Name</td>
+            <td>{{ qualifier.qualifier_name }}</td>
+          </tr>
+          <tr>
+            <td>Stratigraphic Qualifier</td>
+            <td>{{ qualifier.stratigraphic_qualifier }}</td>
+          </tr>
+          <tr>
+            <td>Level</td>
+            <td>{{ qualifier.level }}</td>
+          </tr>
+        </table>
+    </div>
+  </article>
+{% endblock %}

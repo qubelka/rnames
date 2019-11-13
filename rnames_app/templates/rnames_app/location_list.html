@@ -9,14 +9,14 @@
   </form>
   {% if user.is_authenticated %}
     <br>
-    <a class="btn btn-default" href="{% url 'name-new' %}"><span class="fa  fa-plus"></span> Add</a>
+    <a class="btn btn-default" href="{% url 'location-new' %}"><span class="fa  fa-plus"></span> Add</a>
     <br>
   {% endif %}
 
   {% if filter.qs %}
     <table style="width:100%">
       <tr>
-        <th>Name</th>
+        <th>Location</th>
         {% if user.is_authenticated %}
         <th>Action</th>
         {% endif %}
@@ -28,9 +28,9 @@
           {% if user.is_authenticated %}
             <td><a href="{{ x.get_absolute_url }}">{{ x.name }}</td>
             <td>
-              <a class="btn btn-default" href="{% url 'name-detail' pk=x.pk %}"><span class="fa fa-search"></span></a>
-              <a class="btn btn-default" href="{% url 'name-edit' pk=x.pk %}"><span class="fa fa-pencil-square-o"></span></a>
-              <a class="btn btn-default" href="{% url 'name-delete' pk=x.pk %}"><span class="fa  fa-trash-o"></span></a>
+              <a class="btn btn-default" href="{% url 'location-detail' pk=x.pk %}"><span class="fa fa-search"></span></a>
+              <a class="btn btn-default" href="{% url 'location-edit' pk=x.pk %}"><span class="fa fa-pencil-square-o"></span></a>
+              <a class="btn btn-default" href="{% url 'location-delete' pk=x.pk %}"><span class="fa  fa-trash-o"></span></a>
             </td>
 
           {% else %}
@@ -41,7 +41,7 @@
       {% endfor %}
     </table>
   {% else %}
-    <p>There are no Names available.</p>
+    <p>There are no Locations available.</p>
   {% endif %}
 
 </article>

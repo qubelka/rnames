@@ -1,0 +1,18 @@
+{% extends 'rnames_app/base_generic.html' %}
+
+{% block content %}
+<article>
+    <div class="relation">
+        {% if relation.created_at %}
+            <div class="date">
+                {{ relation.created_at }}
+            </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+          <a class="btn btn-default" href="{% url 'relation-edit' pk=relation.pk %}"><span class="fa fa-pencil-square-o"></span></a>
+          <a class="btn btn-default" href="{% url 'relation-delete' pk=relation.pk %}"><span class="fa  fa-trash-o"></span></a>
+        {% endif %}
+        <h2>{{ relation }}</h2>
+    </div>
+  </article>
+{% endblock %}

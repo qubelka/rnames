@@ -1,0 +1,18 @@
+{% extends 'rnames_app/base_generic.html' %}
+
+{% block content %}
+<article>
+    <div class="structuredname">
+        {% if structuredname.created_at %}
+            <div class="date">
+                {{ structuredname.created_at }}
+            </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+          <a class="btn btn-default" href="{% url 'structuredname-edit' pk=structuredname.pk %}"><span class="fa fa-pencil-square-o"></span></a>
+          <a class="btn btn-default" href="{% url 'structuredname-delete' pk=structuredname.pk %}"><span class="fa  fa-trash-o"></span></a>
+        {% endif %}
+        <h2>{{ structuredname.name }}</h2>
+    </div>
+  </article>
+{% endblock %}

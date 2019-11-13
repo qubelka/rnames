@@ -1,0 +1,56 @@
+{% extends "rnames_app\base_generic.html" %}
+{% block title %}
+  <title>Manage Structured Names</title>
+{% endblock %}
+
+{% block content %}
+
+<article>
+  <form action="" method="get">
+      {{ filter.form.as_p }}
+      <input type="submit" />
+  </form>
+  {% if user.is_authenticated %}
+    <br>
+    <a class="btn btn-default" href="{% url 'structuredname-new' %}"><span class="fa  fa-plus"></span> Add</a>
+    <br>
+  {% endif %}
+
+  {% if filter.qs %}
+    <table style="width:100%">
+      <tr>
+        <th>Name</th>
+        <th>Qualifier</th>
+        <th>Location</th>
+        {% if user.is_authenticated %}
+        <th>Action</th>
+        {% endif %}
+      </tr>
+
+      {% for x in filter.qs %}
+        <tr>
+
+          {% if user.is_authenticated %}
+            <td>{{ x.name }}</td>
+            <td>{{ x.qualifier }}</td>
+            <td>{{ x.location }}</td>
+            <td>
+              <a class="btn btn-default" href="{% url 'structuredname-detail' pk=x.pk %}"><span class="fa fa-search"></span></a>
+              <a class="btn btn-default" href="{% url 'structuredname-edit' pk=x.pk %}"><span class="fa fa-pencil-square-o"></span></a>
+              <a class="btn btn-default" href="{% url 'structuredname-delete' pk=x.pk %}"><span class="fa  fa-trash-o"></span></a>
+            </td>
+
+          {% else %}
+            <td>{{ x.name }}</td>
+          {% endif %}
+
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>There are no Structured Names available.</p>
+  {% endif %}
+
+</article>
+
+{% endblock %}

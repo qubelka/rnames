@@ -5,6 +5,7 @@ from django.utils import timezone
 from django_userforeignkey.models.fields import UserForeignKey
 from django.core.validators import MaxValueValidator, MinValueValidator
 from simple_history.models import HistoricalRecords
+from django.urls import reverse #Used to generate URLs by reversing the URL patterns
 
 class CustomQuerySet(QuerySet):
     def delete(self):
@@ -38,6 +39,8 @@ class BaseModel(models.Model):
 # https://stackoverflow.com/questions/4825815/prevent-delete-in-django-model
     def delete(self):
         self.is_active = False
+#        self.modified_on = models.DateTimeField(auto_now=True)
+#        self.modified_by = UserForeignKey(auto_user=True, verbose_name="The user that is automatically assigned", related_name='modifiedby_%(class)s')
         self.save()
 
     class Meta:
@@ -113,6 +116,31 @@ class QualifierName(BaseModel):
         return '%s' % (self.name)
 
 
+class Reference(BaseModel):
+    """
+    Model representing a Reference in RNames
+    """
+    first_author = models.CharField(max_length=50, help_text="Enter the name of the first author of the reference", blank=True, null=True,)
+    year = models.IntegerField(validators=[MinValueValidator(1800), MaxValueValidator(2100)], blank=True, null=True,)
+    title = models.CharField(max_length=250, help_text="Enter the title of the reference")
+    link = models.URLField(max_length=200, help_text="Enter a valid URL for the reference", blank=True, null=True,)
+
+    class Meta:
+        ordering = ['first_author', 'year', 'title']
+
+    def get_absolute_url(self):
+        """
+        Returns the url to access a particular reference instance.
+        """
+        return reverse('reference-detail', args=[str(self.id)])
+
+    def __str__(self):
+        """
+        String for representing the Model object (in Admin site etc.)
+        """
+        return '%s, %s: %s' % (self.first_author, self.year, self.title)
+
+
 class StratigraphicQualifier(BaseModel):
     """
     Model representing a Stratigraphic Qualifier Name in RNames (e.g. Lithostratigraphy, Chemostratigraphy, Sequence stratigraphy, Asolute age, Chronostratigraphy, Biostratigraphy, etc.)
@@ -169,32 +197,6 @@ class Qualifier(BaseModel):
         String for representing the Model object (in Admin site etc.)
         """
         return '%s / %s - %s' % (self.qualifier_name, self.stratigraphic_qualifier, self.level)
-
-
-class Reference(BaseModel):
-    """
-    Model representing a Reference in RNames
-    """
-    first_author = models.CharField(max_length=50, help_text="Enter the name of the first author of the reference", blank=True, null=True,)
-    year = models.IntegerField(validators=[MinValueValidator(1800), MaxValueValidator(2100)], blank=True, null=True,)
-    title = models.CharField(max_length=250, help_text="Enter the title of the reference")
-    link = models.URLField(max_length=200, help_text="Enter a valid URL for the reference", blank=True, null=True,)
-
-    class Meta:
-        ordering = ['first_author', 'year', 'title']
-
-    def get_absolute_url(self):
-        """
-        Returns the url to access a particular reference instance.
-        """
-        return reverse('reference-detail', args=[str(self.id)])
-
-    def __str__(self):
-        """
-        String for representing the Model object (in Admin site etc.)
-        """
-        return '%s, %s: %s' % (self.first_author, self.year, self.title)
-
 
 class StructuredName(BaseModel):
     """
