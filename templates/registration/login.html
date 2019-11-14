@@ -1,6 +1,7 @@
-{% extends "rnames_app\base_generic.html" %}
+{% extends "base_generic.html" %}
 
 {% block nav %}
+<!-- Write your comments here -->
   {% if user.is_authenticated %}
     <p>User: {{ user.get_username }}</p>
     <p><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></p>

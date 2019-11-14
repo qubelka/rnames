@@ -1,6 +1,7 @@
 {% extends 'rnames_app/base.html' %}
 
 {% block content %}
+<!-- Write your comments here -->
     <h1>Manage Names</h1>
     {% if user.is_authenticated %}
       <a href="{% url 'name_new' %}" class="top-menu"><span class="fa fa-plus">Add Name</span></a>
