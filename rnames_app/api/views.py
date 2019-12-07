@@ -27,9 +27,10 @@ from rest_framework.permissions import (
     IsAuthenticatedOrReadOnly,
     )
 
-from rnames_app.models import Reference, Relation
+from rnames_app.models import Reference, Relation, Name
 
-from .pagination import ReferencePageNumberPagination, ReferenceLimitOffsetPagination, RelationPageNumberPagination
+from .pagination import ReferencePageNumberPagination, ReferenceLimitOffsetPagination
+#, RelationPageNumberPagination
 
 from .permissions import IsOwnerOrReadOnly
 
@@ -69,7 +70,9 @@ class ReferenceListAPIView(ListAPIView):
     def get_queryset(self, *args, **kwargs):
         #queryset_list = super(PostListAPIView, self).get_queryset(*args, **kwargs)
 #        queryset_list = Post.objects.all() #filter(user=self.request.user)
-        queryset_list = Reference.objects.get_queryset().filter(is_active=True)
+#        queryset_list = Reference.objects.get_queryset().filter(is_active=True)
+        queryset_list = Reference.objects.select_related('created_by', 'modified_by').filter(is_active=True)
+
 #   use the ?q= for these fields in the URL
 #   you can also use the ?search=xxx&q= for these fields in the URL
 #   you can use the &ordering=-title etc. for ordering the list by descendinf title
@@ -144,28 +147,43 @@ class RelationListAPIView(ListAPIView):
 #   commented as there is the def get_queryset
 #    queryset = Reference.objects.get_queryset().filter(is_active=True)
     serializer_class = RelationListSerializer
-    filter_backends= [SearchFilter, OrderingFilter]
-#   use the ?search= for these fields in the URL
-#    search_fields = ['title', 'modified_by__first_name', 'modified_by__last_name']
-    search_fields = ['name_one', 'name_two',]
-#   use the ?limit=2&offset=10 style for LimitOffsetPagination
+#    filter_backends= [SearchFilter, OrderingFilter]
 
-#    pagination_class = RelationPageNumberPagination 
+#    search_fields = ['name_one', 'name_two',]
+#    pagination_class = RelationPageNumberPagination
 
 #    permission_classes = (IsAdminUser,)
     def get_queryset(self, *args, **kwargs):
-        #queryset_list = super(PostListAPIView, self).get_queryset(*args, **kwargs)
-#        queryset_list = Post.objects.all() #filter(user=self.request.user)
-        queryset_list = Relation.objects.get_queryset().filter(is_active=True)
-#   use the ?q= for these fields in the URL
-#   you can also use the ?search=xxx&q= for these fields in the URL
-#   you can use the &ordering=-title etc. for ordering the list by descendinf title
+#        queryset_list = Relation.objects.get_queryset().filter(is_active=True).filter(reference__is_active=True).filter(name_one__qualifier__is_active=True).filter(name_two__qualifier__is_active=True).filter(name_one__location__is_active=True).filter(name_two__location__is_active=True).filter(name_one__name__is_active=True).filter(name_two__name__is_active=True).filter(name_one__is_active=True).filter(name_two__is_active=True)
+#        queryset_list = Relation.objects.prefetch_related('reference','name_one','name_two', 'created_by', 'modified_by').filter(is_active=True).filter(reference__is_active=True).filter(name_one__qualifier__is_active=True).filter(name_two__qualifier__is_active=True).filter(name_one__location__is_active=True).filter(name_two__location__is_active=True).filter(name_one__name__is_active=True).filter(name_two__name__is_active=True).filter(name_one__is_active=True).filter(name_two__is_active=True)
+#        queryset_list = Relation.objects.select_related('reference','name_one','name_two', 'created_by', 'modified_by').filter(is_active=True).filter(reference__is_active=True).filter(name_one__qualifier__is_active=True).filter(name_two__qualifier__is_active=True).filter(name_one__location__is_active=True).filter(name_two__location__is_active=True).filter(name_one__name__is_active=True).filter(name_two__name__is_active=True).filter(name_one__is_active=True).filter(name_two__is_active=True)
+#        queryset_list = Relation.objects.select_related('reference')\
+#                                        .select_related('name_one')\
+#                                        .select_related('name_two')\
+#                                        .select_related('created_by')\
+#                                        .select_related('modified_by')\
+#                                        .filter(is_active=True).filter(reference__is_active=True).filter(name_one__qualifier__is_active=True).filter(name_two__qualifier__is_active=True).filter(name_one__location__is_active=True).filter(name_two__location__is_active=True).filter(name_one__name__is_active=True).filter(name_two__name__is_active=True).filter(name_one__is_active=True).filter(name_two__is_active=True)
+        queryset_list = Relation.objects.all().values(
+            'id',
+#            'reference',
+            'name_one__location__name',
+            'name_one__name__name',
+            'name_one__qualifier__level',
+            'name_one__qualifier__qualifier_name__name',
+            'name_one__qualifier__stratigraphic_qualifier__name',
+            'name_two__location__name',
+            'name_two__name__name',
+            'name_two__qualifier__level',
+            'name_two__qualifier__qualifier_name__name',
+            'name_two__qualifier__stratigraphic_qualifier__name',
+            'belongs_to')
+
+#        queryset_list = Relation.objects.select_related('reference').all()
+#        queryset_list = Relation.objects.select_related('reference','name_one','name_two', 'created_by', 'modified_by').filter(is_active=True)
         query = self.request.GET.get("q")
         if query:
             queryset_list = queryset_list.filter(
                     Q(created_by__icontains=query)|
-#                    Q(content__icontains=query)|
-#                    Q(user__first_name__icontains=query) |
                     Q(created_by__last_name__icontains=query)
                     ).distinct()
         return queryset_list
