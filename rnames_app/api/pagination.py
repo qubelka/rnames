@@ -10,5 +10,5 @@ class ReferenceLimitOffsetPagination(LimitOffsetPagination):
 class ReferencePageNumberPagination(PageNumberPagination):
     page_size = 3
 
-class RelationPageNumberPagination(PageNumberPagination):
-    page_size = 500
+#class RelationPageNumberPagination(PageNumberPagination):
+#    page_size = 1

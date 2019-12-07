@@ -11,7 +11,17 @@ urlpatterns = [
 #    path('rnames/qualifier/<int:pk>/', views.qualifier_detail, name='qualifier-detail'),
 #    path('mb/names/', views.MasterReferenceListView.as_view(), name='names'),
     path('now/', views.index, name='index'),
-#    path('now/', views.home, name='names'),
+    path('now/acknowledgements/', views.acknowledgements, name='acknowledgements'),
+    path('now/board/', views.board, name='board'),
+    path('now/contact/', views.contact, name='contact'),
+    path('now/conventions/', views.conventions, name='conventions'),
+    path('now/database/', views.database, name='database'),
+    path('now/ecometrics/', views.ecometrics, name='ecometrics'),
+    path('now/export_maps/', views.export_maps, name='export_maps'),
+    path('now/faq/', views.faq, name='faq'),
+    path('now/field_archive/', views.field_archive, name='field_archive'),
+    path('now/links/', views.links, name='links'),
+    path('now/publications/', views.publications, name='publications'),
 ]
 
 #urlpatterns = format_suffix_patterns(urlpatterns)

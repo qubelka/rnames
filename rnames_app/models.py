@@ -241,6 +241,24 @@ class Relation(BaseModel):
         ordering = ['reference', 'name_one', 'name_two']
         unique_together = ('reference', 'name_one', 'name_two',)
 
+    def level_1(self):
+        return self.name_one.qualifier.level
+
+    def level_2(self):
+        return self.name_two.qualifier.level
+
+    def locality_name_1(self):
+        return self.name_one.location.name
+
+    def locality_name_2(self):
+        return self.name_two.location.name
+
+    def name_1(self):
+        return self.name_one.name.name
+
+    def name_2(self):
+        return self.name_two.name.name
+
     def get_absolute_url(self):
         """
         Returns the url to access a particular relation instance.
