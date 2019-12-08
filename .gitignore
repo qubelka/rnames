@@ -8,8 +8,5 @@ mytestsite
 www_rnames
 /static
 .DS_Store
-<<<<<<< Updated upstream
-**/settings.py
-=======
-**/settings.py
->>>>>>> Stashed changes
+settings.py
+.gitignore
