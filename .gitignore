@@ -8,4 +8,5 @@ mytestsite
 www_rnames
 /static
 .DS_Store
-**/settings.py
+settings.py
+.gitignore
