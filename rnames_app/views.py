@@ -15,7 +15,7 @@ from .filters import UserFilter, APINameFilter
 #def name_list(request):
 #    names = Name.objects.is_active().order_by('name')
 #    names = Name.objects.order_by('name')
-#    return render(request, 'rnames_app/name_list.html', {'names': names})
+#    return render(request, 'name_list.html', {'names': names})
 
 def index(request):
     """
@@ -29,7 +29,7 @@ def index(request):
     # Render the HTML template index.html with the data in the context variable
     return render(
         request,
-        'rnames_app/base_generic.html',
+        'base_generic.html',
         context={'num_names':num_names,'num_opinions':num_opinions,'num_references':num_references,}, # num_visits appended
     )
 
@@ -39,7 +39,7 @@ class location_delete(DeleteView):
 
 def location_detail(request, pk):
     location = get_object_or_404(Location, pk=pk)
-    return render(request, 'rnames_app/location_detail.html', {'location': location})
+    return render(request, 'location_detail.html', {'location': location})
 
 def location_edit(request, pk):
     location = get_object_or_404(Location, pk=pk)
@@ -53,11 +53,11 @@ def location_edit(request, pk):
             return redirect('location-detail', pk=location.pk)
     else:
         form = LocationForm(instance=location)
-    return render(request, 'rnames_app/location_edit.html', {'form': form})
+    return render(request, 'location_edit.html', {'form': form})
 
 def location_list(request):
     f = LocationFilter(request.GET, queryset=Location.objects.is_active().order_by('name'))
-    return render(request, 'rnames_app/location_list.html', {'filter': f})
+    return render(request, 'location_list.html', {'filter': f})
 
 def location_new(request):
     if request.method == "POST":
@@ -70,7 +70,7 @@ def location_new(request):
             return redirect('location-detail', pk=location.pk)
     else:
         form = LocationForm()
-    return render(request, 'rnames_app/location_edit.html', {'form': form})
+    return render(request, 'location_edit.html', {'form': form})
 
 class name_delete(DeleteView):
     model = Name
@@ -78,12 +78,12 @@ class name_delete(DeleteView):
 
 def name_detail(request, pk):
     name = get_object_or_404(Name, pk=pk)
-    return render(request, 'rnames_app/name_detail.html', {'name': name})
+    return render(request, 'name_detail.html', {'name': name})
 
 def name_list(request):
     f = NameFilter(request.GET, queryset=Name.objects.is_active().order_by('name'))
 #    f = ProductFilter(request.GET, queryset=Product.objects.all())
-    return render(request, 'rnames_app/name_list.html', {'filter': f})
+    return render(request, 'name_list.html', {'filter': f})
 
 def name_new(request):
     if request.method == "POST":
@@ -96,7 +96,7 @@ def name_new(request):
             return redirect('name-detail', pk=name.pk)
     else:
         form = NameForm()
-    return render(request, 'rnames_app/name_edit.html', {'form': form})
+    return render(request, 'name_edit.html', {'form': form})
 
 def name_edit(request, pk):
     name = get_object_or_404(Name, pk=pk)
@@ -110,7 +110,7 @@ def name_edit(request, pk):
             return redirect('name-detail', pk=name.pk)
     else:
         form = NameForm(instance=name)
-    return render(request, 'rnames_app/name_edit.html', {'form': form})
+    return render(request, 'name_edit.html', {'form': form})
 
 class qualifier_delete(DeleteView):
     model = Qualifier
@@ -118,11 +118,11 @@ class qualifier_delete(DeleteView):
 
 def qualifier_detail(request, pk):
     qualifier = get_object_or_404(Qualifier, pk=pk)
-    return render(request, 'rnames_app/qualifier_detail.html', {'qualifier': qualifier})
+    return render(request, 'qualifier_detail.html', {'qualifier': qualifier})
 
 def qualifier_list(request):
     f = QualifierFilter(request.GET, queryset=Qualifier.objects.is_active().order_by('qualifier_name'))
-    return render(request, 'rnames_app/qualifier_list.html', {'filter': f})
+    return render(request, 'qualifier_list.html', {'filter': f})
 
 def qualifier_new(request):
     if request.method == "POST":
@@ -133,7 +133,7 @@ def qualifier_new(request):
             return redirect('qualifier-detail', pk=qualifier.pk)
     else:
         form = QualifierForm()
-    return render(request, 'rnames_app/qualifier_edit.html', {'form': form})
+    return render(request, 'qualifier_edit.html', {'form': form})
 
 def qualifier_edit(request, pk):
     qualifier = get_object_or_404(Qualifier, pk=pk)
@@ -145,11 +145,11 @@ def qualifier_edit(request, pk):
             return redirect('qualifier-detail', pk=qualifier.pk)
     else:
         form = QualifierForm(instance=qualifier)
-    return render(request, 'rnames_app/qualifier_edit.html', {'form': form})
+    return render(request, 'qualifier_edit.html', {'form': form})
 
 def reference_detail(request, pk):
     reference = get_object_or_404(Reference, pk=pk)
-    return render(request, 'rnames_app/reference_detail.html', {'reference': reference})
+    return render(request, 'reference_detail.html', {'reference': reference})
 
 def reference_edit(request, pk):
     reference = get_object_or_404(Reference, pk=pk)
@@ -163,11 +163,11 @@ def reference_edit(request, pk):
             return redirect('reference-detail', pk=reference.pk)
     else:
         form = ReferenceForm(instance=reference)
-    return render(request, 'rnames_app/reference_edit.html', {'form': form})
+    return render(request, 'reference_edit.html', {'form': form})
 
 def reference_list(request):
     f = ReferenceFilter(request.GET, queryset=Reference.objects.is_active().order_by('title'))
-    return render(request, 'rnames_app/reference_list.html', {'filter': f})
+    return render(request, 'reference_list.html', {'filter': f})
 
 def reference_new(request):
     if request.method == "POST":
@@ -178,7 +178,7 @@ def reference_new(request):
             return redirect('reference-detail', pk=reference.pk)
     else:
         form = ReferenceForm()
-    return render(request, 'rnames_app/reference_edit.html', {'form': form})
+    return render(request, 'reference_edit.html', {'form': form})
 
 class relation_delete(DeleteView):
     model = Relation
@@ -186,7 +186,7 @@ class relation_delete(DeleteView):
 
 def relation_detail(request, pk):
     relation = get_object_or_404(Relation, pk=pk)
-    return render(request, 'rnames_app/relation_detail.html', {'relation': relation})
+    return render(request, 'relation_detail.html', {'relation': relation})
 
 def relation_edit(request, pk):
     relation = get_object_or_404(Relation, pk=pk)
@@ -198,11 +198,11 @@ def relation_edit(request, pk):
             return redirect('relation-detail', pk=relation.pk)
     else:
         form = RelationForm(instance=relation)
-    return render(request, 'rnames_app/relation_edit.html', {'form': form})
+    return render(request, 'relation_edit.html', {'form': form})
 
 def relation_list(request):
     f = RelationFilter(request.GET, queryset=Relation.objects.is_active().order_by('name_one'))
-    return render(request, 'rnames_app/relation_list.html', {'filter': f})
+    return render(request, 'relation_list.html', {'filter': f})
 
 def relation_new(request):
     if request.method == "POST":
@@ -213,10 +213,10 @@ def relation_new(request):
             return redirect('relation-detail', pk=relation.pk)
     else:
         form = RelationForm()
-    return render(request, 'rnames_app/relation_edit.html', {'form': form})
+    return render(request, 'relation_edit.html', {'form': form})
 
 def rnames_detail(request):
-    return render(request, 'rnames_app/rnames_detail.html', )
+    return render(request, 'rnames_detail.html', )
 
 class structuredname_delete(DeleteView):
     model = StructuredName
@@ -224,11 +224,11 @@ class structuredname_delete(DeleteView):
 
 def structuredname_detail(request, pk):
     structuredname = get_object_or_404(StructuredName, pk=pk)
-    return render(request, 'rnames_app/structuredname_detail.html', {'structuredname': structuredname})
+    return render(request, 'structuredname_detail.html', {'structuredname': structuredname})
 
 def structuredname_list(request):
     f = StructuredNameFilter(request.GET, queryset=StructuredName.objects.is_active().order_by('name', 'qualifier', 'location'))
-    return render(request, 'rnames_app/structuredname_list.html', {'filter': f})
+    return render(request, 'structuredname_list.html', {'filter': f})
 
 def structuredname_new(request):
     if request.method == "POST":
@@ -239,7 +239,7 @@ def structuredname_new(request):
             return redirect('structuredname-detail', pk=structuredname.pk)
     else:
         form = StructuredNameForm()
-    return render(request, 'rnames_app/structuredname_edit.html', {'form': form})
+    return render(request, 'structuredname_edit.html', {'form': form})
 
 def structuredname_edit(request, pk):
     structuredname = get_object_or_404(StructuredName, pk=pk)
@@ -251,9 +251,9 @@ def structuredname_edit(request, pk):
             return redirect('structuredname-detail', pk=structuredname.pk)
     else:
         form = StructuredNameForm(instance=structuredname)
-    return render(request, 'rnames_app/structuredname_edit.html', {'form': form})
+    return render(request, 'structuredname_edit.html', {'form': form})
 
 def user_search(request):
     user_list = User.objects.all()
     user_filter = UserFilter(request.GET, queryset=user_list)
-    return render(request, 'rnames_app/user_list.html', {'filter': user_filter})
+    return render(request, 'user_list.html', {'filter': user_filter})
