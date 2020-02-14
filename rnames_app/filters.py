@@ -1,3 +1,7 @@
+# https://django-filter.readthedocs.io/en/master/guide/usage.html
+# If you want to access the filtered objects in your views,
+# for example if you want to paginate them, you can do that.
+# They are in f.qs
 import django_filters
 from .models import Location, Name, Qualifier, Reference, Relation
 from django.contrib.auth.models import User
@@ -23,7 +27,7 @@ class QualifierFilter(django_filters.FilterSet):
     stratigraphic_qualifier__name = django_filters.CharFilter(lookup_expr='icontains')
 
     class Meta:
-        model = Name
+        model = Qualifier
         fields = ['qualifier_name__name','stratigraphic_qualifier__name', ]
 
 class RelationFilter(django_filters.FilterSet):

@@ -1,15 +1,23 @@
+# 2020.02.12 Kari Lintulaakso
+# Most of the views use both filters and pagination
+# Basic filtering is from https://django-filter.readthedocs.io/en/master/guide/usage.html
+# These two are combined using a solution provided by 'Reinstate Monica'
+# at https://stackoverflow.com/questions/2047622/how-to-paginate-django-with-other-get-variables/57899037#57899037
+
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from rest_framework.views import APIView
+#from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, generics
 from .models import Location, Name, Qualifier, Relation, Reference, StructuredName
 from .filters import LocationFilter, NameFilter, QualifierFilter, ReferenceFilter, RelationFilter, StructuredNameFilter
 from .forms import LocationForm, NameForm, QualifierForm, ReferenceForm, RelationForm, StructuredNameForm
 from django.contrib.auth.models import User
-from .filters import UserFilter, APINameFilter
+from .filters import UserFilter
+#, APINameFilter
 
 
 #def name_list(request):
@@ -57,7 +65,22 @@ def location_edit(request, pk):
 
 def location_list(request):
     f = LocationFilter(request.GET, queryset=Location.objects.is_active().order_by('name'))
-    return render(request, 'location_list.html', {'filter': f})
+
+    paginator = Paginator(f.qs, 10)
+
+    page_number = request.GET.get('page')
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
+    return render(
+        request,
+        'location_list.html',
+        {'page_obj': page_obj, 'filter': f,}
+    )
 
 def location_new(request):
     if request.method == "POST":
@@ -80,24 +103,6 @@ def name_detail(request, pk):
     name = get_object_or_404(Name, pk=pk)
     return render(request, 'name_detail.html', {'name': name})
 
-def name_list(request):
-    f = NameFilter(request.GET, queryset=Name.objects.is_active().order_by('name'))
-#    f = ProductFilter(request.GET, queryset=Product.objects.all())
-    return render(request, 'name_list.html', {'filter': f})
-
-def name_new(request):
-    if request.method == "POST":
-        form = NameForm(request.POST)
-        if form.is_valid():
-            name = form.save(commit=False)
-#            name.created_by_id = request.user.id
-#            name.created_at = timezone.now()
-            name.save()
-            return redirect('name-detail', pk=name.pk)
-    else:
-        form = NameForm()
-    return render(request, 'name_edit.html', {'form': form})
-
 def name_edit(request, pk):
     name = get_object_or_404(Name, pk=pk)
     if request.method == "POST":
@@ -112,6 +117,41 @@ def name_edit(request, pk):
         form = NameForm(instance=name)
     return render(request, 'name_edit.html', {'form': form})
 
+def name_list(request):
+    f = NameFilter(
+                      request.GET,
+                      queryset=Name.objects.is_active().order_by('name')
+                      )
+
+    paginator = Paginator(f.qs, 10)
+
+    page_number = request.GET.get('page')
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
+    return render(
+        request,
+        'name_list.html',
+        {'page_obj': page_obj, 'filter': f,}
+    )
+
+def name_new(request):
+    if request.method == "POST":
+        form = NameForm(request.POST)
+        if form.is_valid():
+            name = form.save(commit=False)
+#            name.created_by_id = request.user.id
+#            name.created_at = timezone.now()
+            name.save()
+            return redirect('name-detail', pk=name.pk)
+    else:
+        form = NameForm()
+    return render(request, 'name_edit.html', {'form': form})
+
 class qualifier_delete(DeleteView):
     model = Qualifier
     success_url = reverse_lazy('qualifier-list')
@@ -122,7 +162,22 @@ def qualifier_detail(request, pk):
 
 def qualifier_list(request):
     f = QualifierFilter(request.GET, queryset=Qualifier.objects.is_active().order_by('qualifier_name'))
-    return render(request, 'qualifier_list.html', {'filter': f})
+
+    paginator = Paginator(f.qs, 10)
+
+    page_number = request.GET.get('page')
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
+    return render(
+        request,
+        'qualifier_list.html',
+        {'page_obj': page_obj, 'filter': f,}
+    )
 
 def qualifier_new(request):
     if request.method == "POST":
@@ -147,6 +202,10 @@ def qualifier_edit(request, pk):
         form = QualifierForm(instance=qualifier)
     return render(request, 'qualifier_edit.html', {'form': form})
 
+class reference_delete(DeleteView):
+    model = Reference
+    success_url = reverse_lazy('reference-list')
+
 def reference_detail(request, pk):
     reference = get_object_or_404(Reference, pk=pk)
     return render(request, 'reference_detail.html', {'reference': reference})
@@ -165,9 +224,38 @@ def reference_edit(request, pk):
         form = ReferenceForm(instance=reference)
     return render(request, 'reference_edit.html', {'form': form})
 
-def reference_list(request):
+# If you want to access the filtered objects in your views,
+# for example if you want to paginate them, you can do that.
+# They are in f.qs
+# view function
+def reference_list_old(request):
     f = ReferenceFilter(request.GET, queryset=Reference.objects.is_active().order_by('title'))
-    return render(request, 'reference_list.html', {'filter': f})
+    paginator = Paginator(f.qs, 10) # Show 10 References per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'reference_list.html', {'filter': f}, {'page_obj': page_obj})
+#    return render(request, 'reference_list.html', {'filter': page_obj})
+#    return render(request, 'reference_list.html', {'filter': f})
+
+def reference_list(request):
+    # BTW you do not need .all() after a .filter()
+    # local_url.objects.filter(global_url__id=1) will do
+    f = ReferenceFilter(request.GET, queryset=Reference.objects.is_active().order_by('title'))
+    paginator = Paginator(f.qs, 10)
+
+    page_number = request.GET.get('page')
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
+    return render(
+        request,
+        'reference_list.html',
+        {'page_obj': page_obj, 'filter': f,}
+    )
 
 def reference_new(request):
     if request.method == "POST":
@@ -200,9 +288,29 @@ def relation_edit(request, pk):
         form = RelationForm(instance=relation)
     return render(request, 'relation_edit.html', {'form': form})
 
+# https://docs.djangoproject.com/en/3.0/topics/pagination/
+# https://django-filter.readthedocs.io/en/master/guide/usage.html
 def relation_list(request):
-    f = RelationFilter(request.GET, queryset=Relation.objects.is_active().order_by('name_one'))
-    return render(request, 'relation_list.html', {'filter': f})
+    f = RelationFilter(
+                      request.GET,
+                      queryset=Relation.objects.is_active().order_by('name_one')
+                      )
+
+    paginator = Paginator(f.qs, 10)
+
+    page_number = request.GET.get('page')
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
+    return render(
+        request,
+        'relation_list.html',
+        {'page_obj': page_obj, 'filter': f,}
+    )
 
 def relation_new(request):
     if request.method == "POST":
@@ -228,7 +336,22 @@ def structuredname_detail(request, pk):
 
 def structuredname_list(request):
     f = StructuredNameFilter(request.GET, queryset=StructuredName.objects.is_active().order_by('name', 'qualifier', 'location'))
-    return render(request, 'structuredname_list.html', {'filter': f})
+
+    paginator = Paginator(f.qs, 10)
+
+    page_number = request.GET.get('page')
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
+    return render(
+        request,
+        'structuredname_list.html',
+        {'page_obj': page_obj, 'filter': f,}
+    )
 
 def structuredname_new(request):
     if request.method == "POST":

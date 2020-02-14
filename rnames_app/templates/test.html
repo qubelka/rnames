@@ -1,0 +1,39 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<!-- Write your comments here -->
+<article class="w3-content">
+  <!-- Write your comments here -->
+  <button class="tablink" onclick="openPage('Home', this, 'red')">Home</button>
+  <button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">News</button>
+
+<!--  <div id="Home" class="tabcontent">
+    {% if user.is_authenticated %}
+      <a class="btn btn-default" href="{% url 'reference-edit' pk=reference.pk %}"><span class="fa fa-pencil"></span></a>
+    {% endif %}
+    <h2>{{ reference }}</h2>
+  </div>
+-->
+    <h3>Referenced Relations</h3>
+    <table class="w3-table-all">
+      <tr>
+        <th>Name 1</th>
+        <th>Name 2</th>
+        <th>Belongs to</th>
+        <th>Action</th>
+      </tr>
+      {% for relation in reference.relation_set.all %}
+      <tr>
+        <td>{{ relation.name_one.name }} - {{ relation.name_one.qualifier.qualifier_name }} - {{ relation.name_one.location }}</td>
+        <td>{{ relation.name_two.name }} - {{ relation.name_two.qualifier.qualifier_name }} - {{ relation.name_two.location }}</td>
+        <td>{% if relation.belongs_to == 0 %}No{% else %}Yes{% endif %}</td>
+        <td>
+          <a class="btn btn-default" href="{% url 'relation-detail' pk=relation.pk %}"><span class="fa fa-search"></span></a>
+          <a class="btn btn-default" href="{% url 'relation-edit' pk=relation.pk %}"><span class="fa fa-pencil-square-o"></span></a>
+          <a class="btn btn-default" href="{% url 'relation-delete' pk=relation.pk %}"><span class="fa  fa-trash-o"></span></a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </article>
+{% endblock %}

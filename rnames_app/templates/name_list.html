@@ -1,49 +1,50 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<!-- Write your comments here -->
-<article>
-  <form action="" method="get">
-      {{ filter.form.as_p }}
-      <input type="submit" />
-  </form>
-  {% if user.is_authenticated %}
-    <br>
-    <a class="btn btn-default" href="{% url 'name-new' %}"><span class="fa  fa-plus"></span> Add</a>
-    <br>
-  {% endif %}
+  <!-- Write your comments here -->
+  <article>
+    <form action="" method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+    </form>
+    {% if user.is_authenticated %}
+      <br>
+      <a class="btn btn-default" href="{% url 'name-new' %}"><span class="fa  fa-plus"></span> Add</a>
+      <br>
+    {% endif %}
 
-  {% if filter.qs %}
-    <table style="width:100%">
-      <tr>
-        <th>Name</th>
-        {% if user.is_authenticated %}
-        <th>Action</th>
-        {% endif %}
-      </tr>
-
-      {% for x in filter.qs %}
+    {% if page_obj %}
+      <table style="width:100%">
         <tr>
-
+          <th>Name</th>
           {% if user.is_authenticated %}
-            <td><a href="{{ x.get_absolute_url }}">{{ x.name }}</td>
-            <td>
-              <a class="btn btn-default" href="{% url 'name-detail' pk=x.pk %}"><span class="fa fa-search"></span></a>
-              <a class="btn btn-default" href="{% url 'name-edit' pk=x.pk %}"><span class="fa fa-pencil-square-o"></span></a>
-              <a class="btn btn-default" href="{% url 'name-delete' pk=x.pk %}"><span class="fa  fa-trash-o"></span></a>
-            </td>
-
-          {% else %}
-            <td>{{ x.name }}</td>
+          <th>Action</th>
           {% endif %}
-
         </tr>
-      {% endfor %}
-    </table>
-  {% else %}
-    <p>There are no Names available.</p>
-  {% endif %}
 
-</article>
+        {% for x in page_obj %}
+          <tr>
+
+            {% if user.is_authenticated %}
+              <td><a href="{{ x.get_absolute_url }}">{{ x.name }}</td>
+              <td>
+                <a class="btn btn-default" href="{% url 'name-detail' pk=x.pk %}"><span class="fa fa-search"></span></a>
+                <a class="btn btn-default" href="{% url 'name-edit' pk=x.pk %}"><span class="fa fa-pencil-square-o"></span></a>
+                <a class="btn btn-default" href="{% url 'name-delete' pk=x.pk %}"><span class="fa  fa-trash-o"></span></a>
+              </td>
+
+            {% else %}
+              <td>{{ x.name }}</td>
+            {% endif %}
+
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>There are no Names available.</p>
+    {% endif %}
+
+  </article>
+  {% include 'pagination.html' %}
 
 {% endblock %}

@@ -5,7 +5,7 @@
 
 {% block content %}
 <!-- Write your comments here -->
-<article>
+<article class="w3-content">
   <form action="" method="get">
       {{ filter.form.as_p }}
       <input type="submit" />
@@ -16,18 +16,18 @@
     <br>
   {% endif %}
 
-  {% if filter.qs %}
+  {% if page_obj %}
     <table style="width:100%">
       <tr>
         <th>Name 1</th>
-        <th>Name 1</th>
+        <th>Name 2</th>
         <th>Belongs to</th>
         {% if user.is_authenticated %}
         <th>Action</th>
         {% endif %}
       </tr>
 
-      {% for x in filter.qs %}
+      {% for x in page_obj %}
         <tr>
 
           {% if user.is_authenticated %}
@@ -52,6 +52,8 @@
   {% else %}
     <p>There are no Relations available.</p>
   {% endif %}
+
+  {% include 'pagination.html' %}
 
 </article>
 

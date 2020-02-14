@@ -13,7 +13,7 @@
     <br>
   {% endif %}
 
-  {% if filter.qs %}
+  {% if page_obj %}
     <table style="width:100%">
       <tr>
         <th>Qualifier Name</th>
@@ -24,7 +24,7 @@
         {% endif %}
       </tr>
 
-      {% for x in filter.qs %}
+      {% for x in page_obj %}
         <tr>
 
           {% if user.is_authenticated %}
@@ -47,6 +47,8 @@
   {% else %}
     <p>There are no Qualifiers available.</p>
   {% endif %}
+
+  {% include 'pagination.html' %}
 
 </article>
 

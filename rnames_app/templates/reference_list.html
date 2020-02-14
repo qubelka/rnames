@@ -1,41 +1,46 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<!-- Write your comments here -->
-<article>
-  <form action="" method="get">
+  <!-- Write your comments here -->
+  <article>
+    <form action="" method="get">
       {{ filter.form.as_p }}
-      <input type="submit" />
-  </form>
+        <input type="submit" />
+    </form>
 
-  {% if filter.qs %}
-    <table style="width:100%">
-      <tr>
-        <th>First Author</th>
-        <th>Year</th>
-        <th>Title</th>
-        <th>Link</th>
-      </tr>
-
-      {% for x in filter.qs %}
+    {% if page_obj %}
+      <table style="width:100%">
         <tr>
-          <td>{{ x.first_author }}</td>
-          <td>{{ x.year }}</td>
-
-          {% if user.is_authenticated %}
-            <td><a href="{{ x.get_absolute_url }}">{{ x.title }}</td>
-          {% else %}
-            <td>{{ x.title }}</td>
-          {% endif %}
-
-          <td><a href="{{ x.link }}" target="_blank">{{ x.link }}</a></td>
+          <th>First Author</th>
+          <th>Year</th>
+          <th>Title</th>
+          <th>Link</th>
+          <th>Action</th>
         </tr>
-      {% endfor %}
-    </table>
-  {% else %}
-    <p>There are no References available.</p>
-  {% endif %}
 
-</article>
+        {% for x in page_obj %}
+          <tr>
+            <td>{{ x.first_author }}</td>
+            <td>{{ x.year }}</td>
+            <td>{{ x.title }}</td>
+
+            <td><a href="{{ x.link }}" target="_blank">{{ x.link }}</a></td>
+            <td>
+              <a class="btn btn-default" href="{% url 'reference-detail' pk=x.pk %}"><span class="fa fa-search"></span></a>
+              {% if user.is_authenticated %}
+                <a class="btn btn-default" href="{% url 'reference-edit' pk=x.pk %}"><span class="fa fa-pencil-square-o"></span></a>
+                <a class="btn btn-default" href="{% url 'reference-delete' pk=x.pk %}"><span class="fa  fa-trash-o"></span></a>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>There are no References available.</p>
+    {% endif %}
+
+  </article>
+
+  {% include 'pagination.html' %}
 
 {% endblock %}
