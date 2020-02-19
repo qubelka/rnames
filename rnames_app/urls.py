@@ -6,6 +6,8 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
 #    path('', views.name_list, name='name-list'),
+    path('rnames/parent', views.parent, name='parent'),
+    path('rnames/child', views.child, name='child'),
     path('rnames/', views.name_list, name='name-list'),
     path('rnames/locations', views.location_list, name='location-list'),
     path('rnames/location/<int:pk>/', views.location_detail, name='location-detail'),

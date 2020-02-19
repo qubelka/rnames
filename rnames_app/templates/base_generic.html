@@ -11,102 +11,108 @@
 <title>RNames</title>
 
 <style>
-* {box-sizing: border-box}
+  * {box-sizing: border-box}
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
-/* Style the header */
-header {
-  background-color: #666;
-  padding: 10px;
-  text-align: left;
-  font-size: 15px;
-  color: white;
-}
+  /* Style the header */
+  header {
+    background-color: #666;
+    padding: 10px;
+    text-align: left;
+    font-size: 15px;
+    color: white;
+  }
 
-/* Create two columns/boxes that floats next to each other */
-nav {
-  float: left;
-  width: 10%;
-  padding: 10px;
-  font-size: 12px;
-}
+  /* Create two columns/boxes that floats next to each other */
+  nav {
+    float: left;
+    width: 10%;
+    padding: 10px;
+    font-size: 12px;
+  }
 
-/* Style the list inside the menu */
-nav ul {
-  list-style-type: none;
-  padding: 0;
-}
+  /* Style the list inside the menu */
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
 
 
-aside {
-  float: left;
-  padding: 20px;
-  width: 10%;
-}
+  aside {
+    float: left;
+    padding: 20px;
+    width: 10%;
+  }
 
-/* Clear floats after the columns */
-section:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+  /* Clear floats after the columns */
+  section:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 
-/* Style the footer */
-footer {
-  background-color: #777;
-  padding: 10px;
-  text-align: center;
-  color: white;
-}
+  /* Style the footer */
+  footer {
+    background-color: #777;
+    padding: 10px;
+    text-align: center;
+    color: white;
+  }
 
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+  /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-/* Begin style from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_full_page_tabs*/
-/* Style tab links */
-.tablink {
-  background-color: #555;
-  color: white;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  font-size: 17px;
-  width: 25%;
-}
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  /* Begin style from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_full_page_tabs*/
+  /* Style tab links */
+  .tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+  }
 
-.tablink:hover {
-  background-color: #777;
-}
+  .tablink:hover {
+    background-color: #777;
+  }
 
-/* Style the tab content (and add height:100% for full page content) */
-.tabcontent {
-  color: white;
-  display: none;
-  padding: 100px 20px;
-  height: 100%;
-}
+  /* Style the tab content (and add height:100% for full page content) */
+  .tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+  }
 
-/* End style from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_full_page_tabs*/
+  /* End style from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_full_page_tabs*/
+  select[name="location"] {
+    width: 25%;
+  }
 </style>
+
+<!-- css used for Django select2 -->
+{{ form.media.css }}
 </head>
 <body>
 
@@ -170,6 +176,8 @@ tr:nth-child(even) {
 <footer>
   <p>© 2019 RNames <a href="#top">Back to Top</a></p>
 </footer>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{% block script %}
+{% endblock %}
 </body>
 </html>

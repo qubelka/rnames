@@ -32,9 +32,12 @@ class QualifierFilter(django_filters.FilterSet):
 
 class RelationFilter(django_filters.FilterSet):
 
+    name_one__name__name = django_filters.CharFilter(lookup_expr='icontains')
+    name_two__name__name = django_filters.CharFilter(lookup_expr='icontains')
+
     class Meta:
         model = Relation
-        fields = ['name_one', 'name_two', ]
+        fields = ['name_one__name__name', 'name_two__name__name', ]
 
 class ReferenceFilter(django_filters.FilterSet):
 

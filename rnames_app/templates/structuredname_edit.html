@@ -1,13 +1,20 @@
 {% extends 'base_generic.html' %}
 
+{% block script %}
+<!-- {{ form.media.js }} used for Django select2 -->
+{{ form.media.js }}
+{% endblock %}
+
 {% block content %}
 <!-- Write your comments here -->
   <article>
     {% if user.is_authenticated %}
       <h2>Edit Structured Name</h2>
       <form method="POST" class="name-form">{% csrf_token %}
-          {{ form.as_p }}
-          <button type="submit" class="save btn btn-default">Save</button>
+        <table class="w3-table">
+          {{ form.as_table }}
+        </table>
+        <button type="submit" class="save btn btn-default">Save</button>
       </form>
       <p><a href="{{request.path}}">Back</a></p>
     {% else %}

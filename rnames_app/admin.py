@@ -5,11 +5,11 @@ from mb import models
 
 # admin.site.register([Name, Reference, Location, QualifierName, StratigraphicQualifier, Qualifier, StructuredName, Relation,])
 
-@admin.register(Name)
-class NameAdmin(admin.ModelAdmin):
-    list_display = ['name', ]
-    search_fields = ['name', ]
-    history_list_display = ['name', ]
+#@admin.register(Name)
+#class NameAdmin(admin.ModelAdmin):
+#    list_display = ['name', ]
+#    search_fields = ['name', ]
+#    history_list_display = ['name', ]
 
 @admin.register(Reference)
 class ReferenceAdmin(admin.ModelAdmin):
@@ -31,7 +31,7 @@ class StructuredNameHistoryAdmin(SimpleHistoryAdmin):
     history_list_display = ['qualifier', 'name', 'location', ]
     search_fields = ['name__name', ]
 
-#admin.site.register(Name, SimpleHistoryAdmin)
+admin.site.register(Name, SimpleHistoryAdmin)
 #admin.site.register(Reference, SimpleHistoryAdmin)
 admin.site.register(Location, SimpleHistoryAdmin)
 admin.site.register(QualifierName, SimpleHistoryAdmin)

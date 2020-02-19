@@ -41,6 +41,34 @@ def index(request):
         context={'num_names':num_names,'num_opinions':num_opinions,'num_references':num_references,}, # num_visits appended
     )
 
+def parent(request):
+    return render(
+        request,
+        'parent.html',
+    )
+
+def child(request):
+    f = RelationFilter(
+                      request.GET,
+                      queryset=Relation.objects.is_active().order_by('name_one')
+                      )
+
+    paginator = Paginator(f.qs, 10)
+
+    page_number = request.GET.get('page')
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
+    return render(
+        request,
+        'child.html',
+        {'page_obj': page_obj, 'filter': f,}
+    )
+
 class location_delete(DeleteView):
     model = Location
     success_url = reverse_lazy('location-list')

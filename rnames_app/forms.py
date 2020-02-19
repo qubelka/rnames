@@ -1,5 +1,7 @@
 from django import forms
-
+from django_select2.forms import (
+    ModelSelect2Widget,
+)
 from .models import Location, Name, Qualifier, Reference, Relation, StructuredName
 
 class LocationForm(forms.ModelForm):
@@ -27,14 +29,20 @@ class ReferenceForm(forms.ModelForm):
         model = Reference
         fields = ('first_author','year','title','link',)
 
+class RelationWidget(ModelSelect2Widget):
+    search_fields = ['name__name__icontains', 'location__name__icontains', 'qualifier__qualifier_name__name__icontains', 'qualifier__stratigraphic_qualifier__name__icontains',]
+
 class RelationForm(forms.ModelForm):
-#    title = forms.CharField(widget=forms.Textarea)
     class Meta:
         model = Relation
-        fields = ('name_one','name_two','belongs_to','reference',)
+        fields = ('name_one', 'name_two', 'belongs_to',)
+        widgets = {'name_one': RelationWidget, 'name_two': RelationWidget,}
+
+class LocationWidget(ModelSelect2Widget):
+    search_fields = ['name__icontains',]
 
 class StructuredNameForm(forms.ModelForm):
-
     class Meta:
         model = StructuredName
         fields = ('qualifier','name','location',)
+        widgets = {'location': LocationWidget, }

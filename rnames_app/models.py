@@ -76,7 +76,6 @@ class Name(BaseModel):
     """
     name = models.CharField(max_length=200, unique=True, help_text="Enter a Name (e.g. Katian, Viru, etc.)")
 
-
     class Meta:
         ordering = ["name"]
 
