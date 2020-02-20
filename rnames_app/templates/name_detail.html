@@ -11,9 +11,55 @@
         {% endif %}
         {% if user.is_authenticated %}
           <a class="btn btn-default" href="{% url 'name-edit' pk=name.pk %}"><span class="fa fa-pencil-square-o"></span></a>
-          <a class="btn btn-default" href="{% url 'name-delete' pk=name.pk %}"><span class="fa  fa-trash-o"></span></a>          
+          <a class="btn btn-default" href="{% url 'name-delete' pk=name.pk %}"><span class="fa  fa-trash-o"></span></a>
         {% endif %}
         <h2>{{ name.name }}</h2>
+        <h3>Name refers to the following Stratigraphic units:</h3>
+        <table class="w3-table-all">
+          <tr>
+            <th>Name</th>
+            <th>Qualifier</th>
+            <th>Location</th>
+            <th>Action</th>
+          </tr>
+          {% for sn in name.structuredname_set.all %}
+            <tr>
+              <td>{{sn.name}}</td>
+              <td>{{sn.qualifier}}</td>
+              <td>{{sn.location}}</td>
+              <td>
+                <a class="btn btn-default" href="{% url 'structuredname-detail' pk=sn.pk %}"><span class="fa fa-search"></span></a>
+                <a class="btn btn-default" href="{% url 'structuredname-edit' pk=sn.pk %}"><span class="fa fa-pencil-square-o"></span></a>
+                <a class="btn btn-default" href="{% url 'structuredname-delete' pk=sn.pk %}"><span class="fa  fa-trash-o"></span></a>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+        <h3>Complete list of all Relations (Opinions):</h3>
+        <table class="w3-table-all">
+          <tr>
+            <th>Name 1</th>
+            <th>Name 2</th>
+            <th>Strat qualifier</th>
+            <th>Location</th>
+            <th>Action</th>
+          </tr>
+          {% for sn in name.structuredname_set.all %}
+            {% for relation in sn.nameone_relation.all %}
+              <tr>
+               <td>{{relation.name_one.name}}</td>
+               <td>{{relation.name_two.name}}</td>
+               <td>{{relation.name_two.qualifier.stratigraphic_qualifier}}</td>
+               <td>{{relation.name_two.location}}</td>
+               <td>
+                 <a class="btn btn-default" href="{% url 'relation-detail' pk=relation.pk %}"><span class="fa fa-search"></span></a>
+                 <a class="btn btn-default" href="{% url 'relation-edit' pk=relation.pk %}"><span class="fa fa-pencil-square-o"></span></a>
+                 <a class="btn btn-default" href="{% url 'relation-delete' pk=relation.pk %}"><span class="fa  fa-trash-o"></span></a>
+               </td>
+             </tr>
+            {% endfor %}
+          {% endfor %}
+        </table>
     </div>
   </article>
 {% endblock %}
