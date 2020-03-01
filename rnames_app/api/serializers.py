@@ -109,6 +109,7 @@ class ReferenceListSerializer(ModelSerializer):
 
 class RelationListSerializer(ModelSerializer):
 #    reference = ReferenceDetailSerializer()
+    reference_id = SerializerMethodField()
     level_1 = SerializerMethodField()
     name_1 = SerializerMethodField()
     name_2 = SerializerMethodField()
@@ -123,7 +124,7 @@ class RelationListSerializer(ModelSerializer):
         model = Relation
         fields = [
             'id',
-#            'reference',
+            'reference_id',
             'name_1',
             'locality_name_1',
             'qualifier_1',
@@ -214,3 +215,10 @@ class RelationListSerializer(ModelSerializer):
         except:
             strat_qualifier_2 = None
         return str(strat_qualifier_2)
+
+    def get_reference_id(self, obj):
+        try:
+            reference_id = obj['reference']
+        except:
+            reference_id = None
+        return str(reference_id)

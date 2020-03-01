@@ -40,6 +40,8 @@ class RelationFilter(django_filters.FilterSet):
         fields = ['name_one__name__name', 'name_two__name__name', ]
 
 class ReferenceFilter(django_filters.FilterSet):
+    first_author = django_filters.CharFilter(lookup_expr='icontains')
+    title = django_filters.CharFilter(lookup_expr='icontains')
 
     class Meta:
         model = Reference

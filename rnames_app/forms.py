@@ -38,11 +38,20 @@ class RelationForm(forms.ModelForm):
         fields = ('name_one', 'name_two', 'belongs_to',)
         widgets = {'name_one': RelationWidget, 'name_two': RelationWidget,}
 
+# For StructuredNameForm:
 class LocationWidget(ModelSelect2Widget):
     search_fields = ['name__icontains',]
+
+# For StructuredNameForm:
+class NameWidget(ModelSelect2Widget):
+    search_fields = ['name__icontains',]
+
+# For StructuredNameForm:
+class QualifierWidget(ModelSelect2Widget):
+    search_fields = ['qualifier_name__name__icontains', 'stratigraphic_qualifier__name__icontains',]
 
 class StructuredNameForm(forms.ModelForm):
     class Meta:
         model = StructuredName
         fields = ('qualifier','name','location',)
-        widgets = {'location': LocationWidget, }
+        widgets = {'location': LocationWidget, 'name': NameWidget, 'qualifier': QualifierWidget, }

@@ -165,7 +165,7 @@ class RelationListAPIView(ListAPIView):
 #                                        .filter(is_active=True).filter(reference__is_active=True).filter(name_one__qualifier__is_active=True).filter(name_two__qualifier__is_active=True).filter(name_one__location__is_active=True).filter(name_two__location__is_active=True).filter(name_one__name__is_active=True).filter(name_two__name__is_active=True).filter(name_one__is_active=True).filter(name_two__is_active=True)
         queryset_list = Relation.objects.all().values(
             'id',
-#            'reference',
+            'reference',
             'name_one__location__name',
             'name_one__name__name',
             'name_one__qualifier__level',

@@ -7,6 +7,11 @@
       {{ filter.form.as_p }}
         <input type="submit" />
     </form>
+    {% if user.is_authenticated %}
+      <br>
+      <a class="btn btn-default" href="{% url 'reference-new' %}"><span class="fa  fa-plus"></span> Add</a>
+      <br>
+    {% endif %}
 
     {% if page_obj %}
       <table style="width:100%">

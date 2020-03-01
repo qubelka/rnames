@@ -5,7 +5,9 @@
   <article>
       <h2>Edit Reference</h2>
       <form method="POST" class="reference-form">{% csrf_token %}
-          {{ form.as_p }}
+        <table class="w3-table-all">
+          {{ form.as_table }}
+        </table>
           <button type="submit" class="save btn btn-default">Save</button>
       </form>
   </article>

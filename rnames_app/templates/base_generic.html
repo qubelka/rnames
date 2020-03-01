@@ -106,8 +106,20 @@
   }
 
   /* End style from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_full_page_tabs*/
+  select[name="name"] {
+    width: 50%;
+  }
+  select[name="name_one"] {
+    width: 50%;
+  }
+  select[name="name_two"] {
+    width: 50%;
+  }
   select[name="location"] {
-    width: 25%;
+    width: 50%;
+  }
+  select[name="qualifier"] {
+    width: 50%;
   }
 </style>
 
@@ -137,10 +149,10 @@
       {% if user.is_authenticated %}
       <ul>
         <li>User: {{ user.get_username }}</li>
-        <li><a href="{% url 'structuredname-list'%}">Manage Structured Names</a></li>
-        <li><a href="{% url 'location-list'%}">Manage Locations</a></li>
         <li><a href="{% url 'name-list'%}">Manage Names</a></li>
+        <li><a href="{% url 'location-list'%}">Manage Locations</a></li>
         <li><a href="{% url 'qualifier-list'%}">Manage Qualifiers</a></li>
+        <li><a href="{% url 'structuredname-list'%}">Manage Structured Names</a></li>
         <li><a href="{% url 'logout'%}?next={% url 'index'%}">Logout</a></li>
       {% else %}
       <ul>

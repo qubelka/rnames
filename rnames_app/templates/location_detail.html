@@ -13,7 +13,14 @@
           <a class="btn btn-default" href="{% url 'location-edit' pk=location.pk %}"><span class="fa fa-pencil-square-o"></span></a>
           <a class="btn btn-default" href="{% url 'location-delete' pk=location.pk %}"><span class="fa  fa-trash-o"></span></a>
         {% endif %}
-        <h2>{{ location.name }}</h2>
+        <h2>Location: {{ location.name }}</h2>
+        <table class="w3-table-all">
+          <tr>
+            <td>Location</td>
+            <td>{{ location.name }}</td>
+          </tr>
+        </table>
+
     </div>
   </article>
 {% endblock %}
