@@ -108,15 +108,17 @@ class ReferenceListSerializer(ModelSerializer):
         return str(obj.modified_by.last_name)
 
 class RelationListSerializer(ModelSerializer):
-#    reference = ReferenceDetailSerializer()
+#    year = ReferenceDetailSerializer()
     reference_id = SerializerMethodField()
+    reference_year = SerializerMethodField()
     level_1 = SerializerMethodField()
+    level_2 = SerializerMethodField()
     name_1 = SerializerMethodField()
     name_2 = SerializerMethodField()
     locality_name_1 = SerializerMethodField()
     locality_name_2 = SerializerMethodField()
-    qualifier_1 = SerializerMethodField()
-    qualifier_2 = SerializerMethodField()
+    qualifier_name_1 = SerializerMethodField()
+    qualifier_name_2 = SerializerMethodField()
     strat_qualifier_1 = SerializerMethodField()
     strat_qualifier_2 = SerializerMethodField()
 
@@ -125,17 +127,18 @@ class RelationListSerializer(ModelSerializer):
         fields = [
             'id',
             'reference_id',
+            'reference_year',
             'name_1',
-            'locality_name_1',
-            'qualifier_1',
+            'qualifier_name_1',
             'strat_qualifier_1',
             'level_1',
+            'locality_name_1',
             'name_2',
-            'locality_name_2',
-            'qualifier_2',
+            'qualifier_name_2',
             'strat_qualifier_2',
             'level_2',
-            'belongs_to',
+            'locality_name_2',
+#            'belongs_to',
         ]
 #        fields = '__all__'
 #        read_only_fields = [
@@ -188,19 +191,19 @@ class RelationListSerializer(ModelSerializer):
             name_2 = None
         return str(name_2)
 
-    def get_qualifier_1(self, obj):
+    def get_qualifier_name_1(self, obj):
         try:
-            qualifier_1 = obj['name_one__qualifier__qualifier_name__name']
+            qualifier_name_1 = obj['name_one__qualifier__qualifier_name__name']
         except:
-            qualifier_1 = None
-        return str(qualifier_1)
+            qualifier_name_1 = None
+        return str(qualifier_name_1)
 
-    def get_qualifier_2(self, obj):
+    def get_qualifier_name_2(self, obj):
         try:
-            qualifier_2 = obj['name_two__qualifier__qualifier_name__name']
+            qualifier_name_2 = obj['name_two__qualifier__qualifier_name__name']
         except:
-            qualifier_2 = None
-        return str(qualifier_2)
+            qualifier_name_2 = None
+        return str(qualifier_name_2)
 
     def get_strat_qualifier_1(self, obj):
         try:
@@ -222,3 +225,10 @@ class RelationListSerializer(ModelSerializer):
         except:
             reference_id = None
         return str(reference_id)
+
+    def get_reference_year(self, obj):
+        try:
+            reference_year = obj['reference__year']
+        except:
+            reference_year = None
+        return str(reference_year)

@@ -29,8 +29,7 @@ from rest_framework.permissions import (
 
 from rnames_app.models import Reference, Relation, Name
 
-from .pagination import ReferencePageNumberPagination, ReferenceLimitOffsetPagination
-#, RelationPageNumberPagination
+from .pagination import ReferencePageNumberPagination, ReferenceLimitOffsetPagination, RelationPageNumberPagination
 
 from .permissions import IsOwnerOrReadOnly
 
@@ -166,6 +165,7 @@ class RelationListAPIView(ListAPIView):
         queryset_list = Relation.objects.all().values(
             'id',
             'reference',
+            'reference__year',
             'name_one__location__name',
             'name_one__name__name',
             'name_one__qualifier__level',
