@@ -114,7 +114,16 @@ class QualifierName(BaseModel):
         """
         return '%s' % (self.name)
 
+# For doi validation
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
 
+def validate_doi(value):
+    if not value.startswith( '10.' ):
+        raise ValidationError(
+            _('Value "%(value)s" does not begin with 10 followed by a period'),
+            params={'value': value},
+        )
 class Reference(BaseModel):
     """
     Model representing a Reference in RNames
@@ -122,6 +131,7 @@ class Reference(BaseModel):
     first_author = models.CharField(max_length=50, help_text="Enter the name of the first author of the reference", blank=True, null=True,)
     year = models.IntegerField(validators=[MinValueValidator(1800), MaxValueValidator(2100)], blank=True, null=True,)
     title = models.CharField(max_length=250, help_text="Enter the title of the reference")
+    doi = models.CharField(max_length=50, validators=[validate_doi], help_text="Enter the DOI number that begins with 10 followed by a period", blank=True, null=True,)
     link = models.URLField(max_length=200, help_text="Enter a valid URL for the reference", blank=True, null=True,)
 
     class Meta:

@@ -4,8 +4,8 @@
 <!-- Write your comments here -->
   <article>
     {% if user.is_authenticated %}
-      <h2>Add/Edit Name</h2>
-      <form method="POST" class="name-form">{% csrf_token %}
+      <h2>Add/Edit Qualifier Name</h2>
+      <form method="POST" class="qualifiername-form">{% csrf_token %}
           {{ form.as_p }}
           <button type="submit" class="save btn btn-default">Save</button>
       </form>
@@ -13,6 +13,5 @@
     {% else %}
       <p><a href="{% url 'login'%}?next={{request.path}}">Please login first</a></p>
     {% endif %}
-
   </article>
 {% endblock %}

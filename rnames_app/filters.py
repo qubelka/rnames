@@ -3,7 +3,7 @@
 # for example if you want to paginate them, you can do that.
 # They are in f.qs
 import django_filters
-from .models import Location, Name, Qualifier, Reference, Relation
+from .models import Location, Name, Qualifier, QualifierName, Reference, Relation, StratigraphicQualifier
 from django.contrib.auth.models import User
 from django_filters import rest_framework as filters
 
@@ -30,6 +30,13 @@ class QualifierFilter(django_filters.FilterSet):
         model = Qualifier
         fields = ['qualifier_name__name','stratigraphic_qualifier__name', ]
 
+class QualifierNameFilter(django_filters.FilterSet):
+    name = django_filters.CharFilter(lookup_expr='icontains')
+
+    class Meta:
+        model = QualifierName
+        fields = ['name', ]
+
 class RelationFilter(django_filters.FilterSet):
 
     name_one__name__name = django_filters.CharFilter(lookup_expr='icontains')
@@ -46,6 +53,13 @@ class ReferenceFilter(django_filters.FilterSet):
     class Meta:
         model = Reference
         fields = ['first_author', 'year', 'title', ]
+
+class StratigraphicQualifierFilter(django_filters.FilterSet):
+    name = django_filters.CharFilter(lookup_expr='icontains')
+
+    class Meta:
+        model = StratigraphicQualifier
+        fields = ['name', ]
 
 class StructuredNameFilter(django_filters.FilterSet):
     qualifier__qualifier_name__name = django_filters.CharFilter(lookup_expr='icontains')

@@ -121,6 +121,9 @@
   select[name="qualifier"] {
     width: 50%;
   }
+  select[name="reference"] {
+    width: 50%;
+  }
 </style>
 
 <!-- css used for Django select2 -->
@@ -133,31 +136,42 @@
 </header>
 
 <section class="w3-section">
-  <header style="display:none;"><h1>Main</h1></header>
-
-  <nav>
-    <h3>Main Menu</h3>
+  <header style="display:none;"><h1>Main Menu</h1></header>
+  <nav class="w3-content">
     <ul>
       <li><a class="list-group-item" href="/"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp;Home</a></li>
-      <li><a href="#">Search Stage Slices</a></li>
-      <li><a href="#">Search Time Slices</a></li>
-      <li><a href="#">Search Global Stages</a></li>
-      <li><a href="{% url 'relation-list'%}">Relations</a></li>
-      <li><a href="{% url 'reference-list'%}">References</a></li>
     </ul>
     {% block nav %}
       {% if user.is_authenticated %}
-      <ul>
-        <li>User: {{ user.get_username }}</li>
-        <li><a href="{% url 'name-list'%}">Manage Names</a></li>
-        <li><a href="{% url 'location-list'%}">Manage Locations</a></li>
-        <li><a href="{% url 'qualifier-list'%}">Manage Qualifiers</a></li>
-        <li><a href="{% url 'structuredname-list'%}">Manage Structured Names</a></li>
-        <li><a href="{% url 'logout'%}?next={% url 'index'%}">Logout</a></li>
+        <ul>
+          <li><a href="#">Stage Slices</a></li>
+          <li><a href="#">Time Slices</a></li>
+          <li><a href="#">Global Stages</a></li>
+        </ul>
+        <hr>
+        <h6>Manage</h6>
+        <ul>
+          <li><a href="{% url 'reference-list'%}">References</a></li>
+          <li><a href="{% url 'relation-list'%}">Relations</a></li>
+          <li><a href="{% url 'structuredname-list'%}">Structured Names</a></li>
+          <li><a href="{% url 'name-list'%}">Names</a></li>
+          <li><a href="{% url 'location-list'%}">Locations</a></li>
+          <li><a href="{% url 'qualifier-list'%}">Qualifiers</a></li>
+          <li><a href="{% url 'qualifiername-list'%}">Qualifier Names</a></li>
+          <li><a href="{% url 'stratigraphic-qualifier-list'%}">Stratigraphic Qualifiers</a></li>
+        </ul>
+        <hr>
+        <strong>User: {{ user.get_username }}</strong>
+        <a href="{% url 'logout'%}?next={% url 'index'%}">Logout</a>
       {% else %}
-      <ul>
-        <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-      </ul>
+        <ul>
+          <li><a href="#">Stage Slices</a></li>
+          <li><a href="#">Time Slices</a></li>
+          <li><a href="#">Global Stages</a></li>
+        </ul>
+        <ul>
+          <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+        </ul>
       {% endif %}
     {% endblock %}
 

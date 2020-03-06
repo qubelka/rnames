@@ -1,0 +1,29 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<!-- Write your comments here -->
+<article>
+    <div class="qualifier">
+        {% if stratigraphicqualifier.created_at %}
+            <div class="date">
+                {{ stratigraphicqualifier.created_at }}
+            </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+          <a class="btn btn-default" href="{% url 'stratigraphic-qualifier-edit' pk=stratigraphicqualifier.pk %}"><span class="fa fa-pencil-square-o"></span></a>
+          <a class="btn btn-default" href="{% url 'stratigraphic-qualifier-delete' pk=stratigraphicqualifier.pk %}"><span class="fa  fa-trash-o"></span></a>
+        {% endif %}
+        <p><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
+        <header style="display:none;">
+           <h2>RNames - Stratigraphic Qualifier: {{ stratigraphicqualifier.id }}</h2>
+        </header>
+        <table class="w3-table-all">
+          <caption>Stratigraphic Qualifier: {{ stratigraphicqualifier.id }}</caption>
+          <tr>
+            <th>Name</th>
+            <td>{{ stratigraphicqualifier.name }}</td>
+          </tr>
+        </table>
+    </div>
+  </article>
+{% endblock %}

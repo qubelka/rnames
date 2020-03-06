@@ -12,9 +12,9 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 #from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, generics
-from .models import Location, Name, Qualifier, Relation, Reference, StructuredName
-from .filters import LocationFilter, NameFilter, QualifierFilter, ReferenceFilter, RelationFilter, StructuredNameFilter
-from .forms import LocationForm, NameForm, QualifierForm, ReferenceForm, RelationForm, StructuredNameForm
+from .models import Location, Name, Qualifier, QualifierName, Relation, Reference, StratigraphicQualifier, StructuredName
+from .filters import LocationFilter, NameFilter, QualifierFilter, QualifierNameFilter, ReferenceFilter, RelationFilter, StratigraphicQualifierFilter, StructuredNameFilter
+from .forms import LocationForm, NameForm, QualifierForm, QualifierNameForm, ReferenceForm, RelationForm, StratigraphicQualifierForm, StructuredNameForm
 from django.contrib.auth.models import User
 from .filters import UserFilter
 #, APINameFilter
@@ -189,7 +189,7 @@ def qualifier_detail(request, pk):
     return render(request, 'qualifier_detail.html', {'qualifier': qualifier})
 
 def qualifier_list(request):
-    f = QualifierFilter(request.GET, queryset=Qualifier.objects.is_active().order_by('qualifier_name'))
+    f = QualifierFilter(request.GET, queryset=Qualifier.objects.is_active().order_by('stratigraphic_qualifier', 'level', 'qualifier_name',))
 
     paginator = Paginator(f.qs, 10)
 
@@ -229,6 +229,59 @@ def qualifier_edit(request, pk):
     else:
         form = QualifierForm(instance=qualifier)
     return render(request, 'qualifier_edit.html', {'form': form})
+
+class qualifiername_delete(DeleteView):
+    model = QualifierName
+    success_url = reverse_lazy('qualifiername-list')
+
+def qualifiername_detail(request, pk):
+    qualifiername = get_object_or_404(QualifierName, pk=pk)
+    return render(request, 'qualifiername_detail.html', {'qualifiername': qualifiername})
+
+def qualifiername_edit(request, pk):
+    qualifiername = get_object_or_404(QualifierName, pk=pk)
+    if request.method == "POST":
+        form = QualifierNameForm(request.POST, instance=qualifiername)
+        if form.is_valid():
+            qualifiername = form.save(commit=False)
+            qualifiername.save()
+            return redirect('qualifier-name-detail', pk=qualifiername.pk)
+    else:
+        form = QualifierNameForm(instance=qualifiername)
+    return render(request, 'qualifiername_edit.html', {'form': form})
+
+def qualifiername_list(request):
+    f = QualifierNameFilter(
+                      request.GET,
+                      queryset=QualifierName.objects.is_active().order_by('name')
+                      )
+
+    paginator = Paginator(f.qs, 10)
+
+    page_number = request.GET.get('page')
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
+    return render(
+        request,
+        'qualifiername_list.html',
+        {'page_obj': page_obj, 'filter': f,}
+    )
+
+def qualifiername_new(request):
+    if request.method == "POST":
+        form = QualifierNameForm(request.POST)
+        if form.is_valid():
+            qualifiername = form.save(commit=False)
+            qualifiername.save()
+            return redirect('qualifier-name-detail', pk=qualifiername.pk)
+    else:
+        form = QualifierNameForm()
+    return render(request, 'qualifiername_edit.html', {'form': form})
 
 class reference_delete(DeleteView):
     model = Reference
@@ -353,6 +406,59 @@ def relation_new(request):
 
 def rnames_detail(request):
     return render(request, 'rnames_detail.html', )
+
+class stratigraphic_qualifier_delete(DeleteView):
+    model = StratigraphicQualifier
+    success_url = reverse_lazy('stratigraphic-qualifier-list')
+
+def stratigraphic_qualifier_detail(request, pk):
+    stratigraphicqualifier = get_object_or_404(StratigraphicQualifier, pk=pk)
+    return render(request, 'stratigraphic_qualifier_detail.html', {'stratigraphicqualifier': stratigraphicqualifier})
+
+def stratigraphic_qualifier_edit(request, pk):
+    stratigraphicqualifier = get_object_or_404(StratigraphicQualifier, pk=pk)
+    if request.method == "POST":
+        form = StratigraphicQualifierForm(request.POST, instance=stratigraphicqualifier)
+        if form.is_valid():
+            stratigraphicqualifier = form.save(commit=False)
+            stratigraphicqualifier.save()
+            return redirect('stratigraphic-qualifier-detail', pk=stratigraphicqualifier.pk)
+    else:
+        form = StratigraphicQualifierForm(instance=stratigraphicqualifier)
+    return render(request, 'stratigraphic_qualifier_edit.html', {'form': form})
+
+def stratigraphic_qualifier_list(request):
+    f = StratigraphicQualifierFilter(
+                      request.GET,
+                      queryset=StratigraphicQualifier.objects.is_active().order_by('name')
+                      )
+
+    paginator = Paginator(f.qs, 10)
+
+    page_number = request.GET.get('page')
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
+    return render(
+        request,
+        'stratigraphic_qualifier_list.html',
+        {'page_obj': page_obj, 'filter': f,}
+    )
+
+def stratigraphic_qualifier_new(request):
+    if request.method == "POST":
+        form = StratigraphicQualifierForm(request.POST)
+        if form.is_valid():
+            stratigraphicqualifier = form.save(commit=False)
+            stratigraphicqualifier.save()
+            return redirect('stratigraphic-qualifier-detail', pk=stratigraphicqualifier.pk)
+    else:
+        form = StratigraphicQualifierForm()
+    return render(request, 'stratigraphic_qualifier_edit.html', {'form': form})
 
 class structuredname_delete(DeleteView):
     model = StructuredName

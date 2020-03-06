@@ -2,7 +2,7 @@ from django import forms
 from django_select2.forms import (
     ModelSelect2Widget,
 )
-from .models import Location, Name, Qualifier, Reference, Relation, StructuredName
+from .models import Location, Name, Qualifier, QualifierName, Reference, Relation, StratigraphicQualifier, StructuredName
 
 class LocationForm(forms.ModelForm):
 
@@ -22,12 +22,21 @@ class QualifierForm(forms.ModelForm):
         model = Qualifier
         fields = ('qualifier_name', 'stratigraphic_qualifier', 'level',)
 
+class QualifierNameForm(forms.ModelForm):
+
+    class Meta:
+        model = QualifierName
+        fields = ('name',)
+
 class ReferenceForm(forms.ModelForm):
 #    title = forms.CharField(widget=forms.Textarea)
     link = forms.CharField(widget=forms.Textarea(attrs={'cols': 100, 'rows': 1}))
     class Meta:
         model = Reference
-        fields = ('first_author','year','title','link',)
+        fields = ('first_author','year','title','doi','link',)
+
+class ReferenceWidget(ModelSelect2Widget):
+    search_fields = ['title__icontains', 'first_author__icontains',]
 
 class RelationWidget(ModelSelect2Widget):
     search_fields = ['name__name__icontains', 'location__name__icontains', 'qualifier__qualifier_name__name__icontains', 'qualifier__stratigraphic_qualifier__name__icontains',]
@@ -35,8 +44,8 @@ class RelationWidget(ModelSelect2Widget):
 class RelationForm(forms.ModelForm):
     class Meta:
         model = Relation
-        fields = ('name_one', 'name_two', 'belongs_to',)
-        widgets = {'name_one': RelationWidget, 'name_two': RelationWidget,}
+        fields = ('name_one', 'name_two', 'belongs_to', 'reference',)
+        widgets = {'name_one': RelationWidget, 'name_two': RelationWidget, 'reference': ReferenceWidget,}
 
 # For StructuredNameForm:
 class LocationWidget(ModelSelect2Widget):
@@ -55,3 +64,9 @@ class StructuredNameForm(forms.ModelForm):
         model = StructuredName
         fields = ('qualifier','name','location',)
         widgets = {'location': LocationWidget, 'name': NameWidget, 'qualifier': QualifierWidget, }
+
+class StratigraphicQualifierForm(forms.ModelForm):
+
+    class Meta:
+        model = StratigraphicQualifier
+        fields = ('name',)

@@ -1,0 +1,51 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<!-- Write your comments here -->
+<article>
+  <form action="" method="get">
+      {{ filter.form.as_p }}
+      <input type="submit" />
+  </form>
+  {% if user.is_authenticated %}
+    <br>
+    <a class="btn btn-default" href="{% url 'stratigraphic-qualifier-new' %}"><span class="fa  fa-plus"></span> Add</a>
+    <br>
+  {% endif %}
+
+  {% if page_obj %}
+    <table style="width:100%">
+      <tr>
+        <th>Stratigraphic Qualifier Name</th>
+        {% if user.is_authenticated %}
+        <th>Action</th>
+        {% endif %}
+      </tr>
+
+      {% for x in page_obj %}
+        <tr>
+
+          {% if user.is_authenticated %}
+            <td>{{ x.name }}</td>
+            <td>
+              <a class="btn btn-default" href="{% url 'stratigraphic-qualifier-detail' pk=x.pk %}"><span class="fa fa-search"></span></a>
+              <a class="btn btn-default" href="{% url 'stratigraphic-qualifier-edit' pk=x.pk %}"><span class="fa fa-pencil-square-o"></span></a>
+              <a class="btn btn-default" href="{% url 'stratigraphic-qualifier-delete' pk=x.pk %}"><span class="fa  fa-trash-o"></span></a>
+            </td>
+
+          {% else %}
+            <td>{{ x.name }}</td>
+          {% endif %}
+
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>There are no Stratigraphic Qualifiers available.</p>
+  {% endif %}
+
+  {% include 'pagination.html' %}
+
+</article>
+
+{% endblock %}

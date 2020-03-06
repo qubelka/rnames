@@ -13,11 +13,14 @@
           <a class="btn btn-default" href="{% url 'name-edit' pk=name.pk %}"><span class="fa fa-pencil-square-o"></span></a>
           <a class="btn btn-default" href="{% url 'name-delete' pk=name.pk %}"><span class="fa  fa-trash-o"></span></a>
         {% endif %}
-        <h2>Name: {{ name.name }}</h2>
-
+        <p><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
+        <header style="display:none;">
+            <h2>RNames - Name: {{ name.id }}</h2>
+         </header>
         <table class="w3-table-all">
+          <caption>Name: {{ name.id }}</caption>
           <tr>
-            <td>Name</td>
+            <th>Name</th>
             <td>{{ name.name }}</td>
           </tr>
         </table>

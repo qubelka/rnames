@@ -9,8 +9,9 @@
     <a class="btn btn-default" href="{% url 'reference-edit' pk=reference.pk %}"><span class="fa fa-pencil-square-o"></span></a>
     <a class="btn btn-default" href="{% url 'reference-delete' pk=reference.pk %}"><span class="fa  fa-trash-o"></span></a>
   {% endif %}
+  <p><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
   <header style="display:none;">
-      <h2>RNames - Reference #{{ reference.id }}</h2>
+      <h2>RNames - Reference: {{ reference.id }}</h2>
    </header>
    <table class="w3-table-all">
       <caption>Reference: {{ reference.id }}</caption>
@@ -25,6 +26,15 @@
       <tr>
          <th>Title</th>
          <td>{{ reference.title }}</td>
+      </tr>
+      <tr>
+        <th>DOI</th>
+          {% if reference.doi %}
+            <td><a href="http://dx.doi.org/{{ reference.doi }}" target="_blank">{{ reference.doi }}</a></td>
+          {% else %}
+            <td></td>
+          {% endif %}
+
       </tr>
       <tr>
          <th>Link</th>

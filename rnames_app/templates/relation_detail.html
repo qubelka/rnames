@@ -13,7 +13,25 @@
           <a class="btn btn-default" href="{% url 'relation-edit' pk=relation.pk %}"><span class="fa fa-pencil-square-o"></span></a>
           <a class="btn btn-default" href="{% url 'relation-delete' pk=relation.pk %}"><span class="fa  fa-trash-o"></span></a>
         {% endif %}
-        <h2>{{ relation }}</h2>
+        <p><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
+        <header style="display:none;">
+           <h2>RNames - Relation: {{ relation.id }}</h2>
+        </header>
+        <table class="w3-table-all">
+          <caption>Relation: {{ relation.id }}</caption>
+          <tr>
+            <th>Name 1</th>
+            <td>{{ relation.name_one }}</td>
+          </tr>
+          <tr>
+            <th>Name 2</th>
+            <td>{{ relation.name_two }}</td>
+          </tr>
+          <tr>
+            <th>Reference</th>
+            <td>{{ relation.reference }}</td>
+          </tr>
+        </table>
     </div>
   </article>
 {% endblock %}

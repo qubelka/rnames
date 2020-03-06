@@ -16,7 +16,7 @@
         </table>
         <button type="submit" class="save btn btn-default">Save</button>
       </form>
-      <p><a href="{{request.path}}">Back</a></p>
+      <p><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
     {% else %}
       <p><a href="{% url 'login'%}?next={{request.path}}">Please login first</a></p>
     {% endif %}
