@@ -27,9 +27,8 @@
           <tr>
             <td>{{ x.first_author }}</td>
             <td>{{ x.year }}</td>
-            <td>{{ x.title }}</td>
-
-            <td><a href="{{ x.link }}" target="_blank">{{ x.link }}</a></td>
+            <td>{{ x.title|truncatechars:70 }}</td>
+            <td><a href="{{ x.link }}" target="_blank">{{ x.link|truncatechars_html:20 }}</a></td>
             <td>
               <a class="btn btn-default" href="{% url 'reference-detail' pk=x.pk %}"><span class="fa fa-search"></span></a>
               {% if user.is_authenticated %}

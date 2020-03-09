@@ -34,7 +34,6 @@
           {% else %}
             <td></td>
           {% endif %}
-
       </tr>
       <tr>
          <th>Link</th>
@@ -48,7 +47,7 @@
    </header>
    {% if user.is_authenticated %}
      <br>
-     <a class="btn btn-default" href="{% url 'relation-new' %}"><span class="fa  fa-plus"></span> Add</a>
+     <a class="btn btn-default" href="{% url 'reference-relation-new' reference.id%}"><span class="fa  fa-plus"></span> Add</a>
      <br>
    {% endif %}
    {% if reference.relation_set %}

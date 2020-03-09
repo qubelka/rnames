@@ -4,6 +4,7 @@
 # These two are combined using a solution provided by 'Reinstate Monica'
 # at https://stackoverflow.com/questions/2047622/how-to-paginate-django-with-other-get-variables/57899037#57899037
 
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
@@ -14,7 +15,7 @@ from rest_framework.response import Response
 from rest_framework import status, generics
 from .models import Location, Name, Qualifier, QualifierName, Relation, Reference, StratigraphicQualifier, StructuredName
 from .filters import LocationFilter, NameFilter, QualifierFilter, QualifierNameFilter, ReferenceFilter, RelationFilter, StratigraphicQualifierFilter, StructuredNameFilter
-from .forms import LocationForm, NameForm, QualifierForm, QualifierNameForm, ReferenceForm, RelationForm, StratigraphicQualifierForm, StructuredNameForm
+from .forms import LocationForm, NameForm, QualifierForm, QualifierNameForm, ReferenceForm, ReferenceRelationForm, RelationForm, StratigraphicQualifierForm, StructuredNameForm
 from django.contrib.auth.models import User
 from .filters import UserFilter
 #, APINameFilter
@@ -77,6 +78,7 @@ def location_detail(request, pk):
     location = get_object_or_404(Location, pk=pk)
     return render(request, 'location_detail.html', {'location': location})
 
+@login_required
 def location_edit(request, pk):
     location = get_object_or_404(Location, pk=pk)
     if request.method == "POST":
@@ -110,6 +112,7 @@ def location_list(request):
         {'page_obj': page_obj, 'filter': f,}
     )
 
+@login_required
 def location_new(request):
     if request.method == "POST":
         form = LocationForm(request.POST)
@@ -131,6 +134,7 @@ def name_detail(request, pk):
     name = get_object_or_404(Name, pk=pk)
     return render(request, 'name_detail.html', {'name': name})
 
+@login_required
 def name_edit(request, pk):
     name = get_object_or_404(Name, pk=pk)
     if request.method == "POST":
@@ -167,6 +171,7 @@ def name_list(request):
         {'page_obj': page_obj, 'filter': f,}
     )
 
+@login_required
 def name_new(request):
     if request.method == "POST":
         form = NameForm(request.POST)
@@ -207,6 +212,7 @@ def qualifier_list(request):
         {'page_obj': page_obj, 'filter': f,}
     )
 
+@login_required
 def qualifier_new(request):
     if request.method == "POST":
         form = QualifierForm(request.POST)
@@ -218,6 +224,7 @@ def qualifier_new(request):
         form = QualifierForm()
     return render(request, 'qualifier_edit.html', {'form': form})
 
+@login_required
 def qualifier_edit(request, pk):
     qualifier = get_object_or_404(Qualifier, pk=pk)
     if request.method == "POST":
@@ -238,6 +245,7 @@ def qualifiername_detail(request, pk):
     qualifiername = get_object_or_404(QualifierName, pk=pk)
     return render(request, 'qualifiername_detail.html', {'qualifiername': qualifiername})
 
+@login_required
 def qualifiername_edit(request, pk):
     qualifiername = get_object_or_404(QualifierName, pk=pk)
     if request.method == "POST":
@@ -272,6 +280,7 @@ def qualifiername_list(request):
         {'page_obj': page_obj, 'filter': f,}
     )
 
+@login_required
 def qualifiername_new(request):
     if request.method == "POST":
         form = QualifierNameForm(request.POST)
@@ -291,6 +300,7 @@ def reference_detail(request, pk):
     reference = get_object_or_404(Reference, pk=pk)
     return render(request, 'reference_detail.html', {'reference': reference})
 
+@login_required
 def reference_edit(request, pk):
     reference = get_object_or_404(Reference, pk=pk)
     if request.method == "POST":
@@ -338,6 +348,7 @@ def reference_list(request):
         {'page_obj': page_obj, 'filter': f,}
     )
 
+@login_required
 def reference_new(request):
     if request.method == "POST":
         form = ReferenceForm(request.POST)
@@ -349,6 +360,20 @@ def reference_new(request):
         form = ReferenceForm()
     return render(request, 'reference_edit.html', {'form': form})
 
+@login_required
+def reference_relation_new(request, reference):
+    reference = get_object_or_404(Reference, pk=reference)
+    if request.method == "POST":
+        form = ReferenceRelationForm(request.POST)
+        if form.is_valid():
+            relation = form.save(commit=False)
+            relation.reference = reference
+            relation.save()
+            return redirect('reference-detail', pk=relation.reference.id)
+    else:
+        form = ReferenceRelationForm()
+    return render(request, 'relation_edit.html', {'form': form})
+
 class relation_delete(DeleteView):
     model = Relation
     success_url = reverse_lazy('relation-list')
@@ -357,6 +382,7 @@ def relation_detail(request, pk):
     relation = get_object_or_404(Relation, pk=pk)
     return render(request, 'relation_detail.html', {'relation': relation})
 
+@login_required
 def relation_edit(request, pk):
     relation = get_object_or_404(Relation, pk=pk)
     if request.method == "POST":
@@ -393,7 +419,8 @@ def relation_list(request):
         {'page_obj': page_obj, 'filter': f,}
     )
 
-def relation_new(request):
+@login_required
+def relation_new(request, reference_id=-1):
     if request.method == "POST":
         form = RelationForm(request.POST)
         if form.is_valid():
@@ -415,6 +442,7 @@ def stratigraphic_qualifier_detail(request, pk):
     stratigraphicqualifier = get_object_or_404(StratigraphicQualifier, pk=pk)
     return render(request, 'stratigraphic_qualifier_detail.html', {'stratigraphicqualifier': stratigraphicqualifier})
 
+@login_required
 def stratigraphic_qualifier_edit(request, pk):
     stratigraphicqualifier = get_object_or_404(StratigraphicQualifier, pk=pk)
     if request.method == "POST":
@@ -449,6 +477,7 @@ def stratigraphic_qualifier_list(request):
         {'page_obj': page_obj, 'filter': f,}
     )
 
+@login_required
 def stratigraphic_qualifier_new(request):
     if request.method == "POST":
         form = StratigraphicQualifierForm(request.POST)
@@ -487,6 +516,7 @@ def structuredname_list(request):
         {'page_obj': page_obj, 'filter': f,}
     )
 
+@login_required
 def structuredname_new(request):
     if request.method == "POST":
         form = StructuredNameForm(request.POST)
@@ -498,6 +528,7 @@ def structuredname_new(request):
         form = StructuredNameForm()
     return render(request, 'structuredname_edit.html', {'form': form})
 
+@login_required
 def structuredname_edit(request, pk):
     structuredname = get_object_or_404(StructuredName, pk=pk)
     if request.method == "POST":

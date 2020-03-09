@@ -27,6 +27,22 @@
          <th>Location</th>
          <td>{{ structuredname.location }}</td>
       </tr>
+      <tr>
+        <th>Reference</th>
+        {% if structuredname.reference %}
+          <td>{{ structuredname.reference }}</td>
+        {% else %}
+          <td></td>
+        {% endif %}
+      </tr>
+      <tr>
+         <th>Remarks</th>
+         {% if structuredname.remarks %}
+           <td>{{ structuredname.remarks }}</td>
+         {% else %}
+           <td></td>
+         {% endif %}
+      </tr>
    </table>
 </section>
 {% endblock %}

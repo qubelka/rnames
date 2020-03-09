@@ -34,6 +34,7 @@ urlpatterns = [
     path('rnames/reference/<int:pk>/delete/', views.reference_delete.as_view(), name='reference-delete'),
     path('rnames/reference/<int:pk>/edit/', views.reference_edit, name='reference-edit'),
     path('rnames/relations', views.relation_list, name='relation-list'),
+    path('rnames/relation/new/<int:reference>', views.reference_relation_new, name='reference-relation-new'),
     path('rnames/relation/new', views.relation_new, name='relation-new'),
     path('rnames/relation/<int:pk>/', views.relation_detail, name='relation-detail'),
     path('rnames/relation/<int:pk>/edit/', views.relation_edit, name='relation-edit'),

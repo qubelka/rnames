@@ -209,15 +209,17 @@ class Qualifier(BaseModel):
 
 class StructuredName(BaseModel):
     """
-    Model representing a StructuredName - a combination of Name, Qualifier and Location in RNames (e.g. 1a / TimeSlice_Webby / Global, 451.08 / absolute Time / Global, etc.)
+    Model representing a StructuredName - a combination of Name, Qualifier, Location (and Reference) in RNames (e.g. 1a / TimeSlice_Webby / Global, 451.08 / absolute Time / Global, etc.)
     """
-    qualifier = models.ForeignKey(Qualifier, on_delete=models.CASCADE)
     name = models.ForeignKey(Name, on_delete=models.CASCADE)
+    qualifier = models.ForeignKey(Qualifier, on_delete=models.CASCADE)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    reference = models.ForeignKey(Reference, on_delete=models.SET_NULL, blank=True, null=True, help_text="Reference is not required unless you want to distinguish between two similar Structured Names", )
+    remarks = models.TextField(max_length=1000, help_text="Enter remarks for the Structured Name", blank=True, null=True,)
 
     class Meta:
-        ordering = ['name', 'qualifier', 'location']
-        unique_together = ('name', 'qualifier', 'location',)
+        ordering = ['name', 'qualifier', 'location', 'reference']
+        unique_together = ('name', 'qualifier', 'location', 'reference')
 
     def get_absolute_url(self):
         """
@@ -229,7 +231,10 @@ class StructuredName(BaseModel):
         """
         String for representing the Model object (in Admin site etc.)
         """
-        return '%s - %s - %s' % (self.name, self.qualifier, self.location)
+        if self.reference is None:
+            return '%s - %s - %s' % (self.name, self.qualifier, self.location)
+        else:
+            return '%s - %s - %s - %s' % (self.name, self.qualifier, self.location, self.reference)
 
 
 class Relation(BaseModel):

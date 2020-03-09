@@ -22,6 +22,7 @@
           <th>Name</th>
           <th>Qualifier</th>
           <th>Location</th>
+          <th>Reference</th>
           {% if user.is_authenticated %}
           <th>Action</th>
           {% endif %}
@@ -34,6 +35,11 @@
               <td>{{ x.name }}</td>
               <td>{{ x.qualifier }}</td>
               <td>{{ x.location }}</td>
+              {% if x.reference %}
+                <td>{{ x.reference|truncatechars:50 }}</td>
+              {% else %}
+                <td></td>
+              {% endif %}
               <td>
                 <a class="btn btn-default" href="{% url 'structuredname-detail' pk=x.pk %}"><span class="fa fa-search"></span></a>
                 <a class="btn btn-default" href="{% url 'structuredname-edit' pk=x.pk %}"><span class="fa fa-pencil-square-o"></span></a>
