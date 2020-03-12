@@ -3,7 +3,7 @@
 {% if user.is_authenticated %}
   <h1>Delete Stratigraphic Qualifier</h1>
 
-  <p>Are you sure you want to delete the Stratigraphic Qualifier: <b><i>{{ name }}</i></b>?</p>
+  <p>Are you sure you want to delete the Stratigraphic Qualifier: <b><i>{{ stratigraphicqualifier }}</i></b>?</p>
 
   <form action="" method="POST">
       {% csrf_token %}

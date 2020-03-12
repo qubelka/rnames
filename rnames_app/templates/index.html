@@ -1,0 +1,21 @@
+{% extends 'base_generic.html' %}
+{% block title %}RNames - Home{% endblock %}
+
+{% block content %}
+  <!-- Beginning of homepage content -->
+  <section class="w3-content">
+    <h2><a name="C4">Welcome to RNames</a></h2>
+    <p>RNames is a relational database linking stratigraphic names with each other that are considered to be time-equivalent or time-overlapping.</p>
+    <p>Each link in the database is drawn from a published reference and is considered as an expressed opinion. The sum of published opinions can be used to correlate a certain name with another name and ultimately to bin within a certain time frame. This is what this database is for. (<a href="{% url 'rnames-detail'%}" target="_blank">more</a>)</p>
+    <p>Currently RNames contains {{ num_names }} Stratigraphic names, {{ num_opinions }} Opinions, and {{ num_references }} References.</p>
+    <img src="https://rnames.luomus.fi/images/argentine.jpg" alt="Geologists at work" align="middle" height="275" width="900">
+    <p></p>
+    <table width="100%">
+      <tr>
+        <td width="50%">RNames is hosted by the <a href="https://www.luomus.fi/en" target="_blank">Finnish Museum of Natural History</a>, an independent research institution functioning under the University of Helsinki.</td>
+        <td width="50%">Rnames was developed by Björn Kröger & Kari Lintulaakso and is based on <a href="http://www.dfg.de/en/" target="_blank">Deutsche Forschungsgemeinschaft</a> (DFG) personal funding, KR 2095/7-1</td>
+      </tr>
+    </table>
+  </section>
+  <!-- End of homepage content -->
+{% endblock %}

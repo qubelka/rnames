@@ -1,11 +1,14 @@
+from django.conf import settings
 from django.conf.urls import url
 from django.urls import path, re_path, include
 from . import views
+import debug_toolbar
 #from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
+    path('__debug__/', include(debug_toolbar.urls)),
     path('', views.index, name='index'),
-#    path('', views.name_list, name='name-list'),
+    path('index/', views.index, name='index'),
     path('rnames/parent', views.parent, name='parent'),
     path('rnames/child', views.child, name='child'),
     path('rnames/', views.name_list, name='name-list'),
@@ -33,8 +36,9 @@ urlpatterns = [
     path('rnames/reference/<int:pk>/', views.reference_detail, name='reference-detail'),
     path('rnames/reference/<int:pk>/delete/', views.reference_delete.as_view(), name='reference-delete'),
     path('rnames/reference/<int:pk>/edit/', views.reference_edit, name='reference-edit'),
+    path('rnames/refrelation/new/<int:reference>/', views.reference_relation_new, name='reference-relation-new'),
+    path('rnames/refrelation/<int:pk>/delete/', views.reference_relation_delete.as_view(), name='reference-relation-delete'),
     path('rnames/relations', views.relation_list, name='relation-list'),
-    path('rnames/relation/new/<int:reference>', views.reference_relation_new, name='reference-relation-new'),
     path('rnames/relation/new', views.relation_new, name='relation-new'),
     path('rnames/relation/<int:pk>/', views.relation_detail, name='relation-detail'),
     path('rnames/relation/<int:pk>/edit/', views.relation_edit, name='relation-edit'),
@@ -50,7 +54,6 @@ urlpatterns = [
     path('rnames/structured_name/<int:pk>/', views.structuredname_detail, name='structuredname-detail'),
     path('rnames/structured_name/<int:pk>/delete/', views.structuredname_delete.as_view(), name='structuredname-delete'),
     path('rnames/structured_name/<int:pk>/edit/', views.structuredname_edit, name='structuredname-edit'),
-    url(r'^search/$', views.user_search, name='user-search'),
 ]
 
 #Add Django site authentication urls (for login, logout, password management)

@@ -38,7 +38,7 @@ def index(request):
     # Render the HTML template index.html with the data in the context variable
     return render(
         request,
-        'base_generic.html',
+        'index.html',
         context={'num_names':num_names,'num_opinions':num_opinions,'num_references':num_references,}, # num_visits appended
     )
 
@@ -51,7 +51,7 @@ def parent(request):
 def child(request):
     f = RelationFilter(
                       request.GET,
-                      queryset=Relation.objects.is_active().order_by('name_one')
+                      queryset=Relation.objects.is_active().select_related().order_by('name_one')
                       )
 
     paginator = Paginator(f.qs, 10)
@@ -75,18 +75,16 @@ class location_delete(DeleteView):
     success_url = reverse_lazy('location-list')
 
 def location_detail(request, pk):
-    location = get_object_or_404(Location, pk=pk)
+    location = get_object_or_404(Location, pk=pk, is_active=1)
     return render(request, 'location_detail.html', {'location': location})
 
 @login_required
 def location_edit(request, pk):
-    location = get_object_or_404(Location, pk=pk)
+    location = get_object_or_404(Location, pk=pk, is_active=1)
     if request.method == "POST":
         form = LocationForm(request.POST, instance=location)
         if form.is_valid():
             location = form.save(commit=False)
-            location.modified_by_id = request.user.id
-            location.modified_on = timezone.now()
             location.save()
             return redirect('location-detail', pk=location.pk)
     else:
@@ -131,18 +129,16 @@ class name_delete(DeleteView):
     success_url = reverse_lazy('name-list')
 
 def name_detail(request, pk):
-    name = get_object_or_404(Name, pk=pk)
+    name = get_object_or_404(Name, pk=pk, is_active=1)
     return render(request, 'name_detail.html', {'name': name})
 
 @login_required
 def name_edit(request, pk):
-    name = get_object_or_404(Name, pk=pk)
+    name = get_object_or_404(Name, pk=pk, is_active=1)
     if request.method == "POST":
         form = NameForm(request.POST, instance=name)
         if form.is_valid():
             name = form.save(commit=False)
-#            name.created_by_id = request.user.id
-#            name.created_at = timezone.now()
             name.save()
             return redirect('name-detail', pk=name.pk)
     else:
@@ -190,12 +186,11 @@ class qualifier_delete(DeleteView):
     success_url = reverse_lazy('qualifier-list')
 
 def qualifier_detail(request, pk):
-    qualifier = get_object_or_404(Qualifier, pk=pk)
+    qualifier = get_object_or_404(Qualifier, pk=pk, is_active=1)
     return render(request, 'qualifier_detail.html', {'qualifier': qualifier})
 
 def qualifier_list(request):
-    f = QualifierFilter(request.GET, queryset=Qualifier.objects.is_active().order_by('stratigraphic_qualifier', 'level', 'qualifier_name',))
-
+    f = QualifierFilter(request.GET, queryset=Qualifier.objects.is_active().select_related().order_by('stratigraphic_qualifier', 'level', 'qualifier_name',))
     paginator = Paginator(f.qs, 10)
 
     page_number = request.GET.get('page')
@@ -226,7 +221,7 @@ def qualifier_new(request):
 
 @login_required
 def qualifier_edit(request, pk):
-    qualifier = get_object_or_404(Qualifier, pk=pk)
+    qualifier = get_object_or_404(Qualifier, pk=pk, is_active=1)
     if request.method == "POST":
         form = QualifierForm(request.POST, instance=qualifier)
         if form.is_valid():
@@ -242,12 +237,12 @@ class qualifiername_delete(DeleteView):
     success_url = reverse_lazy('qualifiername-list')
 
 def qualifiername_detail(request, pk):
-    qualifiername = get_object_or_404(QualifierName, pk=pk)
+    qualifiername = get_object_or_404(QualifierName, pk=pk, is_active=1)
     return render(request, 'qualifiername_detail.html', {'qualifiername': qualifiername})
 
 @login_required
 def qualifiername_edit(request, pk):
-    qualifiername = get_object_or_404(QualifierName, pk=pk)
+    qualifiername = get_object_or_404(QualifierName, pk=pk, is_active=1)
     if request.method == "POST":
         form = QualifierNameForm(request.POST, instance=qualifiername)
         if form.is_valid():
@@ -297,18 +292,31 @@ class reference_delete(DeleteView):
     success_url = reverse_lazy('reference-list')
 
 def reference_detail(request, pk):
-    reference = get_object_or_404(Reference, pk=pk)
-    return render(request, 'reference_detail.html', {'reference': reference})
+    reference = get_object_or_404(Reference, pk=pk, is_active=1)
+    f = RelationFilter(
+                  request.GET,
+                  queryset=Relation.objects.is_active().select_related().filter(reference__id=pk).order_by('name_one')
+                  )
+
+    paginator = Paginator(f.qs, 5)
+
+    page_number = request.GET.get('page')
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
+    return render(request, 'reference_detail.html', {'reference': reference, 'page_obj': page_obj, 'filter': f,})
 
 @login_required
 def reference_edit(request, pk):
-    reference = get_object_or_404(Reference, pk=pk)
+    reference = get_object_or_404(Reference, pk=pk, is_active=1)
     if request.method == "POST":
         form = ReferenceForm(request.POST, instance=reference)
         if form.is_valid():
             reference = form.save(commit=False)
-#            name.created_by_id = request.user.id
-#            name.created_at = timezone.now()
             reference.save()
             return redirect('reference-detail', pk=reference.pk)
     else:
@@ -329,8 +337,6 @@ def reference_list_old(request):
 #    return render(request, 'reference_list.html', {'filter': f})
 
 def reference_list(request):
-    # BTW you do not need .all() after a .filter()
-    # local_url.objects.filter(global_url__id=1) will do
     f = ReferenceFilter(request.GET, queryset=Reference.objects.is_active().order_by('title'))
     paginator = Paginator(f.qs, 10)
 
@@ -360,9 +366,25 @@ def reference_new(request):
         form = ReferenceForm()
     return render(request, 'reference_edit.html', {'form': form})
 
+class old_reference_relation_delete(DeleteView):
+    model = Relation
+    def get_object(self, queryset=None):
+        obj = super(reference_relation_delete, self).get_object()
+        if not obj.reference:
+            raise Http404
+        return obj
+    success_url = reverse_lazy('reference-detail')
+
+# https://stackoverflow.com/questions/52065046/django-deleteview-pass-argument-from-foreignkeys-model-to-get-success-url
+class reference_relation_delete(DeleteView):
+    model = Relation
+    def get_success_url(self):
+        reference = self.object.reference
+        return reverse_lazy('reference-detail', kwargs={'pk': reference.pk})
+
 @login_required
 def reference_relation_new(request, reference):
-    reference = get_object_or_404(Reference, pk=reference)
+    reference = get_object_or_404(Reference, pk=reference, is_active=1)
     if request.method == "POST":
         form = ReferenceRelationForm(request.POST)
         if form.is_valid():
@@ -379,12 +401,12 @@ class relation_delete(DeleteView):
     success_url = reverse_lazy('relation-list')
 
 def relation_detail(request, pk):
-    relation = get_object_or_404(Relation, pk=pk)
+    relation = get_object_or_404(Relation, pk=pk, is_active=1)
     return render(request, 'relation_detail.html', {'relation': relation})
 
 @login_required
 def relation_edit(request, pk):
-    relation = get_object_or_404(Relation, pk=pk)
+    relation = get_object_or_404(Relation, pk=pk, is_active=1)
     if request.method == "POST":
         form = RelationForm(request.POST, instance=relation)
         if form.is_valid():
@@ -400,7 +422,7 @@ def relation_edit(request, pk):
 def relation_list(request):
     f = RelationFilter(
                       request.GET,
-                      queryset=Relation.objects.is_active().order_by('name_one')
+                      queryset=Relation.objects.is_active().select_related().order_by('name_one')
                       )
 
     paginator = Paginator(f.qs, 10)
@@ -420,7 +442,7 @@ def relation_list(request):
     )
 
 @login_required
-def relation_new(request, reference_id=-1):
+def relation_new(request, reference_id):
     if request.method == "POST":
         form = RelationForm(request.POST)
         if form.is_valid():
@@ -439,12 +461,12 @@ class stratigraphic_qualifier_delete(DeleteView):
     success_url = reverse_lazy('stratigraphic-qualifier-list')
 
 def stratigraphic_qualifier_detail(request, pk):
-    stratigraphicqualifier = get_object_or_404(StratigraphicQualifier, pk=pk)
+    stratigraphicqualifier = get_object_or_404(StratigraphicQualifier, pk=pk, is_active=1)
     return render(request, 'stratigraphic_qualifier_detail.html', {'stratigraphicqualifier': stratigraphicqualifier})
 
 @login_required
 def stratigraphic_qualifier_edit(request, pk):
-    stratigraphicqualifier = get_object_or_404(StratigraphicQualifier, pk=pk)
+    stratigraphicqualifier = get_object_or_404(StratigraphicQualifier, pk=pk, is_active=1)
     if request.method == "POST":
         form = StratigraphicQualifierForm(request.POST, instance=stratigraphicqualifier)
         if form.is_valid():
@@ -494,12 +516,11 @@ class structuredname_delete(DeleteView):
     success_url = reverse_lazy('structuredname-list')
 
 def structuredname_detail(request, pk):
-    structuredname = get_object_or_404(StructuredName, pk=pk)
+    structuredname = get_object_or_404(StructuredName, pk=pk, is_active=1)
     return render(request, 'structuredname_detail.html', {'structuredname': structuredname})
 
 def structuredname_list(request):
-    f = StructuredNameFilter(request.GET, queryset=StructuredName.objects.is_active().order_by('name', 'qualifier', 'location'))
-
+    f = StructuredNameFilter(request.GET, queryset=StructuredName.objects.is_active().select_related().order_by('name', 'qualifier', 'location'))
     paginator = Paginator(f.qs, 10)
 
     page_number = request.GET.get('page')
@@ -530,7 +551,7 @@ def structuredname_new(request):
 
 @login_required
 def structuredname_edit(request, pk):
-    structuredname = get_object_or_404(StructuredName, pk=pk)
+    structuredname = get_object_or_404(StructuredName, pk=pk, is_active=1)
     if request.method == "POST":
         form = StructuredNameForm(request.POST, instance=structuredname)
         if form.is_valid():

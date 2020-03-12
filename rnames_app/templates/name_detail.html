@@ -1,14 +1,10 @@
 {% extends 'base_generic.html' %}
+{% block title %}RNames - Name: {{ name.id }}{% endblock %}
 
 {% block content %}
 <!-- Write your comments here -->
 <article>
     <div class="name">
-        {% if name.created_at %}
-            <div class="date">
-                {{ name.created_at }}
-            </div>
-        {% endif %}
         {% if user.is_authenticated %}
           <a class="btn btn-default" href="{% url 'name-edit' pk=name.pk %}"><span class="fa fa-pencil-square-o"></span></a>
           <a class="btn btn-default" href="{% url 'name-delete' pk=name.pk %}"><span class="fa  fa-trash-o"></span></a>
@@ -31,6 +27,7 @@
             <th>Name</th>
             <th>Qualifier</th>
             <th>Location</th>
+            <th>Reference</th>
             <th>Action</th>
           </tr>
           {% for sn in name.structuredname_set.all %}
@@ -38,6 +35,11 @@
               <td>{{sn.name}}</td>
               <td>{{sn.qualifier}}</td>
               <td>{{sn.location}}</td>
+              {% if structuredname.reference %}
+                <td>{{ structuredname.reference|truncatechars:50 }}</td>
+              {% else %}
+                <td></td>
+              {% endif %}
               <td>
                 <a class="btn btn-default" href="{% url 'structuredname-detail' pk=sn.pk %}"><span class="fa fa-search"></span></a>
                 <a class="btn btn-default" href="{% url 'structuredname-edit' pk=sn.pk %}"><span class="fa fa-pencil-square-o"></span></a>
@@ -53,6 +55,7 @@
             <th>Name 2</th>
             <th>Strat qualifier</th>
             <th>Location</th>
+            <th>Reference</th>
             <th>Action</th>
           </tr>
           {% for sn in name.structuredname_set.all %}
@@ -62,6 +65,11 @@
                <td>{{relation.name_two.name}}</td>
                <td>{{relation.name_two.qualifier.stratigraphic_qualifier}}</td>
                <td>{{relation.name_two.location}}</td>
+               {% if relation.reference %}
+                 <td>{{ relation.reference|truncatechars:50 }}</td>
+               {% else %}
+                 <td></td>
+               {% endif %}
                <td>
                  <a class="btn btn-default" href="{% url 'relation-detail' pk=relation.pk %}"><span class="fa fa-search"></span></a>
                  <a class="btn btn-default" href="{% url 'relation-edit' pk=relation.pk %}"><span class="fa fa-pencil-square-o"></span></a>

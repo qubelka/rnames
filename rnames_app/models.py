@@ -39,8 +39,62 @@ class BaseModel(models.Model):
 # https://stackoverflow.com/questions/4825815/prevent-delete-in-django-model
     def delete(self):
         self.is_active = False
-#        self.modified_on = models.DateTimeField(auto_now=True)
-#        self.modified_by = UserForeignKey(auto_user=True, verbose_name="The user that is automatically assigned", related_name='modifiedby_%(class)s')
+        print(self._meta.object_name)
+
+        # List of first lefel models
+        # qualifier -> stratigraphicqualifier, qualifier_name
+        # relation -> NameOne, NameTwo, Reference
+        # StructuredName -> Location, Name, Qualifier, (Reference)
+
+        if self._meta.object_name == 'Reference': # https://stackoverflow.com/questions/3599524/get-class-name-of-django-model
+            qs = Relation.objects.is_active().filter(reference__id=self.pk)
+            for x in qs:
+                print(str(x._meta.object_name) + ' id: ' + str(x.pk) + ' deleted')
+                x.delete()
+
+        if self._meta.object_name == 'Reference': # https://stackoverflow.com/questions/3599524/get-class-name-of-django-model
+            qs = StructuredName.objects.is_active().filter(reference__id=self.pk)
+            for x in qs:
+                print(str(x._meta.object_name) + ' id: ' + str(x.pk) + ' deleted')
+                x.delete()
+
+        if self._meta.object_name == 'StructuredName':
+            qs = Relation.objects.is_active().filter(name_one__id=self.pk) | Relation.objects.is_active().filter(name_two__id=self.pk)
+            for x in qs:
+                print(str(x._meta.object_name) + ' id: ' + str(x.pk) + ' deleted')
+                x.delete()
+
+        if self._meta.object_name == 'Name':
+            qs=StructuredName.objects.is_active().filter(name__id=self.pk)
+            for x in qs:
+                print(str(x._meta.object_name) + ' id: ' + str(x.pk) + ' deleted')
+                x.delete()
+
+        if self._meta.object_name == 'Location':
+            qs=StructuredName.objects.is_active().filter(location__id=self.pk)
+            for x in qs:
+                print(str(x._meta.object_name) + ' id: ' + str(x.pk) + ' deleted')
+                x.delete()
+
+        if self._meta.object_name == 'Qualifier':
+            qs=StructuredName.objects.is_active().filter(qualifier__id=self.pk)
+            for x in qs:
+                print(str(x._meta.object_name) + ' id: ' + str(x.pk) + ' deleted')
+                x.delete()
+
+        if self._meta.object_name == 'QualifierName':
+            qs=Qualifier.objects.is_active().filter(qualifier_name__id=self.pk)
+            for x in qs:
+                print(str(x._meta.object_name) + ' id: ' + str(x.pk) + ' deleted')
+                x.delete()
+
+        if self._meta.object_name == 'StratigraphicQualifier':
+            qs=Qualifier.objects.is_active().filter(stratigraphic_qualifier__id=self.pk)
+            for x in qs:
+                print(str(x._meta.object_name) + ' id: ' + str(x.pk) + ' deleted')
+                x.delete()
+
+        print(str(self._meta.object_name) + ' id: ' + str(self.pk) + ' deleted')
         self.save()
 
     class Meta:
@@ -124,6 +178,7 @@ def validate_doi(value):
             _('Value "%(value)s" does not begin with 10 followed by a period'),
             params={'value': value},
         )
+
 class Reference(BaseModel):
     """
     Model representing a Reference in RNames

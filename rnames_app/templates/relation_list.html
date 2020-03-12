@@ -1,7 +1,5 @@
 {% extends "base_generic.html" %}
-{% block title %}
-  <title>Manage Relations</title>
-{% endblock %}
+{% block title %}RNames - Relation list{% endblock %}
 
 {% block content %}
 <!-- Write your comments here -->
@@ -10,11 +8,6 @@
       {{ filter.form.as_p }}
       <input type="submit" />
   </form>
-  {% if user.is_authenticated %}
-    <br>
-    <a class="btn btn-default" href="{% url 'relation-new' %}"><span class="fa  fa-plus"></span> Add</a>
-    <br>
-  {% endif %}
 
   {% if page_obj %}
     <table class="w3-row">
