@@ -6,7 +6,8 @@
   <article>
     <form action="" method="get">
       {{ filter.form.as_p }}
-        <input type="submit" />
+        <button type="submit" class="w3-button w3-border w3-hover-light-grey"><i class="fas fa-search"> Search</i></button>
+        <a href="{% url 'reference-list' %}" class="w3-button w3-border w3-hover-light-grey"><i class="fas fa-undo"> Reset filter</i></a>
     </form>
     {% if user.is_authenticated %}
       <br>

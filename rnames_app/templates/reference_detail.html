@@ -57,7 +57,8 @@
    {% if page_obj %}
    <form action="" method="get">
        {{ filter.form.as_p }}
-       <input type="submit" />
+       <button type="submit" class="w3-button w3-border w3-hover-light-grey"><i class="fas fa-search"> Search</i></button>
+       <a href="{% url 'reference-detail' pk=reference.id %}" class="w3-button w3-border w3-hover-light-grey"><i class="fas fa-undo"> Reset filter</i></a>
    </form>
    <table class="w3-table-all">
       <caption>Reference: {{ reference.id }} List of Relations</caption>
