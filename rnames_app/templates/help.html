@@ -1,0 +1,23 @@
+{% extends 'base_generic.html' %}
+{% block title %}RNames - Help{% endblock %}
+
+{% block content %}
+<!-- This is the landing page for RNames help -->
+<article>
+    <div class="help">
+        <p><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
+        <header style="display:none;">
+            <h2>RNames - Help</h2>
+         </header>
+        <table class="w3-table-all">
+          <caption>Help</caption>
+          <tr><td><a href="{% url 'help-faq' %}">FAQ</a></td></th></tr>
+          <tr><td><a href="{% url 'help-database-structure' %}">Database Structure</a></th></tr>
+          {% if user.is_authenticated %}
+            <tr><td><a href="{% url 'help-instruction' %}">Data entry in Three Steps</a></th></tr>
+          {% endif %}
+          <tr><td><a href="{% url 'help-structure-of-binning-algorithm' %}">Binning algorithm</a></th></tr>
+        </table>
+    </div>
+  </article>
+{% endblock %}

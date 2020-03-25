@@ -1,0 +1,66 @@
+{% extends 'base_generic.html' %}
+{% block title %}RNames - Help - Instructions{% endblock %}
+{% block content %}
+{% load static %}
+<!-- Beginning of RNames help Database Structure-->
+<article>
+   <div class="help">
+      <p><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
+      <header style="display:none;">
+         <h2>RNames - Help - Instructions</h2>
+      </header>
+      <h2>Stepwise Data Entry</h2>
+      <ol>
+        <li>
+          Enter new reference
+          <ol type="A">
+            <li>Check if reference is already in database</li>
+            <ul>
+              <li>Open: Main Menu -> Manage References -> and search for reference</li>
+            </ul>
+            <li>If not found, enter the new reference at RNames</li>
+            <ul>
+              <li>Open: Main Menu -> Manage References -> Press: Add</li>
+            </ul>
+            <li>Enter new reference details at Zotero.org</li>
+            <ul>
+              <li>Login to <a href="https://www.zotero.org/user/login/" target="_blank">Zotero.org</a></li>
+              <li>Enter reference manually at <a href="https://www.zotero.org/groups/rnames/" target="_blank">https://www.zotero.org/groups/rnames/</a>, or enter automatically from RIS.file, Google Scholar etc via Zotero button in Firefox /Chrome extension (see <a href="https://www.zotero.org/support/getting_stuff_into_your_library">here</a> for instructions)</li>
+            </ul>
+            <li>Copy permanent reference link from Zotero.org to RNames</li>
+            <ul>
+              <li>copy Zotero reference (= Item) link and paste into “http://“ field in RNnames Reference entry form (The link should look like: <a href="https://www.zotero.org/groups/rnames/items/itemKey/5XU8IG6K" target="_blank">https://www.zotero.org/groups/rnames/items/itemKey/5XU8IG6K</a>)</li>
+            </ul>
+            </ul>
+            <li>Press: Save</li>
+          </ol>
+        </li>
+        <li>
+          Enter all new stratigraphic unit(s) contained in the reference
+          <ol type="A">
+            <li>open new parallel browser window with Manage Structured Names page -> Add</li>
+            <li>enter new Name</li>
+            <ul>
+              <li>a Name is something like “Saint Paul” , “Rockdale Run”, “Kullsberg Limestone”, “Cahabagnathus sweeti” , or a number like “453.7”</li>
+            </ul>
+            <li>select the correct Qualifier</li>
+            <li>select the appropriate Location or enter a new one</li>
+            <ul>
+              <li>currently locations are relatively deliberately entered as regions, counties or countries, do not go into much detail here, do not enter places, such as cities, villages etc, but regions</li>
+            </ul>
+            <li>Press: Save</li>
+          </ol>
+        </li>
+        <li>
+          Enter referenced relations between stratigraphic units
+          <ol type="A">
+            <li>open Manage Referenced Data -> select the reference and click the magnifier -> this opens a new window and there you can add new relations by clicking the add button</li>
+            <li>switch the "belongs to" button  on "yes" in case the two structured names are related as group and sub-group: e.g. the Fort Cassin Formation belongs to the Beekmantown Group, or the alobatus conodont_sub_zone is a subzone of the anserinus condodont-zone..</li>
+          </ol>
+        </li>
+      </ol>
+      <p style="text-align: center;"><img src="{% static "images/corrschemed.png" %}" alt="" /></p>
+   </div>
+</article>
+<!-- End of RNames help Database Structure-->
+{% endblock %}

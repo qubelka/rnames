@@ -126,6 +126,8 @@
   select[name="reference"] {
     width: 50%;
   }
+  {% block style %}
+  {% endblock %}
 </style>
 
 <!-- css used for Django select2 -->
@@ -149,6 +151,7 @@
           <li><a href="#">Stage Slices</a></li>
           <li><a href="#">Time Slices</a></li>
           <li><a href="#">Global Stages</a></li>
+          <li><a href="{% url 'help-main' %}">Help</a></li>
         </ul>
         <hr>
         <h6>Manage</h6>
@@ -171,6 +174,7 @@
           <li><a href="#">Stage Slices</a></li>
           <li><a href="#">Time Slices</a></li>
           <li><a href="#">Global Stages</a></li>
+          <li><a href="{% url 'help-main' %}">Help</a></li>
         </ul>
         <ul>
           <li><a href="{% url 'login' %}?next={{request.path}}">Login</a></li>

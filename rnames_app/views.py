@@ -26,6 +26,51 @@ from .filters import UserFilter
 #    names = Name.objects.order_by('name')
 #    return render(request, 'name_list.html', {'names': names})
 
+def help_database_structure(request):
+    """
+    View function for the database structure help page of site.
+    """
+    return render(
+        request,
+        'help_database_structure.html',
+    )
+
+def help_faq(request):
+    """
+    View function for the help page of site.
+    """
+    return render(
+        request,
+        'help_faq.html',
+    )
+
+def help_instruction(request):
+    """
+    View function for the instructions page of site.
+    """
+    return render(
+        request,
+        'help_instruction.html',
+    )
+
+def help_main(request):
+    """
+    View function for the help page of site.
+    """
+    return render(
+        request,
+        'help.html',
+    )
+
+def help_structure_of_binning_algorithm(request):
+    """
+    View function for the structure of the binning algorithm help page of site.
+    """
+    return render(
+        request,
+        'help_structure_of_binning_algorithm.html',
+    )
+
 def index(request):
     """
     View function for home page of site.
