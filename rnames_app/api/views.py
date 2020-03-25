@@ -162,7 +162,7 @@ class RelationListAPIView(ListAPIView):
 #                                        .select_related('created_by')\
 #                                        .select_related('modified_by')\
 #                                        .filter(is_active=True).filter(reference__is_active=True).filter(name_one__qualifier__is_active=True).filter(name_two__qualifier__is_active=True).filter(name_one__location__is_active=True).filter(name_two__location__is_active=True).filter(name_one__name__is_active=True).filter(name_two__name__is_active=True).filter(name_one__is_active=True).filter(name_two__is_active=True)
-        queryset_list = Relation.objects.all().values(
+        queryset_list = Relation.objects.is_active().select_related().values(
             'id',
             'reference',
             'reference__year',

@@ -11,6 +11,7 @@ class CustomQuerySet(QuerySet):
     def delete(self):
         self.update(is_active=False)
 
+# https://simpleisbetterthancomplex.com/tips/2016/08/16/django-tip-11-custom-manager-with-chainable-querysets.html
 class ActiveManager(models.Manager):
     def is_active(self):
         return self.model.objects.filter(is_active=True)

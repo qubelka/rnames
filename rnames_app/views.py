@@ -456,6 +456,21 @@ def relation_new(request, reference_id):
 def rnames_detail(request):
     return render(request, 'rnames_detail.html', )
 
+@login_required
+def run_binning(request):
+    """
+    View function for the run binning operation.
+    """
+    # Generate counts of some of the main objects
+    num_opinions=Relation.objects.is_active().count()
+
+    # Render the HTML template index.html with the data in the context variable
+    return render(
+        request,
+        'run_binning.html',
+        context={'num_opinions':num_opinions,},
+    )
+
 class stratigraphic_qualifier_delete(DeleteView):
     model = StratigraphicQualifier
     success_url = reverse_lazy('stratigraphic-qualifier-list')

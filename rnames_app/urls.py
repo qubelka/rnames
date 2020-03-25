@@ -9,6 +9,7 @@ urlpatterns = [
     path('__debug__/', include(debug_toolbar.urls)),
     path('', views.index, name='index'),
     path('index/', views.index, name='index'),
+    path('rnames/admin/binning', views.run_binning, name='run-binning'),
     path('rnames/parent', views.parent, name='parent'),
     path('rnames/child', views.child, name='child'),
     path('rnames/', views.name_list, name='name-list'),
