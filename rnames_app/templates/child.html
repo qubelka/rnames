@@ -9,44 +9,51 @@
          }
       </script>
       <style>
-    table tr:not(:first-child){
-        cursor: pointer;transition: all .25s ease-in-out;
-    }
-    table tr:not(:first-child):hover{background-color: #ddd;}
-</style>
+         table tr:not(:first-child){
+         cursor: pointer;transition: all .25s ease-in-out;
+         }
+         table tr:not(:first-child):hover{background-color: #ddd;}
+      </style>
    </head>
    <body>
-      <table id="table" border="1">
+     <form action="" method="get">
+         {{ filter.form.as_p }}
+         <button type="submit" class="w3-button w3-border w3-hover-light-grey"><i class="fas fa-search"> Search</i></button>
+         <a href="{% url 'structuredname-list' %}" class="w3-button w3-border w3-hover-light-grey"><i class="fas fa-undo"> Reset filter</i></a>
+     </form>
+     <table id="table" border="1">
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Age</th>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Qualifier</th>
+          <th>Location</th>
+          <th>Reference</th>
         </tr>
         {% for x in page_obj %}
-
         <tr>
-            <td>{{ x.pk }}</td>
-            <td>{{ x.name_one }}</td>
-            <td>{{ x.name_two }}</td>
+          <td>{{ x.pk }}</td>
+          <td>{{ x.name }}</td>
+          <td>{{ x.qualifier }}</td>
+          <td>{{ x.location }}</td>
+          <td>{{ x.reference }}</td>
         </tr>
         {% endfor %}
-    </table>
-<script>
+     </table>
+      <script>
+         var table = document.getElementById('table');
 
-        var table = document.getElementById('table');
+         for(var i = 1; i < table.rows.length; i++)
+         {
+             table.rows[i].onclick = function()
+             {
+                  opener.document.getElementById('id_name_id').value = this.cells[0].innerHTML;
+                  opener.document.getElementById('id_name').value = this.cells[1].innerHTML;
+                  opener.document.getElementById('id_qualifier').value = this.cells[2].innerHTML;
+                  opener.document.getElementById('id_location').value = this.cells[3].innerHTML;
+                  self.close();
+             };
+         }
+      </script>
 
-        for(var i = 1; i < table.rows.length; i++)
-        {
-            table.rows[i].onclick = function()
-            {
-                 //rIndex = this.rowIndex;
-                 opener.document.f1.p_name.value = this.cells[0].innerHTML;
-                 opener.document.f1.fname.value = this.cells[1].innerHTML;
-                 opener.document.f1.country.value = this.cells[0].innerHTML;
-                 self.close();
-            };
-        }
-
- </script>
    </body>
 </html>

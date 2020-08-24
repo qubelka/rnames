@@ -17,6 +17,14 @@
   <p id="myP">Added <span id="demo">0</span> of <span id="n">0</span> Names</p>
 
   <button class="w3-button w3-light-grey" onclick="move();this.disabled='true'">Bin Names</button>
+  <form action="/rnames/admin/binning_done" method="post">
+    {% csrf_token %}
+    Text:
+    <input type="text" name="param" required><br><br>
+    {{ data1 }}<br><br>
+    <input type="submit" value="Execute">
+  </form>
+
 </section>
 
 <script>

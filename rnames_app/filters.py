@@ -3,10 +3,23 @@
 # for example if you want to paginate them, you can do that.
 # They are in f.qs
 import django_filters
-from .models import Location, Name, Qualifier, QualifierName, Reference, Relation, StratigraphicQualifier
+from .models import (Binning
+    , Location
+    , Name
+    , Qualifier
+    , QualifierName
+    , Reference
+    , Relation
+    , StratigraphicQualifier)
 from django.contrib.auth.models import User
 from django_filters import rest_framework as filters
 
+class BinningSchemeFilter(django_filters.FilterSet):
+    name = django_filters.CharFilter(lookup_expr='icontains')
+
+    class Meta:
+        model = Binning
+        fields = ['binning_scheme', 'name', ]
 
 class LocationFilter(django_filters.FilterSet):
     name = django_filters.CharFilter(lookup_expr='icontains')

@@ -1,0 +1,194 @@
+{% extends 'base_generic.html' %}
+{% block title %}RNames - Structured Name: {{ structuredname.id }}{% endblock %}
+{% block content %}
+<header style="display:none;">
+  <h2>RNames - Structured Name</h2>
+</header>
+<!-- Write your comments here -->
+<section class="w3-section">
+  {% if user.is_authenticated %}
+  {% endif %}
+  <p><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
+  <header style="display:none;">
+    <h2>RNames - Structured Name: {{ structuredname.id }}</h2>
+  </header>
+  <table class="w3-table-all">
+    <caption>Structured Name: {{ structuredname.id }}</caption>
+    <tr>
+      <th>Name</th>
+      <td>{{ structuredname.name }}</td>
+    </tr>
+    <tr>
+      <th>Qualifier</th>
+      <td>{{ structuredname.qualifier }}</td>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <td>{{ structuredname.location }}</td>
+    </tr>
+    <tr>
+      <th>Reference</th>
+      {% if reference %}
+      <td>{{ reference }}</td>
+      {% else %}
+      <td></td>
+      {% endif %}
+    </tr>
+    <tr>
+      <th>Remarks</th>
+      {% if structuredname.remarks %}
+      <td>{{ structuredname.remarks }}</td>
+      {% else %}
+      <td></td>
+      {% endif %}
+    </tr>
+  </table>
+  {% if current_relations %}
+  <table class="w3-row">
+    <tr>
+      <th>Name 1</th>
+      <th>Name 2</th>
+      <th>Belongs to</th>
+      {% if user.is_authenticated %}
+      <th>Action</th>
+      {% endif %}
+    </tr>
+    {% for r in current_relations %}
+    <tr>
+      {% if user.is_authenticated %}
+      <td>{{ r.name_one }}</td>
+      <td>{{ r.name_two }}</td>
+      <td>{{ r.belongs_to }}</td>
+      <td>
+        <a class="btn btn-default" href="{% url 'relation-detail' pk=r.pk %}"><span class="fa fa-search"></span></a>
+        <a class="btn btn-default" href="{% url 'relation-edit' pk=r.pk %}"><span class="fa fa-pencil-square-o"></span></a>
+        <a class="btn btn-default" href="{% url 'relation-delete' pk=r.pk %}"><span class="fa  fa-trash-o"></span></a>
+      </td>
+      {% else %}
+      <td>{{ r.name_one }}</td>
+      <td>{{ r.name_two }}</td>
+      <td>{{ r.belongs_to }}</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p>There are no Relations yet.</p>
+  {% endif %}
+  <!-- Start of Form -->
+  <form method=post action='' name='test'>
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>
+          Pk:
+        </td>
+        <td>
+          <input type=text id="pk" readonly><br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Name:
+        </td>
+        <td>
+          <input type=text id="name" readonly>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Qualifier:
+        </td>
+        <td>
+          <input type=text id="qualifier" readonly>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Stratigraphic Qualifier:
+        </td>
+        <td>
+          <input type="text" id="stratigraphic_qualifier" name="stratigraphic_qualifier" readonly>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Location:
+        </td>
+        <td>
+          <input type=text id="location" readonly>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Reference:
+        </td>
+        <td>
+          <input type=text id="reference" readonly>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <!-- End of Form-->
+  <!-- Start of Modal -->
+  <p>A modal is a dialog box/popup window that is displayed on top of the current page:</p>
+  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green">Open Modal</button>
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-red">
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-large w3-red w3-display-topright">&times;</span>
+        <h2>Modal Header</h2>
+      </header>
+      <div class="w3-container">
+        {% if available_relations %}
+        <table class="w3-table-all" id="table" border="1">
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Qualifier</th>
+            <th>Stratigraphic Qualifier</th>
+            <th>Location</th>
+            <th>Reference</th>
+          </tr>
+          {% for x in page_obj %}
+          <tr>
+            <td>{{ x.name_two }}</td>
+            <td>{{ x.name_two__name__name }}</td>
+            <td>{{ x.name_two__qualifier__qualifier_name__name }}</td>
+            <td>{{ x.name_two__qualifier__stratigraphic_qualifier__name }}</td>
+            <td>{{ x.name_two__location__name }}</td>
+            <td>{{ x.name_two__reference }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+        {% else %}
+        <p>There are no available Structured Names.</p>
+        {% endif %}
+        <p>Go back to <a class="w3-button w3-black" href="{% url 'reference-structured_name-detail' pk=structuredname.id reference=reference.id %}">W3.CSS Modal</a> to learn more!</p>
+      </div>
+      <footer class="w3-container w3-red w3-display-container">
+        <p>Modal Footer <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-red w3-display-right">Close</span></p>
+      </footer>
+    </div>
+  </div>
+  <hr>
+  <script>
+    var table = document.getElementById('table');
+
+    for(var i = 1; i < table.rows.length; i++)
+    {
+        table.rows[i].onclick = function()
+        {
+             document.getElementById('pk').value = this.cells[0].innerHTML;
+             document.getElementById('name').value = this.cells[1].innerHTML;
+             document.getElementById('qualifier').value = this.cells[2].innerHTML;
+             document.getElementById('stratigraphic_qualifier').value = this.cells[3].innerHTML;
+             document.getElementById('location').value = this.cells[4].innerHTML;
+             document.getElementById('reference').value = this.cells[5].innerHTML;
+             document.getElementById('id01').style.display='none'
+        };
+    }
+  </script>
+  <!-- End of Modal -->
+</section>
+{% endblock %}

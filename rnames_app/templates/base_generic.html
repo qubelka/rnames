@@ -147,10 +147,11 @@
     </ul>
     {% block nav %}
       {% if user.is_authenticated %}
+      <h6>Search</h6>
         <ul>
-          <li><a href="#">Stage Slices</a></li>
-          <li><a href="#">Time Slices</a></li>
-          <li><a href="#">Global Stages</a></li>
+          <li><a href="{% url 'structuredname-list' %}">Names</a></li>
+          <li><a href="{% url 'reference-list' %}">References</a></li>
+          <li><a href="{% url 'binning' %}">Binning Scheme</a></li>
           <li><a href="{% url 'help-main' %}">Help</a></li>
         </ul>
         <hr>
@@ -170,10 +171,11 @@
         <strong>User: {{ user.get_username }}</strong>
         <a href="{% url 'logout' %}?next={% url 'index' %}">Logout</a>
       {% else %}
+        <h6>Search</h6>
         <ul>
-          <li><a href="#">Stage Slices</a></li>
-          <li><a href="#">Time Slices</a></li>
-          <li><a href="#">Global Stages</a></li>
+          <li><a href="{% url 'structuredname-list' %}">Names</a></li>
+          <li><a href="{% url 'reference-list' %}">References</a></li>
+          <li><a href="{% url 'binning' %}">Binning Scheme</a></li>
           <li><a href="{% url 'help-main' %}">Help</a></li>
         </ul>
         <ul>
@@ -196,7 +198,11 @@
 <footer>
   <p>© 2019 RNames <a href="#top">Back to Top</a></p>
 </footer>
+<!--
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 {% block script %}
 {% endblock %}
 </body>

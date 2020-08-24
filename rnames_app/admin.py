@@ -1,6 +1,14 @@
 from django.contrib import admin
 from simple_history.admin import SimpleHistoryAdmin
-from rnames_app.models import Name, Reference, Location, QualifierName, StratigraphicQualifier, Qualifier, StructuredName, Relation
+from rnames_app.models import(Binning
+    , Name
+    , Relation
+    , Reference
+    , Location
+    , QualifierName
+    , StratigraphicQualifier
+    , Qualifier
+    , StructuredName)
 from mb import models
 
 # admin.site.register([Name, Reference, Location, QualifierName, StratigraphicQualifier, Qualifier, StructuredName, Relation,])
@@ -31,6 +39,7 @@ class StructuredNameHistoryAdmin(SimpleHistoryAdmin):
     history_list_display = ['qualifier', 'name', 'location', ]
     search_fields = ['name__name', ]
 
+admin.site.register(Binning, SimpleHistoryAdmin)
 admin.site.register(Name, SimpleHistoryAdmin)
 #admin.site.register(Reference, SimpleHistoryAdmin)
 admin.site.register(Location, SimpleHistoryAdmin)

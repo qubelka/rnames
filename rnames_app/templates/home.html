@@ -1,0 +1,21 @@
+{% extends 'base_generic.html' %}
+{% block title %}RNames - Home{% endblock %}
+
+{% block content %}
+  {% load static %}
+  <!-- Beginning of homepage content -->
+  <section class="w3-content">
+    <header style="display:none;">
+      <h2>RNames - Home</h2>
+    </header>
+    <div class="w3-teal">
+      <h2>Input Form</h2>
+    </div>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {% include 'includes/w3c-form.html' with form=form %}
+      <p><button type="submit" class="w3-btn w3-padding w3-teal" style="width:120px">Submit &nbsp; &#10095;</button></p>
+    </form>
+  </section>
+  <!-- End of homepage content -->
+{% endblock %}

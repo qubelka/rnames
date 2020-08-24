@@ -1,9 +1,8 @@
 {% extends 'base_generic.html' %}
 {% block title %}RNames - Reference: {{ reference.id }}{% endblock %}
-
 {% block content %}
 <header style="display:none;">
-   <h2>RNames - Reference</h2>
+  <h2>RNames - Reference</h2>
 </header>
 <!-- Write your comments here -->
 <section class="w3-section">
@@ -12,93 +11,101 @@
     <a class="btn btn-default" href="{% url 'reference-delete' pk=reference.pk %}"><span class="fa  fa-trash-o"></span></a>
   {% endif %}
   <p><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
-  <header style="display:none;">
-      <h2>RNames - Reference: {{ reference.id }}</h2>
-   </header>
-   <table class="w3-table-all">
-      <caption>Reference: {{ reference.id }}</caption>
-      <tr>
-         <th>First Author</th>
-         <td>{{ reference.first_author }}</td>
-      </tr>
-      <tr>
-         <th>Year</th>
-         <td>{{ reference.year }}</td>
-      </tr>
-      <tr>
-         <th>Title</th>
-         <td>{{ reference.title }}</td>
-      </tr>
-      <tr>
-        <th>DOI</th>
-          {% if reference.doi %}
-            <td><a href="http://dx.doi.org/{{ reference.doi }}" target="_blank">{{ reference.doi }}</a></td>
-          {% else %}
-            <td></td>
+  <table class="w3-table-all">
+    <caption>Reference #{{ reference.id }}</caption>
+    <tr>
+      <th>First Author</th>
+      <td>{{ reference.first_author }}</td>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <td>{{ reference.year }}</td>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <td>{{ reference.title }}</td>
+    </tr>
+    <tr>
+      <th>DOI</th>
+      {% if reference.doi %}
+        <td><a href="http://dx.doi.org/{{ reference.doi }}" target="_blank">{{ reference.doi }}</a></td>
+      {% else %}
+        <td></td>
+      {% endif %}
+    </tr>
+    <tr>
+      <th>Link</th>
+      <td><a href="{{ reference.link }}" target="_blank">{{ reference.link }}</a></td>
+    </tr>
+  </table>
+  {% if user.is_authenticated %}
+    <br>
+    <a class="btn btn-default" href="{% url 'reference-structured_name-new' reference.id%}"><span class="fa  fa-plus"></span> Add Structured Name</a>
+    <br>
+    {% if sn_list %}
+      <table style="width:100%">
+        <caption>Reference #{{ reference.id }}: List of Structured Names</caption>
+        <tr>
+          <th>Name</th>
+          <th>Qualifier</th>
+          <th>Location</th>
+          {% if user.is_authenticated %}
+            <th>Action</th>
           {% endif %}
-      </tr>
-      <tr>
-         <th>Link</th>
-         <td><a href="{{ reference.link }}" target="_blank">{{ reference.link }}</a></td>
-      </tr>
-   </table>
-</section>
-<section class="w3-section">
-   <header style="display:none;">
-      <h2>RNames - Reference #{{ reference.id }} List of Relations</h2>
-   </header>
-
-   {% if user.is_authenticated %}
-     <br>
-     <a class="btn btn-default" href="{% url 'reference-relation-new' reference.id%}"><span class="fa  fa-plus"></span> Add</a>
-     <br>
-   {% endif %}
-
-   {% if page_obj %}
-   <form action="" method="get">
-       {{ filter.form.as_p }}
-       <button type="submit" class="w3-button w3-border w3-hover-light-grey"><i class="fas fa-search"> Search</i></button>
-       <a href="{% url 'reference-detail' pk=reference.id %}" class="w3-button w3-border w3-hover-light-grey"><i class="fas fa-undo"> Reset filter</i></a>
-   </form>
-   <table class="w3-table-all">
-      <caption>Reference: {{ reference.id }} List of Relations</caption>
-       <tr>
-         <th>Name 1</th>
-         <th>Name 2</th>
-         <th>Belongs to</th>
-         {% if user.is_authenticated %}
-         <th>Action</th>
-         {% endif %}
-       </tr>
-
-       {% for x in page_obj %}
-         <tr>
-
-           {% if user.is_authenticated %}
-             <td>{{ x.name_one }}</td>
-             <td>{{ x.name_two }}</td>
-             <td>{{ x.belongs_to }}</td>
-             <td>
-               <a class="btn btn-default" href="{% url 'relation-detail' pk=x.pk %}"><span class="fa fa-search"></span></a>
-               <a class="btn btn-default" href="{% url 'relation-edit' pk=x.pk %}"><span class="fa fa-pencil-square-o"></span></a>
-               <a class="btn btn-default" href="{% url 'reference-relation-delete' pk=x.pk %}"><span class="fa  fa-trash-o"></span></a>
-             </td>
-
-           {% else %}
-             <td>{{ x.name_one }}</td>
-             <td>{{ x.name_two }}</td>
-             <td>{{ x.belongs_to }}</td>
-           {% endif %}
-
-         </tr>
-       {% endfor %}
-     </table>
-   {% else %}
-     <p>There are no Relations available.</p>
-   {% endif %}
-
-   {% load url_replace %}
-   {% include 'pagination.html' %}
-
+        </tr>
+        {% for sn in sn_list %}
+          <tr>
+            <td>{{ sn.name_one__name__name }}</td>
+            <td>{{ sn.name_one__qualifier__qualifier_name__name }} / {{ sn.name_one__qualifier__stratigraphic_qualifier__name }}</td>
+            <td>{{ sn.name_one__location__name }}</td>
+            {% if user.is_authenticated %}
+              <td>
+                <a class="btn btn-default" href="{% url 'reference-relation-new' name_one=sn.name_one__id reference=reference.id %}"><span class="fa fa-search"></span></a>
+              </td>
+            {% endif %}
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>There are no Structured Names available.</p>
+    {% endif %}
+  {% endif %}
+  <header style="display:none;">
+    <h2>RNames - Reference #{{ reference.id }} List of Relations</h2>
+  </header>
+  {% if page_obj %}
+  <form action="" method="get">
+    {{ filter.form.as_p }}
+    <button type="submit" class="w3-button w3-border w3-hover-light-grey"><i class="fas fa-search"> Search</i></button>
+    <a href="{% url 'reference-detail' pk=reference.id %}" class="w3-button w3-border w3-hover-light-grey"><i class="fas fa-undo"> Reset filter</i></a>
+  </form>
+  <table class="w3-table-all">
+    <caption>Reference #{{ reference.id }}: List of Relations</caption>
+    <tr>
+      <th>Name 1</th>
+      <th>Name 2</th>
+      <th>Belongs to</th>
+      <th>Action</th>
+    </tr>
+    {% for x in page_obj %}
+    <tr>
+      <td>{{ x.name_one }}</td>
+      <td>{{ x.name_two }}</td>
+      <td>{{ x.belongs_to }}</td>
+      <td>
+        <a class="btn btn-default" href="{% url 'relation_sql-detail' name_one=x.name_one.id name_two=x.name_two.id %}"><span class="fa fa-search"></span></a>
+        {% if user.is_authenticated %}
+        <a class="btn btn-default" href="{% url 'relation-edit' pk=x.pk %}"><span class="fa fa-pencil-square-o"></span></a>
+        <a class="btn btn-default" href="{% url 'reference-relation-delete' pk=x.pk %}"><span class="fa  fa-trash-o"></span></a>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p>There are no Relations available.</p>
+  {% endif %}
+  {% load url_replace %}
+  {% include 'pagination.html' %}
 </section>
 {% endblock %}

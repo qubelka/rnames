@@ -1,0 +1,154 @@
+{% extends 'base_generic.html' %}
+{% block title %}RNames - Relation{% endblock %}
+{% block script %}
+{% endblock %}
+{% block content %}
+<header style="display:none;">
+   <h2>RNames - Reference</h2>
+</header>
+<!-- Write your comments here -->
+<section class="w3-section">
+  <table class="w3-table-all">
+    <tr>
+      <th>Name</th>
+      <td>{{ name_one.name }}</td>
+    </tr>
+    <tr>
+      <th>Qualifier</th>
+      <td>{{ name_one.qualifier }}</td>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <td>{{ name_one.location }}</td>
+    </tr>
+    <tr>
+      <th>Reference</th>
+      {% if reference %}
+      <td>{{ reference }}</td>
+      {% else %}
+      <td></td>
+      {% endif %}
+    </tr>
+    <tr>
+      <th>Remarks</th>
+      {% if name_one.remarks %}
+      <td>{{ name_one.remarks }}</td>
+      {% else %}
+      <td></td>
+      {% endif %}
+    </tr>
+  </table>
+  {% if user.is_authenticated %}
+  <div class="w3-display-container w3-teal">
+    <button class="w3-btn w3-padding w3-teal w3-hover-cyan" onclick="document.getElementById('id01').style.display='block'"><i class="fas fa-angle-right"></i>&nbsp;Press here to select the related Structured Names for {{ name_one.name }} &nbsp;<i class="fas fa-angle-double-right"></i></button>
+  </div>
+.  <form method="POST" novalidate>
+    {% csrf_token %}
+    {% include 'includes/w3c-form.html' with form=form %}
+    <div class="w3-display-container w3-teal">
+        <button type="submit" class="w3-btn w3-padding w3-teal w3-hover-cyan w3-right" style="width:200px">Submit data &nbsp; <i class="fas fa-angle-right"></i></button>
+        <a href="{% url 'reference-detail' pk=reference.pk %}" class="w3-btn w3-button w3-teal w3-hover-cyan w3-right" style="width:200px"><i class="fas fa-angle-double-left"></i>&nbsp;Back to Reference</a>
+    </div>
+  </form>
+  {% else %}
+  <p><a href="{% url 'login'%}?next={{request.path}}">Please login first</a></p>
+  {% endif %}
+  <!-- Start of current relations-->
+  {% if current_relations %}
+</section>
+  <section class="w3-section">
+  <header>
+      <h5>{{ name_one }} has the following relations</h5>
+   </header>
+  <table class="w3-row">
+    <tr>
+      <th>Structured Name</th>
+      <th>Belongs to</th>
+      {% if user.is_authenticated %}
+      <th>Action</th>
+      {% endif %}
+    </tr>
+    {% for r in current_relations %}
+    <tr>
+      {% if user.is_authenticated %}
+      <td>{{ r.name_two }}</td>
+      <td>{{ r.belongs_to }}</td>
+      <td>
+        <a class="btn btn-default" href="{% url 'relation-detail' pk=r.pk %}"><span class="fa fa-search"></span></a>
+        <a class="btn btn-default" href="{% url 'relation-edit' pk=r.pk %}"><span class="fa fa-pencil-square-o"></span></a>
+        <a class="btn btn-default" href="{% url 'relation-delete' pk=r.pk %}"><span class="fa  fa-trash-o"></span></a>
+      </td>
+      {% else %}
+      <td>{{ r.name_one }}</td>
+      <td>{{ r.name_two }}</td>
+      <td>{{ r.belongs_to }}</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p>There are no Relations yet.</p>
+  {% endif %}
+  <!-- End of current relations-->
+  <!-- Start of Modal -->
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-teal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-large w3-teal w3-display-topright">&times;</span>
+        <h2>Click on row to select the related Structured Name for {{ name_one.name }}</h2>
+      </header>
+      <div class="w3-container">
+        {% if available_relations %}
+        <table class="w3-table-all" id="table" border="1">
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Qualifier</th>
+            <th>Stratigraphic Qualifier</th>
+            <th>Location</th>
+            <th>Reference</th>
+          </tr>
+          {% for x in available_relations %}
+          <tr>
+            <td>{{ x.name_two }}</td>
+            <td>{{ x.name_two__name__name }}</td>
+            <td>{{ x.name_two__qualifier__qualifier_name__name }}</td>
+            <td>{{ x.name_two__qualifier__stratigraphic_qualifier__name }}</td>
+            <td>{{ x.name_two__location__name }}</td>
+            {% if x.name_two__reference__first_author %}
+              <td>{{ x.name_two__reference__first_author }}, {{ x.name_two__reference__year }}</td>
+            {% else %}
+              <td></td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </table>
+        {% else %}
+        <p>There are no available Structured Names.</p>
+        {% endif %}
+        <p>Go back to <a class="w3-button w3-teal w3-hover-cyan" href="{% url 'reference-relation-new' name_one=name_one.id reference=reference.id %}">{{ name_one.name }}</a></p>
+      </div>
+      <footer class="w3-container w3-teal w3-display-container">
+        <p>Modal Footer <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-teal w3-hover-cyan w3-display-right">Close</span></p>
+      </footer>
+    </div>
+  </div>
+  <hr>
+  <script>
+    var table = document.getElementById('table');
+
+    for(var i = 1; i < table.rows.length; i++)
+    {
+        table.rows[i].onclick = function()
+        {
+             document.getElementById('id_name_id').value = this.cells[0].innerHTML;
+             document.getElementById('id_name').value = this.cells[1].innerHTML;
+             document.getElementById('id_qualifier').value = this.cells[2].innerHTML;
+             document.getElementById('id_location').value = this.cells[3].innerHTML;
+             document.getElementById('id01').style.display='none'
+        };
+    }
+  </script>
+  <!-- End of Modal -->
+</section>
+{% endblock %}

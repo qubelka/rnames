@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core.validators import validate_comma_separated_integer_list
 from django.db import models
 from django.db.models.query import QuerySet
 from django.utils import timezone
@@ -101,13 +102,46 @@ class BaseModel(models.Model):
     class Meta:
         abstract = True
 
+class Binning(BaseModel):
+    """
+    Model representing a Binning Scheme result in RNames (e.g. Ordovician Time Slices, Phanerozoic Stages, Phanerozoic Epochs, etc.)
+    """
+    BINNING = (
+        ('x_robinb', 'Ordovician Time Slices (Bergström)'),
+        ('x_robinw', 'Ordovician Time Slices (Webby)'),
+        ('x_robins', 'Phanerozoic Stages (ICS Chart, 2020)'),
+        ('x_robinp', 'Phanerozoic Epochs (ICS Chart, 2020)'),
+    )
+
+    binning_scheme = models.CharField(max_length=200, choices=BINNING, blank=False, help_text='The Binning Scheme')
+    name = models.CharField(max_length=200, help_text="Enter a Name (e.g. Katian, Viru, etc.)")
+    oldest = models.CharField(max_length=200, help_text="Enter a Name (e.g. Katian, Viru, etc.)")
+    youngest = models.CharField(max_length=200, help_text="Enter a Name (e.g. Katian, Viru, etc.)")
+    ts_count = models.PositiveSmallIntegerField(default=0, blank=False, help_text='The count of Time Slices within the binned Name.')
+    refs = models.CharField(max_length=200, validators=[validate_comma_separated_integer_list])
+    rule = models.CharField(max_length=5, blank=False, help_text='Enter the rule for the Binning.')
+
+    class Meta:
+        ordering = ['name', 'binning_scheme']
+        unique_together = ('binning_scheme', 'name',)
+
+    def get_absolute_url(self):
+        """
+        Returns the url to access a particular binning instance.
+        """
+        return reverse('binning-detail', args=[str(self.id)])
+
+    def __str__(self):
+        """
+        String for representing the Model object (in Admin site etc.)
+        """
+        return '%s: %s' % (self.binning_scheme, self.name)
 
 class Location(BaseModel):
     """
     Model representing a Location in RNames (e.g. Sweden, Baltoscandia, New Mexico, China, North Atlantic, etc.)
     """
     name = models.CharField(max_length=200, unique=True, help_text="Enter a Location (e.g. Sweden, Baltoscandia, New Mexico, China, North Atlantic, etc.)")
-
 
     class Meta:
         ordering = ["name"]

@@ -1,0 +1,68 @@
+{% extends 'base_generic.html' %}
+{% block title %}RNames - Relation: {{ relation.id }}{% endblock %}
+
+{% block content %}
+<!-- Write your comments here -->
+<article>
+    <div class="relation">
+        {% if user.is_authenticated %}
+          <a class="btn btn-default" href="{% url 'relation-edit' pk=relation.pk %}"><span class="fa fa-pencil-square-o"></span></a>
+          <a class="btn btn-default" href="{% url 'relation-delete' pk=relation.pk %}"><span class="fa  fa-trash-o"></span></a>
+        {% endif %}
+        <p><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
+        <header style="display:none;">
+           <h2>RNames - Relation: {{ relation.id }}</h2>
+        </header>
+        <table class="w3-table-all">
+          <caption>Relation #{{ relation.id }}</caption>
+          <tr>
+            <th>Name 1</th>
+            <td>{{ relation.name_one }}</td>
+          </tr>
+          <tr>
+            <th>Name 2</th>
+            <td>{{ relation.name_two }}</td>
+          </tr>
+          <tr>
+            <th>Belongs to</th>
+            <td>{{ relation.belongs_to|yesno:"Yes,No" }}</td>
+          </tr>
+        </table>
+    </div>
+    <br>
+    {% if references %}
+    <header style="display:none;">
+       <h2>RNames - Relation #{{ relation.id }}: List of References</h2>
+    </header>
+    <table class="w3-table-all">
+      <caption>Relation #{{ relation.id }}: List of References</caption>
+        <tr>
+          <th>First Author</th>
+          <th>Year</th>
+          <th>Title</th>
+          <th>Link</th>
+          <th>Action</th>
+        </tr>
+
+        {% for x in references %}
+          <tr>
+            <td>{{ x.first_author }}</td>
+            <td>{{ x.year }}</td>
+            <td>{{ x.title|truncatechars:70 }}</td>
+            <td><a href="{{ x.link }}" target="_blank">{{ x.link|truncatechars_html:20 }}</a></td>
+            <td>
+              <a class="btn btn-default" href="{% url 'reference-detail' pk=x.id %}"><span class="fa fa-search"></span></a>
+              {% if user.is_authenticated %}
+                <a class="btn btn-default" href="{% url 'reference-edit' pk=x.id %}"><span class="fa fa-pencil-square-o"></span></a>
+                <a class="btn btn-default" href="{% url 'reference-delete' pk=x.id %}"><span class="fa  fa-trash-o"></span></a>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>There are no References available.</p>
+    {% endif %}
+
+  </article>
+{% endblock %}

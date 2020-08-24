@@ -1,34 +1,178 @@
+{% extends 'base_generic.html' %}
 <!-- http://1bestcsharp.blogspot.com/2017/03/javascript-display-selected-html-table-row-into-input-text.html
-https://www.plus2net.com/javascript_tutorial/window-child3.php#
--->
+  https://www.plus2net.com/javascript_tutorial/window-child3.php#
+  -->
+{% block script %}
+<script langauge="javascript">
+  function post_value(){
+    document.getElementById('country').value = document.frm.country.value;
+    document.getElementById('kli').value = document.frm.custId.value;
+    document.getElementById('id04').value = document.frm.c_name.value;
+    document.getElementById('id02').style.display='none';
+    }
+  function post_value2(){
+    document.getElementById('id02').style.display='block';
+    }
+</script>
+{% endblock %}
+{% block content %}
+  <form method=post action='' name='test'>
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>
+          Pk:
+        </td>
+        <td>
+          <input type=text id="pk" readonly><br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Name:
+        </td>
+        <td>
+          <input type=text id="name" readonly>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Qualifier:
+        </td>
+        <td>
+          <input type=text id="qualifier" readonly>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Location:
+        </td>
+        <td>
+          <input type=text id="location" readonly>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Reference:
+        </td>
+        <td>
+          <input type=text id="reference" readonly>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Country:
+        </td>
+        <td>
+          <input type="text" id="country" name="country" readonly>
+        </td>
+      </tr>
+    </table>
+    <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-green">Open Modal 2</button>
+  </form>
 
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-<html>
-   <head>
-      <title>Demo of Passing of value from Child to parent window</title>
-      <META NAME="DESCRIPTION" CONTENT="Demo for sending value from Child window to parent window ">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <META NAME="KEYWORDS" CONTENT="Demo script, demo parent to child">
-      <link rel="stylesheet" href="../images/all11.css" type="text/css">
-   </head>
-   <body>
-      Here is the demo, Click the button ( take care of popup blocker of your browser ) and enter your name in child window opened. Then once closed it will be available at parent window.
-      <br><br>
-      <form method=post action='' name=f1>
-         <table>
-            <tr>
-               <td>
-                 Your Name:<input type=text name='p_name' readonly>
-               </td>
-               <td>
-                 First Name:<input type="text" name="fname" id="fname" readonly>
-               </td>
-               <td>
-                 Country:<input type="text" id="country" name="country" readonly>
-               </td>
-            </tr>
-         </table>
-         <a href="javascript:void(0);" NAME="My Window Name" title=" My title here " onClick=window.open("{% url 'child' %}","Ratting","width=550,left=150,top=200,toolbar=1,status=1,");>Click here to open the child window</a>
+<br>
+  <form method=post action='' name=f1>
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>
+          Id:<input type=text name='p_name' readonly>
+        </td>
+        <td>
+          Name:<input type="text" name="fname" id="fname" readonly>
+        </td>
+      </tr>
+    </table>
+    <a href="javascript:void(0);" NAME="My Window Name" title=" My title here " onClick=window.open("{% url 'child' %}","Ratting","width=550,left=150,top=200,toolbar=1,status=1,");>Click here to open the child window</a>
+  </form>
+
+
+
+
+
+  <div id="id02" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-green">
+        <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-large w3-red w3-display-topright">&times;</span>
+        <h2>Modal Header 2</h2>
+      </header>
+      <form name="frm" method=post action=''>
+        {% csrf_token %}
+        <table border=0 cellpadding=0 cellspacing=0 width=250>
+          <tr>
+            <td align="center">  Your name
+              <input type="text" name="c_name" size=12 value=test>
+              <input type="hidden" id="custId" name="custId" value="3487">
+              <input type="hidden" id="country" name="country" value="Kenya">
+              <input type=button value='Submit' onclick="post_value();">
+            </td>
+          </tr>
+        </table>
+        <form action="" method="get">
+            {{ filter.form.as_p }}
+            <button type="submit" class="w3-button w3-border w3-hover-light-grey"><i class="fas fa-search"> Search</i></button>
+            <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-green">KLI</button>
+            <a href="{% url 'parent' %}" class="w3-button w3-border w3-hover-light-grey"><i class="fas fa-undo"> Reset filter</i></a>
+        </form>
+
+        <table id="table" border="1">
+           <tr>
+             <th>Id</th>
+             <th>Name</th>
+             <th>Qualifier</th>
+             <th>Location</th>
+             <th>Reference</th>
+           </tr>
+           {% for x in page_obj %}
+           <tr>
+             <td>{{ x.pk }}</td>
+             <td>{{ x.name }}</td>
+             <td>{{ x.qualifier }}</td>
+             <td>{{ x.location }}</td>
+             <td>{{ x.reference }}</td>
+           </tr>
+           {% endfor %}
+        </table>
       </form>
-   </body>
-</html>
+      <div class="w3-container">
+        <p>Go back to
+          <a class="w3-button w3-black" href="{% url 'parent' %}">W3.CSS Modal</a> to learn more!
+        </p>
+      </div>
+      <footer class="w3-container w3-red w3-display-container">
+        <p>Modal Footer
+          <button onclick="myFunction()">Check window</button>
+          <p id="demo"></p>
+
+          <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-red w3-display-right">Close</span>
+        </p>
+      </footer>
+    </div>
+  </div>
+  <script>
+     var table = document.getElementById('table');
+
+     for(var i = 1; i < table.rows.length; i++)
+     {
+         table.rows[i].onclick = function()
+         {
+              document.getElementById('pk').value = this.cells[0].innerHTML;
+              document.getElementById('name').value = this.cells[1].innerHTML;
+              document.getElementById('qualifier').value = this.cells[2].innerHTML;
+              document.getElementById('location').value = this.cells[3].innerHTML;
+              document.getElementById('reference').value = this.cells[4].innerHTML;
+              document.getElementById('id02').style.display='none'
+         };
+     }
+  </script>
+  <script>
+  function myFunction() {
+    if (window.top != window.self)  {
+      document.getElementById("demo").innerHTML = "This window is not the topmost window! Am I in a frame?";
+    } else {
+      document.getElementById("demo").innerHTML = "This window is the topmost window!";
+    }
+  }
+  </script>
+{% endblock %}

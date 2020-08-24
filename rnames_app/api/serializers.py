@@ -113,7 +113,9 @@ class RelationListSerializer(ModelSerializer):
     reference_year = SerializerMethodField()
     level_1 = SerializerMethodField()
     level_2 = SerializerMethodField()
+    name_1_id = SerializerMethodField()
     name_1 = SerializerMethodField()
+    name_2_id = SerializerMethodField()
     name_2 = SerializerMethodField()
     locality_name_1 = SerializerMethodField()
     locality_name_2 = SerializerMethodField()
@@ -128,11 +130,13 @@ class RelationListSerializer(ModelSerializer):
             'id',
             'reference_id',
             'reference_year',
+            'name_1_id',
             'name_1',
             'qualifier_name_1',
             'strat_qualifier_1',
             'level_1',
             'locality_name_1',
+            'name_2_id',
             'name_2',
             'qualifier_name_2',
             'strat_qualifier_2',
@@ -177,12 +181,26 @@ class RelationListSerializer(ModelSerializer):
             locality_name_2 = None
         return str(locality_name_2)
 
+    def get_name_1_id(self, obj):
+        try:
+            name_1_id = obj['name_one__id']
+        except:
+            name_1_id = None
+        return str(name_1_id)
+
     def get_name_1(self, obj):
         try:
             name_1 = obj['name_one__name__name']
         except:
             name_1 = None
         return str(name_1)
+
+    def get_name_2_id(self, obj):
+        try:
+            name_2_id = obj['name_two__id']
+        except:
+            name_2_id = None
+        return str(name_2_id)
 
     def get_name_2(self, obj):
         try:

@@ -5,15 +5,17 @@
 <!-- Write your comments here -->
   <article>
     {% if user.is_authenticated %}
+    <div class="w3-teal">
       <h2>Add/Edit Name</h2>
-      <form method="POST" class="name-form">{% csrf_token %}
-          {{ form.as_p }}
-          <button type="submit" class="save btn btn-default">Save</button>
+    </div>
+      <form method="POST" novalidate>
+        {% csrf_token %}
+        {% include 'includes/w3c-form.html' with form=form %}
+        <a href="{{request.META.HTTP_REFERER}}" class="w3-btn w3-button w3-teal" style="width:120px"><i class="fas fa-angle-double-left"></i>&nbsp;Go back</a>
+        <button type="submit" class="w3-btn w3-padding w3-teal" style="width:120px">Submit &nbsp; <i class="fas fa-angle-right"></i></button>
       </form>
-      <p><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
     {% else %}
       <p><a href="{% url 'login'%}?next={{request.path}}">Please login first</a></p>
     {% endif %}
-
   </article>
 {% endblock %}
