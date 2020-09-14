@@ -10,3 +10,4 @@ www_rnames
 .DS_Store
 settings.py
 .gitignore
+*.csv

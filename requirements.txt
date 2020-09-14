@@ -7,3 +7,6 @@ Markdown~=3.0.1
 django_filter~=2.0.0
 mysqlclient~=1.4.6
 pytz~=2018.9
+numpy~=1.19.1
+pandas~=1.1.1
+python-dateutil~=2.8.1

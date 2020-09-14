@@ -47,7 +47,8 @@ def external(request):
     num_opinions=Relation.objects.is_active().count()
 
     inp=request.POST.get('param','K')
-    out=run([sys.executable,'C:\\LocalData\\lintulaa\\WWW_Django\\Django_Development\\rnames\\rnames_app\\utils\\utils.py',inp],shell=False,stdout=PIPE)
+    out=run([sys.executable,'C:\\LocalData\\lintulaa\\WWW_Django\\Django_Development\\rnames\\rnames_app\\utils\\root_binning.py',inp],shell=False,stdout=PIPE)
+#    out=run([sys.executable,'C:\\LocalData\\lintulaa\\WWW_Django\\Django_Development\\rnames\\rnames_app\\utils\\utils.py',inp],shell=False,stdout=PIPE)
     print(out)
 
     return render(
