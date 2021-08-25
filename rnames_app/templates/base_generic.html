@@ -169,7 +169,7 @@
         </ul>
         <hr>
         <strong>User: {{ user.get_username }}</strong>
-        <a href="{% url 'logout' %}?next={% url 'index' %}">Logout</a>
+        <a href="{% url 'account_logout' %}?next={% url 'index' %}">Logout</a>
       {% else %}
         <h6>Search</h6>
         <ul>
@@ -179,7 +179,7 @@
           <li><a href="{% url 'help-main' %}">Help</a></li>
         </ul>
         <ul>
-          <li><a href="{% url 'login' %}?next={{request.path}}">Login</a></li>
+          <li><a href="{% url 'account_login' %}?next={{request.path}}">Login</a></li>
         </ul>
       {% endif %}
     {% endblock %}

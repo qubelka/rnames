@@ -20,6 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('rnames_app.urls')),
     path('', include('rnames_app.api.urls')),
+    path('accounts/', include('allauth.urls')),
     path('select2/', include('django_select2.urls')),
-#    path('', include('catalog.urls')),
+    #    path('', include('catalog.urls')),
 ]

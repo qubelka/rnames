@@ -15,7 +15,7 @@
         <button type="submit" class="w3-btn w3-padding w3-teal" style="width:120px">Submit &nbsp; <i class="fas fa-angle-right"></i></button>
       </form>
     {% else %}
-      <p><a href="{% url 'login'%}?next={{request.path}}">Please login first</a></p>
+      <p><a href="{% url 'account_login'%}?next={{request.path}}">Please login first</a></p>
     {% endif %}
   </article>
 {% endblock %}

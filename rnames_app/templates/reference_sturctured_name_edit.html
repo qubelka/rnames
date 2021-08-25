@@ -22,7 +22,7 @@
           <a href="{% url 'reference-detail' pk=reference.id %}" class="w3-btn w3-button w3-teal w3-hover-cyan w3-right" style="width:200px"><i class="fas fa-angle-double-left"></i>&nbsp;Go back to Reference</a>
         </form>
       {% else %}
-        <p><a href="{% url 'login'%}?next={{request.path}}">Please login first</a></p>
+        <p><a href="{% url 'account_login'%}?next={{request.path}}">Please login first</a></p>
       {% endif %}
   </article>
 

@@ -11,3 +11,4 @@ www_rnames
 settings.py
 .gitignore
 *.csv
+.venv
