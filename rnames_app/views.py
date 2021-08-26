@@ -206,49 +206,11 @@ def index(request):
     num_opinions=Relation.objects.is_active().count()
     num_references=Reference.objects.is_active().count()
 
-# https://medium.com/@mdhv.kothari99/matplotlib-into-django-template-5def2e159997
-    ax = plt.subplot(projection='ternary')
-
-    ax.scatter(0.2, 0.3, 0.5)
-
-    t = [0.0, 0.0, 0.1, 0.2, 0.2]
-    l = [0.0, 0.3, 0.3, 0.2, 0.0]
-    r = [1.0, 0.7, 0.6, 0.6, 0.8]
-    ax.fill(t, l, r, alpha=0.2)
-
-    t = [0.3, 0.5, 0.5, 0.4]
-    l = [0.5, 0.5, 0.4, 0.4]
-    r = [0.2, 0.0, 0.1, 0.2]
-    ax.fill(t, l, r, alpha=0.2)
-
-    t = [0.0, 0.0, 0.3, 0.3, 0.2]
-    l = [0.7, 1.0, 0.7, 0.5, 0.5]
-    r = [0.3, 0.0, 0.0, 0.2, 0.3]
-    ax.fill(t, l, r, alpha=0.2)
-
-    t = [0.0, 0.0, 0.3, 0.3, 0.2]
-    l = [0.4, 0.65, 0.35, 0.2, 0.2]
-    r = [0.6, 0.35, 0.35, 0.5, 0.6]
-    ax.fill(t, l, r, alpha=0.2)
-
-    ax.grid()
-    ax.legend()
-#    plt.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Matplotlib plot.
-    fig = plt.gcf() # gcf - get current figure
-
-    # convert graph into dtring buffer and then we convert 64 bit code into image
-    buf = io.BytesIO()
-    fig.savefig(buf, format='png')
-    buf.seek(0)
-    string = base64.b64encode(buf.read())
-    uri = urllib.parse.quote(string)
-    fig.clf()   # clear the fig
-
     # Render the HTML template index.html with the data in the context variable
     return render(
         request,
         'index.html',
-        context={'num_names':num_names,'num_opinions':num_opinions,'num_references':num_references, 'data':uri,},
+        context={'num_names':num_names,'num_opinions':num_opinions,'num_references':num_references, },
     )
 
 def parent(request):

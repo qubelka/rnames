@@ -9,6 +9,6 @@ www_rnames
 /static
 .DS_Store
 settings.py
-.gitignore
 *.csv
 .venv
+config.json
