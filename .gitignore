@@ -8,7 +8,7 @@ mytestsite
 www_rnames
 /static
 .DS_Store
-settings.py
 *.csv
 .venv
 config.json
+.env
