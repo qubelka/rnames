@@ -1,14 +1,1 @@
-*.pyc
-*~
-__pycache__
-myvenv
-db.sqlite3
-locallibrary
-mytestsite
-www_rnames
-/static
-.DS_Store
-*.csv
-.venv
-config.json
 .env

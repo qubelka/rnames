@@ -35,7 +35,7 @@ ALLOWED_HOSTS_ENV = os.environ.get('ALLOWED_HOSTS')
 if ALLOWED_HOSTS_ENV:
     ALLOWED_HOSTS.extend(ALLOWED_HOSTS_ENV.split(','))
 else:
-    ALLOWED_HOSTS.extend(['localhost', '127.0.0.1'])
+    ALLOWED_HOSTS.append('*')
 
 # For debug_toolbar
 INTERNAL_IPS = ('127.0.0.1', '0.0.0.0', 'localhost',)
@@ -69,6 +69,11 @@ SOCIALACCOUNT_PROVIDERS = {
     'orcid': {
         'BASE_DOMAIN': 'orcid.org',
         'MEMBER_API': False,
+        'APP': {
+            'client_id': os.environ.get('ORCID_CLIENT_ID', config.get('ORCID_CLIENT_ID', '')),
+            'secret': os.environ.get('ORCID_SECRET', config.get('ORCID_SECRET', '')),
+            'key': '',
+        }
     }
 }
 
@@ -138,6 +143,7 @@ DATABASES = {
         'PASSWORD': os.environ.get('DB_PASSWORD', config.get('DB_PASS')),
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
         },
     }
 }
@@ -201,10 +207,12 @@ DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.redirects.RedirectsPanel',
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_BACKEND = config.get('EMAIL_BACKEND')
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', config.get(
+    'EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend'))
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = config.get('EMAIL_USER')
-EMAIL_HOST_PASSWORD = config.get('EMAIL_PASS')
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER', config.get('EMAIL_USER'))
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS', config.get('EMAIL_PASS'))

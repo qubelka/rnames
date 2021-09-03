@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb
+    restart: always
+    ports: 
+      - ${DB_PORT}:3306
+    environment:
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+    volumes:
+      - db:/var/lib/mysql
+    container_name: rnames_db
+
+  app:
+    build: ./app
+    ports:
+      - 8000:8000
+    volumes:
+      - ./app:/src/app
+    command: bash -c ./scripts/entrypoint-dev.sh
+    environment:
+      - DB_HOST
+      - DB_PORT
+      - DB_NAME
+      - DB_USER
+      - DB_PASSWORD
+      - EMAIL_BACKEND
+      - EMAIL_USER
+      - EMAIL_PASS
+      - DJANGO_SUPERUSER_USERNAME
+      - DJANGO_SUPERUSER_PASSWORD
+      - DJANGO_SUPERUSER_EMAIL
+      - SITE_NAME
+      - SITE_DOMAIN
+      - ORCID_CLIENT_ID
+      - ORCID_SECRET
+      - PYTHONUNBUFFERED=1
+    depends_on: 
+      - db
+    container_name: rnames_app
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8001:80
+    environment:
+      - PMA_HOST=${DB_HOST}
+      - PMA_USER=${DB_USER}
+      - PMA_PASSWORD=${DB_PASSWORD}
+    container_name: rnames_phpmyadmin
+
+volumes:
+  db:

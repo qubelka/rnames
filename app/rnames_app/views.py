@@ -6,8 +6,10 @@
 import csv
 # Start for matplotlib
 import io
+from django.http.response import Http404
 import matplotlib.pyplot as plt
-import urllib, base64
+import urllib
+import base64
 import mpltern
 from mpltern.ternary.datasets import get_scatter_points
 import numpy as np
@@ -26,26 +28,21 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from rest_framework.response import Response
 #from .utils.utils import YourClassOrFunction
 from rest_framework import status, generics
-from .models import (Binning
-    , Location, Name, Qualifier, QualifierName
-    , Relation, Reference, StratigraphicQualifier, StructuredName)
-from .filters import (BinningSchemeFilter
-    , LocationFilter, NameFilter, QualifierFilter
-    , QualifierNameFilter, ReferenceFilter, RelationFilter
-    , StratigraphicQualifierFilter, StructuredNameFilter)
-from .forms import (ColorfulContactForm, ContactForm, LocationForm, NameForm, QualifierForm
-    , QualifierNameForm, ReferenceForm, ReferenceRelationForm
-    , ReferenceStructuredNameForm, RelationForm, StratigraphicQualifierForm
-    , StructuredNameForm)
+from .models import (Binning, Location, Name, Qualifier, QualifierName,
+                     Relation, Reference, StratigraphicQualifier, StructuredName)
+from .filters import (BinningSchemeFilter, LocationFilter, NameFilter, QualifierFilter, QualifierNameFilter,
+                      ReferenceFilter, RelationFilter, StratigraphicQualifierFilter, StructuredNameFilter)
+from .forms import (ColorfulContactForm, ContactForm, LocationForm, NameForm, QualifierForm, QualifierNameForm, ReferenceForm,
+                    ReferenceRelationForm, ReferenceStructuredNameForm, RelationForm, StratigraphicQualifierForm, StructuredNameForm)
 from django.contrib.auth.models import User
 from .filters import UserFilter
 
 import sys
-from subprocess import run,PIPE
-#, APINameFilter
+from subprocess import run, PIPE
+# , APINameFilter
 
 
-#def name_list(request):
+# def name_list(request):
 #    names = Name.objects.is_active().order_by('name')
 #    names = Name.objects.order_by('name')
 #    return render(request, 'name_list.html', {'names': names})
@@ -53,10 +50,11 @@ from subprocess import run,PIPE
 def external(request):
 
     # Generate counts of some of the main objects
-    num_opinions=Relation.objects.is_active().count()
+    num_opinions = Relation.objects.is_active().count()
 
-    inp=request.POST.get('param','K')
-    out=run(['C:\\Users\\Localadmin_lintulaa\\Envs\\rnames\\Scripts\\python.exe','C:\\LocalData\\lintulaa\\WWW_Django\\Django_Development\\rnames\\rnames_app\\utils\\root_binning.py',inp],shell=False,stdout=PIPE)
+    inp = request.POST.get('param', 'K')
+    out = run(['C:\\Users\\Localadmin_lintulaa\\Envs\\rnames\\Scripts\\python.exe',
+              'C:\\LocalData\\lintulaa\\WWW_Django\\Django_Development\\rnames\\rnames_app\\utils\\root_binning.py', inp], shell=False, stdout=PIPE)
 #    out=run([sys.executable,'C:\\LocalData\\lintulaa\\WWW_Django\\Django_Development\\rnames\\rnames_app\\utils\\root_binning.py',inp],shell=False,stdout=PIPE)
 #    out=run([sys.executable,'C:\\LocalData\\lintulaa\\WWW_Django\\Django_Development\\rnames\\rnames_app\\utils\\utils.py',inp],shell=False,stdout=PIPE)
     print(out)
@@ -64,8 +62,9 @@ def external(request):
     return render(
         request,
         'run_binning.html',
-        context={'num_opinions':num_opinions, 'data1':out.stdout},
+        context={'num_opinions': num_opinions, 'data1': out.stdout},
     )
+
 
 def binning(request):
 
@@ -74,11 +73,12 @@ def binning(request):
         'binning.html',
     )
 
+
 def binning_scheme_list(request):
     f = BinningSchemeFilter(
-                      request.GET,
-                      queryset=Binning.objects.is_active().order_by('binning_scheme','name')
-                      )
+        request.GET,
+        queryset=Binning.objects.is_active().order_by('binning_scheme', 'name')
+    )
 
     paginator = Paginator(f.qs, 10)
 
@@ -93,7 +93,7 @@ def binning_scheme_list(request):
     return render(
         request,
         'binning_scheme_list.html',
-        {'page_obj': page_obj, 'filter': f,}
+        {'page_obj': page_obj, 'filter': f, }
     )
 
 
@@ -102,9 +102,11 @@ def export_csv_binnings(request):
     response['Content-Disposition'] = 'attachment; filename="rnames_binnings.csv"'
 
     writer = csv.writer(response)
-    writer.writerow(['binning_scheme', 'name', 'oldest', 'youngest', 'ts_count', 'refs', 'binning_date'])
+    writer.writerow(['binning_scheme', 'name', 'oldest',
+                    'youngest', 'ts_count', 'refs', 'binning_date'])
 
-    binnings = Binning.objects.is_active().values_list('binning_scheme', 'name', 'oldest', 'youngest', 'ts_count', 'refs', 'modified_on')
+    binnings = Binning.objects.is_active().values_list('binning_scheme', 'name',
+                                                       'oldest', 'youngest', 'ts_count', 'refs', 'modified_on')
     for binning in binnings:
         # Converting tuple to list
         row = list(binning)
@@ -120,14 +122,16 @@ def export_csv_binnings(request):
 
     return response
 
+
 def export_csv_references(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="rnames_references.csv"'
 
     writer = csv.writer(response, quoting=csv.QUOTE_ALL)
-    writer.writerow(['id', 'year', 'first_author', 'title', 'link',])
+    writer.writerow(['id', 'year', 'first_author', 'title', 'link', ])
 
-    references = Reference.objects.is_active().values_list('id', 'year', 'first_author', 'title', 'link')
+    references = Reference.objects.is_active().values_list(
+        'id', 'year', 'first_author', 'title', 'link')
 
     for reference in references:
         # Converting tuple to list
@@ -143,6 +147,7 @@ def export_csv_references(request):
 
     return response
 
+
 def help_database_structure(request):
     """
     View function for the database structure help page of site.
@@ -151,6 +156,7 @@ def help_database_structure(request):
         request,
         'help_database_structure.html',
     )
+
 
 def help_faq(request):
     """
@@ -161,6 +167,7 @@ def help_faq(request):
         'help_faq.html',
     )
 
+
 def help_instruction(request):
     """
     View function for the instructions page of site.
@@ -169,6 +176,7 @@ def help_instruction(request):
         request,
         'help_instruction.html',
     )
+
 
 def help_main(request):
     """
@@ -179,6 +187,7 @@ def help_main(request):
         'help.html',
     )
 
+
 def help_structure_of_binning_algorithm(request):
     """
     View function for the structure of the binning algorithm help page of site.
@@ -187,6 +196,7 @@ def help_structure_of_binning_algorithm(request):
         request,
         'help_structure_of_binning_algorithm.html',
     )
+
 
 def home(request):
     if request.method == 'POST':
@@ -197,24 +207,28 @@ def home(request):
         form = ColorfulContactForm()
     return render(request, 'home.html', {'form': form})
 
+
 def index(request):
     """
     View function for home page of site.
     """
     # Generate counts of some of the main objects
-    num_names=Name.objects.is_active().count()
-    num_opinions=Relation.objects.is_active().count()
-    num_references=Reference.objects.is_active().count()
+    num_names = Name.objects.is_active().count()
+    num_opinions = Relation.objects.is_active().count()
+    num_references = Reference.objects.is_active().count()
 
     # Render the HTML template index.html with the data in the context variable
     return render(
         request,
         'index.html',
-        context={'num_names':num_names,'num_opinions':num_opinions,'num_references':num_references, },
+        context={'num_names': num_names, 'num_opinions': num_opinions,
+                 'num_references': num_references, },
     )
 
+
 def parent(request):
-    f = StructuredNameFilter(request.GET, queryset=StructuredName.objects.is_active().select_related().order_by('name', 'qualifier', 'location'))
+    f = StructuredNameFilter(request.GET, queryset=StructuredName.objects.is_active(
+    ).select_related().order_by('name', 'qualifier', 'location'))
     paginator = Paginator(f.qs, 5)
 
     page_number = request.GET.get('page')
@@ -228,11 +242,13 @@ def parent(request):
     return render(
         request,
         'parent.html',
-        {'page_obj': page_obj, 'filter': f,}
+        {'page_obj': page_obj, 'filter': f, }
     )
 
+
 def child(request):
-    f = StructuredNameFilter(request.GET, queryset=StructuredName.objects.is_active().select_related().order_by('name', 'qualifier', 'location'))
+    f = StructuredNameFilter(request.GET, queryset=StructuredName.objects.is_active(
+    ).select_related().order_by('name', 'qualifier', 'location'))
     paginator = Paginator(f.qs, 5)
 
     page_number = request.GET.get('page')
@@ -246,16 +262,19 @@ def child(request):
     return render(
         request,
         'child.html',
-        {'page_obj': page_obj, 'filter': f,}
+        {'page_obj': page_obj, 'filter': f, }
     )
+
 
 class location_delete(DeleteView):
     model = Location
     success_url = reverse_lazy('location-list')
 
+
 def location_detail(request, pk):
     location = get_object_or_404(Location, pk=pk, is_active=1)
     return render(request, 'location_detail.html', {'location': location})
+
 
 @login_required
 def location_edit(request, pk):
@@ -270,8 +289,10 @@ def location_edit(request, pk):
         form = LocationForm(instance=location)
     return render(request, 'location_edit.html', {'form': form})
 
+
 def location_list(request):
-    f = LocationFilter(request.GET, queryset=Location.objects.is_active().order_by('name'))
+    f = LocationFilter(
+        request.GET, queryset=Location.objects.is_active().order_by('name'))
 
     paginator = Paginator(f.qs, 10)
 
@@ -286,8 +307,9 @@ def location_list(request):
     return render(
         request,
         'location_list.html',
-        {'page_obj': page_obj, 'filter': f,}
+        {'page_obj': page_obj, 'filter': f, }
     )
+
 
 @login_required
 def location_new(request):
@@ -303,13 +325,16 @@ def location_new(request):
         form = LocationForm()
     return render(request, 'location_edit.html', {'form': form})
 
+
 class name_delete(DeleteView):
     model = Name
     success_url = reverse_lazy('name-list')
 
+
 def name_detail(request, pk):
     name = get_object_or_404(Name, pk=pk, is_active=1)
     return render(request, 'name_detail.html', {'name': name})
+
 
 @login_required
 def name_edit(request, pk):
@@ -324,11 +349,12 @@ def name_edit(request, pk):
         form = NameForm(instance=name)
     return render(request, 'name_edit.html', {'form': form})
 
+
 def name_list(request):
     f = NameFilter(
-                      request.GET,
-                      queryset=Name.objects.is_active().order_by('name')
-                      )
+        request.GET,
+        queryset=Name.objects.is_active().order_by('name')
+    )
 
     paginator = Paginator(f.qs, 10)
 
@@ -343,8 +369,9 @@ def name_list(request):
     return render(
         request,
         'name_list.html',
-        {'page_obj': page_obj, 'filter': f,}
+        {'page_obj': page_obj, 'filter': f, }
     )
+
 
 @login_required
 def name_new(request):
@@ -360,16 +387,20 @@ def name_new(request):
         form = NameForm()
     return render(request, 'name_edit.html', {'form': form})
 
+
 class qualifier_delete(DeleteView):
     model = Qualifier
     success_url = reverse_lazy('qualifier-list')
+
 
 def qualifier_detail(request, pk):
     qualifier = get_object_or_404(Qualifier, pk=pk, is_active=1)
     return render(request, 'qualifier_detail.html', {'qualifier': qualifier})
 
+
 def qualifier_list(request):
-    f = QualifierFilter(request.GET, queryset=Qualifier.objects.is_active().select_related().order_by('stratigraphic_qualifier', 'level', 'qualifier_name',))
+    f = QualifierFilter(request.GET, queryset=Qualifier.objects.is_active(
+    ).select_related().order_by('stratigraphic_qualifier', 'level', 'qualifier_name',))
     paginator = Paginator(f.qs, 10)
 
     page_number = request.GET.get('page')
@@ -383,8 +414,9 @@ def qualifier_list(request):
     return render(
         request,
         'qualifier_list.html',
-        {'page_obj': page_obj, 'filter': f,}
+        {'page_obj': page_obj, 'filter': f, }
     )
+
 
 @login_required
 def qualifier_new(request):
@@ -397,6 +429,7 @@ def qualifier_new(request):
     else:
         form = QualifierForm()
     return render(request, 'qualifier_edit.html', {'form': form})
+
 
 @login_required
 def qualifier_edit(request, pk):
@@ -411,13 +444,16 @@ def qualifier_edit(request, pk):
         form = QualifierForm(instance=qualifier)
     return render(request, 'qualifier_edit.html', {'form': form})
 
+
 class qualifiername_delete(DeleteView):
     model = QualifierName
     success_url = reverse_lazy('qualifiername-list')
 
+
 def qualifiername_detail(request, pk):
     qualifiername = get_object_or_404(QualifierName, pk=pk, is_active=1)
     return render(request, 'qualifiername_detail.html', {'qualifiername': qualifiername})
+
 
 @login_required
 def qualifiername_edit(request, pk):
@@ -432,11 +468,12 @@ def qualifiername_edit(request, pk):
         form = QualifierNameForm(instance=qualifiername)
     return render(request, 'qualifiername_edit.html', {'form': form})
 
+
 def qualifiername_list(request):
     f = QualifierNameFilter(
-                      request.GET,
-                      queryset=QualifierName.objects.is_active().order_by('name')
-                      )
+        request.GET,
+        queryset=QualifierName.objects.is_active().order_by('name')
+    )
 
     paginator = Paginator(f.qs, 10)
 
@@ -451,8 +488,9 @@ def qualifiername_list(request):
     return render(
         request,
         'qualifiername_list.html',
-        {'page_obj': page_obj, 'filter': f,}
+        {'page_obj': page_obj, 'filter': f, }
     )
+
 
 @login_required
 def qualifiername_new(request):
@@ -466,39 +504,26 @@ def qualifiername_new(request):
         form = QualifierNameForm()
     return render(request, 'qualifiername_edit.html', {'form': form})
 
+
 class reference_delete(DeleteView):
     model = Reference
     success_url = reverse_lazy('reference-list')
 
+
 def reference_detail(request, pk):
     reference = get_object_or_404(Reference, pk=pk, is_active=1)
-    qs1=(Relation.objects.is_active().filter(reference=reference).select_related()
-        .values('name_one__id'
-        , 'name_one__name__name'
-        , 'name_one__qualifier__qualifier_name__name'
-        , 'name_one__location__name'
-        , 'name_one__qualifier__stratigraphic_qualifier__name')
-        .distinct().order_by('name_one__id'
-        , 'name_one__name__name'
-        , 'name_one__qualifier__qualifier_name__name'
-        , 'name_one__location__name'
-        , 'name_one__qualifier__stratigraphic_qualifier__name'))
-    qs2=(Relation.objects.is_active().filter(reference=reference).select_related()
-        .values('name_two__id'
-        , 'name_two__name__name'
-        , 'name_two__qualifier__qualifier_name__name'
-        , 'name_two__location__name'
-        , 'name_two__qualifier__stratigraphic_qualifier__name')
-        .distinct().order_by('name_two__id'
-        , 'name_two__name__name'
-        , 'name_two__qualifier__qualifier_name__name'
-        , 'name_two__location__name'
-        , 'name_two__qualifier__stratigraphic_qualifier__name'))
-    sn_list= qs1.union(qs2)
+    qs1 = (Relation.objects.is_active().filter(reference=reference).select_related()
+           .values('name_one__id', 'name_one__name__name', 'name_one__qualifier__qualifier_name__name', 'name_one__location__name', 'name_one__qualifier__stratigraphic_qualifier__name')
+           .distinct().order_by('name_one__id', 'name_one__name__name', 'name_one__qualifier__qualifier_name__name', 'name_one__location__name', 'name_one__qualifier__stratigraphic_qualifier__name'))
+    qs2 = (Relation.objects.is_active().filter(reference=reference).select_related()
+           .values('name_two__id', 'name_two__name__name', 'name_two__qualifier__qualifier_name__name', 'name_two__location__name', 'name_two__qualifier__stratigraphic_qualifier__name')
+           .distinct().order_by('name_two__id', 'name_two__name__name', 'name_two__qualifier__qualifier_name__name', 'name_two__location__name', 'name_two__qualifier__stratigraphic_qualifier__name'))
+    sn_list = qs1.union(qs2)
     f = RelationFilter(
-                  request.GET,
-                  queryset=Relation.objects.is_active().select_related().filter(reference__id=pk).order_by('name_one')
-                  )
+        request.GET,
+        queryset=Relation.objects.is_active().select_related().filter(
+            reference__id=pk).order_by('name_one')
+    )
 
     paginator = Paginator(f.qs, 5)
 
@@ -510,7 +535,8 @@ def reference_detail(request, pk):
     except EmptyPage:
         page_obj = paginator.page(paginator.num_pages)
 
-    return render(request, 'reference_detail.html', {'reference': reference, 'page_obj': page_obj, 'filter': f,'sn_list': sn_list, })
+    return render(request, 'reference_detail.html', {'reference': reference, 'page_obj': page_obj, 'filter': f, 'sn_list': sn_list, })
+
 
 @login_required
 def reference_edit(request, pk):
@@ -529,17 +555,22 @@ def reference_edit(request, pk):
 # for example if you want to paginate them, you can do that.
 # They are in f.qs
 # view function
+
+
 def reference_list_old(request):
-    f = ReferenceFilter(request.GET, queryset=Reference.objects.is_active().order_by('title'))
-    paginator = Paginator(f.qs, 10) # Show 10 References per page.
+    f = ReferenceFilter(
+        request.GET, queryset=Reference.objects.is_active().order_by('title'))
+    paginator = Paginator(f.qs, 10)  # Show 10 References per page.
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'reference_list.html', {'filter': f}, {'page_obj': page_obj})
 #    return render(request, 'reference_list.html', {'filter': page_obj})
 #    return render(request, 'reference_list.html', {'filter': f})
 
+
 def reference_list(request):
-    f = ReferenceFilter(request.GET, queryset=Reference.objects.is_active().order_by('title'))
+    f = ReferenceFilter(
+        request.GET, queryset=Reference.objects.is_active().order_by('title'))
     paginator = Paginator(f.qs, 10)
 
     page_number = request.GET.get('page')
@@ -553,8 +584,9 @@ def reference_list(request):
     return render(
         request,
         'reference_list.html',
-        {'page_obj': page_obj, 'filter': f,}
+        {'page_obj': page_obj, 'filter': f, }
     )
+
 
 @login_required
 def reference_new(request):
@@ -568,8 +600,10 @@ def reference_new(request):
         form = ReferenceForm()
     return render(request, 'reference_edit.html', {'form': form})
 
+
 class old_reference_relation_delete(DeleteView):
     model = Relation
+
     def get_object(self, queryset=None):
         obj = super(reference_relation_delete, self).get_object()
         if not obj.reference:
@@ -577,12 +611,16 @@ class old_reference_relation_delete(DeleteView):
         return obj
     success_url = reverse_lazy('reference-detail')
 
+
 def reference_structured_name_detail(request, pk, reference):
     structuredname = get_object_or_404(StructuredName, pk=pk, is_active=1)
     reference = get_object_or_404(Reference, pk=reference, is_active=1)
-    current_relations=Relation.objects.is_active().filter(name_one=structuredname).filter(reference=reference).exclude(name_two=structuredname).select_related().order_by('name_one')
-    current_name_two_ids = current_relations.values_list('name_two__id', flat=True)
-    available_relations=Relation.objects.is_active().filter(reference=reference).exclude(name_one__id__in=current_name_two_ids).exclude(name_two__id__in=current_name_two_ids).select_related().values('name_two', 'name_two__name__name', 'name_two__qualifier__qualifier_name__name', 'name_two__qualifier__stratigraphic_qualifier__name', 'name_two__location__name', 'name_two__reference',).distinct().order_by('name_two__name__name')
+    current_relations = Relation.objects.is_active().filter(name_one=structuredname).filter(
+        reference=reference).exclude(name_two=structuredname).select_related().order_by('name_one')
+    current_name_two_ids = current_relations.values_list(
+        'name_two__id', flat=True)
+    available_relations = Relation.objects.is_active().filter(reference=reference).exclude(name_one__id__in=current_name_two_ids).exclude(name_two__id__in=current_name_two_ids).select_related().values('name_two',
+                                                                                                                                                                                                         'name_two__name__name', 'name_two__qualifier__qualifier_name__name', 'name_two__qualifier__stratigraphic_qualifier__name', 'name_two__location__name', 'name_two__reference',).distinct().order_by('name_two__name__name')
     f = StructuredNameFilter(request.GET, queryset=available_relations)
     paginator = Paginator(f.qs, 5)
 
@@ -594,9 +632,10 @@ def reference_structured_name_detail(request, pk, reference):
     except EmptyPage:
         page_obj = paginator.page(paginator.num_pages)
 
-    return render(request, 'reference_structured_name_detail.html', {'structuredname': structuredname, 'reference': reference, 'current_relations': current_relations, 'available_relations': available_relations, 'page_obj': page_obj, 'filter': f,})
+    return render(request, 'reference_structured_name_detail.html', {'structuredname': structuredname, 'reference': reference, 'current_relations': current_relations, 'available_relations': available_relations, 'page_obj': page_obj, 'filter': f, })
 
 #    f = StructuredNameFilter(request.GET, queryset=StructuredName.objects.is_active().select_related().order_by('name', 'qualifier', 'location'))
+
 
 @login_required
 def reference_structured_name_new(request, reference):
@@ -606,7 +645,8 @@ def reference_structured_name_new(request, reference):
         form = ReferenceStructuredNameForm(request.POST)
         if form.is_valid():
             name_id = request.POST.get('name_id', 1)
-            name_one = get_object_or_404(StructuredName, pk=name_id, is_active=1)
+            name_one = get_object_or_404(
+                StructuredName, pk=name_id, is_active=1)
             relation = form.save(commit=False)
             relation.reference = reference
             relation.name_one = name_one
@@ -622,14 +662,17 @@ def reference_structured_name_new(request, reference):
     return render(request, 'reference_sturctured_name_edit.html', {'reference': reference, 'form': form})
 
 # https://stackoverflow.com/questions/52065046/django-deleteview-pass-argument-from-foreignkeys-model-to-get-success-url
+
+
 class reference_relation_delete(DeleteView):
     model = Relation
+
     def get_success_url(self):
         reference = self.object.reference
         return reverse_lazy('reference-detail', kwargs={'pk': reference.pk})
 
-#@login_required
-#def reference_relation_new(request, reference):
+# @login_required
+# def reference_relation_new(request, reference):
 #    reference = get_object_or_404(Reference, pk=reference, is_active=1)
 #    if request.method == "POST":
 #        form = ReferenceRelationForm(request.POST)
@@ -642,33 +685,32 @@ class reference_relation_delete(DeleteView):
 #        form = ReferenceRelationForm()
 #    return render(request, 'relation_edit.html', {'form': form})
 
+
 @login_required
 def reference_relation_new(request, name_one, reference):
 
     name_one = get_object_or_404(StructuredName, pk=name_one, is_active=1)
     reference = get_object_or_404(Reference, pk=reference, is_active=1)
-    current_relations=Relation.objects.is_active().filter(name_one=name_one).filter(reference=reference).exclude(name_two=name_one).select_related().order_by('name_one')
-    current_name_two_ids = current_relations.values_list('name_two__id', flat=True)
-    available_relations=(Relation.objects.is_active()
-        .filter(reference=reference)
-        .exclude(name_one=name_one)
-        .exclude(name_two=name_one)
-        .exclude(name_one__id__in=current_name_two_ids)
-        .exclude(name_two__id__in=current_name_two_ids)
-        .select_related()
-        .values('name_two', 'name_two__name__name'
-            , 'name_two__qualifier__qualifier_name__name'
-            , 'name_two__qualifier__stratigraphic_qualifier__name'
-            , 'name_two__location__name'
-            , 'name_two__reference__first_author'
-            , 'name_two__reference__year',)
-        .distinct().order_by('name_two__name__name'))
+    current_relations = Relation.objects.is_active().filter(name_one=name_one).filter(
+        reference=reference).exclude(name_two=name_one).select_related().order_by('name_one')
+    current_name_two_ids = current_relations.values_list(
+        'name_two__id', flat=True)
+    available_relations = (Relation.objects.is_active()
+                           .filter(reference=reference)
+                           .exclude(name_one=name_one)
+                           .exclude(name_two=name_one)
+                           .exclude(name_one__id__in=current_name_two_ids)
+                           .exclude(name_two__id__in=current_name_two_ids)
+                           .select_related()
+                           .values('name_two', 'name_two__name__name', 'name_two__qualifier__qualifier_name__name', 'name_two__qualifier__stratigraphic_qualifier__name', 'name_two__location__name', 'name_two__reference__first_author', 'name_two__reference__year',)
+                           .distinct().order_by('name_two__name__name'))
 
     if request.method == "POST":
         form = ReferenceRelationForm(request.POST)
         if form.is_valid():
             name_id = request.POST.get('name_id', 1)
-            name_two = get_object_or_404(StructuredName, pk=name_id, is_active=1)
+            name_two = get_object_or_404(
+                StructuredName, pk=name_id, is_active=1)
             relation = form.save(commit=False)
             relation.reference = reference
             relation.name_one = name_one
@@ -682,13 +724,16 @@ def reference_relation_new(request, name_one, reference):
         form = ReferenceRelationForm()
     return render(request, 'reference_relation_edit.html', {'name_one': name_one, 'reference': reference, 'current_relations': current_relations, 'available_relations': available_relations, 'form': form},)
 
+
 class relation_delete(DeleteView):
     model = Relation
     success_url = reverse_lazy('relation-list')
 
+
 def relation_detail(request, pk):
     relation = get_object_or_404(Relation, pk=pk, is_active=1)
     return render(request, 'relation_detail.html', {'relation': relation})
+
 
 def relation_sql_detail(request, name_one, name_two):
 
@@ -722,6 +767,7 @@ def relation_sql_detail(request, name_one, name_two):
 
     return render(request, 'relation_sql_detail.html', {'relation': relation, 'references': references})
 
+
 @login_required
 def relation_edit(request, pk):
     relation = get_object_or_404(Relation, pk=pk, is_active=1)
@@ -737,11 +783,13 @@ def relation_edit(request, pk):
 
 # https://docs.djangoproject.com/en/3.0/topics/pagination/
 # https://django-filter.readthedocs.io/en/master/guide/usage.html
+
+
 def relation_list(request):
     f = RelationFilter(
-                      request.GET,
-                      queryset=Relation.objects.is_active().select_related().order_by('name_one')
-                      )
+        request.GET,
+        queryset=Relation.objects.is_active().select_related().order_by('name_one')
+    )
 
     paginator = Paginator(f.qs, 10)
 
@@ -756,8 +804,9 @@ def relation_list(request):
     return render(
         request,
         'relation_list.html',
-        {'page_obj': page_obj, 'filter': f,}
+        {'page_obj': page_obj, 'filter': f, }
     )
+
 
 @login_required
 def relation_new(request, reference_id):
@@ -771,8 +820,10 @@ def relation_new(request, reference_id):
         form = RelationForm()
     return render(request, 'relation_edit.html', {'form': form})
 
+
 def rnames_detail(request):
     return render(request, 'rnames_detail.html', )
+
 
 @login_required
 def run_binning(request):
@@ -780,28 +831,34 @@ def run_binning(request):
     View function for the run binning operation.
     """
     # Generate counts of some of the main objects
-    num_opinions=Relation.objects.is_active().count()
+    num_opinions = Relation.objects.is_active().count()
 
     # Render the HTML template index.html with the data in the context variable
     return render(
         request,
         'run_binning.html',
-        context={'num_opinions':num_opinions,},
+        context={'num_opinions': num_opinions, },
     )
+
 
 class stratigraphic_qualifier_delete(DeleteView):
     model = StratigraphicQualifier
     success_url = reverse_lazy('stratigraphic-qualifier-list')
 
+
 def stratigraphic_qualifier_detail(request, pk):
-    stratigraphicqualifier = get_object_or_404(StratigraphicQualifier, pk=pk, is_active=1)
+    stratigraphicqualifier = get_object_or_404(
+        StratigraphicQualifier, pk=pk, is_active=1)
     return render(request, 'stratigraphic_qualifier_detail.html', {'stratigraphicqualifier': stratigraphicqualifier})
+
 
 @login_required
 def stratigraphic_qualifier_edit(request, pk):
-    stratigraphicqualifier = get_object_or_404(StratigraphicQualifier, pk=pk, is_active=1)
+    stratigraphicqualifier = get_object_or_404(
+        StratigraphicQualifier, pk=pk, is_active=1)
     if request.method == "POST":
-        form = StratigraphicQualifierForm(request.POST, instance=stratigraphicqualifier)
+        form = StratigraphicQualifierForm(
+            request.POST, instance=stratigraphicqualifier)
         if form.is_valid():
             stratigraphicqualifier = form.save(commit=False)
             stratigraphicqualifier.save()
@@ -810,11 +867,12 @@ def stratigraphic_qualifier_edit(request, pk):
         form = StratigraphicQualifierForm(instance=stratigraphicqualifier)
     return render(request, 'stratigraphic_qualifier_edit.html', {'form': form})
 
+
 def stratigraphic_qualifier_list(request):
     f = StratigraphicQualifierFilter(
-                      request.GET,
-                      queryset=StratigraphicQualifier.objects.is_active().order_by('name')
-                      )
+        request.GET,
+        queryset=StratigraphicQualifier.objects.is_active().order_by('name')
+    )
 
     paginator = Paginator(f.qs, 10)
 
@@ -829,8 +887,9 @@ def stratigraphic_qualifier_list(request):
     return render(
         request,
         'stratigraphic_qualifier_list.html',
-        {'page_obj': page_obj, 'filter': f,}
+        {'page_obj': page_obj, 'filter': f, }
     )
+
 
 @login_required
 def stratigraphic_qualifier_new(request):
@@ -844,9 +903,11 @@ def stratigraphic_qualifier_new(request):
         form = StratigraphicQualifierForm()
     return render(request, 'stratigraphic_qualifier_edit.html', {'form': form})
 
+
 class structuredname_delete(DeleteView):
     model = StructuredName
     success_url = reverse_lazy('structuredname-list')
+
 
 def dictfetchall(cursor):
     "Return all rows from a cursor as a dict"
@@ -856,11 +917,12 @@ def dictfetchall(cursor):
         for row in cursor.fetchall()
     ]
 
+
 def structuredname_detail(request, pk):
     structuredname = get_object_or_404(StructuredName, pk=pk, is_active=1)
 
     with connection.cursor() as cursor:
-#        cursor.execute("SELECT foo FROM bar WHERE baz = %s", [master_entity.id])
+        #        cursor.execute("SELECT foo FROM bar WHERE baz = %s", [master_entity.id])
         cursor.execute("""
 			select r.belongs_to
 			--	, n1.name name_one
@@ -945,10 +1007,12 @@ def structuredname_detail(request, pk):
 			order by 5 desc,4,2""", [structuredname.id, structuredname.id, structuredname.id, structuredname.id])
 
         current_relations = dictfetchall(cursor)
-    return render(request, 'structuredname_detail.html', {'structuredname': structuredname, 'current_relations': current_relations,})
+    return render(request, 'structuredname_detail.html', {'structuredname': structuredname, 'current_relations': current_relations, })
+
 
 def structuredname_list(request):
-    f = StructuredNameFilter(request.GET, queryset=StructuredName.objects.is_active().select_related().order_by('name', 'qualifier', 'location'))
+    f = StructuredNameFilter(request.GET, queryset=StructuredName.objects.is_active(
+    ).select_related().order_by('name', 'qualifier', 'location'))
     paginator = Paginator(f.qs, 10)
 
     page_number = request.GET.get('page')
@@ -962,8 +1026,9 @@ def structuredname_list(request):
     return render(
         request,
         'structuredname_list.html',
-        {'page_obj': page_obj, 'filter': f,}
+        {'page_obj': page_obj, 'filter': f, }
     )
+
 
 @login_required
 def structuredname_new(request):
@@ -976,6 +1041,7 @@ def structuredname_new(request):
     else:
         form = StructuredNameForm()
     return render(request, 'structuredname_edit.html', {'form': form})
+
 
 @login_required
 def structuredname_edit(request, pk):
@@ -990,20 +1056,22 @@ def structuredname_edit(request, pk):
         form = StructuredNameForm(instance=structuredname)
     return render(request, 'structuredname_edit.html', {'form': form})
 
+
 def structuredname_select(request):
-#def reference_detail(request, pk):
-#    reference = get_object_or_404(Reference, pk=pk, is_active=1)
+    # def reference_detail(request, pk):
+    #    reference = get_object_or_404(Reference, pk=pk, is_active=1)
 
-#    qs1=(Relation.objects.is_active().filter(reference=reference).select_related()
-#        .values('name_one__id')
-#        .distinct().order_by('name_one__id'))
-#    qs2=(Relation.objects.is_active().filter(reference=reference).select_related()
-#        .values('name_two__id')
-#        .distinct().order_by('name_two__id'))
-#    sn_list= qs1.union(qs2)
+    #    qs1=(Relation.objects.is_active().filter(reference=reference).select_related()
+    #        .values('name_one__id')
+    #        .distinct().order_by('name_one__id'))
+    #    qs2=(Relation.objects.is_active().filter(reference=reference).select_related()
+    #        .values('name_two__id')
+    #        .distinct().order_by('name_two__id'))
+    #    sn_list= qs1.union(qs2)
 
-#    f = StructuredNameFilter(request.GET, queryset=StructuredName.objects.is_active().exclude(id__in=sn_list).select_related().order_by('name', 'qualifier', 'location'))
-    f = StructuredNameFilter(request.GET, queryset=StructuredName.objects.is_active().select_related().order_by('name', 'qualifier', 'location'))
+    #    f = StructuredNameFilter(request.GET, queryset=StructuredName.objects.is_active().exclude(id__in=sn_list).select_related().order_by('name', 'qualifier', 'location'))
+    f = StructuredNameFilter(request.GET, queryset=StructuredName.objects.is_active(
+    ).select_related().order_by('name', 'qualifier', 'location'))
 
     paginator = Paginator(f.qs, 5)
 
@@ -1018,8 +1086,9 @@ def structuredname_select(request):
     return render(
         request,
         'select_structured_name.html',
-        {'page_obj': page_obj, 'filter': f,}
+        {'page_obj': page_obj, 'filter': f, }
     )
+
 
 def user_search(request):
     user_list = User.objects.all()
