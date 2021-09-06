@@ -18,8 +18,11 @@ from pathlib import Path
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-with open(os.path.join(BASE_DIR, 'config.json')) as config_file:
-    config = json.load(config_file)
+try:
+    with open(os.path.join(BASE_DIR, 'config.json')) as config_file:
+        config = json.load(config_file)
+except IOError:
+    config = {}
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/

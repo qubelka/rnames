@@ -1,23 +1,32 @@
 version: '3.8'
 
 services:
+
   web:
     build: ./app
     ports:
       - 8000:8000
     volumes:
-      - ./app:/src/app
-    env_file:
+      - static:/vol/web
+    env_file: 
       - ./.env
     depends_on: 
       - db
-    container_name: rnames_web
+    container_name: rnames_web_prod
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    volumes:
+      - static:/vol/web
+    depends_on:
+      - web
+    container_name: rnames_nginx_prod
 
   db:
     image: mariadb
     restart: always
-    ports: 
-      - ${DB_PORT}:3306
     environment:
       - MYSQL_DATABASE=${DB_NAME}
       - MYSQL_USER=${DB_USER}
@@ -27,18 +36,17 @@ services:
       - "--character-set-server=utf8mb4"
     volumes:
       - db:/var/lib/mysql
-    container_name: rnames_db
+    container_name: rnames_db_prod
 
   phpmyadmin:
     image: phpmyadmin
     restart: always
-    ports:
+    ports: 
       - 8001:80
     environment:
-      - PMA_HOST=${DB_HOST}
-      - PMA_USER=${DB_USER}
-      - PMA_PASSWORD=${DB_PASSWORD}
-    container_name: rnames_phpmyadmin
+      - PMA_HOST=db
+    container_name: rnames_phpmyadmin_prod
 
 volumes:
+  static:
   db:
