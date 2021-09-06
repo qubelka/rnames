@@ -9,11 +9,7 @@ First, you need to have Docker and Docker Compose installed on your system.
 
 ## Environment variables
 
-Create a `.env` file to the root of the repository and write needed environment variables to it. 
-
-[Example .env](./.env.example)
-
-[Environment variable docs](./environment_variables.md)
+Create a `.env` file in the root of the repository and write needed environment variables to it. You can take the [Example .env](./.env.example) and fill in couple of the variables according to the [Environment variable docs](./environment_variables.md).
 
 ## Running the environment
 
@@ -21,9 +17,11 @@ To start the environment, you have to run this command in the root the repositor
 ```
 docker-compose up -d --build
 ```
-Now if you go to [localhost:8000](localhost:8000), you should see the RNames app running. You can also go to [localhost:8001](localhost:8001) to see or modify the created database. 
+Now if you go to [localhost:8000](localhost:8000), you should see the RNames app running. You can also go to [localhost:8001](localhost:8001) to see or modify the created database. If the website doesn't show up, check the logs. Most likely the service just hasn't started yet. 
 
-To see logs you can run this command. You can also specify a container if you only want to see specific logs `docker-compose logs <container> -f`. 
+You can make changes to the django app in real time when the containers are running. The [App](./../app) directory has been binded to the rnames_web container so that all the changes to the host machine's [App](./../app) directory are also made in the container. 
+
+To see logs you can run this command. You can also specify a container if you only want to see specific logs `docker-compose logs -f <container>`. 
 ```
 docker-compose logs -f
 ```
