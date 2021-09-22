@@ -5,7 +5,7 @@ Created on Feb 27, 2019
 '''
 import pandas as pd
 import numpy as np
-csv_folder = "app\\rnames_app\\utils\\csv\\"
+csv_folder = 'rnames_app/utils/csv/'
 
 rassm_ts = pd.read_csv(csv_folder+"binning_rass.csv", header=None)
 cnr = np.arange(0,len(rassm_ts),1)
