@@ -22,5 +22,6 @@ urlpatterns = [
     path('', include('rnames_app.api.urls')),
     path('accounts/', include('allauth.urls')),
     path('select2/', include('django_select2.urls')),
+    path('wizard/', include('frontend.urls'))
     #    path('', include('catalog.urls')),
 ]
