@@ -9,7 +9,7 @@ const Dropdown = ({name, options, value, onChange}) => {
 	return(
 		<select name= {name} onChange={onChange} value={value}>
 			<option></option>
-			{ Object.keys(options).map(k => <option key={k} value={k}>{options[k]}</option> )}
+			{ options.map(tuple => <option key={tuple[0]} value={tuple[0]}>{tuple[1]}</option> )}
 		</select>
 	)
 }
@@ -36,30 +36,36 @@ const NameEntry = ({id, data}) => {
 		}))
 	}
 
-	const qualifierOptions = {
-		bio: `Biostratigraphy`,
-		chemo: `Chemostratigraphy`,
-		chrono: `Chronostratigraphy`,
-		litho:`Lithostratigraphy`,
-		region: `Regional Standard`,
-		seq: `Sequence-stratigraphy`
-	}
+	const qualifierOptions = [
+		[`bio`, `Biostratigraphy`],
+		[`chemo`, `Chemostratigraphy`],
+		[`chrono`, `Chronostratigraphy`],
+		[`litho`,`Lithostratigraphy`],
+		[`region`, `Regional Standard`],
+		[`seq`, `Sequence-stratigraphy`]
+	]
 
-	const levelOptions = {
-		1: `1`,
-		2: `2`,
-		3: `3`,
-		4: `4`,
-		5: `5`,
-		6: `6`,
-		7: `7`
-	}
+	const levelOptions = [
+		[1, `1`],
+		[2, `2`],
+		[3, `3`],
+		[4, `4`],
+		[5, `5`],
+		[6, `6`],
+		[7, `7`]
+	]
+
+	const variantOptions = [
+		[`name`, `Name`],
+		[`location`, `Location`],
+		[`qualifier`, `Qualifier`]
+	]
 
 	return (
 		<div>
 			<input type="text" name="name" value={name.name} onChange={e => update(e, `name`)} />
 			<label htmlFor="variant">Type:</label>
-			<Dropdown name="variant" onChange={e => updatevariant(e.target.value)} options={{ name: `Name`, loc: `Location`, qual: `Qualifier` }} value={name.variant} />
+			<Dropdown name="variant" onChange={e => updatevariant(e.target.value)} options={variantOptions} value={name.variant} />
 			{ name.variant === `qual`
 				?<>
 				<label htmlFor="qualifier">Qualifier Name:</label>
@@ -160,18 +166,15 @@ const Sname = ({data}) => {
 	const refData = useSelector(v => v.ref)
 	const refs = refData.reduce((p, c) => p.concat(...c.names.map(v => {return {...v, refId: c.id}})), [])
 	const names = refs.filter(v => v.variant === `name`)
-	const qualifiers = refs.filter(v => v.variant === `qual`)
-	const locs = refs.filter(v => v.variant === `loc`)
+	const qualifiers = refs.filter(v => v.variant === `qualifier`)
+	const locs = refs.filter(v => v.variant === `location`)
 
 
-	const nameOptions = {}
-	names.forEach(v => { nameOptions[v.id] = v.name })
+	const nameOptions = names.map(v => [v.id, v.name])
 
-	const qualifierOptions = {}
-	qualifiers.forEach(v => {qualifierOptions[v.id] = `${v.name} (${v.qualifier}) level ${v.level} `})
+	const qualifierOptions = qualifiers.map(v => [v.id, `${v.name} (${v.qualifier}) level ${v.level} `])
 
-	const locationOptions = {}
-	locs.forEach(v => { locationOptions[v.id] = v.name })
+	const locationOptions = locs.map(v => [v.id, v.name])
 
 	const update = ({target}, field) => {
 		const r = {...data}
@@ -181,8 +184,7 @@ const Sname = ({data}) => {
 		dispatch(updateSname(r))
 	}
 
-	const refOptions = {}
-	refData.forEach(v => refOptions[v.id] = v.title)
+	const refOptions = refData.map(v => [v.id, v.title])
 
 	return (<div>
 		<label htmlFor="name">Name</label>
@@ -200,8 +202,7 @@ const Rel = ({data}) => {
 	const dispatch = useDispatch()
 	const state = useSelector(v => v)
 
-	const refOptions = {}
-	state.ref.forEach(v => refOptions[v.id] = v.title)
+	const refOptions = state.ref.map(v => [v.id, v.title])
 
 	const update = ({target}, field) => {
 		const r = {...data}
@@ -217,17 +218,8 @@ const Rel = ({data}) => {
 	const formatSnameOption = v =>
 		`${findId(state, v.name) ? findId(state, v.name).name : `` } ${findId(state, v.qualifier) ? findId(state, v.qualifier).name : `` } ${findId(state, v.location) ? findId(state, v.location).name : ``}`
 
-	const name1Options = {}
-	state.sname.forEach(v => {
-		if (v.id !== data.name2)
-			name1Options[v.id] = formatSnameOption(v)
-	})
-
-	const name2Options = {}
-	state.sname.forEach(v => {
-		if (v.id !== data.name1)
-			name2Options[v.id] = formatSnameOption(v)
-	})
+	const name1Options = state.sname.filter(v => v.id !== data.name2).map(v => [v.id, formatSnameOption(v)])
+	const name2Options = state.sname.filter(v => v.id !== data.name1).map(v => [v.id, formatSnameOption(v)])
 
 	return (<div>
 		<Dropdown options={name1Options} value={data.name1} onChange={e => update(e, `name1`)} />
