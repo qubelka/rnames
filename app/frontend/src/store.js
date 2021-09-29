@@ -120,7 +120,7 @@ export const parseId = id => {
 export const getId = (ty, value) => {
 	const id = value === undefined ? store.getState().id : Number(value)
 	if (!idTypes.includes(ty))
-		throw new Error(`Id type must not be undefined`)
+		throw new Error(`Id type must not be one of allowed types, was "${ty}"`)
 
 	store.dispatch({
 		type: `INCREMENT`,
