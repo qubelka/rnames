@@ -66,7 +66,7 @@ const NameEntry = ({id, data}) => {
 			<input type="text" name="name" value={name.name} onChange={e => update(e, `name`)} />
 			<label htmlFor="variant">Type:</label>
 			<Dropdown name="variant" onChange={e => updatevariant(e.target.value)} options={variantOptions} value={name.variant} />
-			{ name.variant === `qual`
+			{ name.variant === `qualifier`
 				?<>
 				<label htmlFor="qualifier">Qualifier Name:</label>
 				<Dropdown name="qualifier" onChange={e => update(e, `qualifier`)} options={qualifierOptions} value={name.qualifier} />
