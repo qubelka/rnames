@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 
-import store, {addRef, updateRef, getId, parseId, addSname, updateSname, addRel, updateRel} from './store.js'
+import store, {addRef, updateRef, makeId, parseId, addSname, updateSname, addRel, updateRel} from './store.js'
 
 const Dropdown = ({name, options, value, onChange}) => {
 	return(
@@ -29,7 +29,7 @@ const NameEntry = ({id, data}) => {
 
 	const updatevariant = newVariant => {
 		const value = parseId(id).value
-		const temp = {...name, id: getId(newVariant, value), variant: newVariant}
+		const temp = {...name, id: makeId(newVariant, value), variant: newVariant}
 		dispatch(updateRef({
 			...data,
 			names: data.names.map(v => v.id === id ? temp : v)
@@ -83,7 +83,7 @@ const NameList = ({data}) => {
 	const addNew = e => {
 		dispatch(updateRef({
 			...data,
-			names: data.names.concat({id: getId(`name`), name: ``, variant: `name`, qualifier: `bio`, level: 1})
+			names: data.names.concat({id: makeId(`name`), name: ``, variant: `name`, qualifier: `bio`, level: 1})
 		}))
 	}
 
@@ -229,9 +229,9 @@ const Rel = ({data}) => {
 	</div>)
 }
 
-const blankRef = () => { return {id: getId(`reference`), author: ``, year: 0, title: ``, doi: ``, link: ``, exists: false, queried: false, names: []}}
-const blankSname = () => { return {id: getId(`structured_name`), name: -1, qualifier: -1, location: -1, ref: -1, remarks:`` }}
-const blankRel = () => { return {id: getId(`relation`), name1: -1, name2: -1, ref: -1} }
+const blankRef = () => { return {id: makeId(`reference`), author: ``, year: 0, title: ``, doi: ``, link: ``, exists: false, queried: false, names: []}}
+const blankSname = () => { return {id: makeId(`structured_name`), name: -1, qualifier: -1, location: -1, ref: -1, remarks:`` }}
+const blankRel = () => { return {id: makeId(`relation`), name1: -1, name2: -1, ref: -1} }
 
 const App = () => {
 	const state = useSelector(v => v)

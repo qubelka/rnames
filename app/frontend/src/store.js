@@ -117,7 +117,7 @@ export const parseId = id => {
 	return JSON.parse(id)
 }
 
-export const getId = (ty, value) => {
+export const makeId = (ty, value) => {
 	const id = value === undefined ? store.getState().id : Number(value)
 	if (!idTypes.includes(ty))
 		throw new Error(`Id type must not be one of allowed types, was "${ty}"`)
