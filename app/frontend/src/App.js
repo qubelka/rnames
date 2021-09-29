@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
+import { loadServerData, initServer } from './services/server'
 
 import store, {addRef, updateRef, getId, addSname, updateSname, addRel, updateRel} from './store.js'
 
@@ -237,7 +238,7 @@ const App = () => {
 	const dispatch = useDispatch()
 
 	useEffect(() => {
-		// initialize data from server
+		initServer()
 	}, [])
 
 	const addNewRef = e => {
