@@ -113,6 +113,10 @@ const idTypes = [
 	`db_reference`
 ]
 
+export const parseId = id => {
+	return JSON.parse(id)
+}
+
 export const getId = (ty, value) => {
 	const id = value === undefined ? store.getState().id : Number(value)
 	if (!idTypes.includes(ty))
@@ -123,11 +127,7 @@ export const getId = (ty, value) => {
 		id
 	})
 
-	return {
-		key: () => `${ty}_${id}`,
-		ty,
-		id
-	}
+	return JSON.stringify({type: ty, value: id})
 }
 
 export default store

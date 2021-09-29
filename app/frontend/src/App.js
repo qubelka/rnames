@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 
-import store, {addRef, updateRef, getId, addSname, updateSname, addRel, updateRel} from './store.js'
+import store, {addRef, updateRef, getId, parseId, addSname, updateSname, addRel, updateRel} from './store.js'
 
 const Dropdown = ({name, options, value, onChange}) => {
 	return(
@@ -21,6 +21,15 @@ const NameEntry = ({id, data}) => {
 	const update = ({target}, field) => {
 		const temp = {...name}
 		temp[field] = target.value
+		dispatch(updateRef({
+			...data,
+			names: data.names.map(v => v.id === id ? temp : v)
+		}))
+	}
+
+	const updatevariant = newVariant => {
+		const value = parseId(id).value
+		const temp = {...name, id: getId(newVariant, value), variant: newVariant}
 		dispatch(updateRef({
 			...data,
 			names: data.names.map(v => v.id === id ? temp : v)
@@ -50,7 +59,7 @@ const NameEntry = ({id, data}) => {
 		<div>
 			<input type="text" name="name" value={name.name} onChange={e => update(e, `name`)} />
 			<label htmlFor="variant">Type:</label>
-			<Dropdown name="variant" onChange={e => update(e, `variant`)} options={{ name: `Name`, loc: `Location`, qual: `Qualifier` }} value={name.variant} />
+			<Dropdown name="variant" onChange={e => updatevariant(e.target.value)} options={{ name: `Name`, loc: `Location`, qual: `Qualifier` }} value={name.variant} />
 			{ name.variant === `qual`
 				?<>
 				<label htmlFor="qualifier">Qualifier Name:</label>
