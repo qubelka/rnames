@@ -68,7 +68,7 @@ const NameList = ({data}) => {
 	const addNew = e => {
 		dispatch(updateRef({
 			...data,
-			names: data.names.concat({id: getId(), name: ``, variant: `name`, qualifier: `bio`, level: 1})
+			names: data.names.concat({id: getId(`name`), name: ``, variant: `name`, qualifier: `bio`, level: 1})
 		}))
 	}
 
@@ -228,9 +228,9 @@ const Rel = ({data}) => {
 	</div>)
 }
 
-const blankRef = () => { return {id: getId(), author: ``, year: 0, title: ``, doi: ``, link: ``, exists: false, queried: false, names: []}}
-const blankSname = () => { return {id: getId(), name: -1, qualifier: -1, location: -1, ref: -1, remarks:`` }}
-const blankRel = () => { return {id: getId(), name1: -1, name2: -1, ref: -1} }
+const blankRef = () => { return {id: getId(`reference`), author: ``, year: 0, title: ``, doi: ``, link: ``, exists: false, queried: false, names: []}}
+const blankSname = () => { return {id: getId(`structured_name`), name: -1, qualifier: -1, location: -1, ref: -1, remarks:`` }}
+const blankRel = () => { return {id: getId(`relation`), name1: -1, name2: -1, ref: -1} }
 
 const App = () => {
 	const state = useSelector(v => v)

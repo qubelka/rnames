@@ -98,15 +98,36 @@ export const updateRel = rel => (dispatch, getState) => {
 	})
 }
 
-export const getId = () => {
-	const id = store.getState().id
+const idTypes = [
+	`name`,
+	`location`,
+	`qualifier`,
+	`structured_name`,
+	`reference`,
+	`relation`,
+	`db_name`,
+	`db_location`,
+	`db_qualifier_name`,
+	`db_qualifier`,
+	`db_structured_name`,
+	`db_reference`
+]
+
+export const getId = (ty, value) => {
+	const id = value === undefined ? store.getState().id : Number(value)
+	if (!idTypes.includes(ty))
+		throw new Error(`Id type must not be undefined`)
 
 	store.dispatch({
 		type: `INCREMENT`,
 		id
 	})
 
-	return id
+	return {
+		key: () => `${ty}_${id}`,
+		ty,
+		id
+	}
 }
 
 export default store
