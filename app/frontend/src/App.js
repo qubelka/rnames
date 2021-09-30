@@ -3,13 +3,13 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 
-import store, {addRef, updateRef, getId, addSname, updateSname, addRel, updateRel} from './store.js'
+import store, {addRef, updateRef, makeId, parseId, addSname, updateSname, addRel, updateRel} from './store.js'
 
 const Dropdown = ({name, options, value, onChange}) => {
 	return(
 		<select name= {name} onChange={onChange} value={value}>
 			<option></option>
-			{ Object.keys(options).map(k => <option key={k} value={k}>{options[k]}</option> )}
+			{ options.map(tuple => <option key={tuple[0]} value={tuple[0]}>{tuple[1]}</option> )}
 		</select>
 	)
 }
@@ -27,31 +27,46 @@ const NameEntry = ({id, data}) => {
 		}))
 	}
 
-	const qualifierOptions = {
-		bio: `Biostratigraphy`,
-		chemo: `Chemostratigraphy`,
-		chrono: `Chronostratigraphy`,
-		litho:`Lithostratigraphy`,
-		region: `Regional Standard`,
-		seq: `Sequence-stratigraphy`
+	const updatevariant = newVariant => {
+		const value = parseId(id).value
+		const temp = {...name, id: makeId(newVariant, value), variant: newVariant}
+		dispatch(updateRef({
+			...data,
+			names: data.names.map(v => v.id === id ? temp : v)
+		}))
 	}
 
-	const levelOptions = {
-		1: `1`,
-		2: `2`,
-		3: `3`,
-		4: `4`,
-		5: `5`,
-		6: `6`,
-		7: `7`
-	}
+	const qualifierOptions = [
+		[`bio`, `Biostratigraphy`],
+		[`chemo`, `Chemostratigraphy`],
+		[`chrono`, `Chronostratigraphy`],
+		[`litho`,`Lithostratigraphy`],
+		[`region`, `Regional Standard`],
+		[`seq`, `Sequence-stratigraphy`]
+	]
+
+	const levelOptions = [
+		[1, `1`],
+		[2, `2`],
+		[3, `3`],
+		[4, `4`],
+		[5, `5`],
+		[6, `6`],
+		[7, `7`]
+	]
+
+	const variantOptions = [
+		[`name`, `Name`],
+		[`location`, `Location`],
+		[`qualifier`, `Qualifier`]
+	]
 
 	return (
 		<div>
 			<input type="text" name="name" value={name.name} onChange={e => update(e, `name`)} />
 			<label htmlFor="variant">Type:</label>
-			<Dropdown name="variant" onChange={e => update(e, `variant`)} options={{ name: `Name`, loc: `Location`, qual: `Qualifier` }} value={name.variant} />
-			{ name.variant === `qual`
+			<Dropdown name="variant" onChange={e => updatevariant(e.target.value)} options={variantOptions} value={name.variant} />
+			{ name.variant === `qualifier`
 				?<>
 				<label htmlFor="qualifier">Qualifier Name:</label>
 				<Dropdown name="qualifier" onChange={e => update(e, `qualifier`)} options={qualifierOptions} value={name.qualifier} />
@@ -68,7 +83,7 @@ const NameList = ({data}) => {
 	const addNew = e => {
 		dispatch(updateRef({
 			...data,
-			names: data.names.concat({id: getId(), name: ``, variant: `name`, qualifier: `bio`, level: 1})
+			names: data.names.concat({id: makeId(`name`), name: ``, variant: `name`, qualifier: `bio`, level: 1})
 		}))
 	}
 
@@ -151,29 +166,25 @@ const Sname = ({data}) => {
 	const refData = useSelector(v => v.ref)
 	const refs = refData.reduce((p, c) => p.concat(...c.names.map(v => {return {...v, refId: c.id}})), [])
 	const names = refs.filter(v => v.variant === `name`)
-	const qualifiers = refs.filter(v => v.variant === `qual`)
-	const locs = refs.filter(v => v.variant === `loc`)
+	const qualifiers = refs.filter(v => v.variant === `qualifier`)
+	const locs = refs.filter(v => v.variant === `location`)
 
 
-	const nameOptions = {}
-	names.forEach(v => { nameOptions[v.id] = v.name })
+	const nameOptions = names.map(v => [v.id, v.name])
 
-	const qualifierOptions = {}
-	qualifiers.forEach(v => {qualifierOptions[v.id] = `${v.name} (${v.qualifier}) level ${v.level} `})
+	const qualifierOptions = qualifiers.map(v => [v.id, `${v.name} (${v.qualifier}) level ${v.level} `])
 
-	const locationOptions = {}
-	locs.forEach(v => { locationOptions[v.id] = v.name })
+	const locationOptions = locs.map(v => [v.id, v.name])
 
 	const update = ({target}, field) => {
 		const r = {...data}
-		r[field] = Number(target.value)
+		r[field] = target.value
 		const ref = findRef(refData, [r.name, r.qualifier, r.location])
 		r.ref = ref === undefined ? `` : ref.id
 		dispatch(updateSname(r))
 	}
 
-	const refOptions = {}
-	refData.forEach(v => refOptions[v.id] = v.title)
+	const refOptions = refData.map(v => [v.id, v.title])
 
 	return (<div>
 		<label htmlFor="name">Name</label>
@@ -191,12 +202,11 @@ const Rel = ({data}) => {
 	const dispatch = useDispatch()
 	const state = useSelector(v => v)
 
-	const refOptions = {}
-	state.ref.forEach(v => refOptions[v.id] = v.title)
+	const refOptions = state.ref.map(v => [v.id, v.title])
 
 	const update = ({target}, field) => {
 		const r = {...data}
-		r[field] = Number(target.value)
+		r[field] = target.value
 		const name1Ref = state.sname.find(v => v.id === r.name1) ? state.sname.find(v => v.id === r.name1).ref : -1
 		const name2Ref = state.sname.find(v => v.id === r.name2) ? state.sname.find(v => v.id === r.name2).ref : -1
 
@@ -208,17 +218,8 @@ const Rel = ({data}) => {
 	const formatSnameOption = v =>
 		`${findId(state, v.name) ? findId(state, v.name).name : `` } ${findId(state, v.qualifier) ? findId(state, v.qualifier).name : `` } ${findId(state, v.location) ? findId(state, v.location).name : ``}`
 
-	const name1Options = {}
-	state.sname.forEach(v => {
-		if (v.id !== data.name2)
-			name1Options[v.id] = formatSnameOption(v)
-	})
-
-	const name2Options = {}
-	state.sname.forEach(v => {
-		if (v.id !== data.name1)
-			name2Options[v.id] = formatSnameOption(v)
-	})
+	const name1Options = state.sname.filter(v => v.id !== data.name2).map(v => [v.id, formatSnameOption(v)])
+	const name2Options = state.sname.filter(v => v.id !== data.name1).map(v => [v.id, formatSnameOption(v)])
 
 	return (<div>
 		<Dropdown options={name1Options} value={data.name1} onChange={e => update(e, `name1`)} />
@@ -228,9 +229,9 @@ const Rel = ({data}) => {
 	</div>)
 }
 
-const blankRef = () => { return {id: getId(), author: ``, year: 0, title: ``, doi: ``, link: ``, exists: false, queried: false, names: []}}
-const blankSname = () => { return {id: getId(), name: -1, qualifier: -1, location: -1, ref: -1, remarks:`` }}
-const blankRel = () => { return {id: getId(), name1: -1, name2: -1, ref: -1} }
+const blankRef = () => { return {id: makeId(`reference`), author: ``, year: 0, title: ``, doi: ``, link: ``, exists: false, queried: false, names: []}}
+const blankSname = () => { return {id: makeId(`structured_name`), name: -1, qualifier: -1, location: -1, ref: -1, remarks:`` }}
+const blankRel = () => { return {id: makeId(`relation`), name1: -1, name2: -1, ref: -1} }
 
 const App = () => {
 	const state = useSelector(v => v)

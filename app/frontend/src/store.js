@@ -98,15 +98,36 @@ export const updateRel = rel => (dispatch, getState) => {
 	})
 }
 
-export const getId = () => {
-	const id = store.getState().id
+const idTypes = [
+	`name`,
+	`location`,
+	`qualifier`,
+	`structured_name`,
+	`reference`,
+	`relation`,
+	`db_name`,
+	`db_location`,
+	`db_qualifier_name`,
+	`db_qualifier`,
+	`db_structured_name`,
+	`db_reference`
+]
+
+export const parseId = id => {
+	return JSON.parse(id)
+}
+
+export const makeId = (ty, value) => {
+	const id = value === undefined ? store.getState().id : Number(value)
+	if (!idTypes.includes(ty))
+		throw new Error(`Id type must not be one of allowed types, was "${ty}"`)
 
 	store.dispatch({
 		type: `INCREMENT`,
 		id
 	})
 
-	return id
+	return JSON.stringify({type: ty, value: id})
 }
 
 export default store
