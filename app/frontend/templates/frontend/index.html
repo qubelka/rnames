@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wizard</title>
+    {{ names|json_script:"DATA_NAMES" }}
+    {{ locations|json_script:"DATA_LOCATIONS" }}
+    {{ qualifier_names|json_script:"DATA_QUALIFIER_NAMES" }}
+    {{ qualifiers|json_script:"DATA_QUALIFIERS" }}
+    {{ structured_names|json_script:"DATA_STRUCTURED_NAMES" }}
+    {{ references|json_script:"DATA_REFERENCES" }}
     {% load static %}
 </head>
 <body>
