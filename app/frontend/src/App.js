@@ -219,8 +219,6 @@ const Sname = ({data}) => {
 	const update = ({target}, field) => {
 		const r = {...data}
 		r[field] = target.value
-		const ref = findRef(referenceData, [r.name_id, r.qualifier_id, r.location_id])
-		r.reference_id = ref === undefined ? `` : ref.id
 		dispatch(updateSname(r))
 	}
 
@@ -245,11 +243,6 @@ const Rel = ({data}) => {
 	const update = ({target}, field) => {
 		const r = {...data}
 		r[field] = target.value
-		const name1Ref = state.sname.find(v => v.id === r.name1) ? state.sname.find(v => v.id === r.name1).reference_id : -1
-		const name2Ref = state.sname.find(v => v.id === r.name2) ? state.sname.find(v => v.id === r.name2).reference_id : -1
-
-		const ref = state.ref.find(ref => ref.id === name1Ref || ref.id === name2Ref)
-		r.reference_id = ref === undefined ? -1 : ref.id
 		dispatch(updateRel(r))
 	}
 
