@@ -105,13 +105,13 @@ const Ref = ({data}) => {
 		const result = await axios.get(`https://api.crossref.org/works/${doi}`)
 		const response = JSON.parse(result.request.response).message
 
-		if (!response.author)
+		if (!response.first_author)
 			return
 
 		dispatch(updateRef({
 			...data,
 			queried: true,
-			author: `${response.author[0].given} ${response.author[0].family}`,
+			first_author: `${response.first_author[0].given} ${response.first_author[0].family}`,
 			year: response.created["date-parts"][0][0],
 			title: response.title,
 			doi: response.DOI,
@@ -123,8 +123,8 @@ const Ref = ({data}) => {
 		return (
 			<div>
 				<form>
-					<label htmlFor="author">author</label>
-					<input type="text" name="author" value={data.author} />
+					<label htmlFor="first_author">first_author</label>
+					<input type="text" name="first_author" value={data.first_author} />
 					<br />
 					<label htmlFor="year">year</label>
 					<input type="text" name="year" value={data.year} />
@@ -155,11 +155,16 @@ const Ref = ({data}) => {
 }
 
 const findRef = (refs, ids) => refs.find(ref => ref.names.find(v => ids.includes(v.id)))
-const findId = (state, id) => {
-	return state.ref.find(v => v.id === id)
+const findId = (state, id) => state.ref.find(v => v.id === id)
+		|| loadServerData(`references`).find(v => v.id === id)
 		|| state.sname.find(v => v.id === id)
+		|| loadServerData(`structured_names`).find(v => v.id === id)
 		|| state.rel.find(v => v.id === id)
 		|| state.ref.reduce((p, c) => p.concat(...c.names), []).find(v => v.id === id)
+		|| loadServerData(`locations`).find(v => v.id === id)
+		|| loadServerData(`qualifier_names`).find(v => v.id === id)
+		|| loadServerData(`names`).find(v => v.id === id)
+		|| loadServerData(`qualifiers`).find(v => v.id === id)
 
 const formatQualifier = (qualifier, state) => {
 	if (qualifier === undefined)
@@ -178,6 +183,15 @@ const formatQualifier = (qualifier, state) => {
 	return qualifierName ? qualifierName.name : ``
 }
 
+const formatStructuredName = (structuredName, state) => {
+	const idObject = parseId(structuredName.id)
+	if (idObject.type !== `structured_name` && idObject.type !== `db_structured_name`)
+		throw new Error(`Object with id ${structuredName.id} is not a structured name.`)
+
+	const name = findId(state, structuredName.name_id)
+	const qualifierName = formatQualifier(findId(state, structuredName.qualifier_id), state)
+	const location = findId(state,  structuredName.location_id)
+	return `${name ? name.name : ``} / ${qualifierName} / ${location ? location.name : ``}`
 }
 
 const Sname = ({data}) => {
@@ -205,20 +219,20 @@ const Sname = ({data}) => {
 	const update = ({target}, field) => {
 		const r = {...data}
 		r[field] = target.value
-		const ref = findRef(refData, [r.name, r.qualifier, r.location])
-		r.ref = ref === undefined ? `` : ref.id
+		const ref = findRef(referenceData, [r.name_id, r.qualifier_id, r.location_id])
+		r.reference_id = ref === undefined ? `` : ref.id
 		dispatch(updateSname(r))
 	}
 
 	return (<div>
 		<label htmlFor="name">Name</label>
-		<Dropdown name="name"  options={names} value={data.name} onChange={e => update(e, `name`)} />
+		<Dropdown name="name"  options={names} value={data.name} onChange={e => update(e, `name_id`)} />
 		<label htmlFor="qualifier">Qualifier</label>
-		<Dropdown name="qualifier"  options={qualifiers} value={data.qualifier} onChange={e => update(e, `qualifier`)} />
+		<Dropdown name="qualifier"  options={qualifiers} value={data.qualifier} onChange={e => update(e, `qualifier_id`)} />
 		<label htmlFor="location">Location</label>
-		<Dropdown name="location" options={locations} value = {data.location} onChange={e => update(e, `location`) } />
+		<Dropdown name="location" options={locations} value = {data.location} onChange={e => update(e, `location_id`) } />
 		<label htmlFor="reference">Reference</label>
-		<Dropdown name="reference" options={references} value = {data.ref} />
+		<Dropdown name="reference" options={references} value = {data.reference_id} />
 	</div>)
 }
 
@@ -231,31 +245,28 @@ const Rel = ({data}) => {
 	const update = ({target}, field) => {
 		const r = {...data}
 		r[field] = target.value
-		const name1Ref = state.sname.find(v => v.id === r.name1) ? state.sname.find(v => v.id === r.name1).ref : -1
-		const name2Ref = state.sname.find(v => v.id === r.name2) ? state.sname.find(v => v.id === r.name2).ref : -1
+		const name1Ref = state.sname.find(v => v.id === r.name1) ? state.sname.find(v => v.id === r.name1).reference_id : -1
+		const name2Ref = state.sname.find(v => v.id === r.name2) ? state.sname.find(v => v.id === r.name2).reference_id : -1
 
 		const ref = state.ref.find(ref => ref.id === name1Ref || ref.id === name2Ref)
-		r.ref = ref === undefined ? -1 : ref.id
+		r.reference_id = ref === undefined ? -1 : ref.id
 		dispatch(updateRel(r))
 	}
 
-	const formatSnameOption = v =>
-		`${findId(state, v.name) ? findId(state, v.name).name : `` } ${findId(state, v.qualifier) ? findId(state, v.qualifier).name : `` } ${findId(state, v.location) ? findId(state, v.location).name : ``}`
-
-	const name1Options = state.sname.filter(v => v.id !== data.name2).map(v => [v.id, formatSnameOption(v)])
-	const name2Options = state.sname.filter(v => v.id !== data.name1).map(v => [v.id, formatSnameOption(v)])
+	const name1Options = state.sname.filter(v => v.id !== data.name2).map(v => [v.id, formatStructuredName(v, state)])
+	const name2Options = state.sname.filter(v => v.id !== data.name1).map(v => [v.id, formatStructuredName(v, state)])
 
 	return (<div>
 		<Dropdown options={name1Options} value={data.name1} onChange={e => update(e, `name1`)} />
 		<Dropdown options={name2Options} value={data.name2} onChange={e => update(e, `name2`)} />
 		<label htmlFor="reference">Reference</label>
-		<Dropdown name="reference" options={refOptions} value = {data.ref} />
+		<Dropdown name="reference" options={refOptions} value = {data.reference_id} />
 	</div>)
 }
 
-const blankRef = () => { return {id: makeId(`reference`), author: ``, year: 0, title: ``, doi: ``, link: ``, exists: false, queried: false, names: []}}
-const blankSname = () => { return {id: makeId(`structured_name`), name: -1, qualifier: -1, location: -1, ref: -1, remarks:`` }}
-const blankRel = () => { return {id: makeId(`relation`), name1: -1, name2: -1, ref: -1} }
+const blankRef = () => { return {id: makeId(`reference`), first_author: ``, year: 0, title: ``, doi: ``, link: ``, exists: false, queried: false, names: []}}
+const blankSname = () => { return {id: makeId(`structured_name`), name_id: -1, qualifier_id: -1, location_id: -1, reference_id: -1, remarks:`` }}
+const blankRel = () => { return {id: makeId(`relation`), name1: -1, name2: -1, reference_id: -1} }
 
 const App = () => {
 	const state = useSelector(v => v)
