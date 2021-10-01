@@ -160,6 +160,24 @@ const findId = (state, id) => {
 		|| state.sname.find(v => v.id === id)
 		|| state.rel.find(v => v.id === id)
 		|| state.ref.reduce((p, c) => p.concat(...c.names), []).find(v => v.id === id)
+
+const formatQualifier = (qualifier, state) => {
+	if (qualifier === undefined)
+		return ``
+
+	const idObject = parseId(qualifier.id)
+	if (idObject.type !== `qualifier` && idObject.type !== `db_qualifier`)
+		throw new Error(`Object with id ${qualifier.id} is not a structured name.`)
+
+	// This distinction is necessary since the wizard assumes defining a new qualifier includes
+	// defining a new name so the name is stored directly in the qualifier
+	const qualifierName = idObject.type === `db_qualifier`
+		? findId(state, qualifier.qualifier_name_id)
+		: qualifier
+
+	return qualifierName ? qualifierName.name : ``
+}
+
 }
 
 const Sname = ({data}) => {
