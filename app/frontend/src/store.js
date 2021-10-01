@@ -14,12 +14,6 @@ const refReducer = (state = [], {type, ref}) => {
 	return ret
 }
 
-const idReducer = (state = 0, {type, id}) => {
-	if (id === undefined) return state
-
-	return state + 1
-}
-
 const snameReducer = (state = [], {type, sname}) => {
 	if (sname === undefined) return state
 	let ret = null
@@ -49,7 +43,6 @@ const relReducer = (state = [], {type, rel}) => {
 export const store = createStore(
 	combineReducers({
 		ref: refReducer,
-		id: idReducer,
 		sname: snameReducer,
 		rel: relReducer
 	}),
@@ -113,21 +106,17 @@ const idTypes = [
 	`db_reference`
 ]
 
-export const parseId = id => {
-	return JSON.parse(id)
-}
+let ID = 0;
+
+export const parseId = id => JSON.parse(id)
 
 export const makeId = (ty, value) => {
-	const id = value === undefined ? store.getState().id : Number(value)
 	if (!idTypes.includes(ty))
 		throw new Error(`Id type must not be one of allowed types, was "${ty}"`)
 
-	store.dispatch({
-		type: `INCREMENT`,
-		id
-	})
-
-	return JSON.stringify({type: ty, value: id})
+	const id = value === undefined ? ID++ : Number(value)
+	const idString = JSON.stringify({type: ty, value: id})
+	return idString
 }
 
 export default store
