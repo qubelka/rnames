@@ -238,7 +238,15 @@ const Rel = ({data}) => {
 	const dispatch = useDispatch()
 	const state = useSelector(v => v)
 
-	const refOptions = state.ref.map(v => [v.id, v.title])
+	const name1Options = state.sname
+		.concat(...loadServerData(`structured_names`))
+		.filter(v => v.id !== data.name2)
+		.map(v => [v.id, formatStructuredName(v, state)])
+
+	const name2Options = state.sname
+		.concat(...loadServerData(`structured_names`))
+		.filter(v => v.id !== data.name1)
+		.map(v => [v.id, formatStructuredName(v, state)])
 
 	const update = ({target}, field) => {
 		const r = {...data}
@@ -246,8 +254,6 @@ const Rel = ({data}) => {
 		dispatch(updateRel(r))
 	}
 
-	const name1Options = state.sname.filter(v => v.id !== data.name2).map(v => [v.id, formatStructuredName(v, state)])
-	const name2Options = state.sname.filter(v => v.id !== data.name1).map(v => [v.id, formatStructuredName(v, state)])
 	const refOptions = state.ref
 		.concat(...loadServerData(`references`))
 		.map(v => [v.id, v.title])
