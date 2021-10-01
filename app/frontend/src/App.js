@@ -182,18 +182,25 @@ const formatQualifier = (qualifier, state) => {
 
 const Sname = ({data}) => {
 	const dispatch = useDispatch()
-	const refData = useSelector(v => v.ref)
-	const refs = refData.reduce((p, c) => p.concat(...c.names.map(v => {return {...v, refId: c.id}})), [])
+	const state = useSelector(v => v)
+	const referenceData = state.ref
+	const refs = referenceData.reduce((p, c) => p.concat(...c.names.map(v => {return {...v, refId: c.id}})), [])
+
 	const names = refs.filter(v => v.variant === `name`)
+		.concat(...loadServerData(`names`))
+		.map(v => [v.id, v.name])
+
 	const qualifiers = refs.filter(v => v.variant === `qualifier`)
-	const locs = refs.filter(v => v.variant === `location`)
+		.concat(...loadServerData(`qualifiers`))
+		.map(v => [v.id, formatQualifier(v, state)])
 
+	const locations = refs.filter(v => v.variant === `location`)
+		.concat(...loadServerData(`locations`))
+		.map(v => [v.id, v.name])
 
-	const nameOptions = names.map(v => [v.id, v.name])
-
-	const qualifierOptions = qualifiers.map(v => [v.id, `${v.name} (${v.qualifier}) level ${v.level} `])
-
-	const locationOptions = locs.map(v => [v.id, v.name])
+	const references = referenceData
+		.concat(...loadServerData(`references`))
+		.map(v => [v.id, v.title])
 
 	const update = ({target}, field) => {
 		const r = {...data}
@@ -203,17 +210,15 @@ const Sname = ({data}) => {
 		dispatch(updateSname(r))
 	}
 
-	const refOptions = refData.map(v => [v.id, v.title])
-
 	return (<div>
 		<label htmlFor="name">Name</label>
-		<Dropdown name="name"  options={nameOptions} value={data.name} onChange={e => update(e, `name`)} />
+		<Dropdown name="name"  options={names} value={data.name} onChange={e => update(e, `name`)} />
 		<label htmlFor="qualifier">Qualifier</label>
-		<Dropdown name="qualifier"  options={qualifierOptions} value={data.qualifier} onChange={e => update(e, `qualifier`)} />
+		<Dropdown name="qualifier"  options={qualifiers} value={data.qualifier} onChange={e => update(e, `qualifier`)} />
 		<label htmlFor="location">Location</label>
-		<Dropdown name="location" options={locationOptions} value = {data.location} onChange={e => update(e, `location`) } />
+		<Dropdown name="location" options={locations} value = {data.location} onChange={e => update(e, `location`) } />
 		<label htmlFor="reference">Reference</label>
-		<Dropdown name="reference" options={refOptions} value = {data.ref} />
+		<Dropdown name="reference" options={references} value = {data.ref} />
 	</div>)
 }
 
