@@ -230,7 +230,7 @@ const Sname = ({data}) => {
 		<label htmlFor="location">Location</label>
 		<Dropdown name="location" options={locations} value = {data.location} onChange={e => update(e, `location_id`) } />
 		<label htmlFor="reference">Reference</label>
-		<Dropdown name="reference" options={references} value = {data.reference_id} />
+		<Dropdown name="reference" options={references} value = {data.reference_id} onChange={e => update(e, `reference_id`)} />
 	</div>)
 }
 
@@ -248,12 +248,15 @@ const Rel = ({data}) => {
 
 	const name1Options = state.sname.filter(v => v.id !== data.name2).map(v => [v.id, formatStructuredName(v, state)])
 	const name2Options = state.sname.filter(v => v.id !== data.name1).map(v => [v.id, formatStructuredName(v, state)])
+	const refOptions = state.ref
+		.concat(...loadServerData(`references`))
+		.map(v => [v.id, v.title])
 
 	return (<div>
 		<Dropdown options={name1Options} value={data.name1} onChange={e => update(e, `name1`)} />
 		<Dropdown options={name2Options} value={data.name2} onChange={e => update(e, `name2`)} />
 		<label htmlFor="reference">Reference</label>
-		<Dropdown name="reference" options={refOptions} value = {data.reference_id} />
+		<Dropdown name="reference" options={refOptions} value = {data.reference_id} onChange={e => update(e, `reference_id`)} />
 	</div>)
 }
 
