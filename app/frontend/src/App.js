@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { loadServerData, initServer } from './services/server'
 
-import store, {addRef, updateRef, makeId, parseId, addSname, updateSname, addName, updateName, addRel, updateRel} from './store.js'
+import store, {addRef, updateRef, makeId, parseId, addSname, updateSname, addName, updateName, addRel, updateRel, mapId, initMapvalues} from './store.js'
 
 const Dropdown = ({name, options, value, onChange}) => {
 	return(
@@ -265,9 +265,17 @@ const blankRel = () => { return {id: makeId(`relation`), name1: -1, name2: -1, r
 const App = () => {
 	const state = useSelector(v => v)
 	const dispatch = useDispatch()
-
 	useEffect(() => {
 		initServer()
+		const serverData = loadServerData()
+		const map = {}
+		serverData.names.forEach(v => map[v.id] = v)
+		serverData.locations.forEach(v => map[v.id] = v)
+		serverData.qualifier_names.forEach(v => map[v.id] = v)
+		serverData.qualifiers.forEach(v => map[v.id] = v)
+		serverData.structured_names.forEach(v => map[v.id] = v)
+		serverData.references.forEach(v => map[v.id] = v)
+		dispatch(initMapvalues(map))
 	}, [])
 
 	const addNewRef = e => {

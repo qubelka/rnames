@@ -100,6 +100,10 @@ const mapReducer = (state = {}, action) => {
 			break
 		}
 
+		case `INITIALIZE_MAP_VALUES`: {
+			return action.map
+		}
+
 		default: return state
 	}
 
@@ -123,6 +127,13 @@ export const mapId = (key, value) => (dispatch, getState) => {
 		type: `MAP_VALUE`,
 		key,
 		value
+	})
+}
+
+export const initMapvalues = map => (dispatch, getState) => {
+	dispatch({
+		type: `INITIALIZE_MAP_VALUES`,
+		map
 	})
 }
 
