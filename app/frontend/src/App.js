@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { loadServerData, initServer } from './services/server'
 
-import store, {addRef, updateRef, makeId, parseId, addSname, updateSname, addRel, updateRel} from './store.js'
+import store, {addRef, updateRef, makeId, parseId, addSname, updateSname, addName, updateName, addRel, updateRel} from './store.js'
 
 const Dropdown = ({name, options, value, onChange}) => {
 	return(
@@ -22,19 +22,13 @@ const NameEntry = ({id, data}) => {
 	const update = ({target}, field) => {
 		const temp = {...name}
 		temp[field] = target.value
-		dispatch(updateRef({
-			...data,
-			names: data.names.map(v => v.id === id ? temp : v)
-		}))
+		dispatch(updateName(data.id, temp, id))
 	}
 
 	const updatevariant = newVariant => {
 		const value = parseId(id).value
 		const temp = {...name, id: makeId(newVariant, value), variant: newVariant}
-		dispatch(updateRef({
-			...data,
-			names: data.names.map(v => v.id === id ? temp : v)
-		}))
+		dispatch(updateName(data.id, temp, id))
 	}
 
 	const qualifierOptions = [
@@ -82,10 +76,8 @@ const NameEntry = ({id, data}) => {
 const NameList = ({data}) => {
 	const dispatch = useDispatch()
 	const addNew = e => {
-		dispatch(updateRef({
-			...data,
-			names: data.names.concat({id: makeId(`name`), name: ``, variant: `name`, qualifier: `bio`, level: 1})
-		}))
+		const name = {id: makeId(`name`), name: ``, variant: `name`, qualifier: `bio`, level: 1}
+		dispatch(addName(data.id, name))
 	}
 
 	return (
