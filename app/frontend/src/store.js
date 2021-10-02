@@ -66,14 +66,65 @@ const relReducer = (state = [], {type, rel}) => {
 	return ret
 }
 
+const mapReducer = (state = {}, action) => {
+	let k, v;
+
+	switch (action.type) {
+		case `ADD_NAME`: {
+			v = action.name
+			k = v.id
+			break;
+		}
+
+		case `UPDATE_NAME`: {
+			v = action.name
+			k = v.id
+			break;
+		}
+
+		case `ADD`: {
+			v = action.ref || action.sname || action.rel
+			k = v.id
+			break;
+		}
+
+		case `UPDATE`: {
+			v = action.ref || action.sname || action.rel
+			k = v.id
+			break;
+		}
+
+		case `MAP_VALUE`: {
+			v = action.value
+			k = action.key
+			break
+		}
+
+		default: return state
+	}
+
+	const ret = {...state}
+	ret[k] = v
+	return ret
+}
+
 export const store = createStore(
 	combineReducers({
 		ref: refReducer,
 		sname: snameReducer,
-		rel: relReducer
+		rel: relReducer,
+		map: mapReducer
 	}),
 	applyMiddleware(thunk)
 )
+
+export const mapId = (key, value) => (dispatch, getState) => {
+	dispatch({
+		type: `MAP_VALUE`,
+		key,
+		value
+	})
+}
 
 export const addName = (refId, name) => (dispatch, getState) => {
 	dispatch({
