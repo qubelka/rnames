@@ -147,16 +147,7 @@ const Ref = ({data}) => {
 }
 
 const findRef = (refs, ids) => refs.find(ref => ref.names.find(v => ids.includes(v.id)))
-const findId = (state, id) => state.ref.find(v => v.id === id)
-		|| loadServerData(`references`).find(v => v.id === id)
-		|| state.sname.find(v => v.id === id)
-		|| loadServerData(`structured_names`).find(v => v.id === id)
-		|| state.rel.find(v => v.id === id)
-		|| state.ref.reduce((p, c) => p.concat(...c.names), []).find(v => v.id === id)
-		|| loadServerData(`locations`).find(v => v.id === id)
-		|| loadServerData(`qualifier_names`).find(v => v.id === id)
-		|| loadServerData(`names`).find(v => v.id === id)
-		|| loadServerData(`qualifiers`).find(v => v.id === id)
+const findId = (state, id) => state.map[id]
 
 const formatQualifier = (qualifier, state) => {
 	if (qualifier === undefined)
