@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { loadServerData, initServer } from './services/server'
 
-import store, {addRef, updateRef, makeId, parseId, addSname, updateSname, addRel, updateRel} from './store.js'
+import store, {addRef, updateRef, makeId, parseId, addSname, updateSname, addName, updateName, addRel, updateRel, mapId, initMapvalues} from './store.js'
 
 const Dropdown = ({name, options, value, onChange}) => {
 	return(
@@ -22,19 +22,13 @@ const NameEntry = ({id, data}) => {
 	const update = ({target}, field) => {
 		const temp = {...name}
 		temp[field] = target.value
-		dispatch(updateRef({
-			...data,
-			names: data.names.map(v => v.id === id ? temp : v)
-		}))
+		dispatch(updateName(data.id, temp, id))
 	}
 
 	const updatevariant = newVariant => {
 		const value = parseId(id).value
 		const temp = {...name, id: makeId(newVariant, value), variant: newVariant}
-		dispatch(updateRef({
-			...data,
-			names: data.names.map(v => v.id === id ? temp : v)
-		}))
+		dispatch(updateName(data.id, temp, id))
 	}
 
 	const qualifierOptions = [
@@ -82,10 +76,8 @@ const NameEntry = ({id, data}) => {
 const NameList = ({data}) => {
 	const dispatch = useDispatch()
 	const addNew = e => {
-		dispatch(updateRef({
-			...data,
-			names: data.names.concat({id: makeId(`name`), name: ``, variant: `name`, qualifier: `bio`, level: 1})
-		}))
+		const name = {id: makeId(`name`), name: ``, variant: `name`, qualifier: `bio`, level: 1}
+		dispatch(addName(data.id, name))
 	}
 
 	return (
@@ -105,13 +97,13 @@ const Ref = ({data}) => {
 		const result = await axios.get(`https://api.crossref.org/works/${doi}`)
 		const response = JSON.parse(result.request.response).message
 
-		if (!response.author)
+		if (!response.first_author)
 			return
 
 		dispatch(updateRef({
 			...data,
 			queried: true,
-			author: `${response.author[0].given} ${response.author[0].family}`,
+			first_author: `${response.first_author[0].given} ${response.first_author[0].family}`,
 			year: response.created["date-parts"][0][0],
 			title: response.title,
 			doi: response.DOI,
@@ -123,8 +115,8 @@ const Ref = ({data}) => {
 		return (
 			<div>
 				<form>
-					<label htmlFor="author">author</label>
-					<input type="text" name="author" value={data.author} />
+					<label htmlFor="first_author">first_author</label>
+					<input type="text" name="first_author" value={data.first_author} />
 					<br />
 					<label htmlFor="year">year</label>
 					<input type="text" name="year" value={data.year} />
@@ -155,47 +147,73 @@ const Ref = ({data}) => {
 }
 
 const findRef = (refs, ids) => refs.find(ref => ref.names.find(v => ids.includes(v.id)))
-const findId = (state, id) => {
-	return state.ref.find(v => v.id === id)
-		|| state.sname.find(v => v.id === id)
-		|| state.rel.find(v => v.id === id)
-		|| state.ref.reduce((p, c) => p.concat(...c.names), []).find(v => v.id === id)
+const findId = (state, id) => state.map[id]
+
+const formatQualifier = (qualifier, state) => {
+	if (qualifier === undefined)
+		return ``
+
+	const idObject = parseId(qualifier.id)
+	if (idObject.type !== `qualifier` && idObject.type !== `db_qualifier`)
+		throw new Error(`Object with id ${qualifier.id} is not a structured name.`)
+
+	// This distinction is necessary since the wizard assumes defining a new qualifier includes
+	// defining a new name so the name is stored directly in the qualifier
+	const qualifierName = idObject.type === `db_qualifier`
+		? findId(state, qualifier.qualifier_name_id)
+		: qualifier
+
+	return qualifierName ? qualifierName.name : ``
+}
+
+const formatStructuredName = (structuredName, state) => {
+	const idObject = parseId(structuredName.id)
+	if (idObject.type !== `structured_name` && idObject.type !== `db_structured_name`)
+		throw new Error(`Object with id ${structuredName.id} is not a structured name.`)
+
+	const name = findId(state, structuredName.name_id)
+	const qualifierName = formatQualifier(findId(state, structuredName.qualifier_id), state)
+	const location = findId(state,  structuredName.location_id)
+	return `${name ? name.name : ``} / ${qualifierName} / ${location ? location.name : ``}`
 }
 
 const Sname = ({data}) => {
 	const dispatch = useDispatch()
-	const refData = useSelector(v => v.ref)
-	const refs = refData.reduce((p, c) => p.concat(...c.names.map(v => {return {...v, refId: c.id}})), [])
+	const state = useSelector(v => v)
+	const referenceData = state.ref
+	const refs = referenceData.reduce((p, c) => p.concat(...c.names.map(v => {return {...v, refId: c.id}})), [])
+
 	const names = refs.filter(v => v.variant === `name`)
+		.concat(...loadServerData(`names`))
+		.map(v => [v.id, v.name])
+
 	const qualifiers = refs.filter(v => v.variant === `qualifier`)
-	const locs = refs.filter(v => v.variant === `location`)
+		.concat(...loadServerData(`qualifiers`))
+		.map(v => [v.id, formatQualifier(v, state)])
 
+	const locations = refs.filter(v => v.variant === `location`)
+		.concat(...loadServerData(`locations`))
+		.map(v => [v.id, v.name])
 
-	const nameOptions = names.map(v => [v.id, v.name])
-
-	const qualifierOptions = qualifiers.map(v => [v.id, `${v.name} (${v.qualifier}) level ${v.level} `])
-
-	const locationOptions = locs.map(v => [v.id, v.name])
+	const references = referenceData
+		.concat(...loadServerData(`references`))
+		.map(v => [v.id, v.title])
 
 	const update = ({target}, field) => {
 		const r = {...data}
 		r[field] = target.value
-		const ref = findRef(refData, [r.name, r.qualifier, r.location])
-		r.ref = ref === undefined ? `` : ref.id
 		dispatch(updateSname(r))
 	}
 
-	const refOptions = refData.map(v => [v.id, v.title])
-
 	return (<div>
 		<label htmlFor="name">Name</label>
-		<Dropdown name="name"  options={nameOptions} value={data.name} onChange={e => update(e, `name`)} />
+		<Dropdown name="name"  options={names} value={data.name} onChange={e => update(e, `name_id`)} />
 		<label htmlFor="qualifier">Qualifier</label>
-		<Dropdown name="qualifier"  options={qualifierOptions} value={data.qualifier} onChange={e => update(e, `qualifier`)} />
+		<Dropdown name="qualifier"  options={qualifiers} value={data.qualifier} onChange={e => update(e, `qualifier_id`)} />
 		<label htmlFor="location">Location</label>
-		<Dropdown name="location" options={locationOptions} value = {data.location} onChange={e => update(e, `location`) } />
+		<Dropdown name="location" options={locations} value = {data.location} onChange={e => update(e, `location_id`) } />
 		<label htmlFor="reference">Reference</label>
-		<Dropdown name="reference" options={refOptions} value = {data.ref} />
+		<Dropdown name="reference" options={references} value = {data.reference_id} onChange={e => update(e, `reference_id`)} />
 	</div>)
 }
 
@@ -203,43 +221,52 @@ const Rel = ({data}) => {
 	const dispatch = useDispatch()
 	const state = useSelector(v => v)
 
-	const refOptions = state.ref.map(v => [v.id, v.title])
+	const name1Options = state.sname
+		.concat(...loadServerData(`structured_names`))
+		.filter(v => v.id !== data.name2)
+		.map(v => [v.id, formatStructuredName(v, state)])
+
+	const name2Options = state.sname
+		.concat(...loadServerData(`structured_names`))
+		.filter(v => v.id !== data.name1)
+		.map(v => [v.id, formatStructuredName(v, state)])
 
 	const update = ({target}, field) => {
 		const r = {...data}
 		r[field] = target.value
-		const name1Ref = state.sname.find(v => v.id === r.name1) ? state.sname.find(v => v.id === r.name1).ref : -1
-		const name2Ref = state.sname.find(v => v.id === r.name2) ? state.sname.find(v => v.id === r.name2).ref : -1
-
-		const ref = state.ref.find(ref => ref.id === name1Ref || ref.id === name2Ref)
-		r.ref = ref === undefined ? -1 : ref.id
 		dispatch(updateRel(r))
 	}
 
-	const formatSnameOption = v =>
-		`${findId(state, v.name) ? findId(state, v.name).name : `` } ${findId(state, v.qualifier) ? findId(state, v.qualifier).name : `` } ${findId(state, v.location) ? findId(state, v.location).name : ``}`
-
-	const name1Options = state.sname.filter(v => v.id !== data.name2).map(v => [v.id, formatSnameOption(v)])
-	const name2Options = state.sname.filter(v => v.id !== data.name1).map(v => [v.id, formatSnameOption(v)])
+	const refOptions = state.ref
+		.concat(...loadServerData(`references`))
+		.map(v => [v.id, v.title])
 
 	return (<div>
 		<Dropdown options={name1Options} value={data.name1} onChange={e => update(e, `name1`)} />
 		<Dropdown options={name2Options} value={data.name2} onChange={e => update(e, `name2`)} />
 		<label htmlFor="reference">Reference</label>
-		<Dropdown name="reference" options={refOptions} value = {data.ref} />
+		<Dropdown name="reference" options={refOptions} value = {data.reference_id} onChange={e => update(e, `reference_id`)} />
 	</div>)
 }
 
-const blankRef = () => { return {id: makeId(`reference`), author: ``, year: 0, title: ``, doi: ``, link: ``, exists: false, queried: false, names: []}}
-const blankSname = () => { return {id: makeId(`structured_name`), name: -1, qualifier: -1, location: -1, ref: -1, remarks:`` }}
-const blankRel = () => { return {id: makeId(`relation`), name1: -1, name2: -1, ref: -1} }
+const blankRef = () => { return {id: makeId(`reference`), first_author: ``, year: 0, title: ``, doi: ``, link: ``, exists: false, queried: false, names: []}}
+const blankSname = () => { return {id: makeId(`structured_name`), name_id: -1, qualifier_id: -1, location_id: -1, reference_id: -1, remarks:`` }}
+const blankRel = () => { return {id: makeId(`relation`), name1: -1, name2: -1, reference_id: -1} }
 
 const App = () => {
 	const state = useSelector(v => v)
 	const dispatch = useDispatch()
-
 	useEffect(() => {
 		initServer()
+		const serverData = loadServerData()
+		const map = {}
+		serverData.names.forEach(v => map[v.id] = v)
+		serverData.locations.forEach(v => map[v.id] = v)
+		serverData.qualifier_names.forEach(v => map[v.id] = v)
+		serverData.qualifiers.forEach(v => map[v.id] = v)
+		serverData.structured_names.forEach(v => map[v.id] = v)
+		serverData.references.forEach(v => map[v.id] = v)
+		dispatch(initMapvalues(map))
 	}, [])
 
 	const addNewRef = e => {

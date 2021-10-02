@@ -1,23 +1,43 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 
-const refReducer = (state = [], {type, ref}) => {
-	if (ref === undefined) return state
+const refReducer = (state = [], action) => {
+	if (action.ref === undefined && action.name === undefined) return state
 	let ret = null
 
-	switch (type) {
-		case `ADD`: ret = [...state, ref]; break
-		case `UPDATE`: ret = state.map(v => v.id === ref.id ? ref : v); break
+	switch (action.type) {
+		case `ADD`: ret = [...state, action.ref]; break
+		case `UPDATE`: ret = state.map(v => v.id === action.ref.id ? action.ref : v); break
+		case `UPDATE_NAME`: {
+			ret = state.map(v => {
+				if (v.id !== action.refId)
+					return v
+
+				return {
+					...v,
+					names: v.names.map(name => name.id === action.nameId ? action.name : name)
+				}
+			})
+			break
+		}
+
+		case `ADD_NAME`: {
+			ret = state.map(v => {
+				if (v.id !== action.refId)
+					return v
+
+				return {
+					...v,
+					names: v.names.concat(action.name)
+				}
+			})
+
+			break
+		}
 		default: ret = state; break
 	}
 
 	return ret
-}
-
-const idReducer = (state = 0, {type, id}) => {
-	if (id === undefined) return state
-
-	return state + 1
 }
 
 const snameReducer = (state = [], {type, sname}) => {
@@ -46,15 +66,93 @@ const relReducer = (state = [], {type, rel}) => {
 	return ret
 }
 
+const mapReducer = (state = {}, action) => {
+	let k, v;
+
+	switch (action.type) {
+		case `ADD_NAME`: {
+			v = action.name
+			k = v.id
+			break;
+		}
+
+		case `UPDATE_NAME`: {
+			v = action.name
+			k = v.id
+			break;
+		}
+
+		case `ADD`: {
+			v = action.ref || action.sname || action.rel
+			k = v.id
+			break;
+		}
+
+		case `UPDATE`: {
+			v = action.ref || action.sname || action.rel
+			k = v.id
+			break;
+		}
+
+		case `MAP_VALUE`: {
+			v = action.value
+			k = action.key
+			break
+		}
+
+		case `INITIALIZE_MAP_VALUES`: {
+			return action.map
+		}
+
+		default: return state
+	}
+
+	const ret = {...state}
+	ret[k] = v
+	return ret
+}
+
 export const store = createStore(
 	combineReducers({
 		ref: refReducer,
-		id: idReducer,
 		sname: snameReducer,
-		rel: relReducer
+		rel: relReducer,
+		map: mapReducer
 	}),
 	applyMiddleware(thunk)
 )
+
+export const mapId = (key, value) => (dispatch, getState) => {
+	dispatch({
+		type: `MAP_VALUE`,
+		key,
+		value
+	})
+}
+
+export const initMapvalues = map => (dispatch, getState) => {
+	dispatch({
+		type: `INITIALIZE_MAP_VALUES`,
+		map
+	})
+}
+
+export const addName = (refId, name) => (dispatch, getState) => {
+	dispatch({
+		type: `ADD_NAME`,
+		refId,
+		name
+	})
+}
+
+export const updateName = (refId, name, nameId) => (dispatch, getState) => {
+	dispatch({
+		type: `UPDATE_NAME`,
+		refId,
+		name,
+		nameId
+	})
+}
 
 export const addRef = ref => (dispatch, getState) => {
 	dispatch({
@@ -113,21 +211,17 @@ const idTypes = [
 	`db_reference`
 ]
 
-export const parseId = id => {
-	return JSON.parse(id)
-}
+let ID = 0;
+
+export const parseId = id => JSON.parse(id)
 
 export const makeId = (ty, value) => {
-	const id = value === undefined ? store.getState().id : Number(value)
 	if (!idTypes.includes(ty))
 		throw new Error(`Id type must not be one of allowed types, was "${ty}"`)
 
-	store.dispatch({
-		type: `INCREMENT`,
-		id
-	})
-
-	return JSON.stringify({type: ty, value: id})
+	const id = value === undefined ? ID++ : Number(value)
+	const idString = JSON.stringify({type: ty, value: id})
+	return idString
 }
 
 export default store
