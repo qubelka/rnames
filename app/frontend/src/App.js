@@ -111,24 +111,30 @@ const Ref = ({data}) => {
 		}))
 	}
 
+	const update = ({target}, field) => {
+		const r = {...data}
+		r[field] = target.value
+		dispatch(updateRef(r))
+	}
+
 	if (data.queried)
 		return (
 			<div>
 				<form>
 					<label htmlFor="first_author">first_author</label>
-					<input type="text" name="first_author" value={data.first_author} />
+					<input type="text" name="first_author" value={data.first_author} onChange={e => update(e, `first_author`)} />
 					<br />
 					<label htmlFor="year">year</label>
-					<input type="text" name="year" value={data.year} />
+					<input type="text" name="year" value={data.year} onChange={e => update(e, `year`)} />
 					<br />
 					<label htmlFor="title">title</label>
-					<input type="text" name="title" value={data.title} />
+					<input type="text" name="title" value={data.title} onChange={e => update(e, `title`)} />
 					<br />
 					<label htmlFor="doi">doi</label>
-					<input type="text" name="doi" value={data.doi} />
+					<input type="text" name="doi" value={data.doi} onChange={e => update(e, `doi`)} />
 					<br />
 					<label htmlFor="link">link</label>
-					<input type="text" name="link" value={data.link} />
+					<input type="text" name="link" value={data.link} onChange={e => update(e, `link`)} />
 				</form>
 				<NameList {...{data}} />
 			</div>
@@ -138,7 +144,7 @@ const Ref = ({data}) => {
 		<div>
 			<form onSubmit={doiSubmit}>
 				<label htmlFor="doi">doi</label>
-				<input type="text" name="doi" />
+				<input type="text" name="doi" name="doi" value={data.doi} onChange={e => update(e, `doi`)} />
 				<button type="submit">get</button>
 				<button type="button" onClick={() => {dispatch(updateRef({...data, queried: true}))}}>Manual Entry</button>
 			</form>
@@ -208,10 +214,13 @@ const Sname = ({data}) => {
 	return (<div>
 		<label htmlFor="name">Name</label>
 		<Dropdown name="name"  options={names} value={data.name} onChange={e => update(e, `name_id`)} />
+		<br />
 		<label htmlFor="qualifier">Qualifier</label>
 		<Dropdown name="qualifier"  options={qualifiers} value={data.qualifier} onChange={e => update(e, `qualifier_id`)} />
+		<br />
 		<label htmlFor="location">Location</label>
 		<Dropdown name="location" options={locations} value = {data.location} onChange={e => update(e, `location_id`) } />
+		<br />
 		<label htmlFor="reference">Reference</label>
 		<Dropdown name="reference" options={references} value = {data.reference_id} onChange={e => update(e, `reference_id`)} />
 	</div>)
@@ -242,10 +251,12 @@ const Rel = ({data}) => {
 		.map(v => [v.id, v.title])
 
 	return (<div>
-		<Dropdown options={name1Options} value={data.name1} onChange={e => update(e, `name1`)} />
-		<Dropdown options={name2Options} value={data.name2} onChange={e => update(e, `name2`)} />
 		<label htmlFor="reference">Reference</label>
 		<Dropdown name="reference" options={refOptions} value = {data.reference_id} onChange={e => update(e, `reference_id`)} />
+		<br />
+		<Dropdown options={name1Options} value={data.name1} onChange={e => update(e, `name1`)} />
+		<br />
+		<Dropdown options={name2Options} value={data.name2} onChange={e => update(e, `name2`)} />
 	</div>)
 }
 
