@@ -39,6 +39,9 @@ from .filters import UserFilter
 
 import sys
 from subprocess import run, PIPE
+from .utils.root_binning import main_binning_fun
+from io import StringIO
+from contextlib import redirect_stdout
 # , APINameFilter
 
 

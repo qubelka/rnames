@@ -8,8 +8,8 @@ import time
 import csv
 import pandas as pd
 import numpy as np
-import rn_funs
-import binning_fun
+from .rn_funs import *
+from .binning_fun import *
 
 def main_binning_fun():
     pd.set_option('display.max_columns', 30)
@@ -56,7 +56,7 @@ def main_binning_fun():
 
     #### this goes into loop on binning_algorithm
     ### binning_algorithms: shortest, youngest, compromise, combined
-    robin_b = binning_fun.bin_fun(c_rels = cron_relations, binning_algorithm = "combined", binning_scheme = "b",
+    robin_b = bin_fun(c_rels = cron_relations, binning_algorithm = "combined", binning_scheme = "b",
                                   xrange = 'Ordovician')
     robin_b.to_csv("x_robinb.csv", index = False, header=True)
 
@@ -64,7 +64,7 @@ def main_binning_fun():
     # In[6]:
 
 
-    robin_w = binning_fun.bin_fun(c_rels = cron_relations, binning_algorithm = "combined", binning_scheme = "w",
+    robin_w = bin_fun(c_rels = cron_relations, binning_algorithm = "combined", binning_scheme = "w",
                                   xrange = 'Ordovician')
     robin_w.to_csv("x_robinw.csv", index = False, header=True)
 
@@ -72,7 +72,7 @@ def main_binning_fun():
     # In[7]:
 
 
-    robin_s = binning_fun.bin_fun(c_rels = cron_relations, binning_algorithm = "combined", binning_scheme = "s",
+    robin_s = bin_fun(c_rels = cron_relations, binning_algorithm = "combined", binning_scheme = "s",
                                   xrange = 'Phanerozoic')
     robin_s.to_csv("x_robins.csv", index = False, header=True)
 
@@ -80,7 +80,7 @@ def main_binning_fun():
     # In[8]:
 
 
-    robin_p = binning_fun.bin_fun(c_rels = cron_relations, binning_algorithm = "combined", binning_scheme = "p",
+    robin_p = bin_fun(c_rels = cron_relations, binning_algorithm = "combined", binning_scheme = "p",
                                   xrange = 'Phanerozoic')
     robin_p.to_csv("x_robinp.csv", index = False, header=True)
 
@@ -90,8 +90,8 @@ def main_binning_fun():
 
     ### match non-binned via merge: bergstr binning output
     binning_algorithm = "shortest"
-    binner_b = robin_s[robin_s["name"].isin(rn_funs.berg_ts['ts'])]
-    binner_w = robin_s[robin_s["name"].isin(rn_funs.webby_ts['ts'])]
+    binner_b = robin_s[robin_s["name"].isin(berg_ts['ts'])]
+    binner_w = robin_s[robin_s["name"].isin(webby_ts['ts'])]
 
     mws = pd.merge(robin_w, binner_w, how= 'inner', left_on="oldest", right_on ='name')
     mws['refs'] = mws[['refs_x', 'refs_y']].apply(', '.join, axis=1)
@@ -112,10 +112,10 @@ def main_binning_fun():
     mbs.columns = ['name', 'oldest', 'youngest', 'ts_count','refs']
 
     mwbs = pd.concat([mws, mbs], axis=0, sort=True)
-    mwbs = pd.merge(mwbs, rn_funs.stages_ts, how= 'inner', left_on="oldest", right_on="ts")
+    mwbs = pd.merge(mwbs, stages_ts, how= 'inner', left_on="oldest", right_on="ts")
     x1 = mwbs[['name', 'oldest', 'ts_index', 'youngest', 'ts_count', 'refs']]
     x1.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'ts_count','refs']
-    x1 = pd.merge(x1, rn_funs.stages_ts, how= 'inner', left_on="youngest", right_on="ts")
+    x1 = pd.merge(x1, stages_ts, how= 'inner', left_on="youngest", right_on="ts")
     x1 = x1[['name', 'oldest', 'oldest_index', 'youngest', 'ts_index','ts_count','refs']]
     x1.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count','refs']
     mc_bw = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
@@ -142,7 +142,7 @@ def main_binning_fun():
         bio_sel = pd.DataFrame([[i_name, cpts_oldest.iloc[0,0], cpts_youngest.iloc[0,0], ts_c, refs_f]],
                                    columns=["name", "oldest", "youngest", "ts_count", "refs"])
         mc_bw = pd.concat([mc_bw, bio_sel], axis=0, sort=True)
-    mc_bw = mc_bw[~mc_bw["name"].isin(rn_funs.stages_ts["ts"])]
+    mc_bw = mc_bw[~mc_bw["name"].isin(stages_ts["ts"])]
 
     rest_s =  robin_s[~robin_s["name"].isin(bnu)]
     rest_s = rest_s[["name", "oldest", "youngest", "ts_count", "refs"]]
@@ -165,7 +165,7 @@ def main_binning_fun():
         refs.iloc[i] = str1.join(ref_list_u)
     binned_stages.loc[:,'refs'] = refs
 
-    binned_stages =  binned_stages[~binned_stages["name"].isin(rn_funs.stages_ts["ts"])]
+    binned_stages =  binned_stages[~binned_stages["name"].isin(stages_ts["ts"])]
     binned_stages.to_csv("x_binned_stages.csv", index = False, header=True)
 
 
@@ -174,7 +174,7 @@ def main_binning_fun():
 
     ### match non-binned via merge: period binning output
     # s with p
-    binner_p = robin_p[robin_p["name"].isin(rn_funs.stages_ts['ts'])]
+    binner_p = robin_p[robin_p["name"].isin(stages_ts['ts'])]
     msp = pd.merge(binned_stages, binner_p, how= 'inner', left_on="oldest", right_on ='name')
     msp['refs'] = msp[['refs_x', 'refs_y']].apply(', '.join, axis=1)
     msp = msp[['name_x', 'oldest_y', 'youngest_x', 'ts_count_y', 'refs']]
@@ -206,7 +206,7 @@ def main_binning_fun():
         str1 = ", "
         refs.iloc[i] = str1.join(ref_list_u)
     binned_periods.loc[:,'refs'] = refs
-    binned_periods =  binned_periods[~binned_periods["name"].isin(rn_funs.periods_ts["ts"])]
+    binned_periods =  binned_periods[~binned_periods["name"].isin(periods_ts["ts"])]
     binned_periods.to_csv("x_binned_periods.csv", index = False, header=True)
 
 
