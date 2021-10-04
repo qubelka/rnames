@@ -111,24 +111,30 @@ const Ref = ({data}) => {
 		}))
 	}
 
+	const update = ({target}, field) => {
+		const r = {...data}
+		r[field] = target.value
+		dispatch(updateRef(r))
+	}
+
 	if (data.queried)
 		return (
 			<div>
 				<form>
 					<label htmlFor="first_author">first_author</label>
-					<input type="text" name="first_author" value={data.first_author} />
+					<input type="text" name="first_author" value={data.first_author} onChange={e => update(e, `first_author`)} />
 					<br />
 					<label htmlFor="year">year</label>
-					<input type="text" name="year" value={data.year} />
+					<input type="text" name="year" value={data.year} onChange={e => update(e, `year`)} />
 					<br />
 					<label htmlFor="title">title</label>
-					<input type="text" name="title" value={data.title} />
+					<input type="text" name="title" value={data.title} onChange={e => update(e, `title`)} />
 					<br />
 					<label htmlFor="doi">doi</label>
-					<input type="text" name="doi" value={data.doi} />
+					<input type="text" name="doi" value={data.doi} onChange={e => update(e, `doi`)} />
 					<br />
 					<label htmlFor="link">link</label>
-					<input type="text" name="link" value={data.link} />
+					<input type="text" name="link" value={data.link} onChange={e => update(e, `link`)} />
 				</form>
 				<NameList {...{data}} />
 			</div>
