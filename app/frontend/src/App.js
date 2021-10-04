@@ -214,10 +214,13 @@ const Sname = ({data}) => {
 	return (<div>
 		<label htmlFor="name">Name</label>
 		<Dropdown name="name"  options={names} value={data.name} onChange={e => update(e, `name_id`)} />
+		<br />
 		<label htmlFor="qualifier">Qualifier</label>
 		<Dropdown name="qualifier"  options={qualifiers} value={data.qualifier} onChange={e => update(e, `qualifier_id`)} />
+		<br />
 		<label htmlFor="location">Location</label>
 		<Dropdown name="location" options={locations} value = {data.location} onChange={e => update(e, `location_id`) } />
+		<br />
 		<label htmlFor="reference">Reference</label>
 		<Dropdown name="reference" options={references} value = {data.reference_id} onChange={e => update(e, `reference_id`)} />
 	</div>)
