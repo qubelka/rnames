@@ -55,22 +55,18 @@ def external(request):
     # Generate counts of some of the main objects
     num_opinions = Relation.objects.is_active().count()
 
-    inp = request.POST.get('param', 'K')
-    out = run(['python3', 'rnames_app/utils/root_binning.py', inp], shell=False, stdout=PIPE)
+    # inp = request.POST.get('param', 'K') # This doesn't appear to be used anywhere in binning
+    out = io.StringIO()
 
-    '''
-    out = run(['C:\\Users\\Localadmin_lintulaa\\Envs\\rnames\\Scripts\\python.exe',
-              'C:\\LocalData\\lintulaa\\WWW_Django\\Django_Development\\rnames\\rnames_app\\utils\\root_binning.py', inp], shell=False, stdout=PIPE)
-    out=run([sys.executable,'C:\\LocalData\\lintulaa\\WWW_Django\\Django_Development\\rnames\\rnames_app\\utils\\root_binning.py',inp],shell=False,stdout=PIPE)
-    out=run([sys.executable,'C:\\LocalData\\lintulaa\\WWW_Django\\Django_Development\\rnames\\rnames_app\\utils\\utils.py',inp],shell=False,stdout=PIPE)
-    '''
+    with redirect_stdout(out):
+        main_binning_fun()
 
-    print(out)
+    print(out.getvalue())
 
     return render(
         request,
         'run_binning.html',
-        context={'num_opinions': num_opinions, 'data1': out.stdout},
+        context={'num_opinions': num_opinions, 'data1': out.getvalue()},
     )
 
 
