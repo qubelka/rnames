@@ -251,10 +251,12 @@ const Rel = ({data}) => {
 		.map(v => [v.id, v.title])
 
 	return (<div>
-		<Dropdown options={name1Options} value={data.name1} onChange={e => update(e, `name1`)} />
-		<Dropdown options={name2Options} value={data.name2} onChange={e => update(e, `name2`)} />
 		<label htmlFor="reference">Reference</label>
 		<Dropdown name="reference" options={refOptions} value = {data.reference_id} onChange={e => update(e, `reference_id`)} />
+		<br />
+		<Dropdown options={name1Options} value={data.name1} onChange={e => update(e, `name1`)} />
+		<br />
+		<Dropdown options={name2Options} value={data.name2} onChange={e => update(e, `name2`)} />
 	</div>)
 }
 
