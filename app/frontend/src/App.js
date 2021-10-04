@@ -144,7 +144,7 @@ const Ref = ({data}) => {
 		<div>
 			<form onSubmit={doiSubmit}>
 				<label htmlFor="doi">doi</label>
-				<input type="text" name="doi" />
+				<input type="text" name="doi" name="doi" value={data.doi} onChange={e => update(e, `doi`)} />
 				<button type="submit">get</button>
 				<button type="button" onClick={() => {dispatch(updateRef({...data, queried: true}))}}>Manual Entry</button>
 			</form>
