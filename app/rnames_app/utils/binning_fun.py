@@ -6,7 +6,7 @@ import csv
 import pandas as pd
 import numpy as np
 #from rnames_app.utils import rn_funs
-import rn_funs
+from .rn_funs import *
 
 def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
 
@@ -32,19 +32,19 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
     # Binning schemes
 
     if binning_scheme == "r":
-        used_ts = rn_funs.rassm_ts
+        used_ts = rassm_ts
         t_scheme = "TimeSlice_Rassmussen"
     if binning_scheme == "w":
-        used_ts = rn_funs.webby_ts
+        used_ts = webby_ts
         t_scheme = "TimeSlice_Webby"
     if binning_scheme == "b":
-        used_ts = rn_funs.berg_ts
+        used_ts = berg_ts
         t_scheme = "TimeSlice_Bergstrom"
     if binning_scheme == "s":
-        used_ts = rn_funs.stages_ts
+        used_ts = stages_ts
         t_scheme = "Stage"
     if binning_scheme == "p":
-        used_ts = rn_funs.periods_ts
+        used_ts = periods_ts
         t_scheme = "Period"
 
     # range limitation
@@ -116,11 +116,11 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
         resi_0 = pd.DataFrame.transpose(resi_0)
         for i in bnurange:
             if ibs == 0:
-                resi_0a = rn_funs.bifu_s(cr_x.loc[cr_x["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                resi_0a = bifu_s(cr_x.loc[cr_x["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
             if ibs == 1:
-                resi_0a = rn_funs.bifu_y(cr_x.loc[cr_x["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                resi_0a = bifu_y(cr_x.loc[cr_x["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
             if ibs == 2:
-                resi_0a = rn_funs.bifu_c(cr_x.loc[cr_x["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                resi_0a = bifu_c(cr_x.loc[cr_x["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
             resi_0 = pd.concat([resi_0, resi_0a], axis=0, sort=True)
         resi_0["rule"] = 0.0
         resi_0 = resi_0.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
@@ -221,11 +221,11 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
         resi_1 = pd.DataFrame.transpose(resi_1)
         for i in bnurange:
             if ibs == 0:
-                resi_1a = rn_funs.bifu_s(cr_a.loc[cr_a["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                resi_1a = bifu_s(cr_a.loc[cr_a["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
             if ibs == 1:
-                resi_1a = rn_funs.bifu_y(cr_a.loc[cr_a["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                resi_1a = bifu_y(cr_a.loc[cr_a["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
             if ibs == 2:
-                resi_1a = rn_funs.bifu_c(cr_a.loc[cr_a["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                resi_1a = bifu_c(cr_a.loc[cr_a["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
             resi_1 = pd.concat([resi_1, resi_1a], axis=0, sort=True)
         resi_1 = resi_1.dropna()
         resi_1["rule"] = 1.0
@@ -329,11 +329,11 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
         resi_2 = pd.DataFrame.transpose(resi_2)
         for i in bnurange:
             if ibs == 0:
-                resi_2a = rn_funs.bifu_s(cr_c.loc[cr_c["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                resi_2a = bifu_s(cr_c.loc[cr_c["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
             if ibs == 1:
-                resi_2a = rn_funs.bifu_y(cr_c.loc[cr_c["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                resi_2a = bifu_y(cr_c.loc[cr_c["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
             if ibs == 2:
-                resi_2a = rn_funs.bifu_c(cr_c.loc[cr_c["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                resi_2a = bifu_c(cr_c.loc[cr_c["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
             resi_2 = pd.concat([resi_2, resi_2a], axis=0, sort=True)
         resi_2["rule"] = 2.0
         resi_2 = resi_2.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
@@ -472,11 +472,11 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
             x3 = pd.DataFrame.transpose(x3)
             for i in bnurange:
                 if ibs == 0:
-                    x3a = rn_funs.bifu_s2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                    x3a = bifu_s2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
                 if ibs == 1:
-                    x3a = rn_funs.bifu_y2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                    x3a = bifu_y2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
                 if ibs == 2:
-                    x3a = rn_funs.bifu_c2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                    x3a = bifu_c2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
                 x3 = pd.concat([x3, x3a], axis=0, sort=True)
             x3 = pd.DataFrame.drop_duplicates(x3)
             x3 = x3.dropna()
@@ -651,11 +651,11 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
             x3 = pd.DataFrame.transpose(x3)
             for i in bnurange:
                 if ibs == 0:
-                    x3a = rn_funs.bifu_s2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                    x3a = bifu_s2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
                 if ibs == 1:
-                    x3a = rn_funs.bifu_y2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                    x3a = bifu_y2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
                 if ibs == 2:
-                    x3a = rn_funs.bifu_c2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                    x3a = bifu_c2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
                 x3 = pd.concat([x3, x3a], axis=0, sort=True)
             x3 = pd.DataFrame.drop_duplicates(x3)
             x3 = x3.dropna()
@@ -824,11 +824,11 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
             x3 = pd.DataFrame.transpose(x3)
             for i in bnurange:
                 if ibs == 0:
-                    x3a = rn_funs.bifu_s2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                    x3a = bifu_s2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
                 if ibs == 1:
-                    x3a = rn_funs.bifu_y2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                    x3a = bifu_y2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
                 if ibs == 2:
-                    x3a = rn_funs.bifu_c2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                    x3a = bifu_c2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
                 x3 = pd.concat([x3, x3a], axis=0, sort=True)
             x3 = pd.DataFrame.drop_duplicates(x3)
             x3 = x3.dropna()
@@ -998,11 +998,11 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
             #for loop runs through each name_1
             for i in bnurange:
                 if ibs == 0:
-                    x3a = rn_funs.bifu_s2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                    x3a = bifu_s2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
                 if ibs == 1:
-                    x3a = rn_funs.bifu_y2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                    x3a = bifu_y2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
                 if ibs == 2:
-                    x3a = rn_funs.bifu_c2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+                    x3a = bifu_c2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
                 x3 = pd.concat([x3, x3a], axis=0, sort=True)
             x3 = pd.DataFrame.drop_duplicates(x3)
             x3 = x3.dropna()
