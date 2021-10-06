@@ -1,0 +1,94 @@
+{% extends 'base_generic.html' %}
+{% block title %}RNames - Home{% endblock %}
+
+{% block content %}
+  {% load static %}
+  <!-- Beginning of homepage content -->
+  <section class="w3-content">
+    <h3 class = "w3-teal">Enter search criteria and press "Search". Click row to select value.</h3>
+    <form action="" method="get">
+      {% csrf_token %}
+
+      {{ form.non_field_errors }}
+
+      {{ form.source.errors }}
+      {{ form.source }}
+
+      <table name="search" id="search" class="w3-table-all w3-hoverable">
+
+          <tr>
+            <th>Structured Name contains:</th>
+            <td>
+              {{ filter.form.name__name }}
+            </td>
+            <td>
+              <button type="submit" class="w3-btn w3-padding w3-teal w3-hover-cyan" style="width:120px"><i class="fas fa-search"> Search</i></button>
+            </td>
+          </tr>
+          <tr>
+            <th>Qualifier contains:</th>
+            <td>
+              {{ filter.form.qualifier__qualifier_name__name }}
+            </td>
+            <td>
+              <a href="{% url 'wizard-structuredname-select' %}" class="w3-btn w3-button w3-teal w3-hover-cyan" style="width:120px"><i class="fas fa-undo"> Reset filter</i></a>
+            </td>
+          </tr>
+          <tr>
+            <th>Stratigraphic Qualifier contains:</th>
+            <td>
+              {{ filter.form.qualifier__stratigraphic_qualifier__name }}
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <th>Location contains:</th>
+            <td>
+              {{ filter.form.location__name }}
+            </td>
+            <td>
+            </td>
+          </tr>
+      </table>
+    </form>
+    <table name="select" id="select" class="w3-table-all w3-hoverable w3-card-4">
+      <tr class="w3-teal">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Qualifier</th>
+        <th>Location</th>
+        <th>Reference</th>
+      </tr>
+      {% for x in page_obj %}
+      <tr>
+        <td>{{ x.pk }}</td>
+        <td>{{ x.name }}</td>
+        <td>{{ x.qualifier }}</td>
+        <td>{{ x.location }}</td>
+        {% if x.reference %}
+          <td>{{ x.reference }}</td>
+        {% else %}
+          <td></td>
+        {% endif %}
+
+      </tr>
+      {% endfor %}
+    </table>
+    <script>
+       var table = document.getElementById('select');
+       for(var i = 1; i < table.rows.length; i++)
+       {
+           table.rows[i].onclick = function()
+           {
+                opener.document.getElementById('id_reference_structured_name-name_id').value = this.cells[0].innerHTML;
+                opener.document.getElementById('id_reference_structured_name-name').value = this.cells[1].innerHTML;
+                opener.document.getElementById('id_reference_structured_name-qualifier').value = this.cells[2].innerHTML;
+                opener.document.getElementById('id_reference_structured_name-location').value = this.cells[3].innerHTML;
+                self.close();
+           };
+       }
+    </script>
+  </section>
+  <!-- End of homepage content -->
+{% endblock %}

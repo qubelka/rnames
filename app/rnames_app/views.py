@@ -28,6 +28,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from rest_framework.response import Response
 #from .utils.utils import YourClassOrFunction
 from rest_framework import status, generics
+from formtools.wizard.views import SessionWizardView
 from .models import (Binning, Location, Name, Qualifier, QualifierName,
                      Relation, Reference, StratigraphicQualifier, StructuredName)
 from .filters import (BinningSchemeFilter, LocationFilter, NameFilter, QualifierFilter, QualifierNameFilter,
@@ -49,6 +50,22 @@ from contextlib import redirect_stdout
 #    names = Name.objects.is_active().order_by('name')
 #    names = Name.objects.order_by('name')
 #    return render(request, 'name_list.html', {'names': names})
+
+TEMPLATES = {
+    "reference": "wizard_reference_edit.html",
+    "reference_structured_name": "wizard_reference_structured_name_edit.html"
+}
+
+class FormWizardView(SessionWizardView):
+    def get_template_names(self):
+        return [TEMPLATES[self.steps.current]]
+
+    form_list = [ReferenceForm, ReferenceStructuredNameForm]
+
+    def done(self, form_list, **kwargs):
+        return render(self.request, 'done.html', {
+            'form_data': [form.cleaned_data for form in form_list],
+        })
 
 def external(request):
 
@@ -1092,6 +1109,26 @@ def structuredname_select(request):
         'select_structured_name.html',
         {'page_obj': page_obj, 'filter': f, }
     )
+
+def wizard_structuredname_select(request):
+    f = StructuredNameFilter(request.GET, queryset=StructuredName.objects.is_active(
+    ).select_related().order_by('name', 'qualifier', 'location'))
+
+    paginator = Paginator(f.qs, 5)
+
+    page_number = request.GET.get('page')
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
+    return render(
+        request,
+        'wizard_select_structured_name.html',
+        {'page_obj': page_obj, 'filter': f, }
+    )   
 
 
 def user_search(request):
