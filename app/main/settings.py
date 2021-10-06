@@ -65,7 +65,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.orcid',
     'frontend.apps.FrontendConfig',
-    'livereload'
+    'livereload',
+    'formtools'
 ]
 
 LIVERELOAD_HOST="0.0.0.0"
