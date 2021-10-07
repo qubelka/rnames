@@ -62,9 +62,44 @@ class FormWizardView(SessionWizardView):
 
     form_list = [ReferenceForm, ReferenceStructuredNameForm]
 
+    def handle_form_data(self, form_list):
+        form0 = form_list[0]
+        reference = form0.save(commit=False)
+        reference.save()
+        pk = reference.pk
+
+        form1 = form_list[1]
+        name_id = form1.cleaned_data.get('name_id', 1)
+        name_one = get_object_or_404(StructuredName, pk=name_id, is_active=1)
+        relation = form1.save(commit=False)
+        relation.reference = reference
+        relation.name_one = name_one
+        relation.name_two = name_one
+        relation.save()
+
+        qs1 = (Relation.objects.is_active().filter(reference=reference).select_related()
+           .values('name_one__id', 'name_one__name__name', 'name_one__qualifier__qualifier_name__name', 'name_one__location__name', 'name_one__qualifier__stratigraphic_qualifier__name')
+           .distinct().order_by('name_one__id', 'name_one__name__name', 'name_one__qualifier__qualifier_name__name', 'name_one__location__name', 'name_one__qualifier__stratigraphic_qualifier__name'))
+        qs2 = (Relation.objects.is_active().filter(reference=reference).select_related()
+           .values('name_two__id', 'name_two__name__name', 'name_two__qualifier__qualifier_name__name', 'name_two__location__name', 'name_two__qualifier__stratigraphic_qualifier__name')
+           .distinct().order_by('name_two__id', 'name_two__name__name', 'name_two__qualifier__qualifier_name__name', 'name_two__location__name', 'name_two__qualifier__stratigraphic_qualifier__name'))
+        sn_list = qs1.union(qs2)
+        f = RelationFilter(
+            self.request.GET,
+            queryset=Relation.objects.is_active().select_related().filter(
+                reference__id=pk).order_by('name_one')
+        )
+
+        paginator = Paginator(f.qs, 5)
+        page_obj = paginator.page(1)
+
+        return reference, sn_list, f, page_obj
+
+
     def done(self, form_list, **kwargs):
-        return render(self.request, 'done.html', {
-            'form_data': [form.cleaned_data for form in form_list],
+        reference, sn_list, f, page_obj = self.handle_form_data(form_list) 
+        return render(self.request, 'reference_detail.html', {
+            'reference': reference, 'filter': f, 'page_obj': page_obj, 'sn_list': sn_list
         })
 
 def external(request):
