@@ -101,7 +101,74 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
 
     ##############################################################
     ##############################################################
+    results = {}
+
     #rule 0 = all direct relations between chronostrat names and binning scheme
+    results['rule_0'] = rule0(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
+
+    ##############################################################
+    ##############################################################
+    #rule 1 = all direct relations between biostrat names and binning scheme
+    results['rule_1'] = rule1(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
+
+    ##############################################################
+    ##############################################################
+    ### Rule_2: direct relations between non-bio* with binning scheme
+    ### except chronostratigraphy
+    results['rule_2'] = rule2(results, c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
+
+    ##############################################################
+    ##############################################################
+    # the second tier has two binning rules and bins all indirect names via biostrat
+
+    ##############################################################
+    ##############################################################
+    #rule_3 all relations between biostrat and biostrat that refer indirectly to binning scheme
+    results['rule_3'] = rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
+
+    ##############################################################
+    resis_bio = pd.concat([results['rule_1'], results['rule_3']], axis=0)
+    resis_bio = pd.DataFrame.drop_duplicates(resis_bio)
+    ### Rule 4: indirect relations of non-bio via resis_bio to binning scheme
+    ### except direct chronostratigraphy links
+    results['rule_4'] = rule4(results, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
+
+    ##################################################################################
+    cr_g = c_rels.loc[~(c_rels["strat_qualifier_1"]=="Biostratigraphy")
+                              & ~(c_rels["strat_qualifier_2"]=="Biostratigraphy")
+                              & ~(c_rels["qualifier_name_1"]==t_scheme)
+                              & ~(c_rels["qualifier_name_2"]==t_scheme),
+                              ["reference_id","name_1","name_2", "reference_year"]]
+    cr_g.to_csv("x_cr_g.csv", index = False, header=True)
+    ### Rule 5:  indirect relations of non-bio* to resis_4 with link to bio* (route via resi_4)
+    results['rule_5'] = rule5(results, cr_g, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
+
+    ##################################################################################
+    ### Rule 6: indirect relations of non-bio* to resis_bio to binning scheme (route via resis_bio)
+    #rule 6 corrected at 23.03.2020
+    results['rule_6'] = rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme)
+
+    end = time.time()
+    dura = (end - start)/60
+
+    print("############################################")
+    print("The binning took", round(dura, 2), "minutes")
+    print("############################################")
+
+    print("Now we search for the shortest time bins within these 6 results.")
+    ##################################################################################
+    ##################################################################################
+    ## search for shortest time bins among 5 & 6
+    start = time.time()
+    combi_names = shortestTimeBins(results, used_ts)
+    end = time.time()
+    dura2 = (end - start)/60
+    print("We find", len(combi_names),
+          "binned names. It took ", round(dura, 2), "+", round(dura2, 2),  "minutes.")
+    return combi_names
+
+
+def rule0(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     cr_x = c_rels_d.loc[((c_rels_d["strat_qualifier_1"]=="Chronostratigraphy"))
                               & ((c_rels_d["qualifier_name_2"]==t_scheme)),
                               ["reference_id","name_1","name_2", "ts", "ts_index", "reference_year"]]
@@ -145,9 +212,9 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
     print("rule 0 has ", len(resi_0), "binned relations")
     print("Rule 0:  relations among named biostratigraphical units that have direct relations to binning scheme")
     resi_0.to_csv("x_rule0.csv", index = False, header=True)
+    return resi_0
 
-    ##############################################################
-    ##############################################################
+def rule1(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     #rule 1 = all direct relations between biostrat names and binning scheme
     cr_a = c_rels_d.loc[((c_rels_d["strat_qualifier_1"]=="Biostratigraphy"))
                               & ((c_rels_d["qualifier_name_2"]==t_scheme)),
@@ -193,12 +260,12 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
     print("rule 1 has ", len(resi_1), "binned relations")
     print("Rule 1: direct relations of named units to binning scheme")
     resi_1.to_csv("x_rule1.csv", index = False, header=True)
+    return resi_1
 
-    ##############################################################
-    ##############################################################
+def rule2(results, c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
+    resi_0 = results["rule_0"]
     ### Rule_2: direct relations between non-bio* with binning scheme
     ### except chronostratigraphy
-
     cr_c = c_rels_d.loc[~(c_rels_d["strat_qualifier_1"]=="Biostratigraphy")
                           & ~(c_rels_d["strat_qualifier_1"]=="Chronostratigraphy")
                           & (c_rels_d["qualifier_name_2"]==t_scheme),
@@ -244,16 +311,10 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
     print("rule 2 has ", len(resi_2), "binned relations")
     print("Rule 2:  relations among named biostratigraphical units that have indirect relations to binning scheme")
     resi_2.to_csv("x_rule2.csv", index = False, header=True)
+    return resi_2
 
-    ##############################################################
-    ##############################################################
-    ##############################################################
-    ##############################################################
-    ##############################################################
-    # the second tier has two binning rules and bins all indirect names via biostrat
-
-    ##############################################################
-    ##############################################################
+def rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
+    resi_1 = results["rule_1"]
     #rule_3 all relations between biostrat and biostrat that refer indirectly to binning scheme
     cr_b = c_rels.loc[(c_rels["strat_qualifier_1"]=="Biostratigraphy")
                                   & (c_rels["strat_qualifier_2"]=="Biostratigraphy")
@@ -367,13 +428,17 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
     print("rule 3 has ", len(resi_3), "binned relations")
     print("Rule 3:  relations among named biostratigraphical units that have direct relations to binning scheme")
     resi_3.to_csv("x_rule3.csv", index = False, header=True)
+    return resi_3
 
-    ##############################################################
+def rule4(results, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
+    resi_0 = results["rule_0"]
+    resi_1 = results["rule_1"]
+    resi_2 = results["rule_2"]
+    resi_3 = results["rule_3"]
     ### Rule 4: indirect relations of non-bio via resis_bio to binning scheme
     ### except direct chronostratigraphy links
-    resis_bio = pd.concat([resi_1, resi_3], axis=0)
-    #resis_bio.to_csv('resis_bio.csv') # all binnings via bio only = Bio*
 
+    #resis_bio.to_csv('resis_bio.csv') # all binnings via bio only = Bio*
     cr_d = c_rels.loc[~(c_rels["strat_qualifier_1"]=="Biostratigraphy")
                               & (c_rels["strat_qualifier_2"]=="Biostratigraphy")
                               & ~(c_rels["qualifier_name_1"]==t_scheme)
@@ -381,7 +446,7 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
                               ["reference_id","name_1","name_2", "reference_year"]]
 
     cr_d =  cr_d[~cr_d["name_1"].isin(resi_0["name"])] #filter for chronostrat rule 0
-    resis_bio = pd.DataFrame.drop_duplicates(resis_bio)
+
     x1 = pd.merge(resis_bio, cr_d, left_on="name", right_on="name_2") # name_2 is already binned here
     x1 = pd.merge(x1, used_ts, how= 'inner', left_on="oldest", right_on="ts") # time bin info is added here
     x1 = x1[['name_2', 'name_1', 'oldest', "ts_index", 'youngest', 'ts_count', 'refs',
@@ -488,16 +553,16 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
     print("rule 4 has ", len(resi_4), "binned relations")
     print("Rule 4:  relations among named non-biostratigraphical units that have direct relations to binning scheme")
     resi_4.to_csv("x_rule4.csv", index = False, header=True)
+    return resi_4
 
-    ##################################################################################
+def rule5(results, cr_g, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
+    resi_0 = results["rule_0"]
+    resi_1 = results["rule_1"]
+    resi_2 = results["rule_2"]
+    resi_3 = results["rule_3"]
+    resi_4 = results["rule_4"]
     ### Rule 5:  indirect relations of non-bio* to resis_4 with link to bio* (route via resi_4)
 
-    cr_g = c_rels.loc[~(c_rels["strat_qualifier_1"]=="Biostratigraphy")
-                              & ~(c_rels["strat_qualifier_2"]=="Biostratigraphy")
-                              & ~(c_rels["qualifier_name_1"]==t_scheme)
-                              & ~(c_rels["qualifier_name_2"]==t_scheme),
-                              ["reference_id","name_1","name_2", "reference_year"]]
-    cr_g.to_csv("x_cr_g.csv", index = False, header=True)
     x1 = pd.merge(resi_4, cr_g, left_on="name", right_on="name_2")
     x1 = pd.merge(x1, used_ts, how= 'inner', left_on="oldest", right_on="ts") # time bin info is added here
     x1 = x1[['name_2', 'name_1', 'oldest', "ts_index", 'youngest', 'ts_count', 'refs',
@@ -604,10 +669,16 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
     print("Rule 5:  relations among named non-biostratigraphical units that have indirect relations to binning scheme")
     print("via biostratigraphical units.")
     resi_5.to_csv("x_rule5.csv", index = False, header=True)
+    return resi_5
 
-    ##################################################################################
-    ### Rule 6: indirect relations of non-bio* to resis_bio to binning scheme (route via resis_bio)
-    #rule 6 corrected at 23.03.2020
+def rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme):
+    resi_0 = results["rule_0"]
+    resi_1 = results["rule_1"]
+    resi_2 = results["rule_2"]
+    resi_3 = results["rule_3"]
+    resi_4 = results["rule_4"]
+
+    ## search for shortest time bins among 5 & 6
     resis_nbio = pd.concat([resi_0, resi_2], axis=0)
     resis_nbio.to_csv('resis_nbio.csv') # all binnings via bio non bio only
 
@@ -721,19 +792,17 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
     print("Rule 6:  relations among named non-biostratigraphical units that have indirect relations to binning scheme")
     print("via non-biostratigraphical units.")
     resi_6.to_csv("x_rule6.csv", index = False, header=True)
+    return resi_6
 
-    end = time.time()
-    dura = (end - start)/60
-
-    print("############################################")
-    print("The binning took", round(dura, 2), "minutes")
-    print("############################################")
-    print("Now we search for the shortest time bins within these 6 results.")
-
-    ##################################################################################
-    ##################################################################################
+def shortestTimeBins(results, used_ts):
+    resi_0 = results["rule_0"]
+    resi_1 = results["rule_1"]
+    resi_2 = results["rule_2"]
+    resi_3 = results["rule_3"]
+    resi_4 = results["rule_4"]
+    resi_5 = results["rule_5"]
+    resi_6 = results["rule_6"]
     ## search for shortest time bins among 5 & 6
-    start = time.time()
     # all where names of 5 and 6 in common and range is identical
     com_a = pd.merge(resi_5, resi_6,how='inner', on="name") # all names that 5 and 6 have in common
     cas = com_a.loc[com_a["youngest_x"]==com_a["youngest_y"],
@@ -854,11 +923,6 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
                              c5, combi_56, c6], axis=0, sort=False)
     combi_names.to_csv("x_combi_names.csv", index = False, header=True)
 
-    end = time.time()
-    dura2 = (end - start)/60
-
-    print("We find", len(combi_names),
-          "binned names. It took ", round(dura, 2), "+", round(dura2, 2),  "minutes.")
     return(combi_names)
 
 def merge_cc(resi_s, resi_y, resi_c, used_ts):
