@@ -278,29 +278,24 @@ def bifu_s2  (ntts, used_ts, xnames_raw):
     isempty = bio_set.empty
     if isempty == False:
         # select all references
-        u_ref = bio_set.loc[:, ["reference_id"]]
-        u_ref = u_ref.drop_duplicates()
-        cp_coll = pd.DataFrame([], columns=["reference_id","tsx"])
+        u_ref = bio_set["reference_id"].unique()
+
+        rows = []
+        min_delta = np.inf
         # search for shortest range
-        for kk in np.arange(0,len(u_ref),1):
-            r_yx = u_ref["reference_id"].iloc[kk]
-            cptx = bio_set.loc[bio_set["reference_id"]== r_yx,
-                        ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count',
-                        'refs', 'rule', 'reference_id', "reference_year"]]
-            cptx_youngest =  cptx.loc[(cptx["youngest_index"]== max(cptx["youngest_index"])), ['youngest']]
-            cptx_oldest = cptx.loc[(cptx["oldest_index"]== min(cptx["oldest_index"])), ['oldest']]
-            ts_x = max(cptx["youngest_index"])-min(cptx["oldest_index"])
-            cp_colla = pd.DataFrame([], index=["reference_id","tsx"])
-            cp_colla['reference_id'] = r_yx
-            cp_colla['tsx'] = ts_x
-            cp_coll = np.concatenate((cp_coll, cp_colla), axis=0)
-            cp_coll = pd.DataFrame(data=cp_coll, columns=['reference_id', 'tsx'])
-        min_ts = min(cp_coll["tsx"])
-        short_ref = cp_coll.loc[(cp_coll["tsx"]== min_ts), ['reference_id']]
-        bio_setb = bio_set[bio_set["reference_id"].isin(short_ref["reference_id"])]
+        for r_yx in u_ref:
+            cptx = bio_set.loc[bio_set["reference_id"] == r_yx, ["oldest_index", 'youngest_index']]
+            ts_x = cptx["youngest_index"].max()-cptx["oldest_index"].min()
+            if ts_x == min_delta:
+                rows.append(r_yx)
+            if ts_x < min_delta:
+                del rows[:]
+                min_delta = ts_x
+                rows.append(r_yx)
+
+        short_ref = set(rows)
+        bio_setb = bio_set[bio_set["reference_id"].isin(short_ref)]
         # search for youngest reference among those
-        u_ref = bio_setb["reference_id"]
-        u_ref = u_ref.drop_duplicates()
         max_y = max(bio_setb["reference_year"])
         cpts = bio_setb.loc[bio_setb["reference_year"]==max_y,
                         ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count',
