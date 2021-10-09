@@ -305,9 +305,10 @@ def bifu_s2  (ntts, used_ts, xnames_raw):
         refs_f = refs_f[0].apply(str)
         refs_f = refs_f.str.cat(sep=', ')# and collect the references which have that opinions
         # youngest, oldest and ts_count
-        cpts_youngest =  cpts.loc[(cpts["youngest_index"]== max(cpts["youngest_index"])), ['youngest']]
-        cpts_oldest = cpts.loc[(cpts["oldest_index"]== min(cpts["oldest_index"])), ['oldest']]
         ts_c = max(cpts["youngest_index"])-min(cpts["oldest_index"])
-        bio_sel = pd.DataFrame([[i_name, cpts_oldest.iloc[0,0], cpts_youngest.iloc[0,0], ts_c, refs_f]],
+        youngest_idx = cpts["youngest_index"].idxmax()
+        oldest_idx = cpts["oldest_index"].idxmin()
+
+        return pd.DataFrame([[i_name, cpts.at[oldest_idx, 'oldest'], cpts.at[youngest_idx, 'youngest'], ts_c, refs_f]],
                                columns=["name", "oldest", "youngest", "ts_count", "refs"])
     return(bio_sel)
