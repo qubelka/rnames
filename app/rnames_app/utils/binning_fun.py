@@ -313,6 +313,25 @@ def rule2(results, c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     resi_2.to_csv("x_rule2.csv", index = False, header=True)
     return resi_2
 
+def bin_unique_names_1(ibs, x1, used_ts, xnames_raw):
+    bnu = x1["name_1"]
+    bnu = bnu.drop_duplicates()
+    bnurange = np.arange(0,len(bnu),1)
+
+    x3 = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
+    x3 = pd.DataFrame.transpose(x3)
+    for i in bnurange:
+        if ibs == 0:
+            x3a = bifu_s2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+        if ibs == 1:
+            x3a = bifu_y2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+        if ibs == 2:
+            x3a = bifu_c2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+        x3 = pd.concat([x3, x3a], axis=0, sort=True)
+    x3 = pd.DataFrame.drop_duplicates(x3)
+    x3 = x3.dropna()
+    return x3
+
 def rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     resi_1 = results["rule_1"]
     #rule_3 all relations between biostrat and biostrat that refer indirectly to binning scheme
@@ -351,22 +370,7 @@ def rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     resi_3 = pd.DataFrame.transpose(resi_3)
     for ibs in runrange:
         for k in np.arange(1,5,1):
-            bnu = x1["name_1"]
-            bnu = bnu.drop_duplicates()
-            bnurange = np.arange(0,len(bnu),1)
-
-            x3 = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-            x3 = pd.DataFrame.transpose(x3)
-            for i in bnurange:
-                if ibs == 0:
-                    x3a = bifu_s2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-                if ibs == 1:
-                    x3a = bifu_y2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-                if ibs == 2:
-                    x3a = bifu_c2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-                x3 = pd.concat([x3, x3a], axis=0, sort=True)
-            x3 = pd.DataFrame.drop_duplicates(x3)
-            x3 = x3.dropna()
+            x3 = bin_unique_names_1(ibs, x1, used_ts, xnames_raw)
             x3["rule"] = 3.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_3["name"])] # filter for already binned names
             resi_3 = pd.concat([resi_3, x3b], axis=0, sort=True) # appended to previous ruling
@@ -476,22 +480,7 @@ def rule4(results, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b
     resi_4 = pd.DataFrame.transpose(resi_4)
     for ibs in runrange:
         for k in np.arange(1,5,1):
-            bnu = x1["name_1"]
-            bnu = bnu.drop_duplicates()
-            bnurange = np.arange(0,len(bnu),1)
-
-            x3 = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-            x3 = pd.DataFrame.transpose(x3)
-            for i in bnurange:
-                if ibs == 0:
-                    x3a = bifu_s2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-                if ibs == 1:
-                    x3a = bifu_y2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-                if ibs == 2:
-                    x3a = bifu_c2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-                x3 = pd.concat([x3, x3a], axis=0, sort=True)
-            x3 = pd.DataFrame.drop_duplicates(x3)
-            x3 = x3.dropna()
+            x3 = bin_unique_names_1(ibs, x1, used_ts, xnames_raw)
             x3["rule"] = 4.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_4["name"])] # filter for already binned names
             resi_4 = pd.concat([resi_4, x3b], axis=0, sort=True) # appended to previous ruling
@@ -592,21 +581,7 @@ def rule5(results, cr_g, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_
     resi_5 = pd.DataFrame.transpose(resi_5)
     for ibs in runrange:
         for k in np.arange(1,5,1):
-            bnu = x1["name_1"] # changed from name_1 23.03
-            bnu = bnu.drop_duplicates()
-            bnurange = np.arange(0,len(bnu),1)
-            x3 = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-            x3 = pd.DataFrame.transpose(x3)
-            for i in bnurange:
-                if ibs == 0:
-                    x3a = bifu_s2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-                if ibs == 1:
-                    x3a = bifu_y2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-                if ibs == 2:
-                    x3a = bifu_c2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-                x3 = pd.concat([x3, x3a], axis=0, sort=True)
-            x3 = pd.DataFrame.drop_duplicates(x3)
-            x3 = x3.dropna()
+            x3 = bin_unique_names_1(ibs, x1, used_ts, xnames_raw)
             x3["rule"] = 5.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_5["name"])] # filter for already binned names
             resi_5 = pd.concat([resi_5, x3b], axis=0, sort=True) # appended to previous ruling
@@ -713,22 +688,7 @@ def rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme):
     resi_6 = pd.DataFrame.transpose(resi_6)
     for ibs in runrange:
         for k in np.arange(1,5,1):
-            bnu = x1["name_1"]
-            bnu = bnu.drop_duplicates()
-            bnurange = np.arange(0,len(bnu),1)
-            x3 = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-            x3 = pd.DataFrame.transpose(x3)
-            #for loop runs through each name_1
-            for i in bnurange:
-                if ibs == 0:
-                    x3a = bifu_s2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-                if ibs == 1:
-                    x3a = bifu_y2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-                if ibs == 2:
-                    x3a = bifu_c2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-                x3 = pd.concat([x3, x3a], axis=0, sort=True)
-            x3 = pd.DataFrame.drop_duplicates(x3)
-            x3 = x3.dropna()
+            x3 = bin_unique_names_1(ibs, x1, used_ts, xnames_raw)
             x3["rule"] = 6.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_6["name"])] # filter for already binned names
             resi_6 = pd.concat([resi_6, x3b], axis=0, sort=True) # appended to previous ruling; these are now binned
