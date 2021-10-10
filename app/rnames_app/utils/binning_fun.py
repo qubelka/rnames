@@ -800,13 +800,11 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
     x2 = pd.merge(resi, used_ts, how= 'inner', left_on="oldest", right_on="ts")
     x2 = x2[['name', 'oldest', 'ts_index', 'youngest', 'ts_count',
              'refs', 'rule', "b_scheme"]]
-    x2.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'ts_count',
-                  'refs', 'rule', "b_scheme"]
+    x2.rename(inplace=True, columns={'ts_index': 'oldest_index'})
     x2 = pd.merge(x2, used_ts, how= 'inner', left_on="youngest", right_on="ts")
     x2 = x2[['name', 'oldest', 'oldest_index', 'youngest', 'ts_index','ts_count',
              'refs', 'rule', "b_scheme"]]
-    x2.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count',
-                  'refs', 'rule', "b_scheme"]
+    x2.rename(inplace=True, columns={'ts_index': 'youngest_index'})
     x_resi = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
     x_resi = pd.DataFrame.transpose(x_resi)
     xal = pd.merge(pd.merge(resi_s,resi_y,on='name'),resi_c,on='name')
