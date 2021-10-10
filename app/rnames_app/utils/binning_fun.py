@@ -342,21 +342,7 @@ def rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
                                   ["reference_id","name_1","name_2", "reference_year"]]
 
     x1 = pd.merge(resi_1, cr_b, left_on="name", right_on="name_2") # name_2 is already binned here
-    x1 = pd.merge(x1, used_ts, how= 'inner', left_on="oldest", right_on="ts") # time bin info is added here
-    x1 = x1[['name_2', 'name_1', 'oldest', "ts_index", 'youngest', 'ts_count', 'refs',
-             'rule', 'reference_id', "reference_year"]]
-    x1.columns = ['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', 'ts_count', 'refs',
-                  'rule', 'reference_id', "reference_year"]
-    x1 = pd.merge(x1, used_ts, how= 'inner', left_on="youngest", right_on="ts") # time bin info is added here
-    x1 = x1[['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', "ts_index", 'ts_count', 'refs',
-             'rule', 'reference_id', "reference_year"]]
-    x1.columns = ['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count', 'refs',
-                  'rule', 'reference_id', "reference_year"]
-    x1m = x1[['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', "youngest_index", 'ts_count', 'refs',
-             'rule', 'reference_id', "reference_year"]]
-    x1.columns = ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count', 'refs',
-                  'rule', 'reference_id', "reference_year"]
-    x1  = pd.concat((x1,x1m), axis=0)
+    x1 = merge_time_info(x1, used_ts)
     x1 =  x1.loc[~(x1["name_1"]=="not specified")]
     x1 = x1[~x1["name_1"].isin(resi_1["name"])]# filter out all names that are already binned with rule 1
     # name_1 is already binned, name_2 not binned yet
@@ -384,21 +370,7 @@ def rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
                 x4a = pd.concat((x4a, x3), axis=0)
 
             x4 = pd.merge(x4a, cr_b, left_on="name", right_on="name_2") # name_2 is already binned here
-            x4 = pd.merge(x4, used_ts, how= 'inner', left_on="oldest", right_on="ts") # time bin info is added here
-            x4 = x4[['name_2', 'name_1', 'oldest', "ts_index", 'youngest', 'ts_count', 'refs',
-                     'rule', 'reference_id', "reference_year"]]
-            x4.columns = ['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', 'ts_count', 'refs',
-                          'rule', 'reference_id', "reference_year"]
-            x4 = pd.merge(x4, used_ts, how= 'inner', left_on="youngest", right_on="ts") # time bin info is added here
-            x4 = x4[['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', "ts_index", 'ts_count', 'refs',
-                     'rule', 'reference_id', "reference_year"]]
-            x4.columns = ['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count', 'refs',
-                          'rule', 'reference_id', "reference_year"]
-            x4m = x4[['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', "youngest_index", 'ts_count', 'refs',
-                     'rule', 'reference_id', "reference_year"]]
-            x4.columns = ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count', 'refs',
-                          'rule', 'reference_id', "reference_year"]
-            x1  = pd.concat((x4,x4m), axis=0)
+            x1 = merge_time_info(x4, used_ts)
             x1 =  x1.loc[~(x1["name_1"]=="not specified")]
             x1["rule"] = 3.7
             pd.DataFrame.head(x1)
@@ -434,6 +406,28 @@ def rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     resi_3.to_csv("x_rule3.csv", index = False, header=True)
     return resi_3
 
+def merge_time_info(x1, used_ts):
+    columns = ['name_1', 'name_2', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count', 'refs',
+        'rule', 'reference_id', "reference_year"]
+    x1 = pd.merge(x1, used_ts, how= 'inner', left_on="oldest", right_on="ts") # time bin info is added here
+    x1.rename(inplace=True, columns={'ts_index': 'oldest_index'})
+    x1 = pd.merge(x1, used_ts, how= 'inner', left_on="youngest", right_on="ts") # time bin info is added here
+    x1.rename(inplace=True, columns={'ts_index': 'youngest_index'})
+    x1 = x1[columns]
+
+    # Swap name_1 and name_2 columns
+    x1.rename(inplace=True, columns={
+        'name_1': 'name_2',
+        'name_2': 'name_1'
+    })
+
+    # x1 columns are now [name_2, name_1...]
+    # x1m picks [name_1, name_2...]
+    x1m = x1[columns]
+    # Reset x1 column order for concatenation
+    x1.columns = columns
+    return pd.concat((x1,x1m), axis=0)
+
 def rule4(results, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     resi_0 = results["rule_0"]
     resi_1 = results["rule_1"]
@@ -452,21 +446,7 @@ def rule4(results, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b
     cr_d =  cr_d[~cr_d["name_1"].isin(resi_0["name"])] #filter for chronostrat rule 0
 
     x1 = pd.merge(resis_bio, cr_d, left_on="name", right_on="name_2") # name_2 is already binned here
-    x1 = pd.merge(x1, used_ts, how= 'inner', left_on="oldest", right_on="ts") # time bin info is added here
-    x1 = x1[['name_2', 'name_1', 'oldest', "ts_index", 'youngest', 'ts_count', 'refs',
-             'rule', 'reference_id', "reference_year"]]
-    x1.columns = ['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', 'ts_count', 'refs',
-                  'rule', 'reference_id', "reference_year"]
-    x1 = pd.merge(x1, used_ts, how= 'inner', left_on="youngest", right_on="ts") # time bin info is added here
-    x1 = x1[['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', "ts_index", 'ts_count', 'refs',
-             'rule', 'reference_id', "reference_year"]]
-    x1.columns = ['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count', 'refs',
-                  'rule', 'reference_id', "reference_year"]
-    x1m = x1[['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', "youngest_index", 'ts_count', 'refs',
-             'rule', 'reference_id', "reference_year"]]
-    x1.columns = ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count', 'refs',
-                  'rule', 'reference_id', "reference_year"]
-    x1  = pd.concat((x1,x1m), axis=0)
+    x1 = merge_time_info(x1, used_ts)
     x1 = x1[~x1["name_1"].isin(resi_2["name"])] # filter non-bio rule 2
     x1 =  x1[~x1["name_1"].isin(resi_0["name"])] # filter direct chronostrat rule 0
     x1 =  x1.loc[~(x1["name_1"]=="not specified")] # filter "Not specified"
@@ -494,21 +474,7 @@ def rule4(results, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b
                 x4a = pd.concat((x4a, x3), axis=0)
 
             x4 = pd.merge(x4a, cr_d, left_on="name", right_on="name_2") # name_2 is already binned here
-            x4 = pd.merge(x4, used_ts, how= 'inner', left_on="oldest", right_on="ts") # time bin info is added here
-            x4 = x4[['name_2', 'name_1', 'oldest', "ts_index", 'youngest', 'ts_count', 'refs',
-                     'rule', 'reference_id', "reference_year"]]
-            x4.columns = ['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', 'ts_count', 'refs',
-                          'rule', 'reference_id', "reference_year"]
-            x4 = pd.merge(x4, used_ts, how= 'inner', left_on="youngest", right_on="ts") # time bin info is added here
-            x4 = x4[['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', "ts_index", 'ts_count', 'refs',
-                     'rule', 'reference_id', "reference_year"]]
-            x4.columns = ['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', 'youngest_index',
-                          'ts_count', 'refs', 'rule', 'reference_id', "reference_year"]
-            x4m = x4[['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', "youngest_index", 'ts_count', 'refs',
-                     'rule', 'reference_id', "reference_year"]]
-            x4.columns = ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index',
-                          'ts_count', 'refs', 'rule', 'reference_id', "reference_year"]
-            x1  = pd.concat((x4,x4m), axis=0)
+            x1 = merge_time_info(x4, used_ts)
             x1 =  x1.loc[~(x1["name_1"]=="not specified")]
             x1 =  x1[~x1["name_1"].isin(resi_0["name"])]
             x1["rule"] = 6.7
@@ -553,21 +519,7 @@ def rule5(results, cr_g, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_
     ### Rule 5:  indirect relations of non-bio* to resis_4 with link to bio* (route via resi_4)
 
     x1 = pd.merge(resi_4, cr_g, left_on="name", right_on="name_2")
-    x1 = pd.merge(x1, used_ts, how= 'inner', left_on="oldest", right_on="ts") # time bin info is added here
-    x1 = x1[['name_2', 'name_1', 'oldest', "ts_index", 'youngest', 'ts_count', 'refs',
-             'rule', 'reference_id', "reference_year"]]
-    x1.columns = ['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', 'ts_count', 'refs',
-                  'rule', 'reference_id', "reference_year"]
-    x1 = pd.merge(x1, used_ts, how= 'inner', left_on="youngest", right_on="ts") # time bin info is added here
-    x1 = x1[['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', "ts_index", 'ts_count', 'refs',
-             'rule', 'reference_id', "reference_year"]]
-    x1.columns = ['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count', 'refs',
-                  'rule', 'reference_id', "reference_year"]
-    x1m = x1[['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', "youngest_index", 'ts_count', 'refs',
-             'rule', 'reference_id', "reference_year"]]
-    x1.columns = ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count', 'refs',
-                  'rule', 'reference_id', "reference_year"]
-    x1  = pd.concat((x1,x1m), axis=0)
+    x1 = merge_time_info(x1, used_ts)
     x1 = x1[~x1["name_1"].isin(resi_2["name"])] # filter first level  linked non-bio*
     x1 =  x1[~x1["name_1"].isin(resi_0["name"])] # filter direct  chronostrat rule 0
     x1 =  x1.loc[~(x1["name_1"]=="not specified")]
@@ -595,21 +547,7 @@ def rule5(results, cr_g, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_
                 x4a = pd.concat((x4a, x3), axis=0)
 
             x4 = pd.merge(x4a, cr_g, left_on="name", right_on="name_2") # name_2 is already binned here
-            x4 = pd.merge(x4, used_ts, how= 'inner', left_on="oldest", right_on="ts") # time bin info is added here
-            x4 = x4[['name_2', 'name_1', 'oldest', "ts_index", 'youngest', 'ts_count', 'refs',
-                     'rule', 'reference_id', "reference_year"]]
-            x4.columns = ['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', 'ts_count', 'refs',
-                          'rule', 'reference_id', "reference_year"]
-            x4 = pd.merge(x4, used_ts, how= 'inner', left_on="youngest", right_on="ts") # time bin info is added here
-            x4 = x4[['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', "ts_index", 'ts_count', 'refs',
-                     'rule', 'reference_id', "reference_year"]]
-            x4.columns = ['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', 'youngest_index',
-                          'ts_count', 'refs', 'rule', 'reference_id', "reference_year"]
-            x4m = x4[['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', "youngest_index", 'ts_count', 'refs',
-                     'rule', 'reference_id', "reference_year"]]
-            x4.columns = ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index',
-                          'ts_count', 'refs', 'rule', 'reference_id', "reference_year"]
-            x1  = pd.concat((x4,x4m), axis=0)
+            x1 = merge_time_info(x4, used_ts)
             x1 =  x1.loc[~(x1["name_1"]=="not specified")]
             x1["rule"] = 5.7
             pd.DataFrame.head(x1)
@@ -658,21 +596,7 @@ def rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme):
     resis_nbio.to_csv('resis_nbio.csv') # all binnings via bio non bio only
 
     x1 = pd.merge(resis_nbio, cr_g, left_on="name", right_on="name_1")
-    x1 = pd.merge(x1, used_ts, how= 'inner', left_on="oldest", right_on="ts") # time bin info is added here
-    x1 = x1[['name_2', 'name_1', 'oldest', "ts_index", 'youngest', 'ts_count', 'refs',
-             'rule', 'reference_id', "reference_year"]]
-    x1.columns = ['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', 'ts_count', 'refs',
-                  'rule', 'reference_id', "reference_year"]
-    x1 = pd.merge(x1, used_ts, how= 'inner', left_on="youngest", right_on="ts") # time bin info is added here
-    x1 = x1[['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', "ts_index", 'ts_count', 'refs',
-             'rule', 'reference_id', "reference_year"]]
-    x1.columns = ['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count', 'refs',
-                  'rule', 'reference_id', "reference_year"]
-    x1m = x1[['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', "youngest_index", 'ts_count', 'refs',
-             'rule', 'reference_id', "reference_year"]]
-    x1.columns = ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count', 'refs',
-                  'rule', 'reference_id', "reference_year"]
-    x1  = pd.concat((x1,x1m), axis=0)
+    x1 = merge_time_info(x1, used_ts)
     x1 = x1[~x1["name_1"].isin(resi_0["name"])]
     x1 = x1[~x1["name_1"].isin(resi_2["name"])]# all first level linked non-bio* to rule 2
     x1 =  x1.loc[~(x1["name_1"]=="not specified")]
@@ -702,21 +626,7 @@ def rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme):
                 x4a = pd.concat((x4a, x3), axis=0)
 
             x4 = pd.merge(x4a, cr_g, left_on="name", right_on="name_2") # name_2 is already binned here
-            x4 = pd.merge(x4, used_ts, how= 'inner', left_on="oldest", right_on="ts") # time bin info is added here
-            x4 = x4[['name_2', 'name_1', 'oldest', "ts_index", 'youngest', 'ts_count', 'refs',
-                     'rule', 'reference_id', "reference_year"]]
-            x4.columns = ['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', 'ts_count', 'refs',
-                          'rule', 'reference_id', "reference_year"]
-            x4 = pd.merge(x4, used_ts, how= 'inner', left_on="youngest", right_on="ts") # time bin info is added here
-            x4 = x4[['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', "ts_index", 'ts_count', 'refs',
-                     'rule', 'reference_id', "reference_year"]]
-            x4.columns = ['name_2', 'name_1', 'oldest', "oldest_index", 'youngest', 'youngest_index',
-                          'ts_count', 'refs', 'rule', 'reference_id', "reference_year"]
-            x4m = x4[['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', "youngest_index", 'ts_count', 'refs',
-                     'rule', 'reference_id', "reference_year"]]
-            x4.columns = ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index',
-                          'ts_count', 'refs', 'rule', 'reference_id', "reference_year"]
-            x1  = pd.concat((x4,x4m), axis=0)
+            x1 = merge_time_info(x4, used_ts)
             x1 =  x1.loc[~(x1["name_1"]=="not specified")]
             x1["rule"] = 6.7
             pd.DataFrame.head(x1)
