@@ -320,14 +320,19 @@ def bin_unique_names_1(ibs, x1, used_ts, xnames_raw):
 
     x3 = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
     x3 = pd.DataFrame.transpose(x3)
+    x3a_frames = [x3]
     for i in bnurange:
         if ibs == 0:
             x3a = bifu_s2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+            x3a_frames.append(x3a)
         if ibs == 1:
             x3a = bifu_y2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+            x3a_frames.append(x3a)
         if ibs == 2:
             x3a = bifu_c2(x1.loc[x1["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-        x3 = pd.concat([x3, x3a], axis=0, sort=True)
+            x3a_frames.append(x3a)
+
+    x3 = pd.concat(x3a_frames, axis=0, sort=True)
     x3 = pd.DataFrame.drop_duplicates(x3)
     x3 = x3.dropna()
     return x3
