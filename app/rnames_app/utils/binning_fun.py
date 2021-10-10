@@ -347,7 +347,6 @@ def rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     x1 = x1[~x1["name_1"].isin(resi_1["name"])]# filter out all names that are already binned with rule 1
     # name_1 is already binned, name_2 not binned yet
     x1["rule"] = 3.6
-    pd.DataFrame.head(x1)
     x1 = x1.drop_duplicates()
     # all names that are not binned via rule 1
     x2 = cr_b[~cr_b["name_1"].isin(x1["name_1"])]
@@ -360,7 +359,6 @@ def rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
             x3["rule"] = 3.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_3["name"])] # filter for already binned names
             resi_3 = pd.concat([resi_3, x3b], axis=0, sort=True) # appended to previous ruling
-            pd.DataFrame.head(resi_3)
 
             #create a new x1 based on above ruling
             if (k==1):
@@ -372,7 +370,6 @@ def rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
             x1 = merge_time_info(x4, used_ts)
             x1 =  x1.loc[~(x1["name_1"]=="not specified")]
             x1["rule"] = 3.7
-            pd.DataFrame.head(x1)
             x1 = x1.drop_duplicates()
             x2b = cr_b[~cr_b["name_1"].isin(x1["name_1"])] # all not yet binned in cr_g
             x2b = pd.DataFrame.drop_duplicates(x2b)
@@ -450,7 +447,6 @@ def rule4(results, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b
     x1 =  x1[~x1["name_1"].isin(resi_0["name"])] # filter direct chronostrat rule 0
     x1 =  x1.loc[~(x1["name_1"]=="not specified")] # filter "Not specified"
     x1["rule"] = 4.6
-    pd.DataFrame.head(x1)
     x1 = x1.drop_duplicates()
 
     x2 = cr_d[~cr_d["name_1"].isin(resis_bio["name"])]
@@ -463,7 +459,6 @@ def rule4(results, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b
             x3["rule"] = 4.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_4["name"])] # filter for already binned names
             resi_4 = pd.concat([resi_4, x3b], axis=0, sort=True) # appended to previous ruling
-            pd.DataFrame.head(resi_4)
             x2a = cr_d[~cr_d["name_1"].isin(resi_4["name"])] # all non binned names in cr_g with current rule
 
             #now create a new x1 based on above ruling
@@ -477,7 +472,6 @@ def rule4(results, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b
             x1 =  x1.loc[~(x1["name_1"]=="not specified")]
             x1 =  x1[~x1["name_1"].isin(resi_0["name"])]
             x1["rule"] = 6.7
-            pd.DataFrame.head(x1)
             x1 = x1.drop_duplicates()
 
             if len(x2a)== len(x2):
@@ -521,7 +515,6 @@ def rule5(results, cr_g, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_
     x1 =  x1[~x1["name_1"].isin(resi_0["name"])] # filter direct  chronostrat rule 0
     x1 =  x1.loc[~(x1["name_1"]=="not specified")]
     x1["rule"] = 5.0
-    pd.DataFrame.head(x1)
     x1 = x1.drop_duplicates()
 
     x2 = cr_g[~cr_g["name_2"].isin(resis_bio["name"])]
@@ -534,7 +527,6 @@ def rule5(results, cr_g, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_
             x3["rule"] = 5.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_5["name"])] # filter for already binned names
             resi_5 = pd.concat([resi_5, x3b], axis=0, sort=True) # appended to previous ruling
-            pd.DataFrame.head(resi_5)
             x2a = cr_g[~cr_g["name_1"].isin(resi_5["name"])] # all non binned names in cr_g with current rule
 
             #create a new x1 based on above ruling
@@ -547,7 +539,6 @@ def rule5(results, cr_g, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_
             x1 = merge_time_info(x4, used_ts)
             x1 =  x1.loc[~(x1["name_1"]=="not specified")]
             x1["rule"] = 5.7
-            pd.DataFrame.head(x1)
             x1 = x1.drop_duplicates()
 
             if len(x2a)== len(x2):
@@ -596,7 +587,6 @@ def rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme):
     x1 = x1[~x1["name_1"].isin(resi_2["name"])]# all first level linked non-bio* to rule 2
     x1 =  x1.loc[~(x1["name_1"]=="not specified")]
     x1["rule"] = 6.6 # only for control
-    pd.DataFrame.head(x1)
     x1 = x1.drop_duplicates()
     x1.to_csv("x_x1.csv", index = False, header=True)
 
@@ -611,7 +601,6 @@ def rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme):
             x3["rule"] = 6.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_6["name"])] # filter for already binned names
             resi_6 = pd.concat([resi_6, x3b], axis=0, sort=True) # appended to previous ruling; these are now binned
-            pd.DataFrame.head(resi_6)
 
             #create a new x1 based on above ruling
             if (k==1):
@@ -623,7 +612,6 @@ def rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme):
             x1 = merge_time_info(x4, used_ts)
             x1 =  x1.loc[~(x1["name_1"]=="not specified")]
             x1["rule"] = 6.7
-            pd.DataFrame.head(x1)
             x1 = x1.drop_duplicates()
             x2b = cr_g[~cr_g["name_1"].isin(x1["name_1"])] # all not yet binned in cr_g
             x2b = pd.DataFrame.drop_duplicates(x2b)
