@@ -138,65 +138,7 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
             resi_0c["b_scheme"] = "c"
     resi_0 = resi_0.dropna()
     if b_scheme == "cc":
-        resi_0 = pd.concat([resi_0s, resi_0y, resi_0c])
-        x1 = pd.merge(resi_0, used_ts, how= 'inner', left_on="oldest", right_on="ts")
-        x1 = x1[['name', 'oldest', 'ts_index', 'youngest', 'ts_count',
-                 'refs', 'rule', "b_scheme"]]
-        x1.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'ts_count',
-                      'refs', 'rule', "b_scheme"]
-        x1 = pd.merge(x1, used_ts, how= 'inner', left_on="youngest", right_on="ts")
-        x1 = x1[['name', 'oldest', 'oldest_index', 'youngest', 'ts_index','ts_count',
-                 'refs', 'rule', "b_scheme"]]
-        x1.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count',
-                      'refs', 'rule', "b_scheme"]
-        x_resi = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-        x_resi = pd.DataFrame.transpose(x_resi)
-        xal = pd.merge(pd.merge(resi_0s,resi_0y,on='name'),resi_0c,on='name')
-        bnu = xal["name"]
-        bnu = bnu.drop_duplicates()
-        bnu = bnu.dropna()
-        bnurange = np.arange(0,len(bnu),1)
-        for i in bnurange:
-        #i=2
-            i_name = bnu.iloc[i]
-            x1_sub = x1.loc[((x1["name"]== i_name))]
-            x1_subs = x1.loc[((x1["name"]== i_name) & (x1["b_scheme"]== "s"))]
-            x1_suby = x1.loc[((x1["name"]== i_name) & (x1["b_scheme"]== "y"))]
-            x1_subc = x1.loc[((x1["name"]== i_name) & (x1["b_scheme"]== "c"))]
-            # youngest = max, oldest = min index
-            x_range_s = np.array([min(x1_subs["oldest_index"])])
-            x_range_y = np.array([min(x1_suby["oldest_index"])])
-            x_range_c = np.array([min(x1_subc["oldest_index"])])
-
-            if min(x1_subs["oldest_index"]) != max(x1_subs["youngest_index"]):
-                x_range_s = np.arange(min(x1_subs["oldest_index"]),max(x1_subs["youngest_index"])+1,1)
-            if min(x1_suby["oldest_index"]) != max(x1_suby["youngest_index"]):
-                x_range_y = np.arange(min(x1_suby["oldest_index"]),max(x1_suby["youngest_index"])+1,1)
-            if min(x1_subc["oldest_index"]) != max(x1_subc["youngest_index"]):
-                x_range_c = np.arange(min(x1_subc["oldest_index"]),max(x1_subc["youngest_index"])+1,1)
-
-            rax = np.concatenate((x_range_s, x_range_s, x_range_c))
-            # filter for third quantile, only bins with highest score
-            rax_counts = pd.DataFrame(np.unique(rax, return_counts=True), index = ['ts_bins', 'counts'])
-            rax_counts = rax_counts.transpose()
-            rq = round(np.quantile(rax_counts['counts'], 0.75),0)
-            rax_sub = rax_counts.loc[rax_counts['counts']>= rq, ['ts_bins']]
-            rax_sub = pd.merge(rax_sub, used_ts, how= 'inner', left_on="ts_bins", right_on="ts_index")
-            x_youngest = rax_sub.loc[(rax_sub["ts_index"]== max(rax_sub["ts_index"])), ['ts']]
-            x_oldest = rax_sub.loc[(rax_sub["ts_index"]== min(rax_sub["ts_index"])), ['ts']]
-            ts_c = max(rax_sub["ts_index"])-min(rax_sub["ts_index"])
-            refs_f = pd.unique(x1_sub['refs'])
-            refs_f = pd.DataFrame(refs_f)
-            refs_f = refs_f[0].apply(str)
-            refs_f = refs_f.str.cat(sep=', ')
-            ref_list = refs_f.split(", ")
-            ref_list_u = list(set(ref_list))
-            str1 = ", "
-            refs_f = str1.join(ref_list_u)
-            x_resib = pd.DataFrame([[i_name, x_oldest.iloc[0,0], x_youngest.iloc[0,0], ts_c, refs_f]],
-                               columns=["name", "oldest", "youngest", "ts_count", "refs"])
-            x_resi = pd.concat([x_resi, x_resib], axis=0, sort=True)
-        resi_0 = x_resi
+        resi_0 = merge_cc(resi_0s, resi_0y, resi_0c, used_ts)
         resi_0['rule'] = 0.0
 
     resi_0 = resi_0.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
@@ -244,65 +186,7 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
             resi_1c["b_scheme"] = "c"
 
     if b_scheme == "cc":
-        resi_1 = pd.concat([resi_1s, resi_1y, resi_1c])
-        x1 = pd.merge(resi_1, used_ts, how= 'inner', left_on="oldest", right_on="ts")
-        x1 = x1[['name', 'oldest', 'ts_index', 'youngest', 'ts_count',
-                 'refs', 'rule', "b_scheme"]]
-        x1.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'ts_count',
-                      'refs', 'rule', "b_scheme"]
-        x1 = pd.merge(x1, used_ts, how= 'inner', left_on="youngest", right_on="ts")
-        x1 = x1[['name', 'oldest', 'oldest_index', 'youngest', 'ts_index','ts_count',
-                 'refs', 'rule', "b_scheme"]]
-        x1.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count',
-                      'refs', 'rule', "b_scheme"]
-        x_resi = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-        x_resi = pd.DataFrame.transpose(x_resi)
-        xal = pd.merge(pd.merge(resi_1s,resi_1y,on='name'),resi_1c,on='name')
-        bnu = xal["name"]
-        bnu = bnu.drop_duplicates()
-        bnu = bnu.dropna()
-        bnurange = np.arange(0,len(bnu),1)
-        for i in bnurange:
-        #i=2
-            i_name = bnu.iloc[i]
-            x1_sub = x1.loc[((x1["name"]== i_name))]
-            x1_subs = x1.loc[((x1["name"]== i_name) & (x1["b_scheme"]== "s"))]
-            x1_suby = x1.loc[((x1["name"]== i_name) & (x1["b_scheme"]== "y"))]
-            x1_subc = x1.loc[((x1["name"]== i_name) & (x1["b_scheme"]== "c"))]
-            # youngest = max, oldest = min index
-            x_range_s = np.array([min(x1_subs["oldest_index"])])
-            x_range_y = np.array([min(x1_suby["oldest_index"])])
-            x_range_c = np.array([min(x1_subc["oldest_index"])])
-
-            if min(x1_subs["oldest_index"]) != max(x1_subs["youngest_index"]):
-                x_range_s = np.arange(min(x1_subs["oldest_index"]),max(x1_subs["youngest_index"])+1,1)
-            if min(x1_suby["oldest_index"]) != max(x1_suby["youngest_index"]):
-                x_range_y = np.arange(min(x1_suby["oldest_index"]),max(x1_suby["youngest_index"])+1,1)
-            if min(x1_subc["oldest_index"]) != max(x1_subc["youngest_index"]):
-                x_range_c = np.arange(min(x1_subc["oldest_index"]),max(x1_subc["youngest_index"])+1,1)
-
-            rax = np.concatenate((x_range_s, x_range_s, x_range_c))
-            # filter for third quantile, only bins with highest score
-            rax_counts = pd.DataFrame(np.unique(rax, return_counts=True), index = ['ts_bins', 'counts'])
-            rax_counts = rax_counts.transpose()
-            rq = round(np.quantile(rax_counts['counts'], 0.75),0)
-            rax_sub = rax_counts.loc[rax_counts['counts']>= rq, ['ts_bins']]
-            rax_sub = pd.merge(rax_sub, used_ts, how= 'inner', left_on="ts_bins", right_on="ts_index")
-            x_youngest = rax_sub.loc[(rax_sub["ts_index"]== max(rax_sub["ts_index"])), ['ts']]
-            x_oldest = rax_sub.loc[(rax_sub["ts_index"]== min(rax_sub["ts_index"])), ['ts']]
-            ts_c = max(rax_sub["ts_index"])-min(rax_sub["ts_index"])
-            refs_f = pd.unique(x1_sub['refs'])
-            refs_f = pd.DataFrame(refs_f)
-            refs_f = refs_f[0].apply(str)
-            refs_f = refs_f.str.cat(sep=', ')
-            ref_list = refs_f.split(", ")
-            ref_list_u = list(set(ref_list))
-            str1 = ", "
-            refs_f = str1.join(ref_list_u)
-            x_resib = pd.DataFrame([[i_name, x_oldest.iloc[0,0], x_youngest.iloc[0,0], ts_c, refs_f]],
-                               columns=["name", "oldest", "youngest", "ts_count", "refs"])
-            x_resi = pd.concat([x_resi, x_resib], axis=0, sort=True)
-        resi_1 = x_resi
+        resi_1 = merge_cc(resi_1s, resi_1y, resi_1c, used_ts)
         resi_1['rule'] = 1.0
 
     resi_1 = resi_1.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
@@ -352,65 +236,7 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
 
     resi_2 = resi_2.dropna()
     if b_scheme == "cc":
-        resi_2 = pd.concat([resi_2s, resi_2y, resi_2c])
-        x1 = pd.merge(resi_2, used_ts, how= 'inner', left_on="oldest", right_on="ts")
-        x1 = x1[['name', 'oldest', 'ts_index', 'youngest', 'ts_count',
-                 'refs', 'rule', "b_scheme"]]
-        x1.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'ts_count',
-                      'refs', 'rule', "b_scheme"]
-        x1 = pd.merge(x1, used_ts, how= 'inner', left_on="youngest", right_on="ts")
-        x1 = x1[['name', 'oldest', 'oldest_index', 'youngest', 'ts_index','ts_count',
-                 'refs', 'rule', "b_scheme"]]
-        x1.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count',
-                      'refs', 'rule', "b_scheme"]
-        x_resi = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-        x_resi = pd.DataFrame.transpose(x_resi)
-        xal = pd.merge(pd.merge(resi_2s,resi_2y,on='name'),resi_2c,on='name')
-        bnu = xal["name"]
-        bnu = bnu.drop_duplicates()
-        bnu = bnu.dropna()
-        bnurange = np.arange(0,len(bnu),1)
-        for i in bnurange:
-        #i=2
-            i_name = bnu.iloc[i]
-            x1_sub = x1.loc[((x1["name"]== i_name))]
-            x1_subs = x1.loc[((x1["name"]== i_name) & (x1["b_scheme"]== "s"))]
-            x1_suby = x1.loc[((x1["name"]== i_name) & (x1["b_scheme"]== "y"))]
-            x1_subc = x1.loc[((x1["name"]== i_name) & (x1["b_scheme"]== "c"))]
-            # youngest = max, oldest = min index
-            x_range_s = np.array([min(x1_subs["oldest_index"])])
-            x_range_y = np.array([min(x1_suby["oldest_index"])])
-            x_range_c = np.array([min(x1_subc["oldest_index"])])
-
-            if min(x1_subs["oldest_index"]) != max(x1_subs["youngest_index"]):
-                x_range_s = np.arange(min(x1_subs["oldest_index"]),max(x1_subs["youngest_index"])+1,1)
-            if min(x1_suby["oldest_index"]) != max(x1_suby["youngest_index"]):
-                x_range_y = np.arange(min(x1_suby["oldest_index"]),max(x1_suby["youngest_index"])+1,1)
-            if min(x1_subc["oldest_index"]) != max(x1_subc["youngest_index"]):
-                x_range_c = np.arange(min(x1_subc["oldest_index"]),max(x1_subc["youngest_index"])+1,1)
-
-            rax = np.concatenate((x_range_s, x_range_s, x_range_c))
-            # filter for third quantile, only bins with highest score
-            rax_counts = pd.DataFrame(np.unique(rax, return_counts=True), index = ['ts_bins', 'counts'])
-            rax_counts = rax_counts.transpose()
-            rq = round(np.quantile(rax_counts['counts'], 0.75),0)
-            rax_sub = rax_counts.loc[rax_counts['counts']>= rq, ['ts_bins']]
-            rax_sub = pd.merge(rax_sub, used_ts, how= 'inner', left_on="ts_bins", right_on="ts_index")
-            x_youngest = rax_sub.loc[(rax_sub["ts_index"]== max(rax_sub["ts_index"])), ['ts']]
-            x_oldest = rax_sub.loc[(rax_sub["ts_index"]== min(rax_sub["ts_index"])), ['ts']]
-            ts_c = max(rax_sub["ts_index"])-min(rax_sub["ts_index"])
-            refs_f = pd.unique(x1_sub['refs'])
-            refs_f = pd.DataFrame(refs_f)
-            refs_f = refs_f[0].apply(str)
-            refs_f = refs_f.str.cat(sep=', ')
-            ref_list = refs_f.split(", ")
-            ref_list_u = list(set(ref_list))
-            str1 = ", "
-            refs_f = str1.join(ref_list_u)
-            x_resib = pd.DataFrame([[i_name, x_oldest.iloc[0,0], x_youngest.iloc[0,0], ts_c, refs_f]],
-                               columns=["name", "oldest", "youngest", "ts_count", "refs"])
-            x_resi = pd.concat([x_resi, x_resib], axis=0, sort=True)
-        resi_2 = x_resi
+        resi_2 = merge_cc(resi_2s, resi_2y, resi_2c, used_ts)
         resi_2['rule'] = 2.0
 
     resi_2= resi_2.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
@@ -531,65 +357,7 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
             resi_3c["b_scheme"] = "c"
 
     if b_scheme == "cc":
-        resi_3 = pd.concat([resi_3s, resi_3y, resi_3c])
-        x2 = pd.merge(resi_3, used_ts, how= 'inner', left_on="oldest", right_on="ts")
-        x2 = x2[['name', 'oldest', 'ts_index', 'youngest', 'ts_count',
-                 'refs', 'rule', "b_scheme"]]
-        x2.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'ts_count',
-                      'refs', 'rule', "b_scheme"]
-        x2 = pd.merge(x2, used_ts, how= 'inner', left_on="youngest", right_on="ts")
-        x2 = x2[['name', 'oldest', 'oldest_index', 'youngest', 'ts_index','ts_count',
-                 'refs', 'rule', "b_scheme"]]
-        x2.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count',
-                      'refs', 'rule', "b_scheme"]
-        x_resi = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-        x_resi = pd.DataFrame.transpose(x_resi)
-        xal = pd.merge(pd.merge(resi_3s,resi_3y,on='name'),resi_3c,on='name')
-        bnu = xal["name"]
-        bnu = bnu.drop_duplicates()
-        bnu = bnu.dropna()
-        bnurange = np.arange(0,len(bnu),1)
-        for i in bnurange:
-        #i=2
-            i_name = bnu.iloc[i]
-            x2_sub = x2.loc[((x2["name"]== i_name))]
-            x2_subs = x2.loc[((x2["name"]== i_name) & (x2["b_scheme"]== "s"))]
-            x2_suby = x2.loc[((x2["name"]== i_name) & (x2["b_scheme"]== "y"))]
-            x2_subc = x2.loc[((x2["name"]== i_name) & (x2["b_scheme"]== "c"))]
-            # youngest = max, oldest = min index
-            x_range_s = np.array([min(x2_subs["oldest_index"])])
-            x_range_y = np.array([min(x2_suby["oldest_index"])])
-            x_range_c = np.array([min(x2_subc["oldest_index"])])
-
-            if min(x2_subs["oldest_index"]) != max(x2_subs["youngest_index"]):
-                x_range_s = np.arange(min(x2_subs["oldest_index"]),max(x2_subs["youngest_index"])+1,1)
-            if min(x2_suby["oldest_index"]) != max(x2_suby["youngest_index"]):
-                x_range_y = np.arange(min(x2_suby["oldest_index"]),max(x2_suby["youngest_index"])+1,1)
-            if min(x2_subc["oldest_index"]) != max(x2_subc["youngest_index"]):
-                x_range_c = np.arange(min(x2_subc["oldest_index"]),max(x2_subc["youngest_index"])+1,1)
-
-            rax = np.concatenate((x_range_s, x_range_s, x_range_c))
-            # filter for third quantile, only bins with highest score
-            rax_counts = pd.DataFrame(np.unique(rax, return_counts=True), index = ['ts_bins', 'counts'])
-            rax_counts = rax_counts.transpose()
-            rq = round(np.quantile(rax_counts['counts'], 0.75),0)
-            rax_sub = rax_counts.loc[rax_counts['counts']>= rq, ['ts_bins']]
-            rax_sub = pd.merge(rax_sub, used_ts, how= 'inner', left_on="ts_bins", right_on="ts_index")
-            x_youngest = rax_sub.loc[(rax_sub["ts_index"]== max(rax_sub["ts_index"])), ['ts']]
-            x_oldest = rax_sub.loc[(rax_sub["ts_index"]== min(rax_sub["ts_index"])), ['ts']]
-            ts_c = max(rax_sub["ts_index"])-min(rax_sub["ts_index"])
-            refs_f = pd.unique(x2_sub['refs'])
-            refs_f = pd.DataFrame(refs_f)
-            refs_f = refs_f[0].apply(str)
-            refs_f = refs_f.str.cat(sep=', ')
-            ref_list = refs_f.split(", ")
-            ref_list_u = list(set(ref_list))
-            str1 = ", "
-            refs_f = str1.join(ref_list_u)
-            x_resib = pd.DataFrame([[i_name, x_oldest.iloc[0,0], x_youngest.iloc[0,0], ts_c, refs_f]],
-                               columns=["name", "oldest", "youngest", "ts_count", "refs"])
-            x_resi = pd.concat([x_resi, x_resib], axis=0, sort=True)
-        resi_3 = x_resi
+        resi_3 = merge_cc(resi_3s, resi_3y, resi_3c, used_ts)
         resi_3['rule'] = 3.9
 
 
@@ -710,65 +478,7 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
             resi_4c["b_scheme"] = "c"
 
     if b_scheme == "cc":
-        resi_4 = pd.concat([resi_4s, resi_4y, resi_4c])
-        x2 = pd.merge(resi_4, used_ts, how= 'inner', left_on="oldest", right_on="ts")
-        x2 = x2[['name', 'oldest', 'ts_index', 'youngest', 'ts_count',
-                 'refs', 'rule', "b_scheme"]]
-        x2.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'ts_count',
-                      'refs', 'rule', "b_scheme"]
-        x2 = pd.merge(x2, used_ts, how= 'inner', left_on="youngest", right_on="ts")
-        x2 = x2[['name', 'oldest', 'oldest_index', 'youngest', 'ts_index','ts_count',
-                 'refs', 'rule', "b_scheme"]]
-        x2.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count',
-                      'refs', 'rule', "b_scheme"]
-        x_resi = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-        x_resi = pd.DataFrame.transpose(x_resi)
-        xal = pd.merge(pd.merge(resi_4s,resi_4y,on='name'),resi_4c,on='name')
-        bnu = xal["name"]
-        bnu = bnu.drop_duplicates()
-        bnu = bnu.dropna()
-        bnurange = np.arange(0,len(bnu),1)
-        for i in bnurange:
-        #i=2
-            i_name = bnu.iloc[i]
-            x2_sub = x2.loc[((x2["name"]== i_name))]
-            x2_subs = x2.loc[((x2["name"]== i_name) & (x2["b_scheme"]== "s"))]
-            x2_suby = x2.loc[((x2["name"]== i_name) & (x2["b_scheme"]== "y"))]
-            x2_subc = x2.loc[((x2["name"]== i_name) & (x2["b_scheme"]== "c"))]
-            # youngest = max, oldest = min index
-            x_range_s = np.array([min(x2_subs["oldest_index"])])
-            x_range_y = np.array([min(x2_suby["oldest_index"])])
-            x_range_c = np.array([min(x2_subc["oldest_index"])])
-
-            if min(x2_subs["oldest_index"]) != max(x2_subs["youngest_index"]):
-                x_range_s = np.arange(min(x2_subs["oldest_index"]),max(x2_subs["youngest_index"])+1,1)
-            if min(x2_suby["oldest_index"]) != max(x2_suby["youngest_index"]):
-                x_range_y = np.arange(min(x2_suby["oldest_index"]),max(x2_suby["youngest_index"])+1,1)
-            if min(x2_subc["oldest_index"]) != max(x2_subc["youngest_index"]):
-                x_range_c = np.arange(min(x2_subc["oldest_index"]),max(x2_subc["youngest_index"])+1,1)
-
-            rax = np.concatenate((x_range_s, x_range_s, x_range_c))
-            # filter for third quantile, only bins with highest score
-            rax_counts = pd.DataFrame(np.unique(rax, return_counts=True), index = ['ts_bins', 'counts'])
-            rax_counts = rax_counts.transpose()
-            rq = round(np.quantile(rax_counts['counts'], 0.75),0)
-            rax_sub = rax_counts.loc[rax_counts['counts']>= rq, ['ts_bins']]
-            rax_sub = pd.merge(rax_sub, used_ts, how= 'inner', left_on="ts_bins", right_on="ts_index")
-            x_youngest = rax_sub.loc[(rax_sub["ts_index"]== max(rax_sub["ts_index"])), ['ts']]
-            x_oldest = rax_sub.loc[(rax_sub["ts_index"]== min(rax_sub["ts_index"])), ['ts']]
-            ts_c = max(rax_sub["ts_index"])-min(rax_sub["ts_index"])
-            refs_f = pd.unique(x2_sub['refs'])
-            refs_f = pd.DataFrame(refs_f)
-            refs_f = refs_f[0].apply(str)
-            refs_f = refs_f.str.cat(sep=', ')
-            ref_list = refs_f.split(", ")
-            ref_list_u = list(set(ref_list))
-            str1 = ", "
-            refs_f = str1.join(ref_list_u)
-            x_resib = pd.DataFrame([[i_name, x_oldest.iloc[0,0], x_youngest.iloc[0,0], ts_c, refs_f]],
-                               columns=["name", "oldest", "youngest", "ts_count", "refs"])
-            x_resi = pd.concat([x_resi, x_resib], axis=0, sort=True)
-        resi_4 = x_resi
+        resi_4 = merge_cc(resi_4s, resi_4y, resi_4c, used_ts)
         resi_4['rule'] = 4.9
 
     resi_4 = pd.DataFrame.drop_duplicates(resi_4)
@@ -881,65 +591,7 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
             resi_5c = resi_5
             resi_5c["b_scheme"] = "c"
     if b_scheme == "cc":
-        resi_5 = pd.concat([resi_5s, resi_5y, resi_5c])
-        x2 = pd.merge(resi_5, used_ts, how= 'inner', left_on="oldest", right_on="ts")
-        x2 = x2[['name', 'oldest', 'ts_index', 'youngest', 'ts_count',
-                 'refs', 'rule', "b_scheme"]]
-        x2.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'ts_count',
-                      'refs', 'rule', "b_scheme"]
-        x2 = pd.merge(x2, used_ts, how= 'inner', left_on="youngest", right_on="ts")
-        x2 = x2[['name', 'oldest', 'oldest_index', 'youngest', 'ts_index','ts_count',
-                 'refs', 'rule', "b_scheme"]]
-        x2.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count',
-                      'refs', 'rule', "b_scheme"]
-        x_resi = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-        x_resi = pd.DataFrame.transpose(x_resi)
-        xal = pd.merge(pd.merge(resi_5s,resi_5y,on='name'),resi_5c,on='name')
-        bnu = xal["name"]
-        bnu = bnu.drop_duplicates()
-        bnu = bnu.dropna()
-        bnurange = np.arange(0,len(bnu),1)
-        for i in bnurange:
-        #i=2
-            i_name = bnu.iloc[i]
-            x2_sub = x2.loc[((x2["name"]== i_name))]
-            x2_subs = x2.loc[((x2["name"]== i_name) & (x2["b_scheme"]== "s"))]
-            x2_suby = x2.loc[((x2["name"]== i_name) & (x2["b_scheme"]== "y"))]
-            x2_subc = x2.loc[((x2["name"]== i_name) & (x2["b_scheme"]== "c"))]
-            # youngest = max, oldest = min index
-            x_range_s = np.array([min(x2_subs["oldest_index"])])
-            x_range_y = np.array([min(x2_suby["oldest_index"])])
-            x_range_c = np.array([min(x2_subc["oldest_index"])])
-
-            if min(x2_subs["oldest_index"]) != max(x2_subs["youngest_index"]):
-                x_range_s = np.arange(min(x2_subs["oldest_index"]),max(x2_subs["youngest_index"])+1,1)
-            if min(x2_suby["oldest_index"]) != max(x2_suby["youngest_index"]):
-                x_range_y = np.arange(min(x2_suby["oldest_index"]),max(x2_suby["youngest_index"])+1,1)
-            if min(x2_subc["oldest_index"]) != max(x2_subc["youngest_index"]):
-                x_range_c = np.arange(min(x2_subc["oldest_index"]),max(x2_subc["youngest_index"])+1,1)
-
-            rax = np.concatenate((x_range_s, x_range_s, x_range_c))
-            # filter for third quantile, only bins with highest score
-            rax_counts = pd.DataFrame(np.unique(rax, return_counts=True), index = ['ts_bins', 'counts'])
-            rax_counts = rax_counts.transpose()
-            rq = round(np.quantile(rax_counts['counts'], 0.75),0)
-            rax_sub = rax_counts.loc[rax_counts['counts']>= rq, ['ts_bins']]
-            rax_sub = pd.merge(rax_sub, used_ts, how= 'inner', left_on="ts_bins", right_on="ts_index")
-            x_youngest = rax_sub.loc[(rax_sub["ts_index"]== max(rax_sub["ts_index"])), ['ts']]
-            x_oldest = rax_sub.loc[(rax_sub["ts_index"]== min(rax_sub["ts_index"])), ['ts']]
-            ts_c = max(rax_sub["ts_index"])-min(rax_sub["ts_index"])
-            refs_f = pd.unique(x2_sub['refs'])
-            refs_f = pd.DataFrame(refs_f)
-            refs_f = refs_f[0].apply(str)
-            refs_f = refs_f.str.cat(sep=', ')
-            ref_list = refs_f.split(", ")
-            ref_list_u = list(set(ref_list))
-            str1 = ", "
-            refs_f = str1.join(ref_list_u)
-            x_resib = pd.DataFrame([[i_name, x_oldest.iloc[0,0], x_youngest.iloc[0,0], ts_c, refs_f]],
-                               columns=["name", "oldest", "youngest", "ts_count", "refs"])
-            x_resi = pd.concat([x_resi, x_resib], axis=0, sort=True)
-        resi_5 = x_resi
+        resi_5 = merge_cc(resi_5s, resi_5y, resi_5c, used_ts)
         resi_5['rule'] = 5.9
 
 
@@ -1057,65 +709,7 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
             resi_6c["b_scheme"] = "c"
 
     if b_scheme == "cc":
-        resi_6 = pd.concat([resi_6s, resi_6y, resi_6c])
-        x2 = pd.merge(resi_6, used_ts, how= 'inner', left_on="oldest", right_on="ts")
-        x2 = x2[['name', 'oldest', 'ts_index', 'youngest', 'ts_count',
-                 'refs', 'rule', "b_scheme"]]
-        x2.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'ts_count',
-                      'refs', 'rule', "b_scheme"]
-        x2 = pd.merge(x2, used_ts, how= 'inner', left_on="youngest", right_on="ts")
-        x2 = x2[['name', 'oldest', 'oldest_index', 'youngest', 'ts_index','ts_count',
-                 'refs', 'rule', "b_scheme"]]
-        x2.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count',
-                      'refs', 'rule', "b_scheme"]
-        x_resi = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-        x_resi = pd.DataFrame.transpose(x_resi)
-        xal = pd.merge(pd.merge(resi_6s,resi_6y,on='name'),resi_6c,on='name')
-        bnu = xal["name"]
-        bnu = bnu.drop_duplicates()
-        bnu = bnu.dropna()
-        bnurange = np.arange(0,len(bnu),1)
-        for i in bnurange:
-        #i=2
-            i_name = bnu.iloc[i]
-            x2_sub = x2.loc[((x2["name"]== i_name))]
-            x2_subs = x2.loc[((x2["name"]== i_name) & (x2["b_scheme"]== "s"))]
-            x2_suby = x2.loc[((x2["name"]== i_name) & (x2["b_scheme"]== "y"))]
-            x2_subc = x2.loc[((x2["name"]== i_name) & (x2["b_scheme"]== "c"))]
-            # youngest = max, oldest = min index
-            x_range_s = np.array([min(x2_subs["oldest_index"])])
-            x_range_y = np.array([min(x2_suby["oldest_index"])])
-            x_range_c = np.array([min(x2_subc["oldest_index"])])
-
-            if min(x2_subs["oldest_index"]) != max(x2_subs["youngest_index"]):
-                x_range_s = np.arange(min(x2_subs["oldest_index"]),max(x2_subs["youngest_index"])+1,1)
-            if min(x2_suby["oldest_index"]) != max(x2_suby["youngest_index"]):
-                x_range_y = np.arange(min(x2_suby["oldest_index"]),max(x2_suby["youngest_index"])+1,1)
-            if min(x2_subc["oldest_index"]) != max(x2_subc["youngest_index"]):
-                x_range_c = np.arange(min(x2_subc["oldest_index"]),max(x2_subc["youngest_index"])+1,1)
-
-            rax = np.concatenate((x_range_s, x_range_s, x_range_c))
-            # filter for third quantile, only bins with highest score
-            rax_counts = pd.DataFrame(np.unique(rax, return_counts=True), index = ['ts_bins', 'counts'])
-            rax_counts = rax_counts.transpose()
-            rq = round(np.quantile(rax_counts['counts'], 0.75),0)
-            rax_sub = rax_counts.loc[rax_counts['counts']>= rq, ['ts_bins']]
-            rax_sub = pd.merge(rax_sub, used_ts, how= 'inner', left_on="ts_bins", right_on="ts_index")
-            x_youngest = rax_sub.loc[(rax_sub["ts_index"]== max(rax_sub["ts_index"])), ['ts']]
-            x_oldest = rax_sub.loc[(rax_sub["ts_index"]== min(rax_sub["ts_index"])), ['ts']]
-            ts_c = max(rax_sub["ts_index"])-min(rax_sub["ts_index"])
-            refs_f = pd.unique(x2_sub['refs'])
-            refs_f = pd.DataFrame(refs_f)
-            refs_f = refs_f[0].apply(str)
-            refs_f = refs_f.str.cat(sep=', ')
-            ref_list = refs_f.split(", ")
-            ref_list_u = list(set(ref_list))
-            str1 = ", "
-            refs_f = str1.join(ref_list_u)
-            x_resib = pd.DataFrame([[i_name, x_oldest.iloc[0,0], x_youngest.iloc[0,0], ts_c, refs_f]],
-                               columns=["name", "oldest", "youngest", "ts_count", "refs"])
-            x_resi = pd.concat([x_resi, x_resib], axis=0, sort=True)
-        resi_6 = x_resi
+        resi_6 = merge_cc(resi_6s, resi_6y, resi_6c, used_ts)
         resi_6['rule'] = 6.9
 
     resi_6 = pd.DataFrame.drop_duplicates(resi_6)
@@ -1266,3 +860,64 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
     print("We find", len(combi_names),
           "binned names. It took ", round(dura, 2), "+", round(dura2, 2),  "minutes.")
     return(combi_names)
+
+def merge_cc(resi_s, resi_y, resi_c, used_ts):
+    resi = pd.concat([resi_s, resi_y, resi_c])
+    x2 = pd.merge(resi, used_ts, how= 'inner', left_on="oldest", right_on="ts")
+    x2 = x2[['name', 'oldest', 'ts_index', 'youngest', 'ts_count',
+             'refs', 'rule', "b_scheme"]]
+    x2.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'ts_count',
+                  'refs', 'rule', "b_scheme"]
+    x2 = pd.merge(x2, used_ts, how= 'inner', left_on="youngest", right_on="ts")
+    x2 = x2[['name', 'oldest', 'oldest_index', 'youngest', 'ts_index','ts_count',
+             'refs', 'rule', "b_scheme"]]
+    x2.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count',
+                  'refs', 'rule', "b_scheme"]
+    x_resi = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
+    x_resi = pd.DataFrame.transpose(x_resi)
+    xal = pd.merge(pd.merge(resi_s,resi_y,on='name'),resi_c,on='name')
+    bnu = xal["name"]
+    bnu = bnu.drop_duplicates()
+    bnu = bnu.dropna()
+    bnurange = np.arange(0,len(bnu),1)
+    for i in bnurange:
+    #i=2
+        i_name = bnu.iloc[i]
+        x2_sub = x2.loc[((x2["name"]== i_name))]
+        x2_subs = x2.loc[((x2["name"]== i_name) & (x2["b_scheme"]== "s"))]
+        x2_suby = x2.loc[((x2["name"]== i_name) & (x2["b_scheme"]== "y"))]
+        x2_subc = x2.loc[((x2["name"]== i_name) & (x2["b_scheme"]== "c"))]
+        # youngest = max, oldest = min index
+        x_range_s = np.array([min(x2_subs["oldest_index"])])
+        x_range_y = np.array([min(x2_suby["oldest_index"])])
+        x_range_c = np.array([min(x2_subc["oldest_index"])])
+
+        if min(x2_subs["oldest_index"]) != max(x2_subs["youngest_index"]):
+            x_range_s = np.arange(min(x2_subs["oldest_index"]),max(x2_subs["youngest_index"])+1,1)
+        if min(x2_suby["oldest_index"]) != max(x2_suby["youngest_index"]):
+            x_range_y = np.arange(min(x2_suby["oldest_index"]),max(x2_suby["youngest_index"])+1,1)
+        if min(x2_subc["oldest_index"]) != max(x2_subc["youngest_index"]):
+            x_range_c = np.arange(min(x2_subc["oldest_index"]),max(x2_subc["youngest_index"])+1,1)
+
+        rax = np.concatenate((x_range_s, x_range_s, x_range_c))
+        # filter for third quantile, only bins with highest score
+        rax_counts = pd.DataFrame(np.unique(rax, return_counts=True), index = ['ts_bins', 'counts'])
+        rax_counts = rax_counts.transpose()
+        rq = round(np.quantile(rax_counts['counts'], 0.75),0)
+        rax_sub = rax_counts.loc[rax_counts['counts']>= rq, ['ts_bins']]
+        rax_sub = pd.merge(rax_sub, used_ts, how= 'inner', left_on="ts_bins", right_on="ts_index")
+        x_youngest = rax_sub.loc[(rax_sub["ts_index"]== max(rax_sub["ts_index"])), ['ts']]
+        x_oldest = rax_sub.loc[(rax_sub["ts_index"]== min(rax_sub["ts_index"])), ['ts']]
+        ts_c = max(rax_sub["ts_index"])-min(rax_sub["ts_index"])
+        refs_f = pd.unique(x2_sub['refs'])
+        refs_f = pd.DataFrame(refs_f)
+        refs_f = refs_f[0].apply(str)
+        refs_f = refs_f.str.cat(sep=', ')
+        ref_list = refs_f.split(", ")
+        ref_list_u = list(set(ref_list))
+        str1 = ", "
+        refs_f = str1.join(ref_list_u)
+        x_resib = pd.DataFrame([[i_name, x_oldest.iloc[0,0], x_youngest.iloc[0,0], ts_c, refs_f]],
+                           columns=["name", "oldest", "youngest", "ts_count", "refs"])
+        x_resi = pd.concat([x_resi, x_resib], axis=0, sort=True)
+    return x_resi
