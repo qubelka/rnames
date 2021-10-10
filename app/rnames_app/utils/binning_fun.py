@@ -361,7 +361,6 @@ def rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
             x3b = x3[~x3["name"].isin(resi_3["name"])] # filter for already binned names
             resi_3 = pd.concat([resi_3, x3b], axis=0, sort=True) # appended to previous ruling
             pd.DataFrame.head(resi_3)
-            x2a = cr_b[~cr_b["name_2"].isin(resi_1["name"])] #  # all non binned names yet
 
             #create a new x1 based on above ruling
             if (k==1):
@@ -480,8 +479,6 @@ def rule4(results, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b
             x1["rule"] = 6.7
             pd.DataFrame.head(x1)
             x1 = x1.drop_duplicates()
-            x2b = cr_d[~cr_d["name_1"].isin(x1["name_1"])] # all not yet binned in cr_g
-            x2b = pd.DataFrame.drop_duplicates(x2b)
 
             if len(x2a)== len(x2):
                 break
@@ -552,8 +549,6 @@ def rule5(results, cr_g, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_
             x1["rule"] = 5.7
             pd.DataFrame.head(x1)
             x1 = x1.drop_duplicates()
-            x2b = cr_g[~cr_g["name_1"].isin(x1["name_1"])] # all not yet binned in cr_g
-            x2b = pd.DataFrame.drop_duplicates(x2b)
 
             if len(x2a)== len(x2):
                 break
@@ -617,7 +612,6 @@ def rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme):
             x3b = x3[~x3["name"].isin(resi_6["name"])] # filter for already binned names
             resi_6 = pd.concat([resi_6, x3b], axis=0, sort=True) # appended to previous ruling; these are now binned
             pd.DataFrame.head(resi_6)
-            x2a = cr_g[~cr_g["name_1"].isin(resi_6["name"])] # all non binned names in cr_g with current rule
 
             #create a new x1 based on above ruling
             if (k==1):
