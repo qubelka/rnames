@@ -10,7 +10,9 @@
     <a class="btn btn-default" href="{% url 'reference-edit' pk=reference.pk %}"><span class="fa fa-pencil-square-o"></span></a>
     <a class="btn btn-default" href="{% url 'reference-delete' pk=reference.pk %}"><span class="fa  fa-trash-o"></span></a>
   {% endif %}
-  <p><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
+  {% if go_back_option %}
+    <p><button onClick="javascript:history.back();">Go back</button></p>
+  {% endif %}  
   <table class="w3-table-all">
     <caption>Reference #{{ reference.id }}</caption>
     <tr>

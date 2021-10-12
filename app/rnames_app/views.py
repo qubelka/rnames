@@ -77,30 +77,12 @@ class FormWizardView(SessionWizardView):
         relation.name_two = name_one
         relation.save()
 
-        qs1 = (Relation.objects.is_active().filter(reference=reference).select_related()
-           .values('name_one__id', 'name_one__name__name', 'name_one__qualifier__qualifier_name__name', 'name_one__location__name', 'name_one__qualifier__stratigraphic_qualifier__name')
-           .distinct().order_by('name_one__id', 'name_one__name__name', 'name_one__qualifier__qualifier_name__name', 'name_one__location__name', 'name_one__qualifier__stratigraphic_qualifier__name'))
-        qs2 = (Relation.objects.is_active().filter(reference=reference).select_related()
-           .values('name_two__id', 'name_two__name__name', 'name_two__qualifier__qualifier_name__name', 'name_two__location__name', 'name_two__qualifier__stratigraphic_qualifier__name')
-           .distinct().order_by('name_two__id', 'name_two__name__name', 'name_two__qualifier__qualifier_name__name', 'name_two__location__name', 'name_two__qualifier__stratigraphic_qualifier__name'))
-        sn_list = qs1.union(qs2)
-        f = RelationFilter(
-            self.request.GET,
-            queryset=Relation.objects.is_active().select_related().filter(
-                reference__id=pk).order_by('name_one')
-        )
-
-        paginator = Paginator(f.qs, 5)
-        page_obj = paginator.page(1)
-
-        return reference, sn_list, f, page_obj
-
+        return pk
 
     def done(self, form_list, **kwargs):
-        reference, sn_list, f, page_obj = self.handle_form_data(form_list) 
-        return render(self.request, 'reference_detail.html', {
-            'reference': reference, 'filter': f, 'page_obj': page_obj, 'sn_list': sn_list
-        })
+        pk = self.handle_form_data(form_list) 
+        self.request.session['go_back_option'] = False
+        return redirect('reference-detail', pk)
 
 def external(request):
 
@@ -591,7 +573,13 @@ def reference_detail(request, pk):
     except EmptyPage:
         page_obj = paginator.page(paginator.num_pages)
 
-    return render(request, 'reference_detail.html', {'reference': reference, 'page_obj': page_obj, 'filter': f, 'sn_list': sn_list, })
+    return render(request, 'reference_detail.html', {
+        'reference': reference, 
+        'page_obj': page_obj, 
+        'filter': f, 
+        'sn_list': sn_list, 
+        'go_back_option': request.session.pop('go_back_option', True) 
+        })
 
 
 @login_required
