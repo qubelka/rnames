@@ -1,4 +1,5 @@
 import pandas as pd
+import multiprocessing as mp
 import time
 import pandas as pd
 import numpy as np
@@ -111,3 +112,19 @@ def binning_outputs_equal(a, b):
         print(only2)
 
     pd.testing.assert_frame_equal(fa, fb)
+
+class Task:
+    def func(self):
+        self.queue.put(self.target(**self.args))
+
+    def __init__(self, target, args):
+        self.target = target
+        self.args = args
+        self.queue = mp.Queue()
+        self.handle = mp.Process(target=self.func)
+        self.handle.start()
+
+    def join(self):
+        ret = self.queue.get()
+        self.handle.join()
+        return ret
