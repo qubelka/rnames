@@ -1,0 +1,45 @@
+name,oldest,youngest,ts_count,refs,rule
+Cambrian Series 2,Cambrian,Cambrian,0.0,401,0.0
+Furongian,Cambrian,Cambrian,0.0,401,0.0
+Miaolingian,Cambrian,Cambrian,0.0,401,0.0
+Terreneuvian,Cambrian,Cambrian,0.0,401,0.0
+Paleozoic,Cambrian,Permian,5.0,401,0.0
+Lower Ordovician,Ordovician,Ordovician,0.0,"401, 2",0.0
+Middle Ordovician,Ordovician,Ordovician,0.0,"401, 2",0.0
+Upper Ordovician,Ordovician,Ordovician,0.0,"401, 2",0.0
+5d,Ordovician,Ordovician,0.0,3,0.0
+6a,Ordovician,Ordovician,0.0,3,0.0
+6b,Ordovician,Ordovician,0.0,3,0.0
+6c,Ordovician,Ordovician,0.0,3,0.0
+Cisuralian,Permian,Permian,0.0,401,0.0
+Guadalupian,Permian,Permian,0.0,401,0.0
+Lopingian,Permian,Permian,0.0,401,0.0
+Eocene,Paleogene,Paleogene,0.0,401,0.0
+Oligocene,Paleogene,Paleogene,0.0,401,0.0
+Paleocene,Paleogene,Paleogene,0.0,401,0.0
+Cenozoic,Paleogene,Quaternary,2.0,401,0.0
+Holocene,Quaternary,Quaternary,0.0,401,0.0
+Pleistocene,Quaternary,Quaternary,0.0,401,0.0
+Llandovery,Silurian,Silurian,0.0,401,0.0
+Ludlow,Silurian,Silurian,0.0,401,0.0
+Pridoli,Silurian,Silurian,0.0,401,0.0
+Wenlock,Silurian,Silurian,0.0,401,0.0
+Lower Cretaceous,Cretaceous,Cretaceous,0.0,401,0.0
+Upper Cretaceous,Cretaceous,Cretaceous,0.0,401,0.0
+Mesozoic,Triassic,Cretaceous,2.0,401,0.0
+Lower Devonian,Devonian,Devonian,0.0,401,0.0
+Middle Devonian,Devonian,Devonian,0.0,401,0.0
+Upper Devonian,Devonian,Devonian,0.0,401,0.0
+Lower Jurassic,Jurassic,Jurassic,0.0,401,0.0
+Middle Jurassic,Jurassic,Jurassic,0.0,401,0.0
+Upper Jurassic,Jurassic,Jurassic,0.0,401,0.0
+Lower Triassic,Triassic,Triassic,0.0,401,0.0
+Middle Triassic,Triassic,Triassic,0.0,401,0.0
+Upper Triassic,Triassic,Triassic,0.0,401,0.0
+Miocene,Neogene,Neogene,0.0,401,0.0
+Pliocene,Neogene,Neogene,0.0,401,0.0
+Mississippian,Carboniferous,Carboniferous,0.0,401,0.0
+Pennsylvanian,Carboniferous,Carboniferous,0.0,401,0.0
+Mesoproterozoic,Calymmian,Stenian,2.0,401,0.0
+Neoproterozoic,Tonian,Cryogenian,1.0,401,0.0
+Paleoproterozoic,Siderian,Statherian,3.0,401,0.0
