@@ -92,8 +92,8 @@ def external(request):
     # inp = request.POST.get('param', 'K') # This doesn't appear to be used anywhere in binning
     out = io.StringIO()
 
-    with redirect_stdout(out):
-        main_binning_fun()
+    # with redirect_stdout(out):
+    main_binning_fun()
 
     print(out.getvalue())
 
