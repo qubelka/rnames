@@ -10,6 +10,7 @@ import pandas as pd
 import numpy as np
 from .rn_funs import *
 from .binning_fun import *
+from .tools import binning_outputs_equal
 
 def main_binning_fun():
     pd.set_option('display.max_columns', 30)
@@ -83,6 +84,11 @@ def main_binning_fun():
     robin_p = bin_fun(c_rels = cron_relations, binning_algorithm = "combined", binning_scheme = "p",
                                   xrange = 'Phanerozoic')
     robin_p.to_csv("x_robinp.csv", index = False, header=True)
+
+    binning_outputs_equal('x_robinb.csv', 'rnames_app/utils/ref/x_robinb.csv')
+    binning_outputs_equal('x_robinw.csv', 'rnames_app/utils/ref/x_robinw.csv')
+    binning_outputs_equal('x_robins.csv', 'rnames_app/utils/ref/x_robins.csv')
+    binning_outputs_equal('x_robinp.csv', 'rnames_app/utils/ref/x_robinp.csv')
 
 
     # In[9]:
