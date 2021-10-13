@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   web:
-    image: palaeontologyhelsinki/rnames
+    image: palaeontologyhelsinki/rnames_staging
     restart: unless-stopped
     ports:
       - 8000:8000
@@ -12,7 +12,7 @@ services:
       - static:/vol/web
     env_file: 
       - ./.env
-    container_name: rnames_web_prod
+    container_name: rnames_web_staging
 
   nginx:
     build: ./nginx
@@ -29,7 +29,7 @@ services:
       - "com.centurylinklabs.watchtower.enable=false"
     depends_on:
       - web
-    container_name: rnames_nginx_prod
+    container_name: rnames_nginx_staging
 
   phpmyadmin:
     image: phpmyadmin
@@ -40,7 +40,7 @@ services:
       - PMA_HOST=${DB_HOST}
     labels:
       - "com.centurylinklabs.watchtower.enable=false"
-    container_name: rnames_phpmyadmin_prod
+    container_name: rnames_phpmyadmin_staging
 
   watchtower:
     image: containrrr/watchtower
