@@ -805,17 +805,18 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
     x_resi = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
     x_resi = pd.DataFrame.transpose(x_resi)
     xal = pd.merge(pd.merge(resi_s,resi_y,on='name'),resi_c,on='name')
-    bnu = xal["name"]
-    bnu = bnu.drop_duplicates()
-    bnu = bnu.dropna()
-    bnurange = np.arange(0,len(bnu),1)
-    for i in bnurange:
+
+    x2 = x2.sort_values(by=['name', 'b_scheme'])
+    for i_name in xal["name"].dropna().unique():
     #i=2
-        i_name = bnu.iloc[i]
-        x2_sub = x2.loc[((x2["name"]== i_name))]
-        x2_subs = x2.loc[((x2["name"]== i_name) & (x2["b_scheme"]== "s"))]
-        x2_suby = x2.loc[((x2["name"]== i_name) & (x2["b_scheme"]== "y"))]
-        x2_subc = x2.loc[((x2["name"]== i_name) & (x2["b_scheme"]== "c"))]
+        np_names = x2['name'].values
+        x2_sub = x2.iloc[bisect_left(np_names, i_name):bisect_right(np_names, i_name)]
+        np_schemes = x2_sub['b_scheme'].values
+
+        # We need the oldest and youngest index in the ranges
+        x2_subs = x2_sub.iloc[bisect_left(np_schemes, 's'):bisect_right(np_schemes, 's')]
+        x2_suby = x2_sub.iloc[bisect_left(np_schemes, 'y'):bisect_right(np_schemes, 'y')]
+        x2_subc = x2_sub.iloc[bisect_left(np_schemes, 'c'):bisect_right(np_schemes, 'c')]
         # youngest = max, oldest = min index
         x_range_s = np.array([min(x2_subs["oldest_index"])])
         x_range_y = np.array([min(x2_suby["oldest_index"])])
