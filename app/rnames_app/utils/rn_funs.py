@@ -106,16 +106,15 @@ def bifu_c2  (ntts, used_ts, xnames_raw):
     ele = ele.drop_duplicates()
     ele = pd.DataFrame(ele)
     i_name = ele.iloc[0,0]
-    xnames_set = xnames_raw.loc[xnames_raw["name"]== i_name]
+    xnames_set = xnames_raw
     var_exists = 'xnames_set' in locals()
     # if name also relates to "not specified"
     if var_exists == True:
         bio_sel =pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-        bio_set = ntts.loc[ntts["name_1"]== i_name,
+        # filter for references with "not specified"
+        bio_set = ntts.loc[~ntts["reference_id"].isin(xnames_set["ref"]),
                        ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count',
                         'refs', 'rule', 'reference_id', "reference_year"]]
-        # filter for references with "not specified"
-        bio_set = bio_set[~bio_set["reference_id"].isin(xnames_set["ref"])]
     isempty = bio_set.empty
     if isempty == False:
         cpts = bio_set
@@ -175,16 +174,15 @@ def bifu_y2  (ntts, used_ts, xnames_raw):
     ele = ele.drop_duplicates()
     ele = pd.DataFrame(ele)
     i_name = ele.iloc[0,0]
-    xnames_set = xnames_raw.loc[xnames_raw["name"]== i_name]
+    xnames_set = xnames_raw
     var_exists = 'xnames_set' in locals()
     # if name also relates to "not specified"
     if var_exists == True:
         bio_sel =pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-        bio_set = ntts.loc[ntts["name_1"]== i_name,
+        # filter for references with "not specified"
+        bio_set = ntts.loc[~ntts["reference_id"].isin(xnames_set["ref"]),
                        ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count',
                         'refs', 'rule', 'reference_id', "reference_year"]]
-        # filter for references with "not specified"
-        bio_set = bio_set[~bio_set["reference_id"].isin(xnames_set["ref"])]
     isempty = bio_set.empty
     if isempty == False:
         # select all references
@@ -266,13 +264,13 @@ def bifu_s  (ntts, used_ts, xnames_raw):
 def bifu_s2  (ntts, used_ts, xnames_raw):
     i_name = ntts.iloc[0].at["name_1"]
 
-    xnames_set = xnames_raw.loc[xnames_raw["name"]== i_name]
+    xnames_set = xnames_raw
     var_exists = 'xnames_set' in locals()
     # if name also relates to "not specified"
     if var_exists == True:
         bio_sel =pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
         # filter for references with "not specified"
-        bio_set = ntts.loc[(ntts["name_1"]== i_name) & (~ntts["reference_id"].isin(xnames_set["ref"])),
+        bio_set = ntts.loc[~ntts["reference_id"].isin(xnames_set["ref"]),
                        ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count',
                         'refs', 'rule', 'reference_id', "reference_year"]]
     isempty = bio_set.empty
