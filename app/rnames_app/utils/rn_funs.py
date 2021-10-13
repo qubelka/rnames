@@ -113,8 +113,7 @@ def bifu_c2  (ntts, used_ts, xnames_raw):
     if var_exists == True:
         # filter for references with "not specified"
         bio_set = ntts.loc[~ntts["reference_id"].isin(xnames_set["ref"]),
-                       ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count',
-                        'refs', 'rule', 'reference_id', "reference_year"]]
+                       ['oldest', "oldest_index", 'youngest', 'youngest_index', 'reference_id']]
     isempty = bio_set.empty
     if isempty == False:
         cpts = bio_set
@@ -180,8 +179,7 @@ def bifu_y2  (ntts, used_ts, xnames_raw):
     if var_exists == True:
         # filter for references with "not specified"
         bio_set = ntts.loc[~ntts["reference_id"].isin(xnames_set["ref"]),
-                       ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count',
-                        'refs', 'rule', 'reference_id', "reference_year"]]
+                       ['oldest', "oldest_index", 'youngest', 'youngest_index', 'reference_id', "reference_year"]]
     isempty = bio_set.empty
     if isempty == False:
         # select all references
@@ -189,8 +187,7 @@ def bifu_y2  (ntts, used_ts, xnames_raw):
         u_ref = u_ref.drop_duplicates()
         max_y = max(bio_set["reference_year"])
         cpts = bio_set.loc[bio_set["reference_year"]==max_y,
-                        ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count',
-                        'refs', 'rule', 'reference_id', "reference_year"]]
+                        ['oldest', "oldest_index", 'youngest', 'youngest_index', 'reference_id', "reference_year"]]
 
         # and collect the references which have that opinions
         refs_f = ', '.join(cpts['reference_id'].apply(str).unique())
@@ -292,8 +289,7 @@ def bifu_s2  (ntts, used_ts, xnames_raw):
         # search for youngest reference among those
         max_y = max(bio_setb["reference_year"])
         cpts = bio_setb.loc[bio_setb["reference_year"]==max_y,
-                        ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count',
-                        'refs', 'rule', 'reference_id', "reference_year"]]
+                        ['oldest', "oldest_index", 'youngest', 'youngest_index', 'reference_id', "reference_year"]]
  
         # and collect the references which have that opinions
         refs_f = ', '.join(cpts['reference_id'].apply(str).unique())
