@@ -118,8 +118,6 @@ def bifu_c2  (ntts, used_ts, xnames_raw):
     if isempty == False:
         cpts = bio_set
         # select all references
-        u_ref = cpts["reference_id"]
-        u_ref = u_ref.drop_duplicates()
 
         # and collect the references which have that opinions
         refs_f = ', '.join(cpts['reference_id'].apply(str).unique())
@@ -183,8 +181,6 @@ def bifu_y2  (ntts, used_ts, xnames_raw):
     isempty = bio_set.empty
     if isempty == False:
         # select all references
-        u_ref = bio_set["reference_id"]
-        u_ref = u_ref.drop_duplicates()
         max_y = max(bio_set["reference_year"])
         cpts = bio_set.loc[bio_set["reference_year"]==max_y,
                         ['oldest', "oldest_index", 'youngest', 'youngest_index', 'reference_id', "reference_year"]]
