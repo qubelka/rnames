@@ -112,8 +112,7 @@ def bifu_c2  (ntts, used_ts, xnames_raw):
     # if name also relates to "not specified"
     if var_exists == True:
         # filter for references with "not specified"
-        bio_set = ntts.loc[~ntts["reference_id"].isin(xnames_set["ref"]),
-                       ['oldest', "oldest_index", 'youngest', 'youngest_index', 'reference_id']]
+        bio_set = ntts.loc[~ntts["reference_id"].isin(xnames_set["ref"])]
     isempty = bio_set.empty
     if isempty == False:
         cpts = bio_set
@@ -176,8 +175,7 @@ def bifu_y2  (ntts, used_ts, xnames_raw):
     # if name also relates to "not specified"
     if var_exists == True:
         # filter for references with "not specified"
-        bio_set = ntts.loc[~ntts["reference_id"].isin(xnames_set["ref"]),
-                       ['oldest', "oldest_index", 'youngest', 'youngest_index', 'reference_id', "reference_year"]]
+        bio_set = ntts.loc[~ntts["reference_id"].isin(xnames_set["ref"])]
     isempty = bio_set.empty
     if isempty == False:
         # select all references
@@ -260,8 +258,7 @@ def bifu_s2  (ntts, used_ts, xnames_raw):
     # if name also relates to "not specified"
     if var_exists == True:
         # filter for references with "not specified"
-        bio_set = ntts.loc[~ntts["reference_id"].isin(xnames_set["ref"]),
-                       ['oldest', "oldest_index", 'youngest', 'youngest_index', 'reference_id', "reference_year"]]
+        bio_set = ntts.loc[~ntts["reference_id"].isin(xnames_set["ref"])]
     isempty = bio_set.empty
     if isempty == False:
         # select all references
