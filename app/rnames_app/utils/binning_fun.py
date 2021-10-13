@@ -324,23 +324,23 @@ def bin_unique_names_1(ibs, x1, used_ts, xnames_raw):
     x1 = x1.sort_values(by='name_1')
     xnames_raw = xnames_raw.sort_values(by='name')
 
-    names = list(x1['name_1'])
-    refs = list(xnames_raw['name'])
+    x1_list = list(x1['name_1'])
+    xnames_list = list(xnames_raw['name'])
 
     for name in x1['name_1'].unique():
-        x1_begin = bisect_left(names, name)
-        x1_end = bisect_right(names, name)
-        # xnames_begin = bisect_left(xnames_raw['name'], name)
-        # xnames_end = bisect_right(xnames_raw['name'], name) + 1
+        x1_begin = bisect_left(x1_list, name)
+        x1_end = bisect_right(x1_list, name)
+        xnames_begin = bisect_left(xnames_list, name)
+        xnames_end = bisect_right(xnames_list, name)
 
         if ibs == 0:
-            x3a = bifu_s2(x1.iloc[x1_begin:x1_end], used_ts, xnames_raw)
+            x3a = bifu_s2(x1.iloc[x1_begin:x1_end], used_ts, xnames_raw.iloc[xnames_begin:xnames_end])
             x3a_frames.append(x3a)
         if ibs == 1:
-            x3a = bifu_y2(x1.iloc[x1_begin:x1_end], used_ts, xnames_raw)
+            x3a = bifu_y2(x1.iloc[x1_begin:x1_end], used_ts, xnames_raw.iloc[xnames_begin:xnames_end])
             x3a_frames.append(x3a)
         if ibs == 2:
-            x3a = bifu_c2(x1.iloc[x1_begin:x1_end], used_ts, xnames_raw)
+            x3a = bifu_c2(x1.iloc[x1_begin:x1_end], used_ts, xnames_raw.iloc[xnames_begin:xnames_end])
             x3a_frames.append(x3a)
 
     x3 = pd.concat(x3a_frames, axis=0, sort=True)
