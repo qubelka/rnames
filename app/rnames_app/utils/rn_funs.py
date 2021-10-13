@@ -103,10 +103,8 @@ def bifu_c  (ntts, used_ts, xnames_raw):
     return(bio_sel)
 
 def bifu_c2  (ntts, used_ts, xnames_raw):
-    ele = ntts["name_1"]
-    ele = ele.drop_duplicates()
-    ele = pd.DataFrame(ele)
-    i_name = ele.iloc[0,0]
+    i_name = ntts.iloc[0].at["name_1"]
+
     xnames_set = xnames_raw
     var_exists = 'xnames_set' in locals()
     # if name also relates to "not specified"
@@ -166,10 +164,8 @@ def bifu_y  (ntts, used_ts, xnames_raw):
     return(bio_sel)
 
 def bifu_y2  (ntts, used_ts, xnames_raw):
-    ele = ntts["name_1"]
-    ele = ele.drop_duplicates()
-    ele = pd.DataFrame(ele)
-    i_name = ele.iloc[0,0]
+    i_name = ntts.iloc[0].at["name_1"]
+
     xnames_set = xnames_raw
     var_exists = 'xnames_set' in locals()
     # if name also relates to "not specified"
