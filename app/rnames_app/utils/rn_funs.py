@@ -110,7 +110,6 @@ def bifu_c2  (ntts, used_ts, xnames_raw):
     var_exists = 'xnames_set' in locals()
     # if name also relates to "not specified"
     if var_exists == True:
-        bio_sel =pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
         # filter for references with "not specified"
         bio_set = ntts.loc[~ntts["reference_id"].isin(xnames_set["ref"]),
                        ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count',
@@ -129,9 +128,9 @@ def bifu_c2  (ntts, used_ts, xnames_raw):
         youngest_idx = cpts["youngest_index"].idxmax()
         oldest_idx = cpts["oldest_index"].idxmin()
         ts_c = max(cpts["youngest_index"])-min(cpts["oldest_index"])
-        bio_sel = pd.DataFrame([[i_name, cpts.at[oldest_idx, 'oldest'], cpts.at[youngest_idx, 'youngest'], ts_c, refs_f]],
-                               columns=["name", "oldest", "youngest", "ts_count", "refs"])
-    return(bio_sel)
+        return (i_name, cpts.at[oldest_idx, 'oldest'], cpts.at[youngest_idx, 'youngest'], ts_c, refs_f)
+
+    return (None, None, None, None, None)
 
 ################################################################
 # strictly searches for youngest binnings
@@ -178,7 +177,6 @@ def bifu_y2  (ntts, used_ts, xnames_raw):
     var_exists = 'xnames_set' in locals()
     # if name also relates to "not specified"
     if var_exists == True:
-        bio_sel =pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
         # filter for references with "not specified"
         bio_set = ntts.loc[~ntts["reference_id"].isin(xnames_set["ref"]),
                        ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count',
@@ -200,9 +198,8 @@ def bifu_y2  (ntts, used_ts, xnames_raw):
         youngest_idx = cpts["youngest_index"].idxmax()
         oldest_idx = cpts["oldest_index"].idxmin()
         ts_c = max(cpts["youngest_index"])-min(cpts["oldest_index"])
-        bio_sel = pd.DataFrame([[i_name, cpts.at[oldest_idx, 'oldest'], cpts.at[youngest_idx, 'youngest'], ts_c, refs_f]],
-                               columns=["name", "oldest", "youngest", "ts_count", "refs"])
-    return(bio_sel)
+        return (i_name, cpts.at[oldest_idx, 'oldest'], cpts.at[youngest_idx, 'youngest'], ts_c, refs_f)
+    return (None, None, None, None, None)
 
 ################################################################
 # strictly searches for shortest binnings
@@ -268,7 +265,6 @@ def bifu_s2  (ntts, used_ts, xnames_raw):
     var_exists = 'xnames_set' in locals()
     # if name also relates to "not specified"
     if var_exists == True:
-        bio_sel =pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
         # filter for references with "not specified"
         bio_set = ntts.loc[~ntts["reference_id"].isin(xnames_set["ref"]),
                        ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count',
@@ -307,6 +303,6 @@ def bifu_s2  (ntts, used_ts, xnames_raw):
         youngest_idx = cpts["youngest_index"].idxmax()
         oldest_idx = cpts["oldest_index"].idxmin()
 
-        return pd.DataFrame([[i_name, cpts.at[oldest_idx, 'oldest'], cpts.at[youngest_idx, 'youngest'], ts_c, refs_f]],
-                               columns=["name", "oldest", "youngest", "ts_count", "refs"])
-    return(bio_sel)
+        return (i_name, cpts.at[oldest_idx, 'oldest'], cpts.at[youngest_idx, 'youngest'], ts_c, refs_f)
+
+    return (None, None, None, None, None)

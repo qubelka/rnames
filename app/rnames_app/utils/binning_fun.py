@@ -315,12 +315,10 @@ def rule2(results, c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     return resi_2
 
 def bin_unique_names_1(ibs, x1, used_ts, xnames_raw):
-    x3 = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-    x3 = pd.DataFrame.transpose(x3)
-    if len(x1) == 0:
-        return x3
+    if x1.empty:
+        return pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
 
-    x3a_frames = [x3]
+    rows = []
     x1 = x1.sort_values(by='name_1')
     xnames_raw = xnames_raw.sort_values(by='name')
 
@@ -335,15 +333,16 @@ def bin_unique_names_1(ibs, x1, used_ts, xnames_raw):
 
         if ibs == 0:
             x3a = bifu_s2(x1.iloc[x1_begin:x1_end], used_ts, xnames_raw.iloc[xnames_begin:xnames_end])
-            x3a_frames.append(x3a)
+            rows.append(x3a)
         if ibs == 1:
             x3a = bifu_y2(x1.iloc[x1_begin:x1_end], used_ts, xnames_raw.iloc[xnames_begin:xnames_end])
-            x3a_frames.append(x3a)
+            rows.append(x3a)
         if ibs == 2:
             x3a = bifu_c2(x1.iloc[x1_begin:x1_end], used_ts, xnames_raw.iloc[xnames_begin:xnames_end])
-            x3a_frames.append(x3a)
+            rows.append(x3a)
 
-    x3 = pd.concat(x3a_frames, axis=0, sort=True)
+
+    x3 = pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
     x3 = pd.DataFrame.drop_duplicates(x3)
     x3 = x3.dropna()
     return x3
