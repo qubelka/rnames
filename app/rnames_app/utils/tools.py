@@ -15,8 +15,8 @@ def binning_outputs_equal(a, b):
         return concatenator.join(row)
     fa.loc[:,'refs'] = fa['refs'].apply(sort_refs)
     fb.loc[:, 'refs'] = fb['refs'].apply(sort_refs)
-    fa.sort_values(by=cols, inplace=True)
-    fb.sort_values(by=cols, inplace=True)
+    fa.sort_values(by=cols, inplace=True, ignore_index=True)
+    fb.sort_values(by=cols, inplace=True, ignore_index=True)
 
     df = fa.merge(fb, how='outer', indicator=True)
     only2 = df[df['_merge'] == 'right_only']
