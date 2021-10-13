@@ -6,6 +6,7 @@ import csv
 import pandas as pd
 import numpy as np
 #from rnames_app.utils import rn_funs
+from bisect import (bisect_left, bisect_right)
 from .rn_funs import *
 
 def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
@@ -314,20 +315,32 @@ def rule2(results, c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     return resi_2
 
 def bin_unique_names_1(ibs, x1, used_ts, xnames_raw):
-    bnu = x1["name_1"].unique()
-
     x3 = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
     x3 = pd.DataFrame.transpose(x3)
+    if len(x1) == 0:
+        return x3
+
     x3a_frames = [x3]
-    for name in bnu:
+    x1 = x1.sort_values(by='name_1')
+    xnames_raw = xnames_raw.sort_values(by='name')
+
+    names = list(x1['name_1'])
+    refs = list(xnames_raw['name'])
+
+    for name in x1['name_1'].unique():
+        x1_begin = bisect_left(names, name)
+        x1_end = bisect_right(names, name)
+        # xnames_begin = bisect_left(xnames_raw['name'], name)
+        # xnames_end = bisect_right(xnames_raw['name'], name) + 1
+
         if ibs == 0:
-            x3a = bifu_s2(x1.loc[x1["name_1"]==name], used_ts, xnames_raw)
+            x3a = bifu_s2(x1.iloc[x1_begin:x1_end], used_ts, xnames_raw)
             x3a_frames.append(x3a)
         if ibs == 1:
-            x3a = bifu_y2(x1.loc[x1["name_1"]==name], used_ts, xnames_raw)
+            x3a = bifu_y2(x1.iloc[x1_begin:x1_end], used_ts, xnames_raw)
             x3a_frames.append(x3a)
         if ibs == 2:
-            x3a = bifu_c2(x1.loc[x1["name_1"]==name], used_ts, xnames_raw)
+            x3a = bifu_c2(x1.iloc[x1_begin:x1_end], used_ts, xnames_raw)
             x3a_frames.append(x3a)
 
     x3 = pd.concat(x3a_frames, axis=0, sort=True)
