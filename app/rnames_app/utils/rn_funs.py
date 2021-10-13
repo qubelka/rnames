@@ -121,10 +121,10 @@ def bifu_c2  (ntts, used_ts, xnames_raw):
         # select all references
         u_ref = cpts["reference_id"]
         u_ref = u_ref.drop_duplicates()
-        refs_f = pd.unique(cpts['reference_id'])
-        refs_f = pd.DataFrame(refs_f)
-        refs_f = refs_f[0].apply(str)
-        refs_f = refs_f.str.cat(sep=', ')# and collect the references which have that opinions
+
+        # and collect the references which have that opinions
+        refs_f = ', '.join(cpts['reference_id'].apply(str).unique())
+
         # youngest, oldest and ts_count
         youngest_idx = cpts["youngest_index"].idxmax()
         oldest_idx = cpts["oldest_index"].idxmin()
@@ -192,10 +192,10 @@ def bifu_y2  (ntts, used_ts, xnames_raw):
         cpts = bio_set.loc[bio_set["reference_year"]==max_y,
                         ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count',
                         'refs', 'rule', 'reference_id', "reference_year"]]
-        refs_f = pd.unique(cpts['reference_id'])
-        refs_f = pd.DataFrame(refs_f)
-        refs_f = refs_f[0].apply(str)
-        refs_f = refs_f.str.cat(sep=', ')# and collect the references which have that opinions
+
+        # and collect the references which have that opinions
+        refs_f = ', '.join(cpts['reference_id'].apply(str).unique())
+
        # youngest, oldest and ts_count
         youngest_idx = cpts["youngest_index"].idxmax()
         oldest_idx = cpts["oldest_index"].idxmin()
@@ -298,10 +298,10 @@ def bifu_s2  (ntts, used_ts, xnames_raw):
         cpts = bio_setb.loc[bio_setb["reference_year"]==max_y,
                         ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count',
                         'refs', 'rule', 'reference_id', "reference_year"]]
-        refs_f = pd.unique(cpts['reference_id'])
-        refs_f = pd.DataFrame(refs_f)
-        refs_f = refs_f[0].apply(str)
-        refs_f = refs_f.str.cat(sep=', ')# and collect the references which have that opinions
+ 
+        # and collect the references which have that opinions
+        refs_f = ', '.join(cpts['reference_id'].apply(str).unique())
+
         # youngest, oldest and ts_count
         ts_c = max(cpts["youngest_index"])-min(cpts["oldest_index"])
         youngest_idx = cpts["youngest_index"].idxmax()
