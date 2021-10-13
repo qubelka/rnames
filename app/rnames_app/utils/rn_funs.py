@@ -182,8 +182,8 @@ def bifu_y2  (ntts, used_ts, xnames_raw):
     if isempty == False:
         # select all references
         max_y = max(bio_set["reference_year"])
-        cpts = bio_set.loc[bio_set["reference_year"]==max_y,
-                        ['oldest', "oldest_index", 'youngest', 'youngest_index', 'reference_id', "reference_year"]]
+        year_list = list(bio_set["reference_year"])
+        cpts = bio_set.iloc[bisect_left(year_list, max_y):bisect_right(year_list, max_y)]
 
         # and collect the references which have that opinions
         refs_f = ', '.join(cpts['reference_id'].apply(str).unique())
@@ -265,13 +265,13 @@ def bifu_s2  (ntts, used_ts, xnames_raw):
     isempty = bio_set.empty
     if isempty == False:
         # select all references
-        bio_set = bio_set.sort_values(by='reference_id')
-        rid_list = list(bio_set['reference_id'])
+        sorted_refs = bio_set.sort_values(by='reference_id')
+        rid_list = list(sorted_refs['reference_id'])
         rows = []
         min_delta = np.inf
         # search for shortest range
         for r_yx in bio_set["reference_id"].unique():
-            cptx = bio_set.iloc[bisect_left(rid_list, r_yx):bisect_right(rid_list, r_yx)]
+            cptx = sorted_refs.iloc[bisect_left(rid_list, r_yx):bisect_right(rid_list, r_yx)]
             ts_x = cptx["youngest_index"].max()-cptx["oldest_index"].min()
             if ts_x == min_delta:
                 rows.append(r_yx)
@@ -284,8 +284,8 @@ def bifu_s2  (ntts, used_ts, xnames_raw):
         bio_setb = bio_set[bio_set["reference_id"].isin(short_ref)]
         # search for youngest reference among those
         max_y = max(bio_setb["reference_year"])
-        cpts = bio_setb.loc[bio_setb["reference_year"]==max_y,
-                        ['oldest', "oldest_index", 'youngest', 'youngest_index', 'reference_id', "reference_year"]]
+        year_list = list(bio_setb["reference_year"])
+        cpts = bio_setb.iloc[bisect_left(year_list, max_y):bisect_right(year_list, max_y)]
  
         # and collect the references which have that opinions
         refs_f = ', '.join(cpts['reference_id'].apply(str).unique())

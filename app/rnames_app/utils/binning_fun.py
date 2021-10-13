@@ -319,7 +319,7 @@ def bin_unique_names_1(ibs, x1, used_ts, xnames_raw):
         return pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
 
     rows = []
-    x1 = x1.sort_values(by='name_1')
+    x1 = x1.sort_values(by=['name_1', 'reference_year'])
     xnames_raw = xnames_raw.sort_values(by='name')
 
     x1_list = list(x1['name_1'])
