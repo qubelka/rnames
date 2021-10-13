@@ -1,16 +1,9 @@
 from django.conf import settings
 from django.conf.urls import url
 from django.urls import path, re_path, include
-from django.contrib.auth.decorators import login_required
 from . import views
-from .forms import ReferenceForm, ReferenceStructuredNameForm
 import debug_toolbar
 #from rest_framework.urlpatterns import format_suffix_patterns
-
-FORMS = [
-     ('reference', ReferenceForm),
-     ('reference_structured_name', ReferenceStructuredNameForm)
-]
 
 urlpatterns = [
     path('__debug__/', include(debug_toolbar.urls)),
@@ -117,9 +110,6 @@ urlpatterns = [
          views.structuredname_new, name='structuredname-new'),
     path('rnames/structured_name/select',
          views.structuredname_select, name='structuredname-select'),
-    path('rnames/wizard/structured_name/select',
-         views.wizard_structuredname_select, name='wizard-structuredname-select'),     
-    path('rnames/wizard', login_required(views.FormWizardView.as_view(FORMS)))     
 ]
 
 # Add Django site authentication urls (for login, logout, password management)

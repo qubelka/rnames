@@ -28,7 +28,6 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from rest_framework.response import Response
 #from .utils.utils import YourClassOrFunction
 from rest_framework import status, generics
-from formtools.wizard.views import SessionWizardView
 from .models import (Binning, Location, Name, Qualifier, QualifierName,
                      Relation, Reference, StratigraphicQualifier, StructuredName)
 from .filters import (BinningSchemeFilter, LocationFilter, NameFilter, QualifierFilter, QualifierNameFilter,
@@ -50,39 +49,6 @@ from contextlib import redirect_stdout
 #    names = Name.objects.is_active().order_by('name')
 #    names = Name.objects.order_by('name')
 #    return render(request, 'name_list.html', {'names': names})
-
-TEMPLATES = {
-    "reference": "wizard_reference_edit.html",
-    "reference_structured_name": "wizard_reference_structured_name_edit.html"
-}
-
-class FormWizardView(SessionWizardView):
-    def get_template_names(self):
-        return [TEMPLATES[self.steps.current]]
-
-    form_list = [ReferenceForm, ReferenceStructuredNameForm]
-
-    def handle_form_data(self, form_list):
-        form0 = form_list[0]
-        reference = form0.save(commit=False)
-        reference.save()
-        pk = reference.pk
-
-        form1 = form_list[1]
-        name_id = form1.cleaned_data.get('name_id', 1)
-        name_one = get_object_or_404(StructuredName, pk=name_id, is_active=1)
-        relation = form1.save(commit=False)
-        relation.reference = reference
-        relation.name_one = name_one
-        relation.name_two = name_one
-        relation.save()
-
-        return pk
-
-    def done(self, form_list, **kwargs):
-        pk = self.handle_form_data(form_list) 
-        self.request.session['go_back_option'] = False
-        return redirect('reference-detail', pk)
 
 def external(request):
 
@@ -573,13 +539,7 @@ def reference_detail(request, pk):
     except EmptyPage:
         page_obj = paginator.page(paginator.num_pages)
 
-    return render(request, 'reference_detail.html', {
-        'reference': reference, 
-        'page_obj': page_obj, 
-        'filter': f, 
-        'sn_list': sn_list, 
-        'go_back_option': request.session.pop('go_back_option', True) 
-        })
+    return render(request, 'reference_detail.html', {'reference': reference, 'page_obj': page_obj, 'filter': f, 'sn_list': sn_list, })
 
 
 @login_required
@@ -1132,26 +1092,6 @@ def structuredname_select(request):
         'select_structured_name.html',
         {'page_obj': page_obj, 'filter': f, }
     )
-
-def wizard_structuredname_select(request):
-    f = StructuredNameFilter(request.GET, queryset=StructuredName.objects.is_active(
-    ).select_related().order_by('name', 'qualifier', 'location'))
-
-    paginator = Paginator(f.qs, 5)
-
-    page_number = request.GET.get('page')
-    try:
-        page_obj = paginator.page(page_number)
-    except PageNotAnInteger:
-        page_obj = paginator.page(1)
-    except EmptyPage:
-        page_obj = paginator.page(paginator.num_pages)
-
-    return render(
-        request,
-        'wizard_select_structured_name.html',
-        {'page_obj': page_obj, 'filter': f, }
-    )   
 
 
 def user_search(request):
