@@ -5,6 +5,7 @@ Created on Feb 27, 2019
 '''
 import pandas as pd
 import numpy as np
+from bisect import (bisect_left, bisect_right)
 csv_folder = 'rnames_app/utils/csv/'
 
 rassm_ts = pd.read_csv(csv_folder+"binning_rass.csv", header=None)
@@ -267,18 +268,17 @@ def bifu_s2  (ntts, used_ts, xnames_raw):
     if var_exists == True:
         # filter for references with "not specified"
         bio_set = ntts.loc[~ntts["reference_id"].isin(xnames_set["ref"]),
-                       ['name_1', 'name_2', 'oldest', "oldest_index", 'youngest', 'youngest_index', 'ts_count',
-                        'refs', 'rule', 'reference_id', "reference_year"]]
+                       ['oldest', "oldest_index", 'youngest', 'youngest_index', 'reference_id', "reference_year"]]
     isempty = bio_set.empty
     if isempty == False:
         # select all references
-        u_ref = bio_set["reference_id"].unique()
-
+        bio_set = bio_set.sort_values(by='reference_id')
+        rid_list = list(bio_set['reference_id'])
         rows = []
         min_delta = np.inf
         # search for shortest range
-        for r_yx in u_ref:
-            cptx = bio_set.loc[bio_set["reference_id"] == r_yx, ["oldest_index", 'youngest_index']]
+        for r_yx in bio_set["reference_id"].unique():
+            cptx = bio_set.iloc[bisect_left(rid_list, r_yx):bisect_right(rid_list, r_yx)]
             ts_x = cptx["youngest_index"].max()-cptx["oldest_index"].min()
             if ts_x == min_delta:
                 rows.append(r_yx)
