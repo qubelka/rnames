@@ -1,3 +1,7 @@
 FROM nginx:alpine
 
-COPY ./default.conf /etc/nginx/conf.d/default.conf
+COPY ./default.conf /etc/nginx/templates/default.conf.template
+COPY ./certs /certs
+
+RUN mkdir -p /vol/static && \
+    chmod 755 /vol/static
