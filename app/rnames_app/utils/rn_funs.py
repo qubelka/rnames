@@ -103,27 +103,42 @@ def bifu_c  (ntts, used_ts, xnames_raw):
     return(bio_sel)
 
 def bifu_c2  (ntts, used_ts, xnames_raw):
-    i_name = ntts.iloc[0].at["name_1"]
+    # ntts ['name_1', 'name_2', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count', 'refs', 'rule', 'reference_id', 'reference_year']
+    # xnames ['name', 'strat_qualifier', 'ref', 'combi']
+    k_reference_id = 9
+    k_oldest = 2
+    k_oldest_index = 3
+    k_youngest = 4
+    k_youngest_index = 5
+    xk_ref = 2
+
+    ntts = ntts.values
+    xnames_raw = xnames_raw.values
+    i_name = ntts[0, 0]
 
     xnames_set = xnames_raw
     var_exists = 'xnames_set' in locals()
     # if name also relates to "not specified"
     if var_exists == True:
         # filter for references with "not specified"
-        bio_set = ntts.loc[~ntts["reference_id"].isin(xnames_set["ref"])]
-    isempty = bio_set.empty
-    if isempty == False:
+        bio_set = ntts[~np.isin(ntts[:, k_reference_id], xnames_set[:, xk_ref])]
+
+    if bio_set.size > 0:
         cpts = bio_set
         # select all references
 
         # and collect the references which have that opinions
-        refs_f = ', '.join(cpts['reference_id'].apply(str).unique())
+        refs_f = ', '.join(map(str, np.unique(cpts[:, k_reference_id])))
 
         # youngest, oldest and ts_count
-        youngest_idx = cpts["youngest_index"].idxmax()
-        oldest_idx = cpts["oldest_index"].idxmin()
-        ts_c = max(cpts["youngest_index"])-min(cpts["oldest_index"])
-        return (i_name, cpts.at[oldest_idx, 'oldest'], cpts.at[youngest_idx, 'youngest'], ts_c, refs_f)
+        youngest_value = np.max(cpts[:, k_youngest_index])
+        oldest_value = np.min(cpts[:, k_oldest_index])
+        ts_c = oldest_value - youngest_value
+
+        youngest = np.where(cpts[:, k_youngest_index] == youngest_value)[0][0]
+        oldest = np.where(cpts[:, k_oldest_index] == oldest_value)[0][0]
+
+        return (i_name, cpts[oldest, k_oldest], cpts[youngest, k_youngest], ts_c, refs_f)
 
     return (None, None, None, None, None)
 
