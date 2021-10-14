@@ -9,8 +9,8 @@
           <a class="btn btn-default" href="{% url 'relation-edit' pk=relation.pk %}"><span class="fa fa-pencil-square-o"></span></a>
           <a class="btn btn-default" href="{% url 'relation-delete' pk=relation.pk %}"><span class="fa  fa-trash-o"></span></a>
         {% endif %}
-        <p><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
-        <header style="display:none;">
+        <p><button onClick="javascript:history.back();">Go back</button></p>
+        <header class="w3-hide">
            <h2>RNames - Relation: {{ relation.id }}</h2>
         </header>
         <table class="w3-table-all">
@@ -31,7 +31,7 @@
     </div>
     <br>
     {% if references %}
-    <header style="display:none;">
+    <header class="w3-hide">
        <h2>RNames - Relation #{{ relation.id }}: List of References</h2>
     </header>
     <table class="w3-table-all">

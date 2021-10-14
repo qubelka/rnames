@@ -1,7 +1,7 @@
 {% extends 'base_generic.html' %}
 {% block title %}RNames - Reference: {{ reference.id }}{% endblock %}
 {% block content %}
-<header style="display:none;">
+<header class="w3-hide">
   <h2>RNames - Reference</h2>
 </header>
 <!-- Write your comments here -->
@@ -43,7 +43,7 @@
     <a class="btn btn-default" href="{% url 'reference-structured_name-new' reference.id%}"><span class="fa  fa-plus"></span> Add Structured Name</a>
     <br>
     {% if sn_list %}
-      <table style="width:100%">
+      <table class="w3-table-all">
         <caption>Reference #{{ reference.id }}: List of Structured Names</caption>
         <tr>
           <th>Name</th>
@@ -70,7 +70,7 @@
       <p>There are no Structured Names available.</p>
     {% endif %}
   {% endif %}
-  <header style="display:none;">
+  <header class="w3-hide">
     <h2>RNames - Reference #{{ reference.id }} List of Relations</h2>
   </header>
   {% if page_obj %}

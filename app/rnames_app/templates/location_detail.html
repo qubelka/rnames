@@ -10,7 +10,7 @@
           <a class="btn btn-default" href="{% url 'location-delete' pk=location.pk %}"><span class="fa  fa-trash-o"></span></a>
         {% endif %}
         <p><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
-        <header style="display:none;">
+        <header class="w3-hide">
             <h2>RNames - Location: {{ location.id }}</h2>
          </header>
         <table class="w3-table-all">
