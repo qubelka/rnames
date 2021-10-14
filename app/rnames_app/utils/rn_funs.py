@@ -279,25 +279,37 @@ def bifu_s  (ntts, used_ts, xnames_raw):
     return(bio_sel)
 
 def bifu_s2  (ntts, used_ts, xnames_raw):
-    i_name = ntts.iloc[0].at["name_1"]
+    # ntts ['name_1', 'name_2', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count', 'refs', 'rule', 'reference_id', 'reference_year']
+    # xnames ['name', 'strat_qualifier', 'ref', 'combi']
+    k_reference_id = 9
+    k_reference_year = 10
+    k_oldest = 2
+    k_oldest_index = 3
+    k_youngest = 4
+    k_youngest_index = 5
+    xk_ref = 2
+
+    ntts = ntts.values
+    xnames_raw = xnames_raw.values
+
+    i_name = ntts[0, 0]
 
     xnames_set = xnames_raw
     var_exists = 'xnames_set' in locals()
     # if name also relates to "not specified"
     if var_exists == True:
         # filter for references with "not specified"
-        bio_set = ntts.loc[~ntts["reference_id"].isin(xnames_set["ref"])]
-    isempty = bio_set.empty
-    if isempty == False:
+        bio_set = ntts[~np.isin(ntts[:, k_reference_id], xnames_set[:, xk_ref])]
+
+    if bio_set.size > 0:
         # select all references
-        sorted_refs = bio_set.sort_values(by='reference_id')
-        rid_list = list(sorted_refs['reference_id'])
+        sorted_refs = bio_set[bio_set[:, k_reference_id].argsort()]
         rows = []
         min_delta = np.inf
         # search for shortest range
-        for r_yx in bio_set["reference_id"].unique():
-            cptx = sorted_refs.iloc[bisect_left(rid_list, r_yx):bisect_right(rid_list, r_yx)]
-            ts_x = cptx["youngest_index"].max()-cptx["oldest_index"].min()
+        for r_yx in np.unique(bio_set[:, k_reference_id]):
+            cptx = sorted_refs[bisect_left(sorted_refs[:, k_reference_id], r_yx):bisect_right(sorted_refs[:, k_reference_id], r_yx)]
+            ts_x = np.max(cptx[:, k_youngest_index]) - np.min(cptx[:, k_oldest_index])
             if ts_x == min_delta:
                 rows.append(r_yx)
             if ts_x < min_delta:
@@ -305,21 +317,22 @@ def bifu_s2  (ntts, used_ts, xnames_raw):
                 min_delta = ts_x
                 rows.append(r_yx)
 
-        short_ref = set(rows)
-        bio_setb = bio_set[bio_set["reference_id"].isin(short_ref)]
+        bio_setb = bio_set[np.isin(bio_set[:, k_reference_id], rows)]
         # search for youngest reference among those
-        max_y = max(bio_setb["reference_year"])
-        year_list = list(bio_setb["reference_year"])
-        cpts = bio_setb.iloc[bisect_left(year_list, max_y):bisect_right(year_list, max_y)]
+        max_y = max(bio_setb[:, k_reference_year])
+        cpts = bio_setb[bisect_left(bio_setb[:, k_reference_year], max_y):bisect_right(bio_setb[:, k_reference_year], max_y)]
  
         # and collect the references which have that opinions
-        refs_f = ', '.join(cpts['reference_id'].apply(str).unique())
+        refs_f = ', '.join(map(str, np.unique(cpts[:, k_reference_id])))
 
         # youngest, oldest and ts_count
-        ts_c = max(cpts["youngest_index"])-min(cpts["oldest_index"])
-        youngest_idx = cpts["youngest_index"].idxmax()
-        oldest_idx = cpts["oldest_index"].idxmin()
+        youngest_value = np.max(cpts[:, k_youngest_index])
+        oldest_value = np.min(cpts[:, k_oldest_index])
+        ts_c = oldest_value - youngest_value
 
-        return (i_name, cpts.at[oldest_idx, 'oldest'], cpts.at[youngest_idx, 'youngest'], ts_c, refs_f)
+        youngest = np.where(cpts[:, k_youngest_index] == youngest_value)[0][0]
+        oldest = np.where(cpts[:, k_oldest_index] == oldest_value)[0][0]
+
+        return (i_name, cpts[oldest, k_oldest], cpts[youngest, k_youngest], ts_c, refs_f)
 
     return (None, None, None, None, None)
