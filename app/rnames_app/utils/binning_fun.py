@@ -804,8 +804,8 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
     x2 = x2[['name', 'oldest', 'oldest_index', 'youngest', 'ts_index','ts_count',
              'refs', 'rule', "b_scheme"]]
     x2.rename(inplace=True, columns={'ts_index': 'youngest_index'})
-    x_resi = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-    x_resi = pd.DataFrame.transpose(x_resi)
+    rows = []
+
     xal = pd.merge(pd.merge(resi_s,resi_y,on='name'),resi_c,on='name')
 
     x2 = x2.sort_values(by=['name', 'b_scheme'])
@@ -849,7 +849,6 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
         ref_list_u = list(set(ref_list))
         str1 = ", "
         refs_f = str1.join(ref_list_u)
-        x_resib = pd.DataFrame([[i_name, x_oldest.iloc[0,0], x_youngest.iloc[0,0], ts_c, refs_f]],
-                           columns=["name", "oldest", "youngest", "ts_count", "refs"])
-        x_resi = pd.concat([x_resi, x_resib], axis=0, sort=True)
-    return x_resi
+        rows.append((i_name, x_oldest.iloc[0,0], x_youngest.iloc[0,0], float(ts_c), refs_f))
+
+    return pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
