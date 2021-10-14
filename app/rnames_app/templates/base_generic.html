@@ -23,9 +23,7 @@
   header {
     background-color: #666;
     padding: 10px;
-    text-align: left;
     font-size: 15px;
-    color: white;
   }
 
   /* Create two columns/boxes that floats next to each other */
@@ -60,22 +58,17 @@
   footer {
     background-color: #777;
     padding: 10px;
-    text-align: center;
-    color: white;
   }
 
   /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 
   table {
     font-family: arial, sans-serif;
-    border-collapse: collapse;
     width: 100%;
   }
 
   td, th {
     border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
   }
 
   tr:nth-child(even) {
@@ -135,12 +128,12 @@
 </head>
 <body>
 
-<header id="top">
+<header id="top" class="w3-text-white w3-left-align">
   <h2>RNames</h2>
 </header>
 
 <section class="w3-section">
-  <header style="display:none;"><h1>Main Menu</h1></header>
+  <header class="w3-hide"><h1>Main Menu</h1></header>
   <nav class="w3-content">
     <ul>
       <li><a class="list-group-item" href="{% url 'index' %}"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp;Home</a></li>
@@ -195,7 +188,7 @@
 
 </section>
 
-<footer>
+<footer class="w3-container w3-text-white w3-center">
   <p>© 2019 RNames <a href="#top">Back to Top</a></p>
 </footer>
 <!--
