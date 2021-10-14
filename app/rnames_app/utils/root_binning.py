@@ -10,7 +10,7 @@ import pandas as pd
 import numpy as np
 from .rn_funs import *
 from .binning_fun import *
-from .tools import (binning_outputs_equal, Task)
+from .tools import binning_outputs_equal
 
 def main_binning_fun():
     pd.set_option('display.max_columns', 30)
@@ -57,47 +57,32 @@ def main_binning_fun():
 
     #### this goes into loop on binning_algorithm
     ### binning_algorithms: shortest, youngest, compromise, combined
-    robin_b = Task(bin_fun, {
-        'c_rels': cron_relations.copy(),
-        'binning_algorithm': "combined",
-        'binning_scheme': "b",
-        'xrange': 'Ordovician'
-    })
+    robin_b = bin_fun(c_rels = cron_relations, binning_algorithm = "combined", binning_scheme = "b",
+                                  xrange = 'Ordovician')
+    robin_b.to_csv("x_robinb.csv", index = False, header=True)
+
 
     # In[6]:
 
-    robin_w = Task(bin_fun, {
-        'c_rels': cron_relations.copy(),
-        'binning_algorithm': "combined",
-        'binning_scheme': "w",
-        'xrange': 'Ordovician'
-    })
+
+    robin_w = bin_fun(c_rels = cron_relations, binning_algorithm = "combined", binning_scheme = "w",
+                                  xrange = 'Ordovician')
+    robin_w.to_csv("x_robinw.csv", index = False, header=True)
+
 
     # In[7]:
 
-    robin_s = Task(bin_fun, {
-        'c_rels': cron_relations.copy(),
-        'binning_algorithm': "combined",
-        'binning_scheme': "s",
-        'xrange': 'Phanerozoic'
-    })
+
+    robin_s = bin_fun(c_rels = cron_relations, binning_algorithm = "combined", binning_scheme = "s",
+                                  xrange = 'Phanerozoic')
+    robin_s.to_csv("x_robins.csv", index = False, header=True)
+
 
     # In[8]:
-    robin_p = Task(bin_fun, {
-        'c_rels': cron_relations.copy(),
-        'binning_algorithm': "combined",
-        'binning_scheme': "p",
-        'xrange': 'Phanerozoic'
-    })
 
-    robin_b = robin_b.join()
-    robin_w = robin_w.join()
-    robin_s = robin_s.join()
-    robin_p = robin_p.join()
 
-    robin_b.to_csv("x_robinb.csv", index = False, header=True)
-    robin_w.to_csv("x_robinw.csv", index = False, header=True)
-    robin_s.to_csv("x_robins.csv", index = False, header=True)
+    robin_p = bin_fun(c_rels = cron_relations, binning_algorithm = "combined", binning_scheme = "p",
+                                  xrange = 'Phanerozoic')
     robin_p.to_csv("x_robinp.csv", index = False, header=True)
 
     binning_outputs_equal('x_robinb.csv', 'rnames_app/utils/ref/x_robinb.csv')
