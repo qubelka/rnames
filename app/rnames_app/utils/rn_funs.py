@@ -112,8 +112,6 @@ def bifu_c2  (ntts, used_ts, xnames_raw):
     k_youngest_index = 5
     xk_ref = 2
 
-    ntts = ntts.values
-    xnames_raw = xnames_raw.values
     i_name = ntts[0, 0]
 
     xnames_set = xnames_raw
@@ -188,9 +186,6 @@ def bifu_y2  (ntts, used_ts, xnames_raw):
     k_youngest = 4
     k_youngest_index = 5
     xk_ref = 2
-
-    ntts = ntts.values
-    xnames_raw = xnames_raw.values
 
     i_name = ntts[0, 0]
 
@@ -288,9 +283,6 @@ def bifu_s2  (ntts, used_ts, xnames_raw):
     k_youngest = 4
     k_youngest_index = 5
     xk_ref = 2
-
-    ntts = ntts.values
-    xnames_raw = xnames_raw.values
 
     i_name = ntts[0, 0]
 

@@ -321,24 +321,26 @@ def bin_unique_names_1(ibs, x1, used_ts, xnames_raw):
     rows = []
     x1 = x1.sort_values(by=['name_1', 'reference_year'])
     xnames_raw = xnames_raw.sort_values(by='name')
-
     x1_list = list(x1['name_1'])
     xnames_list = list(xnames_raw['name'])
 
-    for name in x1['name_1'].unique():
+    x1 = x1.values
+    xnames_raw = xnames_raw.values
+
+    for name in np.unique(x1_list):
         x1_begin = bisect_left(x1_list, name)
         x1_end = bisect_right(x1_list, name)
         xnames_begin = bisect_left(xnames_list, name)
         xnames_end = bisect_right(xnames_list, name)
 
         if ibs == 0:
-            x3a = bifu_s2(x1.iloc[x1_begin:x1_end], used_ts, xnames_raw.iloc[xnames_begin:xnames_end])
+            x3a = bifu_s2(x1[x1_begin:x1_end], used_ts, xnames_raw[xnames_begin:xnames_end])
             rows.append(x3a)
         if ibs == 1:
-            x3a = bifu_y2(x1.iloc[x1_begin:x1_end], used_ts, xnames_raw.iloc[xnames_begin:xnames_end])
+            x3a = bifu_y2(x1[x1_begin:x1_end], used_ts, xnames_raw[xnames_begin:xnames_end])
             rows.append(x3a)
         if ibs == 2:
-            x3a = bifu_c2(x1.iloc[x1_begin:x1_end], used_ts, xnames_raw.iloc[xnames_begin:xnames_end])
+            x3a = bifu_c2(x1[x1_begin:x1_end], used_ts, xnames_raw[xnames_begin:xnames_end])
             rows.append(x3a)
 
 
