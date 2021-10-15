@@ -837,8 +837,8 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
 
         rax = np.concatenate((x_range_s, x_range_s, x_range_c))
         # filter for third quantile, only bins with highest score
-        rax_counts = pd.DataFrame(np.unique(rax, return_counts=True), index = ['ts_bins', 'counts'])
-        rax_counts = rax_counts.transpose()
+        rax_counts = np.unique(rax, return_counts=True)
+        rax_counts = pd.DataFrame({'ts_bins': rax_counts[0], 'counts': rax_counts[1]})
         rax_counts = rax_counts.values
         rq = round(np.quantile(rax_counts[:, 1], 0.75),0)
         rax_sub = rax_counts[rax_counts[:, 1] >= rq]
