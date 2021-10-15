@@ -8,6 +8,7 @@ import time
 import csv
 import pandas as pd
 import numpy as np
+from bisect import (bisect_left, bisect_right)
 from .rn_funs import *
 from .binning_fun import *
 from .tools import binning_outputs_equal
@@ -124,22 +125,39 @@ def main_binning_fun():
     x1 = pd.merge(x1, stages_ts, how= 'inner', left_on="youngest", right_on="ts")
     x1 = x1[['name', 'oldest', 'oldest_index', 'youngest', 'ts_index','ts_count','refs']]
     x1.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count','refs']
+    x1 = x1.sort_values(by='name')
+    x1 = x1.values
     mc_bw = pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
+
+    # x1 column indices
+    k_name = 0
+    k_oldest = 1
+    k_oldest_index = 2
+    k_youngest = 3
+    k_youngest_index = 4
+    k_ts_count = 5
+    k_refs = 6
 
     bnu = mwbs["name"].drop_duplicates()
     rows = []
     for i_name in bnu:
-        bio_set = x1.loc[x1["name"] == i_name]
+        bio_set = x1[bisect_left(x1[:, k_name], i_name):bisect_right(x1[:, k_name], i_name)]
+
         if binning_algorithm == "combined" or binning_algorithm == "compromise":
             cpts = bio_set
         if binning_algorithm == "shortest" or binning_algorithm == "youngest":
-            mincount = min(bio_set['ts_count'])
-            cpts = bio_set.loc[bio_set["ts_count"] == mincount]
-        refs_f = ', '.join(map(str, pd.unique(cpts['refs'])))
-        cpts_youngest =  cpts.loc[(cpts["youngest_index"]== max(cpts["youngest_index"])), ['youngest']]
-        cpts_oldest = cpts.loc[(cpts["oldest_index"]== min(cpts["oldest_index"])), ['oldest']]
-        ts_c = max(cpts["youngest_index"])-min(cpts["oldest_index"])
-        rows.append((i_name, cpts_oldest.iloc[0,0], cpts_youngest.iloc[0,0], ts_c, refs_f))
+            mincount = np.min(bio_set[:, k_ts_count])
+            cpts = bio_set[bio_set[:, k_ts_count] == mincount]
+
+        refs_f = ', '.join(map(str, np.unique(cpts[:, k_refs])))
+        max_youngest = np.max(cpts[:, k_youngest_index])
+        min_oldest = np.min(cpts[:, k_oldest_index])
+
+        cpts_youngest = cpts[cpts[:, k_youngest_index] == max_youngest]
+        cpts_oldest = cpts[cpts[:, k_oldest_index] == min_oldest]
+        ts_c = max_youngest - min_oldest
+
+        rows.append((i_name, cpts_oldest[0, k_oldest], cpts_youngest[0, k_youngest], ts_c, refs_f))
 
     mc_bw = pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
     mc_bw = mc_bw[~mc_bw["name"].isin(stages_ts["ts"])]
