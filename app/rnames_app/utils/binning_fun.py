@@ -169,27 +169,36 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
     return combi_names
 
 
+def bin_unique_names_0(ibs, cr_x, used_ts, xnames_raw):
+    rows = []
+    bnu = cr_x["name_1"]
+    bnu = bnu.drop_duplicates()
+    bnurange = np.arange(0,len(bnu),1)
+
+    for i in bnurange:
+        if ibs == 0:
+            resi_0a = bifu_s(cr_x.loc[cr_x["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+            rows.append(resi_0a)
+        if ibs == 1:
+            resi_0a = bifu_y(cr_x.loc[cr_x["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+            rows.append(resi_0a)
+        if ibs == 2:
+            resi_0a = bifu_c(cr_x.loc[cr_x["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
+            rows.append(resi_0a)
+
+    ret = pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
+    return ret.dropna()
+
+
 def rule0(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     cr_x = c_rels_d.loc[((c_rels_d["strat_qualifier_1"]=="Chronostratigraphy"))
                               & ((c_rels_d["qualifier_name_2"]==t_scheme)),
                               ["reference_id","name_1","name_2", "ts", "ts_index", "reference_year"]]
 
     cr_x =  cr_x.loc[~(cr_x["name_1"]=="not specified")]
-    bnu = cr_x["name_1"]
-    bnu = bnu.drop_duplicates()
-    bnurange = np.arange(0,len(bnu),1)
 
     for ibs in runrange:
-        resi_0 = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-        resi_0 = pd.DataFrame.transpose(resi_0)
-        for i in bnurange:
-            if ibs == 0:
-                resi_0a = bifu_s(cr_x.loc[cr_x["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-            if ibs == 1:
-                resi_0a = bifu_y(cr_x.loc[cr_x["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-            if ibs == 2:
-                resi_0a = bifu_c(cr_x.loc[cr_x["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-            resi_0 = pd.concat([resi_0, resi_0a], axis=0, sort=True)
+        resi_0 = bin_unique_names_0(ibs, cr_x, used_ts, xnames_raw)
         resi_0["rule"] = 0.0
         resi_0 = resi_0.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
         resi_0 =  resi_0[~resi_0["name"].isin(used_ts["ts"])]
@@ -222,22 +231,9 @@ def rule1(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
                               ["reference_id","name_1","name_2", "ts", "ts_index", "reference_year"]]
     #take out  relations that also relate to not specified in same reference
     cr_a =  cr_a.loc[~(cr_a["name_1"]=="not specified")]
-    bnu = cr_a["name_1"]
-    bnu = bnu.drop_duplicates()
-    bnurange = np.arange(0,len(bnu),1)
 
     for ibs in runrange:
-        resi_1 = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-        resi_1 = pd.DataFrame.transpose(resi_1)
-        for i in bnurange:
-            if ibs == 0:
-                resi_1a = bifu_s(cr_a.loc[cr_a["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-            if ibs == 1:
-                resi_1a = bifu_y(cr_a.loc[cr_a["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-            if ibs == 2:
-                resi_1a = bifu_c(cr_a.loc[cr_a["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-            resi_1 = pd.concat([resi_1, resi_1a], axis=0, sort=True)
-        resi_1 = resi_1.dropna()
+        resi_1 = bin_unique_names_0(ibs, cr_a, used_ts, xnames_raw)
         resi_1["rule"] = 1.0
         resi_1 = resi_1.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
         resi_1 =  resi_1[~resi_1["name"].isin(used_ts["ts"])]
@@ -272,21 +268,9 @@ def rule2(results, c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
                           & (c_rels_d["qualifier_name_2"]==t_scheme),
                               ["reference_id","name_1","name_2", "ts", "ts_index", "reference_year"]]
     cr_c =  cr_c.loc[~(cr_c["name_1"]=="not specified")]
-    bnu = cr_c["name_1"]
-    bnu = bnu.drop_duplicates()
-    bnurange = np.arange(0,len(bnu),1)
 
     for ibs in runrange:
-        resi_2 = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-        resi_2 = pd.DataFrame.transpose(resi_2)
-        for i in bnurange:
-            if ibs == 0:
-                resi_2a = bifu_s(cr_c.loc[cr_c["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-            if ibs == 1:
-                resi_2a = bifu_y(cr_c.loc[cr_c["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-            if ibs == 2:
-                resi_2a = bifu_c(cr_c.loc[cr_c["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-            resi_2 = pd.concat([resi_2, resi_2a], axis=0, sort=True)
+        resi_2 = bin_unique_names_0(ibs, cr_c, used_ts, xnames_raw)
         resi_2["rule"] = 2.0
         resi_2 = resi_2.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
         resi_2 =  resi_2[~resi_2["name"].isin(used_ts["ts"])]

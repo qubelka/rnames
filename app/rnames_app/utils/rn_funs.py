@@ -98,9 +98,9 @@ def bifu_c  (ntts, used_ts, xnames_raw):
         cpts_youngest =  cpts.loc[(cpts["ts_index"]== max(cpts["ts_index"])), ['ts']]
         cpts_oldest = cpts.loc[(cpts["ts_index"]== min(cpts["ts_index"])), ['ts']]
         ts_c = max(cpts["ts_index"])-min(cpts["ts_index"])
-        bio_sel = pd.DataFrame([[i_name, cpts_oldest.iloc[0,0], cpts_youngest.iloc[0,0], ts_c, refs_f]],
-                               columns=["name", "oldest", "youngest", "ts_count", "refs"])
-    return(bio_sel)
+        return (i_name, cpts_oldest.iloc[0,0], cpts_youngest.iloc[0,0], ts_c, refs_f)
+
+    return (None, None, None, None, None)
 
 def bifu_c2  (ntts, used_ts, xnames_raw):
     # ntts ['name_1', 'name_2', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count', 'refs', 'rule', 'reference_id', 'reference_year']
@@ -172,9 +172,9 @@ def bifu_y  (ntts, used_ts, xnames_raw):
         cpts_youngest =  cpts.loc[(cpts["ts_index"]== max(cpts["ts_index"])), ['ts']]
         cpts_oldest = cpts.loc[(cpts["ts_index"]== min(cpts["ts_index"])), ['ts']]
         ts_c = max(cpts["ts_index"])-min(cpts["ts_index"])
-        bio_sel = pd.DataFrame([[i_name, cpts_oldest.iloc[0,0], cpts_youngest.iloc[0,0], ts_c, refs_f]],
-                               columns=["name", "oldest", "youngest", "ts_count", "refs"])
-    return(bio_sel)
+        return (i_name, cpts_oldest.iloc[0,0], cpts_youngest.iloc[0,0], ts_c, refs_f)
+
+    return (None, None, None, None, None)
 
 def bifu_y2  (ntts, used_ts, xnames_raw):
     # ntts ['name_1', 'name_2', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count', 'refs', 'rule', 'reference_id', 'reference_year']
@@ -269,9 +269,8 @@ def bifu_s  (ntts, used_ts, xnames_raw):
         cpts_youngest =  cpts.loc[(cpts["ts_index"]== max(cpts["ts_index"])), ['ts']]
         cpts_oldest = cpts.loc[(cpts["ts_index"]== min(cpts["ts_index"])), ['ts']]
         ts_c = max(cpts["ts_index"])-min(cpts["ts_index"])
-        bio_sel = pd.DataFrame([[i_name, cpts_oldest.iloc[0,0], cpts_youngest.iloc[0,0], ts_c, refs_f]],
-                               columns=["name", "oldest", "youngest", "ts_count", "refs"])
-    return(bio_sel)
+        return (i_name, cpts_oldest.iloc[0,0], cpts_youngest.iloc[0,0], ts_c, refs_f)
+    return (None, None, None, None, None)
 
 def bifu_s2  (ntts, used_ts, xnames_raw):
     # ntts ['name_1', 'name_2', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count', 'refs', 'rule', 'reference_id', 'reference_year']
