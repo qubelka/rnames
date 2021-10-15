@@ -127,6 +127,7 @@ def main_binning_fun():
     mc_bw = pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
 
     bnu = mwbs["name"].drop_duplicates()
+    rows = []
     for i_name in bnu:
         bio_set = x1.loc[x1["name"] == i_name]
         if binning_algorithm == "combined" or binning_algorithm == "compromise":
@@ -138,9 +139,9 @@ def main_binning_fun():
         cpts_youngest =  cpts.loc[(cpts["youngest_index"]== max(cpts["youngest_index"])), ['youngest']]
         cpts_oldest = cpts.loc[(cpts["oldest_index"]== min(cpts["oldest_index"])), ['oldest']]
         ts_c = max(cpts["youngest_index"])-min(cpts["oldest_index"])
-        bio_sel = pd.DataFrame([[i_name, cpts_oldest.iloc[0,0], cpts_youngest.iloc[0,0], ts_c, refs_f]],
-                                   columns=["name", "oldest", "youngest", "ts_count", "refs"])
-        mc_bw = pd.concat([mc_bw, bio_sel], axis=0, sort=True)
+        rows.append((i_name, cpts_oldest.iloc[0,0], cpts_youngest.iloc[0,0], ts_c, refs_f))
+
+    mc_bw = pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
     mc_bw = mc_bw[~mc_bw["name"].isin(stages_ts["ts"])]
 
     rest_s =  robin_s[~robin_s["name"].isin(bnu)]
