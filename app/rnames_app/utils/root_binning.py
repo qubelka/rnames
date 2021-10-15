@@ -173,7 +173,7 @@ def main_binning_fun():
 
     binned_stages =  binned_stages[~binned_stages["name"].isin(stages_ts["ts"])]
     binned_stages.to_csv("x_binned_stages.csv", index = False, header=True)
-
+    binning_outputs_equal('x_binned_stages.csv', 'rnames_app/utils/ref/x_binned_stages.csv')
 
     # In[10]:
 
@@ -214,6 +214,6 @@ def main_binning_fun():
     binned_periods.loc[:,'refs'] = refs
     binned_periods =  binned_periods[~binned_periods["name"].isin(periods_ts["ts"])]
     binned_periods.to_csv("x_binned_periods.csv", index = False, header=True)
-
+    binning_outputs_equal('x_binned_periods.csv', 'rnames_app/utils/ref/x_binned_periods.csv')
 
     # In[ ]:
