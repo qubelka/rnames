@@ -858,14 +858,13 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
 
         ts_c = rax_sub_max - rax_sub_min
 
-        refs_f = np.unique(x2_sub[:, k_ref])
-        refs_f = pd.DataFrame(refs_f)
-        refs_f = refs_f[0].apply(str)
-        refs_f = refs_f.str.cat(sep=', ')
-        ref_list = refs_f.split(", ")
-        ref_list_u = list(set(ref_list))
-        str1 = ", "
-        refs_f = str1.join(ref_list_u)
+        refs = set()
+        for ref in x2_sub[:, k_ref]:
+            for r in ref.split(', '):
+                refs.add(r)
+
+        refs_f = ', '.join(list(refs))
+
         rows.append((i_name, x_oldest[0, k_ts], x_youngest[0, k_ts], float(ts_c), refs_f))
 
     return pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
