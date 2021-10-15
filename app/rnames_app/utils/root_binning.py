@@ -154,21 +154,11 @@ def main_binning_fun():
     rest_s = rest_s[["name", "oldest", "youngest", "ts_count", "refs"]]
     binned_stages = pd.concat([mc_bw, rest_s], axis=0, sort=True)
 
-    refs = binned_stages['refs']
-    refs = pd.DataFrame(refs)
-    bnurange = np.arange(0,len(refs),1)
-    for i in bnurange:
-        refs_f = refs.iloc[i]
-        #refs_f = refs_f.apply(str)
-        refs_f = refs_f.str.cat(sep=', ')
-        ref_list = refs_f.split(", ")
-        ref_list_u = list(set(ref_list))
-        ref_list_u = sorted(map(int, ref_list_u))
-        ref_list_u = pd.DataFrame(ref_list_u)
-        ref_list_u = ref_list_u.drop_duplicates()
-        ref_list_u = ref_list_u[0].apply(str)
-        str1 = ", "
-        refs.iloc[i] = str1.join(ref_list_u)
+    refs = []
+    for refs_f in binned_stages['refs']:
+        refs_f = sorted(list(set(refs_f.split(', '))))
+        refs.append(', '.join(refs_f))
+
     binned_stages.loc[:,'refs'] = refs
 
     binned_stages =  binned_stages[~binned_stages["name"].isin(stages_ts["ts"])]
@@ -196,21 +186,11 @@ def main_binning_fun():
     rest_p = rest_p[['name', 'oldest', 'youngest', 'ts_count', 'refs']]
     binned_periods = pd.concat([msp, rest_p], axis=0, sort=True)
 
-    refs = binned_periods['refs']
-    refs = pd.DataFrame(refs)
-    bnurange = np.arange(0,len(refs),1)
-    for i in bnurange:
-        refs_f = refs.iloc[i]
-        #refs_f = refs_f.apply(str)
-        refs_f = refs_f.str.cat(sep=', ')
-        ref_list = refs_f.split(", ")
-        ref_list_u = list(set(ref_list))
-        ref_list_u = sorted(map(int, ref_list_u))
-        ref_list_u = pd.DataFrame(ref_list_u)
-        ref_list_u = ref_list_u.drop_duplicates()
-        ref_list_u = ref_list_u[0].apply(str)
-        str1 = ", "
-        refs.iloc[i] = str1.join(ref_list_u)
+    refs = []
+    for refs_f in binned_periods['refs']:
+        refs_f = sorted(list(set(refs_f.split(', '))))
+        refs.append(', '.join(refs_f))
+
     binned_periods.loc[:,'refs'] = refs
     binned_periods =  binned_periods[~binned_periods["name"].isin(periods_ts["ts"])]
     binned_periods.to_csv("x_binned_periods.csv", index = False, header=True)
