@@ -124,13 +124,10 @@ def main_binning_fun():
     x1 = pd.merge(x1, stages_ts, how= 'inner', left_on="youngest", right_on="ts")
     x1 = x1[['name', 'oldest', 'oldest_index', 'youngest', 'ts_index','ts_count','refs']]
     x1.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count','refs']
-    mc_bw = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-    bnu = mwbs["name"]
-    bnu = bnu.drop_duplicates()
-    mc_bw = pd.DataFrame.transpose(mc_bw)
-    bnurange = np.arange(0,len(bnu),1)
-    for i in bnurange:
-        i_name = bnu.iloc[i]
+    mc_bw = pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
+
+    bnu = mwbs["name"].drop_duplicates()
+    for i_name in bnu:
         bio_sel = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
         bio_set = x1.loc[x1["name"] == i_name]
         if binning_algorithm == "combined" or binning_algorithm == "compromise":
