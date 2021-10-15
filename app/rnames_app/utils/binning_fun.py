@@ -795,6 +795,11 @@ def shortestTimeBins(results, used_ts):
     return(combi_names)
 
 def merge_cc(resi_s, resi_y, resi_c, used_ts):
+    k_oldest_index = 2
+    k_youngest_index = 4
+    k_ref = 6
+    k_b_scheme = 8
+
     resi = pd.concat([resi_s, resi_y, resi_c])
     x2 = pd.merge(resi, used_ts, how= 'inner', left_on="oldest", right_on="ts")
     x2 = x2[['name', 'oldest', 'ts_index', 'youngest', 'ts_count',
@@ -809,39 +814,41 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
     xal = pd.merge(pd.merge(resi_s,resi_y,on='name'),resi_c,on='name')
 
     x2 = x2.sort_values(by=['name', 'b_scheme'])
+    x2 = x2.values
     for i_name in xal["name"].dropna().unique():
     #i=2
-        np_names = x2['name'].values
-        x2_sub = x2.iloc[bisect_left(np_names, i_name):bisect_right(np_names, i_name)]
-        np_schemes = x2_sub['b_scheme'].values
+        x2_sub = x2[bisect_left(x2[:, 0], i_name):bisect_right(x2[:, 0], i_name)]
 
         # We need the oldest and youngest index in the ranges
-        x2_subs = x2_sub.iloc[bisect_left(np_schemes, 's'):bisect_right(np_schemes, 's')]
-        x2_suby = x2_sub.iloc[bisect_left(np_schemes, 'y'):bisect_right(np_schemes, 'y')]
-        x2_subc = x2_sub.iloc[bisect_left(np_schemes, 'c'):bisect_right(np_schemes, 'c')]
+        x2_subs = x2_sub[bisect_left(x2_sub[:, k_b_scheme], 's'):bisect_right(x2_sub[:, k_b_scheme], 's')]
+        x2_suby = x2_sub[bisect_left(x2_sub[:, k_b_scheme], 'y'):bisect_right(x2_sub[:, k_b_scheme], 'y')]
+        x2_subc = x2_sub[bisect_left(x2_sub[:, k_b_scheme], 'c'):bisect_right(x2_sub[:, k_b_scheme], 'c')]
         # youngest = max, oldest = min index
-        x_range_s = np.array([min(x2_subs["oldest_index"])])
-        x_range_y = np.array([min(x2_suby["oldest_index"])])
-        x_range_c = np.array([min(x2_subc["oldest_index"])])
+        x_range_s = np.array([np.min(x2_subs[:, k_oldest_index])])
+        x_range_y = np.array([np.min(x2_suby[:, k_oldest_index])])
+        x_range_c = np.array([np.min(x2_subc[:, k_oldest_index])])
 
-        if min(x2_subs["oldest_index"]) != max(x2_subs["youngest_index"]):
-            x_range_s = np.arange(min(x2_subs["oldest_index"]),max(x2_subs["youngest_index"])+1,1)
-        if min(x2_suby["oldest_index"]) != max(x2_suby["youngest_index"]):
-            x_range_y = np.arange(min(x2_suby["oldest_index"]),max(x2_suby["youngest_index"])+1,1)
-        if min(x2_subc["oldest_index"]) != max(x2_subc["youngest_index"]):
-            x_range_c = np.arange(min(x2_subc["oldest_index"]),max(x2_subc["youngest_index"])+1,1)
+        if np.min(x2_subs[:, k_oldest_index]) != np.max(x2_subs[:, k_youngest_index]):
+            x_range_s = np.arange(np.min(x2_subs[:, k_oldest_index]), np.max(x2_subs[:, k_youngest_index])+1,1)
+        if np.min(x2_suby[:, k_oldest_index]) != max(x2_suby[:, k_youngest_index]):
+            x_range_y = np.arange(np.min(x2_suby[:, k_oldest_index]), np.max(x2_suby[:, k_youngest_index])+1,1)
+        if np.min(x2_subc[:, k_oldest_index]) != max(x2_subc[:, k_youngest_index]):
+            x_range_c = np.arange(np.min(x2_subc[:, k_oldest_index]), np.max(x2_subc[:, k_youngest_index])+1,1)
 
         rax = np.concatenate((x_range_s, x_range_s, x_range_c))
         # filter for third quantile, only bins with highest score
         rax_counts = pd.DataFrame(np.unique(rax, return_counts=True), index = ['ts_bins', 'counts'])
         rax_counts = rax_counts.transpose()
-        rq = round(np.quantile(rax_counts['counts'], 0.75),0)
-        rax_sub = rax_counts.loc[rax_counts['counts']>= rq, ['ts_bins']]
+        rax_counts = rax_counts.values
+        rq = round(np.quantile(rax_counts[:, 1], 0.75),0)
+        rax_sub = rax_counts[rax_counts[:, 1] >= rq]
+        rax_sub = pd.DataFrame(rax_sub[:, 0], columns=['ts_bins'])
         rax_sub = pd.merge(rax_sub, used_ts, how= 'inner', left_on="ts_bins", right_on="ts_index")
+
         x_youngest = rax_sub.loc[(rax_sub["ts_index"]== max(rax_sub["ts_index"])), ['ts']]
         x_oldest = rax_sub.loc[(rax_sub["ts_index"]== min(rax_sub["ts_index"])), ['ts']]
         ts_c = max(rax_sub["ts_index"])-min(rax_sub["ts_index"])
-        refs_f = pd.unique(x2_sub['refs'])
+        refs_f = np.unique(x2_sub[:, k_ref])
         refs_f = pd.DataFrame(refs_f)
         refs_f = refs_f[0].apply(str)
         refs_f = refs_f.str.cat(sep=', ')
