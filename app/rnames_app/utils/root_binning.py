@@ -128,7 +128,6 @@ def main_binning_fun():
 
     bnu = mwbs["name"].drop_duplicates()
     for i_name in bnu:
-        bio_sel = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
         bio_set = x1.loc[x1["name"] == i_name]
         if binning_algorithm == "combined" or binning_algorithm == "compromise":
             cpts = bio_set
