@@ -70,37 +70,8 @@ eons_ts = eons_ts.append({'ts' : 'not specified' , 'ts_index' : len(eons_ts)} , 
 
 ################################################################
 # strictly searches for maximum compromise between all binnings
-def bifu_c  (ntts, used_ts, xnames_raw):
-    ele = ntts["name_1"]
-    ele = ele.drop_duplicates()
-    ele = pd.DataFrame(ele)
-    i_name = ele.iloc[0,0]
-    xnames_set = xnames_raw.loc[xnames_raw["name"]== i_name]
-    var_exists = 'xnames_set' in locals()
-    # if name also relates to "not specified"
-    if var_exists == True:
-        bio_sel =pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-        bio_set = ntts.loc[ntts["name_1"]== i_name,
-                       ["reference_id","name_1","name_2", "ts", "ts_index"]]
-        # filter for references with "not specified"
-        bio_set = bio_set[~bio_set["reference_id"].isin(xnames_set["ref"])]
-    isempty = bio_set.empty
-    if isempty == False:
-        cpts = bio_set
-        # select all references
-        u_ref = cpts["reference_id"]
-        u_ref = u_ref.drop_duplicates()
-        refs_f = pd.unique(cpts['reference_id'])
-        refs_f = pd.DataFrame(refs_f)
-        refs_f = refs_f[0].apply(str)
-        refs_f = refs_f.str.cat(sep=', ')# and collect the references which have that opinions
-        # youngest, oldest and ts_count
-        cpts_youngest =  cpts.loc[(cpts["ts_index"]== max(cpts["ts_index"])), ['ts']]
-        cpts_oldest = cpts.loc[(cpts["ts_index"]== min(cpts["ts_index"])), ['ts']]
-        ts_c = max(cpts["ts_index"])-min(cpts["ts_index"])
-        return (i_name, cpts_oldest.iloc[0,0], cpts_youngest.iloc[0,0], ts_c, refs_f)
-
-    return (None, None, None, None, None)
+def bifu_c(ntts, xnames_raw):
+    return ntts
 
 def bifu_c2  (ntts, used_ts, xnames_raw):
     # ntts ['name_1', 'name_2', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count', 'refs', 'rule', 'reference_id', 'reference_year']
@@ -142,39 +113,10 @@ def bifu_c2  (ntts, used_ts, xnames_raw):
 
 ################################################################
 # strictly searches for youngest binnings
-def bifu_y  (ntts, used_ts, xnames_raw):
-    ele = ntts["name_1"]
-    ele = ele.drop_duplicates()
-    ele = pd.DataFrame(ele)
-    i_name = ele.iloc[0,0]
-    xnames_set = xnames_raw.loc[xnames_raw["name"]== i_name]
-    var_exists = 'xnames_set' in locals()
-    # if name also relates to "not specified"
-    if var_exists == True:
-        bio_sel =pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-        bio_set = ntts.loc[ntts["name_1"]== i_name,
-                       ["reference_id","name_1","name_2", "ts", "ts_index", "reference_year"]]
-        # filter for references with "not specified"
-        bio_set = bio_set[~bio_set["reference_id"].isin(xnames_set["ref"])]
-    isempty = bio_set.empty
-    if isempty == False:
-        # select all references
-        u_ref = bio_set["reference_id"]
-        u_ref = u_ref.drop_duplicates()
-        max_y = max(bio_set["reference_year"])
-        cpts = bio_set.loc[bio_set["reference_year"]==max_y,
-                        ["reference_id","name_1","name_2", "ts", "ts_index"]]
-        refs_f = pd.unique(cpts['reference_id'])
-        refs_f = pd.DataFrame(refs_f)
-        refs_f = refs_f[0].apply(str)
-        refs_f = refs_f.str.cat(sep=', ')# and collect the references which have that opinions
-        # youngest, oldest and ts_count
-        cpts_youngest =  cpts.loc[(cpts["ts_index"]== max(cpts["ts_index"])), ['ts']]
-        cpts_oldest = cpts.loc[(cpts["ts_index"]== min(cpts["ts_index"])), ['ts']]
-        ts_c = max(cpts["ts_index"])-min(cpts["ts_index"])
-        return (i_name, cpts_oldest.iloc[0,0], cpts_youngest.iloc[0,0], ts_c, refs_f)
-
-    return (None, None, None, None, None)
+def bifu_y(ntts, xnames_raw):
+    k_reference_year = 5
+    max_y = max(ntts[:, k_reference_year])
+    return ntts[ntts[:, k_reference_year] == max_y]
 
 def bifu_y2  (ntts, used_ts, xnames_raw):
     # ntts ['name_1', 'name_2', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count', 'refs', 'rule', 'reference_id', 'reference_year']
@@ -218,59 +160,32 @@ def bifu_y2  (ntts, used_ts, xnames_raw):
 
 ################################################################
 # strictly searches for shortest binnings
-def bifu_s  (ntts, used_ts, xnames_raw):
-    ele = ntts["name_1"]
-    ele = ele.drop_duplicates()
-    ele = pd.DataFrame(ele)
-    i_name = ele.iloc[0,0]
-    xnames_set = xnames_raw.loc[xnames_raw["name"]== i_name]
-    var_exists = 'xnames_set' in locals()
-    # if name also relates to "not specified"
-    if var_exists == True:
-        bio_sel = pd.DataFrame([] * 5, index=["name", "oldest", "youngest", "ts_count", "refs"])
-        bio_set = ntts.loc[ntts["name_1"]== i_name,
-                       ["reference_id","name_1","name_2", "ts", "ts_index", "reference_year"]]
-        # filter for references with "not specified"
-        bio_set = bio_set[~bio_set["reference_id"].isin(xnames_set["ref"])]
-    isempty = bio_set.empty
-    if isempty == False:
-        # select all references
-        u_ref = bio_set.loc[:, ["reference_id"]]
-        u_ref = u_ref.drop_duplicates()
-        cp_coll = pd.DataFrame([], columns=["reference_id","tsx"])
-        # search for shortest range
-        for kk in np.arange(0,len(u_ref),1):
-            r_yx = u_ref["reference_id"].iloc[kk]
-            cptx = bio_set.loc[bio_set["reference_id"]== r_yx,
-                        ["reference_id","name_1","name_2", "ts", "ts_index"]]
-            cptx_youngest =  cptx.loc[(cptx["ts_index"]== max(cptx["ts_index"])), ['ts']]
-            cptx_oldest = cptx.loc[(cptx["ts_index"]== min(cptx["ts_index"])), ['ts']]
-            ts_x = max(cptx["ts_index"])-min(cptx["ts_index"])
-            cp_colla = pd.DataFrame([], index=["reference_id","tsx"])
-            cp_colla['reference_id'] = r_yx
-            cp_colla['tsx'] = ts_x
-            cp_coll = np.concatenate((cp_coll, cp_colla), axis=0)
-            cp_coll = pd.DataFrame(data=cp_coll, columns=['reference_id', 'tsx'])
-        min_ts = min(cp_coll["tsx"])
-        short_ref = cp_coll.loc[(cp_coll["tsx"]== min_ts), ['reference_id']]
-        bio_setb = bio_set[bio_set["reference_id"].isin(short_ref["reference_id"])]
-        # search for youngest reference among those
-        u_ref = bio_setb["reference_id"]
-        u_ref = u_ref.drop_duplicates()
-        max_y = max(bio_setb["reference_year"])
-        cpts = bio_setb.loc[bio_setb["reference_year"]==max_y,
-                        ["reference_id","name_1","name_2", "ts", "ts_index"]]
-        refs_f = pd.unique(cpts['reference_id'])
-        refs_f = pd.DataFrame(refs_f)
-        refs_f = refs_f[0].apply(str)
-        refs_f = refs_f.str.cat(sep=', ')# and collect the references which have that opinions
-        # youngest, oldest and ts_count
-        u_ts = pd.unique(cpts["ts"])
-        cpts_youngest =  cpts.loc[(cpts["ts_index"]== max(cpts["ts_index"])), ['ts']]
-        cpts_oldest = cpts.loc[(cpts["ts_index"]== min(cpts["ts_index"])), ['ts']]
-        ts_c = max(cpts["ts_index"])-min(cpts["ts_index"])
-        return (i_name, cpts_oldest.iloc[0,0], cpts_youngest.iloc[0,0], ts_c, refs_f)
-    return (None, None, None, None, None)
+def bifu_s(ntts, xnames_raw):
+    # ntts columns [reference_id, name_1, name_2, ts, ts_index, reference_year]
+    # xnames ['name', 'strat_qualifier', 'ref', 'combi']
+    k_reference_id = 0
+    k_ts = 3
+    k_ts_index = 4
+    k_reference_year = 5
+    xk_ref = 2
+
+    rows = []
+
+    for ref in pd.unique(ntts[:, k_reference_id]):
+        cptx = ntts[ntts[:, k_reference_id]== ref]
+        ts_min = cptx[0, k_ts_index]
+        ts_max = cptx[np.size(cptx, 0) - 1, k_ts_index]
+
+        ts_x = ts_max - ts_min
+        rows.append((ref, ts_x))
+
+    rows = np.array(rows)
+    min_ts = np.min(rows[:, 1])
+    short_ref = rows[rows[:, 1] == min_ts]
+    bio_setb = ntts[np.isin(ntts[:, k_reference_id], short_ref[:, 0])]
+    # search for youngest reference among those
+    max_y = np.max(bio_setb[:, k_reference_year])
+    return bio_setb[bio_setb[:, k_reference_year] == max_y]
 
 def bifu_s2  (ntts, used_ts, xnames_raw):
     # ntts ['name_1', 'name_2', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count', 'refs', 'rule', 'reference_id', 'reference_year']

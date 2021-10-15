@@ -168,23 +168,52 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
           "binned names. It took ", round(dura, 2), "+", round(dura2, 2),  "minutes.")
     return combi_names
 
-
 def bin_unique_names_0(ibs, cr_x, used_ts, xnames_raw):
-    rows = []
-    bnu = cr_x["name_1"]
-    bnu = bnu.drop_duplicates()
-    bnurange = np.arange(0,len(bnu),1)
+    # cr_x columns [reference_id, name_1, name_2, ts, ts_index, reference_year]
+    # xnames ['name', 'strat_qualifier', 'ref', 'combi']
+    k_reference_id = 0
+    k_name_id = 1
+    k_ts = 3
+    k_ts_index = 4
+    xk_ref = 2
 
-    for i in bnurange:
+    bnu = pd.unique(cr_x["name_1"])
+    cr_x = cr_x.sort_values(by = ['name_1', 'reference_id', 'ts_index'])
+    cr_x = cr_x.values
+
+    xnames_raw = xnames_raw.sort_values(by='name')
+    xnames_raw = xnames_raw.values
+
+    rows = []
+    for name in bnu:
+        data = cr_x[bisect_left(cr_x[:, 1], name):bisect_right(cr_x[:, 1], name)]
+        xnames = xnames_raw[bisect_left(xnames_raw[:, 0], name):bisect_right(xnames_raw[:, 0], name)]
+
+        data = data[~np.isin(data[:, k_reference_id], xnames[:, xk_ref])]
+
+        if data.size == 0:
+            continue
+
+        # select all references
         if ibs == 0:
-            resi_0a = bifu_s(cr_x.loc[cr_x["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-            rows.append(resi_0a)
+            data = bifu_s(data, xnames)
         if ibs == 1:
-            resi_0a = bifu_y(cr_x.loc[cr_x["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-            rows.append(resi_0a)
+            data = bifu_y(data, xnames)
         if ibs == 2:
-            resi_0a = bifu_c(cr_x.loc[cr_x["name_1"]==bnu.iloc[i]], used_ts, xnames_raw)
-            rows.append(resi_0a)
+            data = bifu_c(data, xnames)
+
+        # and collect the references which have that opinions
+        refs_f = ', '.join(map(str, np.unique(data[:, k_reference_id])))
+
+        # youngest, oldest and ts_count
+        ts_max = np.max(data[:, k_ts_index])
+        ts_min = np.min(data[:, k_ts_index])
+        ts_c = ts_max - ts_min
+
+        youngest = data[data[:, k_ts_index] == ts_max]
+        oldest = data[data[:, k_ts_index] == ts_min]
+
+        rows.append((name, oldest[0, k_ts], youngest[0, k_ts], ts_c, refs_f))
 
     ret = pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
     return ret.dropna()
