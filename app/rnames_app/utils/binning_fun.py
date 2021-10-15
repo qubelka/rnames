@@ -744,7 +744,7 @@ def shortestTimeBins(results, used_ts):
     bnu = cau["name"]
     bnu = bnu.drop_duplicates()
     bnurange = np.arange(0,len(bnu),1)
-    com_56_s = pd.DataFrame([] * 6, index=["name", "oldest", "youngest", "ts_count", "refs", "rule"])
+    rows = []
     for i in bnurange:
         i_name = bnu.iloc[i]
         cau_sub = cau.loc[cau["name"]== i_name]
@@ -772,10 +772,8 @@ def shortestTimeBins(results, used_ts):
         ts_c = young_max-old_min
         res_youngest = ts_numbered.iloc[young_max] [0]
         res_oldest = ts_numbered.iloc[old_min] [0]
-        com_56_sa = pd.DataFrame([i_name, res_oldest,res_youngest, ts_c, refs_f, "5, 6"],
-                           index=["name", "oldest", "youngest", "ts_count", "refs", "rule"])
-        com_56_s = pd.concat([com_56_s, com_56_sa], axis=1, sort=True)
-    com_56_s = com_56_s.transpose()
+        rows.append((i_name, res_oldest,res_youngest, ts_c, refs_f, "5, 6"))
+    com_56_s = pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs", "rule"])
     #com_56_s.to_csv("x_com_56_s.csv", index = False, header=True)
 
     # all where 5 and 6 are not in common
