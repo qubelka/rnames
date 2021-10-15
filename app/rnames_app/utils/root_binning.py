@@ -135,10 +135,7 @@ def main_binning_fun():
         if binning_algorithm == "shortest" or binning_algorithm == "youngest":
             mincount = min(bio_set['ts_count'])
             cpts = bio_set.loc[bio_set["ts_count"] == mincount]
-        refs_f = pd.unique(cpts['refs'])
-        refs_f = pd.DataFrame(refs_f)
-        refs_f = refs_f[0].apply(str)
-        refs_f = refs_f.str.cat(sep=', ')
+        refs_f = ', '.join(map(str, pd.unique(cpts['refs'])))
         cpts_youngest =  cpts.loc[(cpts["youngest_index"]== max(cpts["youngest_index"])), ['youngest']]
         cpts_oldest = cpts.loc[(cpts["oldest_index"]== min(cpts["oldest_index"])), ['oldest']]
         ts_c = max(cpts["youngest_index"])-min(cpts["oldest_index"])
