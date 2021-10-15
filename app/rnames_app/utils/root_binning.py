@@ -127,7 +127,6 @@ def main_binning_fun():
     x1.columns = ['name', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count','refs']
     x1 = x1.sort_values(by='name')
     x1 = x1.values
-    mc_bw = pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
 
     # x1 column indices
     k_name = 0
