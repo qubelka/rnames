@@ -815,6 +815,8 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
 
     x2 = x2.sort_values(by=['name', 'b_scheme'])
     x2 = x2.values
+    used_ts = used_ts.values
+
     for i_name in xal["name"].dropna().unique():
     #i=2
         x2_sub = x2[bisect_left(x2[:, 0], i_name):bisect_right(x2[:, 0], i_name)]
@@ -837,17 +839,25 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
 
         rax = np.concatenate((x_range_s, x_range_s, x_range_c))
         # filter for third quantile, only bins with highest score
-        rax_counts = np.unique(rax, return_counts=True)
-        rax_counts = pd.DataFrame({'ts_bins': rax_counts[0], 'counts': rax_counts[1]})
-        rax_counts = rax_counts.values
-        rq = round(np.quantile(rax_counts[:, 1], 0.75),0)
-        rax_sub = rax_counts[rax_counts[:, 1] >= rq]
-        rax_sub = pd.DataFrame(rax_sub[:, 0], columns=['ts_bins'])
-        rax_sub = pd.merge(rax_sub, used_ts, how= 'inner', left_on="ts_bins", right_on="ts_index")
+        rax_counts = np.unique(rax, return_counts=True) #rax_counts[0] is ts_bins, rax_counts[1] is counts
+        rq = round(np.quantile(rax_counts[1], 0.75),0)
+        rax_counts = rax_counts[0][rax_counts[1] >= rq]
 
-        x_youngest = rax_sub.loc[(rax_sub["ts_index"]== max(rax_sub["ts_index"])), ['ts']]
-        x_oldest = rax_sub.loc[(rax_sub["ts_index"]== min(rax_sub["ts_index"])), ['ts']]
-        ts_c = max(rax_sub["ts_index"])-min(rax_sub["ts_index"])
+        # used_ts column indices
+        k_ts = 0
+        k_ts_index = 1
+
+        # Inner join on table with only one column is identical to filtering
+        rax_sub = used_ts[np.isin(used_ts[:, 1], rax_counts)]
+
+        rax_sub_max = np.max(rax_sub[:, k_ts_index])
+        rax_sub_min = np.min(rax_sub[:, k_ts_index])
+
+        x_youngest = rax_sub[rax_sub[:, k_ts_index] == rax_sub_max]
+        x_oldest = rax_sub[rax_sub[:, k_ts_index] == rax_sub_min]
+
+        ts_c = rax_sub_max - rax_sub_min
+
         refs_f = np.unique(x2_sub[:, k_ref])
         refs_f = pd.DataFrame(refs_f)
         refs_f = refs_f[0].apply(str)
@@ -856,6 +866,6 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
         ref_list_u = list(set(ref_list))
         str1 = ", "
         refs_f = str1.join(ref_list_u)
-        rows.append((i_name, x_oldest.iloc[0,0], x_youngest.iloc[0,0], float(ts_c), refs_f))
+        rows.append((i_name, x_oldest[0, k_ts], x_youngest[0, k_ts], float(ts_c), refs_f))
 
     return pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
