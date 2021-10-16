@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 def get_cron_relations():
-    url = "rnames_app/utils/relations.json"
+    url = "http://karilint.pythonanywhere.com/rnames/api/relations/?format=json"
     start = time.time()
     cron_relations = pd.read_json(url)
     #cron_relations = pd.read_csv("view_cron_relations.csv") # from file
