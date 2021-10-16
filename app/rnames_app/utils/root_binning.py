@@ -16,7 +16,7 @@ from .tools import binning_outputs_equal
 def main_binning_fun(cron_relations, time_slices):
     pd.set_option('display.max_columns', 30)
     pd.set_option('display.max_rows', 5)
-
+    start = time.time()
     # In[3]:
 
 
@@ -203,3 +203,11 @@ def main_binning_fun(cron_relations, time_slices):
     binning_outputs_equal('x_binned_periods.csv', 'rnames_app/utils/ref/x_binned_periods.csv')
 
     # In[ ]:
+
+    return {
+        'duration': time.time() - start,
+        'berg': robin_b,
+        'webby': robin_w,
+        'binned_stages': binned_stages,
+        'binned_periods': binned_periods
+    }

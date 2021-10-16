@@ -91,17 +91,18 @@ def external(request):
     num_opinions = Relation.objects.is_active().count()
 
     # inp = request.POST.get('param', 'K') # This doesn't appear to be used anywhere in binning
-    out = io.StringIO()
-
-    with redirect_stdout(out):
-        main_binning_fun(get_cron_relations(), get_time_slices())
-
-    print(out.getvalue())
+    result = main_binning_fun(get_cron_relations(), get_time_slices())
 
     return render(
         request,
-        'run_binning.html',
-        context={'num_opinions': num_opinions, 'data1': out.getvalue()},
+        'binning_done.html',
+        context={
+            'duration': result['duration'],
+            'berg': result['berg'].to_html(classes='w3-table'),
+            'webby': result['webby'].to_html(classes='w3-table'),
+            'periods': result['binned_periods'].to_html(classes='w3-table'),
+            'stages': result['binned_stages'].to_html(classes='w3-table')
+        },
     )
 
 
