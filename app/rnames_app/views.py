@@ -41,6 +41,7 @@ from .filters import UserFilter
 import sys
 from subprocess import run, PIPE
 from .utils.root_binning import main_binning_fun
+from .utils.tools import (get_cron_relations, get_time_slices)
 from io import StringIO
 from contextlib import redirect_stdout
 # , APINameFilter
@@ -93,7 +94,7 @@ def external(request):
     out = io.StringIO()
 
     with redirect_stdout(out):
-        main_binning_fun()
+        main_binning_fun(get_cron_relations(), get_time_slices())
 
     print(out.getvalue())
 

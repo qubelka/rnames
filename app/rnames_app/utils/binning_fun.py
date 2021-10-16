@@ -9,7 +9,7 @@ import numpy as np
 from bisect import (bisect_left, bisect_right)
 from .rn_funs import *
 
-def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
+def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
 
     print("We begin with six search algorithms binning all relations within the given binning scheme with references.")
     print("This takes a few minutes....")
@@ -33,19 +33,19 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange):
     # Binning schemes
 
     if binning_scheme == "r":
-        used_ts = rassm_ts
+        used_ts = time_slices['rassm']
         t_scheme = "TimeSlice_Rassmussen"
     if binning_scheme == "w":
-        used_ts = webby_ts
+        used_ts = time_slices['webby']
         t_scheme = "TimeSlice_Webby"
     if binning_scheme == "b":
-        used_ts = berg_ts
+        used_ts = time_slices['berg']
         t_scheme = "TimeSlice_Bergstrom"
     if binning_scheme == "s":
-        used_ts = stages_ts
+        used_ts = time_slices['stages']
         t_scheme = "Stage"
     if binning_scheme == "p":
-        used_ts = periods_ts
+        used_ts = time_slices['periods']
         t_scheme = "Period"
 
     # range limitation
