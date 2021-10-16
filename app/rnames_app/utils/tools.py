@@ -12,7 +12,7 @@ def get_cron_relations():
     end = time.time()
     print("Downloaded ", len(cron_relations), "relations. Download time: ", end - start, "seconds")
     cron_relations.to_csv("cron_relations.csv", index = False, header=True)
-    return cron_relations
+    return (cron_relations, end - start)
 
 def get_time_slices():
     csv_folder = 'rnames_app/utils/csv/'
