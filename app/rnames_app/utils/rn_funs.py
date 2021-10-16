@@ -104,8 +104,8 @@ def bifu_c2  (ntts, used_ts, xnames_raw):
         oldest_value = np.min(cpts[:, k_oldest_index])
         ts_c = oldest_value - youngest_value
 
-        youngest = np.where(cpts[:, k_youngest_index] == youngest_value)[0][0]
-        oldest = np.where(cpts[:, k_oldest_index] == oldest_value)[0][0]
+        youngest = np.argmax(cpts[:, k_youngest_index])
+        oldest = np.argmin(cpts[:, k_oldest_index])
 
         return (i_name, cpts[oldest, k_oldest], cpts[youngest, k_youngest], ts_c, refs_f)
 
@@ -151,8 +151,8 @@ def bifu_y2  (ntts, used_ts, xnames_raw):
         oldest_value = np.min(cpts[:, k_oldest_index])
         ts_c = oldest_value - youngest_value
 
-        youngest = np.where(cpts[:, k_youngest_index] == youngest_value)[0][0]
-        oldest = np.where(cpts[:, k_oldest_index] == oldest_value)[0][0]
+        youngest = np.argmax(cpts[:, k_youngest_index])
+        oldest = np.argmin(cpts[:, k_oldest_index])
 
         return (i_name, cpts[oldest, k_oldest], cpts[youngest, k_youngest], ts_c, refs_f)
 
@@ -236,8 +236,8 @@ def bifu_s2  (ntts, used_ts, xnames_raw):
         oldest_value = np.min(cpts[:, k_oldest_index])
         ts_c = oldest_value - youngest_value
 
-        youngest = np.where(cpts[:, k_youngest_index] == youngest_value)[0][0]
-        oldest = np.where(cpts[:, k_oldest_index] == oldest_value)[0][0]
+        youngest = np.argmax(cpts[:, k_youngest_index])
+        oldest = np.argmin(cpts[:, k_oldest_index])
 
         return (i_name, cpts[oldest, k_oldest], cpts[youngest, k_youngest], ts_c, refs_f)
 
