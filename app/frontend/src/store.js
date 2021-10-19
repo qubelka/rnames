@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 const refReducer = (state = [], action) => {
 	if (action.ref === undefined && action.name === undefined) return state
@@ -112,6 +113,11 @@ const mapReducer = (state = {}, action) => {
 	return ret
 }
 
+const devTools = 
+	process.env.NODE_ENV === 'production'
+	? applyMiddleware(thunk)
+	: composeWithDevTools(applyMiddleware(thunk))	
+
 export const store = createStore(
 	combineReducers({
 		ref: refReducer,
@@ -119,7 +125,7 @@ export const store = createStore(
 		rel: relReducer,
 		map: mapReducer
 	}),
-	applyMiddleware(thunk)
+	devTools
 )
 
 export const mapId = (key, value) => (dispatch, getState) => {
