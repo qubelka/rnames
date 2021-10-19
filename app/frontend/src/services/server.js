@@ -1,4 +1,4 @@
-import { makeId } from '../store/store'
+import { makeId } from '../utilities'
 
 const SERVER_DATA = {}
 
