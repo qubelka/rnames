@@ -3,8 +3,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { loadServerData, initServer } from './services/server'
-
-import store, { addRef, updateRef, makeId, parseId, addSname, updateSname, addName, updateName, addRel, updateRel, mapId, initMapvalues } from './store.js'
+import { store, addRef, updateRef, makeId, parseId, addSname, updateSname, addName, updateName, addRel, updateRel, mapId, initMapvalues }  from './store/store'
 
 const Dropdown = ({ name, options, value, onChange }) => {
 	return(
