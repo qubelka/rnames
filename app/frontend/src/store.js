@@ -7,116 +7,116 @@ const refReducer = (state = [], action) => {
 	let ret = null
 
 	switch (action.type) {
-		case `ADD`: ret = [...state, action.ref]; break
-		case `UPDATE`: ret = state.map(v => v.id === action.ref.id ? action.ref : v); break
-		case `UPDATE_NAME`: {
-			ret = state.map(v => {
-				if (v.id !== action.refId)
-					return v
+	case 'ADD': ret = [...state, action.ref]; break
+	case 'UPDATE': ret = state.map(v => v.id === action.ref.id ? action.ref : v); break
+	case 'UPDATE_NAME': {
+		ret = state.map(v => {
+			if (v.id !== action.refId)
+				return v
 
-				return {
-					...v,
-					names: v.names.map(name => name.id === action.nameId ? action.name : name)
-				}
-			})
-			break
-		}
+			return {
+				...v,
+				names: v.names.map(name => name.id === action.nameId ? action.name : name)
+			}
+		})
+		break
+	}
 
-		case `ADD_NAME`: {
-			ret = state.map(v => {
-				if (v.id !== action.refId)
-					return v
+	case 'ADD_NAME': {
+		ret = state.map(v => {
+			if (v.id !== action.refId)
+				return v
 
-				return {
-					...v,
-					names: v.names.concat(action.name)
-				}
-			})
+			return {
+				...v,
+				names: v.names.concat(action.name)
+			}
+		})
 
-			break
-		}
-		default: ret = state; break
+		break
+	}
+	default: ret = state; break
 	}
 
 	return ret
 }
 
-const snameReducer = (state = [], {type, sname}) => {
+const snameReducer = (state = [], { type, sname }) => {
 	if (sname === undefined) return state
 	let ret = null
 
 	switch (type) {
-		case `ADD`: ret = state.concat(sname); break
-		case `UPDATE`: ret = state.map(v => v.id === sname.id ? sname : v); break
-		default: ret = state; break
+	case 'ADD': ret = state.concat(sname); break
+	case 'UPDATE': ret = state.map(v => v.id === sname.id ? sname : v); break
+	default: ret = state; break
 	}
 
 	return ret
 }
 
-const relReducer = (state = [], {type, rel}) => {
+const relReducer = (state = [], { type, rel }) => {
 	if (rel === undefined) return state
 	let ret = null
 
 	switch (type) {
-		case `ADD`: ret = state.concat(rel); break
-		case `UPDATE`: ret = state.map(v => v.id === rel.id ? rel : v); break
-		default: ret = state; break
+	case 'ADD': ret = state.concat(rel); break
+	case 'UPDATE': ret = state.map(v => v.id === rel.id ? rel : v); break
+	default: ret = state; break
 	}
 
 	return ret
 }
 
 const mapReducer = (state = {}, action) => {
-	let k, v;
+	let k, v
 
 	switch (action.type) {
-		case `ADD_NAME`: {
-			v = action.name
-			k = v.id
-			break;
-		}
-
-		case `UPDATE_NAME`: {
-			v = action.name
-			k = v.id
-			break;
-		}
-
-		case `ADD`: {
-			v = action.ref || action.sname || action.rel
-			k = v.id
-			break;
-		}
-
-		case `UPDATE`: {
-			v = action.ref || action.sname || action.rel
-			k = v.id
-			break;
-		}
-
-		case `MAP_VALUE`: {
-			v = action.value
-			k = action.key
-			break
-		}
-
-		case `INITIALIZE_MAP_VALUES`: {
-			return action.map
-		}
-
-		default: return state
+	case 'ADD_NAME': {
+		v = action.name
+		k = v.id
+		break
 	}
 
-	const ret = {...state}
+	case 'UPDATE_NAME': {
+		v = action.name
+		k = v.id
+		break
+	}
+
+	case 'ADD': {
+		v = action.ref || action.sname || action.rel
+		k = v.id
+		break
+	}
+
+	case 'UPDATE': {
+		v = action.ref || action.sname || action.rel
+		k = v.id
+		break
+	}
+
+	case 'MAP_VALUE': {
+		v = action.value
+		k = action.key
+		break
+	}
+
+	case 'INITIALIZE_MAP_VALUES': {
+		return action.map
+	}
+
+	default: return state
+	}
+
+	const ret = { ...state }
 	ret[k] = v
 	return ret
 }
 
-const devTools = 
+const devTools =
 	process.env.NODE_ENV === 'production'
-	? applyMiddleware(thunk)
-	: composeWithDevTools(applyMiddleware(thunk))	
+		? applyMiddleware(thunk)
+		: composeWithDevTools(applyMiddleware(thunk))
 
 export const store = createStore(
 	combineReducers({
@@ -130,7 +130,7 @@ export const store = createStore(
 
 export const mapId = (key, value) => (dispatch, getState) => {
 	dispatch({
-		type: `MAP_VALUE`,
+		type: 'MAP_VALUE',
 		key,
 		value
 	})
@@ -138,14 +138,14 @@ export const mapId = (key, value) => (dispatch, getState) => {
 
 export const initMapvalues = map => (dispatch, getState) => {
 	dispatch({
-		type: `INITIALIZE_MAP_VALUES`,
+		type: 'INITIALIZE_MAP_VALUES',
 		map
 	})
 }
 
 export const addName = (refId, name) => (dispatch, getState) => {
 	dispatch({
-		type: `ADD_NAME`,
+		type: 'ADD_NAME',
 		refId,
 		name
 	})
@@ -153,7 +153,7 @@ export const addName = (refId, name) => (dispatch, getState) => {
 
 export const updateName = (refId, name, nameId) => (dispatch, getState) => {
 	dispatch({
-		type: `UPDATE_NAME`,
+		type: 'UPDATE_NAME',
 		refId,
 		name,
 		nameId
@@ -162,62 +162,62 @@ export const updateName = (refId, name, nameId) => (dispatch, getState) => {
 
 export const addRef = ref => (dispatch, getState) => {
 	dispatch({
-		type: `ADD`,
+		type: 'ADD',
 		ref
 	})
 }
 
 export const updateRef = ref => (dispatch, getState) => {
 	dispatch({
-		type: `UPDATE`,
+		type: 'UPDATE',
 		ref
 	})
 }
 
 export const addSname = sname => (dispatch, getState) => {
 	dispatch({
-		type: `ADD`,
+		type: 'ADD',
 		sname
 	})
 }
 
 export const updateSname = sname => (dispatch, getState) => {
 	dispatch({
-		type: `UPDATE`,
+		type: 'UPDATE',
 		sname
 	})
 }
 
 export const addRel = rel => (dispatch, getState) => {
 	dispatch({
-		type: `ADD`,
+		type: 'ADD',
 		rel
 	})
 }
 
 export const updateRel = rel => (dispatch, getState) => {
 	dispatch({
-		type: `UPDATE`,
+		type: 'UPDATE',
 		rel
 	})
 }
 
 const idTypes = [
-	`name`,
-	`location`,
-	`qualifier`,
-	`structured_name`,
-	`reference`,
-	`relation`,
-	`db_name`,
-	`db_location`,
-	`db_qualifier_name`,
-	`db_qualifier`,
-	`db_structured_name`,
-	`db_reference`
+	'name',
+	'location',
+	'qualifier',
+	'structured_name',
+	'reference',
+	'relation',
+	'db_name',
+	'db_location',
+	'db_qualifier_name',
+	'db_qualifier',
+	'db_structured_name',
+	'db_reference'
 ]
 
-let ID = 0;
+let ID = 0
 
 export const parseId = id => JSON.parse(id)
 
@@ -226,7 +226,7 @@ export const makeId = (ty, value) => {
 		throw new Error(`Id type must not be one of allowed types, was "${ty}"`)
 
 	const id = value === undefined ? ID++ : Number(value)
-	const idString = JSON.stringify({type: ty, value: id})
+	const idString = JSON.stringify({ type: ty, value: id })
 	return idString
 }
 
