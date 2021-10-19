@@ -133,7 +133,7 @@
   <header class="w3-hide"><h1>Main Menu</h1></header>
   <nav class="w3-content">
     <ul>
-      <li><a class="list-group-item" href="{% url 'index' %}"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp;Home</a></li>
+      <li><a href="{% url 'index' %}"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp;Home</a></li>
     </ul>
     {% block nav %}
       {% if user.is_authenticated %}

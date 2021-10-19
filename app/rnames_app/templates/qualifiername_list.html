@@ -11,7 +11,7 @@
     </form>
     {% if user.is_authenticated %}
       <br>
-      <a class="btn btn-default" href="{% url 'qualifiername-new' %}"><span class="fa  fa-plus"></span> Add</a>
+      <a href="{% url 'qualifiername-new' %}"><span class="fa  fa-plus"></span> Add</a>
       <br>
     {% endif %}
 
@@ -30,9 +30,9 @@
             {% if user.is_authenticated %}
               <td><a href="{{ x.get_absolute_url }}">{{ x.name }}</td>
               <td>
-                <a class="btn btn-default" href="{% url 'qualifier-name-detail' pk=x.pk %}"><span class="fa fa-search"></span></a>
-                <a class="btn btn-default" href="{% url 'qualifiername-edit' pk=x.pk %}"><span class="fa fa-pencil-square-o"></span></a>
-                <a class="btn btn-default" href="{% url 'qualifiername-delete' pk=x.pk %}"><span class="fa  fa-trash-o"></span></a>
+                <a href="{% url 'qualifier-name-detail' pk=x.pk %}"><span class="fa fa-search"></span></a>
+                <a href="{% url 'qualifiername-edit' pk=x.pk %}"><span class="fa fa-pencil-square-o"></span></a>
+                <a href="{% url 'qualifiername-delete' pk=x.pk %}"><span class="fa  fa-trash-o"></span></a>
               </td>
 
             {% else %}
