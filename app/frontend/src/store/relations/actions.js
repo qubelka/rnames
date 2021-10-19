@@ -1,13 +1,15 @@
+import { ADD, UPDATE } from '../action-types'
+
 export const addRel = rel => (dispatch, getState) => {
 	dispatch({
-		type: 'ADD',
+		type: ADD,
 		rel,
 	})
 }
 
 export const updateRel = rel => (dispatch, getState) => {
 	dispatch({
-		type: 'UPDATE',
+		type: UPDATE,
 		rel,
 	})
 }

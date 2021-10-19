@@ -1,13 +1,15 @@
+import { ADD, UPDATE } from '../action-types'
+
 export const addRef = ref => (dispatch, getState) => {
 	dispatch({
-		type: 'ADD',
+		type: ADD,
 		ref,
 	})
 }
 
 export const updateRef = ref => (dispatch, getState) => {
 	dispatch({
-		type: 'UPDATE',
+		type: UPDATE,
 		ref,
 	})
 }
