@@ -1,0 +1,4259 @@
+name,oldest,youngest,ts_count,refs,rule
+Middle Ordovician,Dapingian,Darriwilian,1.0,"401, 2",0.0
+Dp2,Dapingian,Dapingian,0.0,"12, 2",0.0
+Dp1,Dapingian,Dapingian,0.0,"12, 2",0.0
+Dp3,Dapingian,Dapingian,0.0,"12, 2",0.0
+Upper Ordovician,Sandbian,Hirnantian,2.0,"401, 2",0.0
+Hi1,Hirnantian,Hirnantian,0.0,"12, 47, 2, 48",0.0
+Hi2,Hirnantian,Hirnantian,0.0,"12, 2, 48",0.0
+Lower Ordovician,Tremadocian,Floian,1.0,"401, 2",0.0
+Tr1,Tremadocian,Tremadocian,0.0,"12, 2",0.0
+Tr2,Tremadocian,Tremadocian,0.0,"12, 2",0.0
+Tr3,Tremadocian,Tremadocian,0.0,"12, 2",0.0
+4a,Darriwilian,Darriwilian,0.0,3,0.0
+4b,Darriwilian,Darriwilian,0.0,3,0.0
+4c,Darriwilian,Darriwilian,0.0,3,0.0
+Dw1,Darriwilian,Darriwilian,0.0,"12, 2",0.0
+Dw2,Darriwilian,Darriwilian,0.0,"12, 2",0.0
+Dw3,Darriwilian,Darriwilian,0.0,"12, 2",0.0
+Ka1,Katian,Katian,0.0,"12, 2",0.0
+Ka2,Katian,Katian,0.0,"12, 47, 2, 48",0.0
+Ka3,Katian,Katian,0.0,"12, 47, 2, 48",0.0
+Ka4,Katian,Katian,0.0,"12, 2, 47",0.0
+Sa1,Sandbian,Sandbian,0.0,"12, 2",0.0
+Sa2,Sandbian,Sandbian,0.0,"12, 2",0.0
+Llandovery,Rhuddanian,Telychian,2.0,401,0.0
+Fl1,Floian,Floian,0.0,"12, 2",0.0
+Fl2,Floian,Floian,0.0,"12, 2",0.0
+Fl3,Floian,Floian,0.0,"12, 2",0.0
+Charmouthien,Pliensbachian,Pliensbachian,0.0,409,0.0
+Lower Jurassic,Hettangian,Toarcian,3.0,401,0.0
+Crussolien,Kimmeridgian,Kimmeridgian,0.0,409,0.0
+Upper Jurassic,Oxfordian,Tithonian,2.0,401,0.0
+Pridoli,Pridolian,Pridolian,0.0,401,0.0
+Bajocien,Aalenian,Bajocian,1.0,405,0.0
+Middle Jurassic,Aalenian,Callovian,3.0,401,0.0
+Bathonien,Bathonian,Callovian,1.0,405,0.0
+Callovien,Callovian,Callovian,0.0,405,0.0
+Corallien,Oxfordian,Oxfordian,0.0,405,0.0
+Oxfordien,Oxfordian,Oxfordian,0.0,405,0.0
+Portlandien,Tithonian,Tithonian,0.0,405,0.0
+Sinémurien,Sinemurian,Sinemurian,0.0,405,0.0
+Toarcien,Toarcian,Toarcian,0.0,405,0.0
+Lower Cretaceous,Berriasian,Albian,5.0,401,0.0
+Middle Triassic,Anisian,Ladinian,1.0,401,0.0
+Miocene,Aquitanian,Messinian,5.0,401,0.0
+Cisuralian,Asselian,Kungurian,3.0,401,0.0
+Eocene,Ypresian,Priabonian,3.0,401,0.0
+Lower Pennsylvanian,Bashkirian,Bashkirian,0.0,401,0.0
+Pleistocene,Gelasian,Upper Pleistocene,3.0,401,0.0
+Furongian,Paibian,Cambrian Stage 10,2.0,401,0.0
+Terreneuvian,Fortunian,Cambrian Stage 2,1.0,401,0.0
+Cambrian Series 2,Cambrian Stage 3,Cambrian Stage 4,1.0,401,0.0
+Upper Cretaceous,Cenomanian,Maastrichtian,5.0,401,0.0
+Guadalupian,Roadian,Capitanian,2.0,401,0.0
+Upper Triassic,Carnian,Rhaetian,2.0,401,0.0
+Lopingian,Wuchiapingian,Changhsingian,1.0,401,0.0
+Oligocene,Rupelian,Chattian,1.0,401,0.0
+Paleocene,Danian,Thanetian,2.0,401,0.0
+Miaolingian,Wuliuan,Guzhangian,2.0,401,0.0
+Middle Devonian,Eifelian,Givetian,1.0,401,0.0
+Lower Devonian,Lochkovian,Emsian,2.0,401,0.0
+Upper Devonian,Frasnian,Famennian,1.0,401,0.0
+Ludlow,Gorstian,Ludfordian,1.0,401,0.0
+Holocene,Greenlandian,Meghalayan,2.0,401,0.0
+Upper Pennsylvanian,Kasimovian,Gzhelian,1.0,401,0.0
+Wenlock,Sheinwoodian,Homerian,1.0,401,0.0
+Lower Triassic,Induan,Olenekian,1.0,401,0.0
+Middle Pennsylvanian,Moscovian,Moscovian,0.0,401,0.0
+Pliocene,Zanclean,Piacenzian,1.0,401,0.0
+Upper Mississippian,Serpukhovian,Serpukhovian,0.0,401,0.0
+Lower Mississippian,Tournaisian,Tournaisian,0.0,401,0.0
+Middle Mississippian,Visean,Visean,0.0,401,0.0
+Baltoniodus norrlandicus,Dapingian,Darriwilian,1.0,"400, 12",1.0
+Belonechitina henryi,Dapingian,Darriwilian,1.0,"400, 12",1.0
+Cardiograptus morsus / Oncograptus upsilon,Dapingian,Dapingian,0.0,12,1.0
+Desmochitina ornensis,Dapingian,Dapingian,0.0,"400, 12",1.0
+Histiodella altifrons,Dapingian,Dapingian,0.0,12,1.0
+Histiodella sinuosa,Dapingian,Darriwilian,1.0,12,1.0
+Isograptus gibberulus,Dapingian,Dapingian,0.0,"400, 12",1.0
+Isograptus victoriae maximus,Dapingian,Dapingian,0.0,12,1.0
+Isograptus victoriae victoriae,Dapingian,Dapingian,0.0,12,1.0
+Microzakodina flabellum / Tripodus laevus,Floian,Dapingian,1.0,12,1.0
+Paroistodus originalis,Dapingian,Dapingian,0.0,"400, 12",1.0
+Angarella,Floian,Darriwilian,2.0,399,1.0
+Aparchites clivosus,Floian,Dapingian,1.0,399,1.0
+Biolgina sibirica,Floian,Dapingian,1.0,399,1.0
+Coleodus mirabilis,Dapingian,Darriwilian,1.0,399,1.0
+Histodiella angulata,Floian,Dapingian,1.0,399,1.0
+Nanaorthis-Rhyselasma,Dapingian,Dapingian,0.0,399,1.0
+Baltoniodus navis,Dapingian,Dapingian,0.0,400,1.0
+Baltoniodus triangularis,Dapingian,Dapingian,0.0,"400, 12",1.0
+Eremochitina brevis,Floian,Floian,0.0,"400, 12",1.0
+Expansograptus hirundo,Dapingian,Dapingian,0.0,400,1.0
+Pseudophyllograptus angustifolius elongatus/ Pseudophyllograptus angustifolius tenuis,Floian,Dapingian,1.0,400,1.0
+Amorphognathus ordovicicus,Katian,Hirnantian,1.0,12,1.0
+Aphelognathus shatzeri,Katian,Hirnantian,1.0,12,1.0
+Normalograptus extraordinarius,Hirnantian,Hirnantian,0.0,12,1.0
+Normalograptus persculptus,Hirnantian,Hirnantian,0.0,"400, 12",1.0
+Spinachitina oulebsiri,Hirnantian,Hirnantian,0.0,12,1.0
+Tanuchitina elongata,Hirnantian,Hirnantian,0.0,"400, 12",1.0
+Normalograptus extraordinarius/ Normalograptus ojsuensis/ Normalograptus mirnyensis,Hirnantian,Hirnantian,0.0,400,1.0
+Normalograptus ojsuensis / Normalograptus mirnyensis,Hirnantian,Hirnantian,0.0,400,1.0
+Cordylodus prolindstromi,Tremadocian,Tremadocian,0.0,399,1.0
+MN faunizone C,Tremadocian,Tremadocian,0.0,244,1.0
+MN faunizone D,Tremadocian,Tremadocian,0.0,244,1.0
+MN faunizone E,Tremadocian,Tremadocian,0.0,244,1.0
+MN faunizone F,Tremadocian,Tremadocian,0.0,244,1.0
+MN faunizone G,Tremadocian,Tremadocian,0.0,244,1.0
+Didymograptus nitidus,Tremadocian,Tremadocian,0.0,2,1.0
+Acodus deltatus / Oneotodus costatus,Tremadocian,Floian,1.0,12,1.0
+Adenograptus tenellus,Tremadocian,Tremadocian,0.0,12,1.0
+Amphorachitina conifundus,Tremadocian,Tremadocian,0.0,"400, 12",1.0
+Aorograptus victoriae,Tremadocian,Tremadocian,0.0,12,1.0
+Araneograptus murrayi,Tremadocian,Tremadocian,0.0,"400, 12",1.0
+Cordylodus angulatus,Tremadocian,Tremadocian,0.0,"400, 12",1.0
+Drepanoistodus amoenus,Tremadocian,Tremadocian,0.0,12,1.0
+Hunnegraptus copiosus,Tremadocian,Tremadocian,0.0,12,1.0
+Iapetognathus fluctivagus,Tremadocian,Tremadocian,0.0,"400, 12",1.0
+Lagenochitina brevicollis,Tremadocian,Tremadocian,0.0,"400, 12",1.0
+Lagenochitina destombesi,Tremadocian,Tremadocian,0.0,"400, 12",1.0
+Macerodus dianae,Tremadocian,Tremadocian,0.0,12,1.0
+Oelanodus elongatus / Acodus deltatus,Floian,Floian,0.0,"400, 12",1.0
+Paltodus deltifer,Tremadocian,Tremadocian,0.0,"400, 12",1.0
+Paracordylodus gracilis,Tremadocian,Tremadocian,0.0,"400, 12",1.0
+Psigraptus,Tremadocian,Tremadocian,0.0,12,1.0
+Rhabdinopora flabelliformis s. l.,Tremadocian,Tremadocian,0.0,12,1.0
+Rhabdinopora flabelliformis-parabola,Tremadocian,Tremadocian,0.0,12,1.0
+Rhabdinopora scitulum / Anisograptus,Tremadocian,Tremadocian,0.0,12,1.0
+Rossodus manitouensis,Tremadocian,Tremadocian,0.0,12,1.0
+Apheorthis melita,Tremadocian,Tremadocian,0.0,399,1.0
+Callograptus kravtsovi / Syringotaenia bystrovi,Tremadocian,Tremadocian,0.0,399,1.0
+Cordylodus casey,Tremadocian,Tremadocian,0.0,399,1.0
+Eoapatokephalus/ Ijacephalus,Tremadocian,Tremadocian,0.0,399,1.0
+Loxodus bransoni - Acodus oneotensis,Tremadocian,Tremadocian,0.0,399,1.0
+Adelograptus tenellus/ Anisograptus richardsoni,Tremadocian,Tremadocian,0.0,400,1.0
+Bryograptus ramosus/ Rhabdinopora uralense/ Aletograptus hyperboreus,Tremadocian,Tremadocian,0.0,400,1.0
+Paroistodus proteus,Tremadocian,Floian,1.0,71,1.0
+Rhabdinopora flabelliformis,Tremadocian,Tremadocian,0.0,400,1.0
+Tripodus - Drepanodus aff. amoenus,Tremadocian,Tremadocian,0.0,400,1.0
+Archiclimacograptus riddellensis,Darriwilian,Darriwilian,0.0,12,1.0
+Armoricochitina armoricana / Cyathochitina jenkinsi,Darriwilian,Darriwilian,0.0,"400, 12",1.0
+Aulacograptus cucullus,Darriwilian,Darriwilian,0.0,12,1.0
+Cahabagnathus friendsvillensis,Darriwilian,Darriwilian,0.0,12,1.0
+Cahabagnathus sweeti,Darriwilian,Sandbian,1.0,12,1.0
+Desmochitina bulla,Darriwilian,Darriwilian,0.0,"400, 12",1.0
+Didymograptus artus,Darriwilian,Darriwilian,0.0,12,1.0
+Didymograptus murchisoni,Darriwilian,Darriwilian,0.0,12,1.0
+Eoplacognathus suecicus,Darriwilian,Darriwilian,0.0,12,1.0
+Eoplacognathus variabilis,Darriwilian,Darriwilian,0.0,12,1.0
+Histiodella holodentata,Darriwilian,Darriwilian,0.0,12,1.0
+Hustedograptus teretiusculus,Darriwilian,Darriwilian,0.0,"400, 12",1.0
+Hyalochitina protocalix,Darriwilian,Darriwilian,0.0,12,1.0
+Laufeldochitina clavata,Darriwilian,Darriwilian,0.0,"400, 12",1.0
+Linochitina pissotensis,Darriwilian,Darriwilian,0.0,"400, 12",1.0
+Phragmodus polonicus,Darriwilian,Darriwilian,0.0,12,1.0
+Pseudoclimacograptus decoratus,Darriwilian,Darriwilian,0.0,12,1.0
+Pygodus anserinus,Darriwilian,Sandbian,1.0,"400, 12",1.0
+Pygodus serra,Darriwilian,Darriwilian,0.0,"400, 12",1.0
+Sagittodontina kielcensis,Darriwilian,Darriwilian,0.0,"400, 12",1.0
+Siphonochitina formosa,Darriwilian,Darriwilian,0.0,"400, 12",1.0
+Undulograptus austrodentatus,Darriwilian,Darriwilian,0.0,"400, 12",1.0
+Undulograptus intersitus,Darriwilian,Darriwilian,0.0,12,1.0
+Cardiodella lyrata -Polyplacognathus angarense,Darriwilian,Darriwilian,0.0,399,1.0
+Cherskiella notanilis-Ventrigyrus intricatus,Darriwilian,Darriwilian,0.0,399,1.0
+Evenkina lenaica/ Evenkina anabarensis,Darriwilian,Darriwilian,0.0,399,1.0
+Homotellus lenaensis,Darriwilian,Darriwilian,0.0,399,1.0
+Lenatoechia,Darriwilian,Darriwilian,0.0,399,1.0
+Lenatoechia lenaensis,Darriwilian,Darriwilian,0.0,399,1.0
+Mastigograptus datzenkoi,Darriwilian,Darriwilian,0.0,399,1.0
+Ortograptus propinquus,Darriwilian,Darriwilian,0.0,399,1.0
+Phragmodus flexuosus,Darriwilian,Darriwilian,0.0,399,1.0
+Ptiloconus anomalis,Darriwilian,Darriwilian,0.0,399,1.0
+Quadrilobella recta,Darriwilian,Darriwilian,0.0,399,1.0
+Soanella maslovi,Darriwilian,Darriwilian,0.0,399,1.0
+Cyathochitina calyx - protocalix,Darriwilian,Darriwilian,0.0,400,1.0
+Didymograptus murchisoni/ Didymograptus geminus,Darriwilian,Darriwilian,0.0,400,1.0
+Undulograptus dentatus,Darriwilian,Darriwilian,0.0,400,1.0
+Acanthochitina barbata,Katian,Katian,0.0,"400, 12",1.0
+Amorphognathus superbus,Katian,Katian,0.0,"400, 12",1.0
+Amorphognathus tvaerensis,Sandbian,Katian,1.0,"400, 12",1.0
+Ancyrochitina merga,Katian,Katian,0.0,"400, 12",1.0
+Aphelognathus divergens,Katian,Katian,0.0,12,1.0
+Armoricochitina nigerica,Katian,Katian,0.0,"400, 12",1.0
+Baltoniodus alobatus,Sandbian,Katian,1.0,"400, 12",1.0
+Belodina confluens,Katian,Katian,0.0,12,1.0
+Belonechitina robusta,Katian,Katian,0.0,"400, 12",1.0
+Climacograptus wilsoni,Sandbian,Katian,1.0,12,1.0
+Climacograptus? uncinatus,Katian,Katian,0.0,12,1.0
+Dicellograptus anceps,Katian,Katian,0.0,12,1.0
+Dicellograptus complanatus,Katian,Katian,0.0,12,1.0
+Dicellograptus complexus,Katian,Katian,0.0,12,1.0
+Dicellograptus gravis,Katian,Katian,0.0,12,1.0
+Dicellograptus morrisi,Katian,Katian,0.0,12,1.0
+Dicranograptus caudatus,Katian,Katian,0.0,12,1.0
+Dicranograptus clingani,Katian,Katian,0.0,"400, 12",1.0
+Dicranograptus kirki,Katian,Katian,0.0,12,1.0
+Diplacanthograptus lanceolatus,Katian,Katian,0.0,12,1.0
+Diplacanthograptus spiniferus,Katian,Katian,0.0,12,1.0
+Euconochitina tanvillensis,Katian,Katian,0.0,"400, 12",1.0
+Oulodus robustus,Katian,Katian,0.0,12,1.0
+Oulodus velicuspis,Katian,Katian,0.0,12,1.0
+Paraorthograptus pacificus,Katian,Katian,0.0,"400, 12",1.0
+Plectodina tenuis,Katian,Katian,0.0,12,1.0
+Pleurograptus linearis,Katian,Katian,0.0,12,1.0
+pre-pacificus,Katian,Katian,0.0,12,1.0
+Tanuchitina fistulosa,Katian,Katian,0.0,"400, 12",1.0
+Acanthodina nobilis,Katian,Katian,0.0,399,1.0
+Belodina compressa - Culumbodina mangazeica,Sandbian,Katian,1.0,399,1.0
+Boreadorthis asiatica,Katian,Katian,0.0,399,1.0
+Bumastus,Katian,Katian,0.0,399,1.0
+Dolborella plana,Katian,Katian,0.0,399,1.0
+Evenkorhynchia dichotomians evenkiensis,Katian,Katian,0.0,399,1.0
+Glyptograptus siccatus/Oepikograptus bekkeri/ Amplexograptus fallax/ Glyptograptus eugluphus,Sandbian,Katian,1.0,399,1.0
+Maakina parvuliformis-Leptellina carinata,Sandbian,Katian,1.0,399,1.0
+Ozarkodina dolborica - Acanthocordyloduy festus,Katian,Katian,0.0,399,1.0
+Appendispinograptus supernus,Katian,Katian,0.0,400,1.0
+Diplacanthograptus caudatus,Katian,Katian,0.0,400,1.0
+Orthograptus quadrimucronatus,Katian,Katian,0.0,400,1.0
+Nemagraptus gracilis/ Oepikograptus bekkeri,Sandbian,Sandbian,0.0,400,1.0
+Amorphognathus inaequalis,Sandbian,Sandbian,0.0,"400, 12",1.0
+Baltoniodus gerdae,Sandbian,Sandbian,0.0,"400, 12",1.0
+Baltoniodus variabilis,Sandbian,Sandbian,0.0,"400, 12",1.0
+Belodina compressa,Sandbian,Sandbian,0.0,12,1.0
+Climacograptus peltifer,Sandbian,Sandbian,0.0,12,1.0
+Diplograptus foliaceus,Sandbian,Sandbian,0.0,12,1.0
+Diplograptus multidens,Sandbian,Sandbian,0.0,12,1.0
+Erismodus quadridactylus,Sandbian,Sandbian,0.0,12,1.0
+Lagenochitina dalbyensis,Sandbian,Sandbian,0.0,"400, 12",1.0
+Lagenochitina deunffi,Sandbian,Sandbian,0.0,"400, 12",1.0
+Lagenochitina ponceti,Sandbian,Sandbian,0.0,"400, 12",1.0
+Nemagraptus gracilis,Sandbian,Sandbian,0.0,12,1.0
+Orthograptus calcaratus,Sandbian,Sandbian,0.0,12,1.0
+Plectodina aculeata,Sandbian,Sandbian,0.0,12,1.0
+Plectodina undatus,Sandbian,Sandbian,0.0,12,1.0
+Bodenia aspera,Sandbian,Sandbian,0.0,399,1.0
+Cahabagnathus sweeti - Phragmodus inflexus,Sandbian,Sandbian,0.0,399,1.0
+Isalaux stricta,Sandbian,Sandbian,0.0,399,1.0
+Mimella panna,Sandbian,Sandbian,0.0,399,1.0
+Parajonesites notabilis,Sandbian,Sandbian,0.0,399,1.0
+Climacograptus bicornis,Sandbian,Sandbian,0.0,400,1.0
+Diplograptus multidens/ Diplograptus foliaceus,Sandbian,Sandbian,0.0,400,1.0
+MN faunizone H,Floian,Floian,0.0,244,1.0
+MN faunizone I,Floian,Floian,0.0,244,1.0
+MN faunizone J,Floian,Floian,0.0,244,1.0
+MN faunizone K,Floian,Floian,0.0,244,1.0
+Conochitina symmetrica,Floian,Floian,0.0,"400, 12",1.0
+Corymbograptus varicosus,Floian,Floian,0.0,12,1.0
+Didymograptus protobifidus,Floian,Floian,0.0,12,1.0
+Eremochitina baculata,Floian,Floian,0.0,"400, 12",1.0
+Expansograptus simulans,Floian,Floian,0.0,12,1.0
+Isograptus primulus,Floian,Floian,0.0,12,1.0
+Isograptus victoriae lunatus,Floian,Floian,0.0,12,1.0
+Oepikodus communis,Floian,Floian,0.0,12,1.0
+Oepikodus evae,Floian,Floian,0.0,12,1.0
+Pendeograptus fruticosus,Floian,Floian,0.0,12,1.0
+Prioniodus elegans,Floian,Floian,0.0,"400, 12",1.0
+Reutterodus andinus,Floian,Floian,0.0,12,1.0
+Tetragraptus approximatus,Floian,Floian,0.0,12,1.0
+Tetragraptus phyllograptoides,Floian,Floian,0.0,12,1.0
+Nanorthis/ Rhyselasma,Floian,Floian,0.0,399,1.0
+Rhabdinopora omnutachense,Floian,Floian,0.0,399,1.0
+Scandodus warendensis - Scandodus pseudoquadratus,Floian,Floian,0.0,399,1.0
+Shumardia-Paenebeltella,Floian,Floian,0.0,399,1.0
+Phyllograptus densus,Floian,Floian,0.0,400,1.0
+Tetragraptus phyllograptoides/ Tetragraptus approximatus,Floian,Floian,0.0,400,1.0
+Pterograptus elegans,Floian,Floian,0.0,71,1.0
+Ustrybnaya,Dapingian,Dapingian,0.0,34,2.0
+Kimaian,Dapingian,Dapingian,0.0,"2, 400, 335, 399, 106",2.0
+Chunian,Dapingian,Darriwilian,1.0,335,2.0
+Vikhorevian,Darriwilian,Darriwilian,0.0,"335, 399, 2",2.0
+Rakhmet,Dapingian,Dapingian,0.0,258,2.0
+Arenig,Floian,Darriwilian,2.0,2,2.0
+Arenigian,Dapingian,Darriwilian,1.0,2,2.0
+Castlemainian,Floian,Dapingian,1.0,"12, 2",2.0
+Fennian,Dapingian,Darriwilian,1.0,"12, 2",2.0
+Middle Arenigian,Floian,Dapingian,1.0,2,2.0
+Oeland,Tremadocian,Darriwilian,3.0,2,2.0
+Rangerian,Dapingian,Dapingian,0.0,"12, 2",2.0
+Upper Arenigian,Dapingian,Dapingian,0.0,2,2.0
+Volkhov,Dapingian,Darriwilian,1.0,"12, 2",2.0
+Whiterockian,Dapingian,Dapingian,0.0,"12, 2",2.0
+Whitlandian,Floian,Floian,0.0,"12, 2",2.0
+Yapeenian,Dapingian,Dapingian,0.0,"12, 2",2.0
+Dawanian,Floian,Dapingian,1.0,12,2.0
+Aiyan,Tremadocian,Darriwilian,3.0,201,2.0
+Kuibyshevo,Dapingian,Darriwilian,1.0,400,2.0
+Lebed,Floian,Dapingian,1.0,400,2.0
+Tuloi,Floian,Dapingian,1.0,400,2.0
+Bolgozha,Floian,Darriwilian,2.0,133,2.0
+Karatal,Floian,Darriwilian,2.0,133,2.0
+Zhalgyz,Tremadocian,Dapingian,2.0,133,2.0
+Valongo,Floian,Darriwilian,2.0,134,2.0
+Upper Second Bani,Hirnantian,Hirnantian,0.0,126,2.0
+Orea,Hirnantian,Hirnantian,0.0,310,2.0
+HICE,Hirnantian,Hirnantian,0.0,17,2.0
+Burian,Katian,Katian,0.0,"400, 335, 399, 2",2.0
+Keel,Hirnantian,Hirnantian,0.0,"186, 110",2.0
+Sylvan Shale,Hirnantian,Hirnantian,0.0,110,2.0
+Nirundian,Katian,Katian,0.0,"400, 335, 399, 2",2.0
+Zalesie,Hirnantian,Hirnantian,0.0,131,2.0
+Zapla,Hirnantian,Hirnantian,0.0,272,2.0
+Cason Oolite,Hirnantian,Hirnantian,0.0,186,2.0
+Cason Shale,Hirnantian,Hirnantian,0.0,186,2.0
+Cyrene,Hirnantian,Hirnantian,0.0,186,2.0
+Giradeau Limestone,Hirnantian,Hirnantian,0.0,186,2.0
+Leemon,Hirnantian,Hirnantian,0.0,186,2.0
+Noix,Hirnantian,Hirnantian,0.0,186,2.0
+Pettit,Hirnantian,Hirnantian,0.0,186,2.0
+Ashgill,Katian,Hirnantian,1.0,2,2.0
+Bolindian,Katian,Katian,0.0,"12, 2",2.0
+Cincinnatian,Katian,Hirnantian,1.0,2,2.0
+Gamachian,Hirnantian,Hirnantian,0.0,"12, 2, 47",2.0
+Harju,Katian,Hirnantian,1.0,2,2.0
+Kosovian,Hirnantian,Hirnantian,0.0,2,2.0
+Porkuni,Hirnantian,Hirnantian,0.0,"12, 2",2.0
+Chientangkiangian,Katian,Katian,0.0,"12, 2",2.0
+Glisstjärn,Hirnantian,Hirnantian,0.0,11,2.0
+Tommarp,Hirnantian,Hirnantian,0.0,11,2.0
+Cote de la Surprise,Hirnantian,Hirnantian,0.0,368,2.0
+Listvyanka,Hirnantian,Hirnantian,0.0,400,2.0
+Tekhten,Katian,Hirnantian,1.0,400,2.0
+Vtorye Utyosy,Hirnantian,Hirnantian,0.0,400,2.0
+Langåra,Hirnantian,Hirnantian,0.0,29,2.0
+Skøyen,Hirnantian,Hirnantian,0.0,29,2.0
+Sobrido,Hirnantian,Hirnantian,0.0,134,2.0
+Las Vicunas,Tremadocian,Tremadocian,0.0,256,2.0
+Schaghticoke,Tremadocian,Tremadocian,0.0,160,2.0
+Loparian,Tremadocian,Tremadocian,0.0,335,2.0
+Mansian,Tremadocian,Tremadocian,0.0,335,2.0
+Nyaian,Tremadocian,Tremadocian,0.0,"400, 335, 399, 2",2.0
+Ust'-Kutian,Tremadocian,Floian,1.0,335,2.0
+Dumugol,Tremadocian,Tremadocian,0.0,"1, 68",2.0
+Cressagian,Tremadocian,Tremadocian,0.0,"12, 2",2.0
+Ibexian,Tremadocian,Floian,1.0,2,2.0
+Lancefieldian,Tremadocian,Floian,1.0,"12, 2",2.0
+Migneintian,Tremadocian,Tremadocian,0.0,"12, 2",2.0
+Pakerort,Tremadocian,Tremadocian,0.0,"12, 2",2.0
+Skullrockian,Tremadocian,Tremadocian,0.0,"12, 2",2.0
+Stairsian,Tremadocian,Tremadocian,0.0,"12, 2",2.0
+Tremadoc,Tremadocian,Tremadocian,0.0,2,2.0
+Tremadocian Upper,Tremadocian,Tremadocian,0.0,2,2.0
+Tulean,Tremadocian,Floian,1.0,"12, 2",2.0
+Varangu,Tremadocian,Tremadocian,0.0,"12, 2",2.0
+Dongjeom,Tremadocian,Tremadocian,0.0,1,2.0
+Mungok,Tremadocian,Tremadocian,0.0,1,2.0
+Mungyeong Group,Tremadocian,Darriwilian,3.0,1,2.0
+Pyeongchang Group,Tremadocian,Darriwilian,3.0,1,2.0
+Taebaek Group,Tremadocian,Darriwilian,3.0,1,2.0
+Yeongwol Group,Tremadocian,Darriwilian,3.0,1,2.0
+Hunneberg,Floian,Floian,0.0,"12, 2",2.0
+Ichangian,Tremadocian,Tremadocian,0.0,12,2.0
+Warendan,Tremadocian,Tremadocian,0.0,12,2.0
+Takoshkin,Tremadocian,Tremadocian,0.0,400,2.0
+Upper Tayanza,Tremadocian,Tremadocian,0.0,400,2.0
+Dead River,Tremadocian,Tremadocian,0.0,175,2.0
+Rosaire,Tremadocian,Tremadocian,0.0,175,2.0
+Kaki Bukit,Darriwilian,Katian,2.0,24,2.0
+Kirenskian,Darriwilian,Darriwilian,0.0,335,2.0
+Kirenskian-Kudrinian,Darriwilian,Darriwilian,0.0,"400, 335, 399",2.0
+Krivolukian,Darriwilian,Darriwilian,0.0,335,2.0
+Kudrinan,Darriwilian,Darriwilian,0.0,335,2.0
+Mukteian,Darriwilian,Darriwilian,0.0,"400, 335, 399, 2",2.0
+Volginian,Darriwilian,Darriwilian,0.0,"400, 335, 399, 2",2.0
+Peletay,Darriwilian,Darriwilian,0.0,333,2.0
+Anrakhai,Darriwilian,Darriwilian,0.0,258,2.0
+Kopaly,Darriwilian,Darriwilian,0.0,258,2.0
+Tselinograd,Darriwilian,Sandbian,1.0,258,2.0
+Alakol,Darriwilian,Darriwilian,0.0,133,2.0
+Burultas,Darriwilian,Darriwilian,0.0,133,2.0
+Abereiddian,Darriwilian,Darriwilian,0.0,"12, 2",2.0
+Aseri,Darriwilian,Darriwilian,0.0,"12, 2",2.0
+Chazyan,Darriwilian,Sandbian,1.0,2,2.0
+Dobrotivian,Darriwilian,Darriwilian,0.0,2,2.0
+Kirensko-Kudrinian,Darriwilian,Darriwilian,0.0,2,2.0
+Kunda,Darriwilian,Darriwilian,0.0,"12, 2",2.0
+Lasnamägi,Darriwilian,Darriwilian,0.0,"12, 2",2.0
+Llandeilian,Darriwilian,Darriwilian,0.0,"12, 2",2.0
+Llanvirn,Darriwilian,Darriwilian,0.0,2,2.0
+Lower Dobrotivian,Darriwilian,Darriwilian,0.0,2,2.0
+Lower Oretanian,Darriwilian,Darriwilian,0.0,2,2.0
+Oretanian,Darriwilian,Darriwilian,0.0,2,2.0
+Oretanian Upper,Darriwilian,Darriwilian,0.0,2,2.0
+Uhaku,Darriwilian,Darriwilian,0.0,"12, 2",2.0
+Upper Dobrotivian,Darriwilian,Darriwilian,0.0,2,2.0
+Viru,Darriwilian,Katian,2.0,2,2.0
+Duwibong,Darriwilian,Darriwilian,0.0,1,2.0
+Haengmae,Darriwilian,Darriwilian,0.0,1,2.0
+Jeongseon,Darriwilian,Darriwilian,0.0,1,2.0
+Jigunsan,Darriwilian,Darriwilian,0.0,1,2.0
+Makgol,Darriwilian,Darriwilian,0.0,1,2.0
+Yeongheung,Darriwilian,Darriwilian,0.0,1,2.0
+Yongtan Group,Darriwilian,Darriwilian,0.0,1,2.0
+Malodiring-Ayan,Darriwilian,Darriwilian,0.0,201,2.0
+Bugryshikha,Darriwilian,Sandbian,1.0,400,2.0
+Kostinsky,Darriwilian,Darriwilian,0.0,400,2.0
+Blidene,Sandbian,Katian,1.0,19,2.0
+Lehtmetsa,Sandbian,Katian,1.0,18,2.0
+Saku,Katian,Katian,0.0,18,2.0
+Baksanian,Sandbian,Katian,1.0,335,2.0
+Dolborian,Katian,Katian,0.0,"400, 335, 399, 2",2.0
+Mangazeian,Sandbian,Katian,1.0,335,2.0
+Bayan-Khongor,Katian,Katian,0.0,196,2.0
+Chakyrskii,Katian,Katian,0.0,196,2.0
+Dietkinskii,Katian,Katian,0.0,196,2.0
+Nariingol,Katian,Katian,0.0,196,2.0
+Orlovskii,Katian,Katian,0.0,196,2.0
+Sairinskii,Katian,Katian,0.0,196,2.0
+Taginskii,Katian,Katian,0.0,196,2.0
+Tsagaan Del,Katian,Katian,0.0,196,2.0
+Baksian,Sandbian,Katian,1.0,"400, 399, 2",2.0
+Berounian,Sandbian,Katian,1.0,2,2.0
+Caradoc,Sandbian,Sandbian,0.0,"399, 2",2.0
+Cautleyan,Katian,Katian,0.0,"12, 2",2.0
+Chatfieldian,Katian,Katian,0.0,"12, 2",2.0
+Cheneyan,Katian,Katian,0.0,"12, 2",2.0
+Eastonian,Katian,Katian,0.0,"12, 2",2.0
+Edenian,Katian,Katian,0.0,"12, 2",2.0
+Keila,Sandbian,Sandbian,0.0,"12, 2",2.0
+Kralodvorian,Katian,Katian,0.0,2,2.0
+Maysvillian,Katian,Katian,0.0,"12, 2",2.0
+Middle Berounian,Sandbian,Katian,1.0,2,2.0
+Mohawkian,Sandbian,Katian,1.0,2,2.0
+Nabala,Katian,Katian,0.0,"12, 2",2.0
+Neichiashanian,Sandbian,Katian,1.0,"12, 2",2.0
+Oandu,Katian,Katian,0.0,"12, 2",2.0
+Pirgu,Katian,Katian,0.0,"12, 2",2.0
+Pusgillian,Katian,Katian,0.0,"12, 2",2.0
+Rakvere,Katian,Katian,0.0,"12, 2",2.0
+Rawtheyan,Katian,Katian,0.0,"12, 2",2.0
+Richmondian,Katian,Katian,0.0,"12, 2",2.0
+Streffordian,Katian,Katian,0.0,"12, 2",2.0
+Upper Berounian,Katian,Katian,0.0,2,2.0
+Vormsi,Katian,Katian,0.0,"12, 2",2.0
+Burrellian,Sandbian,Sandbian,0.0,"12, 2",2.0
+Bighorn Lower,Katian,Katian,0.0,46,2.0
+Bighorn Upper,Katian,Katian,0.0,46,2.0
+Cat Head,Katian,Katian,0.0,46,2.0
+Dog Head,Katian,Katian,0.0,46,2.0
+Fort Garry,Katian,Katian,0.0,46,2.0
+Herald,Katian,Katian,0.0,46,2.0
+Horseshoe Mountain,Katian,Katian,0.0,46,2.0
+Lander Sandstone,Katian,Katian,0.0,46,2.0
+Leigh,Katian,Katian,0.0,46,2.0
+Red River,Katian,Katian,0.0,46,2.0
+Selkirk,Katian,Katian,0.0,46,2.0
+Steamboat Point,Katian,Katian,0.0,46,2.0
+Stonewall,Katian,Katian,0.0,46,2.0
+Stony Mountain,Katian,Katian,0.0,46,2.0
+Vaureal,Katian,Katian,0.0,46,2.0
+Winnipeg,Katian,Katian,0.0,46,2.0
+Yeoman,Katian,Katian,0.0,46,2.0
+Khankhara,Sandbian,Katian,1.0,400,2.0
+Bromide,Sandbian,Sandbian,0.0,223,2.0
+Adze,Sandbian,Sandbian,0.0,19,2.0
+Pääsküla,Sandbian,Sandbian,0.0,18,2.0
+Saue,Sandbian,Sandbian,0.0,18,2.0
+Vasalemma,Sandbian,Sandbian,0.0,18,2.0
+Chertovskian,Sandbian,Sandbian,0.0,"400, 335, 399, 2",2.0
+Anderken,Sandbian,Sandbian,0.0,"70, 258",2.0
+Baigara,Sandbian,Sandbian,0.0,133,2.0
+Maikul,Sandbian,Sandbian,0.0,133,2.0
+Oisaksaul,Sandbian,Sandbian,0.0,133,2.0
+Aurelucian,Sandbian,Sandbian,0.0,"12, 2",2.0
+Gisbornian,Sandbian,Sandbian,0.0,"12, 2",2.0
+Harjala,Sandbian,Sandbian,0.0,2,2.0
+Kukruse,Sandbian,Sandbian,0.0,"12, 2",2.0
+Lower Berounian,Sandbian,Sandbian,0.0,2,2.0
+Turinian,Sandbian,Sandbian,0.0,2,2.0
+Haljala,Sandbian,Sandbian,0.0,12,2.0
+Kallholn,Rhuddanian,Rhuddanian,0.0,30,2.0
+Ugorian,Floian,Floian,0.0,"2, 400, 335, 399, 106",2.0
+Kogashik,Floian,Floian,0.0,258,2.0
+Bendigonian,Floian,Floian,0.0,"12, 2",2.0
+Billingen,Floian,Floian,0.0,"12, 2",2.0
+Blackhillsian,Floian,Floian,0.0,"12, 2",2.0
+Chewtonian,Floian,Floian,0.0,"12, 2",2.0
+Lower Arenigian,Floian,Floian,0.0,2,2.0
+Moridunian,Floian,Floian,0.0,"12, 2",2.0
+Yushanian,Floian,Floian,0.0,12,2.0
+Santa Justa,Floian,Floian,0.0,134,2.0
+Conochitina cucumis,Dapingian,Darriwilian,1.0,9,3.9
+Cyathochitina regnelli,Darriwilian,Darriwilian,0.0,3,3.9
+Cyathochitina primitiva,Tremadocian,Darriwilian,3.0,3,3.9
+Isograptus victoriae,Dapingian,Dapingian,0.0,3,3.9
+Leontiella gloriosa,Floian,Darriwilian,2.0,399,3.9
+Gymnograptus linnarssoni,Darriwilian,Darriwilian,0.0,321,3.9
+Didymograptus jiangxiensis,Darriwilian,Darriwilian,0.0,3,3.9
+Pseudamplexograptus distichus,Darriwilian,Darriwilian,0.0,321,3.9
+Armoricochitina armoricana,Floian,Darriwilian,2.0,321,3.9
+Cyathochitina jenkinsi,Darriwilian,Darriwilian,0.0,321,3.9
+Conochitina turgida / Conochitina subcylindrica,Darriwilian,Darriwilian,0.0,3,3.9
+Cyathochitina sebyensis,Sandbian,Sandbian,0.0,14,3.9
+Expansograptus hirundo / Undulograptus austrodentatus,Darriwilian,Darriwilian,0.0,346,3.9
+Conochitina clavaherculi,Darriwilian,Sandbian,1.0,3,3.9
+Corymbograptus retroflexus,Darriwilian,Darriwilian,0.0,321,3.9
+Conochitina pirum,Darriwilian,Darriwilian,0.0,3,3.9
+Placoparia Placoparia cambriensis,Dapingian,Darriwilian,1.0,321,3.9
+Sivorthis noctilio,Darriwilian,Darriwilian,0.0,321,3.9
+Acrograptus ellesae,Darriwilian,Darriwilian,0.0,3,3.9
+Didymograptus callotheca,Floian,Darriwilian,2.0,3,3.9
+Levisograptus dentatus,Darriwilian,Darriwilian,0.0,16,3.9
+Nicholsonograptus fasciculatus,Darriwilian,Darriwilian,0.0,53,3.9
+Cyathochitina calix,Darriwilian,Darriwilian,0.0,321,3.9
+Expansograptus kirgisicus,Darriwilian,Darriwilian,0.0,346,3.9
+Holmograptus lentus,Darriwilian,Darriwilian,0.0,3,3.9
+Eoplacognathus pseudoplanus,Darriwilian,Darriwilian,0.0,16,3.9
+Yangtzeplacognathus crassus,Darriwilian,Darriwilian,0.0,16,3.9
+Didymograptus bifidus,Darriwilian,Darriwilian,0.0,346,3.9
+Didymograptus clavulus,Darriwilian,Darriwilian,0.0,346,3.9
+Cacemia ribeiroi,Floian,Darriwilian,2.0,321,3.9
+Eodalmanitina destombesi nava,Floian,Darriwilian,2.0,321,3.9
+Eodalmanitina macrophtalma,Darriwilian,Darriwilian,0.0,321,3.9
+Heterorthina morgatensis,Darriwilian,Darriwilian,0.0,321,3.9
+Placoparia (Coplacoparia) tournemini,Floian,Darriwilian,2.0,321,3.9
+Expansograptus jakovlevi / Amplexograptus coelatus,Darriwilian,Darriwilian,0.0,346,3.9
+Histiodella bellburnensis,Darriwilian,Darriwilian,0.0,380,3.9
+Histiodella kristinae,Darriwilian,Darriwilian,0.0,380,3.9
+Lenodus variabilis,Darriwilian,Darriwilian,0.0,72,3.9
+Didymograptus geminus / Expansograptus jakovlevi / Amplexograptus coelatus,Darriwilian,Darriwilian,0.0,400,3.9
+Expansograptus balhaschensis/ Expansograptus kirgisicus,Darriwilian,Darriwilian,0.0,400,3.9
+pre-flexuosus,Darriwilian,Darriwilian,0.0,191,3.9
+Pygodus anitae,Darriwilian,Darriwilian,0.0,382,3.9
+Pygodus magnus,Darriwilian,Darriwilian,0.0,382,3.9
+Asaphus platyurus,Floian,Darriwilian,2.0,16,3.9
+Pygodus lunnensis,Floian,Darriwilian,2.0,16,3.9
+Laufeldochitina striata,Darriwilian,Darriwilian,0.0,9,3.9
+Conochitina parvicolla,Darriwilian,Darriwilian,0.0,346,3.9
+Aegiromena mariana,Darriwilian,Sandbian,1.0,321,3.9
+Crozonorthis musculosa,Darriwilian,Darriwilian,0.0,321,3.9
+Heterorthina kerfornei,Darriwilian,Darriwilian,0.0,321,3.9
+Morgatia hupei,Darriwilian,Darriwilian,0.0,321,3.9
+Morgatia primitiva,Darriwilian,Darriwilian,0.0,321,3.9
+Placoparia (Coplacoparia) borni,Darriwilian,Sandbian,1.0,321,3.9
+Placoparia borni,Darriwilian,Darriwilian,0.0,321,3.9
+Baltoplacognathus reclinatus,Darriwilian,Darriwilian,0.0,51,3.9
+Baltoplacognathus robustus,Darriwilian,Darriwilian,0.0,51,3.9
+Eoplacognathus lindstroemi,Darriwilian,Darriwilian,0.0,51,3.9
+Yangtzeplacognathus foliaceus,Darriwilian,Darriwilian,0.0,14,3.9
+Yangtzeplacognathus jianyeensis-Pygodus anserinus,Darriwilian,Sandbian,1.0,382,3.9
+Yangtzeplacognathus protoramosus,Darriwilian,Darriwilian,0.0,14,3.9
+Didymograptus spinulosus,Darriwilian,Darriwilian,0.0,321,3.9
+Neseuretus tristani,Darriwilian,Darriwilian,0.0,387,3.9
+Belonechitina hirsuta / Lagenochitina sp. A,Darriwilian,Sandbian,1.0,3,3.9
+Conochitina tuberculata,Darriwilian,Sandbian,1.0,3,3.9
+Zeliszkella toledana,Darriwilian,Darriwilian,0.0,321,3.9
+Paraglossograptus tentaculatus,Darriwilian,Darriwilian,0.0,346,3.9
+Phragmodus borealis,Darriwilian,Darriwilian,0.0,346,3.9
+Asaphus expansus,Darriwilian,Darriwilian,0.0,16,3.9
+Lenodus antivariabilis,Darriwilian,Darriwilian,0.0,16,3.9
+Megistaspis limbata,Darriwilian,Darriwilian,0.0,16,3.9
+Arienigraptus zhejiangensis,Darriwilian,Darriwilian,0.0,54,3.9
+Undulograptus sinicus,Darriwilian,Darriwilian,0.0,54,3.9
+Cardiograptus morsus,Darriwilian,Darriwilian,0.0,346,3.9
+Glyptoconus quadraplicatus,Dapingian,Darriwilian,1.0,346,3.9
+Tangshanodus tangshanensis,Dapingian,Dapingian,0.0,72,3.9
+Phragmodus primus,Darriwilian,Darriwilian,0.0,346,3.9
+Leoniella,Darriwilian,Darriwilian,0.0,346,3.9
+Homotellus,Darriwilian,Darriwilian,0.0,346,3.9
+Exigraptus clavus,Dapingian,Dapingian,0.0,53,3.9
+Oncograptus,Dapingian,Dapingian,0.0,3,3.9
+Periodon aff. flabellum,Dapingian,Dapingian,0.0,326,3.9
+Periodon hankensis,Dapingian,Dapingian,0.0,326,3.9
+Conochitina langei / Conochitina brevis,Floian,Dapingian,1.0,3,3.9
+Isograptus victoriae maximo-divergens,Dapingian,Dapingian,0.0,53,3.9
+Isograptus caduceus imitatus,Dapingian,Dapingian,0.0,400,3.9
+Isograptus deflexus,Dapingian,Dapingian,0.0,400,3.9
+Isograptus maximo-divergens,Dapingian,Dapingian,0.0,400,3.9
+Paroistodus navis,Dapingian,Dapingian,0.0,72,3.9
+Oepikodus intermedius,Floian,Dapingian,1.0,326,3.9
+Paroistodus triangularis,Dapingian,Dapingian,0.0,72,3.9
+Jumudontus gananda,Floian,Floian,0.0,72,3.9
+Acanthograptus suecicus,Floian,Floian,0.0,53,3.9
+Oncograptus / Isograptus,Dapingian,Dapingian,0.0,346,3.9
+Undulograptus sinodentatus - Cardiograptus,Dapingian,Dapingian,0.0,400,3.9
+Tripodus laevis,Floian,Dapingian,1.0,113,3.9
+Biolgina,Floian,Dapingian,1.0,346,3.9
+Pteracontiodus cryptodens,Floian,Dapingian,1.0,346,3.9
+Lagenochitina esthonica / Conochitina raymondi,Floian,Floian,0.0,3,3.9
+Taihungshania miqueli,Tremadocian,Floian,1.0,383,3.9
+Taihungshania shui landeyranensis,Floian,Floian,0.0,383,3.9
+Colpocoryphe maynardensis,Floian,Floian,0.0,383,3.9
+Neseuretus (N.) arenosus,Floian,Floian,0.0,383,3.9
+Baltograptus deflexus,Floian,Floian,0.0,53,3.9
+Pendeograptus fruticosus 3 / 4br,Floian,Floian,0.0,53,3.9
+Pendeograptus fruticosus 3br,Floian,Floian,0.0,53,3.9
+Pendeograptus fruticosus 4br,Floian,Floian,0.0,3,3.9
+Acrograptus filiformis,Floian,Floian,0.0,54,3.9
+Didymograptellus eobifidus,Floian,Floian,0.0,54,3.9
+Didymograptus balticus,Floian,Floian,0.0,346,3.9
+Pseudophyllograptus angustifolius elongatus / Expansograptus broggeri,Floian,Floian,0.0,400,3.9
+Phyllograptus elongatus,Floian,Floian,0.0,3,3.9
+Protopliomerella contracta,Tremadocian,Floian,1.0,385,3.9
+G-2 Hintze 1953,Tremadocian,Floian,1.0,165,3.9
+H Hintze 1953,Floian,Floian,0.0,165,3.9
+Prioniodus evae,Floian,Floian,0.0,13,3.9
+Acrograptus balticus,Floian,Floian,0.0,400,3.9
+Aurilobodus leptosomatus,Floian,Floian,0.0,72,3.9
+Loxodus dissectus,Floian,Floian,0.0,72,3.9
+Scolopodus sunanensis,Floian,Floian,0.0,72,3.9
+Tetragraptus fruticosus,Floian,Floian,0.0,146,3.9
+Pendeograptus fruticosus / Tetragraptus approximatus,Floian,Floian,0.0,53,3.9
+Tetragraptus akzharensis,Floian,Floian,0.0,3,3.9
+Scolopodus cornutiformis,Floian,Floian,0.0,346,3.9
+Acodus kechikaensis,Tremadocian,Floian,1.0,191,3.9
+Parasseratognathus paltodiformis,Floian,Floian,0.0,77,3.9
+Prioniodus honghuayuanensis,Floian,Floian,0.0,"77, 71",3.9
+I Hintze 1953,Floian,Floian,0.0,165,3.9
+J Hintze 1953,Floian,Floian,0.0,165,3.9
+J Ross 1968,Floian,Floian,0.0,165,3.9
+K Hintze 1953,Floian,Floian,0.0,165,3.9
+Desmochitina ex. gr. minor,Tremadocian,Floian,1.0,237,3.9
+Acodus deltatus / Paroistodus proteus,Tremadocian,Floian,1.0,272,3.9
+Expansograptus extensus,Floian,Floian,0.0,346,3.9
+Oneotodus costatus,Tremadocian,Floian,1.0,326,3.9
+Hintzeia celsaora,Tremadocian,Floian,1.0,385,3.9
+Rossaspis superciliosa,Tremadocian,Floian,1.0,385,3.9
+F Hintze 1953,Tremadocian,Floian,1.0,165,3.9
+G-1 Hintze 1953,Tremadocian,Floian,1.0,165,3.9
+Tripodus,Tremadocian,Floian,1.0,3,3.9
+Paroistodus parallelus,Tremadocian,Floian,1.0,77,3.9
+Prioniodus adami,Tremadocian,Floian,1.0,77,3.9
+Scalpellodus tersus,Tremadocian,Tremadocian,0.0,72,3.9
+Serratognathus bilobatus,Tremadocian,Floian,1.0,77,3.9
+Serratognathus diversus,Tremadocian,Floian,1.0,77,3.9
+Serratognathus extensus,Tremadocian,Floian,1.0,77,3.9
+Triangulodus bifidus,Tremadocian,Floian,1.0,77,3.9
+Fungochitina spinifera,Katian,Hirnantian,1.0,9,3.9
+Conochitina scabra,Katian,Hirnantian,1.0,17,3.9
+Amplexograptus manitoulinensis,Katian,Katian,0.0,118,3.9
+Dicellograptus ornatus,Katian,Katian,0.0,3,3.9
+Periodon grandis,Katian,Katian,0.0,346,3.9
+Lagenochitina dalbyensis / Desmochitina lecantiella,Sandbian,Katian,1.0,346,3.9
+Tanuchitina oulebsiri,Katian,Hirnantian,1.0,400,3.9
+Ancyrochitina ellisbayensis / Spinachitina taugourdeaui,Katian,Hirnantian,1.0,3,3.9
+Belonechitina gamachiana,Katian,Hirnantian,1.0,3,3.9
+Conochitina rugata,Sandbian,Hirnantian,2.0,3,3.9
+Conochitina scabra / Spinachitina taugourdeaui,Katian,Hirnantian,1.0,3,3.9
+Cyathochitina vaurealensis ,Katian,Hirnantian,1.0,3,3.9
+Hercochitina crickmayi,Katian,Hirnantian,1.0,3,3.9
+Hyalochitina hyalophrys,Sandbian,Hirnantian,2.0,3,3.9
+Tanuchitina anticostiensis,Katian,Hirnantian,1.0,3,3.9
+Tanuchitina bergstroemi,Sandbian,Hirnantian,2.0,3,3.9
+Aphelognathus pyramidalis,Katian,Hirnantian,1.0,27,3.9
+Normalograptus extraordinarius / Normalograptus ojsuensis,Hirnantian,Hirnantian,0.0,53,3.9
+Bellimurina sibirica,Hirnantian,Hirnantian,0.0,346,3.9
+Climacograptus supernus,Katian,Hirnantian,1.0,346,3.9
+Dicellograptus / Glyptograptus / Orthograptus,Hirnantian,Hirnantian,0.0,346,3.9
+Ozarkodina hassi,Hirnantian,Hirnantian,0.0,17,3.9
+Parakidograptus acuminatus,Hirnantian,Hirnantian,0.0,316,3.9
+Conochitina micracantha,Hirnantian,Hirnantian,0.0,346,3.9
+Akidograptus ascensus,Hirnantian,Hirnantian,0.0,321,3.9
+Neodiplograptus charis,Hirnantian,Hirnantian,0.0,321,3.9
+Archiclimacograptus vulgatus,Katian,Katian,0.0,321,3.9
+Deanaspis malladai,Katian,Katian,0.0,321,3.9
+Svobodaina havliceki,Katian,Katian,0.0,321,3.9
+Corynoides americanus,Katian,Katian,0.0,222,3.9
+Geniculograptus pygmaeus,Katian,Katian,0.0,222,3.9
+Orthograptus ruedemanni,Katian,Katian,0.0,222,3.9
+Acanthochitina cancellata,Katian,Katian,0.0,3,3.9
+Armoricochitina reticulifera,Katian,Katian,0.0,3,3.9
+Conochitina pygmaea / Hercochitina cristata / Ancyrochitlna spongiosa,Katian,Katian,0.0,3,3.9
+Cyathochitina angusta,Katian,Katian,0.0,3,3.9
+Cekovia perplexa,Katian,Katian,0.0,321,3.9
+Holdenia insculpta,Katian,Katian,0.0,321,3.9
+Leangella (Leptestiina) prantli,Katian,Katian,0.0,321,3.9
+Conochitina senta,Sandbian,Katian,1.0,3,3.9
+Aegiromena meneghiniana,Katian,Katian,0.0,321,3.9
+Stenopareia cf. oblita,Katian,Katian,0.0,321,3.9
+Archiclimacograptus trubinensis,Katian,Katian,0.0,321,3.9
+Crozonaspis dujardini,Katian,Katian,0.0,321,3.9
+Deanaspis seunesi,Katian,Katian,0.0,321,3.9
+Svobodaina armoricana,Katian,Katian,0.0,321,3.9
+Orthograptus truncatus intermedius,Katian,Katian,0.0,360,3.9
+Nankinolithus nankinensis,Katian,Katian,0.0,54,3.9
+Tetraprioniodus elegans,Katian,Katian,0.0,346,3.9
+Diceratograptus mirus,Katian,Katian,0.0,54,3.9
+Tangyagraptus typicus,Katian,Katian,0.0,54,3.9
+Boreadorthis,Katian,Katian,0.0,346,3.9
+Dolborella bifunctata,Katian,Katian,0.0,346,3.9
+Orthograptus quadrimucronatus / Dicellograptus johnstrupi,Katian,Katian,0.0,3,3.9
+Sinoceras chinense,Sandbian,Katian,1.0,53,3.9
+Climacograptus peltifer / Diplograptus multidens,Sandbian,Sandbian,0.0,400,3.9
+Diplograptus ingens wellingtonensis,Katian,Katian,0.0,346,3.9
+Phragmodus undatis,Katian,Katian,0.0,346,3.9
+Ancryochitina sp. 1,Sandbian,Katian,1.0,3,3.9
+Sphaerochitina gracqui / Kalochitina multispinata / Hercochitina duplicitas / Conochitina primitiva,Sandbian,Katian,1.0,3,3.9
+Amplexograptus inuiti,Katian,Katian,0.0,63,3.9
+Sagittodontus robustus,Sandbian,Katian,1.0,346,3.9
+Dicranograptus kiki,Katian,Katian,0.0,346,3.9
+Phragmodus undatus,Sandbian,Sandbian,0.0,88,3.9
+Angochitina multiplex,Sandbian,Katian,1.0,3,3.9
+Spinachitina cervicornis,Sandbian,Katian,1.0,3,3.9
+Spinachitina sp. A,Sandbian,Katian,1.0,3,3.9
+Acanthocordylodus festus,Sandbian,Katian,1.0,399,3.9
+Ozarkodina dolborica,Sandbian,Katian,1.0,399,3.9
+Proteuloma geinitzi,Tremadocian,Tremadocian,0.0,247,3.9
+Shumardia (C.) pusilla,Tremadocian,Tremadocian,0.0,247,3.9
+Euloma filacovi,Tremadocian,Tremadocian,0.0,383,3.9
+Adelograptus hunnebergensis,Tremadocian,Tremadocian,0.0,3,3.9
+Bryograptus tintinniformis,Tremadocian,Tremadocian,0.0,53,3.9
+Dichelepyge sinensis,Tremadocian,Tremadocian,0.0,53,3.9
+Adelograptus,Tremadocian,Tremadocian,0.0,"27, 273, 276",3.9
+Adelograptus / Paradelograptus antiguus,Tremadocian,Tremadocian,0.0,346,3.9
+Acanthograptus sinensis,Tremadocian,Tremadocian,0.0,53,3.9
+Adelograptus / Clonograptus,Tremadocian,Tremadocian,0.0,54,3.9
+Polycostatus oneotensis,Tremadocian,Tremadocian,0.0,346,3.9
+Triograptus osloensis - Aletograptus hyperboreus,Tremadocian,Tremadocian,0.0,346,3.9
+Paltous deltifer deltifer,Tremadocian,Tremadocian,0.0,273,3.9
+Adelograptus victoriae,Tremadocian,Tremadocian,0.0,3,3.9
+Araneograptus pulchellus /  Araneograptus macgillivrayi,Tremadocian,Tremadocian,0.0,53,3.9
+Araneograptus matanensis,Tremadocian,Tremadocian,0.0,27,3.9
+Anisograptus matanensis,Tremadocian,Tremadocian,0.0,53,3.9
+Symphysurina,Tremadocian,Tremadocian,0.0,385,3.9
+A Ross 1968,Tremadocian,Tremadocian,0.0,165,3.9
+B Hintze 1953,Tremadocian,Tremadocian,0.0,165,3.9
+B Ross 1968,Tremadocian,Tremadocian,0.0,165,3.9
+Clavohamulus hintzei,Tremadocian,Tremadocian,0.0,349,3.9
+Cordylodus lindstromi,Tremadocian,Tremadocian,0.0,349,3.9
+Monocostodus sevierensis,Tremadocian,Tremadocian,0.0,349,3.9
+low diversity interval,Tremadocian,Tremadocian,0.0,3,3.9
+Tesselacauda,Tremadocian,Tremadocian,0.0,385,3.9
+E Hintze 1953,Tremadocian,Tremadocian,0.0,165,3.9
+Acanthodus lineatus,Tremadocian,Tremadocian,0.0,72,3.9
+Paltodus deltifer pristinus,Tremadocian,Tremadocian,0.0,273,3.9
+Psigraptus jacksoni,Tremadocian,Tremadocian,0.0,378,3.9
+Rhabdinopora flabelliformis / S. dichotomus,Tremadocian,Tremadocian,0.0,53,3.9
+Triograptus / Anisograptus,Tremadocian,Tremadocian,0.0,3,3.9
+Hysterolenus asiaticus,Tremadocian,Tremadocian,0.0,53,3.9
+Rhabdinopora flabelliformis anglica,Tremadocian,Tremadocian,0.0,27,3.9
+Rhabdinopora taojiangensis,Tremadocian,Tremadocian,0.0,378,3.9
+Kiaerograptus,Tremadocian,Tremadocian,0.0,27,3.9
+Rhabdinopora f. praeparabola / Rhabdinopora f. parabola,Tremadocian,Tremadocian,0.0,346,3.9
+Rhabdinopora socialis / flabelliformis / desmograptoides / parabola,Tremadocian,Tremadocian,0.0,3,3.9
+Paltodus spurius,Tremadocian,Tremadocian,0.0,177,3.9
+Cordylodus rotundatus,Tremadocian,Tremadocian,0.0,72,3.9
+Utahconus beimataoensis,Tremadocian,Tremadocian,0.0,72,3.9
+Bellefontia-Xenostegium,Tremadocian,Tremadocian,0.0,385,3.9
+Leiostegium-Kainella,Tremadocian,Tremadocian,0.0,385,3.9
+Paraplethopeltis,Tremadocian,Tremadocian,0.0,385,3.9
+C Hintze 1953,Tremadocian,Tremadocian,0.0,165,3.9
+D Hintze 1953,Tremadocian,Tremadocian,0.0,165,3.9
+Eopatokephalus-Ijacephalus,Tremadocian,Tremadocian,0.0,346,3.9
+Angochitina curvata,Darriwilian,Sandbian,1.0,3,3.9
+Laufeldochitina stentor,Darriwilian,Sandbian,1.0,9,3.9
+Prioniodus variabilis,Sandbian,Sandbian,0.0,50,3.9
+Eisenackitina rhenana,Sandbian,Sandbian,0.0,3,3.9
+Climacograptus peltifer / Climacograptus antiquus lineatus,Sandbian,Sandbian,0.0,346,3.9
+Dicranograptus sinensis,Sandbian,Sandbian,0.0,54,3.9
+Arrnoriachitina granulifera,Sandbian,Sandbian,0.0,9,3.9
+Crozonaspis chauveli,Sandbian,Sandbian,0.0,321,3.9
+Tenuiseptorthis loii,Sandbian,Sandbian,0.0,321,3.9
+Jezercia,Sandbian,Sandbian,0.0,321,3.9
+Marrolithus bureaui,Sandbian,Sandbian,0.0,321,3.9
+Scolopodus paucicostatus,Tremadocian,Darriwilian,3.0,72,3.9
+Scolopodus pseudoplanus,Tremadocian,Darriwilian,3.0,72,3.9
+Scolopodus opimus,Dapingian,Darriwilian,1.0,72,3.9
+Scolopodus quadraplicatus,Dapingian,Darriwilian,1.0,107,3.9
+Microzarkodina hagetiana,Darriwilian,Darriwilian,0.0,16,3.9
+Asaphus raniceps,Darriwilian,Darriwilian,0.0,16,3.9
+Microzarkodina ozarkodella,Darriwilian,Darriwilian,0.0,380,3.9
+Paroistodus horridus,Darriwilian,Darriwilian,0.0,15,3.9
+Anomalorthis,Darriwilian,Darriwilian,0.0,379,3.9
+Periodon zgierzensis,Darriwilian,Darriwilian,0.0,380,3.9
+Amorphognathus variabilis,Darriwilian,Darriwilian,0.0,372,3.9
+Acontiodus linxiensis,Floian,Darriwilian,2.0,72,3.9
+Eoplacognathus reclinatus,Darriwilian,Darriwilian,0.0,188,3.9
+Eoplacognathus robustus,Darriwilian,Darriwilian,0.0,188,3.9
+Plectodina fragilis,Darriwilian,Darriwilian,0.0,72,3.9
+Amorphognathus antivariabilis,Darriwilian,Darriwilian,0.0,372,3.9
+Microzakodina parva,Darriwilian,Darriwilian,0.0,16,3.9
+Histodiella holodentata–Tangshanodus tangshanensis,Dapingian,Dapingian,0.0,381,3.9
+Isograptus divergens,Dapingian,Dapingian,0.0,250,3.9
+K Ross 1968,Floian,Dapingian,1.0,165,3.9
+L Hintze 1953,Floian,Dapingian,1.0,165,3.9
+Conochitina raymondi,Floian,Floian,0.0,346,3.9
+Baltoniodus communis,Floian,Floian,0.0,72,3.9
+Corymbograptus deflexus,Floian,Floian,0.0,72,3.9
+Didymograptus deflexus,Floian,Floian,0.0,160,3.9
+Trigonocerca typica,Floian,Floian,0.0,165,3.9
+Carolinites nevadensis,Floian,Floian,0.0,386,3.9
+Strigigenalis plicolabeona,Floian,Floian,0.0,386,3.9
+Aurilobodus leptosomatus - Loxodus dissectus,Floian,Floian,0.0,381,3.9
+Presbynileus ibexensis,Floian,Floian,0.0,386,3.9
+Pseudocybele nasuta,Floian,Floian,0.0,386,3.9
+Pseudocybele paranasuta,Floian,Floian,0.0,386,3.9
+Hesperonomiella minor,Floian,Floian,0.0,165,3.9
+Pseudophyllograptus angustifolius elongatus,Floian,Floian,0.0,346,3.9
+Bolbocephalus stitti,Tremadocian,Floian,1.0,386,3.9
+Petigurus cullisoni,Tremadocian,Floian,1.0,386,3.9
+Strigigenalis caudata,Tremadocian,Floian,1.0,386,3.9
+Expansograptus protobalticus,Tremadocian,Floian,1.0,237,3.9
+Kiaerograptus supremus,Tremadocian,Tremadocian,0.0,346,3.9
+Benthamaspis rochmotis,Tremadocian,Floian,1.0,386,3.9
+Jeffersonia granosa,Tremadocian,Floian,1.0,386,3.9
+Randaynia saundersi,Tremadocian,Floian,1.0,386,3.9
+Litzicurus shawi,Tremadocian,Floian,1.0,386,3.9
+Psalikilus spinosum,Tremadocian,Floian,1.0,386,3.9
+Climacograptus tubuliferus,Katian,Katian,0.0,360,3.9
+Amorphognathus ventilatus,Sandbian,Hirnantian,2.0,9,3.9
+Fungochitina fungiformis,Katian,Katian,0.0,8,3.9
+Orthograptus truncatus var. intermedius,Katian,Katian,0.0,360,3.9
+Dicellograptus elegans,Katian,Katian,0.0,64,3.9
+Nemagraptus gracilis / Acrograptus serratulus / Oepikograptus bekkeri,Sandbian,Katian,1.0,400,3.9
+Cordylodus intermedius,Tremadocian,Tremadocian,0.0,385,3.9
+Dicellograptus salopiensis,Tremadocian,Tremadocian,0.0,53,3.9
+Adelograptus victoriae/ Paradelograptus antiquus,Tremadocian,Tremadocian,0.0,53,3.9
+Monograptus sedgwickii,Tremadocian,Tremadocian,0.0,53,3.9
+Anisograptus,Tremadocian,Tremadocian,0.0,346,3.9
+Araneograptus pulchellus,Tremadocian,Tremadocian,0.0,346,3.9
+Desmochitina minor typica / Desmochitina minor erinacea,Tremadocian,Tremadocian,0.0,346,3.9
+Kainella meridionalis,Tremadocian,Tremadocian,0.0,287,3.9
+Anisograptus mojotorensis,Tremadocian,Tremadocian,0.0,276,3.9
+Bryograptus,Tremadocian,Tremadocian,0.0,273,3.9
+Bienvillia tetragonalis - Conophrys minutula,Tremadocian,Tremadocian,0.0,287,3.9
+Kiaerograptus kiaeri,Tremadocian,Tremadocian,0.0,276,3.9
+Megistaspis gigas,Darriwilian,Darriwilian,0.0,16,3.9
+Megistaspis obtusicauda,Darriwilian,Darriwilian,0.0,16,3.9
+Paralenorthis-Orthidiella,Floian,Dapingian,1.0,165,3.9
+Rananasus brevicephalus,Tremadocian,Floian,1.0,386,3.9
+Komstad Limestone,Dapingian,Darriwilian,1.0,37,4.9
+Profilbekken,Floian,Darriwilian,2.0,326,4.9
+Formation A+B,Dapingian,Darriwilian,1.0,36,4.9
+Holen Limestone,Darriwilian,Darriwilian,0.0,21,4.9
+Sakyna,Darriwilian,Darriwilian,0.0,21,4.9
+Toila,Dapingian,Darriwilian,1.0,9,4.9
+Lanna Limestone,Dapingian,Darriwilian,1.0,21,4.9
+Gualcamayo,Darriwilian,Darriwilian,0.0,"100, 93",4.9
+Dawan,Dapingian,Darriwilian,1.0,21,4.9
+Guniutan,Dapingian,Darriwilian,1.0,21,4.9
+Kriukal,Dapingian,Darriwilian,1.0,21,4.9
+3b,Floian,Darriwilian,2.0,84,4.9
+Andouillé,Dapingian,Sandbian,2.0,224,4.9
+Le Pissot,Dapingian,Darriwilian,1.0,224,4.9
+Postolonnec,Dapingian,Sandbian,2.0,224,4.9
+Traveusot,Darriwilian,Sandbian,1.0,240,4.9
+Seydisehir,Tremadocian,Darriwilian,3.0,234,4.9
+Sobova,Dapingian,Darriwilian,1.0,234,4.9
+Tekmen Limestone,Dapingian,Darriwilian,1.0,234,4.9
+Argiles d'Azzel,Dapingian,Darriwilian,1.0,249,4.9
+Fezouata Upper,Floian,Floian,0.0,238,4.9
+Hassi Touareg,Sandbian,Katian,1.0,238,4.9
+Kasbah Leguine,Floian,Darriwilian,2.0,249,4.9
+Klabava,Floian,Darriwilian,2.0,249,4.9
+SAQ,Tremadocian,Darriwilian,3.0,249,4.9
+Zini,Floian,Floian,0.0,238,4.9
+Azzel Shale,Dapingian,Darriwilian,1.0,238,4.9
+Courrejou,Dapingian,Darriwilian,1.0,238,4.9
+Edjeleh,Floian,Katian,4.0,238,4.9
+Foum Ez Zeidiya Shaly,Dapingian,Darriwilian,1.0,238,4.9
+In Tahouite,Floian,Katian,4.0,238,4.9
+Kerloc'h,Dapingian,Darriwilian,1.0,238,4.9
+Joins,Dapingian,Dapingian,0.0,164,4.9
+Oil Creek,Darriwilian,Darriwilian,0.0,113,4.9
+Providence Island,Darriwilian,Darriwilian,0.0,51,4.9
+Owen Creek,Darriwilian,Darriwilian,0.0,114,4.9
+Kanoshian,Dapingian,Darriwilian,1.0,365,4.9
+Kanosh,Dapingian,Darriwilian,1.0,50,4.9
+Lehman,Darriwilian,Darriwilian,0.0,50,4.9
+Pinesburg Station Dolomite,Dapingian,Darriwilian,1.0,113,4.9
+Blakely Sandstone,Dapingian,Darriwilian,1.0,114,4.9
+Everton,Dapingian,Darriwilian,1.0,88,4.9
+Aguathuna Upper,Dapingian,Darriwilian,1.0,114,4.9
+Antelope Valley,Darriwilian,Darriwilian,0.0,39,4.9
+Badger Flat Limestone,Floian,Sandbian,3.0,114,4.9
+Bay Fjord,Dapingian,Darriwilian,1.0,42,4.9
+Beekmantown Group,Tremadocian,Darriwilian,3.0,114,4.9
+Bellefonte,Floian,Floian,0.0,59,4.9
+Bony Falls,Tremadocian,Darriwilian,3.0,114,4.9
+Bruggers Sandstone,Floian,Darriwilian,2.0,114,4.9
+Bulleys Lump,Floian,Darriwilian,2.0,114,4.9
+Carillon,Darriwilian,Darriwilian,0.0,51,4.9
+Duo Lake,Floian,Darriwilian,2.0,114,4.9
+Knox Super,Tremadocian,Darriwilian,3.0,114,4.9
+Las Norias,Tremadocian,Darriwilian,3.0,114,4.9
+Ledbetter,Tremadocian,Darriwilian,3.0,114,4.9
+Marathon,Tremadocian,Darriwilian,3.0,114,4.9
+Narwhale Sound,Floian,Darriwilian,2.0,114,4.9
+Ontelaunee Dolomite,Floian,Darriwilian,2.0,114,4.9
+Outram,Tremadocian,Floian,1.0,190,4.9
+Road River,Tremadocian,Darriwilian,3.0,42,4.9
+San Juan,Tremadocian,Darriwilian,3.0,114,4.9
+Ship Point 3,Floian,Darriwilian,2.0,114,4.9
+Ship Point 4,Floian,Darriwilian,2.0,114,4.9
+Skoki,Floian,Darriwilian,2.0,42,4.9
+St. George,Floian,Darriwilian,2.0,114,4.9
+Sunblood,Dapingian,Darriwilian,1.0,42,4.9
+Carrilion,Dapingian,Darriwilian,1.0,365,4.9
+Solomons Corner,Dapingian,Darriwilian,1.0,365,4.9
+Knox,Dapingian,Darriwilian,1.0,50,4.9
+Angarella beds,Floian,Darriwilian,2.0,27,4.9
+Vikhorev,Floian,Darriwilian,2.0,346,4.9
+Vihorevian,Dapingian,Darriwilian,1.0,107,4.9
+Langevoja,Darriwilian,Darriwilian,0.0,16,4.9
+Khitin,Floian,Darriwilian,2.0,346,4.9
+Lunshan,Tremadocian,Tremadocian,0.0,52,4.9
+Nantsinkuan,Tremadocian,Tremadocian,0.0,"367, 52",4.9
+Xialingnangou,Tremadocian,Darriwilian,3.0,72,4.9
+Yeli,Tremadocian,Tremadocian,0.0,77,4.9
+Nanjinguan,Tremadocian,Darriwilian,3.0,61,4.9
+Yehli,Tremadocian,Tremadocian,0.0,250,4.9
+Kimai,Floian,Darriwilian,2.0,346,4.9
+Muktei,Floian,Darriwilian,2.0,346,4.9
+Pizarras de Navas de Estena,Floian,Darriwilian,2.0,366,4.9
+Sandaogou,Floian,Darriwilian,2.0,72,4.9
+Zhuozishan,Darriwilian,Darriwilian,0.0,380,4.9
+Kuniutan,Darriwilian,Darriwilian,0.0,"367, 52",4.9
+Shangmajiagou,Floian,Darriwilian,2.0,72,4.9
+Zitai,Floian,Darriwilian,2.0,72,4.9
+Hunderum,Darriwilian,Darriwilian,0.0,16,4.9
+Latorp Limestone,Tremadocian,Floian,1.0,33,4.9
+Tøyen Shale,Floian,Floian,0.0,33,4.9
+1c,Tremadocian,Tremadocian,0.0,244,4.9
+1d,Tremadocian,Tremadocian,0.0,244,4.9
+2a,Floian,Floian,0.0,244,4.9
+2b,Floian,Floian,0.0,84,4.9
+2c,Floian,Floian,0.0,159,4.9
+3a,Floian,Dapingian,1.0,84,4.9
+Darriwilian 4,Darriwilian,Darriwilian,0.0,12,4.9
+Darriwilian,Darriwilian,Darriwilian,0.0,3,4.9
+Sarka,Darriwilian,Darriwilian,0.0,249,4.9
+Bedinan,Darriwilian,Katian,2.0,234,4.9
+Kilgen Lake,Darriwilian,Katian,2.0,234,4.9
+Sort Tepe,Darriwilian,Katian,2.0,234,4.9
+Argiles d'Oued Saret,Darriwilian,Sandbian,1.0,249,4.9
+Bir Ben Tartar,Darriwilian,Sandbian,1.0,249,4.9
+Hanadir,Darriwilian,Darriwilian,0.0,249,4.9
+Tachilla,Darriwilian,Darriwilian,0.0,249,4.9
+Nelidov,Tremadocian,Darriwilian,3.0,346,4.9
+Chazy,Darriwilian,Sandbian,1.0,"51, 114",4.9
+Laval,Darriwilian,Sandbian,1.0,51,4.9
+Row Park,Darriwilian,Darriwilian,0.0,113,4.9
+Dutchtown,Darriwilian,Sandbian,1.0,114,4.9
+McLish,Darriwilian,Darriwilian,0.0,50,4.9
+St. Peter Sandstone,Darriwilian,Sandbian,1.0,114,4.9
+Womble Shale,Darriwilian,Sandbian,1.0,114,4.9
+Blackford,Darriwilian,Darriwilian,0.0,114,4.9
+Fort Pena,Darriwilian,Sandbian,1.0,114,4.9
+Heimbjerge,Darriwilian,Sandbian,1.0,114,4.9
+Pena Blanca Quartzite,Darriwilian,Darriwilian,0.0,114,4.9
+Stones River,Darriwilian,Sandbian,1.0,114,4.9
+Table Head,Darriwilian,Darriwilian,0.0,112,4.9
+Lenoir,Darriwilian,Darriwilian,0.0,114,4.9
+Tulip Creek,Darriwilian,Sandbian,1.0,113,4.9
+Wells,Darriwilian,Darriwilian,0.0,50,4.9
+Crown Point,Darriwilian,Sandbian,1.0,51,4.9
+Crystal Peak,Darriwilian,Darriwilian,0.0,114,4.9
+Day Point,Darriwilian,Darriwilian,0.0,39,4.9
+Eureka Quartzite,Katian,Katian,0.0,17,4.9
+Dawangou,Floian,Darriwilian,2.0,74,4.9
+Smithville,Floian,Floian,0.0,114,4.9
+Snowtown,Darriwilian,Darriwilian,0.0,124,4.9
+Almelund Shale,Darriwilian,Sandbian,1.0,37,4.9
+Yunoyag,Darriwilian,Darriwilian,0.0,346,4.9
+Aluoja,Darriwilian,Darriwilian,0.0,3,4.9
+Valaste,Darriwilian,Darriwilian,0.0,3,4.9
+Aber Mawr Shales,Darriwilian,Darriwilian,0.0,124,4.9
+Ballybro,Dapingian,Darriwilian,1.0,124,4.9
+Brittstown,Darriwilian,Darriwilian,0.0,124,4.9
+Conlanstown,Dapingian,Darriwilian,1.0,124,4.9
+Corn Hill,Darriwilian,Darriwilian,0.0,124,4.9
+Cregennen,Darriwilian,Darriwilian,0.0,124,4.9
+Creggan Mooar,Floian,Darriwilian,2.0,124,4.9
+Crystal Tuff Lower,Darriwilian,Darriwilian,0.0,124,4.9
+Derrylea,Dapingian,Darriwilian,1.0,124,4.9
+Fishguard Volcanic,Darriwilian,Darriwilian,0.0,124,4.9
+Fournocks,Floian,Darriwilian,2.0,124,4.9
+Glenummera,Darriwilian,Darriwilian,0.0,124,4.9
+Hill of Slane,Darriwilian,Darriwilian,0.0,124,4.9
+Hilltown,Darriwilian,Darriwilian,0.0,124,4.9
+Hope Shale,Darriwilian,Darriwilian,0.0,124,4.9
+Injebreck,Dapingian,Darriwilian,1.0,124,4.9
+Kilmacthomas,Tremadocian,Darriwilian,3.0,124,4.9
+Kirkland,Dapingian,Darriwilian,1.0,124,4.9
+Kirkland Conglomerate,Darriwilian,Sandbian,1.0,124,4.9
+Kirkstile,Floian,Darriwilian,2.0,124,4.9
+Llanfallteg,Dapingian,Darriwilian,1.0,124,4.9
+Llyn y Gafr Volcanic,Darriwilian,Darriwilian,0.0,124,4.9
+Maughold,Floian,Darriwilian,2.0,124,4.9
+Maumtrasna,Darriwilian,Sandbian,1.0,124,4.9
+Mweelrea,Darriwilian,Sandbian,1.0,124,4.9
+Nant Ffrancon_Sub,Dapingian,Sandbian,2.0,124,4.9
+Offrwm Volcanic,Dapingian,Darriwilian,1.0,124,4.9
+Rosroe,Darriwilian,Darriwilian,0.0,124,4.9
+Serw,Sandbian,Sandbian,0.0,92,4.9
+Skiddaw,Tremadocian,Darriwilian,3.0,124,4.9
+Tarn Moor,Dapingian,Darriwilian,1.0,124,4.9
+Tyrone Igneous Complex,Floian,Darriwilian,2.0,124,4.9
+White Island Bridge,Darriwilian,Darriwilian,0.0,124,4.9
+Hulo,Floian,Sandbian,3.0,"54, 277",4.9
+Meitan,Darriwilian,Darriwilian,0.0,54,4.9
+Meitan Upper,Dapingian,Darriwilian,1.0,54,4.9
+Elnes,Darriwilian,Sandbian,1.0,29,4.9
+Helskjer,Darriwilian,Darriwilian,0.0,104,4.9
+Huk,Dapingian,Dapingian,0.0,28,4.9
+Rognstranda,Darriwilian,Darriwilian,0.0,29,4.9
+Stein,Dapingian,Darriwilian,1.0,29,4.9
+Svartodden,Darriwilian,Darriwilian,0.0,28,4.9
+Dashaba,Darriwilian,Sandbian,1.0,"367, 52",4.9
+Qiaojia Upper,Darriwilian,Sandbian,1.0,52,4.9
+Shihtzupu,Darriwilian,Sandbian,1.0,64,4.9
+Daguanshan,Floian,Darriwilian,2.0,"367, 52",4.9
+Alpartir,Darriwilian,Darriwilian,0.0,310,4.9
+Marité,Darriwilian,Darriwilian,0.0,310,4.9
+Saergan,Floian,Sandbian,3.0,74,4.9
+Weston,Darriwilian,Darriwilian,0.0,376,4.9
+Moitiers d'Allonne,Darriwilian,Darriwilian,0.0,337,4.9
+Asaphus Ash,Darriwilian,Darriwilian,0.0,124,4.9
+Assise de Huy,Dapingian,Darriwilian,1.0,240,4.9
+Assise de Sart-Berbard,Dapingian,Darriwilian,1.0,240,4.9
+Assise de Vitrival-Bruyère,Darriwilian,Sandbian,1.0,240,4.9
+Brzeziny Upper,Darriwilian,Darriwilian,0.0,240,4.9
+Bukowka Mojcza Sandstone & Limestone,Darriwilian,Darriwilian,0.0,240,4.9
+Craig-y-Llam,Darriwilian,Sandbian,1.0,240,4.9
+Didymograptus murchisoni Shales,Darriwilian,Darriwilian,0.0,240,4.9
+Llandeilo Flags,Darriwilian,Darriwilian,0.0,240,4.9
+Llyn-y-Gafr spilitic,Darriwilian,Darriwilian,0.0,240,4.9
+Luarca Shales,Darriwilian,Sandbian,1.0,240,4.9
+Pomorze,Darriwilian,Katian,2.0,240,4.9
+Schistes de Postolonnec,Darriwilian,Katian,2.0,240,4.9
+Seo,Dapingian,Sandbian,2.0,240,4.9
+Urville,Darriwilian,Darriwilian,0.0,240,4.9
+Cashions Creek,Darriwilian,Sandbian,1.0,203,4.9
+Chaitsun Lower,Tremadocian,Darriwilian,3.0,250,4.9
+Charchaq,Sandbian,Sandbian,0.0,74,4.9
+Chayu,Floian,Darriwilian,2.0,250,4.9
+Datianba,Darriwilian,Sandbian,1.0,21,4.9
+Diaochuanggou,Floian,Katian,4.0,250,4.9
+Dongguashan,Floian,Darriwilian,2.0,250,4.9
+Fengdonggang,Floian,Sandbian,3.0,250,4.9
+Fengfeng,Darriwilian,Katian,2.0,250,4.9
+Fenggou,Floian,Darriwilian,2.0,250,4.9
+Gezhuang,Floian,Sandbian,3.0,250,4.9
+Hsiangyang,Floian,Darriwilian,2.0,250,4.9
+Huangai,Floian,Darriwilian,2.0,250,4.9
+Jiuxi,Floian,Sandbian,3.0,250,4.9
+Klimoli,Floian,Darriwilian,2.0,250,4.9
+Laikuoshan,Floian,Sandbian,3.0,250,4.9
+Lengshuigou,Floian,Sandbian,3.0,250,4.9
+Longmendong,Darriwilian,Katian,2.0,250,4.9
+Machiakou,Floian,Darriwilian,2.0,250,4.9
+Miaopo,Darriwilian,Sandbian,1.0,64,4.9
+Pagoda,Sandbian,Katian,1.0,"64, 54",4.9
+Qixiling,Floian,Darriwilian,2.0,250,4.9
+Sargan,Floian,Sandbian,3.0,250,4.9
+Shatang,Darriwilian,Sandbian,1.0,250,4.9
+Shihtien,Floian,Darriwilian,2.0,250,4.9
+Shihuigou,Floian,Darriwilian,2.0,250,4.9
+Siliangssu,Floian,Katian,4.0,250,4.9
+Tongshan,Floian,Sandbian,3.0,250,4.9
+Tumuxiuke,Darriwilian,Katian,2.0,103,4.9
+Weifeng,Tremadocian,Darriwilian,3.0,250,4.9
+Woboer,Floian,Darriwilian,2.0,250,4.9
+Wulalike,Darriwilian,Darriwilian,0.0,372,4.9
+Xiahuangkeng,Floian,Darriwilian,2.0,250,4.9
+Xiangguletag,Tremadocian,Darriwilian,3.0,250,4.9
+Xianlinpu,Floian,Darriwilian,2.0,250,4.9
+Xiaotan,Floian,Darriwilian,2.0,250,4.9
+Yahua,Tremadocian,Darriwilian,3.0,250,4.9
+Yangzhuang,Floian,Sandbian,3.0,250,4.9
+Yaoxian,Floian,Katian,4.0,250,4.9
+Yenchi,Floian,Sandbian,3.0,250,4.9
+Yenwashan,Sandbian,Katian,1.0,54,4.9
+Yuhong,Darriwilian,Sandbian,1.0,250,4.9
+Basco,Floian,Katian,4.0,176,4.9
+Perkins Canyon,Floian,Katian,4.0,176,4.9
+Petes Summit,Dapingian,Sandbian,2.0,176,4.9
+Phi Kappa,Katian,Katian,0.0,179,4.9
+Snow Canyon,Floian,Darriwilian,2.0,176,4.9
+Valmy,Floian,Katian,4.0,176,4.9
+Abereiddi Tuff,Darriwilian,Darriwilian,0.0,124,4.9
+Auchensol Bridge,Darriwilian,Sandbian,1.0,124,4.9
+Auchensoul Limestone,Darriwilian,Darriwilian,0.0,124,4.9
+Betton Shale,Darriwilian,Darriwilian,0.0,124,4.9
+Bryanstown,Darriwilian,Darriwilian,0.0,124,4.9
+Bunmahon,Darriwilian,Darriwilian,0.0,124,4.9
+Caerhys Shale,Darriwilian,Darriwilian,0.0,124,4.9
+Confinis,Darriwilian,Sandbian,1.0,124,4.9
+Cyffredin Shale,Darriwilian,Darriwilian,0.0,124,4.9
+Downan Point Lava,Darriwilian,Sandbian,1.0,124,4.9
+Dunabrattin Shale,Darriwilian,Darriwilian,0.0,124,4.9
+Glendavock,Darriwilian,Darriwilian,0.0,124,4.9
+Kirkton,Darriwilian,Sandbian,1.0,124,4.9
+Lan Flags,Darriwilian,Darriwilian,0.0,124,4.9
+Lettermullen,Darriwilian,Sandbian,1.0,124,4.9
+Minuntian,Darriwilian,Darriwilian,0.0,124,4.9
+Tramore Limestone,Darriwilian,Sandbian,1.0,124,4.9
+Uggool,Darriwilian,Darriwilian,0.0,124,4.9
+Weston Flags,Darriwilian,Darriwilian,0.0,124,4.9
+Antelope Valley Limestone Rhysostrophia,Darriwilian,Darriwilian,0.0,160,4.9
+Engervik,Darriwilian,Darriwilian,0.0,104,4.9
+Heggen,Darriwilian,Darriwilian,0.0,29,4.9
+Sjøstrand,Floian,Floian,0.0,104,4.9
+Foum Ez Zeidiya,Darriwilian,Darriwilian,0.0,238,4.9
+Klimoli Lower,Floian,Darriwilian,2.0,55,4.9
+El Higado,Tremadocian,Darriwilian,3.0,99,4.9
+Los Azules Lower,Darriwilian,Darriwilian,0.0,128,4.9
+Duboviki,Floian,Darriwilian,2.0,350,4.9
+Kandle,Darriwilian,Darriwilian,0.0,9,4.9
+Loobu,Darriwilian,Darriwilian,0.0,9,4.9
+Segerstad Limestone,Darriwilian,Darriwilian,0.0,"21, 9",4.9
+Skärlöv,Darriwilian,Darriwilian,0.0,9,4.9
+Stirnas,Darriwilian,Darriwilian,0.0,"21, 9",4.9
+Vämb,Darriwilian,Darriwilian,0.0,9,4.9
+Bellburns,Darriwilian,Darriwilian,0.0,42,4.9
+Crocker Bay,Dapingian,Darriwilian,1.0,42,4.9
+Green Sandstone,Darriwilian,Darriwilian,0.0,42,4.9
+Hare Island,Dapingian,Darriwilian,1.0,42,4.9
+Ship Point Member C,Darriwilian,Darriwilian,0.0,42,4.9
+Kårgärde Limestone,Floian,Darriwilian,2.0,11,4.9
+Vikarbyn Limestone,Floian,Darriwilian,2.0,11,4.9
+Mc Lish,Darriwilian,Darriwilian,0.0,113,4.9
+Estancia San Isidro,Darriwilian,Darriwilian,0.0,299,4.9
+Yerba Loca,Darriwilian,Sandbian,1.0,299,4.9
+MDICE,Darriwilian,Darriwilian,0.0,21,4.9
+Kelimoti,Floian,Darriwilian,2.0,372,4.9
+Balgashoky,Floian,Darriwilian,2.0,370,4.9
+Uzunbulak,Darriwilian,Darriwilian,0.0,370,4.9
+Deep Kill Shale,Floian,Darriwilian,2.0,146,4.9
+Burgen,Darriwilian,Darriwilian,0.0,88,4.9
+Jasper,Darriwilian,Darriwilian,0.0,88,4.9
+Sandaokan,Dapingian,Darriwilian,1.0,"381, 380",4.9
+Table Point,Darriwilian,Darriwilian,0.0,4,4.9
+Beianzhuang,Darriwilian,Darriwilian,0.0,381,4.9
+Watson Ranch,Darriwilian,Darriwilian,0.0,114,4.9
+Goldwyer,Darriwilian,Darriwilian,0.0,220,4.9
+Nora,Darriwilian,Darriwilian,0.0,220,4.9
+Stairway Sandstone,Darriwilian,Darriwilian,0.0,215,4.9
+Willara,Floian,Darriwilian,2.0,220,4.9
+Corey,Darriwilian,Darriwilian,0.0,365,4.9
+Horn Valley Siltstone,Floian,Floian,0.0,230,4.9
+Furudal Limestone,Darriwilian,Sandbian,1.0,11,4.9
+Killeröd,Darriwilian,Sandbian,1.0,37,4.9
+Lachug,Darriwilian,Darriwilian,0.0,346,4.9
+Guindo Shales,Darriwilian,Darriwilian,0.0,313,4.9
+Borrowdale Volcanic,Sandbian,Sandbian,0.0,92,4.9
+Hendre Shales,Darriwilian,Sandbian,1.0,92,4.9
+Jeleniow,Darriwilian,Katian,2.0,240,4.9
+May,Sandbian,Sandbian,0.0,224,4.9
+Morawica Shale,Darriwilian,Katian,2.0,240,4.9
+Glenkiln Shale,Sandbian,Sandbian,0.0,124,4.9
+Meadowtown,Darriwilian,Darriwilian,0.0,92,4.9
+Rorrington Shale,Darriwilian,Sandbian,1.0,92,4.9
+McAffe Quartzite,Darriwilian,Sandbian,1.0,176,4.9
+Folkeslunda,Darriwilian,Darriwilian,0.0,9,4.9
+Lindegård Mudstone,Darriwilian,Sandbian,1.0,9,4.9
+Bellewstown,Darriwilian,Darriwilian,0.0,124,4.9
+Belvoir,Sandbian,Katian,1.0,240,4.9
+Castell Limestone,Darriwilian,Darriwilian,0.0,124,4.9
+Coronea,Darriwilian,Darriwilian,0.0,124,4.9
+Craigmalloch,Darriwilian,Sandbian,1.0,124,4.9
+Currarie,Darriwilian,Sandbian,1.0,124,4.9
+Noblehouse Lava,Darriwilian,Darriwilian,0.0,124,4.9
+Red Island,Darriwilian,Darriwilian,0.0,124,4.9
+Stinchar Limestone,Darriwilian,Sandbian,1.0,124,4.9
+Traboyack,Darriwilian,Sandbian,1.0,124,4.9
+Antelope Valley Limestone Leptellina,Darriwilian,Darriwilian,0.0,160,4.9
+Antelope Valley Limestone Sowerbyella,Darriwilian,Darriwilian,0.0,160,4.9
+Håkavik,Darriwilian,Sandbian,1.0,29,4.9
+Poultney Upper,Darriwilian,Sandbian,1.0,157,4.9
+Stuyvesant Falls Upper,Darriwilian,Sandbian,1.0,157,4.9
+Karasu,Dapingian,Darriwilian,1.0,329,4.9
+Äjchikhin,Darriwilian,Katian,2.0,329,4.9
+Karastun,Darriwilian,Katian,2.0,329,4.9
+Foum Ez Zeidiya Sandy,Darriwilian,Sandbian,1.0,238,4.9
+Oued Saret Sandstone,Darriwilian,Katian,2.0,238,4.9
+Oued Saret Shally,Darriwilian,Sandbian,1.0,238,4.9
+Kerarvail,Darriwilian,Darriwilian,0.0,238,4.9
+Dobrotivá,Darriwilian,Darriwilian,0.0,249,4.9
+First Bani,Darriwilian,Darriwilian,0.0,249,4.9
+Bou-Zeroual,Darriwilian,Darriwilian,0.0,238,4.9
+Guezzart,Darriwilian,Darriwilian,0.0,238,4.9
+Izegguirene,Darriwilian,Sandbian,1.0,238,4.9
+Kerarmor,Darriwilian,Sandbian,1.0,238,4.9
+Morgat,Darriwilian,Darriwilian,0.0,238,4.9
+Ouine-Inirne,Darriwilian,Darriwilian,0.0,238,4.9
+Taddrist,Darriwilian,Darriwilian,0.0,238,4.9
+New Market Limestone,Darriwilian,Darriwilian,0.0,114,4.9
+Darriwilian 3,Darriwilian,Darriwilian,0.0,12,4.9
+Coroico,Darriwilian,Darriwilian,0.0,288,4.9
+Arline,Darriwilian,Sandbian,1.0,188,4.9
+Block House,Darriwilian,Sandbian,1.0,80,4.9
+Fetzer,Darriwilian,Darriwilian,0.0,65,4.9
+Whitesburg,Darriwilian,Darriwilian,0.0,65,4.9
+Laval Lower,Darriwilian,Darriwilian,0.0,51,4.9
+Laval Middle,Darriwilian,Sandbian,1.0,51,4.9
+Mingan,Darriwilian,Sandbian,1.0,51,4.9
+Rockcliffe,Darriwilian,Sandbian,1.0,51,4.9
+Seby,Darriwilian,Darriwilian,0.0,9,4.9
+Pratt Ferry,Darriwilian,Darriwilian,0.0,44,4.9
+Portezuelo del Tontal,Sandbian,Sandbian,0.0,333,4.9
+Ballast Chert,Darriwilian,Darriwilian,0.0,132,4.9
+Billabong Creek Limestone,Darriwilian,Darriwilian,0.0,132,4.9
+Narooma Chert,Darriwilian,Darriwilian,0.0,132,4.9
+Nattery Chert,Darriwilian,Darriwilian,0.0,132,4.9
+Wahringa Limestone,Darriwilian,Darriwilian,0.0,132,4.9
+Watonga,Darriwilian,Darriwilian,0.0,132,4.9
+Copenhagen,Sandbian,Katian,1.0,22,4.9
+New Market,Darriwilian,Sandbian,1.0,113,4.9
+Veltsy,Darriwilian,Sandbian,1.0,350,4.9
+Ryd,Darriwilian,Sandbian,1.0,9,4.9
+Klimoli Upper,Darriwilian,Darriwilian,0.0,55,4.9
+Pingliang,Sandbian,Sandbian,0.0,372,4.9
+Heituao,Floian,Darriwilian,2.0,250,4.9
+Darriwilian 1,Darriwilian,Darriwilian,0.0,12,4.9
+Ningkuo Member 4,Dapingian,Darriwilian,1.0,54,4.9
+Jiangjiawei,Floian,Darriwilian,2.0,250,4.9
+Lanmutan,Darriwilian,Darriwilian,0.0,250,4.9
+Laozhai,Floian,Darriwilian,2.0,250,4.9
+Ningkuo,Floian,Dapingian,1.0,54,4.9
+Shuanghe,Floian,Darriwilian,2.0,250,4.9
+Tanjiagou,Dapingian,Darriwilian,1.0,250,4.9
+Tonggao,Floian,Darriwilian,2.0,250,4.9
+Xinertai,Tremadocian,Darriwilian,3.0,250,4.9
+Xiqiuhe,Floian,Darriwilian,2.0,250,4.9
+Yijianfang,Darriwilian,Darriwilian,0.0,57,4.9
+Zotzeshan,Floian,Darriwilian,2.0,250,4.9
+Acoite Upper,Floian,Darriwilian,2.0,237,4.9
+Benjamin Constant,Tremadocian,Darriwilian,3.0,237,4.9
+Voskresenka,Floian,Darriwilian,2.0,329,4.9
+Iäyrak,Floian,Floian,0.0,328,4.9
+Ilovat,Floian,Floian,0.0,328,4.9
+Qiaojia Lower,Floian,Darriwilian,2.0,52,4.9
+Xianlinbu,Floian,Darriwilian,2.0,"367, 53",4.9
+Houping,Dapingian,Darriwilian,1.0,367,4.9
+Darriwilian 2,Darriwilian,Darriwilian,0.0,12,4.9
+Volgin,Darriwilian,Darriwilian,0.0,346,4.9
+Los Azules Middle,Darriwilian,Darriwilian,0.0,294,4.9
+Baldone,Darriwilian,Darriwilian,0.0,"21, 9",4.9
+Pakri,Darriwilian,Darriwilian,0.0,14,4.9
+Goose Tickle,Darriwilian,Katian,2.0,104,4.9
+American Tickle,Floian,Darriwilian,2.0,104,4.9
+Black Cove,Darriwilian,Darriwilian,0.0,104,4.9
+Cape Cormorant,Floian,Darriwilian,2.0,104,4.9
+Likhall,Darriwilian,Darriwilian,0.0,392,4.9
+Table Cove,Darriwilian,Darriwilian,0.0,380,4.9
+Formation D,Darriwilian,Darriwilian,0.0,36,4.9
+Obukhovo,Darriwilian,Darriwilian,0.0,350,4.9
+Las Aguaditas,Darriwilian,Sandbian,1.0,347,4.9
+Täljsten,Darriwilian,Darriwilian,0.0,392,4.9
+Acoite,Floian,Darriwilian,2.0,272,4.9
+Hølonda Limestone,Darriwilian,Darriwilian,0.0,379,4.9
+Antelope Valley Limestone Maclurites,Darriwilian,Darriwilian,0.0,160,4.9
+Porth Llauog,Darriwilian,Darriwilian,0.0,355,4.9
+Tollev,Floian,Darriwilian,2.0,346,4.9
+Poultney,Floian,Darriwilian,2.0,146,4.9
+Vuelta de Las Tolas,Floian,Darriwilian,2.0,323,4.9
+Molles,Darriwilian,Darriwilian,0.0,338,4.9
+Cwm Clwyd Ash,Darriwilian,Darriwilian,0.0,240,4.9
+Didymograptus bifidus Shale,Darriwilian,Darriwilian,0.0,240,4.9
+Maesgwm Shales,Darriwilian,Darriwilian,0.0,240,4.9
+Skiddaw Slate,Dapingian,Darriwilian,1.0,240,4.9
+Emanuel Lower,Tremadocian,Darriwilian,3.0,77,4.9
+Emanuel Middle,Tremadocian,Darriwilian,3.0,77,4.9
+Karmberg,Dapingian,Darriwilian,1.0,203,4.9
+Las Chacritas Upper,Darriwilian,Darriwilian,0.0,15,4.9
+Lysaker,Dapingian,Dapingian,0.0,28,4.9
+Ushkyzyl,Floian,Darriwilian,2.0,370,4.9
+Pizzaras Guindo,Darriwilian,Darriwilian,0.0,366,4.9
+Pizarras de Navalaceite,Darriwilian,Darriwilian,0.0,366,4.9
+Pizarras de Valmosillo,Darriwilian,Darriwilian,0.0,366,4.9
+Valim,Darriwilian,Darriwilian,0.0,350,4.9
+Skövde,Darriwilian,Darriwilian,0.0,"21, 9",4.9
+Väo,Darriwilian,Darriwilian,0.0,"21, 9",4.9
+Källa Limestone,Darriwilian,Darriwilian,0.0,343,4.9
+Gullhögen,Darriwilian,Darriwilian,0.0,9,4.9
+Taurupe,Darriwilian,Sandbian,1.0,9,4.9
+Persnäs,Darriwilian,Sandbian,1.0,344,4.9
+Korgekallas,Darriwilian,Sandbian,1.0,"21, 9",4.9
+Porogi,Darriwilian,Darriwilian,0.0,350,4.9
+Elgencha,Darriwilian,Darriwilian,0.0,346,4.9
+Wiatrowiec Limestone,Darriwilian,Darriwilian,0.0,38,4.9
+Las Chacritas Lower,Darriwilian,Darriwilian,0.0,15,4.9
+Haedon,Darriwilian,Darriwilian,0.0,132,4.9
+Oakdale,Darriwilian,Darriwilian,0.0,132,4.9
+Keily,Dapingian,Darriwilian,1.0,190,4.9
+Ship Point Member B,Floian,Darriwilian,2.0,42,4.9
+Herram,Dapingian,Darriwilian,1.0,29,4.9
+Hukodden,Dapingian,Dapingian,0.0,28,4.9
+Yapeenian 2,Dapingian,Dapingian,0.0,12,4.9
+Rockdale Run,Dapingian,Dapingian,0.0,113,4.9
+Shingle,Tremadocian,Dapingian,2.0,113,4.9
+West Spring Creek,Floian,Floian,0.0,59,4.9
+Metaline,Tremadocian,Dapingian,2.0,114,4.9
+Coolibah,Tremadocian,Floian,1.0,230,4.9
+Luke Hill,Floian,Dapingian,1.0,365,4.9
+Ogdensburg,Floian,Dapingian,1.0,365,4.9
+Dead Wood,Dapingian,Dapingian,0.0,39,4.9
+Juab,Dapingian,Dapingian,0.0,39,4.9
+Manitou,Dapingian,Dapingian,0.0,39,4.9
+Prairie Du Chien,Dapingian,Dapingian,0.0,39,4.9
+Allt Lwyd,Floian,Dapingian,1.0,124,4.9
+Balcreuchan,Dapingian,Dapingian,0.0,124,4.9
+Barrule Slates,Floian,Dapingian,1.0,124,4.9
+Brownsford,Dapingian,Dapingian,0.0,124,4.9
+Buttermere,Dapingian,Dapingian,0.0,124,4.9
+Copney Pillow Lava,Floian,Dapingian,1.0,124,4.9
+Cwm Felin Boeth,Floian,Dapingian,1.0,124,4.9
+Donard,Floian,Dapingian,1.0,124,4.9
+Glen Rushen,Floian,Dapingian,1.0,124,4.9
+Kilcarry,Floian,Dapingian,1.0,124,4.9
+Lady Port,Dapingian,Dapingian,0.0,124,4.9
+Loch Faoilean,Floian,Dapingian,1.0,124,4.9
+Milltown,Floian,Dapingian,1.0,124,4.9
+Murton,Dapingian,Dapingian,0.0,124,4.9
+Mytton Flags,Floian,Dapingian,1.0,124,4.9
+Oaklands,Floian,Dapingian,1.0,124,4.9
+Oldcourt,Dapingian,Dapingian,0.0,124,4.9
+Pontyfenni,Floian,Dapingian,1.0,124,4.9
+Prioryland,Dapingian,Dapingian,0.0,240,4.9
+Raven Gill,Floian,Dapingian,1.0,124,4.9
+Riverchapel,Floian,Dapingian,1.0,124,4.9
+Ryans Farm,Dapingian,Dapingian,0.0,124,4.9
+Sheeffry,Dapingian,Dapingian,0.0,124,4.9
+Srah,Dapingian,Dapingian,0.0,124,4.9
+Tankerville Flags,Dapingian,Dapingian,0.0,124,4.9
+Tawnyinagh,Dapingian,Dapingian,0.0,124,4.9
+Tourmakeady,Floian,Dapingian,1.0,124,4.9
+Tudwal Sandstone,Dapingian,Dapingian,0.0,124,4.9
+Wig Bach,Floian,Dapingian,1.0,124,4.9
+Antelope Valley Limestone Basal,Dapingian,Dapingian,0.0,160,4.9
+Tuloy,Floian,Floian,0.0,328,4.9
+Castlemainian 3,Dapingian,Dapingian,0.0,12,4.9
+Castlemainian 2,Dapingian,Dapingian,0.0,12,4.9
+Horns Udde,Dapingian,Dapingian,0.0,36,4.9
+Selikedaban,Dapingian,Sandbian,2.0,78,4.9
+Loma del Kilómetro,Floian,Dapingian,1.0,323,4.9
+Bruddesta,Floian,Dapingian,1.0,36,4.9
+Broken Skull,Tremadocian,Floian,1.0,114,4.9
+Catoche,Floian,Floian,0.0,114,4.9
+Eleanor River,Floian,Dapingian,1.0,114,4.9
+Glenogle,Dapingian,Dapingian,0.0,42,4.9
+Nadlo Point,Floian,Dapingian,1.0,42,4.9
+Ship Point,Tremadocian,Dapingian,2.0,42,4.9
+Southern Arm,Floian,Dapingian,1.0,42,4.9
+Shabakty,Floian,Dapingian,1.0,370,4.9
+Olenidsletta,Floian,Dapingian,1.0,326,4.9
+Shuiquanling,Floian,Dapingian,1.0,72,4.9
+Xiamajiagou,Floian,Dapingian,1.0,72,4.9
+Saka,Dapingian,Dapingian,0.0,334,4.9
+Antelope Valley Limestone Sponge,Dapingian,Dapingian,0.0,160,4.9
+Brzeziny Lower,Dapingian,Dapingian,0.0,240,4.9
+Grès Armoricain,Floian,Floian,0.0,238,4.9
+Mynydd-y-Gdder Rhyolitic,Dapingian,Dapingian,0.0,240,4.9
+Tetragraptus,Dapingian,Dapingian,0.0,240,4.9
+Vääna,Dapingian,Dapingian,0.0,3,4.9
+Butter Mountain,Floian,Dapingian,1.0,124,4.9
+Maulin,Floian,Dapingian,1.0,124,4.9
+Olchfa Shales,Dapingian,Dapingian,0.0,124,4.9
+Road Uchaf,Dapingian,Dapingian,0.0,124,4.9
+Shelve Church,Dapingian,Dapingian,0.0,124,4.9
+Antelope Valley Limestone Asaphid,Dapingian,Dapingian,0.0,160,4.9
+Hengtang,Dapingian,Dapingian,0.0,53,4.9
+Meitan Middle,Floian,Dapingian,1.0,54,4.9
+Galgeberg,Floian,Dapingian,1.0,28,4.9
+Hongsiya,Floian,Floian,0.0,52,4.9
+Yingpan,Floian,Floian,0.0,250,4.9
+Pircancha,Floian,Dapingian,1.0,237,4.9
+Quargla,Floian,Dapingian,1.0,238,4.9
+Bingdou,Tremadocian,Dapingian,2.0,250,4.9
+Chiaotingtze,Floian,Dapingian,1.0,250,4.9
+Duoquanshan,Floian,Dapingian,1.0,250,4.9
+Xiaoxian,Floian,Dapingian,1.0,250,4.9
+Ningkuo Member 2,Sandbian,Katian,1.0,54,4.9
+Ningkuo Member 3,Dapingian,Dapingian,0.0,53,4.9
+Meitan Lower Member,Floian,Dapingian,1.0,54,4.9
+Jiawang,Dapingian,Dapingian,0.0,381,4.9
+Mazam Shale,Tremadocian,Dapingian,2.0,114,4.9
+Powell Dolomite,Floian,Floian,0.0,114,4.9
+Aguathuna Lower,Floian,Dapingian,1.0,114,4.9
+Baillarge A,Floian,Dapingian,1.0,114,4.9
+Beauharnois,Floian,Floian,0.0,365,4.9
+Cape Weber,Tremadocian,Dapingian,2.0,114,4.9
+Croisaphuill,Floian,Dapingian,1.0,114,4.9
+Durine,Floian,Dapingian,1.0,114,4.9
+Foster,Tremadocian,Dapingian,2.0,114,4.9
+Fox Hill,Floian,Dapingian,1.0,114,4.9
+Knox Upper,Tremadocian,Dapingian,2.0,114,4.9
+Odenville Limestone,Floian,Dapingian,1.0,114,4.9
+Romaine,Tremadocian,Dapingian,2.0,114,4.9
+Wah Wah,Floian,Dapingian,1.0,113,4.9
+Highgate,Tremadocian,Dapingian,2.0,168,4.9
+Sikanni Chief,Floian,Dapingian,1.0,190,4.9
+Banquette,Floian,Floian,0.0,238,4.9
+Initial Red Beds,Floian,Floian,0.0,238,4.9
+Kheneg El Aatene,Floian,Floian,0.0,238,4.9
+Ouargla,Floian,Floian,0.0,238,4.9
+Nordporten,Tremadocian,Floian,1.0,326,4.9
+Pacoota sequence 4,Tremadocian,Floian,1.0,230,4.9
+La Maurerie,Floian,Floian,0.0,244,4.9
+Cluse de l'Orb,Floian,Floian,0.0,244,4.9
+Setso,Floian,Floian,0.0,244,4.9
+Foulon,Floian,Floian,0.0,244,4.9
+Fezouata Lower,Tremadocian,Floian,1.0,238,4.9
+El Atchane,Tremadocian,Floian,1.0,238,4.9
+Foum Tineslem Silty-Sandy,Tremadocian,Floian,1.0,238,4.9
+Hamra,Floian,Floian,0.0,238,4.9
+Grès Armoricain Lower,Floian,Floian,0.0,238,4.9
+Abercastle,Floian,Floian,0.0,124,4.9
+Afon Ffinnant,Floian,Floian,0.0,124,4.9
+Aghfarell,Tremadocian,Floian,1.0,124,4.9
+Blaencediw,Floian,Floian,0.0,124,4.9
+Brunel,Floian,Floian,0.0,124,4.9
+Carnedd lago,Floian,Floian,0.0,124,4.9
+Creg Agneash,Floian,Floian,0.0,124,4.9
+Cwm yr Abbey,Floian,Floian,0.0,124,4.9
+Cwmffrydd,Floian,Floian,0.0,124,4.9
+Derry Bay,Floian,Floian,0.0,124,4.9
+Derrymore,Floian,Floian,0.0,124,4.9
+Extrusive Rhyolite,Floian,Floian,0.0,124,4.9
+Glen Dhoo Flag,Floian,Floian,0.0,124,4.9
+Glion Cam,Floian,Floian,0.0,124,4.9
+Grahormack,Floian,Floian,0.0,124,4.9
+Henllan Ash,Floian,Floian,0.0,124,4.9
+Hope Beck,Floian,Floian,0.0,124,4.9
+Horan,Floian,Floian,0.0,124,4.9
+Knock Kilbride Argillites,Floian,Floian,0.0,124,4.9
+Letterbrock,Floian,Floian,0.0,124,4.9
+Loweswater,Floian,Floian,0.0,124,4.9
+Mount Partry,Floian,Floian,0.0,124,4.9
+Mull Hill,Floian,Floian,0.0,124,4.9
+Pinbain Lava,Floian,Floian,0.0,124,4.9
+Rhyd Henllan,Floian,Floian,0.0,124,4.9
+Santon,Floian,Floian,0.0,124,4.9
+Skird Rocks,Floian,Floian,0.0,124,4.9
+Slockenray Hyaloclastite and Lava,Floian,Floian,0.0,124,4.9
+Tramore Shale,Tremadocian,Floian,1.0,124,4.9
+Chewtonian 1,Floian,Floian,0.0,12,4.9
+Stuyvesant Falls,Floian,Floian,0.0,146,4.9
+Marcheta,Floian,Floian,0.0,281,4.9
+Yinchufu,Tremadocian,Tremadocian,0.0,54,4.9
+Kennedy's Pass Breccia,Floian,Floian,0.0,124,4.9
+Brandy Craig Lava,Floian,Floian,0.0,124,4.9
+Carracastle,Floian,Floian,0.0,124,4.9
+Castelldraenog,Floian,Floian,0.0,124,4.9
+Penmaen Dewi Shale,Floian,Floian,0.0,124,4.9
+Whitland Abbey,Floian,Floian,0.0,124,4.9
+Chewtonian 2,Floian,Floian,0.0,12,4.9
+Castlemainian 1,Floian,Floian,0.0,12,4.9
+Cassinian,Tremadocian,Floian,1.0,114,4.9
+Fort Cassin,Floian,Floian,0.0,114,4.9
+Gap Creek,Floian,Floian,0.0,"77, 71",4.9
+Fillmore,Tremadocian,Floian,1.0,113,4.9
+Cotter Dolomite,Floian,Floian,0.0,114,4.9
+Jefferson City Dolomite,Tremadocian,Floian,1.0,114,4.9
+Kindblade,Tremadocian,Floian,1.0,113,4.9
+Al Rose,Floian,Floian,0.0,114,4.9
+Au Train,Tremadocian,Floian,1.0,114,4.9
+Axemann,Tremadocian,Floian,1.0,114,4.9
+Balnakiel,Tremadocian,Floian,1.0,114,4.9
+Boat Harbour Upper,Tremadocian,Floian,1.0,114,4.9
+Cindy,Tremadocian,Floian,1.0,114,4.9
+Epler,Tremadocian,Floian,1.0,114,4.9
+Goodwin Limestone,Tremadocian,Floian,1.0,114,4.9
+Mascot Dolomite,Tremadocian,Floian,1.0,114,4.9
+Newala Limestone,Tremadocian,Floian,1.0,114,4.9
+Ninemile,Floian,Floian,0.0,114,4.9
+Padre,Floian,Floian,0.0,59,4.9
+Ranger Peak,Floian,Floian,0.0,114,4.9
+Schoolhouse,Tremadocian,Floian,1.0,114,4.9
+Shakopee Dolomite,Tremadocian,Floian,1.0,114,4.9
+Ship Point 1,Tremadocian,Floian,1.0,114,4.9
+Ship Point 2,Tremadocian,Floian,1.0,114,4.9
+Tamarack Canyon Dolomite,Tremadocian,Floian,1.0,114,4.9
+Kelly Creek,Floian,Floian,0.0,220,4.9
+Mascot,Tremadocian,Floian,1.0,59,4.9
+McKelligon,Floian,Floian,0.0,192,4.9
+Huntington,Tremadocian,Floian,1.0,365,4.9
+Naylor Ledge,Tremadocian,Floian,1.0,365,4.9
+Horn Valley Basal,Floian,Floian,0.0,215,4.9
+Köpingsklint,Tremadocian,Floian,1.0,36,4.9
+Leetse,Tremadocian,Floian,1.0,350,4.9
+Bendigonian 1,Floian,Floian,0.0,12,4.9
+Chaochiapa,Floian,Floian,0.0,250,4.9
+Chiawang,Tremadocian,Floian,1.0,250,4.9
+Dacao,Tremadocian,Tremadocian,0.0,367,4.9
+Datan,Floian,Floian,0.0,250,4.9
+Dazhi,Tremadocian,Floian,1.0,250,4.9
+Hunghuayuan,Floian,Floian,0.0,52,4.9
+Jinshan,Floian,Floian,0.0,367,4.9
+Liangchiashan,Floian,Floian,0.0,250,4.9
+Quanhekou,Tremadocian,Floian,1.0,378,4.9
+Shinianpan,Floian,Floian,0.0,250,4.9
+Tachengssu,Floian,Floian,0.0,250,4.9
+Tanchiachiao,Tremadocian,Floian,1.0,250,4.9
+Yinchupu,Tremadocian,Tremadocian,0.0,97,4.9
+Zhaqu,Floian,Floian,0.0,250,4.9
+Zifangzhuang,Tremadocian,Floian,1.0,250,4.9
+Baumann Fjord,Tremadocian,Floian,1.0,42,4.9
+Boat Harbour,Tremadocian,Floian,1.0,42,4.9
+McKay,Tremadocian,Floian,1.0,42,4.9
+Ship Point Member A,Floian,Floian,0.0,42,4.9
+Survey Peak,Tremadocian,Tremadocian,0.0,190,4.9
+Emanuel,Floian,Floian,0.0,220,4.9
+Nambeet,Floian,Floian,0.0,220,4.9
+Pacoota Sandstone,Floian,Floian,0.0,220,4.9
+Emanuel Upper,Tremadocian,Floian,1.0,77,4.9
+Liangjiashan,Tremadocian,Floian,1.0,"77, 71, 72",4.9
+Lancefieldian 3,Floian,Floian,0.0,12,4.9
+Aorangi Mine,Tremadocian,Floian,1.0,260,4.9
+Florentine Valley,Tremadocian,Floian,1.0,203,4.9
+Kaodongkou,Floian,Floian,0.0,250,4.9
+Madaoyu,Floian,Floian,0.0,250,4.9
+Niuweibashan,Floian,Floian,0.0,250,4.9
+Shanpianshan,Floian,Floian,0.0,250,4.9
+Charcoal Canyon,Floian,Floian,0.0,160,4.9
+Stoneberger Shale,Tremadocian,Floian,1.0,160,4.9
+Qianzhongliangzi,Tremadocian,Floian,1.0,"71, 72",4.9
+Chupin,Floian,Floian,0.0,328,4.9
+Putaojing,Tremadocian,Tremadocian,0.0,367,4.9
+Jingshan,Floian,Floian,0.0,53,4.9
+La Alumbrera,Floian,Floian,0.0,324,4.9
+Rupasca,Tremadocian,Floian,1.0,290,4.9
+Allt Cystanog,Floian,Floian,0.0,124,4.9
+Ballylane,Tremadocian,Floian,1.0,124,4.9
+Bolahaul,Floian,Floian,0.0,124,4.9
+Craig Hill Breccia,Floian,Floian,0.0,124,4.9
+Dowery Hill,Tremadocian,Floian,1.0,124,4.9
+Garth Grit,Floian,Floian,0.0,124,4.9
+Graianog Sandstone,Floian,Floian,0.0,124,4.9
+Habberley,Tremadocian,Floian,1.0,124,4.9
+Keristal,Floian,Floian,0.0,124,4.9
+Kilranny Hill,Floian,Floian,0.0,124,4.9
+Ny Garvain,Floian,Floian,0.0,124,4.9
+Ogof Hen,Floian,Floian,0.0,124,4.9
+Peel Volcanic,Floian,Floian,0.0,124,4.9
+Pibwr,Floian,Floian,0.0,124,4.9
+Port Erin,Floian,Floian,0.0,124,4.9
+Seamount,Tremadocian,Floian,1.0,124,4.9
+Stiperstones Quartzite,Floian,Floian,0.0,124,4.9
+Watch Hill,Tremadocian,Floian,1.0,124,4.9
+Acoite Lower,Tremadocian,Floian,1.0,237,4.9
+Agua y Toro,Tremadocian,Floian,1.0,237,4.9
+Obispo,Tremadocian,Floian,1.0,237,4.9
+Hagastrand,Tremadocian,Floian,1.0,28,4.9
+Foum Tineslem,Tremadocian,Floian,1.0,238,4.9
+Parcha,Tremadocian,Tremadocian,0.0,272,4.9
+San Bernardo,Tremadocian,Floian,1.0,273,4.9
+Päite,Floian,Floian,0.0,334,4.9
+Yuanbaoshan,Katian,Katian,0.0,250,4.9
+Honghuayuan,Tremadocian,Floian,1.0,"77, 71",4.9
+Huangnitang,Floian,Floian,0.0,54,4.9
+Shantoudi,Floian,Floian,0.0,54,4.9
+Landeyran,Floian,Floian,0.0,247,4.9
+Scenic Drive,Floian,Floian,0.0,207,4.9
+Jeffersonian,Tremadocian,Floian,1.0,114,4.9
+Mud Springs Mountain,Tremadocian,Floian,1.0,192,4.9
+Pistol Range,Floian,Floian,0.0,192,4.9
+Pistol Range Sandstone,Floian,Floian,0.0,192,4.9
+Snake Hills,Katian,Katian,0.0,157,4.9
+Tipperary,Floian,Floian,0.0,42,4.9
+Florida Mountain,Floian,Floian,0.0,207,4.9
+Florida,Floian,Floian,0.0,192,4.9
+Parker Spring,Tremadocian,Floian,1.0,113,4.9
+Baumann Fjord B,Tremadocian,Floian,1.0,114,4.9
+Baumann Fjord C,Tremadocian,Floian,1.0,114,4.9
+Chamizal,Tremadocian,Floian,1.0,114,4.9
+Franklin Mountain,Tremadocian,Floian,1.0,114,4.9
+Honeycut,Tremadocian,Floian,1.0,114,4.9
+Kechika,Tremadocian,Floian,1.0,114,4.9
+Kingsport,Tremadocian,Floian,1.0,114,4.9
+McKelligon Canyon,Tremadocian,Floian,1.0,114,4.9
+Nittany Dolomite,Tremadocian,Floian,1.0,114,4.9
+Septembers,Tremadocian,Floian,1.0,114,4.9
+Theresa,Tremadocian,Tremadocian,0.0,109,4.9
+Hastings Creek,Tremadocian,Floian,1.0,365,4.9
+Cool Creek,Tremadocian,Tremadocian,0.0,113,4.9
+Yingshan,Tremadocian,Floian,1.0,96,4.9
+Agalatas,Tremadocian,Floian,1.0,257,4.9
+Santa Rosita,Tremadocian,Floian,1.0,272,4.9
+Taohuashi,Tremadocian,Floian,1.0,374,4.9
+Torsugtagh Upper,Tremadocian,Floian,1.0,78,4.9
+Bed 8,Tremadocian,Floian,1.0,42,4.9
+Obolus beds,Tremadocian,Floian,1.0,11,4.9
+Bjørkåsholmen,Tremadocian,Tremadocian,0.0,33,4.9
+Fenxiang,Tremadocian,Floian,1.0,71,4.9
+Setul Limestone,Tremadocian,Floian,1.0,71,4.9
+Santed,Tremadocian,Floian,1.0,263,4.9
+Saint Chinian,Tremadocian,Tremadocian,0.0,244,4.9
+Saladilo,Tremadocian,Tremadocian,0.0,273,4.9
+Aspero-Humacha,Tremadocian,Floian,1.0,273,4.9
+Tumbaya,Tremadocian,Floian,1.0,273,4.9
+Roubidoux,Tremadocian,Tremadocian,0.0,114,4.9
+Jose,Tremadocian,Tremadocian,0.0,56,4.9
+Demingian,Tremadocian,Floian,1.0,386,4.9
+Cooks,Tremadocian,Tremadocian,0.0,207,4.9
+Victorio,Tremadocian,Floian,1.0,192,4.9
+Flower's José,Tremadocian,Floian,1.0,192,4.9
+Gasconadian,Tremadocian,Floian,1.0,386,4.9
+Fenghsiang,Tremadocian,Tremadocian,0.0,61,4.9
+Elgin,Katian,Katian,0.0,149,4.9
+Viola Springs,Katian,Katian,0.0,39,4.9
+C5,Katian,Hirnantian,1.0,194,4.9
+Rio Sassito,Sandbian,Hirnantian,2.0,359,4.9
+Takche,Katian,Hirnantian,1.0,152,4.9
+Elkhorn,Katian,Katian,0.0,46,4.9
+Liberty,Katian,Katian,0.0,46,4.9
+Waynesville,Katian,Hirnantian,1.0,25,4.9
+Whitewater,Katian,Katian,0.0,46,4.9
+Cape La Croix Shale,Katian,Hirnantian,1.0,154,4.9
+Cape Limestone,Katian,Hirnantian,1.0,154,4.9
+Maquoketa Shale,Katian,Hirnantian,1.0,154,4.9
+Orchard Creek Shale,Katian,Hirnantian,1.0,154,4.9
+Thebes Sandstone,Katian,Hirnantian,1.0,154,4.9
+Ellis Bay,Katian,Hirnantian,1.0,46,4.9
+Grindstone,Katian,Hirnantian,1.0,82,4.9
+Lousy Cove,Katian,Hirnantian,1.0,82,4.9
+Prinsta,Katian,Hirnantian,1.0,82,4.9
+Queenston,Katian,Hirnantian,1.0,85,4.9
+Velleda,Katian,Hirnantian,1.0,82,4.9
+Polk Creek Shale,Katian,Hirnantian,1.0,88,4.9
+Welling,Katian,Katian,0.0,39,4.9
+Bull Fork,Katian,Hirnantian,1.0,50,4.9
+Fairview,Katian,Katian,0.0,25,4.9
+Grant Lake,Katian,Katian,0.0,25,4.9
+Uggwa Limestone,Katian,Hirnantian,1.0,278,4.9
+Wolayer Limestone,Katian,Hirnantian,1.0,278,4.9
+5d,Sandbian,Hirnantian,2.0,3,4.9
+6a,Sandbian,Hirnantian,2.0,3,4.9
+6b,Sandbian,Hirnantian,2.0,3,4.9
+6c,Katian,Hirnantian,1.0,3,4.9
+Maravillas,Katian,Katian,0.0,351,4.9
+Big Hill,Katian,Hirnantian,1.0,136,4.9
+Cutter,Katian,Hirnantian,1.0,39,4.9
+Ely Springs Dolostone,Katian,Hirnantian,1.0,39,4.9
+Hanson Creek,Katian,Hirnantian,1.0,39,4.9
+GICE,Katian,Katian,0.0,213,4.9
+Moldå Limestone,Katian,Hirnantian,1.0,212,4.9
+Fjäcka,Katian,Katian,0.0,10,4.9
+Freberga,Sandbian,Hirnantian,2.0,11,4.9
+Kullsberg Limestone,Sandbian,Hirnantian,2.0,11,4.9
+Moldå,Sandbian,Katian,1.0,9,4.9
+Skalberg Limestone,Katian,Hirnantian,1.0,11,4.9
+Slandrom,Katian,Katian,0.0,17,4.9
+Ärina,Katian,Hirnantian,1.0,9,4.9
+Kuldiga,Katian,Hirnantian,1.0,9,4.9
+Loka,Katian,Hirnantian,1.0,9,4.9
+Saldus,Katian,Hirnantian,1.0,9,4.9
+Becscie,Hirnantian,Hirnantian,0.0,46,4.9
+Fox Point,Katian,Hirnantian,1.0,82,4.9
+Jonstorp,Sandbian,Hirnantian,2.0,9,4.9
+Kuili,Katian,Hirnantian,1.0,9,4.9
+Ulunda,Katian,Hirnantian,1.0,9,4.9
+Halliku,Sandbian,Hirnantian,2.0,9,4.9
+Kabala,Katian,Hirnantian,1.0,10,4.9
+Taucionys,Katian,Hirnantian,1.0,10,4.9
+Kagawong,Katian,Hirnantian,1.0,63,4.9
+Meaford,Sandbian,Hirnantian,2.0,63,4.9
+Mill Bay,Katian,Hirnantian,1.0,46,4.9
+Schmitt Creek,Katian,Hirnantian,1.0,82,4.9
+Homard,Katian,Hirnantian,1.0,46,4.9
+Joseph Point,Katian,Hirnantian,1.0,46,4.9
+Tower,Katian,Hirnantian,1.0,46,4.9
+Elkhorn carbone isotope excursion,Katian,Hirnantian,1.0,46,4.9
+Adila,Sandbian,Hirnantian,2.0,9,4.9
+Paroveja,Katian,Hirnantian,1.0,9,4.9
+Margenai,Katian,Hirnantian,1.0,10,4.9
+Qiantangjianian,Katian,Hirnantian,1.0,102,4.9
+Ashgillian,Sandbian,Hirnantian,2.0,399,4.9
+Bur,Katian,Hirnantian,1.0,346,4.9
+Tirekhtyakh,Hirnantian,Hirnantian,0.0,317,4.9
+Uligezhitag,Katian,Katian,0.0,250,4.9
+Padun,Katian,Katian,0.0,317,4.9
+Tajmyr,Katian,Hirnantian,1.0,346,4.9
+Varnek,Katian,Hirnantian,1.0,346,4.9
+Yankou,Hirnantian,Hirnantian,0.0,95,4.9
+Tierekeawati,Katian,Hirnantian,1.0,200,4.9
+Bolindian 4,Hirnantian,Hirnantian,0.0,12,4.9
+Kogsta Siltstone,Katian,Hirnantian,1.0,322,4.9
+Kyrkås Quartzite,Hirnantian,Hirnantian,0.0,322,4.9
+Kuanyinchiao,Hirnantian,Hirnantian,0.0,54,4.9
+Wufeng,Katian,Katian,0.0,64,4.9
+Korotkin,Hirnantian,Hirnantian,0.0,346,4.9
+Durben,Hirnantian,Hirnantian,0.0,345,4.9
+Vinini,Katian,Hirnantian,1.0,115,4.9
+Cwmeringllyn,Katian,Hirnantian,1.0,92,4.9
+Dent,Katian,Hirnantian,1.0,92,4.9
+Hartfell Shale Upper,Katian,Katian,0.0,240,4.9
+Hirnant Limestone,Hirnantian,Hirnantian,0.0,92,4.9
+Yr Allt,Katian,Hirnantian,1.0,92,4.9
+Hirnantian,Hirnantian,Hirnantian,0.0,321,4.9
+Neda,Katian,Hirnantian,1.0,149,4.9
+Laframboise,Hirnantian,Hirnantian,0.0,85,4.9
+Badanjilin,Katian,Hirnantian,1.0,250,4.9
+Bajiaokou,Katian,Hirnantian,1.0,250,4.9
+Changwu,Katian,Katian,0.0,60,4.9
+Danmianshan,Hirnantian,Hirnantian,0.0,250,4.9
+Dapingzi,Katian,Hirnantian,1.0,250,4.9
+Hongshantou,Katian,Hirnantian,1.0,250,4.9
+Liangchakou,Katian,Hirnantian,1.0,250,4.9
+Lungmachi,Hirnantian,Hirnantian,0.0,245,4.9
+Luofengxi Lower,Katian,Hirnantian,1.0,250,4.9
+Nacheng,Katian,Hirnantian,1.0,250,4.9
+Sanjushan,Katian,Katian,0.0,62,4.9
+Wenyaoshu,Katian,Hirnantian,1.0,250,4.9
+Xainza,Katian,Hirnantian,1.0,250,4.9
+Xiaoshihugou,Katian,Hirnantian,1.0,250,4.9
+Xinling,Katian,Hirnantian,1.0,250,4.9
+Boda Limestone,Sandbian,Hirnantian,2.0,11,4.9
+Balbriggan,Katian,Hirnantian,1.0,124,4.9
+Ballvorgal,Katian,Hirnantian,1.0,124,4.9
+Barren Mudstone,Katian,Hirnantian,1.0,124,4.9
+Cefn Ystradffin,Hirnantian,Hirnantian,0.0,124,4.9
+Cwm Clyd,Hirnantian,Hirnantian,0.0,124,4.9
+Cynnant Fach,Katian,Hirnantian,1.0,124,4.9
+Ettrickbridge,Katian,Hirnantian,1.0,124,4.9
+Glenlee,Katian,Hirnantian,1.0,124,4.9
+Gortnagleav,Katian,Hirnantian,1.0,124,4.9
+Haverford Mudstone,Hirnantian,Hirnantian,0.0,124,4.9
+High Mains,Katian,Hirnantian,1.0,241,4.9
+Hirnantia Mudstone,Hirnantian,Hirnantian,0.0,124,4.9
+Kildare Limestone,Katian,Katian,0.0,240,4.9
+Lackan,Katian,Hirnantian,1.0,124,4.9
+Llangranog,Katian,Hirnantian,1.0,124,4.9
+Lough Acanon Pelite,Sandbian,Hirnantian,2.0,124,4.9
+Portfield,Katian,Hirnantian,1.0,124,4.9
+Scrach,Katian,Hirnantian,1.0,124,4.9
+Smelt Mill,Katian,Hirnantian,1.0,124,4.9
+Sowerthwaite,Katian,Hirnantian,1.0,124,4.9
+Tirnaskea,Hirnantian,Hirnantian,0.0,124,4.9
+Wenallt,Katian,Hirnantian,1.0,124,4.9
+Wharfe,Hirnantian,Hirnantian,0.0,124,4.9
+Alcaparrosa,Katian,Hirnantian,1.0,299,4.9
+Don Braulio,Hirnantian,Hirnantian,0.0,299,4.9
+Empozada,Sandbian,Katian,1.0,295,4.9
+Trapiche,Katian,Hirnantian,1.0,299,4.9
+Archalyk,Katian,Hirnantian,1.0,316,4.9
+Kravchun,Hirnantian,Hirnantian,0.0,316,4.9
+Tirehtjah,Katian,Hirnantian,1.0,316,4.9
+Tshokpar,Katian,Hirnantian,1.0,316,4.9
+Langøyene,Hirnantian,Hirnantian,0.0,28,4.9
+Darraweit Guim Mudstone,Hirnantian,Hirnantian,0.0,216,4.9
+El Golea,Hirnantian,Hirnantian,0.0,238,4.9
+El Kseib,Hirnantian,Hirnantian,0.0,238,4.9
+Tamadjert,Hirnantian,Hirnantian,0.0,238,4.9
+Eusebio Ayala,Hirnantian,Hirnantian,0.0,261,4.9
+Cerig Gwynion Grits,Hirnantian,Hirnantian,0.0,283,4.9
+Dyffryn Flags,Hirnantian,Hirnantian,0.0,283,4.9
+Bolindian 5,Hirnantian,Hirnantian,0.0,12,4.9
+Casal Carvalhal,Hirnantian,Hirnantian,0.0,266,4.9
+Ribeira Bracal,Hirnantian,Hirnantian,0.0,266,4.9
+Ribeira Cimeira,Hirnantian,Hirnantian,0.0,266,4.9
+Carys Mills,Katian,Hirnantian,1.0,312,4.9
+Matapédia,Katian,Hirnantian,1.0,312,4.9
+Pabos,Katian,Hirnantian,1.0,312,4.9
+Soom Shale,Hirnantian,Hirnantian,0.0,251,4.9
+Birkhill,Hirnantian,Hirnantian,0.0,92,4.9
+Cwm-yr-aenthen Shale,Hirnantian,Hirnantian,0.0,92,4.9
+Westfield,Katian,Katian,0.0,203,4.9
+Manitoulin,Hirnantian,Hirnantian,0.0,85,4.9
+Anji,Hirnantian,Hirnantian,0.0,"95, 53",4.9
+Dewukaxia,Hirnantian,Hirnantian,0.0,250,4.9
+Kaochiapien,Hirnantian,Hirnantian,0.0,250,4.9
+Lishuwo,Hirnantian,Hirnantian,0.0,250,4.9
+Maliushuwan,Hirnantian,Hirnantian,0.0,250,4.9
+Xiaxiang,Hirnantian,Hirnantian,0.0,250,4.9
+Zhoujiaxi,Hirnantian,Hirnantian,0.0,250,4.9
+Birkhill Shales,Hirnantian,Hirnantian,0.0,124,4.9
+Gaerglwyd,Hirnantian,Hirnantian,0.0,124,4.9
+Garth Bank,Hirnantian,Hirnantian,0.0,124,4.9
+Chalmak,Hirnantian,Hirnantian,0.0,298,4.9
+Maut,Hirnantian,Hirnantian,0.0,298,4.9
+Ulkuntas,Hirnantian,Hirnantian,0.0,316,4.9
+Sirman,Hirnantian,Hirnantian,0.0,301,4.9
+Plöcken,Hirnantian,Hirnantian,0.0,278,4.9
+Chebor,Hirnantian,Hirnantian,0.0,329,4.9
+Dalmanitinovaya Pachka,Hirnantian,Hirnantian,0.0,329,4.9
+Deep Creek Siltstone,Hirnantian,Hirnantian,0.0,216,4.9
+Ksar d'Ougarta,Hirnantian,Hirnantian,0.0,238,4.9
+M'Kratta,Hirnantian,Hirnantian,0.0,238,4.9
+Hongjiawu,Katian,Hirnantian,1.0,53,4.9
+Wenchang,Katian,Hirnantian,1.0,53,4.9
+Abarsaj,Katian,Hirnantian,1.0,91,4.9
+Halevikdere,Katian,Hirnantian,1.0,234,4.9
+Bedinan Upper,Sandbian,Hirnantian,2.0,249,4.9
+Djeffara,Hirnantian,Hirnantian,0.0,249,4.9
+Hassi El Hadjar,Hirnantian,Hirnantian,0.0,249,4.9
+Kosovo,Hirnantian,Hirnantian,0.0,249,4.9
+Sarah,Hirnantian,Hirnantian,0.0,249,4.9
+Cosquer,Hirnantian,Hirnantian,0.0,238,4.9
+Quwara,Katian,Hirnantian,1.0,249,4.9
+Lower Second Bani,Hirnantian,Hirnantian,0.0,238,4.9
+Rosan Limestone,Katian,Hirnantian,1.0,238,4.9
+Rosan Tuff,Katian,Hirnantian,1.0,238,4.9
+Veberov,Katian,Katian,0.0,328,4.9
+Loka Upper,Hirnantian,Hirnantian,0.0,17,4.9
+Bulong,Hirnantian,Hirnantian,0.0,250,4.9
+Guaizihu,Hirnantian,Hirnantian,0.0,250,4.9
+Huanghuagou,Hirnantian,Hirnantian,0.0,250,4.9
+Kaplintake,Hirnantian,Hirnantian,0.0,250,4.9
+Saltar,Hirnantian,Hirnantian,0.0,301,4.9
+Jelgava,Sandbian,Hirnantian,2.0,9,4.9
+Alksniai,Sandbian,Hirnantian,2.0,10,4.9
+Baltinava,Sandbian,Hirnantian,2.0,10,4.9
+Ludza,Sandbian,Hirnantian,2.0,10,4.9
+Oostriku,Sandbian,Hirnantian,2.0,10,4.9
+Blue Mountain,Sandbian,Hirnantian,2.0,63,4.9
+Georgian Bay Lower,Sandbian,Hirnantian,2.0,63,4.9
+Korgessaare,Katian,Katian,0.0,10,4.9
+Moe,Sandbian,Hirnantian,2.0,9,4.9
+Tudulinna,Katian,Katian,0.0,10,4.9
+Nittsjö,Sandbian,Hirnantian,2.0,11,4.9
+Svedasai,Sandbian,Hirnantian,2.0,10,4.9
+Tootsi,Sandbian,Hirnantian,2.0,8,4.9
+Skagen,Sandbian,Katian,1.0,9,4.9
+Meilunai,Katian,Katian,0.0,10,4.9
+Sariyardere,Sandbian,Katian,1.0,234,4.9
+Bohdalec,Katian,Katian,0.0,249,4.9
+Rouid-Assa,Katian,Katian,0.0,249,4.9
+Amouguer,Katian,Katian,0.0,238,4.9
+Bou M'Haoud,Sandbian,Katian,1.0,238,4.9
+Upper Tiouririne,Katian,Katian,0.0,238,4.9
+Dubuque,Katian,Katian,0.0,25,4.9
+Denley,Katian,Katian,0.0,222,4.9
+Poland,Katian,Katian,0.0,211,4.9
+Bigfork Chert,Sandbian,Katian,1.0,114,4.9
+C1,Katian,Katian,0.0,222,4.9
+C2,Katian,Katian,0.0,"194, 184",4.9
+C3,Katian,Katian,0.0,194,4.9
+C4,Katian,Katian,0.0,194,4.9
+M6,Katian,Katian,0.0,222,4.9
+Aijianshanian,Darriwilian,Katian,2.0,102,4.9
+Lords,Sandbian,Katian,1.0,203,4.9
+Winterhouse,Sandbian,Katian,1.0,66,4.9
+Kope isotope carbon excursion,Katian,Katian,0.0,17,4.9
+Nakkudden,Katian,Katian,0.0,17,4.9
+Solvang,Katian,Katian,0.0,17,4.9
+Utica Shale,Katian,Katian,0.0,17,4.9
+Waynesville isotope carbon excursion,Katian,Katian,0.0,17,4.9
+Kimmswick Limestone,Sandbian,Katian,1.0,114,4.9
+Fernvale Limestone,Katian,Katian,0.0,88,4.9
+Assel Conglomerate,Sandbian,Katian,1.0,124,4.9
+Bay,Katian,Katian,0.0,124,4.9
+Cascade Conglomerat,Katian,Katian,0.0,124,4.9
+Gully,Katian,Katian,0.0,124,4.9
+Kiln,Katian,Katian,0.0,124,4.9
+Myoch,Katian,Katian,0.0,124,4.9
+Penwhapple,Katian,Katian,0.0,124,4.9
+Platinhead,Katian,Katian,0.0,241,4.9
+Port Cardloch,Katian,Katian,0.0,124,4.9
+Sericoidea,Katian,Katian,0.0,124,4.9
+South Shore,Katian,Katian,0.0,124,4.9
+Three Mile,Katian,Katian,0.0,124,4.9
+Tormitchell Conglomerate,Sandbian,Katian,1.0,124,4.9
+Bays,Sandbian,Katian,1.0,178,4.9
+Martinsburg,Katian,Katian,0.0,80,4.9
+Moccasin,Katian,Katian,0.0,80,4.9
+Kope,Katian,Katian,0.0,222,4.9
+Lexington Limestone,Katian,Katian,0.0,39,4.9
+Point Pleasant,Katian,Katian,0.0,222,4.9
+Antes,Katian,Katian,0.0,222,4.9
+Brannon,Katian,Katian,0.0,222,4.9
+Brannon K-bentonite,Katian,Katian,0.0,222,4.9
+Bromley,Katian,Katian,0.0,222,4.9
+Cornishville,Katian,Katian,0.0,222,4.9
+Devils Hollow,Katian,Katian,0.0,222,4.9
+Dolgeville,Katian,Katian,0.0,222,4.9
+Dunleith,Katian,Katian,0.0,222,4.9
+Dygerts K-bentonite,Katian,Katian,0.0,222,4.9
+East Canada K-bentonite,Katian,Katian,0.0,"388, 222",4.9
+Faulconer,Katian,Katian,0.0,222,4.9
+Flat Creek Shale,Katian,Katian,0.0,187,4.9
+Frankfort Shale,Katian,Katian,0.0,222,4.9
+Greendale,Katian,Katian,0.0,222,4.9
+Grier,Katian,Katian,0.0,22,4.9
+Haldane-Manheim K-bentonite,Katian,Katian,0.0,222,4.9
+Hillier,Katian,Katian,0.0,222,4.9
+Indian Castle Shale,Katian,Katian,0.0,222,4.9
+M5,Sandbian,Katian,1.0,222,4.9
+Macedonia,Katian,Katian,0.0,222,4.9
+Perryville,Katian,Katian,0.0,222,4.9
+Russia,Katian,Katian,0.0,222,4.9
+Rust,Katian,Katian,0.0,222,4.9
+Salvisa,Katian,Katian,0.0,222,4.9
+Stamping Ground,Katian,Katian,0.0,222,4.9
+Steuben,Katian,Katian,0.0,222,4.9
+Strodes Creek,Katian,Katian,0.0,222,4.9
+Sugar River Limestone,Katian,Katian,0.0,193,4.9
+Sulphur Well,Katian,Katian,0.0,222,4.9
+5c,Sandbian,Katian,1.0,3,4.9
+Králuv Dvur,Katian,Katian,0.0,249,4.9
+Ktaoua Upper,Katian,Katian,0.0,238,4.9
+Fort Gary,Katian,Katian,0.0,393,4.9
+Hartaven,Katian,Katian,0.0,393,4.9
+Penitentiary,Katian,Katian,0.0,393,4.9
+Boas River Shale,Katian,Katian,0.0,394,4.9
+Whitewater isotope carbon excursion,Katian,Katian,0.0,46,4.9
+Stonington,Katian,Katian,0.0,136,4.9
+Priest Canyon,Katian,Katian,0.0,39,4.9
+Economy,Katian,Katian,0.0,397,4.9
+Southgate,Katian,Katian,0.0,397,4.9
+Esbataotine,Darriwilian,Katian,2.0,114,4.9
+Stewartville,Katian,Katian,0.0,222,4.9
+Cobourg,Katian,Katian,0.0,39,4.9
+Shermanian,Katian,Katian,0.0,39,4.9
+Lianglitag,Katian,Katian,0.0,78,4.9
+Grier Upper,Katian,Katian,0.0,25,4.9
+Decorah,Sandbian,Sandbian,0.0,39,4.9
+Hermitage,Sandbian,Katian,1.0,22,4.9
+Reedsville,Katian,Katian,0.0,22,4.9
+Beaverfoot,Katian,Katian,0.0,114,4.9
+Mount Kindle,Darriwilian,Katian,2.0,114,4.9
+Robb,Katian,Katian,0.0,114,4.9
+Simpson,Darriwilian,Sandbian,1.0,50,4.9
+Whittaker,Katian,Katian,0.0,114,4.9
+Lianglitake,Katian,Katian,0.0,57,4.9
+Coburn,Sandbian,Sandbian,0.0,388,4.9
+Trenton,Katian,Katian,0.0,39,4.9
+Beiguoshan ,Katian,Katian,0.0,372,4.9
+Ben Bolt,Katian,Katian,0.0,39,4.9
+Galena,Katian,Katian,0.0,39,4.9
+Viola,Katian,Katian,0.0,39,4.9
+Ra'an,Katian,Katian,0.0,249,4.9
+Zahořany,Katian,Katian,0.0,249,4.9
+Kermeur,Katian,Katian,0.0,238,4.9
+Bolindian 1,Katian,Katian,0.0,12,4.9
+Aber-Corris,Katian,Katian,0.0,240,4.9
+Abercwmeiddaw,Katian,Katian,0.0,240,4.9
+Afton Greywackes,Sandbian,Katian,1.0,240,4.9
+Agueira,Sandbian,Katian,1.0,240,4.9
+Ansobell,Sandbian,Katian,1.0,240,4.9
+Assise de Fosse,Katian,Katian,0.0,240,4.9
+Bar Quartzite,Katian,Katian,0.0,240,4.9
+Estana,Katian,Katian,0.0,240,4.9
+Mucronatus,Katian,Katian,0.0,240,4.9
+Pélites a Fragments,Sandbian,Katian,1.0,240,4.9
+Portrane Limestone,Katian,Katian,0.0,124,4.9
+Sholeshook Limestone,Katian,Katian,0.0,92,4.9
+Slade and Redhill,Katian,Katian,0.0,240,4.9
+Wolka,Katian,Katian,0.0,240,4.9
+Joes Canyon,Sandbian,Katian,1.0,176,4.9
+Appletreeworth,Katian,Katian,0.0,124,4.9
+Ballymacormick,Katian,Katian,0.0,124,4.9
+Billy's Beck,Katian,Katian,0.0,124,4.9
+Black Shales,Katian,Katian,0.0,124,4.9
+Bodeidda Mudstone,Katian,Katian,0.0,124,4.9
+Broad Vein,Katian,Katian,0.0,124,4.9
+Broughton Moor,Katian,Katian,0.0,124,4.9
+Bryn Nicol,Katian,Katian,0.0,124,4.9
+Cautley Mudstone,Katian,Katian,0.0,124,4.9
+Cautley Volcanic,Katian,Katian,0.0,124,4.9
+Craig Las,Katian,Katian,0.0,124,4.9
+Crugan Mudstone,Katian,Katian,0.0,124,4.9
+Cystoid Limestone,Katian,Katian,0.0,124,4.9
+Dam House Bridge Tuff,Katian,Katian,0.0,124,4.9
+Deganwy Mudstone,Katian,Katian,0.0,124,4.9
+Foel-y-Ddinas Mudstone,Katian,Katian,0.0,124,4.9
+Garnedd-wen,Katian,Katian,0.0,124,4.9
+Groomsport,Katian,Katian,0.0,124,4.9
+Jop Ridding Sandstone,Katian,Katian,0.0,124,4.9
+Keisley Limestone,Katian,Katian,0.0,124,4.9
+Killey Bridge,Katian,Katian,0.0,124,4.9
+Kirkley Bank,Katian,Katian,0.0,124,4.9
+Llwyn-cus Limestone,Katian,Katian,0.0,124,4.9
+Longsleddale,Katian,Katian,0.0,124,4.9
+Moelfryn Mudstone,Katian,Katian,0.0,124,4.9
+Nantmel,Katian,Katian,0.0,124,4.9
+Narrow Vein,Katian,Katian,0.0,124,4.9
+Norber,Katian,Katian,0.0,124,4.9
+Oriel Brook,Katian,Katian,0.0,124,4.9
+Rawtheyan Conglomerates,Katian,Katian,0.0,124,4.9
+Rawtheyan Mudstone,Katian,Katian,0.0,124,4.9
+Red Vein,Katian,Katian,0.0,124,4.9
+Redhill,Katian,Katian,0.0,124,4.9
+Rhiwlas Limestone,Katian,Katian,0.0,92,4.9
+Robeston Walhen,Katian,Katian,0.0,124,4.9
+Shinnel,Katian,Katian,0.0,124,4.9
+Slade,Katian,Katian,0.0,124,4.9
+Stile End,Katian,Katian,0.0,124,4.9
+Swindale,Katian,Katian,0.0,124,4.9
+Tresaith,Katian,Katian,0.0,124,4.9
+Tridwr,Katian,Katian,0.0,124,4.9
+Troutbeck,Katian,Katian,0.0,124,4.9
+Wilsey Beck Sandstone,Katian,Katian,0.0,124,4.9
+Yarlside,Katian,Katian,0.0,124,4.9
+Drummuck Sub,Katian,Katian,0.0,241,4.9
+Shalloch,Katian,Katian,0.0,241,4.9
+Husbergøya,Katian,Katian,0.0,28,4.9
+Skogerholmen,Katian,Katian,0.0,28,4.9
+Bighorn Dolomite,Katian,Katian,0.0,149,4.9
+Brainard,Katian,Katian,0.0,149,4.9
+Clermont,Katian,Katian,0.0,149,4.9
+Fort Atkinson,Katian,Katian,0.0,149,4.9
+Sylvan,Katian,Katian,0.0,149,4.9
+Yinpingshan,Katian,Katian,0.0,74,4.9
+Bétancour River,Katian,Katian,0.0,340,4.9
+Pontgravé River,Katian,Katian,0.0,340,4.9
+Dolbor,Katian,Katian,0.0,346,4.9
+Grog Brook,Katian,Katian,0.0,312,4.9
+Madawaska Lake,Katian,Katian,0.0,312,4.9
+Jerrestad,Katian,Katian,0.0,296,4.9
+Mazury,Katian,Katian,0.0,240,4.9
+Ayles,Katian,Katian,0.0,270,4.9
+Taconite River,Katian,Katian,0.0,270,4.9
+Zebra Cliffs,Katian,Katian,0.0,270,4.9
+Montoya,Katian,Katian,0.0,149,4.9
+Bulongguoer,Katian,Katian,0.0,250,4.9
+Chengbu,Katian,Katian,0.0,250,4.9
+Chientsaokou,Katian,Katian,0.0,"64, 54",4.9
+Gangmusang,Katian,Katian,0.0,250,4.9
+Gangoucun,Katian,Katian,0.0,250,4.9
+Huangnekang,Katian,Katian,0.0,54,4.9
+Hudukedaban,Katian,Katian,0.0,250,4.9
+Linhsiang,Katian,Katian,0.0,64,4.9
+Nanshichong,Katian,Katian,0.0,250,4.9
+Nanshimenzi,Katian,Katian,0.0,250,4.9
+Pulong,Katian,Katian,0.0,250,4.9
+Pupiao Upper,Katian,Katian,0.0,250,4.9
+Shiyanhe,Katian,Katian,0.0,250,4.9
+Tangtou,Katian,Katian,0.0,250,4.9
+Taoqupo,Katian,Katian,0.0,200,4.9
+Tianlingkou,Katian,Katian,0.0,250,4.9
+Tianmashan,Katian,Katian,0.0,250,4.9
+Xiehao,Katian,Katian,0.0,250,4.9
+Yantsin,Katian,Katian,0.0,52,4.9
+Bétancour,Katian,Katian,0.0,340,4.9
+Carmel River,Katian,Katian,0.0,340,4.9
+Derryveeny,Katian,Katian,0.0,124,4.9
+Dufton Shale,Katian,Katian,0.0,124,4.9
+Mill,Katian,Katian,0.0,124,4.9
+Poppit,Katian,Katian,0.0,124,4.9
+Portrane Volcanic,Sandbian,Katian,1.0,124,4.9
+Rockport,Katian,Katian,0.0,124,4.9
+Sandeel,Katian,Katian,0.0,124,4.9
+Tweeddale,Katian,Katian,0.0,124,4.9
+Skjerholmen,Katian,Katian,0.0,28,4.9
+Gamme,Katian,Katian,0.0,29,4.9
+Grimsøya,Katian,Katian,0.0,28,4.9
+Lunner,Katian,Katian,0.0,29,4.9
+Jerrestad Mudstone,Katian,Katian,0.0,296,4.9
+Xiazhen,Katian,Katian,0.0,54,4.9
+Hadabulaketag,Katian,Katian,0.0,250,4.9
+Liujiapo,Katian,Katian,0.0,250,4.9
+Auldthorns,Katian,Katian,0.0,124,4.9
+Lady Burn,Katian,Katian,0.0,124,4.9
+Quarrel Hill,Katian,Katian,0.0,124,4.9
+Sanqushan,Katian,Katian,0.0,60,4.9
+Daduhe,Katian,Katian,0.0,64,4.9
+Yuchien,Katian,Katian,0.0,53,4.9
+Eastonian 4,Katian,Katian,0.0,12,4.9
+Neichianshanian,Sandbian,Katian,1.0,3,4.9
+Actonian,Katian,Katian,0.0,45,4.9
+Onnian,Katian,Katian,0.0,45,4.9
+Baksan,Sandbian,Katian,1.0,346,4.9
+Togin,Sandbian,Katian,1.0,346,4.9
+Tolmachev,Sandbian,Katian,1.0,346,4.9
+Acton Scott,Katian,Katian,0.0,92,4.9
+Cheney Longville,Katian,Katian,0.0,92,4.9
+Onny,Katian,Katian,0.0,92,4.9
+Ardwell Farm,Sandbian,Katian,1.0,124,4.9
+Bremore,Katian,Katian,0.0,124,4.9
+Broomfield,Katian,Katian,0.0,124,4.9
+Cadnant Shale,Katian,Katian,0.0,124,4.9
+Campile,Sandbian,Katian,1.0,124,4.9
+Carrickateane,Sandbian,Katian,1.0,124,4.9
+Ceibwr,Katian,Katian,0.0,124,4.9
+Crosspipes,Katian,Katian,0.0,124,4.9
+Finnalaghta,Sandbian,Katian,1.0,124,4.9
+Gorumna,Sandbian,Katian,1.0,124,4.9
+Grey Point,Sandbian,Katian,1.0,124,4.9
+Hartfell Lower Shale ,Sandbian,Katian,1.0,92,4.9
+Helen's Bay,Sandbian,Katian,1.0,124,4.9
+Kehernaghkilly,Sandbian,Katian,1.0,124,4.9
+Kirkcolm,Sandbian,Katian,1.0,124,4.9
+Lower Hartfell and Glenkiln Black Mudstone,Sandbian,Katian,1.0,124,4.9
+Mydrim Shales,Sandbian,Katian,1.0,92,4.9
+Nod Glas,Katian,Katian,0.0,124,4.9
+Penarwel Mudstone,Katian,Katian,0.0,124,4.9
+Portpatrick,Katian,Katian,0.0,124,4.9
+Raheen,Katian,Katian,0.0,124,4.9
+Ross,Katian,Katian,0.0,124,4.9
+Ardwell Sub_,Sandbian,Katian,1.0,241,4.9
+Longvillian,Sandbian,Katian,1.0,45,4.9
+Marshbrookian,Katian,Katian,0.0,45,4.9
+Woolstonian,Katian,Katian,0.0,45,4.9
+Kanling,Katian,Katian,0.0,74,4.9
+Qilang,Katian,Katian,0.0,74,4.9
+Zatupo,Katian,Katian,0.0,74,4.9
+M4,Sandbian,Sandbian,0.0,222,4.9
+Sierra de La Invernada,Sandbian,Katian,1.0,130,4.9
+Alternata Limestone,Katian,Katian,0.0,92,4.9
+Gelli-Grin,Katian,Katian,0.0,92,4.9
+Horderley Sandstone,Sandbian,Katian,1.0,92,4.9
+Arthurstown,Sandbian,Katian,1.0,124,4.9
+Avoca,Sandbian,Katian,1.0,124,4.9
+Ballyhack,Katian,Katian,0.0,124,4.9
+Ballymoyle,Katian,Katian,0.0,124,4.9
+Ballynaclogh Volcanic,Katian,Katian,0.0,124,4.9
+Bardahessiagh,Sandbian,Katian,1.0,124,4.9
+Carnes,Sandbian,Katian,1.0,124,4.9
+Carsphairn Conglomerate,Katian,Katian,0.0,124,4.9
+Chatwall Sandstone,Sandbian,Katian,1.0,124,4.9
+Clashabeema,Katian,Katian,0.0,124,4.9
+Clashford House,Sandbian,Katian,1.0,124,4.9
+Craighead,Sandbian,Katian,1.0,241,4.9
+Cwm Eigiau,Sandbian,Katian,1.0,124,4.9
+Cymerig Limestone,Katian,Katian,0.0,124,4.9
+Drygill Shale,Katian,Katian,0.0,124,4.9
+Dwyfach,Katian,Katian,0.0,124,4.9
+Fieldstown,Katian,Katian,0.0,124,4.9
+Gelli-grin Calcareous Ashes,Sandbian,Katian,1.0,124,4.9
+Grange Allen,Sandbian,Katian,1.0,124,4.9
+Knockerk,Sandbian,Katian,1.0,124,4.9
+Llanbedrog Volcanic,Katian,Katian,0.0,124,4.9
+Lowther Lodge,Sandbian,Katian,1.0,124,4.9
+Newport,Sandbian,Katian,1.0,124,4.9
+Shenick's Island,Sandbian,Katian,1.0,124,4.9
+Snowdon Volcanic,Katian,Katian,0.0,124,4.9
+Guryanovka,Katian,Katian,0.0,328,4.9
+Jacks Peak,Katian,Katian,0.0,179,4.9
+Frognerkilen,Katian,Katian,0.0,239,4.9
+Nakkholmen,Katian,Katian,0.0,239,4.9
+Bramka Limestone,Katian,Katian,0.0,38,4.9
+Tauken,Katian,Katian,0.0,197,4.9
+Karagach,Sandbian,Katian,1.0,70,4.9
+Bayrim,Katian,Katian,0.0,198,4.9
+Cava,Sandbian,Katian,1.0,240,4.9
+Ceiswyn,Sandbian,Sandbian,0.0,124,4.9
+Chatellier,Katian,Katian,0.0,224,4.9
+Grés de kermeur,Katian,Katian,0.0,240,4.9
+Riadan,Katian,Katian,0.0,240,4.9
+Rosan,Katian,Katian,0.0,240,4.9
+Schistes de Cosquer,Katian,Katian,0.0,240,4.9
+Tallyllyn Mudstone,Sandbian,Katian,1.0,240,4.9
+St. Cynllo´s Church,Sandbian,Katian,1.0,92,4.9
+Benjamin Limestone Upper,Sandbian,Katian,1.0,203,4.9
+Baimazai,Sandbian,Katian,1.0,250,4.9
+Bulukeqi,Sandbian,Katian,1.0,250,4.9
+Chaitsun Upper,Sandbian,Katian,1.0,250,4.9
+Dongkengkou,Sandbian,Katian,1.0,250,4.9
+Gongwusu,Sandbian,Katian,1.0,250,4.9
+Guyu,Sandbian,Katian,1.0,250,4.9
+Hanjiang,Sandbian,Katian,1.0,250,4.9
+Jianling,Sandbian,Katian,1.0,250,4.9
+Kekesaleixi,Sandbian,Katian,1.0,250,4.9
+Longtouzhai,Sandbian,Katian,1.0,250,4.9
+Luohe,Katian,Katian,0.0,250,4.9
+Luoshigou,Sandbian,Katian,1.0,250,4.9
+Modaoxi,Sandbian,Katian,1.0,250,4.9
+Mutong,Sandbian,Katian,1.0,250,4.9
+Pupiao Lower,Sandbian,Katian,1.0,250,4.9
+Sailikedaban,Sandbian,Katian,1.0,250,4.9
+Sanyuanzhi,Sandbian,Katian,1.0,250,4.9
+Sheshan,Katian,Katian,0.0,250,4.9
+Shuangjiakou,Sandbian,Katian,1.0,250,4.9
+Sigang,Sandbian,Katian,1.0,250,4.9
+Sijiagou,Katian,Katian,0.0,250,4.9
+Xiongmei,Sandbian,Katian,1.0,250,4.9
+Yaomoshan,Sandbian,Katian,1.0,250,4.9
+Yingan,Katian,Katian,0.0,74,4.9
+Chert,Sandbian,Katian,1.0,176,4.9
+Corona,Katian,Katian,0.0,124,4.9
+Mottled Siltstone,Sandbian,Katian,1.0,124,4.9
+Fossum,Darriwilian,Katian,2.0,29,4.9
+Furuberget,Darriwilian,Katian,2.0,29,4.9
+Lieker,Katian,Katian,0.0,29,4.9
+Mjøsa,Katian,Katian,0.0,29,4.9
+Nerby,Katian,Katian,0.0,29,4.9
+Steinvika,Katian,Katian,0.0,29,4.9
+Kanyon,Sandbian,Katian,1.0,317,4.9
+Eastonian 3,Katian,Katian,0.0,12,4.9
+Eastonian 1,Katian,Katian,0.0,12,4.9
+Russia Upper,Katian,Katian,0.0,211,4.9
+Courval,Katian,Katian,0.0,340,4.9
+Lotbinière,Katian,Katian,0.0,340,4.9
+Sainte-Perpétue,Katian,Katian,0.0,340,4.9
+Sainte-Sabine,Katian,Katian,0.0,340,4.9
+Eastonian 2,Katian,Katian,0.0,12,4.9
+Nowadaga,Katian,Katian,0.0,158,4.9
+Garin,Katian,Katian,0.0,312,4.9
+Calmar K-bentonite,Katian,Katian,0.0,388,4.9
+Cobourgian,Katian,Katian,0.0,351,4.9
+Aketashi,Katian,Katian,0.0,250,4.9
+Jiangilawan,Katian,Katian,0.0,250,4.9
+Schenectady,Katian,Katian,0.0,158,4.9
+Alexanria Sub,Katian,Katian,0.0,184,4.9
+Brent Sub,Katian,Katian,0.0,184,4.9
+Fulton,Katian,Katian,0.0,184,4.9
+Pioneer Valley Sub,Katian,Katian,0.0,184,4.9
+Snag Creek Sub,Katian,Katian,0.0,184,4.9
+Kahfah,Sandbian,Katian,1.0,249,4.9
+Vinice,Katian,Katian,0.0,249,4.9
+Middle Tiouririne,Sandbian,Katian,1.0,238,4.9
+Mount Auburn,Katian,Katian,0.0,397,4.9
+Sunset,Katian,Katian,0.0,397,4.9
+New River,Sandbian,Katian,1.0,233,4.9
+Bills Creek,Katian,Katian,0.0,136,4.9
+Aleman,Katian,Katian,0.0,39,4.9
+Fremont,Katian,Katian,0.0,39,4.9
+Maquoketa,Katian,Katian,0.0,39,4.9
+Whetstone Gulf,Katian,Katian,0.0,39,4.9
+Bellevue,Katian,Katian,0.0,397,4.9
+Corryville,Katian,Katian,0.0,397,4.9
+Fairmount,Katian,Katian,0.0,397,4.9
+McMicken,Katian,Katian,0.0,397,4.9
+Miamitown,Katian,Katian,0.0,397,4.9
+Mount Hope,Katian,Katian,0.0,397,4.9
+Fish Haven Dolomite,Katian,Katian,0.0,141,4.9
+Groos Quarry,Katian,Katian,0.0,136,4.9
+Second Value,Katian,Katian,0.0,39,4.9
+Bolindian 3,Katian,Katian,0.0,12,4.9
+Chokpar,Katian,Katian,0.0,345,4.9
+South Treave,Katian,Katian,0.0,124,4.9
+Cashmankalon,Katian,Katian,0.0,316,4.9
+Bolinda Shale,Katian,Katian,0.0,216,4.9
+Curdsville,Sandbian,Sandbian,0.0,22,4.9
+Grier Lower,Katian,Katian,0.0,25,4.9
+Logana,Katian,Katian,0.0,25,4.9
+Cummingville,Katian,Katian,0.0,39,4.9
+Kirkfieldian,Sandbian,Katian,1.0,39,4.9
+Prosser,Katian,Katian,0.0,39,4.9
+Stickley Run,Sandbian,Katian,1.0,388,4.9
+Dolly Ridge,Sandbian,Katian,1.0,222,4.9
+Napanee,Katian,Katian,0.0,22,4.9
+Salona,Sandbian,Sandbian,0.0,388,4.9
+Dickeyville K-bentonite,Katian,Katian,0.0,388,4.9
+Elkport K-bentonite,Sandbian,Katian,1.0,222,4.9
+Glen Falls Limestone,Sandbian,Katian,1.0,222,4.9
+Glens Falls,Katian,Katian,0.0,222,4.9
+Guttenberg,Sandbian,Katian,1.0,222,4.9
+Jacksonburg,Katian,Katian,0.0,193,4.9
+Kings Falls,Sandbian,Sandbian,0.0,193,4.9
+Spechts Ferry,Sandbian,Katian,1.0,222,4.9
+Harding,Sandbian,Katian,1.0,39,4.9
+Rockdell,Sandbian,Katian,1.0,80,4.9
+Roughlock,Sandbian,Katian,1.0,39,4.9
+Vasagaard,Katian,Katian,0.0,296,4.9
+Chakyr,Katian,Katian,0.0,198,4.9
+Balgaverie,Katian,Katian,0.0,124,4.9
+Cautley Sandstone,Katian,Katian,0.0,124,4.9
+Glenwhargen,Katian,Katian,0.0,124,4.9
+Lapworth,Katian,Katian,0.0,124,4.9
+Revelation,Katian,Katian,0.0,124,4.9
+Wall,Katian,Katian,0.0,124,4.9
+Whitehouse Sub,Katian,Katian,0.0,241,4.9
+Venstøp,Katian,Katian,0.0,28,4.9
+Gagnum,Katian,Katian,0.0,29,4.9
+Fjäcka Shale,Katian,Katian,0.0,296,4.9
+Bulukhta,Katian,Katian,0.0,281,4.9
+Lindsay,Katian,Katian,0.0,63,4.9
+Bolindian 2,Katian,Katian,0.0,12,4.9
+Kharkindzhin,Sandbian,Katian,1.0,346,4.9
+Saturday Mountain,Katian,Katian,0.0,361,4.9
+Nicolet River,Katian,Katian,0.0,340,4.9
+Pontgravé,Katian,Katian,0.0,340,4.9
+Sainte-Monique,Katian,Katian,0.0,340,4.9
+Arnheim,Katian,Katian,0.0,25,4.9
+Canajoharie,Katian,Katian,0.0,158,4.9
+M3,Sandbian,Katian,1.0,194,4.9
+Arsenault,Katian,Katian,0.0,312,4.9
+Lourdes,Sandbian,Katian,1.0,66,4.9
+Castle Road,Katian,Katian,0.0,193,4.9
+Gun Club Road,Katian,Katian,0.0,193,4.9
+High Falls K-bentonite,Katian,Katian,0.0,193,4.9
+Mill Dam,Katian,Katian,0.0,193,4.9
+North Gage,Katian,Katian,0.0,193,4.9
+Rathbun,Katian,Katian,0.0,193,4.9
+Sugar River Lower,Katian,Katian,0.0,193,4.9
+Devils Hollow Lower,Katian,Katian,0.0,184,4.9
+Devils Hollow Upper,Katian,Katian,0.0,184,4.9
+Donerail,Katian,Katian,0.0,184,4.9
+Gratz,Katian,Katian,0.0,184,4.9
+Grier Middle,Katian,Katian,0.0,184,4.9
+Locust Creek,Katian,Katian,0.0,184,4.9
+Peaks Mill,Katian,Katian,0.0,184,4.9
+Salvisa Lower,Katian,Katian,0.0,184,4.9
+Salvisa Middle,Katian,Katian,0.0,184,4.9
+Salvisa Upper,Katian,Katian,0.0,184,4.9
+Shoreham,Katian,Katian,0.0,157,4.9
+Hasenclever,Katian,Katian,0.0,211,4.9
+Shikou,Katian,Katian,0.0,250,4.9
+Grand Avenue,Katian,Katian,0.0,184,4.9
+Grand View Sub,Katian,Katian,0.0,184,4.9
+Taylor Mill Sub,Katian,Katian,0.0,184,4.9
+Prospekt Quarry,Katian,Katian,0.0,211,4.9
+Rust Quarry,Katian,Katian,0.0,193,4.9
+Spillway,Katian,Katian,0.0,193,4.9
+Denmark,Katian,Katian,0.0,157,4.9
+Montu,Katian,Katian,0.0,8,4.9
+Paekna,Katian,Katian,0.0,8,4.9
+Burmingham,Katian,Katian,0.0,312,4.9
+Normanskill,Sandbian,Sandbian,0.0,157,4.9
+Trentonian,Katian,Katian,0.0,167,4.9
+Holston,Sandbian,Sandbian,0.0,178,4.9
+Santa Gertrudis,Darriwilian,Katian,2.0,358,4.9
+Chota,Sandbian,Katian,1.0,65,4.9
+Sevier,Sandbian,Sandbian,0.0,188,4.9
+Grefsen K-bentonite,Sandbian,Sandbian,0.0,364,4.9
+Grimstorp K-bentonite,Sandbian,Katian,1.0,325,4.9
+Kinnekulle K-bentonite,Sandbian,Sandbian,0.0,364,4.9
+Sinsen K-bentonite,Sandbian,Sandbian,0.0,364,4.9
+Hog's Back,Sandbian,Katian,1.0,51,4.9
+Laval Upper,Darriwilian,Katian,2.0,51,4.9
+Pamelia,Sandbian,Sandbian,0.0,157,4.9
+Valcour,Darriwilian,Sandbian,1.0,39,4.9
+Dalby,Darriwilian,Katian,2.0,9,4.9
+Dalby Limestone,Darriwilian,Katian,2.0,11,4.9
+Chambersburg,Sandbian,Sandbian,0.0,83,4.9
+Corbin Ranch,Sandbian,Sandbian,0.0,223,4.9
+Joachim Dolomite,Sandbian,Sandbian,0.0,114,4.9
+Plattin,Sandbian,Sandbian,0.0,114,4.9
+Benbolt,Sandbian,Sandbian,0.0,183,4.9
+Bowen,Tremadocian,Tremadocian,0.0,114,4.9
+Lincolnshire,Sandbian,Katian,1.0,80,4.9
+Wardell,Sandbian,Katian,1.0,80,4.9
+Witten,Sandbian,Katian,1.0,80,4.9
+Arnestad,Sandbian,Sandbian,0.0,239,4.9
+Hovinsholm,Darriwilian,Katian,2.0,29,4.9
+Vollen,Sandbian,Sandbian,0.0,"28, 104",4.9
+Carimona,Sandbian,Katian,1.0,222,4.9
+Deicke K-bentonite,Sandbian,Sandbian,0.0,22,4.9
+Edinburg,Sandbian,Sandbian,0.0,188,4.9
+Eggleston,Sandbian,Sandbian,0.0,22,4.9
+Lindon Hall,Sandbian,Katian,1.0,222,4.9
+Lowville,Sandbian,Sandbian,0.0,187,4.9
+Millbrig K-bentonite,Sandbian,Sandbian,0.0,22,4.9
+Nealmont,Sandbian,Sandbian,0.0,22,4.9
+Oranda,Sandbian,Sandbian,0.0,388,4.9
+Selby Limestone,Sandbian,Sandbian,0.0,22,4.9
+Tyrone,Sandbian,Sandbian,0.0,"22, 25",4.9
+Watertown,Sandbian,Sandbian,0.0,22,4.9
+M2,Sandbian,Katian,1.0,194,4.9
+Burn Side Conglomerat,Sandbian,Katian,1.0,124,4.9
+Doon Hill Conglomerate,Sandbian,Katian,1.0,124,4.9
+Kilranny Conglomerat,Sandbian,Katian,1.0,124,4.9
+Pumphouse,Sandbian,Katian,1.0,124,4.9
+La Pola,Sandbian,Katian,1.0,299,4.9
+Las Vacas,Sandbian,Sandbian,0.0,93,4.9
+Qiaerbake,Darriwilian,Katian,2.0,57,4.9
+High Bridge,Sandbian,Katian,1.0,50,4.9
+Chapman Ridge,Sandbian,Sandbian,0.0,188,4.9
+Ottosee,Sandbian,Sandbian,0.0,188,4.9
+5b,Darriwilian,Katian,2.0,3,4.9
+Savelev,Sandbian,Katian,1.0,346,4.9
+Yugor,Sandbian,Katian,1.0,346,4.9
+Ballymoney,Sandbian,Katian,1.0,240,4.9
+Concriamont conglomerate,Sandbian,Katian,1.0,240,4.9
+Ombrette Flysch,Sandbian,Katian,1.0,240,4.9
+Badou,Sandbian,Sandbian,0.0,200,4.9
+Baimachong,Sandbian,Katian,1.0,250,4.9
+Changkengshui,Sandbian,Katian,1.0,250,4.9
+Duobaoshan,Sandbian,Katian,1.0,250,4.9
+Lashichong,Sandbian,Katian,1.0,250,4.9
+Longxi,Sandbian,Katian,1.0,250,4.9
+Tianzhu,Sandbian,Katian,1.0,250,4.9
+Sams Spring,Sandbian,Sandbian,0.0,160,4.9
+Sericoidea Mudstone,Sandbian,Katian,1.0,241,4.9
+Yenwashan Member 1,Sandbian,Katian,1.0,54,4.9
+Yenwashan Member 2,Sandbian,Katian,1.0,54,4.9
+Skagen Limestone,Sandbian,Sandbian,0.0,11,4.9
+Johvi,Sandbian,Katian,1.0,3,4.9
+Hirmuse,Sandbian,Katian,1.0,9,4.9
+Kahula,Sandbian,Katian,1.0,9,4.9
+Mossen,Sandbian,Katian,1.0,9,4.9
+Variku,Sandbian,Katian,1.0,9,4.9
+Lukstai,Sandbian,Katian,1.0,8,4.9
+Vasavere,Sandbian,Katian,1.0,8,4.9
+1b,Tremadocian,Tremadocian,0.0,84,4.9
+La Dentelle,Tremadocian,Tremadocian,0.0,244,4.9
+Mounio,Tremadocian,Tremadocian,0.0,244,4.9
+Grés de la Darneyre,Tremadocian,Tremadocian,0.0,248,4.9
+Tremadocian,Tremadocian,Tremadocian,0.0,2,4.9
+Tayanza,Tremadocian,Tremadocian,0.0,281,4.9
+Alfarcito,Tremadocian,Tremadocian,0.0,290,4.9
+Ballyhoge,Tremadocian,Tremadocian,0.0,124,4.9
+Bencorragh,Tremadocian,Tremadocian,0.0,124,4.9
+Bohaun Volcanic,Tremadocian,Tremadocian,0.0,124,4.9
+Dol-cyn-afon,Tremadocian,Tremadocian,0.0,124,4.9
+Dol-cyn-afon Lower Mudstone,Tremadocian,Tremadocian,0.0,124,4.9
+Dol-cyn-afon Upper Sandstone,Tremadocian,Tremadocian,0.0,124,4.9
+Finny,Tremadocian,Tremadocian,0.0,124,4.9
+Nant-Ddu,Tremadocian,Tremadocian,0.0,124,4.9
+Shineton Shale,Tremadocian,Tremadocian,0.0,124,4.9
+Tai-hirion Flags,Tremadocian,Tremadocian,0.0,124,4.9
+Tremadoc Shale,Tremadocian,Tremadocian,0.0,124,4.9
+Alum Shale Upper,Tremadocian,Tremadocian,0.0,276,4.9
+Floresta Upper,Tremadocian,Tremadocian,0.0,276,4.9
+Agairya,Tremadocian,Tremadocian,0.0,281,4.9
+Ishpa,Tremadocian,Tremadocian,0.0,281,4.9
+Kamlak,Tremadocian,Tremadocian,0.0,281,4.9
+Talitsa,Tremadocian,Tremadocian,0.0,281,4.9
+El Gassi,Tremadocian,Tremadocian,0.0,238,4.9
+Vire du Mouflon,Tremadocian,Tremadocian,0.0,238,4.9
+Oued Mya,Tremadocian,Tremadocian,0.0,249,4.9
+Argiles d'El Gassi,Tremadocian,Tremadocian,0.0,249,4.9
+Sanrhar,Tremadocian,Tremadocian,0.0,249,4.9
+Trenice,Tremadocian,Tremadocian,0.0,249,4.9
+Lancefieldian 2,Tremadocian,Tremadocian,0.0,12,4.9
+Datson,Tremadocian,Tremadocian,0.0,230,4.9
+Pacoota sequence 3,Tremadocian,Tremadocian,0.0,230,4.9
+Tungtzu,Tremadocian,Tremadocian,0.0,54,4.9
+Guotang,Tremadocian,Tremadocian,0.0,378,4.9
+Jueshangou,Tremadocian,Tremadocian,0.0,378,4.9
+Liuchen,Tremadocian,Tremadocian,0.0,378,4.9
+Lohanpo,Tremadocian,Tremadocian,0.0,378,4.9
+Maoping,Tremadocian,Tremadocian,0.0,378,4.9
+Paishuichi,Tremadocian,Tremadocian,0.0,378,4.9
+Panjiazui,Tremadocian,Tremadocian,0.0,378,4.9
+Xinchang,Tremadocian,Tremadocian,0.0,378,4.9
+Coquena,Tremadocian,Tremadocian,0.0,287,4.9
+Fezouata,Tremadocian,Tremadocian,0.0,309,4.9
+Bitter Beck,Tremadocian,Tremadocian,0.0,124,4.9
+Cronk Sumark Slate,Tremadocian,Tremadocian,0.0,124,4.9
+Knock Kilbride,Tremadocian,Tremadocian,0.0,124,4.9
+Treffgarn Andesites,Tremadocian,Tremadocian,0.0,124,4.9
+1a,Tremadocian,Tremadocian,0.0,84,4.9
+Barn Canyon,Tremadocian,Tremadocian,0.0,177,4.9
+Tribes Hill,Tremadocian,Tremadocian,0.0,114,4.9
+Aktau,Tremadocian,Tremadocian,0.0,345,4.9
+Ungur,Tremadocian,Tremadocian,0.0,345,4.9
+Cardonal,Tremadocian,Tremadocian,0.0,274,4.9
+Putty Shale,Tremadocian,Tremadocian,0.0,190,4.9
+Loushanguan,Tremadocian,Tremadocian,0.0,349,4.9
+Alum Shale,Tremadocian,Tremadocian,0.0,37,4.9
+Koporye,Tremadocian,Tremadocian,0.0,350,4.9
+Torsugtagh,Tremadocian,Tremadocian,0.0,78,4.9
+Bed 7,Tremadocian,Tremadocian,0.0,42,4.9
+Brent Island,Tremadocian,Tremadocian,0.0,42,4.9
+Cape Clay,Tremadocian,Tremadocian,0.0,114,4.9
+Cass Fjord,Tremadocian,Tremadocian,0.0,42,4.9
+Copes Bay,Tremadocian,Tremadocian,0.0,42,4.9
+Mingo River,Tremadocian,Tremadocian,0.0,42,4.9
+Rabbit Kettle,Tremadocian,Tremadocian,0.0,114,4.9
+Turner Cliffs,Tremadocian,Tremadocian,0.0,42,4.9
+Watts Bight,Tremadocian,Tremadocian,0.0,114,4.9
+Djupgrav,Tremadocian,Tremadocian,0.0,11,4.9
+House Limestone,Tremadocian,Tremadocian,0.0,113,4.9
+Collier Shale,Tremadocian,Tremadocian,0.0,114,4.9
+Gasconade Dolomite,Tremadocian,Tremadocian,0.0,114,4.9
+McKenzie Hill,Tremadocian,Tremadocian,0.0,113,4.9
+Cieneguillas,Tremadocian,Tremadocian,0.0,237,4.9
+Iscayachi,Tremadocian,Tremadocian,0.0,237,4.9
+Antiklinalbugt,Tremadocian,Tremadocian,0.0,114,4.9
+Bliss,Tremadocian,Tremadocian,0.0,114,4.9
+Boat Harbour Lower,Tremadocian,Tremadocian,0.0,114,4.9
+Cass Fjord C,Tremadocian,Tremadocian,0.0,114,4.9
+Chepultepec,Tremadocian,Tremadocian,0.0,114,4.9
+Gorman,Tremadocian,Tremadocian,0.0,114,4.9
+Hag Hill,Tremadocian,Tremadocian,0.0,114,4.9
+Hitt Canyon,Tremadocian,Tremadocian,0.0,114,4.9
+La Silla,Tremadocian,Tremadocian,0.0,114,4.9
+Larke Dolomite,Tremadocian,Tremadocian,0.0,114,4.9
+Oneota Dolomite,Tremadocian,Tremadocian,0.0,114,4.9
+Rickenbach,Tremadocian,Tremadocian,0.0,114,4.9
+Sailmhor,Tremadocian,Tremadocian,0.0,114,4.9
+Signal Mountain,Tremadocian,Tremadocian,0.0,50,4.9
+Stonehenge Limestone,Tremadocian,Tremadocian,0.0,114,4.9
+Tanyard,Tremadocian,Tremadocian,0.0,114,4.9
+Turner Cliffs Lower,Tremadocian,Tremadocian,0.0,114,4.9
+Wilberns,Tremadocian,Tremadocian,0.0,114,4.9
+Cass Fjord D,Tremadocian,Tremadocian,0.0,114,4.9
+Gunter Sandstone,Tremadocian,Tremadocian,0.0,"385, 59",4.9
+Corrie,Tremadocian,Tremadocian,0.0,230,4.9
+Wallace Creek,Tremadocian,Tremadocian,0.0,365,4.9
+House,Tremadocian,Tremadocian,0.0,50,4.9
+Caldera,Tremadocian,Tremadocian,0.0,"276, 273",4.9
+Devendeus,Tremadocian,Tremadocian,0.0,273,4.9
+San José,Tremadocian,Tremadocian,0.0,"276, 273",4.9
+Kudata Dolomite,Tremadocian,Tremadocian,0.0,"77, 71",4.9
+Kunian Sandstone,Tremadocian,Tremadocian,0.0,77,4.9
+Tongzi,Tremadocian,Tremadocian,0.0,77,4.9
+Tungtzu Upper,Tremadocian,Tremadocian,0.0,54,4.9
+Yinchufu Member 4,Tremadocian,Tremadocian,0.0,54,4.9
+Tangchi,Tremadocian,Tremadocian,0.0,367,4.9
+Lower Tremadocian,Tremadocian,Tremadocian,0.0,318,4.9
+Dagger Flat,Tremadocian,Tremadocian,0.0,114,4.9
+Milina,Tremadocian,Tremadocian,0.0,249,4.9
+Basisletta,Tremadocian,Tremadocian,0.0,326,4.9
+Rochdale,Tremadocian,Tremadocian,0.0,114,4.9
+Cookes,Tremadocian,Tremadocian,0.0,56,4.9
+Crystal Mountain Sandstone,Tremadocian,Tremadocian,0.0,114,4.9
+Baumann Fjord A,Tremadocian,Tremadocian,0.0,114,4.9
+Boat Harbour Middle,Tremadocian,Tremadocian,0.0,114,4.9
+Fimbulfjeld Hiatus,Tremadocian,Tremadocian,0.0,114,4.9
+Longview Limestone,Tremadocian,Tremadocian,0.0,114,4.9
+Sangomore,Tremadocian,Tremadocian,0.0,114,4.9
+Borrachón,Tremadocian,Tremadocian,0.0,263,4.9
+Spora,Tremadocian,Tremadocian,0.0,326,4.9
+Nazya,Tremadocian,Tremadocian,0.0,350,4.9
+Middle Tremadocian,Tremadocian,Tremadocian,0.0,318,4.9
+Lone Mountain,Tremadocian,Tremadocian,0.0,155,4.9
+Lancefieldian 1,Tremadocian,Tremadocian,0.0,12,4.9
+Bailongmiao,Tremadocian,Tremadocian,0.0,250,4.9
+Dushuke,Tremadocian,Tremadocian,0.0,250,4.9
+Hangwula,Tremadocian,Tremadocian,0.0,250,4.9
+Jinlonggou,Tremadocian,Tremadocian,0.0,250,4.9
+Liuxia,Tremadocian,Tremadocian,0.0,"367, 53",4.9
+Shuitianhe,Tremadocian,Tremadocian,0.0,250,4.9
+Wanjuanshu,Tremadocian,Tremadocian,0.0,"367, 52",4.9
+Xiadumudi,Tremadocian,Tremadocian,0.0,250,4.9
+Yangjiaba,Tremadocian,Tremadocian,0.0,367,4.9
+Mireles,Tremadocian,Tremadocian,0.0,252,4.9
+Sokoli,Tremadocian,Tremadocian,0.0,346,4.9
+Casa Colorada,Tremadocian,Tremadocian,0.0,290,4.9
+Dictyonema Band,Tremadocian,Tremadocian,0.0,124,4.9
+Dol-cyn-afon Lower Sandstone,Tremadocian,Tremadocian,0.0,124,4.9
+Niobe,Tremadocian,Tremadocian,0.0,124,4.9
+Alum Shale Lower,Tremadocian,Tremadocian,0.0,276,4.9
+Foum Tineslem Glauconitic Shaly,Tremadocian,Tremadocian,0.0,238,4.9
+pre Lancefieldian 1,Tremadocian,Tremadocian,0.0,12,4.9
+Wangjuanshu,Tremadocian,Tremadocian,0.0,378,4.9
+Burnout Canyon,Tremadocian,Tremadocian,0.0,177,4.9
+Red Canyon,Tremadocian,Tremadocian,0.0,177,4.9
+Rio Salinas,Tremadocian,Tremadocian,0.0,375,4.9
+Sierrite,Tremadocian,Tremadocian,0.0,56,4.9
+Cutting,Tremadocian,Tremadocian,0.0,109,4.9
+Shelburne Marble,Tremadocian,Tremadocian,0.0,109,4.9
+Blanley Bay,Tremadocian,Tremadocian,0.0,114,4.9
+Christian Elv,Tremadocian,Tremadocian,0.0,114,4.9
+Turner Cliffs Upper,Tremadocian,Tremadocian,0.0,114,4.9
+Morgan Corner,Tremadocian,Tremadocian,0.0,365,4.9
+Erduqiao,Tremadocian,Tremadocian,0.0,54,4.9
+Tungtzu Middle,Tremadocian,Tremadocian,0.0,54,4.9
+Yinchufu Member 2,Tremadocian,Tremadocian,0.0,54,4.9
+Yinchufu Member 3,Tremadocian,Tremadocian,0.0,54,4.9
+Floresta-Rupasca,Tremadocian,Tremadocian,0.0,273,4.9
+Inanin,Tremadocian,Tremadocian,0.0,346,4.9
+Coquina,Tremadocian,Tremadocian,0.0,276,4.9
+Floresta Lower,Tremadocian,Tremadocian,0.0,276,4.9
+Tosna,Tremadocian,Tremadocian,0.0,350,4.9
+Victorio Hills,Tremadocian,Tremadocian,0.0,207,4.9
+Lancefieldian 1b,Tremadocian,Tremadocian,0.0,230,4.9
+Guanyintai,Tremadocian,Tremadocian,0.0,52,4.9
+Tungtzu Lower,Tremadocian,Tremadocian,0.0,54,4.9
+Xilingxia,Tremadocian,Tremadocian,0.0,61,4.9
+Aspero,Tremadocian,Tremadocian,0.0,276,4.9
+Big Hatchet,Tremadocian,Tremadocian,0.0,192,4.9
+Amnodd Shale,Tremadocian,Tremadocian,0.0,124,4.9
+Arenaceous,Tremadocian,Tremadocian,0.0,124,4.9
+Dol-cyn-afon Upper Mudstone,Tremadocian,Tremadocian,0.0,124,4.9
+Rhobell Volcanic,Tremadocian,Tremadocian,0.0,124,4.9
+Lancefieldian 1a,Tremadocian,Tremadocian,0.0,230,4.9
+Lancefieldian 2b,Tremadocian,Tremadocian,0.0,230,4.9
+Mountain Lake,Sandbian,Sandbian,0.0,164,4.9
+Pontotoc,Darriwilian,Sandbian,1.0,223,4.9
+Tumbez,Darriwilian,Sandbian,1.0,183,4.9
+Ancell,Darriwilian,Sandbian,1.0,114,4.9
+Annville,Darriwilian,Sandbian,1.0,114,4.9
+Elway,Sandbian,Sandbian,0.0,183,4.9
+Five Oaks,Darriwilian,Sandbian,1.0,114,4.9
+Glenwood,Sandbian,Sandbian,0.0,39,4.9
+Liberty Hall,Darriwilian,Sandbian,1.0,114,4.9
+Lincoln Shale,Darriwilian,Sandbian,1.0,114,4.9
+Loysburg,Darriwilian,Sandbian,1.0,114,4.9
+St. Paul,Darriwilian,Sandbian,1.0,50,4.9
+Wells Creek Dolomite,Darriwilian,Sandbian,1.0,114,4.9
+Woods Hollow,Darriwilian,Sandbian,1.0,114,4.9
+Camp Nelson,Darriwilian,Sandbian,1.0,39,4.9
+Copenhagen Lower,Darriwilian,Sandbian,1.0,39,4.9
+5a,Darriwilian,Sandbian,1.0,3,4.9
+Los Leones,Darriwilian,Sandbian,1.0,333,4.9
+Dreimani,Darriwilian,Sandbian,1.0,"21, 9",4.9
+Pihla,Darriwilian,Sandbian,1.0,9,4.9
+Viivikonna,Sandbian,Sandbian,0.0,350,4.9
+Athens Shale,Sandbian,Sandbian,0.0,83,4.9
+Effna Limestone,Sandbian,Sandbian,0.0,178,4.9
+Mosheim,Sandbian,Sandbian,0.0,183,4.9
+Tellico,Darriwilian,Sandbian,1.0,188,4.9
+Itmurundy,Darriwilian,Sandbian,1.0,370,4.9
+Kazyk,Darriwilian,Sandbian,1.0,370,4.9
+Sularp,Darriwilian,Sandbian,1.0,37,4.9
+Idavere,Darriwilian,Sandbian,1.0,3,4.9
+Tatruse,Darriwilian,Sandbian,1.0,9,4.9
+Porterfieldian,Sandbian,Sandbian,0.0,183,4.9
+La Cantera,Sandbian,Sandbian,0.0,299,4.9
+Benan Conglomerate,Sandbian,Sandbian,0.0,124,4.9
+Fence,Sandbian,Sandbian,0.0,124,4.9
+Superstes,Sandbian,Sandbian,0.0,124,4.9
+Los Azules,Sandbian,Sandbian,0.0,299,4.9
+Bolarian,Sandbian,Sandbian,0.0,183,4.9
+Chatham Hill,Sandbian,Sandbian,0.0,178,4.9
+Lincolnshire Limestone,Sandbian,Sandbian,0.0,183,4.9
+McGraw,Sandbian,Sandbian,0.0,183,4.9
+Peery Limestone,Sandbian,Sandbian,0.0,183,4.9
+Rich Valley,Sandbian,Sandbian,0.0,178,4.9
+Ward Cove Limestone,Sandbian,Sandbian,0.0,183,4.9
+Pooleville,Sandbian,Sandbian,0.0,223,4.9
+M1,Sandbian,Sandbian,0.0,194,4.9
+Benjamin Limestone Lower,Sandbian,Sandbian,0.0,203,4.9
+McGlone,Sandbian,Sandbian,0.0,183,4.9
+Bellmoor,Sandbian,Sandbian,0.0,124,4.9
+Laggan,Sandbian,Sandbian,0.0,124,4.9
+Botetourt Limestone,Sandbian,Sandbian,0.0,188,4.9
+Wassum,Sandbian,Sandbian,0.0,178,4.9
+Gorse,Sandbian,Sandbian,0.0,124,4.9
+Jubilation,Sandbian,Sandbian,0.0,124,4.9
+Wildernessian,Sandbian,Sandbian,0.0,183,4.9
+Fengfeng Upper,Sandbian,Sandbian,0.0,200,4.9
+Blackriverian,Sandbian,Sandbian,0.0,39,4.9
+Carters,Sandbian,Sandbian,0.0,22,4.9
+Platteville,Sandbian,Sandbian,0.0,22,4.9
+Ben Hur Limestone,Sandbian,Sandbian,0.0,183,4.9
+Hardy Creek,Sandbian,Sandbian,0.0,183,4.9
+Hurricane Bridge Limestone,Sandbian,Sandbian,0.0,183,4.9
+Martin Creek Limestone,Sandbian,Sandbian,0.0,183,4.9
+Woodway,Sandbian,Sandbian,0.0,183,4.9
+Barrel Spring,Sandbian,Sandbian,0.0,114,4.9
+Black River,Sandbian,Sandbian,0.0,114,4.9
+Pecatonica,Sandbian,Sandbian,0.0,114,4.9
+Copenhagen Upper,Sandbian,Sandbian,0.0,39,4.9
+Hogskin,Sandbian,Sandbian,0.0,183,4.9
+Icebox,Sandbian,Sandbian,0.0,39,4.9
+Oregon Limestone,Sandbian,Sandbian,0.0,39,4.9
+Ballinatray,Sandbian,Sandbian,0.0,124,4.9
+Blackcraig,Sandbian,Sandbian,0.0,124,4.9
+Finnarts Conglomerate,Sandbian,Sandbian,0.0,124,4.9
+Galdenoch,Sandbian,Sandbian,0.0,124,4.9
+Spothfore,Sandbian,Sandbian,0.0,124,4.9
+Caesar Canyon,Sandbian,Sandbian,0.0,160,4.9
+Costonian,Sandbian,Sandbian,0.0,45,4.9
+Harnagian,Sandbian,Sandbian,0.0,45,4.9
+Soudleyan,Sandbian,Sandbian,0.0,45,4.9
+Ristiküla bed 46 K-bentonite,Sandbian,Sandbian,0.0,214,4.9
+Coston,Sandbian,Sandbian,0.0,92,4.9
+Glenburrell,Sandbian,Sandbian,0.0,92,4.9
+Pont-y-cenant,Sandbian,Sandbian,0.0,92,4.9
+Smeathen Wood,Sandbian,Sandbian,0.0,92,4.9
+Albany,Sandbian,Sandbian,0.0,124,4.9
+Aldress Shale,Sandbian,Sandbian,0.0,124,4.9
+Allt Ddu Mudstone,Sandbian,Sandbian,0.0,124,4.9
+Ballymalone,Sandbian,Sandbian,0.0,124,4.9
+Bryn-banc Limestone,Sandbian,Sandbian,0.0,124,4.9
+Bulthy,Sandbian,Sandbian,0.0,124,4.9
+Caher Hill,Sandbian,Sandbian,0.0,124,4.9
+Carrighalia,Sandbian,Sandbian,0.0,124,4.9
+Cefn Gwyn Tuff,Sandbian,Sandbian,0.0,124,4.9
+Chatwall Flags,Sandbian,Sandbian,0.0,124,4.9
+Collon,Sandbian,Sandbian,0.0,124,4.9
+Craig Cau,Sandbian,Sandbian,0.0,124,4.9
+Derfel Limestone,Sandbian,Sandbian,0.0,124,4.9
+Dunabrattin Limestone,Sandbian,Sandbian,0.0,124,4.9
+Eycott Volcanic,Sandbian,Sandbian,0.0,124,4.9
+Frondderw Tuff,Sandbian,Sandbian,0.0,124,4.9
+Garraun Shale,Sandbian,Sandbian,0.0,124,4.9
+Glyn Gower Siltstone,Sandbian,Sandbian,0.0,124,4.9
+Hagley Shale,Sandbian,Sandbian,0.0,124,4.9
+Hagley Volcanic,Sandbian,Sandbian,0.0,124,4.9
+Harnage Shale,Sandbian,Sandbian,0.0,124,4.9
+Harthwaite Tuff,Sandbian,Sandbian,0.0,124,4.9
+Herbertstown,Sandbian,Sandbian,0.0,124,4.9
+Hill Farm Shale,Sandbian,Sandbian,0.0,124,4.9
+Hoar Edge Grits,Sandbian,Sandbian,0.0,124,4.9
+Kilmacrea,Sandbian,Sandbian,0.0,124,4.9
+Knock Pike Tuff,Sandbian,Sandbian,0.0,124,4.9
+Llewelyn Volcanic,Sandbian,Sandbian,0.0,124,4.9
+Llyn Conwy,Sandbian,Sandbian,0.0,124,4.9
+Lodge Volcanic Upper,Sandbian,Sandbian,0.0,124,4.9
+Loftusacre,Sandbian,Sandbian,0.0,124,4.9
+Middletown,Sandbian,Sandbian,0.0,124,4.9
+Nant Hir Mudstone,Sandbian,Sandbian,0.0,124,4.9
+Newtown Head,Sandbian,Sandbian,0.0,124,4.9
+Parrog Shales,Sandbian,Sandbian,0.0,124,4.9
+Pitts Head Tuff,Sandbian,Sandbian,0.0,124,4.9
+Pont-y-Ceunant Ash,Sandbian,Sandbian,0.0,124,4.9
+Potts Ghyll,Sandbian,Sandbian,0.0,124,4.9
+Stone House Shale,Sandbian,Sandbian,0.0,124,4.9
+Toberelatan,Sandbian,Sandbian,0.0,124,4.9
+Whittery Shale,Sandbian,Sandbian,0.0,124,4.9
+Whittery Volcanic,Sandbian,Sandbian,0.0,124,4.9
+Bestiube,Sandbian,Sandbian,0.0,197,4.9
+Amsterdam,Sandbian,Sandbian,0.0,158,4.9
+Balmville,Sandbian,Sandbian,0.0,157,4.9
+Chaumont,Sandbian,Sandbian,0.0,157,4.9
+Kirkfield,Sandbian,Sandbian,0.0,157,4.9
+Pawlet,Sandbian,Sandbian,0.0,157,4.9
+Rockland,Sandbian,Sandbian,0.0,39,4.9
+Ashbyan,Sandbian,Sandbian,0.0,183,4.9
+Letná,Sandbian,Sandbian,0.0,249,4.9
+Libeň,Sandbian,Sandbian,0.0,249,4.9
+Assif bou Zeggarh,Sandbian,Sandbian,0.0,238,4.9
+Veryac'h,Sandbian,Sandbian,0.0,238,4.9
+Velfreyan,Sandbian,Sandbian,0.0,45,4.9
+Gisbornian 1,Sandbian,Sandbian,0.0,12,4.9
+Caparo,Sandbian,Sandbian,0.0,269,4.9
+Courtown,Sandbian,Sandbian,0.0,240,4.9
+Mydrim Limestone,Sandbian,Sandbian,0.0,92,4.9
+Rabassa,Sandbian,Sandbian,0.0,240,4.9
+Spy Wood Sandstone,Sandbian,Sandbian,0.0,92,4.9
+Chedao,Sandbian,Sandbian,0.0,284,4.9
+Datouyanggou,Sandbian,Sandbian,0.0,250,4.9
+Barr,Sandbian,Sandbian,0.0,124,4.9
+Black Grit,Sandbian,Sandbian,0.0,124,4.9
+Cat Cleuch,Sandbian,Sandbian,0.0,124,4.9
+Corsewall Point Conglomerate,Sandbian,Sandbian,0.0,124,4.9
+Courtown Limestone,Sandbian,Sandbian,0.0,124,4.9
+Dalreoch,Sandbian,Sandbian,0.0,124,4.9
+Dicranograptus Shale,Sandbian,Sandbian,0.0,124,4.9
+Fron Newydd,Sandbian,Sandbian,0.0,124,4.9
+Glen App Conglomerate,Sandbian,Sandbian,0.0,124,4.9
+Glen Lodge,Sandbian,Sandbian,0.0,124,4.9
+Glenconnelly,Sandbian,Sandbian,0.0,124,4.9
+Glenkiln Blue-grey Mudstone,Sandbian,Sandbian,0.0,124,4.9
+Grain Burn,Sandbian,Sandbian,0.0,124,4.9
+Marchburn,Sandbian,Sandbian,0.0,124,4.9
+Overwater,Sandbian,Sandbian,0.0,124,4.9
+Peat Rig,Sandbian,Sandbian,0.0,124,4.9
+Stoodfold,Sandbian,Sandbian,0.0,124,4.9
+Studgill Tuff,Sandbian,Sandbian,0.0,124,4.9
+Gisbornian 2,Sandbian,Sandbian,0.0,12,4.9
+Eidson,Sandbian,Sandbian,0.0,183,4.9
+Granata Gletscher,Sandbian,Sandbian,0.0,114,4.9
+St. Peter,Sandbian,Sandbian,0.0,39,4.9
+Prion Beach,Sandbian,Sandbian,0.0,233,4.9
+Las Plantas,Sandbian,Sandbian,0.0,293,4.9
+Womble K-bentonite Lower,Sandbian,Sandbian,0.0,214,4.9
+Womble K-bentonite Upper,Sandbian,Sandbian,0.0,214,4.9
+Lashizhong,Sandbian,Sandbian,0.0,372,4.9
+Ojaküla,Sandbian,Sandbian,0.0,8,4.9
+Rokiskis,Sandbian,Sandbian,0.0,8,4.9
+New Enterprise,Sandbian,Sandbian,0.0,388,4.9
+Grjazno,Sandbian,Sandbian,0.0,350,4.9
+Shundorovo,Sandbian,Sandbian,0.0,350,4.9
+Valhallfonna,Floian,Darriwilian,2.0,326,5.9
+Fimbulfjeld,Tremadocian,Darriwilian,3.0,114,5.9
+Suri,Floian,Darriwilian,2.0,323,5.9
+Qasim,Darriwilian,Hirnantian,3.0,249,5.9
+466.72,Darriwilian,Darriwilian,0.0,392,5.9
+467.78,Darriwilian,Darriwilian,0.0,392,5.9
+Las Chacritas,Darriwilian,Darriwilian,0.0,15,5.9
+Fengfeng Lower,Darriwilian,Katian,2.0,200,5.9
+Mainland,Darriwilian,Katian,2.0,66,5.9
+Long Point,Sandbian,Katian,1.0,66,5.9
+Beach Point,Sandbian,Katian,1.0,66,5.9
+Black Duck,Sandbian,Katian,1.0,66,5.9
+Shore Point,Sandbian,Katian,1.0,66,5.9
+Jerrestadian,Katian,Katian,0.0,296,5.9
+Queenstone,Katian,Katian,0.0,340,5.9
+Sainte-Rosalle,Katian,Katian,0.0,340,5.9
+Cap de la Chevre,Floian,Floian,0.0,238,5.9
+Kirtonryggen,Tremadocian,Floian,1.0,326,5.9
+Gaoqiao,Tremadocian,Floian,1.0,378,5.9
+Ellenberger,Tremadocian,Floian,1.0,114,5.9
+Cow Head,Tremadocian,Floian,1.0,42,5.9
+Austin Glen,Sandbian,Sandbian,0.0,157,5.9
+Indian River,Sandbian,Sandbian,0.0,157,5.9
+Mount Merino,Sandbian,Sandbian,0.0,157,5.9
+Doularg,Sandbian,Sandbian,0.0,124,5.9
+Los Azueles,Sandbian,Sandbian,0.0,299,5.9
+454.07,Sandbian,Sandbian,0.0,214,5.9
+454.09,Sandbian,Sandbian,0.0,214,5.9
+454.65,Sandbian,Sandbian,0.0,214,5.9
+455.21,Sandbian,Sandbian,0.0,214,5.9
+455.23,Sandbian,Sandbian,0.0,214,5.9
+455.4,Sandbian,Sandbian,0.0,214,5.9
+453.9,Sandbian,Sandbian,0.0,214,5.9
+Kong Oscar Fjord-Super,Sandbian,Sandbian,0.0,114,5.9
+453.36,Sandbian,Sandbian,0.0,214,5.9
+453.6,Sandbian,Sandbian,0.0,214,5.9
+453.98,Sandbian,Sandbian,0.0,214,5.9
+454.31,Sandbian,Sandbian,0.0,214,5.9
+454.36,Sandbian,Sandbian,0.0,214,5.9
+454.6,Sandbian,Sandbian,0.0,214,5.9
+Pin,Katian,Hirnantian,1.0,152,5.9
+Djebel Seraf,Hirnantian,Hirnantian,0.0,238,5.9
+Cedarberg,Hirnantian,Hirnantian,0.0,251,5.9
+Jifarah,Hirnantian,Hirnantian,0.0,319,5.9
+La Pedrera,Tremadocian,Tremadocian,0.0,276,5.9
+Floresta,Tremadocian,Tremadocian,0.0,276,5.9
+In Kraf,Tremadocian,Tremadocian,0.0,238,5.9
+Dictyonema Shale,Tremadocian,Tremadocian,0.0,36,5.9
+Etasje 2e-3aβ,Tremadocian,Tremadocian,0.0,28,5.9
+Lampazar,Tremadocian,Tremadocian,0.0,290,5.9
+Tinu,Tremadocian,Tremadocian,0.0,375,5.9
+Punta Pétrea,Floian,Darriwilian,2.0,323,5.9
+Oil Creek Lower,Dapingian,Darriwilian,1.0,88,5.9
+Promenadedal,Sandbian,Sandbian,0.0,114,5.9
+Misty Point,Sandbian,Katian,1.0,66,5.9
+Aubin,Katian,Katian,0.0,340,5.9
+Les Fonds,Katian,Katian,0.0,340,5.9
+Blackjack Knob,Floian,Floian,0.0,88,5.9
+Bull Shoals,Floian,Floian,0.0,88,5.9
+Lutie,Floian,Floian,0.0,88,5.9
+Ellenburger,Tremadocian,Floian,1.0,114,5.9
+Bed 6,Tremadocian,Floian,1.0,42,5.9
+Farka Muth,Katian,Hirnantian,1.0,152,5.9
+Disa Siltstone,Hirnantian,Hirnantian,0.0,251,5.9
+Etasje 2e,Tremadocian,Tremadocian,0.0,29,5.9
+Aguathuna,Floian,Darriwilian,2.0,84,"5, 6"
+Krusna Hora,Tremadocian,Tremadocian,0.0,321,"5, 6"
+Syrin,Floian,Darriwilian,2.0,399,"5, 6"
+Orthoceras Limestone,Tremadocian,Darriwilian,3.0,11,"5, 6"
+Asaphus Limestone,Darriwilian,Darriwilian,0.0,11,"5, 6"
+Kriukai,Dapingian,Darriwilian,1.0,334,"5, 6"
+Kalvi,Dapingian,Darriwilian,1.0,"8, 31","5, 6"
+Künnapohja,Dapingian,Darriwilian,1.0,"8, 31","5, 6"
+Lahepera,Dapingian,Darriwilian,1.0,8,"5, 6"
+Telinomme,Dapingian,Darriwilian,1.0,"8, 31","5, 6"
+Pada,Dapingian,Darriwilian,1.0,"8, 31","5, 6"
+Tagoat,Floian,Darriwilian,2.0,124,"5, 6"
+Heramb,Dapingian,Darriwilian,1.0,29,"5, 6"
+Gigas Limestone,Darriwilian,Darriwilian,0.0,11,"5, 6"
+Lower Grey Orthoceras Limestone,Darriwilian,Darriwilian,0.0,11,"5, 6"
+Upper Red Orthoceras Limestone,Darriwilian,Darriwilian,0.0,11,"5, 6"
+Vaginatum Limestone,Darriwilian,Darriwilian,0.0,11,"5, 6"
+Sofala Volcanics,Sandbian,Katian,1.0,"231, 202","5, 6"
+Mithaka,Darriwilian,Darriwilian,0.0,217,"5, 6"
+Nita,Darriwilian,Darriwilian,0.0,217,"5, 6"
+Osek-Kván,Darriwilian,Darriwilian,0.0,321,"5, 6"
+Cliffield,Darriwilian,Sandbian,1.0,123,"5, 6"
+Whistle Creek Limestone,Darriwilian,Sandbian,1.0,83,"5, 6"
+BIII_beta,Darriwilian,Darriwilian,0.0,236,"5, 6"
+BIII_gamma,Darriwilian,Darriwilian,0.0,236,"5, 6"
+Nommeveski,Darriwilian,Darriwilian,0.0,8,"5, 6"
+Utria,Darriwilian,Darriwilian,0.0,8,"5, 6"
+Voka,Darriwilian,Darriwilian,0.0,8,"5, 6"
+Slane,Darriwilian,Darriwilian,0.0,124,"5, 6"
+Hyssington Volcanic,Darriwilian,Darriwilian,0.0,124,"5, 6"
+Stapeley Volcanic,Darriwilian,Darriwilian,0.0,124,"5, 6"
+Abereiddian Upper,Darriwilian,Darriwilian,0.0,124,"5, 6"
+Endoceratid Limestone,Darriwilian,Darriwilian,0.0,29,"5, 6"
+Etasje 3cγ,Darriwilian,Darriwilian,0.0,28,"5, 6"
+Castillejo,Darriwilian,Darriwilian,0.0,310,"5, 6"
+Platyurus Limestone,Darriwilian,Darriwilian,0.0,11,"5, 6"
+Centaurus Limestone,Darriwilian,Darriwilian,0.0,11,"5, 6"
+Schroeteri Limestone,Darriwilian,Darriwilian,0.0,11,"5, 6"
+Mid Darriwilian isotope carbon excursion,Darriwilian,Darriwilian,0.0,"17, 9","5, 6"
+Guido Shales,Darriwilian,Darriwilian,0.0,282,"5, 6"
+Chiron Limestone,Darriwilian,Darriwilian,0.0,11,"5, 6"
+Upper Grey Orthoceras Limestone,Darriwilian,Darriwilian,0.0,11,"5, 6"
+Gowna,Darriwilian,Katian,2.0,124,"5, 6"
+Dobrotivá Shale,Darriwilian,Darriwilian,0.0,254,"5, 6"
+Skalka,Darriwilian,Darriwilian,0.0,254,"5, 6"
+Skalka Quartzite,Darriwilian,Darriwilian,0.0,"254, 321","5, 6"
+Caradocian,Darriwilian,Darriwilian,0.0,"126, 201","5, 6"
+Igzert,Darriwilian,Darriwilian,0.0,304,"5, 6"
+Oininirhene,Darriwilian,Darriwilian,0.0,304,"5, 6"
+Pioneer,Darriwilian,Darriwilian,0.0,204,"5, 6"
+Ancherik,Darriwilian,Darriwilian,0.0,335,"5, 6"
+Angir,Darriwilian,Darriwilian,0.0,"335, 399","5, 6"
+Mojeron,Darriwilian,Darriwilian,0.0,335,"5, 6"
+Obtusicauda Limestone,Darriwilian,Darriwilian,0.0,"36, 11","5, 6"
+Gull River,Sandbian,Sandbian,0.0,75,"5, 6"
+Robergia,Darriwilian,Katian,2.0,29,"5, 6"
+Pamela,Sandbian,Sandbian,0.0,"75, 17","5, 6"
+Basses-aux-Canes,Darriwilian,Katian,2.0,129,"5, 6"
+Ombret,Darriwilian,Katian,2.0,129,"5, 6"
+Sart-Bernard,Darriwilian,Katian,2.0,129,"5, 6"
+Vitrival-Bruyere,Darriwilian,Katian,2.0,129,"5, 6"
+Rägavere,Katian,Katian,0.0,18,"5, 6"
+Chambersburg Upper,Sandbian,Katian,1.0,121,"5, 6"
+Glendale Limestone,Katian,Katian,0.0,"148, 211","5, 6"
+Mangazeya,Sandbian,Katian,1.0,335,"5, 6"
+Duncannon,Sandbian,Katian,1.0,124,"5, 6"
+Campile Volcanic,Sandbian,Katian,1.0,49,"5, 6"
+Gorey Rhyolite,Sandbian,Katian,1.0,49,"5, 6"
+Tramore Volcanic Upper,Sandbian,Katian,1.0,49,"5, 6"
+Rhyolitic Tuff Lower,Sandbian,Katian,1.0,124,"5, 6"
+Louredo,Katian,Katian,0.0,"300, 396","5, 6"
+Camp Canic,Sandbian,Katian,1.0,124,"5, 6"
+Bobcaygeon,Katian,Katian,0.0,"22, 86","5, 6"
+Hull,Katian,Katian,0.0,"189, 86","5, 6"
+Larrabee,Katian,Katian,0.0,"189, 137","5, 6"
+Spechts Ferry isotope carbon excursion,Sandbian,Sandbian,0.0,222,"5, 6"
+Priekule,Sandbian,Katian,1.0,19,"5, 6"
+Hitz,Katian,Katian,0.0,119,"5, 6"
+Whitewater Upper,Katian,Katian,0.0,119,"5, 6"
+Bay de Noc,Katian,Katian,0.0,156,"5, 6"
+Ogontz,Katian,Katian,0.0,156,"5, 6"
+Bardstown,Katian,Katian,0.0,206,"5, 6"
+Oswego Sandstone,Katian,Katian,0.0,"156, 137","5, 6"
+Pulaski,Katian,Katian,0.0,"156, 137","5, 6"
+Calloway Creek,Katian,Katian,0.0,119,"5, 6"
+Garrard,Katian,Katian,0.0,119,"5, 6"
+Leipers,Katian,Katian,0.0,119,"5, 6"
+Fairview isotope carbon excursion,Katian,Katian,0.0,"25, 9","5, 6"
+Humber River,Katian,Katian,0.0,121,"5, 6"
+Maysville,Katian,Katian,0.0,121,"5, 6"
+Red Sandstone,Katian,Katian,0.0,121,"5, 6"
+Swan Creek Limestone,Katian,Katian,0.0,121,"5, 6"
+Back,Katian,Katian,0.0,185,"5, 6"
+Gilbert,Katian,Katian,0.0,119,"5, 6"
+McMillan,Katian,Katian,0.0,185,"5, 6"
+Stingy Creek,Katian,Katian,0.0,185,"5, 6"
+Tate,Katian,Katian,0.0,119,"5, 6"
+BC11,Katian,Katian,0.0,"20, 9","5, 6"
+Dobilynė,Katian,Katian,0.0,398,"5, 6"
+Saunja,Katian,Katian,0.0,"9, 398","5, 6"
+Slandrom Limestone,Katian,Katian,0.0,41,"5, 6"
+Er Rwaidat,Katian,Katian,0.0,126,"5, 6"
+Ktaoua,Katian,Katian,0.0,238,"5, 6"
+Nucula,Katian,Katian,0.0,210,"5, 6"
+Russia Lower,Katian,Katian,0.0,211,"5, 6"
+Russia Middle,Katian,Katian,0.0,211,"5, 6"
+Picton,Katian,Katian,0.0,86,"5, 6"
+Sherman Fall,Katian,Katian,0.0,"39, 86","5, 6"
+Verulam,Katian,Katian,0.0,"79, 86","5, 6"
+Montreal,Katian,Katian,0.0,86,"5, 6"
+Kuyahoora K-Bentonite,Katian,Katian,0.0,211,"5, 6"
+City Brook,Katian,Katian,0.0,193,"5, 6"
+Catheys,Katian,Katian,0.0,119,"5, 6"
+Clays Ferry,Katian,Katian,0.0,119,"5, 6"
+Hendersonville,Katian,Katian,0.0,119,"5, 6"
+Inman,Katian,Katian,0.0,119,"5, 6"
+Terrill,Katian,Katian,0.0,119,"5, 6"
+Oregonia,Katian,Katian,0.0,119,"5, 6"
+Rowland,Katian,Katian,0.0,119,"5, 6"
+Rakvere carbon isotope excursion,Katian,Katian,0.0,9,"5, 6"
+Upper Chasmops Limestone,Katian,Katian,0.0,29,"5, 6"
+Etasje 4bδ1-2,Katian,Katian,0.0,28,"5, 6"
+Collingwood Shale,Katian,Katian,0.0,86,"5, 6"
+Deer River Shale,Katian,Katian,0.0,156,"5, 6"
+Gloucester,Katian,Katian,0.0,"156, 121","5, 6"
+Haymeadow Creek Shale,Katian,Katian,0.0,156,"5, 6"
+Kentland,Katian,Katian,0.0,156,"5, 6"
+Atwater Creek Shale,Katian,Katian,0.0,156,"5, 6"
+Saunja carbon isotope excursion,Katian,Katian,0.0,9,"5, 6"
+Leipers Creek Limestone,Katian,Katian,0.0,121,"5, 6"
+Mannie Shale,Katian,Katian,0.0,121,"5, 6"
+Millersburg,Katian,Katian,0.0,150,"5, 6"
+Tanglewood,Katian,Katian,0.0,150,"5, 6"
+Quinsberry Road K-bentonite,Katian,Katian,0.0,211,"5, 6"
+Flanagan,Katian,Katian,0.0,121,"5, 6"
+Paradise K-bentonite,Katian,Katian,0.0,222,"5, 6"
+Cynthiana,Katian,Katian,0.0,"121, 156","5, 6"
+Beecher,Katian,Katian,0.0,153,"5, 6"
+Buckhorn,Katian,Katian,0.0,"153, 122","5, 6"
+Eagle Point,Katian,Katian,0.0,153,"5, 6"
+Fairplay,Katian,Katian,0.0,210,"5, 6"
+St. James,Katian,Katian,0.0,"153, 122","5, 6"
+Mortimer,Katian,Katian,0.0,210,"5, 6"
+Rivoli,Katian,Katian,0.0,"388, 210","5, 6"
+Sherwood,Katian,Katian,0.0,210,"5, 6"
+Wyota,Katian,Katian,0.0,210,"5, 6"
+Wise Lake,Katian,Katian,0.0,"222, 25","5, 6"
+Beechers Trilobite,Katian,Katian,0.0,209,"5, 6"
+Lorraine,Katian,Katian,0.0,"340, 156","5, 6"
+Brayman,Katian,Katian,0.0,121,"5, 6"
+Don River,Katian,Katian,0.0,121,"5, 6"
+Million,Katian,Katian,0.0,121,"5, 6"
+Sheguindah,Katian,Katian,0.0,121,"5, 6"
+Loyal Creek,Katian,Katian,0.0,189,"5, 6"
+Westboro K-bentonite,Katian,Katian,0.0,211,"5, 6"
+Coburg,Katian,Katian,0.0,79,"5, 6"
+Mill Dam Upper,Katian,Katian,0.0,211,"5, 6"
+Mill Dam Lower,Katian,Katian,0.0,211,"5, 6"
+Swallowfield K-bentonite,Katian,Katian,0.0,211,"5, 6"
+Shorehamian,Katian,Katian,0.0,"189, 181","5, 6"
+Sleepy Hollow K-bentonite,Katian,Katian,0.0,211,"5, 6"
+Khabt-el-Hajar,Katian,Katian,0.0,320,"5, 6"
+Gunn,Katian,Katian,0.0,"174, 393","5, 6"
+Red Head Rapids,Katian,Katian,0.0,394,"5, 6"
+BC12,Katian,Katian,0.0,9,"5, 6"
+BC13,Katian,Katian,0.0,9,"5, 6"
+Moe carbon isotope excursion,Katian,Katian,0.0,9,"5, 6"
+Wilmore Limestone,Katian,Katian,0.0,121,"5, 6"
+Maclurea,Katian,Katian,0.0,210,"5, 6"
+Nepean Point,Katian,Katian,0.0,86,"5, 6"
+Tetreauville,Katian,Katian,0.0,86,"5, 6"
+Bigby,Katian,Katian,0.0,121,"5, 6"
+Martinsburg Shale,Katian,Katian,0.0,121,"5, 6"
+Polk Bayou Limestone,Katian,Katian,0.0,121,"5, 6"
+Chrustenice,Sandbian,Katian,1.0,254,"5, 6"
+Libeň Shale,Sandbian,Katian,1.0,254,"5, 6"
+Kermeur Upper,Katian,Hirnantian,1.0,300,"5, 6"
+Den,Katian,Katian,0.0,229,"5, 6"
+Mount Easton Shale,Sandbian,Katian,1.0,219,"5, 6"
+Riddell Sandstone,Sandbian,Katian,1.0,"219, 218","5, 6"
+Warbisco Shale,Katian,Katian,0.0,202,"5, 6"
+Malachis Hill,Katian,Katian,0.0,202,"5, 6"
+Malongulli,Katian,Katian,0.0,202,"5, 6"
+Burranah,Katian,Katian,0.0,231,"5, 6"
+Cheesemans Creek,Katian,Katian,0.0,202,"5, 6"
+Tucklan,Katian,Katian,0.0,231,"5, 6"
+Burranah Clasts,Katian,Katian,0.0,202,"5, 6"
+Dignams Siltstone,Katian,Katian,0.0,202,"5, 6"
+Gooandra Volcanics,Katian,Katian,0.0,202,"5, 6"
+Gunningbland,Katian,Katian,0.0,"202, 111","5, 6"
+Narooma Chert Upper,Katian,Katian,0.0,202,"5, 6"
+Rockdale,Katian,Katian,0.0,202,"5, 6"
+Angullong Tuff,Katian,Katian,0.0,"87, 225","5, 6"
+Millambri,Katian,Katian,0.0,202,"5, 6"
+Kalkbank,Katian,Katian,0.0,47,"5, 6"
+Chair of Kildare Limestone,Katian,Katian,0.0,41,"5, 6"
+Applethwaite,Katian,Katian,0.0,124,"5, 6"
+Haw,Katian,Katian,0.0,124,"5, 6"
+High Pike,Katian,Katian,0.0,124,"5, 6"
+Kentmere,Katian,Katian,0.0,124,"5, 6"
+Kirkley Bank Basal Bed,Katian,Katian,0.0,124,"5, 6"
+Torver,Katian,Katian,0.0,124,"5, 6"
+Cefnnantmel,Katian,Katian,0.0,124,"5, 6"
+Mellifont Abbey,Katian,Katian,0.0,124,"5, 6"
+Herøya,Katian,Katian,0.0,29,"5, 6"
+Etasje 5a,Katian,Katian,0.0,28,"5, 6"
+Hovedøya,Katian,Katian,0.0,29,"5, 6"
+Isotelus Shale,Katian,Katian,0.0,29,"5, 6"
+Spannslokket,Katian,Katian,0.0,29,"5, 6"
+Etasje 4d,Katian,Katian,0.0,28,"5, 6"
+Tchanganda,Katian,Katian,0.0,399,"5, 6"
+Povorot,Katian,Katian,0.0,354,"5, 6"
+Kharyalakh,Katian,Katian,0.0,399,"5, 6"
+Black Neuk,Katian,Katian,0.0,124,"5, 6"
+Forge,Katian,Katian,0.0,124,"5, 6"
+Gray,Katian,Katian,0.0,124,"5, 6"
+Stacks,Katian,Katian,0.0,124,"5, 6"
+Tretaspis Limestone,Katian,Katian,0.0,"29, 11","5, 6"
+Tretaspis Shale Upper,Katian,Katian,0.0,29,"5, 6"
+Etasje 4cγ,Katian,Katian,0.0,28,"5, 6"
+Grinda,Katian,Katian,0.0,29,"5, 6"
+Sørbakken,Katian,Katian,0.0,29,"5, 6"
+Kjørrven,Katian,Katian,0.0,29,"5, 6"
+East Brow,Katian,Katian,0.0,124,"5, 6"
+Escarpment,Katian,Katian,0.0,124,"5, 6"
+Glenmard,Katian,Katian,0.0,124,"5, 6"
+Overflow Creek,Katian,Katian,0.0,229,"5, 6"
+Ballingoole Limestone,Katian,Katian,0.0,202,"5, 6"
+Canomodine Limestone,Katian,Katian,0.0,202,"5, 6"
+Glen Bell,Katian,Katian,0.0,202,"5, 6"
+Trelawney Clasts,Katian,Katian,0.0,202,"5, 6"
+Cargo Creek Limestone,Katian,Katian,0.0,87,"5, 6"
+Cwym-Yr-Eglwys Mudstone,Katian,Katian,0.0,92,"5, 6"
+Dinas Island,Katian,Katian,0.0,92,"5, 6"
+Blaen-y-cwm,Katian,Katian,0.0,124,"5, 6"
+Wistanstow,Katian,Katian,0.0,124,"5, 6"
+Ragdon,Katian,Katian,0.0,124,"5, 6"
+Glynboro,Katian,Katian,0.0,124,"5, 6"
+Huerva,Katian,Katian,0.0,310,"5, 6"
+Bedded Pyroclastic,Katian,Katian,0.0,124,"5, 6"
+Carneddol Rhyolitic Tuff,Katian,Katian,0.0,124,"5, 6"
+Crafnant Volcanic Lower,Katian,Katian,0.0,124,"5, 6"
+Crafnant Volcanic Middle,Katian,Katian,0.0,124,"5, 6"
+Crafnant Volcanic Upper,Katian,Katian,0.0,124,"5, 6"
+Dolgarrog Volcanic,Katian,Katian,0.0,124,"5, 6"
+Foel Ddu Rhyodacite,Katian,Katian,0.0,124,"5, 6"
+Pen-y-gamedd Limestone,Katian,Katian,0.0,124,"5, 6"
+Penmaen,Katian,Katian,0.0,124,"5, 6"
+Rhyolitic Tuff Upper,Katian,Katian,0.0,124,"5, 6"
+Tal y Fan Volcanic,Katian,Katian,0.0,124,"5, 6"
+Upper Chasmops Shale,Katian,Katian,0.0,29,"5, 6"
+Etasje 4bγ,Katian,Katian,0.0,28,"5, 6"
+Angrensor,Katian,Katian,0.0,67,"5, 6"
+Bayan,Katian,Katian,0.0,67,"5, 6"
+Dulankara,Katian,Katian,0.0,67,"5, 6"
+Kulunbulak,Katian,Katian,0.0,67,"5, 6"
+Namas,Katian,Katian,0.0,67,"5, 6"
+Tez,Katian,Katian,0.0,67,"5, 6"
+Kaskol,Katian,Katian,0.0,197,"5, 6"
+Burluk,Katian,Katian,0.0,67,"5, 6"
+Esil,Katian,Katian,0.0,67,"5, 6"
+Porto de Santa Anna,Katian,Katian,0.0,"300, 328","5, 6"
+Furnesfjorden,Katian,Katian,0.0,23,"5, 6"
+Holtjern,Katian,Katian,0.0,23,"5, 6"
+Bowan Park,Katian,Katian,0.0,111,"5, 6"
+Dogs Head,Katian,Katian,0.0,229,"5, 6"
+Cliefden Caves Limestone,Katian,Katian,0.0,111,"5, 6"
+Reedy Creek Limestone,Katian,Katian,0.0,202,"5, 6"
+Belubula Limestone,Katian,Katian,0.0,202,"5, 6"
+Daylesford Limestone,Katian,Katian,0.0,202,"5, 6"
+Fossil Hill Limestone,Katian,Katian,0.0,202,"5, 6"
+Nine Mile Volcanics,Sandbian,Katian,1.0,202,"5, 6"
+Davys Plains Limestone,Katian,Katian,0.0,87,"5, 6"
+Glenrae Limestone,Katian,Katian,0.0,87,"5, 6"
+Red East,Sandbian,Katian,1.0,87,"5, 6"
+Hounsfield K-bentonite,Sandbian,Sandbian,0.0,"222, 211","5, 6"
+Lords Siltstone,Katian,Katian,0.0,229,"5, 6"
+Mole Creek,Katian,Katian,0.0,229,"5, 6"
+Quondong Limestone,Katian,Katian,0.0,202,"5, 6"
+Vandon Limestone,Katian,Katian,0.0,202,"5, 6"
+Checkers,Katian,Katian,0.0,87,"5, 6"
+Mount Lewin Limestone,Katian,Katian,0.0,87,"5, 6"
+Trilobite Hill Limestone,Katian,Katian,0.0,87,"5, 6"
+451.08,Katian,Katian,0.0,388,"5, 6"
+451.2,Katian,Katian,0.0,388,"5, 6"
+451.32,Katian,Katian,0.0,388,"5, 6"
+Dundas,Katian,Katian,0.0,156,"5, 6"
+Mc Micken Shale,Katian,Katian,0.0,156,"5, 6"
+Paint Lick,Katian,Katian,0.0,121,"5, 6"
+Garrard Upper,Katian,Katian,0.0,121,"5, 6"
+Bloomington Lake,Katian,Katian,0.0,142,"5, 6"
+Deep Lakes,Katian,Katian,0.0,142,"5, 6"
+Paris Peak,Katian,Katian,0.0,142,"5, 6"
+Angullong,Katian,Katian,0.0,202,"5, 6"
+Jingerangle,Katian,Katian,0.0,202,"5, 6"
+Millthorpe Volcanics,Katian,Katian,0.0,202,"5, 6"
+Iundyk,Katian,Katian,0.0,67,"5, 6"
+Kanachu,Katian,Katian,0.0,67,"5, 6"
+Kargaly,Katian,Katian,0.0,67,"5, 6"
+Oroy,Katian,Katian,0.0,373,"5, 6"
+Cliff,Katian,Katian,0.0,124,"5, 6"
+Farden,Katian,Katian,0.0,124,"5, 6"
+Starfish,Katian,Katian,0.0,369,"5, 6"
+Waterfall,Katian,Katian,0.0,124,"5, 6"
+Sunbury,Sandbian,Katian,1.0,219,"5, 6"
+Fusispira,Katian,Katian,0.0,210,"5, 6"
+Lingulasma,Katian,Katian,0.0,210,"5, 6"
+Tretaspis Shale Lower,Katian,Katian,0.0,29,"5, 6"
+Etasje 4cα,Katian,Katian,0.0,28,"5, 6"
+Black Tretaspis Shale,Katian,Katian,0.0,11,"5, 6"
+Eastview,Katian,Katian,0.0,86,"5, 6"
+Breault,Katian,Katian,0.0,351,"5, 6"
+Chambly,Katian,Katian,0.0,351,"5, 6"
+Sainte-Hilaire,Katian,Katian,0.0,351,"5, 6"
+Denmarkian,Katian,Katian,0.0,181,"5, 6"
+Camp Limestone,Katian,Katian,0.0,148,"5, 6"
+Denmark Upper,Katian,Katian,0.0,148,"5, 6"
+Glaucester,Katian,Katian,0.0,189,"5, 6"
+Paris,Katian,Katian,0.0,121,"5, 6"
+Phyllograptus shale,Floian,Floian,0.0,11,"5, 6"
+Lower Didymograptus Shale ,Floian,Floian,0.0,29,"5, 6"
+Carmarthen,Floian,Floian,0.0,124,"5, 6"
+Bendigonian 2,Floian,Floian,0.0,"124, 12","5, 6"
+Bendigonian 3,Floian,Floian,0.0,"124, 12","5, 6"
+Colomendy,Floian,Floian,0.0,124,"5, 6"
+Zasur'ya,Tremadocian,Floian,1.0,400,"5, 6"
+Milby Chert,Floian,Floian,0.0,202,"5, 6"
+Mount Dijou Volcanic,Floian,Floian,0.0,202,"5, 6"
+Mummel Chert,Floian,Floian,0.0,202,"5, 6"
+Pimbilla Tank,Floian,Floian,0.0,202,"5, 6"
+Tabita,Floian,Floian,0.0,202,"5, 6"
+Wheeney Creek,Floian,Floian,0.0,202,"5, 6"
+Emerson School,Floian,Floian,0.0,140,"5, 6"
+Thorpe Point,Floian,Floian,0.0,140,"5, 6"
+Ward,Floian,Floian,0.0,109,"5, 6"
+Tomahawk,Tremadocian,Floian,1.0,227,"5, 6"
+Budhang Chert,Floian,Floian,0.0,219,"5, 6"
+Hensleigh Siltstone,Floian,Floian,0.0,"218, 202","5, 6"
+Yarrimbah Chert,Floian,Floian,0.0,218,"5, 6"
+Mitchell,Tremadocian,Floian,1.0,202,"5, 6"
+Yarrimbah,Floian,Floian,0.0,202,"5, 6"
+Lonan Flag,Floian,Floian,0.0,124,"5, 6"
+Planilimbata Limestone,Tremadocian,Floian,1.0,11,"5, 6"
+Olenty,Tremadocian,Floian,1.0,257,"5, 6"
+Durness,Tremadocian,Dapingian,2.0,114,"5, 6"
+Balnakiel Member 2,Tremadocian,Floian,1.0,124,"5, 6"
+Balnakiel Member 3,Tremadocian,Floian,1.0,124,"5, 6"
+School House Hill,Tremadocian,Floian,1.0,365,"5, 6"
+Ceratopyge Limestone,Tremadocian,Tremadocian,0.0,29,"5, 6"
+Churchill Sandstone,Tremadocian,Floian,1.0,204,"5, 6"
+Mount Field,Tremadocian,Floian,1.0,204,"5, 6"
+Pontoon Hill,Tremadocian,Floian,1.0,204,"5, 6"
+Yapeenian 1,Dapingian,Dapingian,0.0,"124, 12","5, 6"
+Mystic,Darriwilian,Sandbian,1.0,365,"5, 6"
+Aylmer,Darriwilian,Sandbian,1.0,75,"5, 6"
+Intermediate Shales,Sandbian,Sandbian,0.0,282,"5, 6"
+Beloit Limestone,Sandbian,Sandbian,0.0,121,"5, 6"
+Beloit,Sandbian,Sandbian,0.0,210,"5, 6"
+Roaring Spring,Sandbian,Sandbian,0.0,388,"5, 6"
+453.88,Sandbian,Sandbian,0.0,214,"5, 6"
+454.2,Sandbian,Sandbian,0.0,214,"5, 6"
+454.58,Sandbian,Sandbian,0.0,214,"5, 6"
+454.62,Sandbian,Sandbian,0.0,214,"5, 6"
+454.94,Sandbian,Sandbian,0.0,214,"5, 6"
+453.4,Sandbian,Sandbian,0.0,221,"5, 6"
+454.9,Sandbian,Sandbian,0.0,221,"5, 6"
+454.24,Sandbian,Sandbian,0.0,214,"5, 6"
+454.41,Sandbian,Sandbian,0.0,214,"5, 6"
+Shadow Lake,Sandbian,Sandbian,0.0,75,"5, 6"
+Chambersburg Middle,Sandbian,Sandbian,0.0,121,"5, 6"
+Leray,Sandbian,Sandbian,0.0,"75, 121","5, 6"
+Swift Current,Sandbian,Sandbian,0.0,121,"5, 6"
+Grand Detour,Sandbian,Sandbian,0.0,22,"5, 6"
+Mifflin,Sandbian,Sandbian,0.0,22,"5, 6"
+Nachusa,Sandbian,Sandbian,0.0,151,"5, 6"
+Quimbys Mill,Sandbian,Sandbian,0.0,"151, 153","5, 6"
+Etasje 4bα,Sandbian,Sandbian,0.0,28,"5, 6"
+Etasje 4aβ,Sandbian,Sandbian,0.0,28,"5, 6"
+Pencil Cave K-bentonite,Sandbian,Sandbian,0.0,211,"5, 6"
+453.18,Sandbian,Sandbian,0.0,214,"5, 6"
+453.46,Sandbian,Sandbian,0.0,214,"5, 6"
+454.02,Sandbian,Sandbian,0.0,214,"5, 6"
+454.3,Sandbian,Sandbian,0.0,214,"5, 6"
+453.54,Sandbian,Sandbian,0.0,214,"5, 6"
+453.74,Sandbian,Sandbian,0.0,214,"5, 6"
+453.94,Sandbian,Sandbian,0.0,214,"5, 6"
+453.52,Sandbian,Sandbian,0.0,388,"5, 6"
+453.67,Sandbian,Sandbian,0.0,388,"5, 6"
+453.82,Sandbian,Sandbian,0.0,388,"5, 6"
+MH K-bentonite,Sandbian,Sandbian,0.0,211,"5, 6"
+MX K-bentonite,Sandbian,Sandbian,0.0,211,"5, 6"
+Oregon Dolomite,Sandbian,Sandbian,0.0,121,"5, 6"
+Mud Cave K-bentonite,Sandbian,Sandbian,0.0,211,"5, 6"
+452.57,Sandbian,Sandbian,0.0,214,"5, 6"
+452.27,Sandbian,Sandbian,0.0,214,"5, 6"
+452.52,Sandbian,Sandbian,0.0,214,"5, 6"
+453.15,Sandbian,Sandbian,0.0,214,"5, 6"
+453.2,Sandbian,Sandbian,0.0,214,"5, 6"
+453.45,Sandbian,Sandbian,0.0,214,"5, 6"
+481.86,Sandbian,Sandbian,0.0,214,"5, 6"
+452.77,Sandbian,Sandbian,0.0,388,"5, 6"
+452.92,Sandbian,Sandbian,0.0,388,"5, 6"
+453.07,Sandbian,Sandbian,0.0,388,"5, 6"
+McGregor,Sandbian,Sandbian,0.0,"22, 153","5, 6"
+Coboconc,Sandbian,Sandbian,0.0,"137, 156","5, 6"
+Cloche Island,Sandbian,Sandbian,0.0,121,"5, 6"
+Paperville Shale,Sandbian,Sandbian,0.0,199,"5, 6"
+Hidden Falls,Sandbian,Sandbian,0.0,173,"5, 6"
+Buff Limestone,Sandbian,Sandbian,0.0,210,"5, 6"
+Dane,Sandbian,Sandbian,0.0,22,"5, 6"
+Blue Lower,Sandbian,Sandbian,0.0,121,"5, 6"
+Buff Lower,Sandbian,Sandbian,0.0,121,"5, 6"
+Glenwood Shale,Sandbian,Sandbian,0.0,121,"5, 6"
+Magnolia,Sandbian,Sandbian,0.0,173,"5, 6"
+Cape Discovery,Sandbian,Sandbian,0.0,270,"5, 6"
+Amsterdam Limestone,Sandbian,Sandbian,0.0,"137, 121","5, 6"
+Decorah Shale Upper,Sandbian,Sandbian,0.0,121,"5, 6"
+Hatter,Sandbian,Sandbian,0.0,137,"5, 6"
+Snyder,Sandbian,Sandbian,0.0,137,"5, 6"
+Chana,Sandbian,Sandbian,0.0,153,"5, 6"
+Hennepin,Sandbian,Sandbian,0.0,151,"5, 6"
+Medusa,Sandbian,Sandbian,0.0,151,"5, 6"
+New Glarus,Sandbian,Sandbian,0.0,153,"5, 6"
+Corsewall,Sandbian,Sandbian,0.0,124,"5, 6"
+Benglog,Sandbian,Sandbian,0.0,124,"5, 6"
+Craig y Ffynnon,Sandbian,Sandbian,0.0,124,"5, 6"
+Garwallt,Sandbian,Sandbian,0.0,124,"5, 6"
+Gwern-feifod,Sandbian,Sandbian,0.0,124,"5, 6"
+Melau Lower,Sandbian,Sandbian,0.0,124,"5, 6"
+Narberth,Sandbian,Sandbian,0.0,124,"5, 6"
+Pen-y-gadair Volcanic,Sandbian,Sandbian,0.0,124,"5, 6"
+Rhyd Melange,Sandbian,Sandbian,0.0,124,"5, 6"
+Ty'r Gawen Mudstone,Sandbian,Sandbian,0.0,124,"5, 6"
+Cantera Shales,Sandbian,Sandbian,0.0,282,"5, 6"
+Carregueira,Sandbian,Sandbian,0.0,"282, 328","5, 6"
+Le Tertre Chapon,Sandbian,Sandbian,0.0,282,"5, 6"
+House Mudstone Middle,Sandbian,Sandbian,0.0,124,"5, 6"
+Melau Upper,Sandbian,Sandbian,0.0,124,"5, 6"
+Mynydd-tarw,Sandbian,Sandbian,0.0,124,"5, 6"
+Pontesford Shale,Sandbian,Sandbian,0.0,124,"5, 6"
+Whittery,Sandbian,Sandbian,0.0,92,"5, 6"
+Braich tu du Volcanic,Sandbian,Sandbian,0.0,124,"5, 6"
+Capel Curig Volcanic,Sandbian,Sandbian,0.0,124,"5, 6"
+Clogwyn Gottal Tuff,Sandbian,Sandbian,0.0,124,"5, 6"
+Conwy Rhyolite,Sandbian,Sandbian,0.0,124,"5, 6"
+Cwm Clwyd Tuff,Sandbian,Sandbian,0.0,124,"5, 6"
+Foel Fras Volcanic Complex,Sandbian,Sandbian,0.0,124,"5, 6"
+Foel Grach Basalt,Sandbian,Sandbian,0.0,124,"5, 6"
+Gwern Gof Tuff,Sandbian,Sandbian,0.0,124,"5, 6"
+Moel Hebog Sandstone,Sandbian,Sandbian,0.0,124,"5, 6"
+Pandy Tuff,Sandbian,Sandbian,0.0,124,"5, 6"
+Pen-y-plaenau Siltstone,Sandbian,Sandbian,0.0,124,"5, 6"
+Penamnen Tuff,Sandbian,Sandbian,0.0,124,"5, 6"
+Prenteg Sandstone,Sandbian,Sandbian,0.0,124,"5, 6"
+Pwll-y-Glo,Sandbian,Sandbian,0.0,124,"5, 6"
+Swch Gorge Tuff,Sandbian,Sandbian,0.0,124,"5, 6"
+Teirw Siltstone,Sandbian,Sandbian,0.0,124,"5, 6"
+Glyn Gower Siltstones,Sandbian,Sandbian,0.0,124,"5, 6"
+Ashes Lower,Sandbian,Sandbian,0.0,124,"5, 6"
+Craig-y-glyn,Sandbian,Sandbian,0.0,124,"5, 6"
+Trelowgoed Volcanic,Sandbian,Sandbian,0.0,124,"5, 6"
+Bumballa,Sandbian,Sandbian,0.0,"219, 202","5, 6"
+Chakola,Sandbian,Sandbian,0.0,202,"5, 6"
+Sassafras,Sandbian,Sandbian,0.0,204,"5, 6"
+Blueys Creek,Sandbian,Sandbian,0.0,202,"5, 6"
+Byng Volcanics,Sandbian,Sandbian,0.0,202,"5, 6"
+Glen Fergus,Sandbian,Sandbian,0.0,202,"5, 6"
+Yuranigh Limestone,Sandbian,Sandbian,0.0,202,"5, 6"
+Ashton,Sandbian,Sandbian,0.0,87,"5, 6"
+Bourimbla Limestone,Sandbian,Sandbian,0.0,87,"5, 6"
+Gerybong Limestone,Sandbian,Sandbian,0.0,87,"5, 6"
+Manooka Limestone,Sandbian,Sandbian,0.0,87,"5, 6"
+Oakley Limestone,Sandbian,Sandbian,0.0,87,"5, 6"
+Ranch,Sandbian,Sandbian,0.0,87,"5, 6"
+Kosov,Hirnantian,Hirnantian,0.0,"282, 321","5, 6"
+Cricor,Hirnantian,Hirnantian,0.0,302,"5, 6"
+Plas Uchaf,Hirnantian,Hirnantian,0.0,302,"5, 6"
+Cwmere,Hirnantian,Hirnantian,0.0,92,"5, 6"
+Foel-y-Dolnas Mudstones,Hirnantian,Hirnantian,0.0,92,"5, 6"
+Cwmcringlyn,Hirnantian,Hirnantian,0.0,124,"5, 6"
+Fron-frys Slate,Hirnantian,Hirnantian,0.0,124,"5, 6"
+Graig-wen Sandstone,Hirnantian,Hirnantian,0.0,124,"5, 6"
+Chavera Shales,Hirnantian,Hirnantian,0.0,235,"5, 6"
+Gualija,Hirnantian,Hirnantian,0.0,235,"5, 6"
+Ribeira da Laje,Hirnantian,Hirnantian,0.0,235,"5, 6"
+Nancheng,Hirnantian,Hirnantian,0.0,62,"5, 6"
+Lamm Saoz Sandstone,Hirnantian,Hirnantian,0.0,282,"5, 6"
+Rio Ceira,Hirnantian,Hirnantian,0.0,328,"5, 6"
+Soubirous,Hirnantian,Hirnantian,0.0,282,"5, 6"
+Vale da Ursa,Hirnantian,Hirnantian,0.0,"282, 396","5, 6"
+Guadramil,Hirnantian,Hirnantian,0.0,328,"5, 6"
+Maceiras,Hirnantian,Hirnantian,0.0,328,"5, 6"
+Ribeira Guadramil,Hirnantian,Hirnantian,0.0,328,"5, 6"
+Calcareous Sandstone,Hirnantian,Hirnantian,0.0,29,"5, 6"
+Etasje 5b,Hirnantian,Hirnantian,0.0,28,"5, 6"
+Llandoverian,Hirnantian,Hirnantian,0.0,"219, 268","5, 6"
+Cobbanah,Hirnantian,Hirnantian,0.0,219,"5, 6"
+Yalmy,Hirnantian,Hirnantian,0.0,219,"5, 6"
+Second Bani,Hirnantian,Hirnantian,0.0,238,"5, 6"
+March,Tremadocian,Tremadocian,0.0,336,"5, 6"
+Vogtendorf,Tremadocian,Tremadocian,0.0,255,"5, 6"
+Etasje 3aγ,Tremadocian,Tremadocian,0.0,28,"5, 6"
+Bliss Upper,Tremadocian,Tremadocian,0.0,138,"5, 6"
+Darneyre,Tremadocian,Tremadocian,0.0,282,"5, 6"
+Abastu,Tremadocian,Tremadocian,0.0,91,"5, 6"
+Bouglon,Tremadocian,Tremadocian,0.0,282,"5, 6"
+Ste Marthe,Tremadocian,Tremadocian,0.0,282,"5, 6"
+Barriga,Tremadocian,Tremadocian,0.0,279,"5, 6"
+Trenice Greywacke,Tremadocian,Tremadocian,0.0,254,"5, 6"
+Chevlipont,Tremadocian,Tremadocian,0.0,129,"5, 6"
+Great Meadows,Tremadocian,Tremadocian,0.0,144,"5, 6"
+Smith Basin,Tremadocian,Tremadocian,0.0,144,"5, 6"
+Canyon Road,Tremadocian,Tremadocian,0.0,109,"5, 6"
+Sprakers,Tremadocian,Tremadocian,0.0,109,"5, 6"
+Van Wie,Tremadocian,Tremadocian,0.0,159,"5, 6"
+Wolf Hollow,Tremadocian,Tremadocian,0.0,109,"5, 6"
+Green Bay,Tremadocian,Tremadocian,0.0,42,"5, 6"
+Hales Limestone,Tremadocian,Tremadocian,0.0,171,"5, 6"
+Eminence Dolomite,Tremadocian,Tremadocian,0.0,88,"5, 6"
+Chapman Ranch,Tremadocian,Tremadocian,0.0,208,"5, 6"
+McMichel,Tremadocian,Tremadocian,0.0,208,"5, 6"
+Sailmohr,Tremadocian,Tremadocian,0.0,124,"5, 6"
+AIII,Tremadocian,Tremadocian,0.0,236,"5, 6"
+Barrande's d1,Tremadocian,Darriwilian,3.0,321,"5, 6"
+Castlemainian 4,Dapingian,Dapingian,0.0,"202, 218","5, 6"
+Frizy,Dapingian,Darriwilian,1.0,31,"5, 6"
+Zheltyaki,Dapingian,Darriwilian,1.0,31,"5, 6"
+Expansus Limestone,Darriwilian,Darriwilian,0.0,11,"5, 6"
+Raniceps Limestone,Darriwilian,Darriwilian,0.0,11,"5, 6"
+Rokycany Shale,Darriwilian,Darriwilian,0.0,321,"5, 6"
+Svata Dobrotiva,Darriwilian,Darriwilian,0.0,321,"5, 6"
+Etasje 3c,Dapingian,Darriwilian,1.0,29,"5, 6"
+Sierra,Darriwilian,Darriwilian,0.0,310,"5, 6"
+BC2,Darriwilian,Darriwilian,0.0,9,"5, 6"
+BC3,Darriwilian,Darriwilian,0.0,9,"5, 6"
+Melaz Shuqran,Darriwilian,Darriwilian,0.0,319,"5, 6"
+M'Clintock,Darriwilian,Darriwilian,0.0,270,"5, 6"
+Baiyanhuashan Lower,Darriwilian,Darriwilian,0.0,371,"5, 6"
+Bluffer Pond,Darriwilian,Darriwilian,0.0,175,"5, 6"
+Jones Pond,Darriwilian,Darriwilian,0.0,175,"5, 6"
+Magog,Darriwilian,Darriwilian,0.0,175,"5, 6"
+Wassataquoik Chert,Darriwilian,Darriwilian,0.0,175,"5, 6"
+Bendigonian 4,Floian,Floian,0.0,202,"5, 6"
+Grand Detour isotope carbon excursion,Sandbian,Sandbian,0.0,153,"5, 6"
+Dement,Sandbian,Sandbian,0.0,151,"5, 6"
+Forreston,Sandbian,Sandbian,0.0,151,"5, 6"
+Hely,Sandbian,Sandbian,0.0,151,"5, 6"
+Stillman,Sandbian,Sandbian,0.0,151,"5, 6"
+Victory,Sandbian,Sandbian,0.0,151,"5, 6"
+Wallgreen,Sandbian,Sandbian,0.0,151,"5, 6"
+Mifflin isotope carbon excursion,Sandbian,Sandbian,0.0,153,"5, 6"
+Blomeyer,Sandbian,Sandbian,0.0,151,"5, 6"
+Brickeys,Sandbian,Sandbian,0.0,151,"5, 6"
+Briton,Sandbian,Sandbian,0.0,151,"5, 6"
+Establishment,Sandbian,Sandbian,0.0,151,"5, 6"
+Hazelwood,Sandbian,Sandbian,0.0,151,"5, 6"
+Eldena,Sandbian,Sandbian,0.0,151,"5, 6"
+Elm,Sandbian,Sandbian,0.0,151,"5, 6"
+Everett,Sandbian,Sandbian,0.0,151,"5, 6"
+Quimbys Mill isotope carbon excursion,Sandbian,Sandbian,0.0,153,"5, 6"
+Hazel Green,Sandbian,Sandbian,0.0,151,"5, 6"
+Shullsburg,Sandbian,Sandbian,0.0,151,"5, 6"
+Strawbridge,Sandbian,Sandbian,0.0,151,"5, 6"
+Berriefield K-bentonite,Sandbian,Sandbian,0.0,211,"5, 6"
+Barrande's d2,Sandbian,Katian,1.0,321,"5, 6"
+Regans Creek Limestone,Sandbian,Katian,1.0,87,"5, 6"
+Dunhill Bluff Limestone,Sandbian,Katian,1.0,87,"5, 6"
+Taplow Limestone,Sandbian,Katian,1.0,87,"5, 6"
+Transmission Limestone,Sandbian,Katian,1.0,87,"5, 6"
+Chasmops Limestone,Darriwilian,Katian,2.0,11,"5, 6"
+Fombuena,Sandbian,Katian,1.0,310,"5, 6"
+Vilučiai,Sandbian,Katian,1.0,"395, 398","5, 6"
+Torremägi,Katian,Katian,0.0,8,"5, 6"
+Sherman Fall K-bentonite,Katian,Katian,0.0,211,"5, 6"
+Bald Eagle,Katian,Katian,0.0,"121, 137","5, 6"
+Wekwemikongsing,Katian,Katian,0.0,121,"5, 6"
+BC9,Katian,Katian,0.0,9,"5, 6"
+Kaimynai,Katian,Katian,0.0,398,"5, 6"
+Liste,Katian,Katian,0.0,32,"5, 6"
+Masur Limestone,Katian,Katian,0.0,11,"5, 6"
+Bestorp Limestone,Katian,Katian,0.0,315,"5, 6"
+Triplecia,Katian,Katian,0.0,210,"5, 6"
+BC8,Katian,Katian,0.0,9,"5, 6"
+Whitby Shale,Katian,Katian,0.0,79,"5, 6"
+Collingwood,Katian,Katian,0.0,"156, 137","5, 6"
+BC10,Katian,Katian,0.0,9,"5, 6"
+Woodburn,Katian,Katian,0.0,121,"5, 6"
+Rogers Gap,Katian,Katian,0.0,121,"5, 6"
+Clitambonites,Katian,Katian,0.0,210,"5, 6"
+Nematopora,Katian,Katian,0.0,210,"5, 6"
+Parastrophina,Katian,Katian,0.0,210,"5, 6"
+Anastrophia,Katian,Katian,0.0,210,"5, 6"
+Clitambonites Upper,Katian,Katian,0.0,210,"5, 6"
+Rifle Hill,Katian,Katian,0.0,210,"5, 6"
+Sinsinawa,Katian,Katian,0.0,210,"5, 6"
+Stoughton,Katian,Katian,0.0,393,"5, 6"
+Foster Bay,Katian,Katian,0.0,394,"5, 6"
+Capitol Limestone,Katian,Katian,0.0,121,"5, 6"
+Mount Pleasant,Katian,Katian,0.0,121,"5, 6"
+Clearview Limestone,Katian,Katian,0.0,87,"5, 6"
+Downderry Limestone,Katian,Katian,0.0,87,"5, 6"
+Margules,Katian,Katian,0.0,202,"5, 6"
+Cotton Lower,Katian,Katian,0.0,225,"5, 6"
+Schmiedefeld,Katian,Katian,0.0,47,"5, 6"
+Isotelus Limestone,Katian,Katian,0.0,29,"5, 6"
+Etasje 4c,Katian,Katian,0.0,29,"5, 6"
+Corner Limestone,Katian,Katian,0.0,87,"5, 6"
+Pen-y-garnedd,Katian,Katian,0.0,124,"5, 6"
+Norderhov,Katian,Katian,0.0,341,"5, 6"
+Morag Red Limestone and Shale,Katian,Katian,0.0,38,"5, 6"
+Kyzylsai,Katian,Katian,0.0,67,"5, 6"
+Dulankarin,Katian,Katian,0.0,373,"5, 6"
+Taldyboy,Katian,Katian,0.0,373,"5, 6"
+Syugaty,Katian,Katian,0.0,373,"5, 6"
+Davys Creek Limestone,Katian,Katian,0.0,87,"5, 6"
+Large Flat Limestone,Katian,Katian,0.0,87,"5, 6"
+Boonderoo Limestone,Katian,Katian,0.0,87,"5, 6"
+Gleesons Limestone,Katian,Katian,0.0,87,"5, 6"
+Kalimna Limestone,Katian,Katian,0.0,87,"5, 6"
+Wyoming Limestone,Katian,Katian,0.0,87,"5, 6"
+Abak,Katian,Katian,0.0,373,"5, 6"
+Black Trinucleus Shale,Katian,Katian,0.0,11,"5, 6"
+Camp,Katian,Katian,0.0,181,"5, 6"
+Holland Patent,Katian,Katian,0.0,189,"5, 6"
+Etasje 3b,Floian,Floian,0.0,29,"5, 6"
+Yandaminta Quartzite,Floian,Floian,0.0,202,"5, 6"
+Green Orthoceras Limestone,Tremadocian,Floian,1.0,11,"5, 6"
+Grudaidh,Tremadocian,Dapingian,2.0,124,"5, 6"
+Mynydd Crior,Hirnantian,Hirnantian,0.0,302,"5, 6"
+Las Majuelas Quartzite,Hirnantian,Hirnantian,0.0,235,"5, 6"
+Navaldestajo,Hirnantian,Hirnantian,0.0,235,"5, 6"
+Risquillo,Hirnantian,Hirnantian,0.0,235,"5, 6"
+San Gabán,Hirnantian,Hirnantian,0.0,268,"5, 6"
+Etasje 3a,Tremadocian,Tremadocian,0.0,29,"5, 6"
+Randschiefer,Tremadocian,Tremadocian,0.0,255,"5, 6"
+Kolnabuk,Tremadocian,Tremadocian,0.0,236,"5, 6"
+Kyzyltash,Floian,Darriwilian,2.0,400,"5, 6"
+Potchet,Floian,Darriwilian,2.0,399,"5, 6"
+BC1,Floian,Darriwilian,2.0,9,"5, 6"
+Armorican Quartzite,Floian,Darriwilian,2.0,282,"5, 6"
+Capillas,Darriwilian,Darriwilian,0.0,272,"5, 6"
+Andotchin,Darriwilian,Darriwilian,0.0,399,"5, 6"
+Llanvirnian,Darriwilian,Darriwilian,0.0,321,"5, 6"
+Ballanayre Slump-Breccia,Darriwilian,Darriwilian,0.0,124,"5, 6"
+Bod Deiniol,Darriwilian,Darriwilian,0.0,124,"5, 6"
+Bryn Celyn Ironstone,Darriwilian,Darriwilian,0.0,124,"5, 6"
+Builth Volcanic,Darriwilian,Darriwilian,0.0,124,"5, 6"
+Cwm Amliw Tuff,Darriwilian,Darriwilian,0.0,124,"5, 6"
+Ffairfach,Darriwilian,Darriwilian,0.0,124,"5, 6"
+Glanmorfa Shale,Darriwilian,Darriwilian,0.0,124,"5, 6"
+Newmead,Darriwilian,Darriwilian,0.0,124,"5, 6"
+Rhiw Bach Volcanic,Darriwilian,Darriwilian,0.0,124,"5, 6"
+Sulby Flags,Darriwilian,Darriwilian,0.0,124,"5, 6"
+Caubon,Darriwilian,Darriwilian,0.0,282,"5, 6"
+Caudecoste,Darriwilian,Darriwilian,0.0,282,"5, 6"
+Monte da Sombadeira,Darriwilian,Darriwilian,0.0,"300, 282","5, 6"
+Rio Shales,Darriwilian,Darriwilian,0.0,282,"5, 6"
+Tier d'Olne,Darriwilian,Darriwilian,0.0,129,"5, 6"
+Llandeilo Flags Lower,Darriwilian,Darriwilian,0.0,124,"5, 6"
+Avensac,Darriwilian,Darriwilian,0.0,282,"5, 6"
+Bou-Jam-Jam,Darriwilian,Sandbian,1.0,282,"5, 6"
+Cabril,Darriwilian,Darriwilian,0.0,300,"5, 6"
+Fonte da Horta,Darriwilian,Darriwilian,0.0,"300, 282","5, 6"
+Chase Lake,Darriwilian,Darriwilian,0.0,175,"5, 6"
+Pärsnäs Limestone,Darriwilian,Darriwilian,0.0,36,"5, 6"
+Mednikovo,Darriwilian,Darriwilian,0.0,243,"5, 6"
+Vel'cy,Darriwilian,Darriwilian,0.0,243,"5, 6"
+Luarca,Darriwilian,Darriwilian,0.0,280,"5, 6"
+Sueve,Darriwilian,Darriwilian,0.0,280,"5, 6"
+Colorada,Darriwilian,Darriwilian,0.0,279,"5, 6"
+Membrillo,Darriwilian,Darriwilian,0.0,279,"5, 6"
+Villaflor,Darriwilian,Darriwilian,0.0,280,"5, 6"
+Xistenta,Darriwilian,Darriwilian,0.0,280,"5, 6"
+San Marcos,Darriwilian,Sandbian,1.0,330,"5, 6"
+Melez Chograne,Darriwilian,Darriwilian,0.0,319,"5, 6"
+Huangnigang,Darriwilian,Darriwilian,0.0,371,"5, 6"
+Shuinychang,Darriwilian,Darriwilian,0.0,371,"5, 6"
+Crwyn,Sandbian,Sandbian,0.0,124,"5, 6"
+Fferam Ironstone,Sandbian,Sandbian,0.0,124,"5, 6"
+Fferam Shale,Sandbian,Sandbian,0.0,124,"5, 6"
+Gader Conglomerat,Sandbian,Sandbian,0.0,124,"5, 6"
+Garn,Sandbian,Sandbian,0.0,124,"5, 6"
+Gynfor Shale,Sandbian,Sandbian,0.0,124,"5, 6"
+Llandeilo Flags Middle,Sandbian,Sandbian,0.0,124,"5, 6"
+Llandeilo Flags Upper,Sandbian,Sandbian,0.0,124,"5, 6"
+Penterfyn Ironstone,Sandbian,Sandbian,0.0,124,"5, 6"
+Tandinas Shales,Sandbian,Sandbian,0.0,124,"5, 6"
+Kenyu,Sandbian,Sandbian,0.0,202,"5, 6"
+Frobisher Bay,Sandbian,Katian,1.0,394,"5, 6"
+Sourges Shale,Katian,Katian,0.0,231,"5, 6"
+Glauzy,Katian,Katian,0.0,76,"5, 6"
+Aziral,Katian,Katian,0.0,265,"5, 6"
+Queixoperra,Katian,Katian,0.0,265,"5, 6"
+Serra da Cadaveira,Katian,Katian,0.0,265,"5, 6"
+Caspalá,Katian,Hirnantian,1.0,272,"5, 6"
+Pljussa,Katian,Katian,0.0,350,"5, 6"
+Calymenella Quartzite,Katian,Katian,0.0,303,"5, 6"
+Foel,Katian,Katian,0.0,124,"5, 6"
+Pentre,Katian,Katian,0.0,124,"5, 6"
+Tre-wylan,Katian,Katian,0.0,124,"5, 6"
+Gabian,Katian,Katian,0.0,76,"5, 6"
+Calizas de Cistoideos,Katian,Katian,0.0,310,"5, 6"
+Indian Ladder,Katian,Katian,0.0,189,"5, 6"
+Galets,Katian,Katian,0.0,79,"5, 6"
+Shipshaw,Katian,Katian,0.0,79,"5, 6"
+Aberdeen Lake,Katian,Katian,0.0,90,"5, 6"
+Akpatok,Katian,Katian,0.0,394,"5, 6"
+Churchill River,Katian,Katian,0.0,394,"5, 6"
+Pointe-Bleue Shales,Katian,Katian,0.0,79,"5, 6"
+Gulf Stream,Katian,Katian,0.0,137,"5, 6"
+Sugarloaf,Katian,Katian,0.0,124,"5, 6"
+South Piney,Katian,Katian,0.0,116,"5, 6"
+Black Island,Katian,Katian,0.0,46,"5, 6"
+Ice Box,Katian,Katian,0.0,46,"5, 6"
+Trawscoed,Katian,Katian,0.0,124,"5, 6"
+Urbana Limestone,Katian,Katian,0.0,282,"5, 6"
+Fossil Creek Volcanics,Katian,Katian,0.0,139,"5, 6"
+Salar del Rincon Upper,Katian,Hirnantian,1.0,272,"5, 6"
+Gunton,Katian,Katian,0.0,393,"5, 6"
+Williams,Katian,Katian,0.0,174,"5, 6"
+File,Katian,Katian,0.0,32,"5, 6"
+Klasen,Katian,Katian,0.0,32,"5, 6"
+Cyrn-y-brain,Katian,Katian,0.0,302,"5, 6"
+Chasm Creek,Katian,Katian,0.0,101,"5, 6"
+Dwyfor Mudstone,Katian,Katian,0.0,308,"5, 6"
+Ojos Negros,Katian,Katian,0.0,330,"5, 6"
+Ferradosa,Katian,Katian,0.0,328,"5, 6"
+Santo Adriao,Katian,Katian,0.0,328,"5, 6"
+Coronach,Katian,Katian,0.0,393,"5, 6"
+Lake Alma,Katian,Katian,0.0,393,"5, 6"
+Redvers,Katian,Katian,0.0,393,"5, 6"
+Coronach Anhydrite,Katian,Katian,0.0,174,"5, 6"
+Lake Alma Anhydrite,Katian,Katian,0.0,174,"5, 6"
+Redvers Unit,Katian,Katian,0.0,174,"5, 6"
+Wig,Floian,Floian,0.0,124,"5, 6"
+Kidryas,Tremadocian,Tremadocian,0.0,236,"5, 6"
+Alnif,Hirnantian,Hirnantian,0.0,126,"5, 6"
+Amouktir,Hirnantian,Hirnantian,0.0,126,"5, 6"
+Tamekhtart,Hirnantian,Hirnantian,0.0,126,"5, 6"
+Upper Second Bani Lower,Hirnantian,Hirnantian,0.0,238,"5, 6"
+Upper Second Bani Upper,Hirnantian,Hirnantian,0.0,238,"5, 6"
+Nyai,Tremadocian,Tremadocian,0.0,335,"5, 6"
+Eritag,Tremadocian,Tremadocian,0.0,400,"5, 6"
+Lugovaya,Tremadocian,Tremadocian,0.0,399,"5, 6"
+Tangui,Tremadocian,Tremadocian,0.0,399,"5, 6"
+Barnt Green Volcanic,Tremadocian,Tremadocian,0.0,124,"5, 6"
+Bronsil Shale,Tremadocian,Tremadocian,0.0,124,"5, 6"
+Micklewood,Tremadocian,Tremadocian,0.0,124,"5, 6"
+Turisalu,Tremadocian,Tremadocian,0.0,8,"5, 6"
+Piasnica Shale,Tremadocian,Tremadocian,0.0,120,"5, 6"
+Plasnica Black Bituminous Shale,Tremadocian,Tremadocian,0.0,38,"5, 6"
+Sepopol,Tremadocian,Tremadocian,0.0,38,"5, 6"
+Kallavere,Tremadocian,Tremadocian,0.0,8,"5, 6"
+Suetka,Tremadocian,Tremadocian,0.0,400,"5, 6"
+Tekelya,Tremadocian,Tremadocian,0.0,400,"5, 6"
+El Arich el Megta,Floian,Darriwilian,2.0,282,"5, 6"
+Pizarras del Rio,Darriwilian,Darriwilian,0.0,282,"5, 6"
+La Pena,Katian,Katian,0.0,310,"5, 6"
+Ocino,Katian,Katian,0.0,310,"5, 6"
+Rebollarejo,Katian,Katian,0.0,310,"5, 6"
+Rebosilla,Katian,Katian,0.0,310,"5, 6"
+Salar del Rincon,Katian,Hirnantian,1.0,272,"5, 6"
+Sokhsolokh,Tremadocian,Darriwilian,3,399,"5, 6"
+Stan,Darriwilian,Katian,2,"399, 335","5, 6"
+Limbata Limestone,Floian,Darriwilian,2,11,"5, 6"
+Lower Red Orthoceras Limestone,Floian,Darriwilian,2,11,"5, 6"
+Adaminaby,Dapingian,Darriwilian,1,"132, 218","5, 6"
+Mozart Chert,Darriwilian,Sandbian,1,"202, 219","5, 6"
+Numeralla Chert,Dapingian,Darriwilian,1,202,"5, 6"
+Standard Hill,Darriwilian,Sandbian,1,"204, 229","5, 6"
+Walli Volcanics,Darriwilian,Sandbian,1,202,"5, 6"
+Weemalla,Darriwilian,Sandbian,1,"132, 202","5, 6"
+Hotham,Tremadocian,Sandbian,4,219,"5, 6"
+Stokes Siltstone,Darriwilian,Sandbian,1,"217, 215","5, 6"
+Kenilworth,Darriwilian,Sandbian,1,218,"5, 6"
+Clements,Floian,Sandbian,3,"219, 202","5, 6"
+Peach Tree Chert,Dapingian,Darriwilian,1,202,"5, 6"
+Azei,Darriwilian,Katian,2,282,"5, 6"
+Oued Saret,Darriwilian,Katian,2,282,"5, 6"
+Yinchuan,Sandbian,Hirnantian,2,372,"5, 6"
+Deschambault,Sandbian,Katian,1,"79, 86","5, 6"
+Cabeco do Peao,Sandbian,Katian,1,300,"5, 6"
+Kermeur Lower,Sandbian,Katian,1,300,"5, 6"
+Rockley Volcanic,Sandbian,Hirnantian,2,218,"5, 6"
+Gastropod Limestone,Katian,Hirnantian,1,29,"5, 6"
+Upham,Sandbian,Hirnantian,2,138,"5, 6"
+Etasje 4bβ,Sandbian,Katian,1,28,"5, 6"
+Sassafras Creek,Sandbian,Katian,1,229,"5, 6"
+Coomber,Sandbian,Katian,1,202,"5, 6"
+Akuna Mudstone,Sandbian,Hirnantian,2,202,"5, 6"
+Black Rock,Tremadocian,Floian,1,88,"5, 6"
+Caroline Creek Sandstone,Tremadocian,Dapingian,2,"204, 218","5, 6"
+Theodosia,Tremadocian,Floian,1,88,"5, 6"
+Dikari,Floian,Darriwilian,2,31,"5, 6"
+McKelligon Canyon Lower,Tremadocian,Floian,1,138,"5, 6"
+Booley Bay,Tremadocian,Darriwilian,3,49,"5, 6"
+Postolonnec Lower,Floian,Sandbian,3,"224, 282","5, 6"
+Courijou,Floian,Sandbian,3,363,"5, 6"
+Ferruginous,Darriwilian,Sandbian,1,282,"5, 6"
+May Lower,Darriwilian,Sandbian,1,282,"5, 6"
+Capitol K-bentonite,Sandbian,Katian,1,211,"5, 6"
+Shaker Creek K-bentonite,Sandbian,Katian,1,211,"5, 6"
+MR K-bentonite,Sandbian,Katian,1,211,"5, 6"
+Isle la Motte,Sandbian,Katian,1,189,"5, 6"
+Lower Trenton,Sandbian,Katian,1,79,"5, 6"
+Hershey,Sandbian,Katian,1,137,"5, 6"
+Linden Hall,Sandbian,Katian,1,137,"5, 6"
+Llanfawr Mudstone,Darriwilian,Sandbian,1,124,"5, 6"
+Little East Lake,Darriwilian,Hirnantian,3,175,"5, 6"
+East Branch Pond,Darriwilian,Hirnantian,3,175,"5, 6"
+Munsungun Lake,Darriwilian,Hirnantian,3,175,"5, 6"
+Glyn,Katian,Hirnantian,1,124,"5, 6"
+Lower Second Bani Lower,Katian,Hirnantian,1,238,"5, 6"
+Lower Second Bani Upper,Katian,Hirnantian,1,238,"5, 6"
+Sarnella,Tremadocian,Floian,1,282,"5, 6"
+Nelungaloo Volcanics,Tremadocian,Floian,1,"202, 218","5, 6"
+Ustmunduika,Tremadocian,Darriwilian,3,399,"5, 6"
+Ust-Rybninsk,Tremadocian,Darriwilian,3,399,"5, 6"
+Warendian,Tremadocian,Darriwilian,3,202,"5, 6"
+Stokes Siltstone Basal,Darriwilian,Sandbian,1,215,"5, 6"
+Aniolowo Limestone,Sandbian,Katian,1,38,"5, 6"
+Ba gara,Sandbian,Katian,1,67,"5, 6"
+Beke,Sandbian,Katian,1,67,"5, 6"
+Bestamak,Sandbian,Katian,1,67,"5, 6"
+Kreshchenka,Sandbian,Katian,1,67,"5, 6"
+Andryushina,Sandbian,Katian,1,67,"5, 6"
+Bestyube,Sandbian,Katian,1,67,"5, 6"
+Erkebidaik,Sandbian,Katian,1,67,"5, 6"
+Sarybidaik,Sandbian,Katian,1,67,"5, 6"
+Sarydzhaz,Sandbian,Katian,1,67,"5, 6"
+Nant Achlas Siltstone,Katian,Hirnantian,1,124,"5, 6"
+Ustrybninsk,Tremadocian,Darriwilian,3,289,"5, 6"
+Laja Morada,Dapingian,Darriwilian,1,272,"5, 6"
+Lagunillas,Dapingian,Darriwilian,1,272,"5, 6"
+Zanjon,Dapingian,Darriwilian,1,272,"5, 6"
+BC5,Sandbian,Katian,1,"19, 18, 19","5, 6"
+Bratsk,Darriwilian,Hirnantian,3,"399, 335","5, 6"
+Auleliai,Sandbian,Katian,1,398,"5, 6"
+Sandbian isotope carbon excursion,Sandbian,Katian,1,17,"5, 6"
+Calapuja,Sandbian,Katian,1,267,"5, 6"
+Elizavetino,Sandbian,Katian,1,243,"5, 6"
+Jelizavetino,Sandbian,Katian,1,350,"5, 6"
+Mosalem,Katian,Hirnantian,1,25,"5, 6"
+Algabas,Sandbian,Katian,1,258,"5, 6"
+Tchertovskaya,Sandbian,Hirnantian,2,399,"5, 6"
+Antcherikov,Darriwilian,Hirnantian,3,399,"5, 6"
+Safronovo,Katian,Hirnantian,1,399,"5, 6"
+Ketsk,Katian,Hirnantian,1,335,"5, 6"
+Alakul Limestone,Tremadocian,Darriwilian,3,259,"5, 6"
+Karakan,Tremadocian,Darriwilian,3,258,"5, 6"
+Labrado,Dapingian,Darriwilian,1,272,"5, 6"
+Ideal Quarry,Katian,Hirnantian,1,186,"5, 6"
+Mississippian,Sandbian,Serpukhovian,20,401,"5, 6"
+Ypeenian,Floian,Darriwilian,2,3,"5, 6"
+Komárov,Floian,Darriwilian,2,254,"5, 6"
+Olesna,Tremadocian,Darriwilian,3,"105, 254","5, 6"
+Badaran,Floian,Darriwilian,2,"335, 289","5, 6"
+Bajkit,Floian,Darriwilian,2,335,"5, 6"
+Guragir,Floian,Darriwilian,2,"335, 34","5, 6"
+Kochakan,Floian,Darriwilian,2,335,"5, 6"
+Nizhnya,Floian,Darriwilian,2,335,"5, 6"
+Ust-Stolbovaya,Floian,Darriwilian,2,335,"5, 6"
+Mamyr,Floian,Sandbian,3,"335, 289","5, 6"
+Sygytaj,Floian,Darriwilian,2,335,"5, 6"
+Sytykan,Floian,Darriwilian,2,"335, 399","5, 6"
+Tareev,Floian,Darriwilian,2,"335, 399","5, 6"
+Miboshan,Floian,Darriwilian,2,372,"5, 6"
+Gillberga,Floian,Darriwilian,2,36,"5, 6"
+Hjorthamn Limestone,Floian,Darriwilian,2,36,"5, 6"
+Lepidurus Limestone,Floian,Darriwilian,2,36,"5, 6"
+Kings River Sandstone,Dapingian,Sandbian,2,88,"5, 6"
+Newton Sandstone,Dapingian,Sandbian,2,88,"5, 6"
+Sneeds Limestone,Dapingian,Sandbian,2,88,"5, 6"
+Lower Abereiddian,Dapingian,Darriwilian,1,124,"5, 6"
+Pogonip,Tremadocian,Sandbian,4,114,"5, 6"
+Sillaoru,Dapingian,Darriwilian,1,8,"5, 6"
+Castlemaine,Floian,Darriwilian,2,219,"5, 6"
+Doongala Chert,Floian,Darriwilian,2,202,"5, 6"
+Sunlight Creek,Darriwilian,Sandbian,1,"219, 202","5, 6"
+Whinfell Chert,Floian,Darriwilian,2,"202, 219","5, 6"
+Goliath Limestone,Darriwilian,Sandbian,1,204,"5, 6"
+Gordon,Darriwilian,Sandbian,1,204,"5, 6"
+Ugbrook,Darriwilian,Sandbian,1,"204, 229","5, 6"
+Gunnars Dam,Darriwilian,Sandbian,1,231,"5, 6"
+Girilambone,Floian,Darriwilian,2,"132, 202","5, 6"
+Fairbridge Volcanics,Darriwilian,Sandbian,1,"231, 202","5, 6"
+Blayney Volcanics Lower,Darriwilian,Sandbian,1,202,"5, 6"
+Cargo Volcanics,Darriwilian,Katian,2,202,"5, 6"
+Coombing,Darriwilian,Sandbian,1,202,"5, 6"
+Goonumbla Volcanics,Sandbian,Katian,1,"111, 202","5, 6"
+Northparkes,Darriwilian,Katian,2,202,"5, 6"
+Pittman,Dapingian,Sandbian,2,202,"5, 6"
+Wagga,Tremadocian,Darriwilian,3,202,"5, 6"
+Carlo Sandstone,Floian,Darriwilian,2,217,"5, 6"
+Carmichael Sandstone,Darriwilian,Katian,2,"217, 215","5, 6"
+Gordon Limestone Sub,Floian,Darriwilian,2,217,"5, 6"
+Wilson Cliffs Sandstone,Tremadocian,Darriwilian,3,217,"5, 6"
+Triangle,Floian,Katian,4,218,"5, 6"
+Abercrombie,Floian,Darriwilian,2,"219, 202","5, 6"
+Ballast,Floian,Darriwilian,2,219,"5, 6"
+Chickamauga,Tremadocian,Katian,5,80,"5, 6"
+Murfreesboro,Darriwilian,Sandbian,1,119,"5, 6"
+Dot Limestone,Darriwilian,Sandbian,1,166,"5, 6"
+Poteet Limestone,Darriwilian,Sandbian,1,166,"5, 6"
+Fleury,Darriwilian,Sandbian,1,143,"5, 6"
+Head,Darriwilian,Sandbian,1,143,"5, 6"
+Scott,Darriwilian,Sandbian,1,143,"5, 6"
+Wait,Darriwilian,Sandbian,1,143,"5, 6"
+Napa,Darriwilian,Sandbian,1,8,"5, 6"
+Ubari,Darriwilian,Sandbian,1,8,"5, 6"
+Valgejoe,Darriwilian,Sandbian,1,8,"5, 6"
+Strokestown,Darriwilian,Hirnantian,3,124,"5, 6"
+Tramore,Darriwilian,Katian,2,49,"5, 6"
+Ogygiocaris Shale,Darriwilian,Sandbian,1,29,"5, 6"
+Malla,Darriwilian,Sandbian,1,8,"5, 6"
+Postolonnec Upper,Darriwilian,Sandbian,1,"363, 282","5, 6"
+Lurich,Darriwilian,Sandbian,1,389,"5, 6"
+Lang,Floian,Darriwilian,2,219,"5, 6"
+Pinnak Sandstone,Tremadocian,Darriwilian,3,219,"5, 6"
+Moina Sandstone,Floian,Darriwilian,2,204,"5, 6"
+Gidyen Volcanic,Floian,Darriwilian,2,218,"5, 6"
+Blenkhorn's Limestone,Dapingian,Darriwilian,1,204,"5, 6"
+Flowery Gully Limestone,Floian,Darriwilian,2,204,"5, 6"
+Rowena,Tremadocian,Darriwilian,3,202,"5, 6"
+Kopalino Limestone,Dapingian,Darriwilian,1,38,"5, 6"
+Moore Hill,Tremadocian,Sandbian,4,156,"5, 6"
+BIII_alpha,Tremadocian,Darriwilian,3,236,"5, 6"
+BII_alpha,Tremadocian,Darriwilian,3,236,"5, 6"
+BII_beta,Tremadocian,Darriwilian,3,236,"5, 6"
+BII_gamma,Tremadocian,Darriwilian,3,236,"5, 6"
+BI_alpha,Tremadocian,Darriwilian,3,236,"5, 6"
+BI_beta,Tremadocian,Darriwilian,3,236,"5, 6"
+BI_gamma,Tremadocian,Darriwilian,3,236,"5, 6"
+Ribband,Tremadocian,Darriwilian,3,124,"5, 6"
+Anagua,Floian,Katian,4,282,"5, 6"
+Ohanet,Floian,Katian,4,282,"5, 6"
+Oued Ahara,Floian,Katian,4,282,"5, 6"
+Ampyx Limestone,Darriwilian,Katian,2,29,"5, 6"
+Coelosphaeridium,Darriwilian,Katian,2,29,"5, 6"
+Cyclocrinus,Darriwilian,Katian,2,29,"5, 6"
+Lower Chasmops Limestone,Darriwilian,Katian,2,"11, 29","5, 6"
+Lower Chasmops Shale,Darriwilian,Katian,2,29,"5, 6"
+Ancistroceras Limestone,Darriwilian,Katian,2,11,"5, 6"
+Crassicauda Limestone,Darriwilian,Katian,2,11,"5, 6"
+Cystidean Limestone,Darriwilian,Katian,2,11,"5, 6"
+Echinosphaerites Limestone,Darriwilian,Katian,2,11,"5, 6"
+Oxhe,Darriwilian,Katian,2,129,"5, 6"
+Pa Kae,Sandbian,Katian,1,342,"5, 6"
+Daqing,Sandbian,Katian,1,52,"5, 6"
+Crug Limestone,Sandbian,Katian,1,47,"5, 6"
+Benjamin,Sandbian,Katian,1,229,"5, 6"
+Cobbly Limestone,Tremadocian,Katian,5,83,"5, 6"
+Collierstown Limestone,Sandbian,Katian,1,83,"5, 6"
+Gratton,Tremadocian,Katian,5,83,"5, 6"
+Lantz Mills,Tremadocian,Katian,5,83,"5, 6"
+St. Luke Limestone,Tremadocian,Katian,5,83,"5, 6"
+Little Oak Limestone,Tremadocian,Katian,5,83,"5, 6"
+Witten Limestone,Tremadocian,Katian,5,83,"5, 6"
+Rocklandian,Sandbian,Katian,1,"189, 211","5, 6"
+Bigby-Cannon,Sandbian,Katian,1,119,"5, 6"
+Nashville,Sandbian,Katian,1,121,"5, 6"
+Dalmanella Coquina,Sandbian,Katian,1,145,"5, 6"
+Saltillo,Sandbian,Katian,1,121,"5, 6"
+Ardmillan,Sandbian,Katian,1,124,"5, 6"
+Birdshill Limestone,Sandbian,Hirnantian,2,47,"5, 6"
+Piedra del Tormo,Sandbian,Katian,1,310,"5, 6"
+Penyraber,Sandbian,Katian,1,92,"5, 6"
+Allt-Tair-Ffynnon,Sandbian,Katian,1,124,"5, 6"
+Bryn Siltstone,Sandbian,Katian,1,124,"5, 6"
+Cwm Rhiwarth Siltstone,Sandbian,Katian,1,124,"5, 6"
+Gaerfawr,Sandbian,Katian,1,124,"5, 6"
+Pen-y-graig Tuff,Sandbian,Katian,1,124,"5, 6"
+Yr Arddu Tuff,Sandbian,Katian,1,124,"5, 6"
+Bancos Mixtos,Sandbian,Katian,1,282,"5, 6"
+Castro,Sandbian,Hirnantian,2,282,"5, 6"
+Grés de May Upper,Sandbian,Katian,1,282,"5, 6"
+Le Glauzy,Sandbian,Katian,1,282,"5, 6"
+Le pont de Caen,Sandbian,Katian,1,282,"5, 6"
+Saint Germain sur Ille Lower,Sandbian,Katian,1,282,"5, 6"
+Saint Martin du Bois,Sandbian,Katian,1,282,"5, 6"
+Tramore Volcanic Lower,Sandbian,Katian,1,49,"5, 6"
+Kiln Mudstone,Sandbian,Katian,1,241,"5, 6"
+Cwm Eigiau Formation,Sandbian,Katian,1,124,"5, 6"
+Grangegeeth,Sandbian,Katian,1,124,"5, 6"
+Ktaoua Lower,Darriwilian,Katian,2,"238, 126","5, 6"
+Ottawa,Sandbian,Katian,1,86,"5, 6"
+Simcoe,Sandbian,Katian,1,86,"5, 6"
+Simard,Sandbian,Katian,1,79,"5, 6"
+Tremblay,Sandbian,Katian,1,79,"5, 6"
+Trenton Upper,Sandbian,Katian,1,79,"5, 6"
+Meyerstown,Sandbian,Katian,1,137,"5, 6"
+Capitol City K-bentonite,Sandbian,Katian,1,222,"5, 6"
+Rhinidictya,Sandbian,Katian,1,210,"5, 6"
+Guttenberg isotope carbon excursion,Sandbian,Katian,1,"214, 17","5, 6"
+Glenhaven,Sandbian,Katian,1,153,"5, 6"
+Garnavillo,Sandbian,Katian,1,153,"5, 6"
+Stictoporella,Sandbian,Katian,1,210,"5, 6"
+Vanuxemia,Sandbian,Katian,1,210,"5, 6"
+Glencoe,Sandbian,Katian,1,153,"5, 6"
+Rockdell Limestone,Darriwilian,Katian,2,83,"5, 6"
+Black Limestone,Darriwilian,Katian,2,39,"5, 6"
+Lebanon,Sandbian,Katian,1,119,"5, 6"
+St. Martin,Darriwilian,Katian,2,75,"5, 6"
+Pierce,Sandbian,Katian,1,119,"5, 6"
+Ridley,Darriwilian,Katian,2,119,"5, 6"
+Balclatchie,Sandbian,Katian,1,124,"5, 6"
+Khrevitsa,Sandbian,Katian,1,243,"5, 6"
+BC7,Sandbian,Katian,1,"18, 19, 18","5, 6"
+Plunge,Sandbian,Katian,1,398,"5, 6"
+Žarėnai,Sandbian,Katian,1,398,"5, 6"
+El Paso,Tremadocian,Floian,1,114,"5, 6"
+Bat Cave,Tremadocian,Katian,5,56,"5, 6"
+Juniata,Sandbian,Hirnantian,2,"121, 137","5, 6"
+Sequatchie,Katian,Hirnantian,1,119,"5, 6"
+C6,Katian,Hirnantian,1,119,"5, 6"
+Queenston Red Shale,Sandbian,Hirnantian,2,156,"5, 6"
+Laughery,Katian,Hirnantian,1,121,"5, 6"
+Saluda,Katian,Hirnantian,1,119,"5, 6"
+Dillsboro,Katian,Hirnantian,1,185,"5, 6"
+Preachersville,Katian,Hirnantian,1,"185, 206","5, 6"
+Tanners Creek,Katian,Hirnantian,1,"170, 185","5, 6"
+Versailles,Katian,Hirnantian,1,121,"5, 6"
+Ashlock,Katian,Hirnantian,1,39,"5, 6"
+Eina,Sandbian,Katian,1,23,"5, 6"
+Gålås,Sandbian,Katian,1,23,"5, 6"
+Baiyanhuashan Upper,Katian,Hirnantian,1,371,"5, 6"
+Shihuichang,Katian,Hirnantian,1,371,"5, 6"
+Barrande's d4,Sandbian,Katian,1,321,"5, 6"
+Barrande's d5,Katian,Hirnantian,1,321,"5, 6"
+Nucice,Sandbian,Katian,1,254,"5, 6"
+Billings,Sandbian,Hirnantian,2,"156, 86","5, 6"
+Eden,Katian,Hirnantian,1,121,"5, 6"
+Eden Sandstone,Katian,Hirnantian,1,121,"5, 6"
+Wykoff Limestone,Sandbian,Hirnantian,2,121,"5, 6"
+Ion,Sandbian,Katian,1,"25, 22, 153","5, 6"
+Fairfield,Sandbian,Katian,1,189,"5, 6"
+Lacolle,Sandbian,Katian,1,189,"5, 6"
+Minaville,Sandbian,Katian,1,189,"5, 6"
+Snake Hill,Sandbian,Katian,1,189,"5, 6"
+Stony Point,Sandbian,Katian,1,189,"5, 6"
+Canajoharie Shale,Sandbian,Katian,1,193,"5, 6"
+Balsamian,Sandbian,Katian,1,26,"5, 6"
+Zdice,Katian,Hirnantian,1,321,"5, 6"
+Richmond,Katian,Hirnantian,1,205,"5, 6"
+Big Fork Chert,Sandbian,Katian,1,121,"5, 6"
+Hollowell,Sandbian,Katian,1,189,"5, 6"
+Chandler Falls Limestone,Sandbian,Katian,1,156,"5, 6"
+Chlustina,Sandbian,Katian,1,254,"5, 6"
+Currawalla Shale,Sandbian,Katian,1,202,"5, 6"
+Acton Shale,Sandbian,Katian,1,202,"5, 6"
+Blayney Volcanics Upper,Sandbian,Katian,1,202,"5, 6"
+Forest Reefs Volcanics,Sandbian,Katian,1,202,"5, 6"
+Willandra Sandstone,Sandbian,Katian,1,202,"5, 6"
+Wombin Volcanics,Sandbian,Katian,1,202,"5, 6"
+Brynglas,Katian,Hirnantian,1,124,"5, 6"
+Drosgol,Katian,Hirnantian,1,124,"5, 6"
+Skultorp,Sandbian,Hirnantian,2,17,"5, 6"
+Bønsnes,Katian,Hirnantian,1,29,"5, 6"
+Kalvsjøen,Katian,Hirnantian,1,29,"5, 6"
+Neruchanda,Sandbian,Katian,1,399,"5, 6"
+Dzerom,Sandbian,Katian,1,399,"5, 6"
+Nirunda,Katian,Hirnantian,1,399,"5, 6"
+Zagornyi,Sandbian,Katian,1,399,"5, 6"
+Stan Upper,Sandbian,Katian,1,27,"5, 6"
+Kylakh,Sandbian,Katian,1,399,"5, 6"
+Cable Canyon,Katian,Hirnantian,1,138,"5, 6"
+Cable Canyon Sandstone,Katian,Hirnantian,1,138,"5, 6"
+Gunningbland Shale,Sandbian,Katian,1,218,"5, 6"
+Pontesford,Katian,Hirnantian,1,124,"5, 6"
+Sasino Shale,Darriwilian,Katian,2,38,"5, 6"
+Innkehash,Sandbian,Katian,1,67,"5, 6"
+Sargaldak,Sandbian,Katian,1,67,"5, 6"
+Talcyboi,Sandbian,Katian,1,67,"5, 6"
+Encrinite Limestone,Sandbian,Katian,1,29,"5, 6"
+Barrande's d3,Sandbian,Katian,1,321,"5, 6"
+Cernin,Sandbian,Katian,1,321,"5, 6"
+Trubin Shale,Sandbian,Katian,1,321,"5, 6"
+New Country Sandstone,Sandbian,Katian,1,219,"5, 6"
+Bogolo,Katian,Hirnantian,1,202,"5, 6"
+Akdombak,Katian,Hirnantian,1,67,"5, 6"
+Karakongoi,Katian,Hirnantian,1,67,"5, 6"
+Oro,Katian,Hirnantian,1,67,"5, 6"
+Vasagaardian,Darriwilian,Katian,2,296,"5, 6"
+Dicellograptus Shale,Darriwilian,Katian,2,120,"5, 6"
+Reba,Katian,Hirnantian,1,185,"5, 6"
+White Head,Katian,Hirnantian,1,368,"5, 6"
+Mile End,Sandbian,Katian,1,75,"5, 6"
+Quareau,Sandbian,Katian,1,75,"5, 6"
+Upper Didymograptus Shale,Floian,Sandbian,3,29,"5, 6"
+Arbuckle,Tremadocian,Dapingian,2,113,"5, 6"
+Stretinka,Floian,Sandbian,3,400,"5, 6"
+Grès Armoricain Middle,Floian,Dapingian,1,238,"5, 6"
+Grès Armoricain Upper,Floian,Dapingian,1,238,"5, 6"
+Cabbage Tree,Tremadocian,Floian,1,204,"5, 6"
+Roland Conglomerate,Tremadocian,Floian,1,204,"5, 6"
+Kangerong,Tremadocian,Dapingian,2,219,"5, 6"
+Pingbilly,Floian,Dapingian,1,202,"5, 6"
+Sciota Limestone,Floian,Dapingian,1,140,"5, 6"
+Sciota,Floian,Dapingian,1,"109, 159","5, 6"
+Willigam Sandstone,Tremadocian,Dapingian,2,202,"5, 6"
+Narrama,Tremadocian,Floian,1,"202, 219","5, 6"
+Odargowo Limestone,Tremadocian,Floian,1,38,"5, 6"
+Breanoge,Tremadocian,Darriwilian,3,49,"5, 6"
+McKelligon Canyon Upper,Tremadocian,Floian,1,138,"5, 6"
+Dounans,Tremadocian,Floian,1,307,"5, 6"
+Rich Fountain,Tremadocian,Floian,1,356,"5, 6"
+Balnakiel Member 4,Tremadocian,Floian,1,124,"5, 6"
+Joa,Tremadocian,Floian,1,8,"5, 6"
+Klooga,Tremadocian,Floian,1,8,"5, 6"
+Mäeküla,Tremadocian,Floian,1,8,"5, 6"
+Isthmus Bay,Tremadocian,Floian,1,42,"5, 6"
+Santa Victoria,Tremadocian,Floian,1,290,"5, 6"
+Etasje 3bα,Tremadocian,Floian,1,28,"5, 6"
+Ceratopyge Shale,Tremadocian,Floian,1,"36, 257","5, 6"
+Obolus conglomerate,Tremadocian,Floian,1,11,"5, 6"
+Obolus gruskalk,Tremadocian,Floian,1,11,"5, 6"
+Obolus Limestone,Tremadocian,Floian,1,11,"5, 6"
+Etasje 3bβ,Floian,Dapingian,1,28,"5, 6"
+Croisaphuill Member 5,Floian,Dapingian,1,124,"5, 6"
+Croisaphuill Member 6,Floian,Dapingian,1,124,"5, 6"
+Asaphus Shale,Dapingian,Darriwilian,1,29,"5, 6"
+Etasje 3cβ,Dapingian,Darriwilian,1,28,"5, 6"
+Megistaspis Limestone,Dapingian,Darriwilian,1,29,"5, 6"
+Etasje 3cα,Dapingian,Darriwilian,1,28,"5, 6"
+Gundara Quartzite,Tremadocian,Dapingian,2,202,"5, 6"
+Ungava Bay,Tremadocian,Dapingian,2,394,"5, 6"
+Cephalopod Shale,Darriwilian,Sandbian,1,29,"5, 6"
+Etasje 4aα,Darriwilian,Sandbian,1,28,"5, 6"
+Datienba,Darriwilian,Sandbian,1,64,"5, 6"
+Izgouiren,Darriwilian,Sandbian,1,304,"5, 6"
+Beech,Darriwilian,Sandbian,1,143,"5, 6"
+Hero,Darriwilian,Sandbian,1,143,"5, 6"
+Peery,Darriwilian,Sandbian,1,"123, 83","5, 6"
+Lindero,Darriwilian,Sandbian,1,333,"5, 6"
+Gryazno,Darriwilian,Sandbian,1,243,"5, 6"
+Big Valley,Tremadocian,Sandbian,4,389,"5, 6"
+Burkes Garden Limestone,Tremadocian,Sandbian,4,123,"5, 6"
+Shannondale,Tremadocian,Sandbian,4,123,"5, 6"
+Wa,Darriwilian,Sandbian,1,125,"5, 6"
+Rob Camp,Darriwilian,Sandbian,1,166,"5, 6"
+Precipitous Bluff,Darriwilian,Sandbian,1,233,"5, 6"
+Duncannon Volcanic,Darriwilian,Sandbian,1,49,"5, 6"
+Pedwardine,Floian,Sandbian,3,124,"5, 6"
+Serw Volcanic,Darriwilian,Sandbian,1,124,"5, 6"
+Botella Quartzite,Darriwilian,Sandbian,1,"282, 264","5, 6"
+Drabov Quartzite,Sandbian,Katian,1,254,"5, 6"
+Řevnice Quartzite,Sandbian,Katian,1,254,"5, 6"
+Oberon,Sandbian,Katian,1,219,"5, 6"
+Mount Pleasant Basalt,Sandbian,Katian,1,202,"5, 6"
+452.59,Sandbian,Katian,1,214,"5, 6"
+452.85,Sandbian,Katian,1,214,"5, 6"
+453.16,Sandbian,Katian,1,214,"5, 6"
+453.47,Sandbian,Katian,1,214,"5, 6"
+453.73,Sandbian,Katian,1,214,"5, 6"
+Ordovician,Tremadocian,Hirnantian,6,"3, 401","5, 6"
+Fosses,Sandbian,Hirnantian,2,129,"5, 6"
+Macrourus Limestone,Sandbian,Hirnantian,2,11,"5, 6"
+Platylichas Limestone,Sandbian,Hirnantian,2,11,"5, 6"
+Red Trinucleus Shale,Sandbian,Hirnantian,2,11,"5, 6"
+Jonstorp Lower,Sandbian,Hirnantian,2,17,"5, 6"
+Jonstorp Upper,Sandbian,Hirnantian,2,17,"5, 6"
+Öglunda,Sandbian,Hirnantian,2,17,"5, 6"
+Geidziunai,Sandbian,Hirnantian,2,10,"5, 6"
+Ukmerge,Sandbian,Hirnantian,2,10,"5, 6"
+Georgian Bay,Sandbian,Hirnantian,2,"63, 137","5, 6"
+Memouniat,Sandbian,Hirnantian,2,319,"5, 6"
+Horseshoe Gulch,Sandbian,Hirnantian,2,182,"5, 6"
+Ghelli,Sandbian,Hirnantian,2,348,"5, 6"
+Kyr-ya,Sandbian,Hirnantian,2,"246, 35","5, 6"
+Polydov,Sandbian,Hirnantian,2,246,"5, 6"
+Rassokha,Sandbian,Hirnantian,2,246,"5, 6"
+Syr-ya,Sandbian,Hirnantian,2,246,"5, 6"
+Anisin,Sandbian,Hirnantian,2,201,"5, 6"
+Teryutekh,Sandbian,Hirnantian,2,201,"5, 6"
+Montgomery Limestone,Sandbian,Hirnantian,2,162,"5, 6"
+Blind Brook,Sandbian,Hirnantian,2,175,"5, 6"
+Kennebec,Darriwilian,Hirnantian,3,175,"5, 6"
+Lobster Mountain,Darriwilian,Hirnantian,3,175,"5, 6"
+Leptaena Limestone,Sandbian,Hirnantian,2,11,"5, 6"
+Boda Core Facies,Sandbian,Hirnantian,2,20,"5, 6"
+Boda Upper,Sandbian,Hirnantian,2,20,"5, 6"
+Gulbinai,Sandbian,Hirnantian,2,10,"5, 6"
+Smilgiai,Sandbian,Hirnantian,2,10,"5, 6"
+Staurocephalus Shale,Sandbian,Hirnantian,2,11,"5, 6"
+Drakes,Katian,Hirnantian,1,39,"5, 6"
+Blanchester,Katian,Hirnantian,1,"163, 397","5, 6"
+Clarksville,Katian,Hirnantian,1,"163, 397","5, 6"
+Fort Ancient,Katian,Hirnantian,1,"163, 397","5, 6"
+Rowland Lower,Katian,Hirnantian,1,185,"5, 6"
+Rowland Upper,Katian,Hirnantian,1,185,"5, 6"
+Marble Hill,Katian,Hirnantian,1,163,"5, 6"
+Uqua,Katian,Hirnantian,1,41,"5, 6"
+Genicot,Katian,Hirnantian,1,129,"5, 6"
+Barn Hills,Katian,Hirnantian,1,147,"5, 6"
+Floride,Katian,Hirnantian,1,147,"5, 6"
+Ibex,Katian,Hirnantian,1,147,"5, 6"
+Lost Canyon,Katian,Hirnantian,1,147,"5, 6"
+Solvik,Katian,Hirnantian,1,17,"5, 6"
+Gräsgård,Katian,Hirnantian,1,32,"5, 6"
+Röa,Katian,Hirnantian,1,8,"5, 6"
+BC16,Katian,Hirnantian,1,"20, 9","5, 6"
+BC17,Katian,Hirnantian,1,"20, 9","5, 6"
+Paroveja carbon isotope excursion,Katian,Hirnantian,1,"46, 9","5, 6"
+Delingde,Katian,Hirnantian,1,399,"5, 6"
+Oyusut,Katian,Hirnantian,1,399,"5, 6"
+Grande Coupe,Katian,Hirnantian,1,368,"5, 6"
+Rouge,Katian,Hirnantian,1,368,"5, 6"
+Cotton,Katian,Hirnantian,1,231,"5, 6"
+Saint Germain sur Ille Upper,Katian,Hirnantian,1,282,"5, 6"
+Iogach Body,Darriwilian,Hirnantian,3,400,"5, 6"
+Barrios,Tremadocian,Darriwilian,3,282,"5, 6"
+Lancefieldian 2a,Tremadocian,Floian,1,230,"5, 6"
+Ninmaroo,Tremadocian,Floian,1,"230, 217","5, 6"
+Akzhal,Tremadocian,Darriwilian,3,258,"5, 6"
+Dzhambul,Tremadocian,Darriwilian,3,258,"5, 6"
+Satpak,Tremadocian,Darriwilian,3,257,"5, 6"
+Fort Ann,Tremadocian,Floian,1,109,"5, 6"
+Comstock,Tremadocian,Floian,1,109,"5, 6"
+Hawk,Tremadocian,Floian,1,109,"5, 6"
+Baikit,Floian,Darriwilian,2,27,"5, 6"
+Balyktakh Upper,Floian,Darriwilian,2,27,"5, 6"
+Totchinoye Upper,Floian,Darriwilian,2,27,"5, 6"
+Tura,Floian,Darriwilian,2,"27, 399","5, 6"
+Babkino,Tremadocian,Darriwilian,3,"399, 27","5, 6"
+Bysy-Yurakh,Tremadocian,Darriwilian,3,399,"5, 6"
+Iltyk,Floian,Darriwilian,2,"399, 34","5, 6"
+Irbukil,Tremadocian,Darriwilian,3,399,"5, 6"
+Kotchakan,Tremadocian,Darriwilian,3,"27, 399","5, 6"
+Kuntykakhin,Floian,Katian,4,399,"5, 6"
+Ust'Kuranakh,Floian,Darriwilian,2,399,"5, 6"
+Kotchakan Lower,Floian,Darriwilian,2,27,"5, 6"
+Kotchakan Middle,Floian,Darriwilian,2,27,"5, 6"
+Tchirinda,Tremadocian,Darriwilian,3,"27, 399","5, 6"
+Balyktakh,Tremadocian,Darriwilian,3,"399, 27","5, 6"
+Oldondo,Tremadocian,Darriwilian,3,399,"5, 6"
+Baykit,Floian,Darriwilian,2,34,"5, 6"
+Kotchakan Upper,Floian,Darriwilian,2,27,"5, 6"
+Krivaya Luka,Floian,Darriwilian,2,"27, 399","5, 6"
+Krivolutsk,Floian,Darriwilian,2,335,"5, 6"
+Uststolbovaya,Darriwilian,Katian,2,"34, 27","5, 6"
+Amarkan,Floian,Darriwilian,2,"27, 399","5, 6"
+Mangazea,Sandbian,Katian,1,"34, 399","5, 6"
+Moyerokan,Floian,Darriwilian,2,"27, 399","5, 6"
+Stan Lower,Floian,Katian,4,27,"5, 6"
+Brithion,Dapingian,Darriwilian,1,124,"5, 6"
+Bryn Brith,Dapingian,Darriwilian,1,124,"5, 6"
+Cefn Hir,Dapingian,Darriwilian,1,124,"5, 6"
+Melau,Dapingian,Darriwilian,1,124,"5, 6"
+Trygarn,Dapingian,Darriwilian,1,124,"5, 6"
+Romsey Sub,Tremadocian,Darriwilian,3,219,"5, 6"
+Bendoc,Darriwilian,Katian,2,"218, 202","5, 6"
+Chudleigh Sub,Darriwilian,Katian,2,229,"5, 6"
+Karakol'-Mikhailovsk,Tremadocian,Darriwilian,3,236,"5, 6"
+BC4,Darriwilian,Sandbian,1,9,"5, 6"
+Kielno Variegated Limestone,Darriwilian,Katian,2,38,"5, 6"
+Pieszkowo Red Limestone,Floian,Darriwilian,2,38,"5, 6"
+Kuagach,Tremadocian,Darriwilian,3,236,"5, 6"
+Etasje 4a,Floian,Katian,4,29,"5, 6"
+Cabonne,Darriwilian,Katian,2,"202, 218","5, 6"
+Cacemes,Floian,Sandbian,3,282,"5, 6"
+Ludibundus Limestone,Darriwilian,Katian,2,11,"5, 6"
+Etasje 4b,Darriwilian,Katian,2,29,"5, 6"
+Dove Facies,Sandbian,Katian,1,145,"5, 6"
+Chertovo,Sandbian,Katian,1,335,"5, 6"
+Favacal,Sandbian,Katian,1,"310, 286","5, 6"
+Zdice-Nucice,Sandbian,Katian,1,310,"5, 6"
+Yr Arddu Tuffs,Sandbian,Katian,1,124,"5, 6"
+Saint Germain sur Ille,Sandbian,Hirnantian,2,282,"5, 6"
+Bou-Isidane-Jbel-Slope,Darriwilian,Katian,2,126,"5, 6"
+Tafersikt-Jbel,Darriwilian,Katian,2,126,"5, 6"
+Tiberguent-Jbel,Darriwilian,Katian,2,126,"5, 6"
+Stictopora,Sandbian,Katian,1,210,"5, 6"
+Bellerophon,Sandbian,Katian,1,210,"5, 6"
+Alvitas,Sandbian,Katian,1,"398, 395, 395","5, 6"
+Jakšiai,Sandbian,Katian,1,"395, 398","5, 6"
+Šakiai,Sandbian,Katian,1,"398, 395, 395","5, 6"
+Fucoid,Sandbian,Katian,1,210,"5, 6"
+Kiandra,Sandbian,Katian,1,202,"5, 6"
+Baiyanhuashan,Katian,Hirnantian,1,371,"5, 6"
+Rysedorf,Sandbian,Katian,1,357,"5, 6"
+Valley Brook Shale,Sandbian,Katian,1,193,"5, 6"
+Cabeco de Peao,Sandbian,Katian,1,286,"5, 6"
+Wagonga,Katian,Hirnantian,1,202,"5, 6"
+Zagorninsk,Sandbian,Katian,1,289,"5, 6"
+Prabuty Marl and Shale,Katian,Hirnantian,1,38,"5, 6"
+Karasa,Floian,Sandbian,3,400,"5, 6"
+Gador,Floian,Dapingian,1,238,"5, 6"
+Kaiwilta,Tremadocian,Floian,1,202,"5, 6"
+Julianowo Glauconitic Sandstone,Tremadocian,Floian,1,38,"5, 6"
+Sluchowo Shale,Tremadocian,Floian,1,38,"5, 6"
+Kogashyk,Tremadocian,Floian,1,"257, 258","5, 6"
+Kurdai,Tremadocian,Floian,1,257,"5, 6"
+Zebre,Tremadocian,Floian,1,8,"5, 6"
+Ben Suardal,Floian,Dapingian,1,124,"5, 6"
+Paleozoic,Fortunian,Changhsingian,47,401,"5, 6"
+Bryozoan Limestone,Sandbian,Hirnantian,2,11,"5, 6"
+Red Tetraspis Shale,Sandbian,Hirnantian,2,11,"5, 6"
+BC15,Sandbian,Hirnantian,2,"20, 9","5, 6"
+BC14,Katian,Hirnantian,1,9,"5, 6"
+Öglunda Limestone,Sandbian,Hirnantian,2,11,"5, 6"
+Mamuniyat,Sandbian,Hirnantian,2,319,"5, 6"
+Yaptikshor,Sandbian,Hirnantian,2,35,"5, 6"
+Salyka,Sandbian,Hirnantian,2,246,"5, 6"
+Yaptiknyrd,Sandbian,Hirnantian,2,35,"5, 6"
+Malaya Tavrota Lower,Sandbian,Hirnantian,2,246,"5, 6"
+Muker,Sandbian,Hirnantian,2,246,"5, 6"
+Ust-Zyb,Sandbian,Hirnantian,2,246,"5, 6"
+Zyb,Sandbian,Hirnantian,2,"246, 35","5, 6"
+Bad'ya reef,Sandbian,Hirnantian,2,246,"5, 6"
+Khorejver,Sandbian,Hirnantian,2,246,"5, 6"
+Malaya Tavrota Upper,Sandbian,Hirnantian,2,246,"5, 6"
+Brookville,Katian,Hirnantian,1,206,"5, 6"
+Des Jean,Katian,Hirnantian,1,368,"5, 6"
+L'Irlande,Katian,Hirnantian,1,368,"5, 6"
+Otter Creek,Katian,Hirnantian,1,206,"5, 6"
+Lower Glyptorthis insculpta,Katian,Hirnantian,1,397,"5, 6"
+Oldenburg,Katian,Hirnantian,1,397,"5, 6"
+Roaring Brook,Katian,Hirnantian,1,397,"5, 6"
+Upper Disturbed,Katian,Hirnantian,1,397,"5, 6"
+Middle Clarksville,Katian,Hirnantian,1,397,"5, 6"
+Stony Hollow Creek,Katian,Hirnantian,1,397,"5, 6"
+Bon Well Hill,Katian,Hirnantian,1,"163, 397","5, 6"
+Harpers Run,Katian,Hirnantian,1,397,"5, 6"
+Lower Fort Ancient shale,Katian,Hirnantian,1,397,"5, 6"
+South Gate Hill,Katian,Hirnantian,1,397,"5, 6"
+Southgate Hill,Katian,Hirnantian,1,163,"5, 6"
+Treptoceras duseri Shale,Katian,Hirnantian,1,163,"5, 6"
+Cyphotrypa shale,Katian,Hirnantian,1,163,"5, 6"
+Fisherville coral,Katian,Hirnantian,1,163,"5, 6"
+O1,Katian,Hirnantian,1,147,"5, 6"
+O2,Katian,Hirnantian,1,147,"5, 6"
+O4,Katian,Hirnantian,1,147,"5, 6"
+O5,Katian,Hirnantian,1,147,"5, 6"
+O3,Katian,Hirnantian,1,147,"5, 6"
+Kosbazhi,Dapingian,Hirnantian,4,400,"5, 6"
+Pichikhem,Darriwilian,Hirnantian,3,400,"5, 6"
+Samysh Body,Dapingian,Hirnantian,4,400,"5, 6"
+Syntygan,Sandbian,Hirnantian,2,400,"5, 6"
+Djupvik,Tremadocian,Floian,1,36,"5, 6"
+Tozodov Body,Floian,Hirnantian,5,400,"5, 6"
+Adygkhan,Floian,Darriwilian,2,400,"5, 6"
+Malykaya,Floian,Katian,4,27,"5, 6"
+Totchinoye,Tremadocian,Darriwilian,3,"27, 399","5, 6"
+Tchunya,Tremadocian,Darriwilian,3,399,"5, 6"
+Ust-Kut,Tremadocian,Darriwilian,3,335,"5, 6"
+Iya,Floian,Darriwilian,2,399,"5, 6"
+Ugorsk,Floian,Darriwilian,2,335,"5, 6"
+Ust'Kyt,Tremadocian,Darriwilian,3,399,"5, 6"
+Vorotninskaya,Tremadocian,Darriwilian,3,399,"5, 6"
+Totchinoye Lower,Tremadocian,Darriwilian,3,27,"5, 6"
+Balyktakh Lower,Tremadocian,Darriwilian,3,27,"5, 6"
+Srednya,Floian,Katian,4,335,"5, 6"
+Verkhnya,Floian,Katian,4,335,"5, 6"
+Aguada de la Perdiz,Dapingian,Darriwilian,1,256,"5, 6"
+Chase Brook,Dapingian,Darriwilian,1,175,"5, 6"
+Saint-Daniel,Dapingian,Darriwilian,1,175,"5, 6"
+Shin Brook,Dapingian,Darriwilian,1,175,"5, 6"
+Barrancos,Dapingian,Darriwilian,1,279,"5, 6"
+Lickey Quartzite,Floian,Darriwilian,2,124,"5, 6"
+Berw Uchaf Grits,Dapingian,Darriwilian,1,124,"5, 6"
+Carmel,Dapingian,Darriwilian,1,124,"5, 6"
+Dryll,Dapingian,Darriwilian,1,124,"5, 6"
+Garth Ferry Grits,Dapingian,Darriwilian,1,124,"5, 6"
+Golam,Dapingian,Darriwilian,1,124,"5, 6"
+Llanengan,Dapingian,Darriwilian,1,124,"5, 6"
+Nantannog,Dapingian,Darriwilian,1,124,"5, 6"
+Porth Cynfor Conglomerat,Dapingian,Darriwilian,1,124,"5, 6"
+Porth Meudwy,Dapingian,Darriwilian,1,124,"5, 6"
+Slieau Managh Slates,Dapingian,Darriwilian,1,124,"5, 6"
+Torllwyn,Dapingian,Darriwilian,1,124,"5, 6"
+Treiorwerth,Dapingian,Darriwilian,1,124,"5, 6"
+Tudwell Sandstone,Floian,Darriwilian,2,124,"5, 6"
+Brejo Fundeiro,Floian,Sandbian,3,282,"5, 6"
+Llandeyran,Floian,Darriwilian,2,282,"5, 6"
+Noaillan,Floian,Darriwilian,2,282,"5, 6"
+Tiferouiine,Dapingian,Darriwilian,1,282,"5, 6"
+Moncrabeau,Floian,Darriwilian,2,282,"5, 6"
+Oued Rharbi,Floian,Darriwilian,2,282,"5, 6"
+Chunsk,Dapingian,Darriwilian,1,335,"5, 6"
+Badoranovka,Dapingian,Darriwilian,1,399,"5, 6"
+Nalednaya,Dapingian,Darriwilian,1,399,"5, 6"
+Del'gey,Darriwilian,Hirnantian,3,399,"5, 6"
+Ilyinka Ser.,Darriwilian,Hirnantian,3,399,"5, 6"
+Kiren-Kudri,Darriwilian,Hirnantian,3,"289, 335","5, 6"
+Villar del Salz,Dapingian,Darriwilian,1,330,"5, 6"
+Carranya,Tremadocian,Darriwilian,3,217,"5, 6"
+Jinduck,Tremadocian,Darriwilian,3,217,"5, 6"
+Ooloo Limestone,Tremadocian,Darriwilian,3,217,"5, 6"
+Pander Greensand,Tremadocian,Darriwilian,3,217,"5, 6"
+Swift,Tremadocian,Darriwilian,3,217,"5, 6"
+Tim Shea Sandstone,Tremadocian,Darriwilian,3,217,"5, 6"
+Llanbabo Church Grits,Sandbian,Katian,1,124,"5, 6"
+Temperance,Sandbian,Katian,1,202,"5, 6"
+Pizarras Cantera,Sandbian,Katian,1,366,"5, 6"
+Steffordian,Sandbian,Katian,1,45,"5, 6"
+Ashes Upper,Sandbian,Katian,1,124,"5, 6"
+Amadjuak,Sandbian,Katian,1,394,"5, 6"
+Bad Cache Rapids,Sandbian,Katian,1,394,"5, 6"
+Drūkšiai,Sandbian,Katian,1,398,"5, 6"
+Keklys,Sandbian,Katian,1,398,"5, 6"
+Dysna,Sandbian,Katian,1,398,"5, 6"
+Phylloporina-Ctenodonta,Sandbian,Katian,1,210,"5, 6"
+BC6,Sandbian,Katian,1,9,"5, 6"
+Dolhir Limestone,Katian,Hirnantian,1,124,"5, 6"
+Tyn-y-twmpath,Katian,Hirnantian,1,124,"5, 6"
+Karakol,Sandbian,Katian,1,400,"5, 6"
+Dolhir,Katian,Hirnantian,1,124,"5, 6"
+Malaya Tavrota,Sandbian,Hirnantian,2,35,"5, 6"
+Chao do Amieiral,Sandbian,Katian,1,328,"5, 6"
+Rysedorph conglomerate,Sandbian,Katian,1,357,"5, 6"
+Rysedorph Hill conglomerate,Sandbian,Katian,1,357,"5, 6"
+Orneta Grey-Green Marl,Katian,Hirnantian,1,38,"5, 6"
+Akbulaksai,Tremadocian,Floian,1,257,"5, 6"
+Koagash,Tremadocian,Floian,1,257,"5, 6"
+Cambrian,Fortunian,Hirnantian,16,401,"5, 6"
+Carboniferous,Sandbian,Gzhelian,24,401,"5, 6"
+Devonian,Sandbian,Famennian,17,401,"5, 6"
+Permian,Sandbian,Changhsingian,33,401,"5, 6"
+Silurian,Sandbian,Pridolian,10,401,"5, 6"
+Red Tretaspis Shale,Sandbian,Hirnantian,2,11,"5, 6"
+Yunkoshor,Sandbian,Hirnantian,2,35,"5, 6"
+Saledyshor,Sandbian,Hirnantian,2,35,"5, 6"
+Polydennii,Sandbian,Hirnantian,2,35,"5, 6"
+Surya,Sandbian,Hirnantian,2,35,"5, 6"
+Tommarp Beds,Katian,Hirnantian,1,11,"5, 6"
+Rock Creek,Katian,Hirnantian,1,116,"5, 6"
+Yst'nalednaya,Darriwilian,Hirnantian,3,399,"5, 6"
+Makarovo,Sandbian,Hirnantian,2,399,"5, 6"
+Alimbet,Tremadocian,Floian,1,257,"5, 6"
+Kushaky,Tremadocian,Darriwilian,3,258,"5, 6"
+Savid,Darriwilian,Sandbian,1,258,"5, 6"
+La Venta,Dapingian,Darriwilian,1,330,"5, 6"
+Ustkut,Tremadocian,Darriwilian,3,289,"5, 6"
+Pennsylvanian,Sandbian,Gzhelian,24,401,"5, 6"
+Dzhagal,Sandbian,Hirnantian,2,35,"5, 6"
+Brachiopod Shale,Katian,Hirnantian,1,11,"5, 6"
+Dalmanitina Beds,Katian,Hirnantian,1,11,"5, 6"
+Klingkalk,Katian,Hirnantian,1,11,"5, 6"
+Edgewood,Hirnantian,Hirnantian,0.0,186,6.9
+Carixien,Pliensbachian,Pliensbachian,0.0,409,6.9
+Domerien,Pliensbachian,Pliensbachian,0.0,409,6.9
+Jurassic,Hettangian,Tithonian,10.0,401,6.9
+Unterjura,Hettangian,Toarcian,3.0,407,6.9
+Portlandien supérieur,Tithonian,Tithonian,0.0,409,6.9
+Tithonien supérieur,Tithonian,Tithonian,0.0,409,6.9
+Portlandien inférieur,Tithonian,Tithonian,0.0,409,6.9
+Portland,Tithonian,Tithonian,0.0,408,6.9
+Tithon,Tithonian,Tithonian,0.0,408,6.9
+Oxford-gruppe,Oxfordian,Oxfordian,0.0,405,6.9
+Oxford,Oxfordian,Oxfordian,0.0,408,6.9
+Bayeux,Aalenian,Bajocian,1.0,408,6.9
+Bath,Bathonian,Callovian,1.0,408,6.9
+Kelloway,Callovian,Callovian,0.0,408,6.9
+Semur,Sinemurian,Sinemurian,0.0,408,6.9
+Cretaceous,Berriasian,Maastrichtian,11.0,401,6.9
+Triassic,Induan,Rhaetian,6.0,401,6.9
+Neogene,Aquitanian,Piacenzian,7.0,401,6.9
+Paleogene,Danian,Chattian,8.0,401,6.9
+Quaternary,Gelasian,Meghalayan,6.0,401,6.9
+Pliensbachien inférieur,Pliensbachian,Pliensbachian,0.0,409,6.9
+Pliensbachien supérieur,Pliensbachian,Pliensbachian,0.0,409,6.9
+Mesozoic,Induan,Maastrichtian,29.0,401,6.9
+Oberejura,Callovian,Tithonian,3.0,408,6.9
+Schwarzer Jura,Hettangian,Toarcian,3.0,407,6.9
+Charmouth,Hettangian,Toarcian,3.0,408,6.9
+Hettang,Hettangian,Toarcian,3.0,408,6.9
+Thouars,Hettangian,Toarcian,3.0,408,6.9
+Mittlejura,Aalenian,Callovian,3.0,408,6.9
+Cenozoic,Danian,Meghalayan,23.0,401,6.9
+Lolashor,Hirnantian,Hirnantian,0.0,35,6.9
+Kimmeridge,Callovian,Tithonian,3.0,408,6.9
+Sequan,Callovian,Tithonian,3.0,408,6.9
+Lias Alpha,Hettangian,Toarcian,3.0,406,6.9
+Lias Beta,Hettangian,Toarcian,3.0,406,6.9
+Lias Gamma,Hettangian,Toarcian,3.0,406,6.9
+Lias,Hettangian,Toarcian,3.0,407,6.9
+Lias Delta,Hettangian,Toarcian,3.0,406,6.9
+Lias Epsilon,Hettangian,Toarcian,3.0,406,6.9
+Lias Zeta,Hettangian,Toarcian,3.0,406,6.9
+Liasien,Hettangian,Toarcian,3.0,408,6.9
+Hettangien,Hettangian,Toarcian,3.0,408,6.9
+Kimméridgien,Callovian,Tithonian,3.0,408,6.9
+Séquanien,Callovian,Tithonian,3.0,408,6.9

@@ -1,0 +1,4136 @@
+name,oldest,youngest,ts_count,refs,rule
+Dw1,4a,4a,0.0,84,0.0
+Darriwilian,4a,4c,2.0,3,0.0
+Middle Ordovician,3a,4c,4.0,3,0.0
+Dw2,4b,4b,0.0,84,0.0
+Fl3,2c,2c,0.0,84,0.0
+Lower Ordovician,1a,2c,6.0,3,0.0
+Dp1,3a,3a,0.0,84,0.0
+Dp2,3a,3b,1.0,84,0.0
+Dp3,3b,3b,0.0,84,0.0
+Tr3,1c,1d,1.0,84,0.0
+Fl1,2a,2b,1.0,84,0.0
+Fl2,2b,2b,0.0,84,0.0
+Tr1,1a,1b,1.0,84,0.0
+Tr2,1b,1c,1.0,84,0.0
+Upper Ordovician,5a,6c,6.0,3,0.0
+Arienigraptus zhejiangensis,4a,4a,0.0,3,1.0
+Baltoniodus norrlandicus,3b,4a,1.0,3,1.0
+Belonechitina henryi,4a,4a,0.0,3,1.0
+Conochitina cucumis,4a,4a,0.0,3,1.0
+Conochitina pirum,4a,4a,0.0,3,1.0
+Cyathochitina regnelli,4a,4b,1.0,3,1.0
+Desmochitina bulla,4a,4a,0.0,3,1.0
+Eoplacognathus variabilis,4a,4b,1.0,3,1.0
+Expansograptus hirundo,3a,4a,2.0,3,1.0
+Histiodella holodentata,4a,4b,1.0,"3, 84",1.0
+Histiodella sinuosa,3b,4a,1.0,"3, 84",1.0
+Hyalochitina protocalix,4a,4b,1.0,3,1.0
+Levisograptus dentatus,4a,4b,1.0,3,1.0
+Undulograptus austrodentatus,4a,4a,0.0,3,1.0
+Undulograptus intersitus,4a,4b,1.0,3,1.0
+Lenodus variabilis,4a,4b,1.0,84,1.0
+Microzakodina parva,4a,4a,0.0,84,1.0
+Pteracontiodus cryptodens,2c,4a,3.0,84,1.0
+Acrograptus ellesae,4b,4b,0.0,3,1.0
+Armoricochitina armoricana / Cyathochitina jenkinsi,4b,4c,1.0,3,1.0
+Conochitina turgida / Conochitina subcylindrica,4b,4b,0.0,3,1.0
+Cyathochitina calix,4b,4b,0.0,3,1.0
+Didymograptus artus,4b,4b,0.0,3,1.0
+Didymograptus callotheca,4b,4c,1.0,3,1.0
+Didymograptus murchisoni,4b,4c,1.0,3,1.0
+Eoplacognathus suecicus,4b,4b,0.0,3,1.0
+Holmograptus lentus,4b,4b,0.0,3,1.0
+Nicholsonograptus fasciculatus,4b,4c,1.0,3,1.0
+Phragmodus polonicus,4b,4c,1.0,3,1.0
+Pseudoclimacograptus decoratus,4b,4c,1.0,3,1.0
+Siphonochitina formosa,4b,4b,0.0,3,1.0
+Archiclimacograptus riddellensis,4c,4c,0.0,3,1.0
+Belonechitina hirsuta / Lagenochitina sp. A,4c,5b,2.0,3,1.0
+Cahabagnathus friendsvillensis,4c,4c,0.0,3,1.0
+Cahabagnathus sweeti,4c,5b,2.0,3,1.0
+Conochitina clavaherculi,4c,4c,0.0,3,1.0
+Conochitina tuberculata,4c,4c,0.0,3,1.0
+Cyathochitina jenkinsi,4c,4c,0.0,3,1.0
+Cyathochitina sebyensis,4c,4c,0.0,3,1.0
+Didymograptus jiangxiensis,4c,4c,0.0,3,1.0
+Hustedograptus teretiusculus,4c,4c,0.0,3,1.0
+Laufeldochitina clavata,4c,4c,0.0,3,1.0
+Linochitina pissotensis,4c,4c,0.0,3,1.0
+Pterograptus elegans,4c,4c,0.0,3,1.0
+Pygodus serra,4c,4c,0.0,3,1.0
+Sagittodontina kielcensis,4c,4c,0.0,3,1.0
+Acanthograptus suecicus,2c,3a,1.0,3,1.0
+Baltograptus deflexus,2c,2c,0.0,3,1.0
+Conochitina langei / Conochitina brevis,2c,3b,2.0,3,1.0
+Corymbograptus varicosus,2b,2c,1.0,3,1.0
+Cyathochitina primitiva,1c,3b,6.0,3,1.0
+Didymograptus bifidus,2c,2c,0.0,3,1.0
+Didymograptus protobifidus,2c,2c,0.0,3,1.0
+Eremochitina brevis,2c,3a,1.0,3,1.0
+Expansograptus simulans,2c,3a,1.0,3,1.0
+Isograptus primulus,2c,2c,0.0,3,1.0
+Lagenochitina esthonica / Conochitina raymondi,2b,2c,1.0,3,1.0
+Oepikodus evae,2b,2c,1.0,"3, 84",1.0
+Pendeograptus fruticosus,2b,2c,1.0,3,1.0
+Pendeograptus fruticosus 3br,2c,2c,0.0,3,1.0
+Phyllograptus densus,2c,2c,0.0,3,1.0
+Phyllograptus elongatus,2c,2c,0.0,3,1.0
+Reutterodus andinus,2c,2c,0.0,"3, 84, 159",1.0
+Baltoniodus navis,2c,3a,1.0,"3, 84",1.0
+Oepikodus communis,2a,2b,1.0,"3, 84",1.0
+Baltoniodus triangularis,3a,3a,0.0,3,1.0
+Isograptus caduceus imitatus,3a,3b,1.0,3,1.0
+Isograptus gibberulus,3a,3b,1.0,3,1.0
+Isograptus victoriae,3a,3a,0.0,3,1.0
+Isograptus victoriae lunatus,3a,3a,0.0,3,1.0
+Isograptus victoriae victoriae,3a,3a,0.0,3,1.0
+Microzakodina flabellum / Tripodus laevus,3a,3a,0.0,"159, 3, 84",1.0
+Histiodella altifrons,3b,3b,0.0,"3, 84",1.0
+Cardiograptus morsus / Oncograptus upsilon,3b,3b,0.0,3,1.0
+Desmochitina ornensis,3b,3b,0.0,3,1.0
+Exigraptus clavus,3b,3b,0.0,3,1.0
+Isograptus victoriae maximo-divergens,3b,3b,0.0,3,1.0
+Isograptus victoriae maximus,3b,3b,0.0,3,1.0
+Oncograptus,3b,3b,0.0,3,1.0
+Paroistodus originalis,3b,3b,0.0,"3, 84",1.0
+Acodus delicatus,1c,1d,1.0,84,1.0
+MN faunizone D,1b,1d,2.0,244,1.0
+MN faunizone E,1c,1d,1.0,244,1.0
+MN faunizone F,1c,1d,1.0,244,1.0
+MN faunizone G,1c,1d,1.0,244,1.0
+Acodus deltatus / Oneotodus costatus,1c,1d,1.0,"3, 84",1.0
+Adelograptus / Clonograptus,1b,1d,2.0,3,1.0
+Adelograptus victoriae,1b,1d,2.0,3,1.0
+Amphorachitina conifundus,1c,1d,1.0,3,1.0
+Araneograptus murrayi,1c,1d,1.0,3,1.0
+Araneograptus pulchellus /  Araneograptus macgillivrayi,1c,1d,1.0,3,1.0
+Hunnegraptus copiosus,1d,1d,0.0,3,1.0
+Paracordylodus gracilis,1d,2a,1.0,3,1.0
+Tripodus,1c,1d,1.0,3,1.0
+Macerodus dianae,1b,1b,0.0,"3, 84",1.0
+Didymograptus balticus,2b,2b,0.0,3,1.0
+Eremochitina baculata,2b,2b,0.0,3,1.0
+Pendeograptus fruticosus / Tetragraptus approximatus,2a,2b,1.0,3,1.0
+Pendeograptus fruticosus 3 / 4br,2b,2b,0.0,3,1.0
+Pendeograptus fruticosus 4br,2b,2b,0.0,3,1.0
+Prioniodus elegans,2a,2b,1.0,"3, 84",1.0
+Tetragraptus akzharensis,2b,2b,0.0,3,1.0
+Conochitina symmetrica,2a,2a,0.0,3,1.0
+Oelanodus elongatus / Acodus deltatus,2a,2a,0.0,3,1.0
+Tetragraptus approximatus,2a,2a,0.0,3,1.0
+Tetragraptus phyllograptoides,2a,2a,0.0,3,1.0
+Paroistodus proteus,2a,2a,0.0,84,1.0
+MN faunizone H,2a,2a,0.0,244,1.0
+Cordylodus angulatus,1a,1a,0.0,"3, 84",1.0
+Iapetognathus fluctivagus,1a,1a,0.0,3,1.0
+Paltodus deltifer,1a,1c,2.0,3,1.0
+Rhabdinopora flabelliformis / S. dichotomus,1a,1a,0.0,3,1.0
+Rhabdinopora flabelliformis s. l.,1a,1a,0.0,3,1.0
+Rhabdinopora flabelliformis-parabola,1a,1a,0.0,3,1.0
+Rhabdinopora scitulum / Anisograptus,1a,1a,0.0,3,1.0
+Rhabdinopora socialis / flabelliformis / desmograptoides / parabola,1a,1a,0.0,3,1.0
+Triograptus / Anisograptus,1a,1a,0.0,3,1.0
+Rossodus manitouensis,1b,1b,0.0,"3, 84",1.0
+MN faunizone C,1b,1b,0.0,244,1.0
+Adelograptus hunnebergensis,1b,1b,0.0,3,1.0
+Adelograptus victoriae/ Paradelograptus antiquus,1b,1b,0.0,3,1.0
+Adenograptus tenellus,1b,1b,0.0,3,1.0
+Kiaerograptus supremus,1b,1b,0.0,3,1.0
+Lagenochitina destombesi,1b,1b,0.0,3,1.0
+low diversity interval,1b,1b,0.0,"3, 84",1.0
+Psigraptus,1b,1b,0.0,3,1.0
+Drepanoistodus amoenus,1c,1c,0.0,3,1.0
+Acanthochitina barbata,5d,6a,1.0,3,1.0
+Amorphognathus ordovicicus,5d,6c,3.0,3,1.0
+Amorphognathus superbus,5c,5d,1.0,3,1.0
+Amplexograptus manitoulinensis,5d,5d,0.0,3,1.0
+Armoricochitina reticulifera,5d,5d,0.0,3,1.0
+Belonechitina robusta,5c,5d,1.0,3,1.0
+Climacograptus wilsoni,5b,6a,3.0,3,1.0
+Conochitina pygmaea / Hercochitina cristata / Ancyrochitlna spongiosa,5c,5d,1.0,3,1.0
+Dicellograptus gravis,5d,5d,0.0,3,1.0
+Dicranograptus kirki,5d,5d,0.0,3,1.0
+Geniculograptus pygmaeus,5d,5d,0.0,3,1.0
+Hyalochitina hyalophrys,5d,5d,0.0,3,1.0
+Orthograptus quadrimucronatus / Dicellograptus johnstrupi,5d,5d,0.0,3,1.0
+Oulodus robustus,5d,5d,0.0,3,1.0
+Oulodus velicuspis,5d,5d,0.0,3,1.0
+Pleurograptus linearis,5d,5d,0.0,3,1.0
+Tanuchitina bergstroemi,5d,6a,1.0,3,1.0
+Tanuchitina fistulosa,5d,5d,0.0,3,1.0
+Ancyrochitina merga,6a,6b,1.0,3,1.0
+Aphelognathus divergens,6a,6b,1.0,3,1.0
+Armoricochitina nigerica,6a,6a,0.0,3,1.0
+Climacograptus? uncinatus,6a,6a,0.0,3,1.0
+Conochitina rugata,6a,6b,1.0,3,1.0
+Conochitina senta,6a,6a,0.0,3,1.0
+Cyathochitina vaurealensis ,6a,6a,0.0,3,1.0
+Dicellograptus complanatus,6a,6a,0.0,3,1.0
+Dicellograptus complexus,6a,6a,0.0,3,1.0
+Dicellograptus ornatus,6a,6a,0.0,3,1.0
+pre-pacificus,6a,6a,0.0,3,1.0
+Acanthochitina cancellata,5c,5c,0.0,3,1.0
+Ancryochitina sp. 1,5c,5c,0.0,3,1.0
+Angochitina multiplex,5c,5c,0.0,3,1.0
+Baltoniodus alobatus,5b,5c,1.0,3,1.0
+Belodina confluens,5c,5c,0.0,3,1.0
+Corynoides americanus,5c,5c,0.0,3,1.0
+Cyathochitina angusta,5c,5c,0.0,3,1.0
+Dicranograptus clingani,5c,5c,0.0,3,1.0
+Diplacanthograptus lanceolatus,5c,5c,0.0,3,1.0
+Diplacanthograptus spiniferus,5c,5c,0.0,3,1.0
+Diplograptus foliaceus,5b,5c,1.0,3,1.0
+Euconochitina tanvillensis,5c,5c,0.0,3,1.0
+Orthograptus calcaratus,5b,5c,1.0,3,1.0
+Orthograptus ruedemanni,5c,5c,0.0,3,1.0
+Phragmodus undatus,5b,5c,1.0,3,1.0
+Plectodina tenuis,5c,5c,0.0,3,1.0
+Sphaerochitina gracqui / Kalochitina multispinata / Hercochitina duplicitas / Conochitina primitiva,5c,5c,0.0,3,1.0
+Amorphognathus inaequalis,5a,5a,0.0,3,1.0
+Angochitina curvata,5a,5b,1.0,3,1.0
+Baltoniodus variabilis,5a,5b,1.0,3,1.0
+Eisenackitina rhenana,5a,5a,0.0,3,1.0
+Lagenochitina deunffi,5a,5b,1.0,3,1.0
+Lagenochitina ponceti,5a,5a,0.0,3,1.0
+Nemagraptus gracilis,5a,5a,0.0,3,1.0
+Aphelognathus shatzeri,6b,6c,1.0,3,1.0
+Hercochitina crickmayi,6b,6b,0.0,3,1.0
+Paraorthograptus pacificus,6b,6b,0.0,3,1.0
+Tanuchitina anticostiensis,6b,6b,0.0,3,1.0
+Ancyrochitina ellisbayensis / Spinachitina taugourdeaui,6c,6c,0.0,3,1.0
+Belonechitina gamachiana,6c,6c,0.0,3,1.0
+Conochitina scabra / Spinachitina taugourdeaui,6c,6c,0.0,3,1.0
+Normalograptus extraordinarius,6c,6c,0.0,3,1.0
+Normalograptus extraordinarius / Normalograptus ojsuensis,6c,6c,0.0,3,1.0
+Normalograptus persculptus,6c,6c,0.0,3,1.0
+Spinachitina oulebsiri,6c,6c,0.0,3,1.0
+Tanuchitina elongata,6c,6c,0.0,3,1.0
+Baltoniodus gerdae,5b,5b,0.0,3,1.0
+Belodina compressa,5b,5b,0.0,3,1.0
+Climacograptus bicornis,5b,5b,0.0,3,1.0
+Erismodus quadridactylus,5b,5b,0.0,3,1.0
+Lagenochitina dalbyensis,5b,5b,0.0,3,1.0
+Spinachitina cervicornis,5b,5b,0.0,3,1.0
+Spinachitina sp. A,5b,5b,0.0,3,1.0
+Sarka,4a,4c,2.0,"271, 94",2.0
+Klabava,2a,4a,5.0,"271, 105",2.0
+Hunderum,4a,4a,0.0,3,2.0
+Kunda,4a,4b,1.0,3,2.0
+Valaste,4a,4b,1.0,3,2.0
+Andouillé,3b,5b,5.0,224,2.0
+Le Pissot,3b,4c,3.0,224,2.0
+Postolonnec,3b,5b,5.0,224,2.0
+Traveusot,3b,5a,4.0,224,2.0
+Holen Limestone,4a,4b,1.0,11,2.0
+Lanna Limestone,3a,4a,2.0,11,2.0
+Aguathuna,2c,4a,3.0,84,2.0
+Kanosh,3a,4a,2.0,84,2.0
+Lehman,4a,4b,1.0,84,2.0
+San Juan,1d,4a,6.0,84,2.0
+Arenigian,2a,4a,5.0,271,2.0
+Dawan,2b,4a,4.0,"367, 72",2.0
+Kuniutan,4a,4a,0.0,"367, 72",2.0
+Sandaogou,3b,4a,1.0,72,2.0
+Shangmajiagou,4a,4a,0.0,72,2.0
+Zitai,2b,4a,4.0,"367, 72",2.0
+Arenig,2a,4a,5.0,3,2.0
+Fennian,3a,4a,2.0,3,2.0
+Langevoja,3b,4a,1.0,3,2.0
+Oeland,1a,4b,10.0,3,2.0
+Volkhov,3a,4a,2.0,3,2.0
+Whiterockian,3a,5a,5.0,3,2.0
+Daguanshan,2b,4b,5.0,367,2.0
+Houping,3b,4a,1.0,367,2.0
+Meitan,2b,4b,5.0,367,2.0
+Aluoja,4b,4b,0.0,3,2.0
+Watson Ranch,4b,4b,0.0,84,2.0
+Oretanian,4b,4c,1.0,271,2.0
+Abereiddian,4b,4c,1.0,3,2.0
+Llanvirn,4b,4c,1.0,3,2.0
+Dashaba,4b,4c,1.0,367,2.0
+Shihtzupu,4b,4c,1.0,367,2.0
+Aseri,4c,4c,0.0,3,2.0
+Lasnamägi,4c,4c,0.0,3,2.0
+Uhaku,4c,4c,0.0,3,2.0
+Folkeslunda,4c,4c,0.0,11,2.0
+Lindegård Mudstone,4c,4c,0.0,11,2.0
+Seby,4c,4c,0.0,11,2.0
+Segerstad Limestone,4c,4c,0.0,11,2.0
+Skärlöv,4c,4c,0.0,11,2.0
+Dobrotivá,4c,5a,1.0,271,2.0
+Dobrotivian,4c,5a,1.0,271,2.0
+Tier d'Olne,4c,4c,0.0,129,2.0
+Llandeilian,4c,4c,0.0,3,2.0
+Viru,4c,5c,3.0,3,2.0
+Datianba,4c,4c,0.0,367,2.0
+Miaopo,4c,4c,0.0,367,2.0
+Grès Armoricain,2c,3b,2.0,224,2.0
+Latorp Limestone,1c,2c,4.0,11,2.0
+Tøyen Shale,2b,2c,1.0,11,2.0
+Catoche,1d,2c,3.0,84,2.0
+Fillmore,1b,2c,5.0,84,2.0
+Shingle,1d,3b,5.0,84,2.0
+Wah Wah,2c,3a,1.0,84,2.0
+Liangjiashan,1c,2c,4.0,72,2.0
+Bendigonian,2b,2c,1.0,3,2.0
+Billingen,2b,2c,1.0,3,2.0
+Blackhillsian,2b,2c,1.0,3,2.0
+Chewtonian,2c,2c,0.0,3,2.0
+Dawanian,2c,3b,2.0,3,2.0
+Ibexian,1a,2c,6.0,3,2.0
+Moridunian,2a,2c,2.0,3,2.0
+Whitlandian,2c,3a,1.0,3,2.0
+Yushanian,2a,2c,2.0,3,2.0
+Hongsiya,2b,3b,3.0,367,2.0
+Yingpan,2b,3b,3.0,367,2.0
+Juab,3a,3a,0.0,84,2.0
+Shuiquanling,3a,3b,1.0,72,2.0
+Xiamajiagou,3a,3b,1.0,72,2.0
+Castlemainian,3a,3b,1.0,3,2.0
+Rangerian,3a,3a,0.0,3,2.0
+Saka,3a,3a,0.0,3,2.0
+Vääna,3a,3b,1.0,3,2.0
+Providence Island,3b,3b,0.0,159,2.0
+Ypeenian,3b,3b,0.0,3,2.0
+La Silla,1a,1d,3.0,84,2.0
+Olesna,1c,2a,2.0,105,2.0
+Boat Harbour Upper,1c,1d,1.0,84,2.0
+Parker Spring,1b,1d,2.0,84,2.0
+Milina,1c,1d,1.0,"271, 105",2.0
+Tremadocian,1a,1d,3.0,"271, 3",2.0
+La Maurerie,1c,2a,2.0,244,2.0
+Saint Chinian,1b,1d,2.0,244,2.0
+Hunghuayuan,1d,2b,2.0,"367, 72",2.0
+Qianzhongliangzi,1c,2a,2.0,72,2.0
+Hunneberg,1c,2a,2.0,3,2.0
+Ichangian,1a,1d,3.0,3,2.0
+Lancefieldian,1a,2a,4.0,3,2.0
+Migneintian,1b,1d,2.0,3,2.0
+Tulean,1c,2b,3.0,3,2.0
+Dacao,1d,2a,1.0,367,2.0
+Fenghsiang,1c,1c,0.0,"72, 367",2.0
+Putaojing,1d,2a,1.0,367,2.0
+Tangchi,1c,2a,2.0,367,2.0
+Tungtzu,1a,1d,3.0,367,2.0
+Fort Cassin,2b,2b,0.0,159,2.0
+Trenice,1a,1b,1.0,"271, 105",2.0
+Djupgrav,1a,1b,1.0,11,2.0
+House,1a,1b,1.0,84,2.0
+Watts Bight,1a,1a,0.0,84,2.0
+Tribes Hill,1a,1b,1.0,159,2.0
+Lunshan,1a,1c,2.0,72,2.0
+Nantsinkuan,1a,1b,1.0,"367, 72",2.0
+Xialingnangou,1a,1b,1.0,72,2.0
+Yeli,1a,1b,1.0,72,2.0
+Chevlipont,1a,1a,0.0,129,2.0
+Cressagian,1a,1b,1.0,3,2.0
+Pakerort,1a,1a,0.0,3,2.0
+Skullrockian,1a,1b,1.0,3,2.0
+Wanjuanshu,1a,1c,2.0,367,2.0
+Yangjiaba,1a,1c,2.0,367,2.0
+Obolus beds,1b,1c,1.0,11,2.0
+Boat Harbour Lower,1b,1b,0.0,84,2.0
+Boat Harbour Middle,1b,1c,1.0,84,2.0
+La Dentelle,1b,1b,0.0,244,2.0
+Mounio,1b,1b,0.0,244,2.0
+Rochdale,1b,1b,0.0,159,2.0
+Stairsian,1b,1c,1.0,3,2.0
+Varangu,1b,1b,0.0,3,2.0
+Nabala,5d,5d,0.0,"3, 11",2.0
+Pusgillian,5d,6a,1.0,3,2.0
+Vormsi,5d,5d,0.0,"3, 11",2.0
+Fjäcka,5d,5d,0.0,11,2.0
+Slandrom,5c,5d,1.0,11,2.0
+Fairview,5d,5d,0.0,58,2.0
+Kope,5c,5d,1.0,58,2.0
+Vaureal,5d,6b,2.0,58,2.0
+Berounian,5a,5d,3.0,271,2.0
+Bohdalec,5d,5d,0.0,271,2.0
+Kralodvorian,5d,6b,2.0,271,2.0
+Králuv Dvur,5d,6b,2.0,271,2.0
+Zahořany,5c,5d,1.0,271,2.0
+Ashgill,5d,6c,3.0,3,2.0
+Caradoc,5a,5d,3.0,3,2.0
+Eastonian,5c,5d,1.0,3,2.0
+Edenian,5c,5d,1.0,3,2.0
+Harju,5d,6c,3.0,3,2.0
+Maysvillian,5d,5d,0.0,3,2.0
+Neichiashanian,5a,5d,3.0,3,2.0
+Richmondian,5d,6b,2.0,3,2.0
+Streffordian,5c,5d,1.0,3,2.0
+Cautleyan,6a,6a,0.0,3,2.0
+Pirgu,6a,6b,1.0,3,2.0
+Boda Limestone,6a,6c,2.0,11,2.0
+Jonstorp,6a,6b,1.0,11,2.0
+Nittsjö,6a,6b,1.0,11,2.0
+Grant Lake,6a,6a,0.0,58,2.0
+Fosses,6a,6b,1.0,129,2.0
+Bolindian,6a,6c,2.0,3,2.0
+Chientangkiangian,6a,6c,2.0,3,2.0
+Cincinnatian,5c,6c,4.0,3,2.0
+Keila,5c,5c,0.0,3,2.0
+Oandu,5c,5c,0.0,3,2.0
+Rakvere,5c,5c,0.0,3,2.0
+Chatellier,5c,5c,0.0,224,2.0
+Freberga,5c,5c,0.0,11,2.0
+Kullsberg Limestone,5c,5c,0.0,11,2.0
+Moldå,5c,5c,0.0,11,2.0
+Skagen,5c,5c,0.0,11,2.0
+Skalberg Limestone,5c,5c,0.0,11,2.0
+Lexington Limestone,5c,5c,0.0,58,2.0
+Vinice,5b,5c,1.0,271,2.0
+Basses-aux-Canes,5a,5c,2.0,129,2.0
+Ombret,5a,5c,2.0,129,2.0
+Oxhe,5b,5c,1.0,129,2.0
+Sart-Bernard,5a,5c,2.0,129,2.0
+Vitrival-Bruyere,5a,5c,2.0,129,2.0
+Burrellian,5b,5c,1.0,3,2.0
+Chatfieldian,5c,5c,0.0,3,2.0
+Cheneyan,5c,5c,0.0,3,2.0
+Gisbornian,5a,5c,2.0,3,2.0
+Mohawkian,5b,5c,1.0,3,2.0
+Kukruse,5a,5a,0.0,3,2.0
+May,5a,5a,0.0,224,2.0
+Dalby,5a,5a,0.0,11,2.0
+Libeň,5a,5b,1.0,271,2.0
+Rawtheyan,6b,6b,0.0,3,2.0
+Bull Fork,6b,6b,0.0,58,2.0
+Hirnantian,6c,6c,0.0,3,2.0
+Porkuni,6c,6c,0.0,3,2.0
+Glisstjärn,6c,6c,0.0,11,2.0
+Tommarp,6c,6c,0.0,11,2.0
+Ellis Bay,6c,6c,0.0,58,2.0
+Kosov,6c,6c,0.0,271,2.0
+Kosovian,6c,6c,0.0,271,2.0
+Genicot,6c,6c,0.0,129,2.0
+Gamachian,6c,6c,0.0,3,2.0
+Haljala,5b,5b,0.0,3,2.0
+High Bridge,5b,5b,0.0,58,2.0
+Letná,5b,5b,0.0,271,2.0
+Aurelucian,5b,5b,0.0,3,2.0
+Idavere,5b,5b,0.0,3,2.0
+Johvi,5b,5b,0.0,3,2.0
+Turinian,5b,5b,0.0,3,2.0
+Aulacograptus cucullus,3a,4b,3.0,12,3.9
+Corymbograptus retroflexus,4a,4b,1.0,321,3.9
+Placoparia Placoparia cambriensis,3a,4b,3.0,321,3.9
+Asaphus expansus,4a,4b,1.0,16,3.9
+Lenodus antivariabilis,4a,4a,0.0,16,3.9
+Megistaspis limbata,4a,4a,0.0,16,3.9
+Undulograptus sinicus,4a,4a,0.0,54,3.9
+Cardiograptus morsus,4a,4a,0.0,346,3.9
+Expansograptus hirundo / Undulograptus austrodentatus,4a,4a,0.0,346,3.9
+Glyptoconus quadraplicatus,3a,4a,2.0,346,3.9
+Tangshanodus tangshanensis,2c,3b,2.0,72,3.9
+Conochitina parvicolla,4c,4c,0.0,346,3.9
+Cyathochitina calyx - protocalix,4a,4b,1.0,400,3.9
+Histodiella angulata,3a,3b,1.0,27,3.9
+Oncograptus / Isograptus,3a,4a,2.0,346,3.9
+Undulograptus sinodentatus - Cardiograptus,3a,4a,2.0,400,3.9
+Eoplacognathus pseudoplanus,4b,4b,0.0,16,3.9
+Yangtzeplacognathus crassus,4a,4b,1.0,9,3.9
+Expansograptus balhaschensis/ Expansograptus kirgisicus,4a,4b,1.0,400,3.9
+Undulograptus dentatus,4a,4b,1.0,400,3.9
+Coleodus mirabilis,4b,4b,0.0,27,3.9
+Didymograptus spinulosus,4a,4b,1.0,321,3.9
+Sivorthis noctilio,4a,4b,1.0,321,3.9
+Asaphus raniceps,4a,4b,1.0,16,3.9
+Expansograptus kirgisicus,4a,4b,1.0,346,3.9
+Paraglossograptus tentaculatus,4a,4c,2.0,346,3.9
+Phragmodus primus,4a,4b,1.0,346,3.9
+Amorphognathus variabilis,4a,4b,1.0,372,3.9
+Acontiodus linxiensis,2c,4b,4.0,72,3.9
+Microzarkodina hagetiana,4b,4c,1.0,16,3.9
+Pseudamplexograptus distichus,4b,4c,1.0,321,3.9
+Histiodella bellburnensis,4b,4b,0.0,380,3.9
+Histiodella kristinae,4b,4b,0.0,380,3.9
+Didymograptus geminus / Expansograptus jakovlevi / Amplexograptus coelatus,4b,4b,0.0,400,3.9
+Didymograptus murchisoni/ Didymograptus geminus,4b,4c,1.0,400,3.9
+pre-flexuosus,4b,4b,0.0,191,3.9
+Pygodus anitae,4b,4b,0.0,382,3.9
+Pygodus magnus,4b,4b,0.0,382,3.9
+Asaphus platyurus,4b,4c,1.0,16,3.9
+Didymograptus clavulus,4b,4c,1.0,346,3.9
+Pygodus lunnensis,4b,4c,1.0,16,3.9
+Laufeldochitina striata,4b,4b,0.0,9,3.9
+Cacemia ribeiroi,4b,4c,1.0,321,3.9
+Eodalmanitina destombesi nava,4b,4c,1.0,321,3.9
+Placoparia (Coplacoparia) tournemini,4b,4c,1.0,321,3.9
+Periodon aff. flabellum,2c,3b,2.0,326,3.9
+Periodon hankensis,3b,3b,0.0,326,3.9
+Pseudophyllograptus angustifolius elongatus/ Pseudophyllograptus angustifolius tenuis,2b,3b,3.0,400,3.9
+Isograptus divergens,3b,3b,0.0,250,3.9
+Isograptus deflexus,3a,3b,1.0,400,3.9
+Isograptus maximo-divergens,3a,3b,1.0,400,3.9
+Oepikodus intermedius,2b,3a,2.0,326,3.9
+Paroistodus triangularis,3a,3a,0.0,72,3.9
+Jumudontus gananda,2b,2c,1.0,72,3.9
+Pseudophyllograptus angustifolius elongatus / Expansograptus broggeri,2b,2c,1.0,400,3.9
+Tripodus laevis,3a,3a,0.0,113,3.9
+Scandodus warendensis - Scandodus pseudoquadratus,2a,3a,3.0,27,3.9
+Paroistodus navis,2c,3a,1.0,72,3.9
+Corymbograptus deflexus,2c,2c,0.0,72,3.9
+Anomalorthis,2c,2c,0.0,379,3.9
+Didymograptellus eobifidus,2c,2c,0.0,54,3.9
+Expansograptus extensus,2b,2c,1.0,346,3.9
+Acrograptus balticus,2b,2c,1.0,400,3.9
+H Hintze 1953,2a,2c,2.0,165,3.9
+I Hintze 1953,2c,2c,0.0,165,3.9
+J Hintze 1953,2c,2c,0.0,165,3.9
+J Ross 1968,2c,2c,0.0,165,3.9
+K Hintze 1953,2c,2c,0.0,165,3.9
+Acrograptus filiformis,2b,2c,1.0,54,3.9
+Prioniodus evae,2b,2c,1.0,13,3.9
+Aurilobodus leptosomatus,2b,2c,1.0,72,3.9
+Loxodus dissectus,2b,2c,1.0,72,3.9
+Scolopodus sunanensis,2b,2c,1.0,72,3.9
+Tetragraptus fruticosus,2b,2c,1.0,146,3.9
+Scolopodus cornutiformis,2a,2c,2.0,346,3.9
+Armoricochitina armoricana,4b,4c,1.0,321,3.9
+Eodalmanitina macrophtalma,4b,4c,1.0,321,3.9
+Heterorthina morgatensis,4b,4c,1.0,321,3.9
+Cardiodella lyrata -Polyplacognathus angarense,4b,4c,1.0,27,3.9
+Expansograptus jakovlevi / Amplexograptus coelatus,4b,4c,1.0,346,3.9
+Microzarkodina ozarkodella,4b,4c,1.0,16,3.9
+Gymnograptus linnarssoni,4c,4c,0.0,321,3.9
+Phragmodus borealis,4b,4c,1.0,346,3.9
+Phragmodus flexuosus,4c,4c,0.0,27,3.9
+Pygodus anserinus,4c,5a,1.0,400,3.9
+Baltoplacognathus reclinatus,4c,4c,0.0,51,3.9
+Baltoplacognathus robustus,4c,4c,0.0,51,3.9
+Yangtzeplacognathus protoramosus,4c,4c,0.0,14,3.9
+Eoplacognathus lindstroemi,4c,4c,0.0,51,3.9
+Laufeldochitina stentor,4c,5a,1.0,8,3.9
+Aegiromena mariana,4c,5a,1.0,321,3.9
+Crozonorthis musculosa,4c,4c,0.0,321,3.9
+Heterorthina kerfornei,4c,4c,0.0,321,3.9
+Morgatia hupei,4c,4c,0.0,321,3.9
+Morgatia primitiva,4c,4c,0.0,321,3.9
+Placoparia (Coplacoparia) borni,4c,5a,1.0,321,3.9
+Placoparia borni,4c,4c,0.0,321,3.9
+Ptiloconus anomalis,4c,4c,0.0,27,3.9
+Yangtzeplacognathus foliaceus,4c,4c,0.0,14,3.9
+Yangtzeplacognathus jianyeensis-Pygodus anserinus,4c,5b,2.0,16,3.9
+Neseuretus tristani,4c,4c,0.0,387,3.9
+Zeliszkella toledana,4c,4c,0.0,321,3.9
+Climacograptus peltifer,4c,5c,3.0,12,3.9
+Amorphognathus tvaerensis,5b,5c,1.0,39,3.9
+Diplograptus multidens/ Diplograptus foliaceus,5a,5c,2.0,400,3.9
+Plectodina aculeata,5b,5b,0.0,191,3.9
+Diplograptus multidens,5b,5c,1.0,12,3.9
+Belodina compressa - Culumbodina mangazeica,5b,5d,2.0,346,3.9
+Parajonesites notabilis,5b,6a,3.0,346,3.9
+Lagenochitina dalbyensis / Desmochitina lecantiella,5b,6a,3.0,346,3.9
+Plectodina undatus,5b,5c,1.0,50,3.9
+Dicranograptus sinensis,5b,5b,0.0,54,3.9
+Phragmodus undatis,5c,5c,0.0,346,3.9
+Arrnoriachitina granulifera,5b,5b,0.0,9,3.9
+Crozonaspis chauveli,5a,5b,1.0,321,3.9
+Tenuiseptorthis loii,5a,5b,1.0,321,3.9
+Amorphognathus ventilatus,5b,5b,0.0,9,3.9
+Nemagraptus gracilis/ Oepikograptus bekkeri,5a,5b,1.0,400,3.9
+Prioniodus variabilis,5a,5b,1.0,50,3.9
+Didymograptus deflexus,2b,2b,0.0,160,3.9
+Tetragraptus phyllograptoides/ Tetragraptus approximatus,2a,2b,1.0,400,3.9
+Protopliomerella contracta,1c,2b,3.0,385,3.9
+G-2 Hintze 1953,1c,2b,3.0,165,3.9
+Acodus kechikaensis,1d,2b,2.0,191,3.9
+Parasseratognathus paltodiformis,2a,2b,1.0,77,3.9
+Prioniodus honghuayuanensis,2a,2b,1.0,"77, 71",3.9
+Euloma filacovi,1c,1d,1.0,383,3.9
+Taihungshania miqueli,1c,2a,2.0,383,3.9
+Aorograptus victoriae,1b,1d,2.0,53,3.9
+Oneotodus costatus,1a,2a,4.0,326,3.9
+Hintzeia celsaora,1c,1d,1.0,385,3.9
+Rossaspis superciliosa,1b,1d,2.0,385,3.9
+F Hintze 1953,1b,1d,2.0,165,3.9
+G-1 Hintze 1953,1c,1d,1.0,165,3.9
+Lagenochitina brevicollis,1c,2a,2.0,400,3.9
+Loxodus bransoni - Acodus oneotensis,1b,1b,0.0,177,3.9
+Tripodus - Drepanodus aff. amoenus,1b,2a,3.0,400,3.9
+Desmochitina ex. gr. minor,1b,2a,3.0,237,3.9
+Acodus deltatus / Paroistodus proteus,1b,2a,3.0,272,3.9
+Acanthograptus sinensis,1c,1d,1.0,378,3.9
+Triograptus osloensis - Aletograptus hyperboreus,1c,1d,1.0,346,3.9
+Shumardia (C.) pusilla,1a,1c,2.0,247,3.9
+Dicellograptus salopiensis,1b,1d,2.0,53,3.9
+Monograptus sedgwickii,1b,1d,2.0,53,3.9
+Adelograptus / Paradelograptus antiguus,1a,1c,2.0,346,3.9
+Acanthodus lineatus,1b,1b,0.0,72,3.9
+Scalpellodus tersus,1a,1c,2.0,72,3.9
+Proteuloma geinitzi,1b,1b,0.0,383,3.9
+Paltodus deltifer pristinus,1a,1c,2.0,273,3.9
+Paltous deltifer deltifer,1a,1c,2.0,273,3.9
+Paroistodus parallelus,2a,2a,0.0,77,3.9
+Prioniodus adami,2a,2a,0.0,77,3.9
+Serratognathus bilobatus,2a,2a,0.0,77,3.9
+Serratognathus diversus,2a,2a,0.0,77,3.9
+Serratognathus extensus,2a,2a,0.0,77,3.9
+Triangulodus bifidus,2a,2a,0.0,77,3.9
+Tesselacauda,1b,1b,0.0,385,3.9
+E Hintze 1953,1b,1b,0.0,165,3.9
+Paltodus spurius,1b,1b,0.0,177,3.9
+Cordylodus rotundatus,1b,1b,0.0,72,3.9
+Monocostodus sevierensis,1a,1a,0.0,349,3.9
+Utahconus beimataoensis,1b,1b,0.0,72,3.9
+Bellefontia-Xenostegium,1b,1b,0.0,385,3.9
+Leiostegium-Kainella,1b,1b,0.0,385,3.9
+Paraplethopeltis,1b,1b,0.0,385,3.9
+Symphysurina,1a,1b,1.0,385,3.9
+C Hintze 1953,1b,1b,0.0,165,3.9
+D Hintze 1953,1b,1b,0.0,165,3.9
+Bryograptus tintinniformis,1a,1b,1.0,53,3.9
+Dichelepyge sinensis,1b,1b,0.0,53,3.9
+Adelograptus,1a,1b,1.0,"273, 276",3.9
+Adelograptus tenellus/ Anisograptus richardsoni,1a,1b,1.0,400,3.9
+Bryograptus ramosus/ Rhabdinopora uralense/ Aletograptus hyperboreus,1a,1b,1.0,400,3.9
+Rhabdinopora flabelliformis,1a,1b,1.0,400,3.9
+Psigraptus jacksoni,1b,1b,0.0,378,3.9
+Araneograptus matanensis,1a,1a,0.0,27,3.9
+Anisograptus matanensis,1a,1a,0.0,53,3.9
+A Ross 1968,1a,1a,0.0,165,3.9
+B Hintze 1953,1a,1a,0.0,165,3.9
+B Ross 1968,1a,1a,0.0,165,3.9
+Clavohamulus hintzei,1a,1a,0.0,349,3.9
+Cordylodus lindstromi,1a,1a,0.0,349,3.9
+Hysterolenus asiaticus,1a,1a,0.0,53,3.9
+Rhabdinopora flabelliformis anglica,1a,1a,0.0,346,3.9
+Rhabdinopora taojiangensis,1a,1a,0.0,378,3.9
+Kiaerograptus,1a,1a,0.0,346,3.9
+Rhabdinopora f. praeparabola / Rhabdinopora f. parabola,1a,1a,0.0,346,3.9
+Archiclimacograptus vulgatus,5d,6a,1.0,321,3.9
+Orthograptus quadrimucronatus,5c,6a,2.0,346,3.9
+Deanaspis malladai,5d,6a,1.0,321,3.9
+Svobodaina havliceki,5d,6a,1.0,321,3.9
+Dicellograptus anceps,6a,6b,1.0,53,3.9
+Glyptograptus siccatus/Oepikograptus bekkeri/ Amplexograptus fallax/ Glyptograptus eugluphus,5b,6a,3.0,346,3.9
+Maakina parvuliformis-Leptellina carinata,5b,6a,3.0,346,3.9
+Appendispinograptus supernus,5d,6c,3.0,400,3.9
+Aegiromena meneghiniana,6a,6a,0.0,321,3.9
+Cekovia perplexa,6a,6b,1.0,321,3.9
+Leangella (Leptestiina) prantli,6a,6b,1.0,321,3.9
+Stenopareia cf. oblita,6a,6a,0.0,321,3.9
+Orthograptus truncatus intermedius,5d,6a,1.0,360,3.9
+Nankinolithus nankinensis,6a,6a,0.0,54,3.9
+Tetraprioniodus elegans,5d,6b,2.0,346,3.9
+Acanthodina nobilis,6a,6a,0.0,27,3.9
+Boreadorthis,5d,6a,1.0,346,3.9
+Bumastus,5d,6c,3.0,346,3.9
+Climacograptus supernus,6a,6c,2.0,346,3.9
+Dolborella bifunctata,5d,6a,1.0,346,3.9
+Diceratograptus mirus,6b,6b,0.0,3,3.9
+Tangyagraptus typicus,6b,6b,0.0,3,3.9
+Aphelognathus pyramidalis,6b,6c,1.0,346,3.9
+Evenkorhynchia dichotomians evenkiensis,6a,6b,1.0,346,3.9
+Fungochitina spinifera,5c,6c,4.0,9,3.9
+Conochitina scabra,5d,6c,3.0,17,3.9
+Normalograptus extraordinarius/ Normalograptus ojsuensis/ Normalograptus mirnyensis,5d,6c,3.0,400,3.9
+Periodon grandis,5d,5d,0.0,25,3.9
+Tanuchitina oulebsiri,5d,6c,3.0,400,3.9
+Bellimurina sibirica,6c,6c,0.0,346,3.9
+Dicellograptus / Glyptograptus / Orthograptus,6c,6c,0.0,346,3.9
+Ozarkodina hassi,6c,6c,0.0,17,3.9
+Parakidograptus acuminatus,6c,6c,0.0,316,3.9
+Conochitina micracantha,6c,6c,0.0,346,3.9
+Akidograptus ascensus,6c,6c,0.0,321,3.9
+Neodiplograptus charis,6c,6c,0.0,321,3.9
+Fungochitina fungiformis,5c,5d,1.0,8,3.9
+Sinoceras chinense,5b,5d,2.0,53,3.9
+Ozarkodina dolborica - Acanthocordyloduy festus,5d,5d,0.0,27,3.9
+Dicellograptus morrisi,5c,5c,0.0,346,3.9
+Dicranograptus caudatus,5c,5c,0.0,346,3.9
+Diplacanthograptus caudatus,5b,5d,2.0,400,3.9
+Archiclimacograptus trubinensis,5c,5d,1.0,321,3.9
+Crozonaspis dujardini,5c,5d,1.0,321,3.9
+Deanaspis seunesi,5c,5d,1.0,321,3.9
+Svobodaina armoricana,5c,5d,1.0,321,3.9
+Cahabagnathus sweeti - Phragmodus inflexus,5a,5a,0.0,27,3.9
+Climacograptus peltifer / Diplograptus multidens,5a,5c,2.0,346,3.9
+Diplograptus ingens wellingtonensis,5c,5c,0.0,346,3.9
+Holdenia insculpta,6a,6b,1.0,321,3.9
+Amplexograptus inuiti,6b,6b,0.0,63,3.9
+Jezercia,5a,5a,0.0,321,3.9
+Marrolithus bureaui,5a,5a,0.0,321,3.9
+Plectodina fragilis,4a,4a,0.0,72,3.9
+Amorphognathus antivariabilis,4a,4a,0.0,372,3.9
+Scolopodus paucicostatus,1a,4a,9.0,72,3.9
+Scolopodus pseudoplanus,1a,4a,9.0,72,3.9
+Scolopodus opimus,3a,4a,2.0,72,3.9
+Scolopodus quadraplicatus,3a,4a,2.0,107,3.9
+Paroistodus horridus,4a,4c,2.0,15,3.9
+Angarella,3a,4c,4.0,399,3.9
+Periodon zgierzensis,4b,4b,0.0,380,3.9
+Cherskiella notanilis-Ventrigyrus intricatus,4b,4c,1.0,399,3.9
+Leontiella gloriosa,4b,4c,1.0,399,3.9
+Leoniella,4b,4c,1.0,346,3.9
+Megistaspis gigas,4b,4c,1.0,16,3.9
+Megistaspis obtusicauda,4b,4c,1.0,16,3.9
+Evenkina lenaica/ Evenkina anabarensis,4c,4c,0.0,399,3.9
+Homotellus lenaensis,4c,4c,0.0,399,3.9
+Soanella maslovi,4c,4c,0.0,399,3.9
+Homotellus,4c,4c,0.0,346,3.9
+Ortograptus propinquus,4c,4c,0.0,399,3.9
+Eoplacognathus reclinatus,4c,4c,0.0,188,3.9
+Eoplacognathus robustus,4c,4c,0.0,188,3.9
+Lenatoechia lenaensis,4c,4c,0.0,399,3.9
+Quadrilobella recta,4c,4c,0.0,399,3.9
+Mastigograptus datzenkoi,4c,4c,0.0,399,3.9
+Aparchites clivosus,3a,3b,1.0,399,3.9
+Biolgina sibirica,3a,3b,1.0,399,3.9
+Nanorthis/ Rhyselasma,2a,3b,4.0,399,3.9
+Biolgina,3a,3b,1.0,346,3.9
+Nanaorthis-Rhyselasma,2a,3b,4.0,346,3.9
+Histodiella holodentata–Tangshanodus tangshanensis,2c,3b,2.0,381,3.9
+K Ross 1968,3a,3a,0.0,165,3.9
+L Hintze 1953,3a,3a,0.0,165,3.9
+Shumardia-Paenebeltella,2a,3a,3.0,399,3.9
+Rhabdinopora omnutachense,2a,3a,3.0,399,3.9
+Conochitina raymondi,2b,2c,1.0,346,3.9
+Presbynileus ibexensis,2c,2c,0.0,386,3.9
+Pseudocybele nasuta,2c,2c,0.0,386,3.9
+Pseudocybele paranasuta,2c,2c,0.0,386,3.9
+Hesperonomiella minor,2c,2c,0.0,165,3.9
+Baltoniodus communis,2a,2c,2.0,72,3.9
+Pseudophyllograptus angustifolius elongatus,2b,2c,1.0,346,3.9
+Aurilobodus leptosomatus - Loxodus dissectus,2b,2c,1.0,381,3.9
+Trigonocerca typica,2a,2c,2.0,165,3.9
+Carolinites nevadensis,2a,2c,2.0,386,3.9
+Strigigenalis plicolabeona,2a,2c,2.0,386,3.9
+Bodenia aspera,5a,5a,0.0,399,3.9
+Isalaux stricta,5a,6a,4.0,399,3.9
+Mimella panna,5a,5d,3.0,399,3.9
+Climacograptus peltifer / Climacograptus antiquus lineatus,5b,6a,3.0,400,3.9
+Climacograptus tubuliferus,5d,6a,1.0,360,3.9
+Dicranograptus kiki,5c,6b,3.0,346,3.9
+Bolbocephalus stitti,1c,2b,3.0,386,3.9
+Petigurus cullisoni,1c,2b,3.0,386,3.9
+Strigigenalis caudata,1c,2b,3.0,386,3.9
+Benthamaspis rochmotis,1c,1d,1.0,386,3.9
+Jeffersonia granosa,1c,1d,1.0,386,3.9
+Anisograptus,1c,1d,1.0,346,3.9
+Araneograptus pulchellus,1c,1d,1.0,346,3.9
+Desmochitina minor typica / Desmochitina minor erinacea,1c,1d,1.0,346,3.9
+Polycostatus oneotensis,1b,1d,2.0,346,3.9
+Randaynia saundersi,1b,1d,2.0,386,3.9
+Litzicurus shawi,1b,1d,2.0,386,3.9
+Psalikilus spinosum,1b,1d,2.0,386,3.9
+Bryograptus,1a,1c,2.0,273,3.9
+Expansograptus protobalticus,1b,2a,3.0,237,3.9
+Apheorthis melita,1b,1b,0.0,399,3.9
+Eoapatokephalus/ Ijacephalus,1b,1b,0.0,399,3.9
+Eopatokephalus-Ijacephalus,1b,1b,0.0,346,3.9
+Callograptus kravtsovi / Syringotaenia bystrovi,1b,1b,0.0,399,3.9
+Cordylodus intermedius,1a,1b,1.0,385,3.9
+Kainella meridionalis,1a,1a,0.0,287,3.9
+Anisograptus mojotorensis,1a,1a,0.0,276,3.9
+Bienvillia tetragonalis - Conophrys minutula,1a,1a,0.0,287,3.9
+Kiaerograptus kiaeri,1a,1a,0.0,276,3.9
+Orthograptus truncatus var. intermedius,5d,6a,1.0,360,3.9
+Sagittodontus robustus,5b,6a,3.0,346,3.9
+Nemagraptus gracilis / Acrograptus serratulus / Oepikograptus bekkeri,5b,6a,3.0,400,3.9
+Acanthocordylodus festus,5b,6a,3.0,399,3.9
+Boreadorthis asiatica,5b,6a,3.0,399,3.9
+Dolborella plana,5b,6a,3.0,399,3.9
+Ozarkodina dolborica,5b,6a,3.0,399,3.9
+Dicellograptus elegans,6a,6a,0.0,64,3.9
+Paralenorthis-Orthidiella,3a,3a,0.0,165,3.9
+Rananasus brevicephalus,1b,1d,2.0,386,3.9
+Cordylodus casey,1b,1b,0.0,399,3.9
+Cordylodus prolindstromi,1b,1b,0.0,399,3.9
+Chaitsun Lower,1b,4c,10.0,250,4.9
+Chayu,2b,4c,6.0,250,4.9
+Diaochuanggou,2a,6a,12.0,250,4.9
+Dongguashan,2c,4c,5.0,250,4.9
+Heituao,2a,4a,5.0,250,4.9
+Hsiangyang,2a,4c,7.0,250,4.9
+Huangai,2a,4c,7.0,250,4.9
+Jiangjiawei,2b,4b,5.0,250,4.9
+Jiuxi,2a,5b,9.0,250,4.9
+Laozhai,2b,4c,6.0,250,4.9
+Machiakou,3b,4c,3.0,250,4.9
+Ningkuo,1c,2a,2.0,97,4.9
+Qixiling,2a,4c,7.0,250,4.9
+Shihtien,4a,4c,2.0,250,4.9
+Shihuigou,4a,4c,2.0,250,4.9
+Shuanghe,2a,4a,5.0,250,4.9
+Siliangssu,2b,6a,11.0,250,4.9
+Tanjiagou,3a,4c,4.0,250,4.9
+Tonggao,2a,4a,5.0,250,4.9
+Weifeng,1a,4c,11.0,250,4.9
+Woboer,2a,4c,7.0,250,4.9
+Xiahuangkeng,2a,4c,7.0,250,4.9
+Xiangguletag,1b,4c,10.0,250,4.9
+Xianlinpu,2b,4c,6.0,250,4.9
+Xiaotan,2c,4c,5.0,250,4.9
+Xinertai,1a,4a,9.0,250,4.9
+Xiqiuhe,2c,4c,5.0,250,4.9
+Yahua,1a,4c,11.0,250,4.9
+Yangzhuang,2c,5b,7.0,250,4.9
+Yenchi,4a,5b,4.0,250,4.9
+Yijianfang,4a,4b,1.0,57,4.9
+Zotzeshan,2c,4a,3.0,250,4.9
+Meitan Upper,3a,4c,4.0,54,4.9
+Ningkuo Member 4,3b,4b,2.0,54,4.9
+Xianlinbu,2b,4b,5.0,"367, 53",4.9
+Dapingian,3a,4a,2.0,12,4.9
+Upper Arenigian,3a,4a,2.0,318,4.9
+Seydisehir,1b,4b,9.0,234,4.9
+Sobova,3b,4c,3.0,234,4.9
+Tekmen Limestone,4a,4a,0.0,234,4.9
+Argiles d'Azzel,4a,4b,1.0,249,4.9
+Fezouata Upper,2b,3a,2.0,238,4.9
+Hassi Touareg,5a,5c,2.0,238,4.9
+Kasbah Leguine,2c,4b,4.0,249,4.9
+SAQ,1b,4b,9.0,249,4.9
+Zini,2c,3a,1.0,238,4.9
+Azzel Shale,3a,4c,4.0,238,4.9
+Courrejou,4a,4c,2.0,238,4.9
+Edjeleh,2b,5c,9.0,238,4.9
+Foum Ez Zeidiya Shaly,3a,4c,4.0,238,4.9
+In Tahouite,2b,6b,12.0,238,4.9
+Kerloc'h,3a,4a,2.0,238,4.9
+Tachilla,4b,4c,1.0,249,4.9
+Gualcamayo,4a,4b,1.0,"100, 93",4.9
+Dawangou,2c,4c,5.0,74,4.9
+Darriwilian 1,4a,4a,0.0,12,4.9
+Komstad Limestone,2c,4b,4.0,37,4.9
+Kuibyshevo,3a,4c,4.0,400,4.9
+Lebed,2a,4a,5.0,281,4.9
+Charchaq,5a,5b,1.0,74,4.9
+Fenggou,4a,4c,2.0,250,4.9
+Hulo,4c,5a,1.0,277,4.9
+Klimoli,4a,4c,2.0,250,4.9
+Lanmutan,4a,4c,2.0,250,4.9
+Tumuxiuke,4c,5c,3.0,103,4.9
+Yaoxian,4a,6a,7.0,250,4.9
+Acoite Upper,2c,4a,3.0,237,4.9
+Benjamin Constant,1b,4b,9.0,237,4.9
+Karasu,3a,4c,4.0,329,4.9
+Voskresenka,2b,4b,5.0,329,4.9
+Iäyrak,2c,2c,0.0,328,4.9
+Ilovat,2c,2c,0.0,328,4.9
+Qiaojia Lower,2c,4a,3.0,52,4.9
+Deep Kill Shale,2b,2c,1.0,167,4.9
+Kimaian,3a,4a,2.0,107,4.9
+Ugorian,4a,4a,0.0,107,4.9
+Keily,3b,4a,1.0,190,4.9
+Bay Fjord,3b,4b,2.0,42,4.9
+Crocker Bay,3b,4b,2.0,42,4.9
+Hare Island,3b,4b,2.0,42,4.9
+Outram,1d,2c,3.0,190,4.9
+Road River,1a,4b,10.0,42,4.9
+Ship Point Member B,2b,4a,4.0,42,4.9
+Skoki,2b,4b,5.0,42,4.9
+Sunblood,3b,4b,2.0,42,4.9
+Herram,3a,4a,2.0,29,4.9
+Huk,4a,4b,1.0,29,4.9
+Hukodden,3a,4a,2.0,28,4.9
+Lysaker,3a,4a,2.0,28,4.9
+Stein,3a,4b,3.0,29,4.9
+Formation A+B,3b,4b,2.0,36,4.9
+Kelimoti,4a,4c,2.0,372,4.9
+Los Azules Lower,4a,4a,0.0,294,4.9
+Khitin,2a,4a,5.0,346,4.9
+Profilbekken,2c,4a,3.0,326,4.9
+Sakyna,4a,4b,1.0,21,4.9
+Toila,2c,4a,3.0,9,4.9
+Guniutan,3b,4c,3.0,21,4.9
+Kriukal,3b,4a,1.0,21,4.9
+Joins,3b,4a,1.0,113,4.9
+Oil Creek,4a,4b,1.0,113,4.9
+Owen Creek,4a,4c,2.0,114,4.9
+Kanoshian,3b,4b,2.0,365,4.9
+Pinesburg Station Dolomite,3b,4b,2.0,113,4.9
+Blakely Sandstone,3b,4b,2.0,88,4.9
+Everton,3b,4b,2.0,88,4.9
+Aguathuna Upper,3b,4a,1.0,114,4.9
+Antelope Valley,4a,4c,2.0,39,4.9
+Badger Flat Limestone,3a,5b,6.0,114,4.9
+Beekmantown Group,1a,4b,10.0,114,4.9
+Bellefonte,2a,2c,2.0,59,4.9
+Bony Falls,1b,4c,10.0,114,4.9
+Bruggers Sandstone,3a,4c,4.0,114,4.9
+Bulleys Lump,2a,4b,6.0,114,4.9
+Carillon,4b,4b,0.0,51,4.9
+Duo Lake,2a,4c,7.0,114,4.9
+Knox Super,1a,4a,9.0,114,4.9
+Las Norias,1a,4b,10.0,114,4.9
+Ledbetter,1a,4b,10.0,114,4.9
+Marathon,1a,4a,9.0,114,4.9
+Narwhale Sound,3a,4b,3.0,114,4.9
+Ontelaunee Dolomite,3a,4c,4.0,114,4.9
+Ship Point 3,3a,4b,3.0,114,4.9
+Ship Point 4,3a,4b,3.0,114,4.9
+St. George,3a,4b,3.0,114,4.9
+Carrilion,3b,4b,2.0,365,4.9
+Solomons Corner,3b,4b,2.0,365,4.9
+Knox,3b,4a,1.0,50,4.9
+Wig Bach,2a,4a,5.0,124,4.9
+Antelope Valley Limestone Sponge,3a,4a,2.0,160,4.9
+Tollev,2a,4c,7.0,346,4.9
+Tuloi,2a,4a,5.0,400,4.9
+Kogashik,3a,4c,4.0,345,4.9
+Assise de Huy,2c,4c,5.0,240,4.9
+Assise de Sart-Berbard,2c,4c,5.0,240,4.9
+Brzeziny Lower,3a,4a,2.0,240,4.9
+Mynydd-y-Gdder Rhyolitic,3a,4a,2.0,240,4.9
+Prioryland,3a,4a,2.0,240,4.9
+Seo,2c,5a,6.0,240,4.9
+Skiddaw Slate,2c,4a,3.0,240,4.9
+Tetragraptus,3a,4a,2.0,240,4.9
+Karmberg,2c,4a,3.0,203,4.9
+Basco,2a,6a,12.0,176,4.9
+Perkins Canyon,2a,6a,12.0,176,4.9
+Petes Summit,2c,4c,5.0,160,4.9
+Phi Kappa,5c,5d,1.0,179,4.9
+Snow Canyon,2a,4c,7.0,176,4.9
+Valmy,2a,6a,12.0,176,4.9
+Allt Lwyd,2a,4a,5.0,124,4.9
+Ballybro,3a,4b,3.0,124,4.9
+Brownsford,3a,4a,2.0,124,4.9
+Butter Mountain,2b,4a,4.0,124,4.9
+Buttermere,3a,4a,2.0,124,4.9
+Conlanstown,3a,4c,4.0,124,4.9
+Copney Pillow Lava,2b,4a,4.0,124,4.9
+Creggan Mooar,2c,4b,4.0,124,4.9
+Derrylea,3a,4b,3.0,124,4.9
+Fournocks,2b,4b,5.0,124,4.9
+Injebreck,3a,4b,3.0,124,4.9
+Kilmacthomas,1c,4b,8.0,124,4.9
+Kirkland,3a,4c,4.0,124,4.9
+Kirkstile,2c,4b,4.0,124,4.9
+Lady Port,3a,4a,2.0,124,4.9
+Llanfallteg,3a,4b,3.0,124,4.9
+Maughold,2c,4b,4.0,124,4.9
+Maulin,2b,4a,4.0,124,4.9
+Murton,3a,4a,2.0,124,4.9
+Mytton Flags,2a,4a,5.0,124,4.9
+Nant Ffrancon_Sub,3a,5c,7.0,124,4.9
+Offrwm Volcanic,3a,4b,3.0,124,4.9
+Olchfa Shales,3a,4a,2.0,124,4.9
+Pontyfenni,2c,4a,3.0,124,4.9
+Road Uchaf,3a,4a,2.0,124,4.9
+Ryans Farm,3a,4a,2.0,124,4.9
+Shelve Church,3a,4a,2.0,124,4.9
+Skiddaw,1c,4c,9.0,124,4.9
+Srah,3a,4a,2.0,124,4.9
+Tarn Moor,3a,4c,4.0,124,4.9
+Tawnyinagh,3a,4a,2.0,124,4.9
+Tudwal Sandstone,3a,4a,2.0,124,4.9
+Tyrone Igneous Complex,2a,4c,7.0,124,4.9
+Antelope Valley Limestone Asaphid,3a,4a,2.0,160,4.9
+Antelope Valley Limestone Basal,3a,4a,2.0,160,4.9
+Hengtang,3a,3b,1.0,53,4.9
+Meitan Middle,2c,4a,3.0,54,4.9
+Galgeberg,2b,4a,4.0,28,4.9
+Tuloy,2a,2c,2.0,328,4.9
+Dumugol,1b,4a,8.0,68,4.9
+Nanjinguan,1a,4a,9.0,61,4.9
+Nelidov,1a,4b,10.0,346,4.9
+Yehli,1a,1d,3.0,250,4.9
+Almelund Shale,4a,5a,3.0,37,4.9
+Baldone,4a,4b,1.0,9,4.9
+Kandle,4c,4c,0.0,8,4.9
+Loobu,4a,4b,1.0,9,4.9
+Pakri,4b,4b,0.0,14,4.9
+Kårgärde Limestone,4a,4c,2.0,11,4.9
+Mukteian,4b,4c,1.0,27,4.9
+Vihorevian,4a,4b,1.0,107,4.9
+Kostinsky,4a,4b,1.0,281,4.9
+Green Sandstone,4a,4b,1.0,42,4.9
+Ship Point Member C,4a,4b,1.0,42,4.9
+Bromide,5b,5b,0.0,114,4.9
+Eureka Quartzite,5c,5c,0.0,22,4.9
+Burgen,4a,4b,1.0,88,4.9
+Jasper,4a,4b,1.0,88,4.9
+Sandaokan,4a,4b,1.0,380,4.9
+Zhuozishan,4a,4b,1.0,380,4.9
+Table Point,4a,4b,1.0,4,4.9
+Beianzhuang,4a,4b,1.0,381,4.9
+Fort Pena,4a,5b,4.0,114,4.9
+Heimbjerge,4a,5b,4.0,114,4.9
+Goldwyer,4a,4b,1.0,220,4.9
+Nora,4a,4b,1.0,220,4.9
+Stairway Sandstone,4a,4b,1.0,215,4.9
+Willara,2a,4b,6.0,220,4.9
+Corey,4a,4b,1.0,365,4.9
+Horn Valley Siltstone,2a,2c,2.0,230,4.9
+Table Head,4a,4b,1.0,112,4.9
+Lower Oretanian,3a,4b,3.0,321,4.9
+Bir Ben Tartar,4a,5b,4.0,249,4.9
+Darriwilian 2,4a,4b,1.0,12,4.9
+Coroico,4a,4c,2.0,288,4.9
+Qiaojia Upper,4a,5a,3.0,52,4.9
+El Higado,1a,4b,10.0,99,4.9
+Täljsten,4a,4b,1.0,392,4.9
+Obukhovo,4a,4b,1.0,350,4.9
+Rognstranda,4a,4b,1.0,29,4.9
+Svartodden,4b,4b,0.0,28,4.9
+Balgashoky,2b,4b,5.0,370,4.9
+Ushkyzyl,2b,4b,5.0,370,4.9
+Uzunbulak,4a,4b,1.0,370,4.9
+Las Aguaditas,4a,5a,3.0,347,4.9
+Likhall,4a,4b,1.0,392,4.9
+Dw3,4c,4c,0.0,13,4.9
+Äjchikhin,4a,6a,7.0,329,4.9
+Karastun,4a,6a,7.0,329,4.9
+Los Azules Middle,4a,4b,1.0,294,4.9
+Bugryshikha,4b,4c,1.0,346,4.9
+Wiatrowiec Limestone,4a,4b,1.0,38,4.9
+Elgencha,4a,4c,2.0,346,4.9
+Fengdonggang,4b,5a,2.0,250,4.9
+Bedinan,4b,6b,7.0,234,4.9
+Argiles d'Oued Saret,4b,5a,2.0,249,4.9
+Hanadir,4b,4c,1.0,249,4.9
+Smithville,2a,2c,2.0,114,4.9
+Snowtown,4b,4c,1.0,124,4.9
+Yunoyag,2c,4c,5.0,346,4.9
+Aber Mawr Shales,4b,4c,1.0,124,4.9
+Brittstown,4b,4b,0.0,124,4.9
+Corn Hill,4b,4c,1.0,124,4.9
+Cregennen,4b,4b,0.0,124,4.9
+Crystal Tuff Lower,4b,4c,1.0,124,4.9
+Fishguard Volcanic,4b,4c,1.0,124,4.9
+Glenummera,4b,4b,0.0,124,4.9
+Hill of Slane,4b,4b,0.0,124,4.9
+Hilltown,4b,4b,0.0,124,4.9
+Hope Shale,4b,4b,0.0,124,4.9
+Kirkland Conglomerate,4b,5a,2.0,124,4.9
+Llyn y Gafr Volcanic,4b,4c,1.0,124,4.9
+Maumtrasna,4b,5c,4.0,124,4.9
+Mweelrea,4b,5c,4.0,124,4.9
+Rosroe,4b,4b,0.0,124,4.9
+Serw,5a,5c,2.0,92,4.9
+White Island Bridge,4b,4c,1.0,124,4.9
+Angarella beds,3a,4c,4.0,27,4.9
+Vikhorevian,4b,4b,0.0,27,4.9
+Elnes,4b,4c,1.0,28,4.9
+Helskjer,4b,4b,0.0,29,4.9
+Duboviki,4b,4c,1.0,350,4.9
+Stirnas,4b,4b,0.0,21,4.9
+Vämb,4b,4c,1.0,9,4.9
+Bellburns,4b,4b,0.0,42,4.9
+Vikarbyn Limestone,4b,4c,1.0,11,4.9
+Mc Lish,4b,4b,0.0,113,4.9
+Tulip Creek,4c,5a,1.0,55,4.9
+Estancia San Isidro,4b,4c,1.0,299,4.9
+Yerba Loca,4b,5b,3.0,299,4.9
+Heggen,4b,4c,1.0,29,4.9
+Sjøstrand,4c,4c,0.0,104,4.9
+McLish,4c,4c,0.0,88,4.9
+Wells,4b,4c,1.0,50,4.9
+MDICE,4b,4c,1.0,21,4.9
+Table Cove,4b,4b,0.0,380,4.9
+Cape Cormorant,4b,4c,1.0,104,4.9
+Oretanian Upper,4c,4c,0.0,318,4.9
+Kilgen Lake,4b,5d,5.0,234,4.9
+Sort Tepe,4b,6b,7.0,234,4.9
+Formation D,4b,4c,1.0,36,4.9
+Vikhorev,3a,4c,4.0,346,4.9
+Las Chacritas Upper,4a,4c,2.0,15,4.9
+Lachug,4a,4c,2.0,346,4.9
+Kopaly,4a,4c,2.0,345,4.9
+Las Chacritas Lower,4a,4c,2.0,15,4.9
+Haedon,4a,4c,2.0,132,4.9
+Oakdale,4a,4c,2.0,132,4.9
+Floian,2a,2a,0.0,244,4.9
+Kimai,2a,4c,7.0,346,4.9
+Muktei,3a,4c,4.0,346,4.9
+Alpartir,4b,4c,1.0,310,4.9
+Marité,4b,4c,1.0,310,4.9
+Saergan,4b,5a,2.0,117,4.9
+Weston,4b,4c,1.0,376,4.9
+Moitiers d'Allonne,4b,4c,1.0,337,4.9
+Asaphus Ash,4b,4c,1.0,124,4.9
+Assise de Vitrival-Bruyère,4b,5a,2.0,240,4.9
+Brzeziny Upper,2c,4c,5.0,240,4.9
+Bukowka Mojcza Sandstone & Limestone,2c,4c,5.0,240,4.9
+Craig-y-Llam,4b,5a,2.0,240,4.9
+Didymograptus murchisoni Shales,4b,4c,1.0,240,4.9
+Llandeilo Flags,4b,4c,1.0,240,4.9
+Llyn-y-Gafr spilitic,4b,4c,1.0,240,4.9
+Luarca Shales,2c,5a,6.0,240,4.9
+Pomorze,2c,6a,10.0,240,4.9
+Schistes de Postolonnec,2c,6a,10.0,240,4.9
+Urville,2c,4c,5.0,240,4.9
+Cashions Creek,2c,5a,6.0,203,4.9
+Fengfeng,4b,6a,6.0,250,4.9
+Gezhuang,4b,5b,3.0,250,4.9
+Laikuoshan,4b,5a,2.0,250,4.9
+Lengshuigou,4b,5a,2.0,250,4.9
+Longmendong,4b,6a,6.0,250,4.9
+Pagoda,5b,5d,2.0,"64, 54",4.9
+Sargan,4b,5a,2.0,250,4.9
+Shatang,4b,5b,3.0,250,4.9
+Tongshan,4b,5a,2.0,250,4.9
+Wulalike,4c,4c,0.0,372,4.9
+Yenwashan,5a,5d,3.0,54,4.9
+Yuhong,4b,5b,3.0,250,4.9
+Abereiddi Tuff,4b,4c,1.0,124,4.9
+Auchensol Bridge,4b,5c,4.0,124,4.9
+Auchensoul Limestone,4b,4c,1.0,124,4.9
+Betton Shale,4b,4c,1.0,124,4.9
+Bryanstown,4b,4c,1.0,124,4.9
+Bunmahon,4b,4c,1.0,124,4.9
+Caerhys Shale,4b,4c,1.0,124,4.9
+Confinis,4b,5c,4.0,124,4.9
+Cyffredin Shale,4b,4c,1.0,124,4.9
+Downan Point Lava,4b,5a,2.0,124,4.9
+Dunabrattin Shale,4b,4c,1.0,124,4.9
+Glendavock,4b,4c,1.0,124,4.9
+Kirkton,4b,5a,2.0,124,4.9
+Lan Flags,4b,4c,1.0,124,4.9
+Lettermullen,4b,5c,4.0,124,4.9
+Minuntian,4b,4c,1.0,124,4.9
+Tramore Limestone,4b,5a,2.0,124,4.9
+Uggool,4b,4c,1.0,124,4.9
+Weston Flags,4b,4c,1.0,124,4.9
+Antelope Valley Limestone Rhysostrophia,4b,4c,1.0,160,4.9
+Engervik,4b,4c,1.0,104,4.9
+Foum Ez Zeidiya,4b,4c,1.0,238,4.9
+Klimoli Lower,4b,4c,1.0,55,4.9
+American Tickle,4b,4c,1.0,104,4.9
+Black Cove,4b,4c,1.0,104,4.9
+Chazy,4c,5b,2.0,114,4.9
+Laval,4b,5b,3.0,51,4.9
+Row Park,4c,4c,0.0,50,4.9
+St. Peter Sandstone,4b,5b,3.0,114,4.9
+Crystal Peak,4c,4c,0.0,39,4.9
+Lenoir,5a,5a,0.0,183,4.9
+New Market Limestone,4b,4c,1.0,114,4.9
+Pena Blanca Quartzite,4b,4c,1.0,114,4.9
+Stones River,4b,5b,3.0,114,4.9
+Womble Shale,5b,5c,1.0,98,4.9
+Darriwilian 3,4b,4c,1.0,12,4.9
+Goose Tickle,4b,6a,6.0,104,4.9
+Lower Dobrotivian,4c,4c,0.0,318,4.9
+Pizarras de Navas de Estena,4b,4c,1.0,366,4.9
+Darriwilian 4,4c,4c,0.0,12,4.9
+Chazyan,4c,5b,2.0,114,4.9
+Dutchtown,4c,5b,2.0,114,4.9
+Blackford,4c,4c,0.0,114,4.9
+Crown Point,4c,5a,1.0,51,4.9
+Day Point,4c,4c,0.0,39,4.9
+Taurupe,4c,5a,1.0,9,4.9
+Väo,4c,4c,0.0,"21, 9",4.9
+Killeröd,4c,4c,0.0,37,4.9
+Korgekallas,4c,5a,1.0,"21, 9",4.9
+Ojaküla,4c,4c,0.0,8,4.9
+Rokiskis,4c,4c,0.0,8,4.9
+Furudal Limestone,4c,5a,1.0,11,4.9
+Upper Dobrotivian,5a,5a,0.0,318,4.9
+Guindo Shales,4c,4c,0.0,313,4.9
+Borrowdale Volcanic,4c,5a,1.0,240,4.9
+Hendre Shales,4c,5a,1.0,92,4.9
+Jeleniow,4c,6a,5.0,240,4.9
+Morawica Shale,4c,6a,5.0,240,4.9
+Glenkiln Shale,4c,5c,3.0,92,4.9
+Meadowtown,4c,4c,0.0,92,4.9
+Rorrington Shale,4c,5a,1.0,92,4.9
+McAffe Quartzite,4c,5c,3.0,176,4.9
+Bellewstown,4c,4c,0.0,124,4.9
+Belvoir,4c,5d,4.0,124,4.9
+Castell Limestone,4c,4c,0.0,124,4.9
+Coronea,4c,4c,0.0,124,4.9
+Craigmalloch,4c,5a,1.0,124,4.9
+Currarie,4c,5a,1.0,124,4.9
+Noblehouse Lava,4c,4c,0.0,124,4.9
+Red Island,4c,4c,0.0,124,4.9
+Stinchar Limestone,4c,5a,1.0,124,4.9
+Traboyack,4c,5a,1.0,124,4.9
+Kirensko-Kudrinian,4c,4c,0.0,27,4.9
+Volginian,4c,4c,0.0,399,4.9
+Antelope Valley Limestone Leptellina,4c,4c,0.0,160,4.9
+Antelope Valley Limestone Sowerbyella,4c,4c,0.0,160,4.9
+Håkavik,4c,5a,1.0,29,4.9
+Poultney Upper,4c,5a,1.0,157,4.9
+Stuyvesant Falls Upper,4c,5a,1.0,157,4.9
+Foum Ez Zeidiya Sandy,4c,5a,1.0,238,4.9
+Oued Saret Sandstone,4c,6a,5.0,238,4.9
+Oued Saret Shally,4c,5c,3.0,238,4.9
+Kerarvail,4c,4c,0.0,238,4.9
+First Bani,4c,4c,0.0,249,4.9
+Bou-Zeroual,4c,4c,0.0,238,4.9
+Guezzart,4c,4c,0.0,238,4.9
+Izegguirene,4c,5a,1.0,238,4.9
+Kerarmor,4c,5a,1.0,238,4.9
+Morgat,4c,4c,0.0,238,4.9
+Ouine-Inirne,4c,4c,0.0,238,4.9
+Taddrist,4c,4c,0.0,238,4.9
+Yuanbaoshan,5c,5d,1.0,250,4.9
+Emanuel,2a,2a,0.0,77,4.9
+Gap Creek,4c,4c,0.0,71,4.9
+Honghuayuan,2a,2b,1.0,77,4.9
+Kirenskian-Kudrinian,4c,4c,0.0,399,4.9
+Anrakhai,4c,4c,0.0,345,4.9
+Arline,4c,5a,1.0,188,4.9
+Block House,4c,5a,1.0,65,4.9
+Fetzer,4c,4c,0.0,65,4.9
+Whitesburg,4c,4c,0.0,65,4.9
+Laval Lower,4c,4c,0.0,51,4.9
+Laval Middle,4c,5a,1.0,51,4.9
+Mingan,4c,5a,1.0,51,4.9
+Rockcliffe,4c,5a,1.0,51,4.9
+Pratt Ferry,4c,4c,0.0,44,4.9
+Portezuelo del Tontal,5a,5b,1.0,333,4.9
+Ballast Chert,4c,4c,0.0,132,4.9
+Billabong Creek Limestone,4c,4c,0.0,132,4.9
+Narooma Chert,4c,4c,0.0,132,4.9
+Nattery Chert,4c,4c,0.0,132,4.9
+Wahringa Limestone,4c,4c,0.0,132,4.9
+Watonga,4c,4c,0.0,132,4.9
+Copenhagen,5b,5c,1.0,22,4.9
+New Market,4c,5a,1.0,188,4.9
+Veltsy,4c,5a,1.0,350,4.9
+Ryd,4c,5a,1.0,9,4.9
+Klimoli Upper,4c,4c,0.0,55,4.9
+Pingliang,4c,5c,3.0,372,4.9
+Volgin,4c,4c,0.0,346,4.9
+Valim,4c,4c,0.0,350,4.9
+Skövde,4c,4c,0.0,"21, 9",4.9
+Källa Limestone,4c,4c,0.0,343,4.9
+Gullhögen,4c,4c,0.0,9,4.9
+Persnäs,4c,5a,1.0,344,4.9
+Pizzaras Guindo,4c,4c,0.0,366,4.9
+Pizarras de Navalaceite,4c,4c,0.0,366,4.9
+Pizarras de Valmosillo,4c,4c,0.0,366,4.9
+Porogi,4c,4c,0.0,350,4.9
+Rockdale Run,3b,3b,0.0,113,4.9
+West Spring Creek,3b,3b,0.0,39,4.9
+Metaline,1a,3b,8.0,114,4.9
+Coolibah,1c,2a,2.0,230,4.9
+Luke Hill,3a,3b,1.0,365,4.9
+Ogdensburg,2b,3b,3.0,365,4.9
+Dead Wood,3b,3b,0.0,39,4.9
+Manitou,3b,3b,0.0,39,4.9
+Prairie Du Chien,3b,3b,0.0,39,4.9
+Yapeenian 2,3b,3b,0.0,12,4.9
+Yapeenian,3b,3b,0.0,3,4.9
+Bingdou,1a,3b,8.0,250,4.9
+Chiaotingtze,2a,3b,4.0,250,4.9
+Duoquanshan,2a,3b,4.0,250,4.9
+Xiaoxian,2c,3b,2.0,250,4.9
+Castlemainian 3,3b,3b,0.0,12,4.9
+Horns Udde,3b,3b,0.0,36,4.9
+Selikedaban,3b,5a,4.0,78,4.9
+Ningkuo Member 2,5b,5d,2.0,54,4.9
+Ningkuo Member 3,3a,3b,1.0,53,4.9
+Meitan Lower Member,2b,3b,3.0,54,4.9
+Balcreuchan,3a,3b,1.0,124,4.9
+Barrule Slates,2c,3b,2.0,124,4.9
+Cwm Felin Boeth,2c,3b,2.0,124,4.9
+Donard,2c,3b,2.0,124,4.9
+Glen Rushen,2c,3b,2.0,124,4.9
+Kilcarry,2c,3b,2.0,124,4.9
+Loch Faoilean,2c,3b,2.0,124,4.9
+Milltown,2c,3b,2.0,124,4.9
+Oaklands,2b,3b,3.0,124,4.9
+Oldcourt,3a,3b,1.0,124,4.9
+Raven Gill,2b,3b,3.0,124,4.9
+Riverchapel,2b,3b,3.0,124,4.9
+Sheeffry,3a,3b,1.0,124,4.9
+Tankerville Flags,3a,3b,1.0,124,4.9
+Tourmakeady,2c,3b,2.0,124,4.9
+Jiawang,2c,3b,2.0,381,4.9
+Olenidsletta,2a,3a,3.0,326,4.9
+Bruddesta,2b,3a,2.0,36,4.9
+Broken Skull,1a,2c,6.0,114,4.9
+Eleanor River,2a,3a,3.0,114,4.9
+Nadlo Point,2b,3a,2.0,42,4.9
+Southern Arm,2b,3a,2.0,42,4.9
+Middle Arenigian,2c,3a,1.0,318,4.9
+Pircancha,2c,3a,1.0,237,4.9
+Quargla,2b,3a,2.0,238,4.9
+Castlemainian 1,3a,3a,0.0,12,4.9
+Castlemainian 2,3a,3a,0.0,12,4.9
+Mazam Shale,1b,3a,6.0,114,4.9
+Powell Dolomite,2a,2c,2.0,114,4.9
+Aguathuna Lower,3a,3a,0.0,114,4.9
+Baillarge A,2c,3a,1.0,114,4.9
+Beauharnois,2b,2c,1.0,365,4.9
+Cape Weber,1c,3a,5.0,114,4.9
+Croisaphuill,2a,3a,3.0,114,4.9
+Durine,3a,3a,0.0,114,4.9
+Foster,1a,3a,7.0,114,4.9
+Fox Hill,3a,3a,0.0,114,4.9
+Knox Upper,1a,3a,7.0,114,4.9
+Odenville Limestone,2a,3a,3.0,114,4.9
+Romaine,1c,3a,5.0,114,4.9
+Highgate,1b,3a,6.0,168,4.9
+Sikanni Chief,2b,3a,2.0,190,4.9
+Huangnitang,2c,2c,0.0,54,4.9
+Chaochiapa,2b,3a,2.0,250,4.9
+Dazhi,1b,3a,6.0,250,4.9
+Shantoudi,2c,3a,1.0,54,4.9
+Banquette,2a,3a,3.0,238,4.9
+Initial Red Beds,2b,3a,2.0,238,4.9
+Kheneg El Aatene,2a,3a,3.0,238,4.9
+Ouargla,2b,3a,2.0,238,4.9
+Kennedy's Pass Breccia,2c,3a,1.0,124,4.9
+Abercastle,2b,3a,2.0,124,4.9
+Brandy Craig Lava,2c,3a,1.0,124,4.9
+Carnedd lago,2a,3a,3.0,124,4.9
+Carracastle,2c,3a,1.0,124,4.9
+Castelldraenog,2c,3a,1.0,124,4.9
+Creg Agneash,2b,3a,2.0,124,4.9
+Derrymore,2b,3a,2.0,124,4.9
+Extrusive Rhyolite,2b,3a,2.0,124,4.9
+Grahormack,2b,3a,2.0,124,4.9
+Loweswater,2b,3a,2.0,124,4.9
+Mull Hill,2b,3a,2.0,124,4.9
+Penmaen Dewi Shale,2c,3a,1.0,124,4.9
+Santon,2b,3a,2.0,124,4.9
+Whitland Abbey,2c,3a,1.0,124,4.9
+Loma del Kilómetro,2b,3a,2.0,323,4.9
+Glenogle,2c,3a,1.0,42,4.9
+Ship Point,2a,3a,3.0,42,4.9
+Shabakty,2b,3a,2.0,370,4.9
+Mountain Lake,5a,5a,0.0,164,4.9
+Pontotoc,4c,5b,2.0,223,4.9
+Sandbian,4c,5c,3.0,400,4.9
+Tumbez,4c,5b,2.0,183,4.9
+Joachim Dolomite,5b,5b,0.0,114,4.9
+Ancell,4c,5b,2.0,114,4.9
+Annville,4c,5b,2.0,114,4.9
+Elway,5b,5b,0.0,183,4.9
+Esbataotine,4c,5c,3.0,114,4.9
+Five Oaks,4c,5b,2.0,114,4.9
+Glenwood,5b,5b,0.0,39,4.9
+Liberty Hall,4c,5b,2.0,114,4.9
+Lincoln Shale,4c,5b,2.0,114,4.9
+Loysburg,4c,5b,2.0,114,4.9
+Mount Kindle,4c,5c,3.0,114,4.9
+Sevier,5a,5a,0.0,83,4.9
+St. Paul,4c,5b,2.0,50,4.9
+Wells Creek Dolomite,4c,5b,2.0,114,4.9
+Woods Hollow,4c,5b,2.0,114,4.9
+Chambersburg,5a,5a,0.0,83,4.9
+Simpson,5b,5c,1.0,114,4.9
+Camp Nelson,4c,5b,2.0,39,4.9
+Copenhagen Lower,4c,5b,2.0,39,4.9
+Holston,5a,5b,1.0,178,4.9
+Valcour,4c,5b,2.0,39,4.9
+Qiaerbake,4c,5c,3.0,57,4.9
+Sa2,5b,5b,0.0,13,4.9
+Benbolt,5b,5b,0.0,183,4.9
+Bolarian,5b,5b,0.0,183,4.9
+Chatham Hill,5b,5b,0.0,178,4.9
+Effna Limestone,5a,5b,1.0,178,4.9
+Lincolnshire Limestone,5b,5b,0.0,183,4.9
+McGraw,5b,5b,0.0,183,4.9
+Peery Limestone,5b,5b,0.0,183,4.9
+Porterfieldian,5a,5b,1.0,183,4.9
+Rich Valley,5b,5b,0.0,178,4.9
+Ward Cove Limestone,5b,5b,0.0,183,4.9
+Corbin Ranch,5b,5b,0.0,39,4.9
+Pooleville,5b,5b,0.0,223,4.9
+M1,4c,5c,3.0,194,4.9
+Benjamin Limestone Lower,4c,5c,3.0,203,4.9
+Lourdes,5a,5c,2.0,66,4.9
+McGlone,5b,5b,0.0,183,4.9
+Bellmoor,5b,5c,1.0,124,4.9
+Kilranny Conglomerat,5b,5c,1.0,124,4.9
+Laggan,5b,5c,1.0,124,4.9
+Lincolnshire,5a,5c,2.0,80,4.9
+Rockdell,5b,5c,1.0,80,4.9
+Empozada,5b,6a,3.0,295,4.9
+La Pola,5b,5c,1.0,299,4.9
+Las Vacas,5b,5b,0.0,93,4.9
+Botetourt Limestone,5b,5c,1.0,188,4.9
+Chapman Ridge,5b,5c,1.0,188,4.9
+Edinburg,5b,5c,1.0,222,4.9
+Ottosee,5a,5a,0.0,83,4.9
+Wassum,5b,5b,0.0,178,4.9
+Wildernessian,5b,5b,0.0,183,4.9
+Fengfeng Upper,5b,5b,0.0,200,4.9
+M2,4c,6a,5.0,194,4.9
+M3,5b,6a,3.0,194,4.9
+Khankhara,5b,6a,3.0,400,4.9
+Blackriverian,5b,5b,0.0,39,4.9
+Carters,5b,5c,1.0,22,4.9
+Eggleston,5b,5c,1.0,222,4.9
+Nealmont,5b,5b,0.0,39,4.9
+Platteville,5b,5c,1.0,22,4.9
+Tyrone,5b,5b,0.0,39,4.9
+Watertown,5b,5b,0.0,187,4.9
+Ben Hur Limestone,5b,5b,0.0,183,4.9
+Hardy Creek,5b,5b,0.0,183,4.9
+Hurricane Bridge Limestone,5b,5b,0.0,183,4.9
+Martin Creek Limestone,5b,5b,0.0,183,4.9
+Woodway,5b,5b,0.0,183,4.9
+Bigfork Chert,5b,5c,1.0,114,4.9
+Plattin,5b,5c,1.0,114,4.9
+Barrel Spring,5b,5c,1.0,114,4.9
+Black River,5b,5b,0.0,39,4.9
+Pecatonica,5b,5c,1.0,114,4.9
+Copenhagen Upper,5b,5c,1.0,39,4.9
+Hogskin,5b,5b,0.0,183,4.9
+Icebox,5b,5b,0.0,39,4.9
+Oregon Limestone,5b,5b,0.0,39,4.9
+Salona,5b,5b,0.0,388,4.9
+Las Plantas,5b,5b,0.0,293,4.9
+Millbrig K-bentonite,5b,5c,1.0,222,4.9
+Sierra de La Invernada,5b,5c,1.0,130,4.9
+Womble K-bentonite Lower,5b,5b,0.0,214,4.9
+Womble K-bentonite Upper,5b,5b,0.0,214,4.9
+Deicke K-bentonite,5b,5c,1.0,222,4.9
+Coburn,5b,5b,0.0,388,4.9
+Normanskill,5a,5a,0.0,157,4.9
+Badou,5b,5b,0.0,200,4.9
+Baimachong,5a,6a,4.0,250,4.9
+Baimazai,5a,6a,4.0,250,4.9
+Bulukeqi,5a,6a,4.0,250,4.9
+Chaitsun Upper,5a,6a,4.0,250,4.9
+Changkengshui,5a,6a,4.0,250,4.9
+Datouyanggou,5a,5b,1.0,250,4.9
+Dongkengkou,5a,6a,4.0,250,4.9
+Duobaoshan,5a,6a,4.0,250,4.9
+Guyu,5a,6a,4.0,250,4.9
+Jianling,5a,6a,4.0,250,4.9
+Kanling,5c,5c,0.0,74,4.9
+Kekesaleixi,5a,6a,4.0,250,4.9
+Lashichong,5a,6a,4.0,250,4.9
+Longxi,5a,6a,4.0,250,4.9
+Luoshigou,5a,6a,4.0,250,4.9
+Modaoxi,5a,6a,4.0,250,4.9
+Mutong,5a,6a,4.0,250,4.9
+Pupiao Lower,5a,6a,4.0,250,4.9
+Sailikedaban,5a,6a,4.0,250,4.9
+Sanyuanzhi,5a,6a,4.0,250,4.9
+Tianzhu,5a,6a,4.0,250,4.9
+Xiongmei,5a,6a,4.0,250,4.9
+Yaomoshan,5a,6a,4.0,250,4.9
+Kinnekulle K-bentonite,5b,5b,0.0,8,4.9
+Middle Berounian,5c,6a,2.0,321,4.9
+Kings Falls,5c,5c,0.0,158,4.9
+Lowville,5b,5b,0.0,187,4.9
+Napanee,5c,5c,0.0,22,4.9
+Selby Limestone,5b,5b,0.0,187,4.9
+Yenwashan Member 1,5a,5d,3.0,54,4.9
+Carimona,5b,5c,1.0,222,4.9
+Curdsville,5b,5c,1.0,222,4.9
+Dickeyville K-bentonite,5c,5c,0.0,388,4.9
+Dolly Ridge,5b,5c,1.0,222,4.9
+Elkport K-bentonite,5b,5c,1.0,222,4.9
+Glen Falls Limestone,5b,5c,1.0,222,4.9
+Grier,5c,5c,0.0,22,4.9
+Guttenberg,5b,5c,1.0,222,4.9
+Jacksonburg,5c,5c,0.0,193,4.9
+Lindon Hall,5b,5c,1.0,222,4.9
+Logana,5c,5c,0.0,25,4.9
+M4,5b,5c,1.0,222,4.9
+M5,5b,5c,1.0,184,4.9
+Martinsburg,5b,5c,1.0,222,4.9
+Oranda,5b,5c,1.0,"388, 222",4.9
+Spechts Ferry,5b,5c,1.0,222,4.9
+Sugar River Limestone,5c,5c,0.0,193,4.9
+Trenton,5b,5c,1.0,22,4.9
+Utica Shale,5c,5c,0.0,158,4.9
+Guryanovka,5d,6c,3.0,328,4.9
+Veberov,5d,6c,3.0,328,4.9
+Lashizhong,5b,5b,0.0,372,4.9
+Ashbyan,5b,5b,0.0,183,4.9
+Sularp,5a,5c,2.0,37,4.9
+Lower Berounian,5a,5a,0.0,318,4.9
+Tatruse,5a,5b,1.0,9,4.9
+Dalby Limestone,4c,5c,3.0,11,4.9
+Sariyardere,5a,6b,5.0,234,4.9
+Adze,5a,5b,1.0,9,4.9
+Bedinan Upper,5a,6c,6.0,249,4.9
+Kahfah,5a,5c,2.0,249,4.9
+Assif bou Zeggarh,5a,5b,1.0,238,4.9
+Bou M'Haoud,5a,6b,5.0,238,4.9
+Middle Tiouririne,5a,5c,2.0,238,4.9
+Veryac'h,5a,5b,1.0,238,4.9
+GICE,5b,5c,1.0,391,4.9
+Skagen Limestone,5b,5c,1.0,212,4.9
+Blidene,5b,5b,0.0,9,4.9
+Hirmuse,5b,5b,0.0,9,4.9
+Ka1,5c,5c,0.0,13,4.9
+Kahula,5b,5b,0.0,9,4.9
+Mossen,5b,5b,0.0,9,4.9
+Variku,5b,5b,0.0,9,4.9
+Lukstai,5b,5b,0.0,8,4.9
+Vasalemma,5b,5b,0.0,8,4.9
+Vasavere,5b,5b,0.0,8,4.9
+Eidson,5b,5b,0.0,183,4.9
+New River,5b,5d,2.0,233,4.9
+Granata Gletscher,5b,5b,0.0,114,4.9
+St. Peter,5b,5b,0.0,39,4.9
+Sa1,5a,5a,0.0,13,4.9
+Dreimani,4c,5a,1.0,21,4.9
+Pihla,4c,5a,1.0,8,4.9
+Viivikonna,5a,5a,0.0,350,4.9
+Benan Conglomerate,5a,5c,2.0,124,4.9
+Gorse,5a,5b,1.0,124,4.9
+Jubilation,5a,5b,1.0,124,4.9
+La Cantera,5a,5b,1.0,299,4.9
+Los Azules,5a,5b,1.0,299,4.9
+Tellico,4c,5b,2.0,188,4.9
+Aijianshanian,4c,5d,4.0,102,4.9
+Chertovskian,5a,5a,0.0,27,4.9
+Tselinograd,4c,5d,4.0,345,4.9
+Los Leones,4c,5a,1.0,333,4.9
+Santa Gertrudis,4c,5c,3.0,358,4.9
+Laval Upper,4c,5c,3.0,51,4.9
+Athens Shale,5a,5a,0.0,83,4.9
+Mosheim,5a,5a,0.0,183,4.9
+Fossum,4c,5c,3.0,29,4.9
+Furuberget,4c,5c,3.0,29,4.9
+Hovinsholm,4c,5c,3.0,29,4.9
+Vollen,5a,5a,0.0,"28, 104",4.9
+Itmurundy,4c,5a,1.0,370,4.9
+Kazyk,4c,5a,1.0,370,4.9
+Fence,5a,5a,0.0,124,4.9
+Superstes,5a,5a,0.0,124,4.9
+Costonian,5a,5c,2.0,45,4.9
+Velfreyan,5a,5a,0.0,45,4.9
+Gisbornian 1,5a,5a,0.0,12,4.9
+Caparo,5a,5a,0.0,269,4.9
+Kharkindzhin,5a,6a,4.0,346,4.9
+Agueira,4c,6b,6.0,240,4.9
+Ballinatray,5a,5c,2.0,124,4.9
+Ceiswyn,5b,5c,1.0,124,4.9
+Courtown,5a,5a,0.0,240,4.9
+Mydrim Limestone,5a,5a,0.0,92,4.9
+Mydrim Shales,5b,5d,2.0,92,4.9
+Rabassa,5a,5a,0.0,240,4.9
+Tallyllyn Mudstone,4c,6a,5.0,240,4.9
+Coston,5a,5a,0.0,124,4.9
+Spy Wood Sandstone,5a,5a,0.0,92,4.9
+Neichianshanian,5a,6a,4.0,3,4.9
+Chedao,5a,5a,0.0,284,4.9
+Sams Spring,4c,5c,3.0,160,4.9
+Barr,5a,5a,0.0,124,4.9
+Black Grit,5a,5a,0.0,124,4.9
+Bryn-banc Limestone,5a,5c,2.0,124,4.9
+Caher Hill,5a,5c,2.0,124,4.9
+Campile,5a,5c,2.0,124,4.9
+Carnes,5a,5c,2.0,124,4.9
+Cat Cleuch,5a,5a,0.0,124,4.9
+Corsewall Point Conglomerate,5a,5a,0.0,124,4.9
+Courtown Limestone,5a,5a,0.0,124,4.9
+Craig Cau,5a,5c,2.0,124,4.9
+Dalreoch,5a,5a,0.0,124,4.9
+Dicranograptus Shale,5a,5a,0.0,124,4.9
+Dunabrattin Limestone,5a,5c,2.0,124,4.9
+Eycott Volcanic,5a,5c,2.0,124,4.9
+Finnalaghta,5a,5d,3.0,124,4.9
+Fron Newydd,5a,5a,0.0,124,4.9
+Galdenoch,4c,5c,3.0,124,4.9
+Glen App Conglomerate,5a,5a,0.0,124,4.9
+Glen Lodge,5a,5a,0.0,124,4.9
+Glenconnelly,5a,5a,0.0,124,4.9
+Glenkiln Blue-grey Mudstone,5a,5a,0.0,124,4.9
+Grain Burn,5a,5a,0.0,124,4.9
+Helen's Bay,5a,5d,3.0,124,4.9
+Herbertstown,5a,5c,2.0,124,4.9
+Hoar Edge Grits,5a,5c,2.0,124,4.9
+Kehernaghkilly,5a,5c,2.0,124,4.9
+Kirkcolm,5a,5c,2.0,124,4.9
+Lough Acanon Pelite,5a,6c,6.0,124,4.9
+Marchburn,5a,5a,0.0,124,4.9
+Overwater,5a,5a,0.0,124,4.9
+Peat Rig,5a,5a,0.0,124,4.9
+Stoodfold,5a,5a,0.0,124,4.9
+Studgill Tuff,5a,5a,0.0,124,4.9
+Toberelatan,5a,5c,2.0,124,4.9
+Caesar Canyon,4c,5c,3.0,160,4.9
+Prion Beach,5a,5c,2.0,233,4.9
+Baksan,4c,6a,5.0,346,4.9
+Savelev,4c,6a,5.0,346,4.9
+Tolmachev,4c,6a,5.0,346,4.9
+Yugor,4c,6a,5.0,346,4.9
+Ansobell,4c,6b,6.0,240,4.9
+Ballymoney,4c,6a,5.0,240,4.9
+Cava,4c,6a,5.0,240,4.9
+Concriamont conglomerate,4c,6a,5.0,240,4.9
+Ombrette Flysch,4c,6a,5.0,240,4.9
+Lords,4c,6a,5.0,203,4.9
+Blackcraig,4c,5c,3.0,124,4.9
+Finnarts Conglomerate,4c,5c,3.0,124,4.9
+Spothfore,4c,5c,3.0,124,4.9
+Kanyon,4c,5c,3.0,317,4.9
+Economy,5c,5c,0.0,397,4.9
+Southgate,5c,5c,0.0,397,4.9
+Katian,5b,6c,5.0,"400, 399",4.9
+C1,5c,5d,1.0,222,4.9
+C2,5d,5d,0.0,184,4.9
+M6,5c,5c,0.0,184,4.9
+Stewartville,5c,5c,0.0,222,4.9
+Cobourg,5c,5c,0.0,39,4.9
+Shermanian,5c,5c,0.0,39,4.9
+Lianglitag,5c,5c,0.0,78,4.9
+Grier Upper,5c,5c,0.0,25,4.9
+Point Pleasant,5c,5c,0.0,25,4.9
+Antes,5c,5c,0.0,22,4.9
+Decorah,5b,5c,1.0,22,4.9
+Hermitage,5b,5c,1.0,22,4.9
+Reedsville,5c,5c,0.0,22,4.9
+Viola Springs,5c,5c,0.0,39,4.9
+Fernvale Limestone,5c,5d,1.0,88,4.9
+Kimmswick Limestone,5b,5c,1.0,114,4.9
+Beaverfoot,5c,5c,0.0,114,4.9
+Robb,5c,5c,0.0,114,4.9
+Whittaker,5c,5c,0.0,114,4.9
+Lianglitake,5c,5c,0.0,57,4.9
+Brannon,5c,5c,0.0,184,4.9
+Brannon K-bentonite,5b,5d,2.0,222,4.9
+Bromley,5c,5c,0.0,184,4.9
+Cornishville,5c,5d,1.0,222,4.9
+Denley,5c,5c,0.0,187,4.9
+Devils Hollow,5c,5d,1.0,222,4.9
+Dolgeville,5c,5c,0.0,193,4.9
+Dunleith,5b,5d,2.0,222,4.9
+Dygerts K-bentonite,5b,5d,2.0,222,4.9
+East Canada K-bentonite,5c,5c,0.0,388,4.9
+Faulconer,5c,5c,0.0,184,4.9
+Flat Creek Shale,5c,5c,0.0,187,4.9
+Frankfort Shale,5d,5d,0.0,158,4.9
+Greendale,5c,5c,0.0,184,4.9
+Haldane-Manheim K-bentonite,5b,5d,2.0,222,4.9
+Hillier,5c,5d,1.0,222,4.9
+Indian Castle Shale,5c,5c,0.0,187,4.9
+Macedonia,5c,5c,0.0,25,4.9
+Perryville,5c,5d,1.0,222,4.9
+Poland,5c,5c,0.0,193,4.9
+Russia,5c,5c,0.0,193,4.9
+Rust,5c,5c,0.0,211,4.9
+Salvisa,5c,5d,1.0,222,4.9
+Stamping Ground,5c,5c,0.0,184,4.9
+Steuben,5c,5c,0.0,193,4.9
+Strodes Creek,5c,5c,0.0,184,4.9
+Sulphur Well,5c,5c,0.0,184,4.9
+Beiguoshan ,5c,5c,0.0,372,4.9
+Ben Bolt,5c,5c,0.0,39,4.9
+Galena,5c,5c,0.0,39,4.9
+Viola,5c,5d,1.0,39,4.9
+Welling,5c,5d,1.0,39,4.9
+Canajoharie,5c,5c,0.0,158,4.9
+Arsenault,5c,5c,0.0,312,4.9
+Castle Road,5c,5c,0.0,193,4.9
+Gun Club Road,5c,5c,0.0,193,4.9
+High Falls K-bentonite,5c,5c,0.0,193,4.9
+Mill Dam,5c,5c,0.0,193,4.9
+North Gage,5c,5c,0.0,193,4.9
+Rathbun,5c,5c,0.0,193,4.9
+Sugar River Lower,5c,5c,0.0,193,4.9
+Glens Falls,5c,5c,0.0,222,4.9
+Devils Hollow Lower,5c,5c,0.0,184,4.9
+Devils Hollow Upper,5c,5c,0.0,184,4.9
+Donerail,5c,5c,0.0,184,4.9
+Gratz,5c,5c,0.0,184,4.9
+Grier Middle,5c,5c,0.0,184,4.9
+Locust Creek,5c,5c,0.0,184,4.9
+Peaks Mill,5c,5c,0.0,184,4.9
+Salvisa Lower,5c,5c,0.0,184,4.9
+Salvisa Middle,5c,5c,0.0,184,4.9
+Salvisa Upper,5c,5c,0.0,184,4.9
+Shoreham,5c,5c,0.0,157,4.9
+Snake Hills,5c,5c,0.0,157,4.9
+Actonian,5c,5c,0.0,45,4.9
+Longvillian,5b,5c,1.0,45,4.9
+Marshbrookian,5c,5c,0.0,45,4.9
+Onnian,5c,5d,1.0,45,4.9
+Woolstonian,5c,5c,0.0,45,4.9
+Jacks Peak,5d,5d,0.0,176,4.9
+Kogsta Siltstone,5c,6c,4.0,322,4.9
+Frognerkilen,5c,5c,0.0,239,4.9
+Nakkholmen,5c,5c,0.0,239,4.9
+Togin,5b,6a,3.0,346,4.9
+Varnek,5c,6c,4.0,346,4.9
+Bramka Limestone,5c,5c,0.0,38,4.9
+Tauken,5c,5d,1.0,197,4.9
+Karagach,5b,5c,1.0,70,4.9
+Bayrim,5c,5c,0.0,198,4.9
+Afton Greywackes,5b,6b,4.0,240,4.9
+Assise de Fosse,5c,6b,3.0,240,4.9
+Estana,5c,6b,3.0,240,4.9
+Grés de kermeur,5c,5c,0.0,240,4.9
+Hartfell Lower Shale ,5b,5c,1.0,92,4.9
+Nod Glas,5c,5c,0.0,124,4.9
+Pélites a Fragments,5b,6b,4.0,240,4.9
+Riadan,5c,5d,1.0,240,4.9
+Rosan,5c,5d,1.0,240,4.9
+Schistes de Cosquer,5c,5d,1.0,240,4.9
+Dent,5c,6c,4.0,92,4.9
+St. Cynllo´s Church,5b,5d,2.0,92,4.9
+Benjamin Limestone Upper,5b,6a,3.0,203,4.9
+Gongwusu,5b,6a,3.0,250,4.9
+Hanjiang,5b,6a,3.0,250,4.9
+Longtouzhai,5b,6a,3.0,250,4.9
+Luohe,5c,5d,1.0,250,4.9
+Qilang,5c,5c,0.0,74,4.9
+Sheshan,5c,5c,0.0,250,4.9
+Shuangjiakou,5b,6a,3.0,250,4.9
+Sigang,5b,6a,3.0,250,4.9
+Sijiagou,5c,5d,1.0,250,4.9
+Taoqupo,5c,5c,0.0,200,4.9
+Yingan,5c,5c,0.0,74,4.9
+Zatupo,5c,5c,0.0,74,4.9
+Chert,5b,6a,3.0,176,4.9
+Joes Canyon,5b,6b,4.0,176,4.9
+Arthurstown,5b,5c,1.0,124,4.9
+Avoca,5b,5c,1.0,124,4.9
+Ballyhack,5c,5c,0.0,124,4.9
+Ballymoyle,5c,5c,0.0,124,4.9
+Ballynaclogh Volcanic,5c,5c,0.0,124,4.9
+Bardahessiagh,5b,5c,1.0,124,4.9
+Bremore,5c,5c,0.0,124,4.9
+Broomfield,5c,5d,1.0,124,4.9
+Carrickateane,5b,5d,2.0,124,4.9
+Carsphairn Conglomerate,5c,5c,0.0,124,4.9
+Ceibwr,5c,5c,0.0,124,4.9
+Clashabeema,5c,5c,0.0,124,4.9
+Clashford House,5b,5c,1.0,124,4.9
+Corona,5c,5c,0.0,124,4.9
+Derryveeny,5c,6a,2.0,124,4.9
+Drygill Shale,5c,5c,0.0,124,4.9
+Dufton Shale,5c,6a,2.0,124,4.9
+Fieldstown,5c,5c,0.0,124,4.9
+Gorumna,5b,5d,2.0,124,4.9
+Grange Allen,5b,5c,1.0,124,4.9
+Grey Point,5b,5d,2.0,124,4.9
+Knockerk,5b,5c,1.0,124,4.9
+Lower Hartfell and Glenkiln Black Mudstone,5b,5d,2.0,124,4.9
+Lowther Lodge,5b,5c,1.0,124,4.9
+Mottled Siltstone,5b,5c,1.0,124,4.9
+Newport,5b,5c,1.0,124,4.9
+Poppit,5c,6a,2.0,124,4.9
+Portpatrick,5c,5d,1.0,124,4.9
+Portrane Volcanic,5b,6a,3.0,124,4.9
+Raheen,5c,5c,0.0,124,4.9
+Ross,5c,5c,0.0,124,4.9
+Shenick's Island,5b,5c,1.0,124,4.9
+Solvang,5c,5c,0.0,28,4.9
+Lieker,5c,5d,1.0,29,4.9
+Mjøsa,5c,5d,1.0,29,4.9
+Nerby,5c,5c,0.0,29,4.9
+Steinvika,5c,5d,1.0,29,4.9
+Eastonian 1,5c,5c,0.0,12,4.9
+Russia Upper,5c,5c,0.0,211,4.9
+Courval,5c,5c,0.0,340,4.9
+Lotbinière,5c,5d,1.0,340,4.9
+Sainte-Perpétue,5d,5d,0.0,351,4.9
+Sainte-Sabine,5c,5c,0.0,340,4.9
+Eastonian 2,5c,5c,0.0,12,4.9
+Nowadaga,5c,5c,0.0,158,4.9
+Garin,5c,5d,1.0,312,4.9
+Grog Brook,5c,6a,2.0,312,4.9
+Madawaska Lake,5c,6a,2.0,312,4.9
+Calmar K-bentonite,5c,5c,0.0,388,4.9
+Cobourgian,5c,5d,1.0,351,4.9
+Maravillas,5c,5d,1.0,351,4.9
+Winterhouse,5b,5d,2.0,66,4.9
+Aketashi,5c,5d,1.0,250,4.9
+Chengbu,5c,6a,2.0,250,4.9
+Jiangilawan,5c,5d,1.0,250,4.9
+Nanshichong,5c,6a,2.0,250,4.9
+Uligezhitag,6b,6c,1.0,78,4.9
+Schenectady,5c,5c,0.0,158,4.9
+Trapiche,5c,6c,4.0,299,4.9
+Alexanria Sub,5c,5c,0.0,184,4.9
+Brent Sub,5c,5c,0.0,184,4.9
+Fulton,5c,5c,0.0,184,4.9
+Pioneer Valley Sub,5c,5c,0.0,184,4.9
+Snag Creek Sub,5c,5c,0.0,184,4.9
+Ra'an,5c,5d,1.0,249,4.9
+Kermeur,5c,5d,1.0,238,4.9
+Prospekt Quarry,5c,5c,0.0,211,4.9
+Rust Quarry,5c,5c,0.0,193,4.9
+Spillway,5c,5c,0.0,193,4.9
+Denmark,5c,5c,0.0,157,4.9
+Grier Lower,5c,5c,0.0,25,4.9
+Cummingville,5c,5c,0.0,39,4.9
+Kirkfieldian,5b,5c,1.0,39,4.9
+Prosser,5c,5c,0.0,39,4.9
+Stickley Run,5b,5c,1.0,388,4.9
+Harding,5b,5c,1.0,39,4.9
+Roughlock,5b,5c,1.0,39,4.9
+Acton Scott,5c,5c,0.0,92,4.9
+Cheney Longville,5c,5c,0.0,92,4.9
+Onny,5c,5d,1.0,92,4.9
+Ardwell Farm,5b,5c,1.0,124,4.9
+Bay,5c,5d,1.0,124,4.9
+Cadnant Shale,5c,5c,0.0,124,4.9
+Cascade Conglomerat,5c,5d,1.0,124,4.9
+Crosspipes,5c,5c,0.0,124,4.9
+Penarwel Mudstone,5c,5d,1.0,124,4.9
+South Shore,5c,5d,1.0,124,4.9
+Three Mile,5c,5d,1.0,124,4.9
+Baksian,5b,5d,2.0,27,4.9
+Ardwell Sub_,5b,6a,3.0,241,4.9
+Platinhead,5c,5c,0.0,241,4.9
+Alternata Limestone,5c,5c,0.0,92,4.9
+Gelli-Grin,5c,5c,0.0,92,4.9
+Horderley Sandstone,5b,5c,1.0,92,4.9
+Chatwall Sandstone,5b,5c,1.0,124,4.9
+Craighead,5b,5c,1.0,241,4.9
+Cwm Eigiau,5b,5c,1.0,124,4.9
+Cymerig Limestone,5c,5c,0.0,124,4.9
+Dwyfach,5c,5c,0.0,124,4.9
+Gelli-grin Calcareous Ashes,5b,5c,1.0,124,4.9
+Kiln,5c,5d,1.0,124,4.9
+Llanbedrog Volcanic,5c,5c,0.0,124,4.9
+Snowdon Volcanic,5c,5c,0.0,124,4.9
+Grefsen K-bentonite,5b,5c,1.0,364,4.9
+Sinsen K-bentonite,5b,5c,1.0,364,4.9
+Burn Side Conglomerat,5b,5c,1.0,124,4.9
+Doon Hill Conglomerate,5b,5c,1.0,124,4.9
+Pumphouse,5b,5c,1.0,124,4.9
+Tormitchell Conglomerate,5b,5d,2.0,124,4.9
+Bays,5b,5c,1.0,178,4.9
+Harnagian,5b,5c,1.0,45,4.9
+Soudleyan,5b,5c,1.0,45,4.9
+Arnestad,5b,5c,1.0,239,4.9
+Ristiküla bed 46 K-bentonite,5b,5c,1.0,214,4.9
+Glenburrell,5b,5c,1.0,92,4.9
+Pont-y-cenant,5b,5c,1.0,92,4.9
+Smeathen Wood,5b,5c,1.0,92,4.9
+Albany,5b,5c,1.0,124,4.9
+Aldress Shale,5b,5c,1.0,124,4.9
+Allt Ddu Mudstone,5b,5c,1.0,124,4.9
+Assel Conglomerate,5b,5d,2.0,124,4.9
+Ballymalone,5b,5c,1.0,124,4.9
+Bulthy,5b,5c,1.0,124,4.9
+Carrighalia,5b,5c,1.0,124,4.9
+Cefn Gwyn Tuff,5b,5c,1.0,124,4.9
+Chatwall Flags,5b,5c,1.0,124,4.9
+Collon,5b,5c,1.0,124,4.9
+Derfel Limestone,5b,5c,1.0,124,4.9
+Frondderw Tuff,5b,5c,1.0,124,4.9
+Garraun Shale,5b,5c,1.0,124,4.9
+Glyn Gower Siltstone,5b,5c,1.0,124,4.9
+Hagley Shale,5b,5c,1.0,124,4.9
+Hagley Volcanic,5b,5c,1.0,124,4.9
+Harnage Shale,5b,5c,1.0,124,4.9
+Harthwaite Tuff,5b,5c,1.0,124,4.9
+Hill Farm Shale,5b,5c,1.0,124,4.9
+Kilmacrea,5b,5c,1.0,124,4.9
+Knock Pike Tuff,5b,5c,1.0,124,4.9
+Llewelyn Volcanic,5b,5c,1.0,124,4.9
+Llyn Conwy,5b,5c,1.0,124,4.9
+Lodge Volcanic Upper,5b,5c,1.0,124,4.9
+Loftusacre,5b,5c,1.0,124,4.9
+Middletown,5b,5c,1.0,124,4.9
+Nant Hir Mudstone,5b,5c,1.0,124,4.9
+Newtown Head,5b,5c,1.0,124,4.9
+Parrog Shales,5b,5c,1.0,124,4.9
+Pitts Head Tuff,5b,5c,1.0,124,4.9
+Pont-y-Ceunant Ash,5b,5c,1.0,124,4.9
+Potts Ghyll,5b,5c,1.0,124,4.9
+Stone House Shale,5b,5c,1.0,124,4.9
+Whittery Shale,5b,5c,1.0,124,4.9
+Whittery Volcanic,5b,5c,1.0,124,4.9
+Gisbornian 2,5b,5c,1.0,12,4.9
+New Enterprise,5b,5c,1.0,388,4.9
+Sairinskii,5b,5c,1.0,196,4.9
+Rio Sassito,5b,6c,5.0,359,4.9
+Dolborian,5d,5d,0.0,27,4.9
+Chota,5b,5c,1.0,65,4.9
+Grimstorp K-bentonite,5b,5c,1.0,325,4.9
+Hog's Back,5b,5c,1.0,51,4.9
+Pamelia,5b,5c,1.0,51,4.9
+Bowen,1a,1b,1.0,114,4.9
+Wardell,5b,5c,1.0,80,4.9
+Witten,5b,5c,1.0,80,4.9
+Bestiube,5b,5c,1.0,197,4.9
+Anderken,5b,5d,2.0,345,4.9
+Amsterdam,5b,5c,1.0,158,4.9
+Balmville,5b,5c,1.0,157,4.9
+Chaumont,5b,5c,1.0,157,4.9
+Kirkfield,5b,5c,1.0,157,4.9
+Pawlet,5b,5c,1.0,157,4.9
+Rockland,5b,5c,1.0,39,4.9
+Acoite,2a,2c,2.0,272,4.9
+Yinchufu,1d,1d,0.0,54,4.9
+Hølonda Limestone,2c,2c,0.0,379,4.9
+Antelope Valley Limestone Maclurites,2c,2c,0.0,160,4.9
+Porth Llauog,2c,2c,0.0,355,4.9
+Poultney,2a,2c,2.0,146,4.9
+Vuelta de Las Tolas,2b,2c,1.0,323,4.9
+Molles,2c,2c,0.0,338,4.9
+Cwm Clwyd Ash,2c,2c,0.0,240,4.9
+Didymograptus bifidus Shale,2c,2c,0.0,240,4.9
+Maesgwm Shales,2c,2c,0.0,240,4.9
+Emanuel Lower,1a,2c,6.0,77,4.9
+Emanuel Middle,2a,2c,2.0,77,4.9
+Chewtonian 1,2c,2c,0.0,12,4.9
+Stuyvesant Falls,2b,2c,1.0,146,4.9
+Marcheta,2a,2c,2.0,281,4.9
+Chewtonian 2,2c,2c,0.0,12,4.9
+Päite,2c,2c,0.0,334,4.9
+Chupin,2a,2c,2.0,328,4.9
+Cassinian,1c,2c,4.0,114,4.9
+Al Rose,2a,2c,2.0,114,4.9
+Epler,1b,2c,5.0,114,4.9
+Ninemile,2a,2c,2.0,114,4.9
+Padre,2a,2c,2.0,59,4.9
+Ranger Peak,2a,2c,2.0,114,4.9
+Schoolhouse,1a,2c,6.0,114,4.9
+Ship Point 1,1c,2c,4.0,114,4.9
+Ship Point 2,1c,2c,4.0,114,4.9
+Huntington,1b,2c,5.0,365,4.9
+Naylor Ledge,1c,2c,4.0,365,4.9
+Chiawang,1b,2c,5.0,250,4.9
+Liangchiashan,2a,2c,2.0,250,4.9
+Quanhekou,1a,2a,4.0,378,4.9
+Shinianpan,2b,2c,1.0,250,4.9
+Tachengssu,2b,2c,1.0,250,4.9
+Yinchupu,1b,1d,2.0,97,4.9
+Zifangzhuang,1a,2c,6.0,250,4.9
+Scenic Drive,2a,2c,2.0,207,4.9
+Florida Mountain,2c,2c,0.0,207,4.9
+Florida,2c,2c,0.0,192,4.9
+Grès Armoricain Lower,2b,2c,1.0,238,4.9
+Afon Ffinnant,2b,2c,1.0,124,4.9
+Aghfarell,1b,2c,5.0,124,4.9
+Blaencediw,2b,2c,1.0,124,4.9
+Brunel,2b,2c,1.0,124,4.9
+Cwm yr Abbey,2b,2c,1.0,124,4.9
+Cwmffrydd,2b,2c,1.0,124,4.9
+Derry Bay,2a,2c,2.0,124,4.9
+Glen Dhoo Flag,2a,2c,2.0,124,4.9
+Glion Cam,2b,2c,1.0,124,4.9
+Henllan Ash,2b,2c,1.0,124,4.9
+Hope Beck,2a,2c,2.0,124,4.9
+Horan,2b,2c,1.0,124,4.9
+Knock Kilbride Argillites,2b,2c,1.0,124,4.9
+Letterbrock,2b,2c,1.0,124,4.9
+Mount Partry,2a,2c,2.0,124,4.9
+Pinbain Lava,2a,2c,2.0,124,4.9
+Rhyd Henllan,2b,2c,1.0,124,4.9
+Skird Rocks,2a,2c,2.0,124,4.9
+Slockenray Hyaloclastite and Lava,2b,2c,1.0,124,4.9
+Tramore Shale,1a,2c,6.0,124,4.9
+Fezouata Lower,1b,2a,3.0,249,4.9
+Foum Tineslem Silty-Sandy,1b,2c,5.0,238,4.9
+Hamra,2a,2c,2.0,238,4.9
+Köpingsklint,1a,2c,6.0,36,4.9
+Leetse,2a,2c,2.0,350,4.9
+Lower Arenigian,2a,2c,2.0,318,4.9
+Bendigonian 1,2b,2c,1.0,12,4.9
+Datan,2a,2c,2.0,250,4.9
+Jinshan,2a,2a,0.0,367,4.9
+Tanchiachiao,1b,2c,5.0,250,4.9
+Zhaqu,2a,2c,2.0,250,4.9
+Kelly Creek,1c,1d,1.0,230,4.9
+Ship Point Member A,2a,2c,2.0,42,4.9
+Tipperary,2b,2c,1.0,42,4.9
+Aorangi Mine,1a,2c,6.0,260,4.9
+Rakhmet,2a,2c,2.0,345,4.9
+Jeffersonian,1b,1d,2.0,114,4.9
+McKelligon,2a,2c,2.0,192,4.9
+Mud Springs Mountain,1c,2c,4.0,192,4.9
+Pistol Range,2a,2c,2.0,192,4.9
+Pistol Range Sandstone,2a,2c,2.0,192,4.9
+La Alumbrera,2a,2b,1.0,324,4.9
+Florentine Valley,2a,2b,1.0,203,4.9
+Charcoal Canyon,2a,2b,1.0,160,4.9
+Jefferson City Dolomite,1b,1d,2.0,114,4.9
+Kindblade,1b,1d,2.0,114,4.9
+Nordporten,1a,2b,5.0,326,4.9
+Cotter Dolomite,2a,2b,1.0,114,4.9
+Au Train,1b,2b,4.0,114,4.9
+Axemann,1c,2b,3.0,114,4.9
+Balnakiel,1b,2b,4.0,114,4.9
+Cindy,1c,2b,3.0,114,4.9
+Goodwin Limestone,1a,2b,5.0,114,4.9
+Mascot Dolomite,1c,2b,3.0,114,4.9
+Newala Limestone,1c,2b,3.0,114,4.9
+Shakopee Dolomite,1b,2b,4.0,114,4.9
+Tamarack Canyon Dolomite,1a,2b,5.0,114,4.9
+Mascot,1c,2b,3.0,59,4.9
+Horn Valley Basal,2a,2b,1.0,215,4.9
+Baumann Fjord,2a,2b,1.0,42,4.9
+Boat Harbour,2a,2b,1.0,42,4.9
+McKay,1a,2b,5.0,42,4.9
+Survey Peak,1a,1b,1.0,190,4.9
+Nambeet,2a,2b,1.0,220,4.9
+Pacoota Sandstone,2a,2b,1.0,220,4.9
+Emanuel Upper,2a,2b,1.0,77,4.9
+Obispo,1a,2a,4.0,237,4.9
+Baumann Fjord B,1c,1d,1.0,114,4.9
+Baumann Fjord C,1c,1d,1.0,114,4.9
+Chamizal,1c,1d,1.0,114,4.9
+Franklin Mountain,1a,1d,3.0,114,4.9
+Honeycut,1b,1d,2.0,114,4.9
+Kechika,1a,1d,3.0,114,4.9
+Kingsport,1b,1d,2.0,114,4.9
+McKelligon Canyon,1b,1d,2.0,114,4.9
+Nittany Dolomite,1b,1d,2.0,114,4.9
+Septembers,1c,1d,1.0,114,4.9
+Theresa,1b,1b,0.0,109,4.9
+Hastings Creek,1b,1d,2.0,365,4.9
+Cool Creek,1b,1b,0.0,113,4.9
+Parcha,1c,1d,1.0,272,4.9
+Oued Mya,1b,1d,2.0,249,4.9
+Argiles d'El Gassi,1b,1d,2.0,249,4.9
+Sanrhar,1b,1d,2.0,249,4.9
+Coquena,1c,1d,1.0,287,4.9
+Tremadoc,1a,1d,3.0,45,4.9
+Lancefieldian 2,1b,1d,2.0,12,4.9
+Fezouata,1c,1d,1.0,309,4.9
+Ballyhoge,1a,1d,3.0,124,4.9
+Ballylane,1b,2a,3.0,124,4.9
+Bitter Beck,1c,1d,1.0,124,4.9
+Bohaun Volcanic,1a,1d,3.0,124,4.9
+Cronk Sumark Slate,1c,1d,1.0,124,4.9
+Dowery Hill,1c,2a,2.0,124,4.9
+Habberley,1b,2a,3.0,124,4.9
+Knock Kilbride,1b,1d,2.0,124,4.9
+Seamount,1c,2a,2.0,124,4.9
+Treffgarn Andesites,1b,1d,2.0,124,4.9
+Watch Hill,1c,2a,2.0,124,4.9
+Nyaian,1b,1b,0.0,399,4.9
+Hagastrand,2a,2a,0.0,29,4.9
+El Atchane,1c,2a,2.0,238,4.9
+El Gassi,1a,1d,3.0,238,4.9
+Vire du Mouflon,1a,2a,4.0,238,4.9
+Aspero-Humacha,1a,2a,4.0,273,4.9
+San Bernardo,1b,2a,3.0,273,4.9
+Tumbaya,1b,2a,3.0,273,4.9
+Pacoota sequence 4,1c,2a,2.0,230,4.9
+Santed,1c,2a,2.0,263,4.9
+Flower's José,1c,1d,1.0,192,4.9
+Gasconadian,1a,1d,3.0,386,4.9
+Victorio,1b,1d,2.0,192,4.9
+Tungtzu Middle,1a,1d,3.0,54,4.9
+Tungtzu Upper,1b,1d,2.0,54,4.9
+Yinchufu Member 2,1a,1d,3.0,54,4.9
+Yinchufu Member 3,1a,1d,3.0,54,4.9
+Yinchufu Member 4,1b,1d,2.0,54,4.9
+Guotang,1a,1d,3.0,378,4.9
+Jueshangou,1a,1d,3.0,378,4.9
+Liuchen,1a,1d,3.0,378,4.9
+Lohanpo,1a,1d,3.0,378,4.9
+Maoping,1a,1d,3.0,378,4.9
+Paishuichi,1a,1d,3.0,378,4.9
+Panjiazui,1a,1d,3.0,378,4.9
+Xinchang,1a,1d,3.0,378,4.9
+Tayanza,1c,1d,1.0,346,4.9
+Agairya,1a,1d,3.0,281,4.9
+Ishpa,1a,1d,3.0,281,4.9
+Kamlak,1a,1d,3.0,281,4.9
+Talitsa,1a,1d,3.0,281,4.9
+Lancefieldian 1a,1c,1d,1.0,230,4.9
+Corrie,1a,1a,0.0,232,4.9
+Pacoota sequence 3,1a,1d,3.0,230,4.9
+Lancefieldian 2b,1c,1d,1.0,230,4.9
+Grés de la Darneyre,1b,1d,2.0,248,4.9
+Bailongmiao,1a,1d,3.0,250,4.9
+Dushuke,1b,1d,2.0,250,4.9
+Hangwula,1a,1d,3.0,250,4.9
+Jinlonggou,1a,1d,3.0,250,4.9
+Liuxia,1a,1d,3.0,"367, 53",4.9
+Shuitianhe,1a,1d,3.0,250,4.9
+Cieneguillas,1a,1d,3.0,237,4.9
+Datson,1a,1a,0.0,232,4.9
+Saladilo,1a,1d,3.0,273,4.9
+Santa Rosita,1a,2a,4.0,272,4.9
+Roubidoux,1b,1b,0.0,114,4.9
+Jose,1b,1b,0.0,56,4.9
+Demingian,1b,1d,2.0,386,4.9
+Cooks,1b,1b,0.0,207,4.9
+Amnodd Shale,1b,1d,2.0,124,4.9
+Arenaceous,1b,1d,2.0,124,4.9
+Dol-cyn-afon,1b,1d,2.0,124,4.9
+Dol-cyn-afon Upper Mudstone,1b,1d,2.0,124,4.9
+Dol-cyn-afon Upper Sandstone,1b,1d,2.0,124,4.9
+Finny,1b,1d,2.0,124,4.9
+Shineton Shale,1a,1d,3.0,124,4.9
+Tai-hirion Flags,1b,1d,2.0,124,4.9
+Rhobell Volcanic,1b,1d,2.0,124,4.9
+Inanin,1b,1d,2.0,346,4.9
+Borrachón,1a,1c,2.0,263,4.9
+Basisletta,1a,1c,2.0,326,4.9
+Spora,1a,1c,2.0,326,4.9
+Loparian,1a,1c,2.0,107,4.9
+Agalatas,1a,2a,4.0,257,4.9
+Nazya,1a,1c,2.0,350,4.9
+Rupasca,1a,2a,4.0,290,4.9
+Bed 7,1a,1c,2.0,42,4.9
+Bed 8,1a,2a,4.0,42,4.9
+Brent Island,1a,1c,2.0,42,4.9
+Cape Clay,1a,1b,1.0,114,4.9
+Copes Bay,1a,1c,2.0,42,4.9
+Mingo River,1a,1c,2.0,42,4.9
+Rabbit Kettle,1a,1b,1.0,114,4.9
+Turner Cliffs,1a,1c,2.0,42,4.9
+Middle Tremadocian,1a,1c,2.0,318,4.9
+Alum Shale,1a,1a,0.0,37,4.9
+Bjørkåsholmen,1a,1a,0.0,276,4.9
+Kudata Dolomite,1a,1c,2.0,"77, 71",4.9
+Kunian Sandstone,1a,1c,2.0,77,4.9
+Tongzi,1a,1c,2.0,77,4.9
+Fenxiang,1a,2a,4.0,71,4.9
+Floresta-Rupasca,1a,1c,2.0,273,4.9
+Lancefieldian 3,2a,2a,0.0,12,4.9
+Kaodongkou,2a,2a,0.0,250,4.9
+Madaoyu,2a,2a,0.0,250,4.9
+Niuweibashan,2a,2a,0.0,250,4.9
+Shanpianshan,2a,2a,0.0,250,4.9
+Stoneberger Shale,2a,2a,0.0,160,4.9
+Jingshan,2a,2a,0.0,53,4.9
+Allt Cystanog,2a,2a,0.0,124,4.9
+Bolahaul,2a,2a,0.0,124,4.9
+Craig Hill Breccia,2a,2a,0.0,124,4.9
+Garth Grit,2a,2a,0.0,124,4.9
+Graianog Sandstone,2a,2a,0.0,124,4.9
+Keristal,2a,2a,0.0,124,4.9
+Kilranny Hill,2a,2a,0.0,124,4.9
+Ny Garvain,2a,2a,0.0,124,4.9
+Ogof Hen,2a,2a,0.0,124,4.9
+Peel Volcanic,2a,2a,0.0,124,4.9
+Pibwr,2a,2a,0.0,124,4.9
+Port Erin,2a,2a,0.0,124,4.9
+Stiperstones Quartzite,2a,2a,0.0,124,4.9
+Acoite Lower,1b,2a,3.0,237,4.9
+Agua y Toro,1b,2a,3.0,237,4.9
+Foum Tineslem,1b,2a,3.0,238,4.9
+Yingshan,2a,2a,0.0,96,4.9
+Takoshkin,2a,2a,0.0,400,4.9
+Taohuashi,2a,2a,0.0,374,4.9
+Torsugtagh Upper,2a,2a,0.0,78,4.9
+Tremadocian Upper,2a,2a,0.0,318,4.9
+Setul Limestone,2a,2a,0.0,71,4.9
+Lone Mountain,1d,2a,1.0,155,4.9
+Cookes,1b,1b,0.0,56,4.9
+Crystal Mountain Sandstone,1b,1b,0.0,114,4.9
+Baumann Fjord A,1b,1b,0.0,114,4.9
+Fimbulfjeld Hiatus,1b,1b,0.0,114,4.9
+Gorman,1a,1b,1.0,114,4.9
+Hag Hill,1a,1b,1.0,114,4.9
+Hitt Canyon,1a,1b,1.0,114,4.9
+Longview Limestone,1b,1b,0.0,114,4.9
+Sangomore,1b,1b,0.0,114,4.9
+McKenzie Hill,1b,1b,0.0,113,4.9
+Barn Canyon,1a,1b,1.0,177,4.9
+Burnout Canyon,1b,1b,0.0,177,4.9
+Red Canyon,1b,1b,0.0,177,4.9
+Rio Salinas,1b,1b,0.0,375,4.9
+House Limestone,1b,1b,0.0,135,4.9
+Sierrite,1b,1b,0.0,56,4.9
+Collier Shale,1a,1b,1.0,114,4.9
+Gasconade Dolomite,1a,1b,1.0,114,4.9
+Cutting,1b,1b,0.0,109,4.9
+Shelburne Marble,1b,1b,0.0,109,4.9
+Antiklinalbugt,1a,1b,1.0,114,4.9
+Blanley Bay,1b,1b,0.0,114,4.9
+Bliss,1a,1b,1.0,114,4.9
+Chepultepec,1a,1b,1.0,114,4.9
+Christian Elv,1b,1b,0.0,114,4.9
+Larke Dolomite,1a,1b,1.0,114,4.9
+Oneota Dolomite,1a,1b,1.0,114,4.9
+Rickenbach,1a,1b,1.0,114,4.9
+Sailmhor,1a,1b,1.0,114,4.9
+Signal Mountain,1a,1a,0.0,50,4.9
+Stonehenge Limestone,1a,1b,1.0,114,4.9
+Tanyard,1a,1b,1.0,114,4.9
+Turner Cliffs Upper,1b,1b,0.0,114,4.9
+Wilberns,1a,1b,1.0,114,4.9
+Morgan Corner,1b,1b,0.0,365,4.9
+Wallace Creek,1a,1b,1.0,365,4.9
+Alfarcito,1a,1b,1.0,290,4.9
+Bencorragh,1a,1b,1.0,124,4.9
+Dol-cyn-afon Lower Mudstone,1a,1b,1.0,124,4.9
+Nant-Ddu,1a,1b,1.0,124,4.9
+Tremadoc Shale,1a,1b,1.0,124,4.9
+Alum Shale Upper,1a,1b,1.0,276,4.9
+Floresta Upper,1a,1b,1.0,276,4.9
+Tekhten,5d,6c,3.0,328,4.9
+Lancefieldian 1,1a,1b,1.0,12,4.9
+Xiadumudi,1a,1b,1.0,250,4.9
+Victorio Hills,1b,1b,0.0,207,4.9
+Big Hatchet,1b,1b,0.0,192,4.9
+Lancefieldian 1b,1b,1b,0.0,230,4.9
+Gunter Sandstone,1a,1b,1.0,"385, 59",4.9
+Erduqiao,1a,1b,1.0,54,4.9
+Caldera,1a,1a,0.0,276,4.9
+Cardonal,1a,1a,0.0,274,4.9
+Devendeus,1a,1b,1.0,273,4.9
+Lower Tremadocian,1a,1a,0.0,318,4.9
+Casa Colorada,1a,1b,1.0,290,4.9
+Mansian,1a,1a,0.0,107,4.9
+Aktau,1a,1a,0.0,345,4.9
+Ungur,1a,1a,0.0,345,4.9
+Putty Shale,1a,1a,0.0,190,4.9
+Loushanguan,1a,1a,0.0,349,4.9
+Koporye,1a,1a,0.0,350,4.9
+Torsugtagh,1a,1a,0.0,78,4.9
+Cass Fjord,1a,1a,0.0,42,4.9
+Iscayachi,1a,1a,0.0,237,4.9
+Cass Fjord C,1a,1a,0.0,114,4.9
+Turner Cliffs Lower,1a,1a,0.0,114,4.9
+Cass Fjord D,1a,1a,0.0,114,4.9
+San José,1a,1a,0.0,"276, 273",4.9
+Dagger Flat,1a,1a,0.0,114,4.9
+Guanyintai,1a,1a,0.0,52,4.9
+Tungtzu Lower,1a,1a,0.0,54,4.9
+Mireles,1a,1a,0.0,252,4.9
+Sokoli,1a,1a,0.0,346,4.9
+Dictyonema Band,1a,1a,0.0,124,4.9
+Dol-cyn-afon Lower Sandstone,1a,1a,0.0,124,4.9
+Niobe,1a,1a,0.0,124,4.9
+Alum Shale Lower,1a,1a,0.0,276,4.9
+Foum Tineslem Glauconitic Shaly,1a,1a,0.0,238,4.9
+pre Lancefieldian 1,1a,1a,0.0,12,4.9
+Wangjuanshu,1a,1a,0.0,378,4.9
+Schaghticoke,1a,1a,0.0,167,4.9
+Coquina,1a,1a,0.0,276,4.9
+Floresta Lower,1a,1a,0.0,276,4.9
+Tosna,1a,1a,0.0,350,4.9
+Xilingxia,1a,1a,0.0,61,4.9
+Aspero,1a,1a,0.0,276,4.9
+Upper Berounian,5d,6a,1.0,321,4.9
+Korgessaare,5d,6a,1.0,9,4.9
+Meilunai,5d,6a,1.0,10,4.9
+Tudulinna,5d,6a,1.0,9,4.9
+Quwara,5d,6c,3.0,249,4.9
+Rouid-Assa,5d,6a,1.0,249,4.9
+Amouguer,5c,6a,2.0,238,4.9
+Rosan Limestone,5d,6c,3.0,238,4.9
+Rosan Tuff,5d,6c,3.0,238,4.9
+Upper Tiouririne,5d,6a,1.0,238,4.9
+Moe,5d,6a,1.0,9,4.9
+Svedasai,5d,6a,1.0,10,4.9
+Halliku,6a,6b,1.0,9,4.9
+Jelgava,6a,6b,1.0,9,4.9
+Oostriku,6a,6b,1.0,10,4.9
+Tootsi,5d,6a,1.0,8,4.9
+Saturday Mountain,5c,6a,2.0,361,4.9
+Dolbor,5d,6a,1.0,346,4.9
+C3,5c,6a,2.0,194,4.9
+C4,5c,6a,2.0,194,4.9
+C5,5c,6c,4.0,194,4.9
+Trentonian,5d,6a,1.0,167,4.9
+Chakyrskii,5b,6a,3.0,346,4.9
+Padun,5c,6a,2.0,317,4.9
+Tajmyr,5c,6c,4.0,346,4.9
+Bulukhta,5c,6a,2.0,281,4.9
+Sericoidea Mudstone,5b,6a,3.0,241,4.9
+Grjazno,5b,6a,3.0,350,4.9
+Shundorovo,5b,6a,3.0,350,4.9
+Ashgillian,5b,6c,5.0,399,4.9
+Abarsaj,6a,6c,2.0,91,4.9
+Ktaoua Upper,6a,6b,1.0,238,4.9
+Bolindian 1,6a,6a,0.0,12,4.9
+Georgian Bay Lower,5d,6b,2.0,63,4.9
+Meaford,6a,6b,1.0,63,4.9
+Kagawong,6a,6b,1.0,63,4.9
+Ka4,6b,6b,0.0,13,4.9
+Bighorn Dolomite,5d,6b,2.0,149,4.9
+Brainard,6a,6a,0.0,149,4.9
+Clermont,6a,6a,0.0,149,4.9
+Fort Atkinson,6a,6a,0.0,149,4.9
+Sylvan,6a,6a,0.0,149,4.9
+Wufeng,6a,6a,0.0,64,4.9
+Yinpingshan,6a,6a,0.0,74,4.9
+Tierekeawati,6a,6c,2.0,200,4.9
+Bétancour River,6a,6a,0.0,340,4.9
+Pontgravé River,5d,6a,1.0,340,4.9
+Billy's Beck,6a,6b,1.0,124,4.9
+Dietkinskii,6a,6c,2.0,346,4.9
+Ka3,6a,6a,0.0,13,4.9
+Pabos,5d,6c,3.0,312,4.9
+Jerrestad,6a,6a,0.0,296,4.9
+Hartfell Shale Upper,6a,6c,2.0,92,4.9
+Mazury,5d,6a,1.0,240,4.9
+Portrane Limestone,6a,6b,1.0,124,4.9
+Sholeshook Limestone,5d,6a,1.0,92,4.9
+Wolka,5d,6b,2.0,240,4.9
+Ayles,6a,6a,0.0,270,4.9
+Taconite River,6a,6a,0.0,270,4.9
+Zebra Cliffs,6a,6a,0.0,270,4.9
+Westfield,6c,6c,0.0,226,4.9
+Elkhorn,6a,6a,0.0,46,4.9
+Whitewater,6a,6a,0.0,46,4.9
+Montoya,5d,6b,2.0,149,4.9
+Maquoketa Shale,5d,6c,3.0,154,4.9
+Orchard Creek Shale,5d,6c,3.0,154,4.9
+Badanjilin,6a,6c,2.0,250,4.9
+Bajiaokou,6a,6c,2.0,250,4.9
+Bulongguoer,6a,6a,0.0,250,4.9
+Chientsaokou,6a,6a,0.0,"64, 54",4.9
+Dapingzi,5d,6c,3.0,250,4.9
+Gangmusang,6a,6b,1.0,250,4.9
+Gangoucun,5d,6a,1.0,250,4.9
+Hongshantou,5d,6c,3.0,250,4.9
+Huangnekang,6a,6a,0.0,54,4.9
+Hudukedaban,5d,6a,1.0,250,4.9
+Liangchakou,6a,6c,2.0,250,4.9
+Linhsiang,6a,6a,0.0,64,4.9
+Luofengxi Lower,6a,6c,2.0,250,4.9
+Nanshimenzi,6a,6a,0.0,250,4.9
+Pulong,6a,6a,0.0,250,4.9
+Pupiao Upper,5d,6a,1.0,250,4.9
+Shiyanhe,6a,6a,0.0,250,4.9
+Tangtou,6a,6a,0.0,250,4.9
+Tianlingkou,6a,6a,0.0,250,4.9
+Tianmashan,6a,6a,0.0,250,4.9
+Xiehao,5d,6a,1.0,250,4.9
+Yantsin,6a,6a,0.0,52,4.9
+Bétancour,6a,6a,0.0,340,4.9
+Carmel River,6a,6a,0.0,340,4.9
+Ballvorgal,6a,6c,2.0,124,4.9
+Barren Mudstone,6a,6c,2.0,124,4.9
+Cautley Mudstone,5d,6b,2.0,124,4.9
+Gortnagleav,5d,6c,3.0,124,4.9
+Groomsport,6a,6b,1.0,124,4.9
+Killey Bridge,6a,6b,1.0,124,4.9
+Lackan,5d,6c,3.0,124,4.9
+Mill,6a,6a,0.0,124,4.9
+Oriel Brook,6a,6b,1.0,124,4.9
+Rockport,5d,6a,1.0,124,4.9
+Sandeel,5d,6a,1.0,124,4.9
+Shalloch,6a,6a,0.0,124,4.9
+Shinnel,6a,6b,1.0,124,4.9
+Tweeddale,6a,6a,0.0,124,4.9
+Nirundian,6a,6a,0.0,27,4.9
+Big Hill,6a,6c,2.0,136,4.9
+Stonington,5d,6b,2.0,136,4.9
+Skjerholmen,6a,6a,0.0,28,4.9
+Skogerholmen,6a,6b,1.0,28,4.9
+Gamme,6a,6a,0.0,29,4.9
+Grimsøya,5d,5d,0.0,28,4.9
+Lunner,6a,6a,0.0,29,4.9
+Jerrestad Mudstone,6a,6a,0.0,296,4.9
+Blue Mountain,5c,6a,2.0,63,4.9
+Orlovskii,6a,6c,2.0,346,4.9
+Changwu,6a,6a,0.0,60,4.9
+Sanjushan,6a,6a,0.0,62,4.9
+Xiazhen,6b,6b,0.0,54,4.9
+Rhiwlas Limestone,6a,6a,0.0,92,4.9
+Hadabulaketag,6a,6a,0.0,250,4.9
+Liujiapo,6a,6b,1.0,250,4.9
+Nacheng,6a,6c,2.0,250,4.9
+Xinling,6a,6c,2.0,250,4.9
+Auldthorns,6a,6a,0.0,124,4.9
+Balbriggan,6a,6c,2.0,124,4.9
+Ballymacormick,6a,6b,1.0,124,4.9
+Black Shales,6a,6b,1.0,124,4.9
+Bodeidda Mudstone,6a,6b,1.0,124,4.9
+Broad Vein,6a,6b,1.0,124,4.9
+Crugan Mudstone,6a,6b,1.0,124,4.9
+Ettrickbridge,6a,6c,2.0,124,4.9
+Kildare Limestone,6a,6b,1.0,240,4.9
+Lady Burn,6a,6a,0.0,124,4.9
+Llangranog,6a,6c,2.0,124,4.9
+Moelfryn Mudstone,6a,6b,1.0,124,4.9
+Narrow Vein,6a,6b,1.0,124,4.9
+Quarrel Hill,6a,6a,0.0,124,4.9
+Red Vein,6a,6b,1.0,124,4.9
+Redhill,6a,6b,1.0,124,4.9
+Robeston Walhen,6a,6b,1.0,124,4.9
+Slade,6a,6b,1.0,124,4.9
+Smelt Mill,6a,6c,2.0,124,4.9
+Tresaith,6a,6b,1.0,124,4.9
+Burian,6b,6c,1.0,399,4.9
+Sanqushan,6a,6a,0.0,60,4.9
+Daduhe,6a,6a,0.0,64,4.9
+Hongjiawu,6a,6c,2.0,53,4.9
+Wenchang,6a,6c,2.0,53,4.9
+Yankou,6c,6c,0.0,95,4.9
+Yuchien,6a,6a,0.0,53,4.9
+Grindstone,6b,6c,1.0,82,4.9
+Prinsta,6c,6c,0.0,82,4.9
+Velleda,6b,6c,1.0,82,4.9
+Chebor,6c,6c,0.0,329,4.9
+Bolindian 2,6a,6a,0.0,12,4.9
+Elgin,5d,5d,0.0,149,4.9
+Sylvan Shale,5d,5d,0.0,39,4.9
+Hi1,6c,6c,0.0,13,4.9
+Takche,5d,6c,3.0,152,4.9
+Liberty,5d,5d,0.0,46,4.9
+Waynesville,5d,6c,3.0,25,4.9
+Cape La Croix Shale,5d,6c,3.0,154,4.9
+Cape Limestone,5c,6c,4.0,154,4.9
+Giradeau Limestone,5d,6c,3.0,154,4.9
+Leemon,5d,6c,3.0,154,4.9
+Thebes Sandstone,5d,6c,3.0,154,4.9
+HICE,5d,6c,3.0,85,4.9
+Lousy Cove,6c,6c,0.0,82,4.9
+Queenston,5d,6c,3.0,85,4.9
+Cason Shale,5d,6c,3.0,88,4.9
+Keel,5d,6c,3.0,88,4.9
+Polk Creek Shale,5d,6c,3.0,88,4.9
+Uggwa Limestone,5d,6c,3.0,278,4.9
+Wolayer Limestone,5d,6c,3.0,278,4.9
+Tirekhtyakh,6c,6c,0.0,317,4.9
+Hi2,6c,6c,0.0,13,4.9
+Ärina,5d,6c,3.0,9,4.9
+Kuldiga,5d,6c,3.0,9,4.9
+Loka,5d,6c,3.0,9,4.9
+Saldus,5d,6c,3.0,9,4.9
+Moldå Limestone,5c,6c,4.0,212,4.9
+Bighorn Upper,6a,6c,2.0,46,4.9
+Stonewall,6c,6c,0.0,40,4.9
+Stony Mountain,6a,6c,2.0,46,4.9
+Cutter,6a,6c,2.0,39,4.9
+Ely Springs Dolostone,5d,6c,3.0,39,4.9
+Hanson Creek,5d,6c,3.0,39,4.9
+Qiantangjianian,6b,6c,1.0,102,4.9
+Bur,6b,6c,1.0,346,4.9
+Becscie,6c,6c,0.0,46,4.9
+Fox Point,6c,6c,0.0,82,4.9
+Kuili,6c,6c,0.0,9,4.9
+Ulunda,6b,6c,1.0,9,4.9
+Kabala,6c,6c,0.0,10,4.9
+Taucionys,6c,6c,0.0,10,4.9
+Bolindian 4,6c,6c,0.0,12,4.9
+Kyrkås Quartzite,6c,6c,0.0,322,4.9
+Kuanyinchiao,6c,6c,0.0,54,4.9
+Korotkin,6c,6c,0.0,346,4.9
+Durben,6c,6c,0.0,345,4.9
+Vinini,6b,6c,1.0,115,4.9
+Cwmeringllyn,6b,6c,1.0,92,4.9
+Hirnant Limestone,6c,6c,0.0,92,4.9
+Yr Allt,6a,6c,2.0,92,4.9
+Neda,6b,6c,1.0,149,4.9
+Laframboise,6c,6c,0.0,85,4.9
+Danmianshan,6c,6c,0.0,250,4.9
+Lungmachi,6c,6c,0.0,245,4.9
+Wenyaoshu,6b,6c,1.0,250,4.9
+Xainza,6b,6c,1.0,250,4.9
+Xiaoshihugou,6b,6c,1.0,250,4.9
+Cefn Ystradffin,6c,6c,0.0,124,4.9
+Cwm Clyd,6c,6c,0.0,124,4.9
+Cynnant Fach,6a,6c,2.0,124,4.9
+Glenlee,6a,6c,2.0,124,4.9
+Haverford Mudstone,6c,6c,0.0,124,4.9
+High Mains,6b,6c,1.0,124,4.9
+Hirnantia Mudstone,6c,6c,0.0,124,4.9
+Portfield,6a,6c,2.0,124,4.9
+Scrach,6a,6c,2.0,124,4.9
+Sowerthwaite,6a,6c,2.0,124,4.9
+Tirnaskea,6c,6c,0.0,124,4.9
+Wenallt,6a,6c,2.0,124,4.9
+Wharfe,6c,6c,0.0,124,4.9
+Alcaparrosa,6b,6c,1.0,299,4.9
+Don Braulio,6c,6c,0.0,299,4.9
+Archalyk,6b,6c,1.0,316,4.9
+Kravchun,6c,6c,0.0,316,4.9
+Tirehtjah,6b,6c,1.0,316,4.9
+Tshokpar,6b,6c,1.0,316,4.9
+Langøyene,6c,6c,0.0,28,4.9
+Darraweit Guim Mudstone,6c,6c,0.0,216,4.9
+El Golea,6c,6c,0.0,238,4.9
+El Kseib,6c,6c,0.0,238,4.9
+Tamadjert,6c,6c,0.0,238,4.9
+Eusebio Ayala,6c,6c,0.0,261,4.9
+Cerig Gwynion Grits,6c,6c,0.0,283,4.9
+Dyffryn Flags,6c,6c,0.0,283,4.9
+Bolindian 5,6c,6c,0.0,12,4.9
+Casal Carvalhal,6c,6c,0.0,266,4.9
+Ribeira Bracal,6c,6c,0.0,266,4.9
+Ribeira Cimeira,6c,6c,0.0,266,4.9
+Carys Mills,6b,6c,1.0,312,4.9
+Cote de la Surprise,6b,6c,1.0,312,4.9
+Matapédia,6b,6c,1.0,312,4.9
+Listvyanka,6c,6c,0.0,400,4.9
+Vtorye Utyosy,6c,6c,0.0,306,4.9
+Soom Shale,6c,6c,0.0,251,4.9
+Birkhill,6c,6c,0.0,92,4.9
+Cwm-yr-aenthen Shale,6c,6c,0.0,92,4.9
+Manitoulin,6c,6c,0.0,85,4.9
+Anji,6c,6c,0.0,"95, 53",4.9
+Dewukaxia,6c,6c,0.0,250,4.9
+Kaochiapien,6c,6c,0.0,250,4.9
+Lishuwo,6c,6c,0.0,250,4.9
+Maliushuwan,6c,6c,0.0,250,4.9
+Xiaxiang,6c,6c,0.0,250,4.9
+Zhoujiaxi,6c,6c,0.0,250,4.9
+Birkhill Shales,6c,6c,0.0,124,4.9
+Gaerglwyd,6c,6c,0.0,124,4.9
+Garth Bank,6c,6c,0.0,124,4.9
+Chalmak,6c,6c,0.0,298,4.9
+Maut,6c,6c,0.0,298,4.9
+Ulkuntas,6c,6c,0.0,316,4.9
+Sirman,6c,6c,0.0,301,4.9
+Plöcken,6c,6c,0.0,278,4.9
+Dalmanitinovaya Pachka,6c,6c,0.0,329,4.9
+Deep Creek Siltstone,6c,6c,0.0,216,4.9
+Ksar d'Ougarta,6c,6c,0.0,238,4.9
+M'Kratta,6c,6c,0.0,238,4.9
+Halevikdere,6a,6c,2.0,234,4.9
+Djeffara,6c,6c,0.0,249,4.9
+Hassi El Hadjar,6c,6c,0.0,249,4.9
+Kosovo,6c,6c,0.0,249,4.9
+Sarah,6c,6c,0.0,249,4.9
+Upper Second Bani,6c,6c,0.0,238,4.9
+Cosquer,6c,6c,0.0,238,4.9
+Lower Second Bani,6c,6c,0.0,238,4.9
+Loka Upper,6c,6c,0.0,17,4.9
+Bulong,6c,6c,0.0,250,4.9
+Guaizihu,6c,6c,0.0,250,4.9
+Huanghuagou,6c,6c,0.0,250,4.9
+Kaplintake,6c,6c,0.0,250,4.9
+Saltar,6c,6c,0.0,301,4.9
+Dubuque,5d,5d,0.0,149,4.9
+Ka2,5d,5d,0.0,13,4.9
+Nicolet River,5d,5d,0.0,340,4.9
+Pontgravé,5d,5d,0.0,340,4.9
+Sainte-Monique,5d,5d,0.0,340,4.9
+Bills Creek,5d,5d,0.0,136,4.9
+Whetstone Gulf,5d,5d,0.0,39,4.9
+Montu,5d,5d,0.0,8,4.9
+Paekna,5d,5d,0.0,8,4.9
+Eastonian 4,5d,5d,0.0,12,4.9
+Eastonian 3,5d,5d,0.0,12,4.9
+Hasenclever,5d,5d,0.0,211,4.9
+Shikou,5d,5d,0.0,250,4.9
+Groos Quarry,5d,5d,0.0,136,4.9
+Grand Avenue,5d,5d,0.0,184,4.9
+Grand View Sub,5d,5d,0.0,184,4.9
+Taylor Mill Sub,5d,5d,0.0,184,4.9
+Lindsay,5c,5d,1.0,63,4.9
+Mount Auburn,5d,5d,0.0,397,4.9
+Sunset,5d,5d,0.0,397,4.9
+Aleman,5d,5d,0.0,39,4.9
+Bighorn Lower,5d,5d,0.0,46,4.9
+Fremont,5d,5d,0.0,39,4.9
+Maquoketa,5d,5d,0.0,39,4.9
+Bellevue,5d,5d,0.0,397,4.9
+Corryville,5d,5d,0.0,397,4.9
+Fairmount,5d,5d,0.0,397,4.9
+McMicken,5d,5d,0.0,397,4.9
+Miamitown,5d,5d,0.0,397,4.9
+Mount Hope,5d,5d,0.0,397,4.9
+Fish Haven Dolomite,5d,5d,0.0,141,4.9
+Second Value,5d,5d,0.0,39,4.9
+Vasagaard,5d,5d,0.0,296,4.9
+Chakyr,5d,5d,0.0,198,4.9
+Balgaverie,5d,5d,0.0,124,4.9
+Cautley Sandstone,5d,5d,0.0,124,4.9
+Glenwhargen,5d,5d,0.0,124,4.9
+Lapworth,5d,5d,0.0,124,4.9
+Penwhapple,5c,5d,1.0,124,4.9
+Port Cardloch,5c,5d,1.0,124,4.9
+Revelation,5d,5d,0.0,124,4.9
+Wall,5d,5d,0.0,124,4.9
+Whitehouse Sub,5d,5d,0.0,241,4.9
+Venstøp,5d,5d,0.0,28,4.9
+Gagnum,5d,5d,0.0,29,4.9
+Fjäcka Shale,5d,5d,0.0,296,4.9
+Cat Head,5d,5d,0.0,46,4.9
+Dog Head,5d,5d,0.0,46,4.9
+Leigh,5d,6b,2.0,46,4.9
+Red River,5d,6b,2.0,46,4.9
+Selkirk,5d,5d,0.0,46,4.9
+Steamboat Point,5d,5d,0.0,46,4.9
+Yeoman,5d,5d,0.0,46,4.9
+Arnheim,5d,5d,0.0,25,4.9
+Kope isotope carbon excursion,5c,5d,1.0,17,4.9
+Nakkudden,5c,5d,1.0,17,4.9
+Waynesville isotope carbon excursion,5c,5d,1.0,17,4.9
+Gully,5c,5d,1.0,124,4.9
+Myoch,5c,5d,1.0,124,4.9
+Sericoidea,5c,5d,1.0,124,4.9
+Moccasin,5c,5d,1.0,80,4.9
+Yenwashan Member 2,5b,5d,2.0,54,4.9
+Fort Gary,6a,6b,1.0,393,4.9
+Hartaven,6a,6b,1.0,393,4.9
+Herald,6a,6b,1.0,393,4.9
+Penitentiary,6a,6b,1.0,393,4.9
+Fort Garry,6a,6b,1.0,46,4.9
+Horseshoe Mountain,6a,6b,1.0,46,4.9
+Boas River Shale,6a,6b,1.0,394,4.9
+Elkhorn carbone isotope excursion,6a,6b,1.0,46,4.9
+Whitewater isotope carbon excursion,6a,6b,1.0,46,4.9
+Priest Canyon,6a,6b,1.0,39,4.9
+Adila,6a,6b,1.0,9,4.9
+Alksniai,6a,6b,1.0,10,4.9
+Baltinava,6a,6b,1.0,10,4.9
+Ludza,6a,6b,1.0,10,4.9
+Paroveja,6b,6b,0.0,9,4.9
+Aber-Corris,6a,6b,1.0,240,4.9
+Abercwmeiddaw,6a,6b,1.0,240,4.9
+Bar Quartzite,6a,6b,1.0,240,4.9
+Mucronatus,6a,6b,1.0,240,4.9
+Slade and Redhill,6a,6b,1.0,240,4.9
+Appletreeworth,6a,6b,1.0,124,4.9
+Broughton Moor,6a,6b,1.0,124,4.9
+Bryn Nicol,6a,6b,1.0,124,4.9
+Cautley Volcanic,6a,6b,1.0,124,4.9
+Craig Las,6a,6b,1.0,124,4.9
+Cystoid Limestone,6a,6b,1.0,124,4.9
+Dam House Bridge Tuff,6a,6b,1.0,124,4.9
+Deganwy Mudstone,6a,6b,1.0,124,4.9
+Foel-y-Ddinas Mudstone,6a,6b,1.0,124,4.9
+Garnedd-wen,6a,6b,1.0,124,4.9
+Jop Ridding Sandstone,6a,6b,1.0,124,4.9
+Keisley Limestone,6a,6b,1.0,124,4.9
+Kirkley Bank,6a,6b,1.0,124,4.9
+Llwyn-cus Limestone,6a,6b,1.0,124,4.9
+Longsleddale,6a,6b,1.0,124,4.9
+Nantmel,6a,6b,1.0,124,4.9
+Norber,6a,6b,1.0,124,4.9
+Rawtheyan Conglomerates,6a,6b,1.0,124,4.9
+Rawtheyan Mudstone,6a,6b,1.0,124,4.9
+Stile End,6a,6b,1.0,124,4.9
+Swindale,6a,6b,1.0,124,4.9
+Tridwr,6a,6b,1.0,124,4.9
+Troutbeck,6a,6b,1.0,124,4.9
+Wilsey Beck Sandstone,6a,6b,1.0,124,4.9
+Yarlside,6a,6b,1.0,124,4.9
+Drummuck Sub,6a,6b,1.0,241,4.9
+Husbergøya,6a,6b,1.0,28,4.9
+Mill Bay,6b,6b,0.0,46,4.9
+Schmitt Creek,6b,6b,0.0,82,4.9
+Homard,6b,6b,0.0,46,4.9
+Joseph Point,6b,6b,0.0,46,4.9
+Tower,6b,6b,0.0,46,4.9
+Bolindian 3,6b,6b,0.0,12,4.9
+Chokpar,6b,6b,0.0,345,4.9
+South Treave,6b,6b,0.0,124,4.9
+Cashmankalon,6b,6b,0.0,316,4.9
+Bolinda Shale,6b,6b,0.0,216,4.9
+Margenai,6b,6b,0.0,10,4.9
+Burmingham,6b,6b,0.0,312,4.9
+Gaoqiao,1a,2a,4.0,378,5.9
+In Kraf,1a,2a,4.0,238,5.9
+Cow Head,1a,2a,4.0,42,5.9
+Fimbulfjeld,1a,4b,10.0,114,5.9
+466.72,4a,4b,1.0,392,5.9
+467.78,4a,4b,1.0,392,5.9
+Las Chacritas,4a,4c,2.0,15,5.9
+Qasim,4b,6c,8.0,249,5.9
+Cap de la Chevre,2b,3a,2.0,238,5.9
+Suri,2b,3a,2.0,323,5.9
+Valhallfonna,2a,4a,5.0,326,5.9
+Ellenberger,1a,1d,3.0,114,5.9
+Kirtonryggen,1a,2b,5.0,326,5.9
+Long Point,5a,5d,3.0,66,5.9
+Beach Point,5a,5c,2.0,66,5.9
+Black Duck,5a,5c,2.0,66,5.9
+Shore Point,5a,5c,2.0,66,5.9
+Sainte-Rosalle,5c,5d,1.0,340,5.9
+454.07,5b,5c,1.0,214,5.9
+454.09,5b,5c,1.0,214,5.9
+454.65,5b,5c,1.0,214,5.9
+455.21,5b,5c,1.0,214,5.9
+455.23,5b,5c,1.0,214,5.9
+455.4,5b,5c,1.0,214,5.9
+453.9,5b,5c,1.0,214,5.9
+Doularg,5a,5c,2.0,124,5.9
+Austin Glen,5a,5a,0.0,157,5.9
+Indian River,5a,5a,0.0,157,5.9
+Mount Merino,5a,5a,0.0,157,5.9
+453.36,5b,5b,0.0,214,5.9
+453.6,5b,5b,0.0,214,5.9
+453.98,5b,5b,0.0,214,5.9
+454.31,5b,5b,0.0,214,5.9
+454.36,5b,5b,0.0,214,5.9
+454.6,5b,5b,0.0,214,5.9
+Kong Oscar Fjord-Super,5b,5b,0.0,114,5.9
+Pin,5d,6c,3.0,152,5.9
+Djebel Seraf,6c,6c,0.0,238,5.9
+Cedarberg,6c,6c,0.0,251,5.9
+Jifarah,6c,6c,0.0,319,5.9
+Fengfeng Lower,4b,6a,6.0,200,5.9
+Mainland,4b,6a,6.0,66,5.9
+Jerrestadian,6a,6a,0.0,296,5.9
+Queenstone,6a,6a,0.0,340,5.9
+La Pedrera,1a,1a,0.0,276,5.9
+Floresta,1a,1b,1.0,276,5.9
+Lampazar,1a,1b,1.0,290,5.9
+Tinu,1b,1b,0.0,375,5.9
+Bed 6,1a,2a,4.0,42,5.9
+Misty Point,5a,5d,3.0,66,5.9
+Aubin,5c,5d,1.0,340,5.9
+Les Fonds,5c,5d,1.0,340,5.9
+Punta Pétrea,2b,3a,2.0,323,5.9
+Ellenburger,1a,1d,3.0,114,5.9
+Blackjack Knob,2a,2b,1.0,88,5.9
+Bull Shoals,2a,2b,1.0,88,5.9
+Lutie,2a,2b,1.0,88,5.9
+Promenadedal,5b,5b,0.0,114,5.9
+Farka Muth,5d,6c,3.0,152,5.9
+Disa Siltstone,6c,6c,0.0,251,5.9
+Etasje 2e,1a,1a,0.0,29,5.9
+Budhang Chert,2b,2c,1.0,218,"5, 6"
+Yarrimbah,2a,2c,2.0,202,"5, 6"
+Carmarthen,2a,2c,2.0,124,"5, 6"
+Nommeveski,4a,4b,1.0,8,"5, 6"
+Utria,4a,4b,1.0,8,"5, 6"
+Voka,4a,4b,1.0,8,"5, 6"
+Stretinka,2a,4c,7.0,400,"5, 6"
+Goliath Limestone,4a,5c,5.0,204,"5, 6"
+Pioneer,4a,4c,2.0,204,"5, 6"
+Slane,4b,4c,1.0,124,"5, 6"
+Syrin,2a,4c,7.0,399,"5, 6"
+Alakul Limestone,4a,4c,2.0,259,"5, 6"
+Strokestown,4b,6c,8.0,124,"5, 6"
+Abereiddian Upper,4b,4c,1.0,124,"5, 6"
+Malla,4c,4c,0.0,8,"5, 6"
+BC4,4c,5a,1.0,9,"5, 6"
+Guido Shales,4c,4c,0.0,282,"5, 6"
+Gowna,4c,5d,4.0,124,"5, 6"
+Angir,4c,4c,0.0,399,"5, 6"
+Hensleigh Siltstone,2b,2c,1.0,"218, 202","5, 6"
+Yarrimbah Chert,2b,2c,1.0,218,"5, 6"
+Zasur'ya,1a,2c,6.0,400,"5, 6"
+Balnakiel Member 2,1b,2b,4.0,124,"5, 6"
+MR K-bentonite,5c,5c,0.0,211,"5, 6"
+Ottawa,5b,5c,1.0,"86, 51","5, 6"
+Sherman Fall,5c,5c,0.0,39,"5, 6"
+Verulam,5c,5c,0.0,79,"5, 6"
+Shorehamian,5c,5c,0.0,181,"5, 6"
+Kentland,5c,5d,1.0,156,"5, 6"
+Aziral,5c,5c,0.0,265,"5, 6"
+Queixoperra,5c,5c,0.0,265,"5, 6"
+Serra da Cadaveira,5c,5c,0.0,265,"5, 6"
+Caspalá,5c,6c,4.0,272,"5, 6"
+BC6,5c,5c,0.0,9,"5, 6"
+BC8,5c,5c,0.0,9,"5, 6"
+BC9,5c,5d,1.0,9,"5, 6"
+Million,5c,5d,1.0,121,"5, 6"
+Lorraine,5d,5d,0.0,"340, 156","5, 6"
+Catheys,5c,5d,1.0,119,"5, 6"
+Wise Lake,5d,5d,0.0,25,"5, 6"
+Nepean Point,5c,5d,1.0,86,"5, 6"
+Tetreauville,5c,5d,1.0,86,"5, 6"
+Loyal Creek,5c,5d,1.0,189,"5, 6"
+Coburg,5c,5d,1.0,79,"5, 6"
+Pulaski,5d,5d,0.0,156,"5, 6"
+Don River,5c,5d,1.0,121,"5, 6"
+Sheguindah,5c,5d,1.0,121,"5, 6"
+Quinsberry Road K-bentonite,5c,5c,0.0,211,"5, 6"
+Glendale Limestone,5c,5c,0.0,"148, 211","5, 6"
+Westboro K-bentonite,5c,5c,0.0,211,"5, 6"
+Kuyahoora K-Bentonite,5c,5c,0.0,211,"5, 6"
+City Brook,5c,5c,0.0,193,"5, 6"
+Mill Dam Upper,5c,5c,0.0,211,"5, 6"
+Mill Dam Lower,5c,5c,0.0,211,"5, 6"
+Swallowfield K-bentonite,5c,5c,0.0,211,"5, 6"
+Sleepy Hollow K-bentonite,5c,5c,0.0,211,"5, 6"
+Larrabee,5c,5c,0.0,"189, 137","5, 6"
+Cwym-Yr-Eglwys Mudstone,5c,5d,1.0,92,"5, 6"
+Dinas Island,5c,5d,1.0,92,"5, 6"
+Huerva,5c,5c,0.0,310,"5, 6"
+Bedded Pyroclastic,5c,5c,0.0,124,"5, 6"
+Carneddol Rhyolitic Tuff,5c,5c,0.0,124,"5, 6"
+Crafnant Volcanic Lower,5c,5c,0.0,124,"5, 6"
+Crafnant Volcanic Middle,5c,5c,0.0,124,"5, 6"
+Crafnant Volcanic Upper,5c,5c,0.0,124,"5, 6"
+Dolgarrog Volcanic,5c,5c,0.0,124,"5, 6"
+Foel Ddu Rhyodacite,5c,5c,0.0,124,"5, 6"
+Pen-y-gamedd Limestone,5c,5c,0.0,124,"5, 6"
+Penmaen,5c,5c,0.0,124,"5, 6"
+Rhyolitic Tuff Upper,5c,5c,0.0,124,"5, 6"
+Tal y Fan Volcanic,5c,5c,0.0,124,"5, 6"
+Etasje 4bβ,5c,5c,0.0,28,"5, 6"
+Upper Chasmops Shale,5c,5c,0.0,"29, 11","5, 6"
+Etasje 4bγ,5c,5c,0.0,28,"5, 6"
+Upper Chasmops Limestone,5c,5c,0.0,"29, 11","5, 6"
+Etasje 4bδ1-2,5c,5c,0.0,28,"5, 6"
+Bowan Park,5c,5d,1.0,111,"5, 6"
+Canomodine Limestone,5c,5d,1.0,202,"5, 6"
+Cargo Creek Limestone,5c,5d,1.0,87,"5, 6"
+Glen Bell,5c,5d,1.0,202,"5, 6"
+Trelawney Clasts,5c,5d,1.0,202,"5, 6"
+451.08,5c,5c,0.0,388,"5, 6"
+451.2,5c,5c,0.0,388,"5, 6"
+451.32,5c,5c,0.0,388,"5, 6"
+Denmarkian,5c,5c,0.0,181,"5, 6"
+Camp Limestone,5c,5c,0.0,148,"5, 6"
+Denmark Upper,5c,5c,0.0,148,"5, 6"
+Wistanstow,5c,5d,1.0,124,"5, 6"
+Balclatchie,5b,5c,1.0,124,"5, 6"
+Beloit Limestone,5b,5c,1.0,121,"5, 6"
+Pencil Cave K-bentonite,5b,5c,1.0,211,"5, 6"
+453.18,5b,5c,1.0,214,"5, 6"
+453.46,5b,5c,1.0,214,"5, 6"
+454.02,5b,5c,1.0,214,"5, 6"
+454.3,5b,5c,1.0,214,"5, 6"
+453.54,5b,5c,1.0,214,"5, 6"
+453.74,5b,5c,1.0,214,"5, 6"
+453.94,5b,5c,1.0,214,"5, 6"
+453.52,5b,5c,1.0,388,"5, 6"
+453.67,5b,5c,1.0,388,"5, 6"
+453.82,5b,5c,1.0,388,"5, 6"
+Beloit,5b,5c,1.0,210,"5, 6"
+Penyraber,5b,5c,1.0,92,"5, 6"
+Bumballa,5a,5c,2.0,"219, 202","5, 6"
+Sassafras,5a,5c,2.0,204,"5, 6"
+Shadow Lake,5b,5b,0.0,"137, 75","5, 6"
+Georgian Bay,5d,6b,2.0,"63, 137","5, 6"
+Bay de Noc,5d,6b,2.0,156,"5, 6"
+Ogontz,5d,6b,2.0,156,"5, 6"
+Geidziunai,6a,6b,1.0,10,"5, 6"
+Ukmerge,6a,6b,1.0,10,"5, 6"
+Ktaoua,5d,6b,2.0,238,"5, 6"
+Khabt-el-Hajar,6a,6b,1.0,320,"5, 6"
+Mellifont Abbey,5c,6b,3.0,124,"5, 6"
+Herøya,5d,6b,2.0,29,"5, 6"
+Etasje 4d,6a,6b,1.0,28,"5, 6"
+BC12,6a,6b,1.0,9,"5, 6"
+BC13,6a,6b,1.0,9,"5, 6"
+Moe carbon isotope excursion,6a,6b,1.0,9,"5, 6"
+Gulbinai,6a,6b,1.0,10,"5, 6"
+Smilgiai,6a,6b,1.0,10,"5, 6"
+Chair of Kildare Limestone,6a,6b,1.0,41,"5, 6"
+Kanachu,5d,6b,2.0,67,"5, 6"
+Bogolo,6a,6c,2.0,202,"5, 6"
+Oroy,6b,6b,0.0,373,"5, 6"
+Cliff,6b,6b,0.0,124,"5, 6"
+Farden,6b,6b,0.0,124,"5, 6"
+Starfish,6b,6b,0.0,369,"5, 6"
+Waterfall,6b,6b,0.0,124,"5, 6"
+Heramb,3a,4a,2.0,29,"5, 6"
+Megistaspis Limestone,3a,4a,2.0,29,"5, 6"
+Etasje 3cα,3a,4a,2.0,28,"5, 6"
+Pada,3b,4a,1.0,8,"5, 6"
+Adygkhan,2a,4a,5.0,400,"5, 6"
+Yapeenian 1,3b,3b,0.0,12,"5, 6"
+Clays Ferry,5c,5d,1.0,119,"5, 6"
+Hendersonville,5c,5d,1.0,119,"5, 6"
+Inman,5c,5d,1.0,119,"5, 6"
+Leipers Creek Limestone,5c,5d,1.0,121,"5, 6"
+Mannie Shale,5c,5d,1.0,121,"5, 6"
+Slandrom Limestone,5c,5d,1.0,"41, 11","5, 6"
+Syntygan,5b,6c,5.0,400,"5, 6"
+Makarovo,5b,6c,5.0,399,"5, 6"
+Calloway Creek,5d,5d,0.0,119,"5, 6"
+Garrard,5d,5d,0.0,119,"5, 6"
+Tate,5d,5d,0.0,119,"5, 6"
+Beechers Trilobite,5d,5d,0.0,209,"5, 6"
+Fairview isotope carbon excursion,5d,5d,0.0,"9, 25","5, 6"
+Kyzylsai,5d,6a,1.0,67,"5, 6"
+Breault,5d,5d,0.0,351,"5, 6"
+Chambly,5d,5d,0.0,351,"5, 6"
+Sainte-Hilaire,5d,5d,0.0,351,"5, 6"
+Dundas,5d,5d,0.0,156,"5, 6"
+McMillan,5d,5d,0.0,"185, 121","5, 6"
+Gilbert,5d,5d,0.0,"185, 119","5, 6"
+Oswego Sandstone,5d,5d,0.0,156,"5, 6"
+Garrard Upper,5d,5d,0.0,121,"5, 6"
+Vasagaardian,5d,5d,0.0,296,"5, 6"
+Tretaspis Shale Lower,5d,5d,0.0,29,"5, 6"
+Etasje 4cα,5d,5d,0.0,28,"5, 6"
+Black Tretaspis Shale,5d,5d,0.0,11,"5, 6"
+Beke,5a,5a,0.0,67,"5, 6"
+Kreshchenka,5a,5a,0.0,67,"5, 6"
+Sarydzhaz,5a,5a,0.0,67,"5, 6"
+Etasje 4aβ,5a,5a,0.0,28,"5, 6"
+Paperville Shale,5b,5b,0.0,199,"5, 6"
+Cape Discovery,5b,5b,0.0,270,"5, 6"
+Hatter,5b,5b,0.0,137,"5, 6"
+Snyder,5b,5b,0.0,137,"5, 6"
+453.4,5b,5b,0.0,221,"5, 6"
+453.88,5b,5b,0.0,214,"5, 6"
+454.2,5b,5b,0.0,214,"5, 6"
+454.58,5b,5b,0.0,214,"5, 6"
+454.62,5b,5b,0.0,214,"5, 6"
+454.94,5b,5b,0.0,214,"5, 6"
+454.9,5b,5b,0.0,221,"5, 6"
+454.24,5b,5b,0.0,214,"5, 6"
+454.41,5b,5b,0.0,214,"5, 6"
+Vale da Ursa,6c,6c,0.0,"396, 282","5, 6"
+Calcareous Sandstone,6c,6c,0.0,29,"5, 6"
+Etasje 5b,6c,6c,0.0,28,"5, 6"
+Rio Ceira,6c,6c,0.0,328,"5, 6"
+Llandoverian,6c,6c,0.0,"219, 268","5, 6"
+Cobbanah,6c,6c,0.0,219,"5, 6"
+Yalmy,6c,6c,0.0,219,"5, 6"
+Alnif,6c,6c,0.0,126,"5, 6"
+Amouktir,6c,6c,0.0,126,"5, 6"
+Tamekhtart,6c,6c,0.0,126,"5, 6"
+Upper Second Bani Lower,6c,6c,0.0,238,"5, 6"
+Upper Second Bani Upper,6c,6c,0.0,238,"5, 6"
+Er Rwaidat,5d,6a,1.0,126,"5, 6"
+Etasje 4cγ,6a,6a,0.0,28,"5, 6"
+East Brow,6a,6a,0.0,124,"5, 6"
+Escarpment,6a,6a,0.0,124,"5, 6"
+Glenmard,6a,6a,0.0,124,"5, 6"
+Bliss Upper,1a,1b,1.0,138,"5, 6"
+Eminence Dolomite,1a,1b,1.0,88,"5, 6"
+Sailmohr,1a,1b,1.0,124,"5, 6"
+Kielno Variegated Limestone,4a,5c,5.0,38,"5, 6"
+Etasje 3c,3a,4b,3.0,29,"5, 6"
+Alakol,4a,4c,2.0,"259, 133","5, 6"
+Dulankarin,5c,6b,3.0,373,"5, 6"
+Taldyboy,5c,6b,3.0,373,"5, 6"
+Syugaty,5c,6b,3.0,373,"5, 6"
+Corner Limestone,5c,5d,1.0,87,"5, 6"
+Masur Limestone,5c,5d,1.0,11,"5, 6"
+Bestorp Limestone,5c,5d,1.0,315,"5, 6"
+Rifle Hill,5d,5d,0.0,210,"5, 6"
+Sinsinawa,5d,5d,0.0,210,"5, 6"
+Anastrophia,5c,5d,1.0,210,"5, 6"
+Clitambonites Upper,5c,5d,1.0,210,"5, 6"
+Black Trinucleus Shale,5d,5d,0.0,11,"5, 6"
+Chasmops Limestone,4c,5c,3.0,11,"5, 6"
+Ludibundus Limestone,4c,5c,3.0,11,"5, 6"
+Sherman Fall K-bentonite,5c,5c,0.0,211,"5, 6"
+Pen-y-garnedd,5c,5c,0.0,124,"5, 6"
+Norderhov,5c,5c,0.0,341,"5, 6"
+Macrourus Limestone,5c,5c,0.0,11,"5, 6"
+Camp,5c,5c,0.0,181,"5, 6"
+Abak,6b,6b,0.0,373,"5, 6"
+San Gabán,6c,6c,0.0,268,"5, 6"
+Zapla,6c,6c,0.0,"268, 272","5, 6"
+Armorican Quartzite,2a,4a,5.0,282,"5, 6"
+Platyurus Limestone,4c,4c,0.0,"36, 11","5, 6"
+Llanvirnian,4b,4c,1.0,321,"5, 6"
+Saint-Daniel,2a,4c,7.0,175,"5, 6"
+Shin Brook,2a,4c,7.0,175,"5, 6"
+Dryll,3a,4c,4.0,124,"5, 6"
+Golam,3a,4c,4.0,124,"5, 6"
+Nantannog,3a,4c,4.0,124,"5, 6"
+Monte da Sombadeira,4c,4c,0.0,300,"5, 6"
+Tiferouiine,3a,4c,4.0,282,"5, 6"
+Pärsnäs Limestone,4c,4c,0.0,36,"5, 6"
+Mednikovo,4c,4c,0.0,243,"5, 6"
+Vel'cy,4c,4c,0.0,243,"5, 6"
+Llandeilo Flags Lower,4c,4c,0.0,124,"5, 6"
+Avensac,4c,4c,0.0,282,"5, 6"
+Cabril,4c,4c,0.0,300,"5, 6"
+Fonte da Horta,4c,4c,0.0,"300, 282","5, 6"
+Chase Lake,4c,4c,0.0,175,"5, 6"
+Skalka,4c,5a,1.0,254,"5, 6"
+Foel,5c,6a,2.0,124,"5, 6"
+Sugarloaf,5c,5d,1.0,124,"5, 6"
+Barrande's d4,5c,5d,1.0,321,"5, 6"
+Chlustina,5c,5d,1.0,254,"5, 6"
+Nucice,5b,5d,2.0,254,"5, 6"
+Chrustenice,5a,5d,3.0,254,"5, 6"
+Libeň Shale,5a,5d,3.0,254,"5, 6"
+Pointe-Bleue Shales,5d,5d,0.0,79,"5, 6"
+Gulf Stream,5d,5d,0.0,137,"5, 6"
+Barrande's d5,5d,6c,3.0,321,"5, 6"
+Dobilynė,5d,5d,0.0,398,"5, 6"
+Bronsil Shale,1a,1d,3.0,124,"5, 6"
+Micklewood,1a,1d,3.0,124,"5, 6"
+Berw Uchaf Grits,3a,4a,2.0,124,"5, 6"
+Carmel,3a,4a,2.0,124,"5, 6"
+Garth Ferry Grits,3a,4a,2.0,124,"5, 6"
+Llanengan,3a,4a,2.0,124,"5, 6"
+Porth Cynfor Conglomerat,3a,4a,2.0,124,"5, 6"
+Porth Meudwy,3a,4a,2.0,124,"5, 6"
+Slieau Managh Slates,3a,4a,2.0,124,"5, 6"
+Torllwyn,3a,4a,2.0,124,"5, 6"
+Treiorwerth,3a,4a,2.0,124,"5, 6"
+Aguada de la Perdiz,2a,4a,5.0,256,"5, 6"
+Chase Brook,2a,4a,5.0,175,"5, 6"
+Barrancos,2a,4a,5.0,279,"5, 6"
+Bryozoan Limestone,5c,5c,0.0,11,"5, 6"
+Ashes Upper,5b,5c,1.0,124,"5, 6"
+Frobisher Bay,5b,5c,1.0,394,"5, 6"
+Barrande's d3,5b,5c,1.0,321,"5, 6"
+Cernin,5b,5c,1.0,321,"5, 6"
+Trubin Shale,5b,5c,1.0,321,"5, 6"
+Cyrn-y-brain,6b,6b,0.0,302,"5, 6"
+Chasm Creek,6b,6b,0.0,101,"5, 6"
+Dwyfor Mudstone,6b,6b,0.0,308,"5, 6"
+Dolhir,6a,6b,1.0,124,"5, 6"
+Glyn,6b,6c,1.0,124,"5, 6"
+Urbana Limestone,6a,6b,1.0,282,"5, 6"
+Orea,6c,6c,0.0,310,"5, 6"
+Cricor,6c,6c,0.0,302,"5, 6"
+Plas Uchaf,6c,6c,0.0,302,"5, 6"
+Zalesie,6c,6c,0.0,131,"5, 6"
+Cwmere,6c,6c,0.0,92,"5, 6"
+Foel-y-Dolnas Mudstones,6c,6c,0.0,92,"5, 6"
+Cwmcringlyn,6c,6c,0.0,124,"5, 6"
+Fron-frys Slate,6c,6c,0.0,124,"5, 6"
+Graig-wen Sandstone,6c,6c,0.0,124,"5, 6"
+Chavera Shales,6c,6c,0.0,235,"5, 6"
+Gualija,6c,6c,0.0,235,"5, 6"
+Ribeira da Laje,6c,6c,0.0,235,"5, 6"
+Nancheng,6c,6c,0.0,62,"5, 6"
+Lamm Saoz Sandstone,6c,6c,0.0,282,"5, 6"
+Soubirous,6c,6c,0.0,282,"5, 6"
+Guadramil,6c,6c,0.0,328,"5, 6"
+Maceiras,6c,6c,0.0,328,"5, 6"
+Ribeira Guadramil,6c,6c,0.0,328,"5, 6"
+Sobrido,6c,6c,0.0,328,"5, 6"
+Trawscoed,6a,6a,0.0,124,"5, 6"
+Dobrotivá Shale,4c,5a,1.0,254,"5, 6"
+Drabov Quartzite,5a,5b,1.0,254,"5, 6"
+Piasnica Shale,1a,1b,1.0,120,"5, 6"
+El Arich el Megta,2a,4c,7.0,282,"5, 6"
+Barrande's d2,5a,5d,3.0,321,"5, 6"
+Komárov,2a,4a,5.0,254,"5, 6"
+Mynydd Crior,6c,6c,0.0,302,"5, 6"
+Las Majuelas Quartzite,6c,6c,0.0,235,"5, 6"
+Navaldestajo,6c,6c,0.0,235,"5, 6"
+Risquillo,6c,6c,0.0,235,"5, 6"
+Abercrombie,3a,4a,2,219,"5, 6"
+Eritag,1a,2a,4,400,"5, 6"
+Upper Tayanza,1a,2a,4,400,"5, 6"
+Olenty,1a,2c,6,257,"5, 6"
+Kings River Sandstone,3a,4b,3,88,"5, 6"
+Newton Sandstone,3a,4b,3,88,"5, 6"
+Sneeds Limestone,3a,4b,3,88,"5, 6"
+Walli Volcanics,4a,5c,5,202,"5, 6"
+Guragir,4a,4c,2,"34, 335","5, 6"
+Kogashyk,1c,4c,9,"258, 257","5, 6"
+Del'gey,4a,5d,6,399,"5, 6"
+Mid Darriwilian isotope carbon excursion,4b,4c,1,9,"5, 6"
+Gigas Limestone,4a,4c,2,"36, 11","5, 6"
+Vaginatum Limestone,4a,4c,2,"36, 11","5, 6"
+Castillejo,4b,5a,2,310,"5, 6"
+Dot Limestone,4c,5b,2,166,"5, 6"
+Poteet Limestone,4c,5b,2,166,"5, 6"
+Caradocian,5c,5d,1,335,"5, 6"
+Gull River,5a,5c,2,75,"5, 6"
+Milby Chert,2c,3a,1,202,"5, 6"
+Mount Dijou Volcanic,2c,3a,1,202,"5, 6"
+Mummel Chert,2c,3a,1,202,"5, 6"
+Pimbilla Tank,2c,3a,1,202,"5, 6"
+Tabita,2c,3a,1,202,"5, 6"
+Wheeney Creek,2c,3a,1,202,"5, 6"
+Joa,1c,2c,4,8,"5, 6"
+Klooga,1c,2c,4,8,"5, 6"
+Ceratopyge Limestone,1a,1b,1,29,"5, 6"
+Arbuckle,1a,3b,8,113,"5, 6"
+Theodosia,1b,2b,4,88,"5, 6"
+Balnakiel Member 3,1b,2c,5,124,"5, 6"
+Azei,4c,5c,3,282,"5, 6"
+Oued Saret,4c,5c,3,282,"5, 6"
+Botella Quartzite,4c,5c,3,"282, 264","5, 6"
+Duncannon,5a,5d,3,124,"5, 6"
+Maikul,4c,5d,4,133,"5, 6"
+Oisaksaul,4c,5d,4,133,"5, 6"
+Coelosphaeridium,4c,5d,4,29,"5, 6"
+Cyclocrinus,4c,5d,4,29,"5, 6"
+Rägavere,5b,5c,1,"19, 18","5, 6"
+Glauzy,5c,6a,2,"76, 242","5, 6"
+Saku,5b,5c,1,"19, 18","5, 6"
+BC7,5b,5c,1,"18, 19, 9","5, 6"
+Sargaldak,5a,5d,3,67,"5, 6"
+Simard,5b,5d,2,79,"5, 6"
+Humber River,5c,5d,1,121,"5, 6"
+Leipers,5c,5d,1,"121, 119","5, 6"
+Red Sandstone,5c,5d,1,121,"5, 6"
+Yinchuan,5b,6c,5,372,"5, 6"
+Bancos Mixtos,5b,6a,3,282,"5, 6"
+Saint Germain sur Ille Lower,5b,6a,3,282,"5, 6"
+Saint Martin du Bois,5b,6a,3,282,"5, 6"
+Gorey Rhyolite,5b,5d,2,49,"5, 6"
+Rhyolitic Tuff Lower,5b,5d,2,124,"5, 6"
+Riddell Sandstone,5a,6a,4,"219, 218","5, 6"
+Hounsfield K-bentonite,5a,5b,1,"17, 211","5, 6"
+Chambersburg Middle,5a,5c,2,121,"5, 6"
+Swift Current,5a,5c,2,121,"5, 6"
+452.92,5b,5c,1,"214, 388","5, 6"
+Chambersburg Upper,5b,5d,2,121,"5, 6"
+Plunge,5b,5c,1,"398, 398, 395","5, 6"
+Cwm Rhiwarth Siltstone,5b,5d,2,124,"5, 6"
+Ardmillan,5b,6b,4,124,"5, 6"
+Cwm Eigiau Formation,5b,5d,2,124,"5, 6"
+Whittery,5b,5d,2,92,"5, 6"
+Braich tu du Volcanic,5b,5d,2,124,"5, 6"
+Capel Curig Volcanic,5b,5d,2,124,"5, 6"
+Clogwyn Gottal Tuff,5b,5d,2,124,"5, 6"
+Conwy Rhyolite,5b,5d,2,124,"5, 6"
+Cwm Clwyd Tuff,5b,5d,2,124,"5, 6"
+Foel Fras Volcanic Complex,5b,5d,2,124,"5, 6"
+Foel Grach Basalt,5b,5d,2,124,"5, 6"
+Gwern Gof Tuff,5b,5d,2,124,"5, 6"
+Moel Hebog Sandstone,5b,5d,2,124,"5, 6"
+Pandy Tuff,5b,5d,2,124,"5, 6"
+Pen-y-plaenau Siltstone,5b,5d,2,124,"5, 6"
+Penamnen Tuff,5b,5d,2,124,"5, 6"
+Prenteg Sandstone,5b,5d,2,124,"5, 6"
+Pwll-y-Glo,5b,5d,2,124,"5, 6"
+Swch Gorge Tuff,5b,5d,2,124,"5, 6"
+Teirw Siltstone,5b,5d,2,124,"5, 6"
+Glyn Gower Siltstones,5b,5d,2,124,"5, 6"
+Coboconc,5a,5c,2,"137, 156","5, 6"
+Villar del Salz,3a,5a,5,330,"5, 6"
+Iltyk,3a,4c,4,34,"5, 6"
+Algabas,5a,5d,3,258,"5, 6"
+Andryushina,5a,5d,3,67,"5, 6"
+Erkebidaik,5a,5d,3,67,"5, 6"
+Sørbakken,5d,6b,2,29,"5, 6"
+Nucula,5c,5d,1,210,"5, 6"
+Rowland,5c,6b,3,119,"5, 6"
+Tchertovskaya,5a,5b,1,399,"5, 6"
+Trelowgoed Volcanic,5a,5b,1,124,"5, 6"
+Izgouiren,4b,5a,2,304,"5, 6"
+Vilučiai,5b,5c,1,"395, 398, 395","5, 6"
+Roaring Spring,5b,5c,1,388,"5, 6"
+452.59,5b,5c,1,214,"5, 6"
+452.85,5b,5c,1,214,"5, 6"
+453.16,5b,5c,1,214,"5, 6"
+453.47,5b,5c,1,214,"5, 6"
+453.73,5b,5c,1,214,"5, 6"
+MH K-bentonite,5a,5b,1,211,"5, 6"
+MX K-bentonite,5a,5b,1,211,"5, 6"
+Oregon Dolomite,5a,5b,1,121,"5, 6"
+Žarėnai,5b,5c,1,398,"5, 6"
+Barn Hills,5c,6c,4,147,"5, 6"
+Floride,5c,6c,4,147,"5, 6"
+Ibex,5c,6c,4,147,"5, 6"
+Lost Canyon,5c,6c,4,147,"5, 6"
+Tchanganda,6a,6c,2,27,"5, 6"
+Lower Second Bani Lower,6b,6c,1,238,"5, 6"
+Lower Second Bani Upper,6b,6c,1,238,"5, 6"
+Povorot,5c,6a,2,354,"5, 6"
+Kjørrven,6a,6b,1,29,"5, 6"
+Nyai,1a,1b,1,"335, 289","5, 6"
+Etasje 3aγ,1a,1b,1,28,"5, 6"
+Oil Creek Lower,3a,4b,3,88,"5, 6"
+Bendigonian 4,2c,3a,1,202,"5, 6"
+Bendoc,4b,6c,8,"218, 202","5, 6"
+BC2,4b,4c,1,9,"5, 6"
+Alvitas,5b,5c,1,"398, 395","5, 6"
+Šakiai,5b,5c,1,"398, 395","5, 6"
+Melaz Shuqran,5c,5d,1,319,"5, 6"
+M'Clintock,5c,5d,1,270,"5, 6"
+Bluffer Pond,4c,5d,4,175,"5, 6"
+Wassataquoik Chert,4c,5d,4,175,"5, 6"
+Triplecia,5c,5d,1,210,"5, 6"
+Etasje 4c,5d,6b,2,29,"5, 6"
+Swan Creek Limestone,5c,5d,1,121,"5, 6"
+Fombuena,5b,5d,2,310,"5, 6"
+Cabonne,5a,6c,6,"202, 218","5, 6"
+La Venta,3a,5a,5,330,"5, 6"
+Torremägi,5b,5c,1,8,"5, 6"
+Berriefield K-bentonite,5a,5b,1,211,"5, 6"
+O1,5c,6c,4,147,"5, 6"
+O2,5c,6c,4,147,"5, 6"
+O4,5c,6c,4,147,"5, 6"
+O5,5c,6c,4,147,"5, 6"
+O3,5c,6c,4,147,"5, 6"
+Odargowo Limestone,1a,2c,6,38,"5, 6"
+Calymenella Quartzite,5c,6a,2,303,"5, 6"
+Pljussa,5c,5d,1,350,"5, 6"
+Melez Chograne,5c,5d,1,319,"5, 6"
+Mosalem,6a,6c,2,25,"5, 6"
+Elizavetino,5b,5c,1,243,"5, 6"
+Jelizavetino,5b,5c,1,350,"5, 6"
+Drūkšiai,5b,5c,1,398,"5, 6"
+Dysna,5b,5c,1,398,"5, 6"
+Turisalu,1a,1b,1,8,"5, 6"
+Tomahawk,1a,2a,4,227,"5, 6"
+Booley Bay,1a,4a,9,49,"5, 6"
+Ribband,1a,4b,10,124,"5, 6"
+Ust'-Kutian,1a,4a,9,335,"5, 6"
+Aiyan,1a,4c,11,201,"5, 6"
+Bolgozha,2a,4c,7,133,"5, 6"
+Karatal,2a,4c,7,133,"5, 6"
+Zhalgyz,1a,4a,9,133,"5, 6"
+Santa Justa,1a,2c,6,134,"5, 6"
+Valongo,2a,4c,7,134,"5, 6"
+Etasje 3bα,1c,2c,4,28,"5, 6"
+Adaminaby,2b,4c,6,"132, 219","5, 6"
+Girilambone,2b,4c,6,"132, 219","5, 6"
+Hotham,1b,5c,13,219,"5, 6"
+Kangerong,1b,3b,7,219,"5, 6"
+Narrama,1b,2c,5,"202, 219","5, 6"
+Pinnak Sandstone,1b,4c,10,219,"5, 6"
+Wagga,1b,4c,10,202,"5, 6"
+Willigam Sandstone,1a,3b,8,"219, 202","5, 6"
+Mitchell,1a,2b,5,218,"5, 6"
+Clements,2b,5a,7,219,"5, 6"
+Lonan Flag,2a,3a,3,124,"5, 6"
+Bendigonian 2,2a,2c,2,"124, 12","5, 6"
+Suetka,1a,2a,4,400,"5, 6"
+Tekelya,1a,2a,4,400,"5, 6"
+Ceratopyge Shale,1a,2c,6,"36, 257","5, 6"
+Santa Victoria,1a,2c,6,290,"5, 6"
+Tagoat,2a,4c,7,124,"5, 6"
+Lower Abereiddian,3a,4c,4,124,"5, 6"
+Gillberga,3a,4b,3,36,"5, 6"
+Asaphus Limestone,3b,4c,3,"36, 11","5, 6"
+Hjorthamn Limestone,3a,4b,3,36,"5, 6"
+Lepidurus Limestone,3a,4b,3,36,"5, 6"
+Limbata Limestone,2b,4b,5,"36, 11","5, 6"
+Napa,4a,4c,2,8,"5, 6"
+Ubari,4a,4c,2,8,"5, 6"
+Valgejoe,4a,4c,2,8,"5, 6"
+Karasa,3a,4c,4,400,"5, 6"
+Kosbazhi,3a,4c,4,400,"5, 6"
+Samysh Body,3a,6a,9,400,"5, 6"
+Tozodov Body,3a,4c,4,400,"5, 6"
+Ballast,3b,4c,3,202,"5, 6"
+Lang,2b,4c,6,219,"5, 6"
+Peach Tree Chert,2b,4c,6,202,"5, 6"
+Moina Sandstone,2c,4c,5,204,"5, 6"
+Gidyen Volcanic,2c,4c,5,218,"5, 6"
+Numeralla Chert,2b,4c,6,202,"5, 6"
+Weemalla,4a,4c,2,132,"5, 6"
+Cargo Volcanics,4a,5c,5,202,"5, 6"
+Coombing,4a,5c,5,202,"5, 6"
+Fairbridge Volcanics,5a,5c,2,"231, 202","5, 6"
+Goonumbla Volcanics,5a,6b,5,"111, 202","5, 6"
+Northparkes,4a,6a,7,202,"5, 6"
+Pittman,2b,5c,9,202,"5, 6"
+Rowena,1a,4b,10,202,"5, 6"
+Kopalino Limestone,3a,4c,4,38,"5, 6"
+Endoceratid Limestone,4a,4b,1,29,"5, 6"
+Etasje 3cγ,4a,4b,1,28,"5, 6"
+Hyssington Volcanic,4b,4c,1,124,"5, 6"
+Stapeley Volcanic,4b,4c,1,124,"5, 6"
+Chunian,3a,4c,4,335,"5, 6"
+Chunsk,3a,4c,4,335,"5, 6"
+Krivolukian,4a,4c,2,335,"5, 6"
+Krivolutsk,4a,4c,2,335,"5, 6"
+Baykit,4a,4c,2,34,"5, 6"
+Badaran,3a,4b,3,"289, 335","5, 6"
+Baikit,4a,4c,2,"27, 399","5, 6"
+Kotchakan Middle,3a,4c,4,27,"5, 6"
+Kotchakan Upper,4a,4c,2,27,"5, 6"
+Sokhsolokh,3a,4b,3,"27, 335","5, 6"
+Tura,3a,4c,4,399,"5, 6"
+Badoranovka,3a,4c,4,399,"5, 6"
+Kotchakan,1a,4c,11,399,"5, 6"
+Kuntykakhin,4a,4c,2,399,"5, 6"
+Nalednaya,3a,4c,4,399,"5, 6"
+Potchet,2a,4c,7,399,"5, 6"
+Stan,3a,5a,5,335,"5, 6"
+Sytykan,4a,4c,2,399,"5, 6"
+Totchinoye,1a,4c,11,399,"5, 6"
+Ust-Stolbovaya,4a,5a,3,"289, 335","5, 6"
+BIII_alpha,1a,4b,10,236,"5, 6"
+BII_alpha,1a,4b,10,236,"5, 6"
+BII_beta,1a,4b,10,236,"5, 6"
+BII_gamma,1a,4b,10,236,"5, 6"
+BI_alpha,1a,4b,10,236,"5, 6"
+BI_beta,1a,4b,10,236,"5, 6"
+BI_gamma,1a,4b,10,236,"5, 6"
+Kyzyltash,2a,4c,7,400,"5, 6"
+Akzhal,1a,4c,11,258,"5, 6"
+Kushaky,2a,4c,7,258,"5, 6"
+Bajkit,3a,4c,4,335,"5, 6"
+Kochakan,3a,4c,4,335,"5, 6"
+Nizhnya,3a,5a,5,335,"5, 6"
+Mamyr,4a,5a,3,"289, 335","5, 6"
+Sygytaj,3a,4c,4,335,"5, 6"
+Tareev,4a,4c,2,399,"5, 6"
+Miboshan,3b,4c,3,372,"5, 6"
+Pogonip,1a,5b,13,114,"5, 6"
+Orthoceras Limestone,1c,4c,9,11,"5, 6"
+Dzhambul,1a,4c,11,258,"5, 6"
+Karakan,4a,4c,2,258,"5, 6"
+Krivaya Luka,4a,4c,2,399,"5, 6"
+Malykaya,4a,4c,2,27,"5, 6"
+Uststolbovaya,4c,5b,2,34,"5, 6"
+Andotchin,4a,4c,2,399,"5, 6"
+Ilyinka Ser.,4a,6c,9,399,"5, 6"
+Iogach Body,4a,6c,9,400,"5, 6"
+Pichikhem,4a,6a,7,400,"5, 6"
+Cephalopod Shale,4b,4c,1,29,"5, 6"
+Ogygiocaris Shale,4b,4c,1,29,"5, 6"
+Upper Didymograptus Shale,4b,4c,1,29,"5, 6"
+Etasje 4aα,4b,4c,1,28,"5, 6"
+Obtusicauda Limestone,4a,4c,2,"36, 11","5, 6"
+Tramore,4b,6a,6,49,"5, 6"
+Lurich,3a,5c,7,389,"5, 6"
+Whistle Creek Limestone,3a,5c,7,83,"5, 6"
+Doongala Chert,2b,4c,6,202,"5, 6"
+Mozart Chert,4a,4c,2,202,"5, 6"
+Sunlight Creek,4b,5c,4,"219, 202","5, 6"
+Whinfell Chert,4a,4c,2,202,"5, 6"
+Gordon,4a,5c,5,204,"5, 6"
+Standard Hill,4a,4c,2,204,"5, 6"
+Capillas,4a,4c,2,272,"5, 6"
+BC3,4a,4c,2,9,"5, 6"
+Sueve,4c,5a,1,280,"5, 6"
+Castlemaine,2c,4c,5,219,"5, 6"
+Ugbrook,4c,5c,3,"204, 229","5, 6"
+Gunnars Dam,4a,5c,5,231,"5, 6"
+Blayney Volcanics Lower,4a,5c,5,202,"5, 6"
+Sofala Volcanics,5a,5d,3,"231, 202","5, 6"
+Cliffield,3a,5b,6,123,"5, 6"
+Chickamauga,1a,5d,15,80,"5, 6"
+Murfreesboro,4c,5c,3,119,"5, 6"
+Fleury,4c,5c,3,143,"5, 6"
+Head,4c,5c,3,143,"5, 6"
+Scott,4c,5c,3,143,"5, 6"
+Wait,4c,5c,3,143,"5, 6"
+Kiren-Kudri,4c,5a,1,289,"5, 6"
+Amarkan,4c,5a,1,"399, 34","5, 6"
+Zagornyi,5a,5d,3,27,"5, 6"
+Moyerokan,4c,5a,1,"399, 27","5, 6"
+Stan Lower,4c,5b,2,27,"5, 6"
+Ancherik,4c,5a,1,335,"5, 6"
+Bratsk,4c,5a,1,335,"5, 6"
+Mojeron,4c,5a,1,335,"5, 6"
+Srednya,4c,5a,1,335,"5, 6"
+Verkhnya,4c,5a,1,335,"5, 6"
+Kirenskian,4a,4c,2,335,"5, 6"
+Igzert,4b,4c,1,304,"5, 6"
+Postolonnec Upper,3b,5b,5,"363, 224","5, 6"
+Oininirhene,4b,4c,1,304,"5, 6"
+Kudrinan,4a,4c,2,335,"5, 6"
+Antcherikov,4a,4c,2,399,"5, 6"
+Yst'nalednaya,4a,6c,9,399,"5, 6"
+BIII_beta,2c,4c,5,236,"5, 6"
+BIII_gamma,2c,4c,5,236,"5, 6"
+Moore Hill,1b,5b,12,156,"5, 6"
+Planilimbata Limestone,1a,3a,7,"36, 11","5, 6"
+Caroline Creek Sandstone,1a,3b,8,"204, 218","5, 6"
+Flowery Gully Limestone,2c,4c,5,204,"5, 6"
+Pingbilly,2c,3b,2,202,"5, 6"
+Durness,1a,3a,7,"124, 114","5, 6"
+Croisaphuill Member 5,2a,3a,3,124,"5, 6"
+Croisaphuill Member 6,2a,3a,3,124,"5, 6"
+Ungava Bay,2a,3a,3,394,"5, 6"
+Colomendy,2b,3a,2,124,"5, 6"
+McKelligon Canyon Upper,1b,2c,5,138,"5, 6"
+Dounans,1b,2c,5,307,"5, 6"
+School House Hill,1a,2c,6,365,"5, 6"
+El Paso,3a,4a,2,39,"5, 6"
+Bat Cave,1b,5c,13,56,"5, 6"
+Bendigonian 3,2a,2c,2,"124, 12","5, 6"
+Black Rock,1b,2c,5,88,"5, 6"
+Mäeküla,2a,2c,2,8,"5, 6"
+McKelligon Canyon Lower,1b,2c,5,138,"5, 6"
+Cabbage Tree,1a,2c,6,204,"5, 6"
+Roland Conglomerate,1a,2c,6,204,"5, 6"
+Dikari,2c,4a,3,31,"5, 6"
+Breanoge,1a,4a,9,49,"5, 6"
+Lancefieldian 2a,1a,2a,4,230,"5, 6"
+Rich Fountain,1b,1d,2,356,"5, 6"
+Nelungaloo Volcanics,1a,2c,6,"202, 218","5, 6"
+Darneyre,1a,1d,3,282,"5, 6"
+Churchill Sandstone,1a,2c,6,204,"5, 6"
+Mount Field,1a,2c,6,204,"5, 6"
+Pontoon Hill,1a,2c,6,204,"5, 6"
+Isthmus Bay,1a,2b,5,42,"5, 6"
+Balnakiel Member 4,1b,2c,5,124,"5, 6"
+Anagua,2b,5c,9,282,"5, 6"
+Ohanet,2b,5c,9,282,"5, 6"
+Oued Ahara,2b,5c,9,282,"5, 6"
+Ktaoua Lower,5a,6b,5,238,"5, 6"
+Duncannon Volcanic,4c,5d,4,49,"5, 6"
+Benglog,5a,5d,3,124,"5, 6"
+Craig y Ffynnon,5a,5d,3,124,"5, 6"
+Garwallt,5a,5d,3,124,"5, 6"
+Gwern-feifod,5a,5d,3,124,"5, 6"
+Melau Lower,5a,5d,3,124,"5, 6"
+Narberth,5a,5d,3,124,"5, 6"
+Pedwardine,2a,5c,10,124,"5, 6"
+Pen-y-gadair Volcanic,5a,5d,3,124,"5, 6"
+Rhyd Melange,5a,5d,3,124,"5, 6"
+Serw Volcanic,4b,5d,5,124,"5, 6"
+Ty'r Gawen Mudstone,5a,5d,3,124,"5, 6"
+Cantera Shales,5a,5d,3,282,"5, 6"
+Carregueira,5a,5d,3,"328, 300","5, 6"
+Intermediate Shales,5a,5c,2,282,"5, 6"
+Le Tertre Chapon,5a,5c,2,282,"5, 6"
+Tramore Volcanic Lower,5a,5c,2,49,"5, 6"
+Gordon Limestone Sub,3a,4c,4,217,"5, 6"
+Kaki Bukit,4a,6c,9,24,"5, 6"
+Lehtmetsa,5a,5c,2,"19, 18","5, 6"
+Pääsküla,5a,5c,2,"19, 18","5, 6"
+Saue,5a,5c,2,"19, 18","5, 6"
+Baksanian,4c,6c,7,335,"5, 6"
+Mangazeian,4c,6c,7,335,"5, 6"
+Baigara,4c,5c,3,"133, 258","5, 6"
+Harjala,4c,6c,7,2,"5, 6"
+Upham,4c,6c,7,138,"5, 6"
+Benjamin,4c,6a,5,229,"5, 6"
+Ancistroceras Limestone,4c,5c,3,11,"5, 6"
+Crassicauda Limestone,4c,5c,3,11,"5, 6"
+Cystidean Limestone,4c,5c,3,11,"5, 6"
+Echinosphaerites Limestone,4c,5c,3,11,"5, 6"
+Lower Chasmops Limestone,4c,5c,3,11,"5, 6"
+Ampyx Limestone,4c,5c,3,29,"5, 6"
+Lower Chasmops Shale,4c,5c,3,29,"5, 6"
+Robergia,4c,5d,4,29,"5, 6"
+Corsewall,4c,5c,3,124,"5, 6"
+Deschambault,5b,5c,1,86,"5, 6"
+Bobcaygeon,5b,5c,1,"86, 22","5, 6"
+Rocklandian,5a,5c,2,211,"5, 6"
+Balsamian,5b,5c,1,26,"5, 6"
+Billings,5c,6a,2,"156, 86","5, 6"
+Collingwood Shale,5c,5d,1,"86, 79","5, 6"
+Deer River Shale,5c,6a,2,156,"5, 6"
+Gloucester,5c,5d,1,"156, 121","5, 6"
+Haymeadow Creek Shale,5c,6a,2,156,"5, 6"
+Eden,5c,6c,4,121,"5, 6"
+Eden Sandstone,5c,6c,4,121,"5, 6"
+Atwater Creek Shale,5c,6a,2,156,"5, 6"
+Louredo,5c,5d,1,"396, 282","5, 6"
+Cabeco de Peao,5a,5c,2,"286, 265","5, 6"
+Angrensor,5c,6a,2,67,"5, 6"
+Bayan,5c,6a,2,67,"5, 6"
+Burluk,5c,6a,2,67,"5, 6"
+Dulankara,5c,6a,2,67,"5, 6"
+Esil,5c,5d,1,67,"5, 6"
+Innkehash,5a,6a,4,67,"5, 6"
+Namas,5c,6a,2,67,"5, 6"
+Talcyboi,5a,6a,4,67,"5, 6"
+Tez,5c,6a,2,67,"5, 6"
+Russia Middle,5c,5d,1,211,"5, 6"
+Winnipeg,5b,5c,1,"116, 46","5, 6"
+Birdshill Limestone,5b,6c,5,"47, 124","5, 6"
+Big Fork Chert,5b,6a,3,121,"5, 6"
+Wilmore Limestone,5c,6a,2,121,"5, 6"
+Maclurea,5c,5d,1,210,"5, 6"
+Simcoe,5b,5d,2,86,"5, 6"
+Hollowell,5b,5d,2,189,"5, 6"
+Millersburg,5c,5d,1,150,"5, 6"
+Tanglewood,5c,5d,1,150,"5, 6"
+Montreal,5c,5d,1,86,"5, 6"
+Picton,5b,5d,2,86,"5, 6"
+Trenton Upper,5b,5c,1,79,"5, 6"
+Bigby,5c,6a,2,121,"5, 6"
+Cynthiana,5c,6a,2,156,"5, 6"
+Flanagan,5c,6a,2,121,"5, 6"
+Martinsburg Shale,5c,6a,2,121,"5, 6"
+Nashville,5b,6a,3,121,"5, 6"
+Polk Bayou Limestone,5c,6a,2,121,"5, 6"
+Russia Lower,5c,5d,1,211,"5, 6"
+Fairfield,5b,5d,2,189,"5, 6"
+Lacolle,5b,5c,1,189,"5, 6"
+Minaville,5b,5c,1,189,"5, 6"
+Snake Hill,5b,5c,1,189,"5, 6"
+Stony Point,5b,5d,2,189,"5, 6"
+Canajoharie Shale,5b,5c,1,193,"5, 6"
+Baiyanhuashan Upper,5c,6c,4,371,"5, 6"
+Shihuichang,5c,6c,4,371,"5, 6"
+Hull,5b,5c,1,"189, 86","5, 6"
+Chandler Falls Limestone,5b,6a,3,156,"5, 6"
+Castro,5a,5d,3,280,"5, 6"
+Le Glauzy,5b,5d,2,282,"5, 6"
+Tramore Volcanic Upper,4c,6a,5,49,"5, 6"
+Campile Volcanic,4c,6a,5,49,"5, 6"
+Pontesford,5c,6c,4,124,"5, 6"
+Gaerfawr,5b,5c,1,124,"5, 6"
+Glynboro,5c,5d,1,124,"5, 6"
+Sasino Shale,4c,6b,6,38,"5, 6"
+Camp Canic,5b,5d,2,124,"5, 6"
+Grangegeeth,5b,5c,1,124,"5, 6"
+Dogs Head,5c,5d,1,229,"5, 6"
+Sassafras Creek,5a,5c,2,229,"5, 6"
+Currawalla Shale,5a,6a,4,202,"5, 6"
+Mount Easton Shale,5a,6c,6,219,"5, 6"
+Warbisco Shale,5c,6a,2,202,"5, 6"
+Cliefden Caves Limestone,5c,5d,1,111,"5, 6"
+Coomber,5a,5c,2,202,"5, 6"
+Reedy Creek Limestone,5c,5d,1,"202, 228","5, 6"
+Belubula Limestone,5c,5d,1,202,"5, 6"
+Daylesford Limestone,5c,5d,1,202,"5, 6"
+Fossil Hill Limestone,5c,5d,1,202,"5, 6"
+Nine Mile Volcanics,5a,5d,3,202,"5, 6"
+Davys Plains Limestone,5c,5d,1,87,"5, 6"
+Glenrae Limestone,5c,5d,1,87,"5, 6"
+Red East,5a,5d,3,87,"5, 6"
+Lords Siltstone,5c,5d,1,229,"5, 6"
+Mole Creek,5c,5d,1,229,"5, 6"
+Quondong Limestone,5c,5d,1,202,"5, 6"
+Vandon Limestone,5c,5d,1,202,"5, 6"
+Checkers,5c,5d,1,87,"5, 6"
+Mount Lewin Limestone,5c,5d,1,87,"5, 6"
+Trilobite Hill Limestone,5c,5d,1,87,"5, 6"
+Rivoli,5c,5d,1,"388, 210","5, 6"
+Beecher,5b,5d,2,153,"5, 6"
+Eagle Point,5b,5d,2,153,"5, 6"
+Mortimer,5b,5d,2,210,"5, 6"
+Sherwood,5b,5d,2,210,"5, 6"
+Ragdon,5c,5d,1,124,"5, 6"
+Pamela,5a,5c,2,"75, 17","5, 6"
+Rockdell Limestone,4c,5c,3,83,"5, 6"
+Black Limestone,4c,5c,3,39,"5, 6"
+Cobbly Limestone,1a,5c,14,83,"5, 6"
+Peery,5b,5c,1,"123, 83","5, 6"
+Lantz Mills,1a,5d,15,83,"5, 6"
+St. Luke Limestone,1a,5d,15,83,"5, 6"
+Leray,5a,5c,2,"75, 121","5, 6"
+Collierstown Limestone,5b,5d,2,83,"5, 6"
+Hidden Falls,5b,5c,1,173,"5, 6"
+Buff Limestone,5b,5c,1,210,"5, 6"
+Dane,5b,5c,1,22,"5, 6"
+Grand Detour,5b,5c,1,"22, 153","5, 6"
+McGregor,5b,5c,1,"22, 153","5, 6"
+Mifflin,5b,5c,1,"22, 153","5, 6"
+Blue Lower,5b,5c,1,121,"5, 6"
+Buff Lower,5b,5c,1,121,"5, 6"
+Glenwood Shale,5b,5c,1,121,"5, 6"
+Magnolia,5b,5c,1,173,"5, 6"
+Nachusa,5b,5c,1,151,"5, 6"
+Quimbys Mill,5b,5c,1,"151, 153","5, 6"
+Chana,5b,5c,1,153,"5, 6"
+Hennepin,5b,5c,1,151,"5, 6"
+Medusa,5b,5c,1,151,"5, 6"
+New Glarus,5b,5c,1,153,"5, 6"
+Mud Cave K-bentonite,5b,5c,1,211,"5, 6"
+452.57,5b,5c,1,214,"5, 6"
+452.27,5b,5c,1,214,"5, 6"
+452.52,5b,5c,1,214,"5, 6"
+453.15,5b,5c,1,214,"5, 6"
+453.2,5b,5c,1,214,"5, 6"
+453.45,5b,5c,1,214,"5, 6"
+481.86,5b,5c,1,214,"5, 6"
+Guttenberg isotope carbon excursion,5b,5c,1,"214, 17","5, 6"
+Spechts Ferry isotope carbon excursion,5b,5c,1,"222, 153","5, 6"
+452.77,5b,5c,1,388,"5, 6"
+453.07,5b,5c,1,388,"5, 6"
+Capitol K-bentonite,5b,5c,1,211,"5, 6"
+Shaker Creek K-bentonite,5b,5c,1,211,"5, 6"
+Capitol City K-bentonite,5b,5c,1,222,"5, 6"
+Rhinidictya,5b,5c,1,210,"5, 6"
+Glenhaven,5b,5c,1,153,"5, 6"
+Garnavillo,5b,5c,1,153,"5, 6"
+Bigby-Cannon,5b,5d,2,119,"5, 6"
+Stictoporella,5b,5c,1,210,"5, 6"
+Vanuxemia,5b,5c,1,210,"5, 6"
+Glencoe,5b,5c,1,153,"5, 6"
+Eina,5b,5d,2,23,"5, 6"
+Gålås,5b,5d,2,23,"5, 6"
+Priekule,5b,5d,2,19,"5, 6"
+Ion,5b,5c,1,"22, 25","5, 6"
+Dalmanella Coquina,5b,5c,1,145,"5, 6"
+Saltillo,5b,6a,3,121,"5, 6"
+Piedra del Tormo,5b,5d,2,310,"5, 6"
+Allt-Tair-Ffynnon,5b,5d,2,124,"5, 6"
+Bryn Siltstone,5b,5d,2,124,"5, 6"
+Pen-y-graig Tuff,5b,5d,2,124,"5, 6"
+Yr Arddu Tuff,5b,5d,2,124,"5, 6"
+Grés de May Upper,5a,5c,2,282,"5, 6"
+Le pont de Caen,5b,5c,1,282,"5, 6"
+Tremblay,5b,5c,1,79,"5, 6"
+Meyerstown,5b,5c,1,137,"5, 6"
+Kiln Mudstone,5b,5c,1,241,"5, 6"
+Gratton,1a,5c,14,83,"5, 6"
+Little Oak Limestone,1a,5c,14,83,"5, 6"
+Witten Limestone,1a,5c,14,83,"5, 6"
+House Mudstone Middle,5b,5d,2,124,"5, 6"
+Melau Upper,5b,5c,1,124,"5, 6"
+Mynydd-tarw,5b,5c,1,124,"5, 6"
+Pontesford Shale,5b,5d,2,124,"5, 6"
+Etasje 4bα,5b,5c,1,28,"5, 6"
+Chakola,5a,5c,2,202,"5, 6"
+Sunbury,5a,6b,5,219,"5, 6"
+Yuranigh Limestone,5a,5c,2,202,"5, 6"
+Ashton,5a,5c,2,87,"5, 6"
+Bourimbla Limestone,5a,5c,2,87,"5, 6"
+Gerybong Limestone,5a,5c,2,87,"5, 6"
+Manooka Limestone,5a,5c,2,87,"5, 6"
+Oakley Limestone,5a,5c,2,87,"5, 6"
+Ranch,5a,5c,2,87,"5, 6"
+Tsagaan Del,5b,6c,5,196,"5, 6"
+St. Martin,3a,5c,7,75,"5, 6"
+Amsterdam Limestone,5a,5b,1,121,"5, 6"
+Isle la Motte,5b,5c,1,189,"5, 6"
+Lower Trenton,5b,5c,1,79,"5, 6"
+Hershey,5b,5c,1,137,"5, 6"
+Linden Hall,5b,5c,1,137,"5, 6"
+Mile End,5b,6a,3,75,"5, 6"
+Quareau,5b,6a,3,75,"5, 6"
+Lander Sandstone,5b,6b,4,"116, 46","5, 6"
+Cable Canyon,5c,6c,4,138,"5, 6"
+Cable Canyon Sandstone,5c,6c,4,138,"5, 6"
+Crug Limestone,5b,6b,4,47,"5, 6"
+Richmond,5d,6c,3,205,"5, 6"
+Queenston Red Shale,5d,6c,3,156,"5, 6"
+Juniata,5c,6c,4,"121, 137","5, 6"
+Sequatchie,5c,6c,4,119,"5, 6"
+Wykoff Limestone,5c,6c,4,121,"5, 6"
+Hovedøya,6a,6b,1,29,"5, 6"
+Isotelus Shale,5d,6b,2,29,"5, 6"
+Spannslokket,6a,6b,1,29,"5, 6"
+Gunn,6a,6c,2,393,"5, 6"
+Coronach,6a,6b,1,393,"5, 6"
+Lake Alma,6a,6b,1,393,"5, 6"
+Redvers,6a,6b,1,393,"5, 6"
+Coronach Anhydrite,6a,6b,1,174,"5, 6"
+Lake Alma Anhydrite,6a,6b,1,174,"5, 6"
+Redvers Unit,6a,6b,1,174,"5, 6"
+Rock Creek,5c,6c,4,116,"5, 6"
+Red Head Rapids,5d,6b,2,394,"5, 6"
+Paroveja carbon isotope excursion,6a,6b,1,9,"5, 6"
+Brynglas,6a,6c,2,124,"5, 6"
+Drosgol,6a,6c,2,124,"5, 6"
+Applethwaite,6a,6b,1,124,"5, 6"
+Haw,6a,6b,1,124,"5, 6"
+High Pike,6a,6b,1,124,"5, 6"
+Kentmere,6a,6b,1,124,"5, 6"
+Kirkley Bank Basal Bed,6a,6b,1,124,"5, 6"
+Torver,6a,6b,1,124,"5, 6"
+Cefnnantmel,6a,6b,1,124,"5, 6"
+Skultorp,5d,6c,3,17,"5, 6"
+Gastropod Limestone,5d,6c,3,29,"5, 6"
+Etasje 5a,6a,6b,1,28,"5, 6"
+Bønsnes,6a,6b,1,29,"5, 6"
+Kalvsjøen,6a,6b,1,29,"5, 6"
+Langåra,6a,6c,2,29,"5, 6"
+Calizas de Cistoideos,5d,6b,2,310,"5, 6"
+Gabian,5d,6b,2,"242, 76","5, 6"
+Porto de Santa Anna,5d,6b,2,328,"5, 6"
+Kargaly,5d,6b,2,67,"5, 6"
+Salar del Rincon Upper,6a,6c,2,272,"5, 6"
+BC14,6a,6b,1,9,"5, 6"
+BC15,6a,6b,1,9,"5, 6"
+Uqua,5d,6c,3,41,"5, 6"
+Akdombak,5d,6c,3,67,"5, 6"
+Iundyk,5d,6b,2,67,"5, 6"
+Karakongoi,6a,6c,2,67,"5, 6"
+Kulunbulak,5c,6b,3,67,"5, 6"
+Oro,5d,6c,3,67,"5, 6"
+Akuna Mudstone,5a,6c,6,202,"5, 6"
+New Country Sandstone,5a,6c,6,219,"5, 6"
+Rockley Volcanic,5a,6c,6,218,"5, 6"
+Angullong,6a,6c,2,202,"5, 6"
+Malachis Hill,6a,6c,2,87,"5, 6"
+Burranah,5c,6c,4,231,"5, 6"
+Cheesemans Creek,5c,6c,4,"87, 202","5, 6"
+Tucklan,5c,6c,4,231,"5, 6"
+Dignams Siltstone,5c,6c,4,202,"5, 6"
+Forest Reefs Volcanics,5a,6b,5,202,"5, 6"
+Jingerangle,6a,6c,2,202,"5, 6"
+Millambri,6a,6c,2,"87, 202","5, 6"
+Millthorpe Volcanics,6a,6c,2,202,"5, 6"
+Willandra Sandstone,5a,6c,6,"219, 202","5, 6"
+White Head,6a,6c,2,368,"5, 6"
+Etasje 3bβ,2b,4a,4,28,"5, 6"
+Ustrybnaya,3a,4c,4,34,"5, 6"
+Ust-Rybninsk,1a,4c,11,399,"5, 6"
+Totchinoye Upper,2a,4c,7,27,"5, 6"
+Ustmunduika,1a,4c,11,399,"5, 6"
+Babkino,1a,4a,9,"399, 27","5, 6"
+Ust'Kuranakh,2a,4c,7,399,"5, 6"
+Asaphus Shale,3a,4b,3,29,"5, 6"
+Etasje 3cβ,3a,4b,3,28,"5, 6"
+Kalvi,2c,4a,3,8,"5, 6"
+Künnapohja,2c,4a,3,8,"5, 6"
+Lahepera,2c,4a,3,8,"5, 6"
+Telinomme,2c,4a,3,8,"5, 6"
+Blenkhorn's Limestone,3b,4c,3,204,"5, 6"
+Ust-Kut,1a,4a,9,"289, 335","5, 6"
+Iya,2a,4a,5,399,"5, 6"
+Ugorsk,1b,4a,8,"335, 289","5, 6"
+Balyktakh Upper,2a,4a,5,27,"5, 6"
+Kotchakan Lower,2a,4a,5,27,"5, 6"
+Tchirinda,1a,1d,3,399,"5, 6"
+Balyktakh,1a,1d,3,27,"5, 6"
+Irbukil,1a,4a,9,399,"5, 6"
+Tchunya,1a,4a,9,399,"5, 6"
+Ust'Kyt,1a,4a,9,399,"5, 6"
+Vorotninskaya,1a,4a,9,399,"5, 6"
+Kriukai,2c,4a,3,334,"5, 6"
+Sciota,2b,3b,3,"159, 109","5, 6"
+Carlo Sandstone,3a,4c,4,217,"5, 6"
+Wilson Cliffs Sandstone,1a,4c,11,217,"5, 6"
+Triangle,2b,6c,13,218,"5, 6"
+Gundara Quartzite,1a,3b,8,202,"5, 6"
+Savid,4c,5d,4,258,"5, 6"
+Saluda,5d,6c,3,"121, 119","5, 6"
+Blaen-y-cwm,5c,5d,1,124,"5, 6"
+Kaskol,5c,6a,2,197,"5, 6"
+Furnesfjorden,5c,6a,2,23,"5, 6"
+Holtjern,5c,6a,2,23,"5, 6"
+Encrinite Limestone,5c,6a,2,29,"5, 6"
+Cabeco do Peao,5a,5d,3,300,"5, 6"
+Kermeur Lower,5a,5d,3,300,"5, 6"
+Kermeur Upper,5c,6c,4,300,"5, 6"
+Eastview,5c,5d,1,86,"5, 6"
+Rakvere carbon isotope excursion,5c,5d,1,9,"5, 6"
+BC11,5c,6a,2,"9, 20","5, 6"
+Saunja carbon isotope excursion,5c,5d,1,9,"5, 6"
+Pa Kae,5b,5d,2,342,"5, 6"
+Daqing,5b,5d,2,52,"5, 6"
+Paradise K-bentonite,5b,5d,2,222,"5, 6"
+Buckhorn,5b,5d,2,"153, 122","5, 6"
+Fairplay,5b,5d,2,210,"5, 6"
+St. James,5b,5d,2,"153, 122","5, 6"
+Wyota,5b,5d,2,210,"5, 6"
+Mangazea,5b,5d,2,"34, 399","5, 6"
+Mangazeya,5b,5d,2,"289, 335","5, 6"
+Zagorninsk,5a,5d,3,289,"5, 6"
+Dzerom,5a,5d,3,27,"5, 6"
+Kylakh,5b,5d,2,27,"5, 6"
+Neruchanda,5b,6a,3,"27, 399","5, 6"
+Stan Upper,5b,6a,3,27,"5, 6"
+Bestamak,5a,5d,3,67,"5, 6"
+Bestyube,5a,6a,4,67,"5, 6"
+Brayman,5c,5d,1,121,"5, 6"
+Safronovo,5c,6c,4,399,"5, 6"
+Laughery,5d,6c,3,121,"5, 6"
+Dillsboro,5d,6c,3,185,"5, 6"
+Preachersville,5d,6b,2,185,"5, 6"
+Tanners Creek,5d,6c,3,"170, 185","5, 6"
+BC10,5d,6a,1,9,"5, 6"
+Saunja,5d,6a,1,"9, 398","5, 6"
+Mc Micken Shale,5c,5d,1,156,"5, 6"
+Den,5c,6c,4,229,"5, 6"
+Overflow Creek,5c,5d,1,229,"5, 6"
+Gunningbland Shale,5a,5d,3,218,"5, 6"
+Gunningbland,5c,5d,1,111,"5, 6"
+Malongulli,5c,6c,4,202,"5, 6"
+Ballingoole Limestone,5c,5d,1,202,"5, 6"
+Burranah Clasts,5c,6c,4,202,"5, 6"
+Gooandra Volcanics,5c,6c,4,202,"5, 6"
+Rockdale,6a,6c,2,87,"5, 6"
+Back,5d,6a,1,185,"5, 6"
+Stingy Creek,5d,6a,1,185,"5, 6"
+Terrill,5c,6a,2,119,"5, 6"
+Oregonia,5d,6b,2,"397, 119","5, 6"
+Paint Lick,5c,5d,1,121,"5, 6"
+Bloomington Lake,5c,5d,1,142,"5, 6"
+Deep Lakes,5c,5d,1,142,"5, 6"
+Paris Peak,5c,5d,1,142,"5, 6"
+Dicellograptus Shale,4c,5d,4,120,"5, 6"
+Fusispira,5c,5d,1,210,"5, 6"
+Lingulasma,5c,5d,1,210,"5, 6"
+Reba,5d,6b,2,185,"5, 6"
+Sierra,4c,5a,1,310,"5, 6"
+San Marcos,3a,6c,11,330,"5, 6"
+BC5,5a,5c,2,"18, 9","5, 6"
+Ba gara,5a,5c,2,67,"5, 6"
+Sarybidaik,5a,5c,2,67,"5, 6"
+Chertovo,5a,5c,2,"335, 289","5, 6"
+Rob Camp,5a,5c,2,166,"5, 6"
+Ashes Lower,5a,5d,3,124,"5, 6"
+Craig-y-glyn,5a,5d,3,124,"5, 6"
+Llanfawr Mudstone,4b,5a,2,124,"5, 6"
+Oberon,5a,6c,6,219,"5, 6"
+Blueys Creek,5a,5c,2,202,"5, 6"
+Byng Volcanics,5a,5c,2,202,"5, 6"
+Glen Fergus,5a,5c,2,202,"5, 6"
+Mount Pleasant Basalt,5a,5d,3,202,"5, 6"
+Aylmer,3a,5b,6,75,"5, 6"
+Lindero,4a,5a,3,333,"5, 6"
+Wa,5a,5c,2,125,"5, 6"
+Auleliai,5a,5c,2,398,"5, 6"
+Los Azueles,4a,5b,4,299,"5, 6"
+Mystic,3a,5b,6,365,"5, 6"
+Precipitous Bluff,3a,5b,6,233,"5, 6"
+Ridley,4c,6a,5,119,"5, 6"
+Beech,4c,5b,2,143,"5, 6"
+Hero,4c,5b,2,143,"5, 6"
+Cloche Island,5a,5b,1,121,"5, 6"
+Sandbian isotope carbon excursion,5a,5c,2,17,"5, 6"
+Favacal,5a,5c,2,286,"5, 6"
+Calapuja,5a,5c,2,267,"5, 6"
+Big Valley,1a,5c,14,389,"5, 6"
+Burkes Garden Limestone,1a,5c,14,123,"5, 6"
+Shannondale,1a,5c,14,123,"5, 6"
+Lebanon,5b,6a,3,119,"5, 6"
+Decorah Shale Upper,5a,5b,1,121,"5, 6"
+Pierce,4c,6a,5,119,"5, 6"
+Gräsgård,5c,6c,4,32,"5, 6"
+Bayan-Khongor,5b,6c,5,196,"5, 6"
+Nariingol,5b,6c,5,196,"5, 6"
+Taginskii,5b,6c,5,196,"5, 6"
+Memouniat,5b,6c,5,319,"5, 6"
+Horseshoe Gulch,5b,6c,5,182,"5, 6"
+Ghelli,5b,6c,5,348,"5, 6"
+Little East Lake,5b,6c,5,175,"5, 6"
+Kyr-ya,5b,6c,5,"246, 35","5, 6"
+Polydov,5b,6c,5,246,"5, 6"
+Rassokha,5b,6c,5,246,"5, 6"
+Syr-ya,5b,6c,5,246,"5, 6"
+Anisin,5b,6c,5,201,"5, 6"
+Teryutekh,5b,6c,5,201,"5, 6"
+Montgomery Limestone,5b,6c,5,162,"5, 6"
+Blind Brook,5b,6c,5,175,"5, 6"
+East Branch Pond,5b,6c,5,175,"5, 6"
+Kennebec,4c,6c,7,175,"5, 6"
+Lobster Mountain,4c,6c,7,175,"5, 6"
+Munsungun Lake,5b,6c,5,175,"5, 6"
+Rouge,5d,6c,3,368,"5, 6"
+Drakes,5d,6c,3,"169, 185","5, 6"
+Blanchester,5d,6c,3,"163, 397","5, 6"
+Clarksville,5d,6c,3,"163, 397","5, 6"
+Fort Ancient,5d,6c,3,"163, 397, 163","5, 6"
+Rowland Lower,5d,6c,3,185,"5, 6"
+Rowland Upper,5d,6c,3,185,"5, 6"
+Cason Oolite,5d,6c,3,186,"5, 6"
+Ideal Quarry,5d,6c,3,186,"5, 6"
+Pettit,5d,6c,3,186,"5, 6"
+Cyrene,5d,6c,3,186,"5, 6"
+Noix,5d,6c,3,186,"5, 6"
+Edgewood,5d,6c,3,186,"5, 6"
+BC16,5d,6c,3,"20, 9","5, 6"
+BC17,5d,6c,3,"20, 9","5, 6"
+Versailles,5d,6c,3,121,"5, 6"
+Röa,5d,6c,3,8,"5, 6"
+Boda Core Facies,5d,6c,3,20,"5, 6"
+Boda Upper,5d,6c,3,20,"5, 6"
+Solvik,5d,6c,3,17,"5, 6"
+Gunton,6a,6c,2,393,"5, 6"
+Stoughton,6a,6c,2,393,"5, 6"
+Williams,6a,6c,2,174,"5, 6"
+Ketsk,6a,6c,2,335,"5, 6"
+Oyusut,6b,6c,1,"399, 27","5, 6"
+Delingde,5d,6c,3,399,"5, 6"
+Nirunda,5d,6b,2,"335, 289","5, 6"
+Grande Coupe,5d,6c,3,368,"5, 6"
+Cotton,6a,6c,2,231,"5, 6"
+Second Bani,6b,6c,1,238,"5, 6"
+Chao do Amieiral,4c,6c,7,328,"5, 6"
+Karakol,5a,6a,4,400,"5, 6"
+Kharyalakh,5d,6c,3,27,"5, 6"
+Glaucester,5c,6a,2,189,"5, 6"
+Paris,5c,6a,2,121,"5, 6"
+Kalkbank,5d,6a,1,47,"5, 6"
+Acton Shale,5a,6a,4,202,"5, 6"
+Blayney Volcanics Upper,5a,6a,4,202,"5, 6"
+Narooma Chert Upper,5c,6a,2,202,"5, 6"
+Wombin Volcanics,5a,6c,6,202,"5, 6"
+Angullong Tuff,6a,6c,2,"87, 225","5, 6"
+C6,5d,6c,3,119,"5, 6"
+Hitz,5d,6b,2,119,"5, 6"
+Whitewater Upper,5d,6b,2,119,"5, 6"
+Bardstown,5d,6b,2,206,"5, 6"
+Black Neuk,6a,6b,1,124,"5, 6"
+Forge,6a,6b,1,124,"5, 6"
+Gray,6a,6b,1,124,"5, 6"
+Stacks,6a,6b,1,124,"5, 6"
+Tretaspis Limestone,6a,6b,1,"29, 11","5, 6"
+Tretaspis Shale Upper,5d,6b,2,29,"5, 6"
+Grinda,6a,6b,1,29,"5, 6"
+March,1a,1b,1,336,"5, 6"
+Balyktakh Lower,1a,1d,3,27,"5, 6"
+Oldondo,1a,1d,3,399,"5, 6"
+Totchinoye Lower,1a,1d,3,27,"5, 6"
+Bysy-Yurakh,1a,1d,3,399,"5, 6"
+Lugovaya,1a,1d,3,399,"5, 6"
+Tangui,1a,1d,3,399,"5, 6"
+Chapman Ranch,1a,1c,2,208,"5, 6"
+McMichel,1a,1c,2,208,"5, 6"
+Hales Limestone,1a,1b,1,171,"5, 6"
+Ninmaroo,1a,2a,4,"230, 217","5, 6"
+Dictyonema Shale,1a,2c,6,36,"5, 6"
+Etasje 2e-3aβ,1a,2c,6,28,"5, 6"
+Vogtendorf,1a,1d,3,255,"5, 6"
+Satpak,1a,4c,11,257,"5, 6"
+AIII,1a,1c,2,236,"5, 6"
+Kurdai,1a,2c,6,257,"5, 6"
+Kaiwilta,1b,2c,5,202,"5, 6"
+Lower Red Orthoceras Limestone,2b,4b,5,11,"5, 6"
+Brithion,3a,4c,4,124,"5, 6"
+Bryn Brith,3a,4c,4,124,"5, 6"
+Cefn Hir,3a,4c,4,124,"5, 6"
+Melau,3a,4c,4,124,"5, 6"
+Trygarn,3a,4c,4,124,"5, 6"
+Sillaoru,3b,4b,2,8,"5, 6"
+Pieszkowo Red Limestone,1c,4b,8,38,"5, 6"
+Karakol'-Mikhailovsk,1a,4c,11,236,"5, 6"
+Kuagach,1a,4b,10,236,"5, 6"
+Upper Red Orthoceras Limestone,3b,4c,3,11,"5, 6"
+Expansus Limestone,3b,4c,3,11,"5, 6"
+Lower Grey Orthoceras Limestone,3b,4c,3,11,"5, 6"
+Raniceps Limestone,3b,4c,3,11,"5, 6"
+Romsey Sub,1a,4c,11,219,"5, 6"
+Castlemainian 4,2b,3b,3,"202, 218","5, 6"
+Warendian,1a,4c,11,202,"5, 6"
+Etasje 4a,4b,5c,4,29,"5, 6"
+Chudleigh Sub,4b,6a,6,229,"5, 6"
+Sciota Limestone,2b,3b,3,140,"5, 6"
+Yandaminta Quartzite,2a,3a,3,202,"5, 6"
+Zebre,1c,2c,4,8,"5, 6"
+Whitby Shale,5c,5d,1,79,"5, 6"
+Collingwood,5c,5d,1,"156, 137","5, 6"
+Clearview Limestone,5c,6c,4,87,"5, 6"
+Downderry Limestone,5c,6c,4,87,"5, 6"
+Liste,5c,5d,1,32,"5, 6"
+Saint Germain sur Ille,5b,6b,4,282,"5, 6"
+Clitambonites,5b,5d,2,210,"5, 6"
+Nematopora,5b,5d,2,210,"5, 6"
+Parastrophina,5b,5d,2,210,"5, 6"
+Dove Facies,5b,5d,2,145,"5, 6"
+Jakšiai,5b,5d,2,"395, 398, 395","5, 6"
+Baiyanhuashan Lower,5c,6c,4,371,"5, 6"
+Duwibong,4a,5d,6,1,"5, 6"
+Haengmae,4a,5d,6,1,"5, 6"
+Mungyeong Group,1a,5d,15,1,"5, 6"
+Pyeongchang Group,1a,5d,15,1,"5, 6"
+Taebaek Group,1a,5d,15,1,"5, 6"
+Yeongheung,2a,5d,11,1,"5, 6"
+Yeongwol Group,1a,5d,15,1,"5, 6"
+Yongtan Group,2a,5d,11,1,"5, 6"
+Malodiring-Ayan,4a,5d,6,201,"5, 6"
+Jones Pond,4b,5d,5,175,"5, 6"
+Magog,4b,5d,5,175,"5, 6"
+Maysville,5c,5d,1,121,"5, 6"
+Ashlock,5d,6b,2,"169, 39","5, 6"
+Wekwemikongsing,5c,5d,1,121,"5, 6"
+Bald Eagle,5d,6b,2,"121, 137","5, 6"
+Ben Suardal,2a,3a,3,124,"5, 6"
+Green Orthoceras Limestone,1a,3a,7,11,"5, 6"
+Grudaidh,1a,3a,7,124,"5, 6"
+Etasje 4b,4c,5c,3,29,"5, 6"
+South Piney,5b,5c,1,116,"5, 6"
+Black Island,5b,5c,1,46,"5, 6"
+Ice Box,5b,5c,1,46,"5, 6"
+Rysedorf,5b,5c,1,357,"5, 6"
+Valley Brook Shale,5b,5c,1,193,"5, 6"
+Aniolowo Limestone,5a,5c,2,38,"5, 6"
+Morag Red Limestone and Shale,5c,6b,3,38,"5, 6"
+Prabuty Marl and Shale,5c,6c,4,38,"5, 6"
+Davys Creek Limestone,5c,5d,1,87,"5, 6"
+Large Flat Limestone,5c,5d,1,87,"5, 6"
+Regans Creek Limestone,5a,5d,3,87,"5, 6"
+Boonderoo Limestone,5c,5d,1,87,"5, 6"
+Dunhill Bluff Limestone,5a,5d,3,87,"5, 6"
+Taplow Limestone,5a,5d,3,87,"5, 6"
+Transmission Limestone,5a,5d,3,87,"5, 6"
+Gleesons Limestone,5c,5d,1,87,"5, 6"
+Kalimna Limestone,5c,5d,1,87,"5, 6"
+Wyoming Limestone,5c,5d,1,87,"5, 6"
+Kiandra,5a,6a,4,202,"5, 6"
+Grand Detour isotope carbon excursion,5b,5c,1,153,"5, 6"
+Dement,5b,5c,1,151,"5, 6"
+Forreston,5b,5c,1,151,"5, 6"
+Hely,5b,5c,1,151,"5, 6"
+Stillman,5b,5c,1,151,"5, 6"
+Victory,5b,5c,1,151,"5, 6"
+Wallgreen,5b,5c,1,151,"5, 6"
+Mifflin isotope carbon excursion,5b,5c,1,153,"5, 6"
+Blomeyer,5b,5c,1,151,"5, 6"
+Brickeys,5b,5c,1,151,"5, 6"
+Briton,5b,5c,1,151,"5, 6"
+Establishment,5b,5c,1,151,"5, 6"
+Hazelwood,5b,5c,1,151,"5, 6"
+Eldena,5b,5c,1,151,"5, 6"
+Elm,5b,5c,1,151,"5, 6"
+Everett,5b,5c,1,151,"5, 6"
+Quimbys Mill isotope carbon excursion,5b,5c,1,153,"5, 6"
+Hazel Green,5b,5c,1,151,"5, 6"
+Shullsburg,5b,5c,1,151,"5, 6"
+Strawbridge,5b,5c,1,151,"5, 6"
+Stictopora,5b,5c,1,210,"5, 6"
+Bellerophon,5b,5c,1,210,"5, 6"
+Fucoid,5b,5c,1,210,"5, 6"
+Zdice-Nucice,5b,5d,2,310,"5, 6"
+Yr Arddu Tuffs,5b,5d,2,124,"5, 6"
+Margules,5c,6c,4,202,"5, 6"
+Isotelus Limestone,5d,6b,2,29,"5, 6"
+Foster Bay,5d,6b,2,394,"5, 6"
+Jonstorp Lower,5c,6c,4,"20, 17","5, 6"
+Öglunda,5d,6c,3,"20, 17","5, 6"
+La Pena,5d,6b,2,310,"5, 6"
+Ocino,5d,6b,2,310,"5, 6"
+Rebollarejo,5d,6b,2,310,"5, 6"
+Rebosilla,5d,6b,2,310,"5, 6"
+Jonstorp Upper,5d,6c,3,"20, 17","5, 6"
+Frizy,2c,4a,3,31,"5, 6"
+Zheltyaki,2c,4a,3,31,"5, 6"
+Ustrybninsk,1a,4c,11,289,"5, 6"
+Ustkut,1a,4a,9,289,"5, 6"
+Cacemes,2c,5d,9,282,"5, 6"
+Peletay,4a,5a,3,333,"5, 6"
+Bou-Isidane-Jbel-Slope,5a,6b,5,126,"5, 6"
+Tafersikt-Jbel,5a,6b,5,126,"5, 6"
+Tiberguent-Jbel,5a,6b,5,126,"5, 6"
+Capitol Limestone,5c,6a,2,121,"5, 6"
+Mount Pleasant,5c,6a,2,121,"5, 6"
+Rogers Gap,5c,6a,2,121,"5, 6"
+Woodburn,5c,6a,2,121,"5, 6"
+Baiyanhuashan,5c,6c,4,371,"5, 6"
+Kaimynai,5d,6a,1,398,"5, 6"
+Holland Patent,5d,6a,1,189,"5, 6"
+Schmiedefeld,5d,6a,1,47,"5, 6"
+Wagonga,5c,6c,4,202,"5, 6"
+Cotton Lower,6a,6c,2,225,"5, 6"
+Mamuniyat,5b,6c,5,319,"5, 6"
+Yaptikshor,5b,6c,5,35,"5, 6"
+Salyka,5b,6c,5,246,"5, 6"
+Yaptiknyrd,5b,6c,5,35,"5, 6"
+Malaya Tavrota Lower,5b,6c,5,246,"5, 6"
+Muker,5b,6c,5,246,"5, 6"
+Ust-Zyb,5b,6c,5,246,"5, 6"
+Zyb,5b,6c,5,"246, 35","5, 6"
+Bad'ya reef,5b,6c,5,246,"5, 6"
+Khorejver,5b,6c,5,246,"5, 6"
+Malaya Tavrota Upper,5b,6c,5,246,"5, 6"
+Brookville,5d,6c,3,206,"5, 6"
+Otter Creek,5d,6c,3,206,"5, 6"
+Lower Glyptorthis insculpta,5d,6c,3,397,"5, 6"
+Oldenburg,5d,6c,3,397,"5, 6"
+Roaring Brook,5d,6c,3,397,"5, 6"
+Upper Disturbed,5d,6c,3,397,"5, 6"
+Middle Clarksville,5d,6c,3,397,"5, 6"
+Stony Hollow Creek,5d,6c,3,397,"5, 6"
+Bon Well Hill,5d,6c,3,"163, 397","5, 6"
+Harpers Run,5d,6c,3,397,"5, 6"
+Lower Fort Ancient shale,5d,6c,3,397,"5, 6"
+South Gate Hill,5d,6c,3,397,"5, 6"
+Southgate Hill,5d,6c,3,163,"5, 6"
+Treptoceras duseri Shale,5d,6c,3,163,"5, 6"
+Cyphotrypa shale,5d,6c,3,163,"5, 6"
+Fisherville coral,5d,6c,3,163,"5, 6"
+Skøyen,6a,6c,2,29,"5, 6"
+Salar del Rincon,6a,6c,2,272,"5, 6"
+Des Jean,6a,6c,2,368,"5, 6"
+L'Irlande,6a,6c,2,368,"5, 6"
+Djupvik,1a,2c,6,36,"5, 6"
+Etasje 3a,1a,2c,6,29,"5, 6"
+Randschiefer,1a,1d,3,255,"5, 6"
+Kolnabuk,1a,1c,2,236,"5, 6"
+Wig,2a,2c,2,124,"5, 6"
+Barrios,1a,4a,9,282,"5, 6"
+Moncrabeau,2a,3a,3,282,"5, 6"
+Oued Rharbi,2a,3a,3,282,"5, 6"
+Sarnella,1a,3a,7,282,"5, 6"
+Julianowo Glauconitic Sandstone,1c,4b,8,38,"5, 6"
+Sluchowo Shale,1c,4b,8,38,"5, 6"
+Akbulaksai,1c,2c,4,257,"5, 6"
+Kidryas,1a,1b,1,236,"5, 6"
+Koagash,1c,2c,4,257,"5, 6"
+Alimbet,1a,2a,4,257,"5, 6"
+Tudwell Sandstone,2a,4a,5,124,"5, 6"
+Brejo Fundeiro,2a,5a,8,282,"5, 6"
+Cluse de l'Orb,2a,3a,3,282,"5, 6"
+Foulon,2a,3a,3,282,"5, 6"
+Llandeyran,2a,4a,5,282,"5, 6"
+Noaillan,2a,4c,7,282,"5, 6"
+Postolonnec Lower,3b,5b,5,224,"5, 6"
+BC1,2a,4c,7,9,"5, 6"
+Green Bay,1a,4b,10,42,"5, 6"
+Lickey Quartzite,2a,4c,7,124,"5, 6"
+Schroeteri Limestone,3b,5a,4,11,"5, 6"
+Warendan,1a,1d,3,12,"5, 6"
+Centaurus Limestone,4b,5a,2,11,"5, 6"
+Chiron Limestone,4b,5a,2,11,"5, 6"
+Upper Grey Orthoceras Limestone,4b,5a,2,11,"5, 6"
+Ballanayre Slump-Breccia,4b,4c,1,124,"5, 6"
+Bod Deiniol,4b,4c,1,124,"5, 6"
+Bryn Celyn Ironstone,4b,4c,1,124,"5, 6"
+Builth Volcanic,4b,4c,1,124,"5, 6"
+Cwm Amliw Tuff,4b,4c,1,124,"5, 6"
+Ffairfach,4b,4c,1,124,"5, 6"
+Glanmorfa Shale,4b,4c,1,124,"5, 6"
+Newmead,4b,4c,1,124,"5, 6"
+Rhiw Bach Volcanic,4b,4c,1,124,"5, 6"
+Sulby Flags,4b,4c,1,124,"5, 6"
+Caubon,4b,4c,1,282,"5, 6"
+Caudecoste,4b,4c,1,282,"5, 6"
+Ferruginous,4b,5c,4,282,"5, 6"
+Rio Shales,4b,4c,1,282,"5, 6"
+Luarca,4b,5a,2,280,"5, 6"
+Villaflor,4b,4c,1,280,"5, 6"
+Xistenta,4b,4c,1,280,"5, 6"
+Colorada,4b,5a,2,279,"5, 6"
+Membrillo,4b,5a,2,279,"5, 6"
+Bou-Jam-Jam,4c,5c,3,282,"5, 6"
+May Lower,4c,5c,3,282,"5, 6"
+Courijou,3b,5b,5,363,"5, 6"
+Kenilworth,4a,5c,5,218,"5, 6"
+Kenyu,4c,5c,3,202,"5, 6"
+Temperance,4c,6a,5,202,"5, 6"
+Carmichael Sandstone,4a,5a,3,217,"5, 6"
+Stokes Siltstone,4c,5c,3,215,"5, 6"
+Skalka Quartzite,4c,5a,1,321,"5, 6"
+Svata Dobrotiva,4c,5a,1,321,"5, 6"
+Osek-Kván,4a,4c,2,321,"5, 6"
+Emerson School,2b,3b,3,140,"5, 6"
+Thorpe Point,2b,3b,3,140,"5, 6"
+Ward,2b,3b,3,109,"5, 6"
+Pander Greensand,1a,3b,8,217,"5, 6"
+Swift,1a,3b,8,217,"5, 6"
+Fort Ann,1b,2c,5,109,"5, 6"
+Comstock,1b,2c,5,109,"5, 6"
+Hawk,1b,2c,5,109,"5, 6"
+Grès Armoricain Middle,2b,3b,3,238,"5, 6"
+Grès Armoricain Upper,2b,3b,3,238,"5, 6"
+Carranya,1a,2c,6,217,"5, 6"
+Jinduck,1a,2c,6,217,"5, 6"
+Ooloo Limestone,1a,2c,6,217,"5, 6"
+Tim Shea Sandstone,1a,2c,6,217,"5, 6"
+Dolhir Limestone,5c,6a,2,124,"5, 6"
+Pentre,5c,6b,3,124,"5, 6"
+Tre-wylan,5c,6b,3,124,"5, 6"
+Tyn-y-twmpath,5c,6a,2,124,"5, 6"
+Saint Germain sur Ille Upper,5b,6c,5,282,"5, 6"
+Keklys,5b,5d,2,398,"5, 6"
+Aberdeen Lake,5d,6b,2,90,"5, 6"
+Akpatok,5d,6b,2,394,"5, 6"
+Amadjuak,5b,5d,2,394,"5, 6"
+Bad Cache Rapids,5b,5d,2,394,"5, 6"
+Churchill River,5d,6b,2,394,"5, 6"
+Fossil Creek Volcanics,5d,6b,2,139,"5, 6"
+Huangnigang,5c,6c,4,371,"5, 6"
+Shuinychang,5c,6c,4,371,"5, 6"
+Barnt Green Volcanic,1a,1d,3,124,"5, 6"
+Zanjon,3a,4a,2,272,"5, 6"
+Laja Morada,3a,4a,2,272,"5, 6"
+Lagunillas,3a,4a,2,272,"5, 6"
+Jeongseon,2a,5a,8,1,"5, 6"
+Phyllograptus shale,2a,4a,5,11,"5, 6"
+Lower Didymograptus Shale ,2a,4a,5,29,"5, 6"
+Crwyn,5a,5c,2,124,"5, 6"
+Fferam Ironstone,5a,5c,2,124,"5, 6"
+Fferam Shale,5a,5c,2,124,"5, 6"
+Gader Conglomerat,5a,5c,2,124,"5, 6"
+Garn,5a,5c,2,124,"5, 6"
+Gynfor Shale,5a,5c,2,124,"5, 6"
+Llanbabo Church Grits,5a,5c,2,124,"5, 6"
+Llandeilo Flags Middle,5a,5c,2,124,"5, 6"
+Llandeilo Flags Upper,5a,5c,2,124,"5, 6"
+Penterfyn Ironstone,5a,5c,2,124,"5, 6"
+Tandinas Shales,5a,5c,2,124,"5, 6"
+Pizarras Cantera,5a,5d,3,366,"5, 6"
+Steffordian,5a,5d,3,45,"5, 6"
+Indian Ladder,5c,5d,1,189,"5, 6"
+Galets,5c,5d,1,79,"5, 6"
+Shipshaw,5c,5d,1,79,"5, 6"
+Malaya Tavrota,5b,6c,5,35,"5, 6"
+File,5c,6b,3,32,"5, 6"
+Klasen,5c,6b,3,32,"5, 6"
+Rysedorph conglomerate,5b,5c,1,357,"5, 6"
+Rysedorph Hill conglomerate,5b,5c,1,357,"5, 6"
+Orneta Grey-Green Marl,5c,6c,4,38,"5, 6"
+Platylichas Limestone,5b,5c,1,11,"5, 6"
+Gryazno,5b,5c,1,243,"5, 6"
+Khrevitsa,5b,5c,1,243,"5, 6"
+Phylloporina-Ctenodonta,5b,5c,1,210,"5, 6"
+Leptaena Limestone,6a,6c,2,11,"5, 6"
+Zdice,5d,6c,3,321,"5, 6"
+Staurocephalus Shale,6a,6b,1,11,"5, 6"
+Sourges Shale,5b,6c,5,231,"5, 6"
+Yunkoshor,5b,6c,5,35,"5, 6"
+Saledyshor,5b,6c,5,35,"5, 6"
+Polydennii,5b,6c,5,35,"5, 6"
+Surya,5b,6c,5,35,"5, 6"
+Marble Hill,5d,6c,3,163,"5, 6"
+Tommarp Beds,5d,6c,3,11,"5, 6"
+Red Tetraspis Shale,5d,6c,3,11,"5, 6"
+Öglunda Limestone,5d,6c,3,11,"5, 6"
+Ojos Negros,5d,6b,2,330,"5, 6"
+Ferradosa,5d,6b,2,328,"5, 6"
+Santo Adriao,5d,6b,2,328,"5, 6"
+Red Trinucleus Shale,6a,6b,1,11,"5, 6"
+Burultas,4a,5a,3,133,"5, 6"
+Jigunsan,4a,5a,3,1,"5, 6"
+Makgol,4a,5a,3,1,"5, 6"
+Mithaka,4a,5a,3,217,"5, 6"
+Nita,4a,5a,3,217,"5, 6"
+Řevnice Quartzite,5a,5d,3,254,"5, 6"
+Datienba,4a,5a,3,64,"5, 6"
+Plasnica Black Bituminous Shale,1a,1b,1,38,"5, 6"
+Sepopol,1a,1b,1,38,"5, 6"
+Kallavere,1a,1b,1,8,"5, 6"
+Las Vicunas,1a,1d,3,256,"5, 6"
+Abastu,1a,1d,3,91,"5, 6"
+Dongjeom,1a,1d,3,1,"5, 6"
+Mungok,1a,1d,3,1,"5, 6"
+Bouglon,1a,1d,3,282,"5, 6"
+Ste Marthe,1a,1d,3,282,"5, 6"
+Dead River,1a,1d,3,175,"5, 6"
+Rosaire,1a,1d,3,175,"5, 6"
+Barriga,1a,1d,3,279,"5, 6"
+Great Meadows,1a,1b,1,144,"5, 6"
+Smith Basin,1a,1b,1,144,"5, 6"
+Canyon Road,1a,1b,1,109,"5, 6"
+Sprakers,1a,1b,1,109,"5, 6"
+Van Wie,1a,1b,1,159,"5, 6"
+Wolf Hollow,1a,1b,1,109,"5, 6"
+Krusna Hora,1a,2a,4,321,"5, 6"
+Pizarras del Rio,4b,4c,1,282,"5, 6"
+Stokes Siltstone Basal,4c,5c,3,215,"5, 6"
+Barrande's d1,1a,4c,11,321,"5, 6"
+Rokycany Shale,4a,4c,2,321,"5, 6"
+Gador,2b,3b,3,238,"5, 6"
+Labrado,3a,4a,2,272,"5, 6"
+Etasje 3b,2a,4a,5,29,"5, 6"
+Nant Achlas Siltstone,5c,6c,4,124,"5, 6"
+Dzhagal,5b,6c,5,35,"5, 6"
+Brachiopod Shale,5d,6c,3,11,"5, 6"
+Dalmanitina Beds,5d,6c,3,11,"5, 6"
+Klingkalk,5d,6c,3,11,"5, 6"
+Red Tretaspis Shale,5d,6c,3,11,"5, 6"
+Trenice Greywacke,1a,1b,1,"321, 254","5, 6"
+Obolus conglomerate,1a,1c,2,11,"5, 6"
+Obolus gruskalk,1a,1c,2,11,"5, 6"
+Obolus Limestone,1a,1c,2,11,"5, 6"
+Lolashor,6c,6c,0.0,35,6.9
