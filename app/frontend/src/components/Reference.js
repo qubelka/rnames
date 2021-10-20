@@ -10,22 +10,29 @@ export const Reference = ({ data }) => {
 	const doiSubmit = async e => {
 		e.preventDefault()
 		const doi = e.target.doi.value
-		const result = await axios.get(`https://api.crossref.org/works/${doi}`)
-		const response = JSON.parse(result.request.response).message
+		try {
+			const result = await axios.get(
+				`https://api.crossref.org/works/${doi}`
+			)
+			const response = JSON.parse(result.request.response).message
 
-		if (!response.first_author) return
+			if (response.author.length === 0) return
 
-		dispatch(
-			updateRef({
-				...data,
-				queried: true,
-				first_author: `${response.first_author[0].given} ${response.first_author[0].family}`,
-				year: response.created['date-parts'][0][0],
-				title: response.title,
-				doi: response.DOI,
-				link: response.URL,
-			})
-		)
+			dispatch(
+				updateRef({
+					...data,
+					queried: true,
+					first_author: `${response.author[0].given} ${response.author[0].family}`,
+					year: response.created['date-parts'][0][0],
+					title: response.title[0],
+					doi: response.DOI,
+					link: response.URL,
+				})
+			)
+		} catch (err) {
+			// Do something with this later
+			console.log(err.response.data)
+		}
 	}
 
 	const update = ({ target }, field) => {
