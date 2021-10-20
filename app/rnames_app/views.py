@@ -40,7 +40,7 @@ from .filters import UserFilter
 import sys
 from subprocess import run, PIPE
 from .utils.root_binning import main_binning_fun
-from .utils.tools import (get_cron_relations, get_time_slices)
+from .utils.tools import (get_cron_relations)
 from io import StringIO
 from contextlib import redirect_stdout
 # , APINameFilter
