@@ -29,7 +29,7 @@ from rest_framework.response import Response
 #from .utils.utils import YourClassOrFunction
 from rest_framework import status, generics
 from .models import (Binning, Location, Name, Qualifier, QualifierName,
-                     Relation, Reference, StratigraphicQualifier, StructuredName)
+                     Relation, Reference, StratigraphicQualifier, StructuredName, TimeSlice)
 from .filters import (BinningSchemeFilter, LocationFilter, NameFilter, QualifierFilter, QualifierNameFilter,
                       ReferenceFilter, RelationFilter, StratigraphicQualifierFilter, StructuredNameFilter)
 from .forms import (ColorfulContactForm, ContactForm, LocationForm, NameForm, QualifierForm, QualifierNameForm, ReferenceForm,
@@ -56,9 +56,21 @@ def external(request):
     # Generate counts of some of the main objects
     num_opinions = Relation.objects.is_active().count()
 
-    # inp = request.POST.get('param', 'K') # This doesn't appear to be used anywhere in binning
+    def time_slices(scheme):
+        return list(TimeSlice.objects.filter(scheme=scheme).order_by('order').values_list('name', flat=True))
+
     rels = get_cron_relations()
-    result = main_binning_fun(rels[0], get_time_slices())
+
+    result = main_binning_fun(rels[0], {
+        'rassm': time_slices('rasmussen'),
+        'berg': time_slices('bergstrom'),
+        'webby': time_slices('webby'),
+        'stages': time_slices('stages'),
+        'periods': time_slices('periods'),
+        'epochs': time_slices('epochs'),
+        'eras': time_slices('eras'),
+        'eons': time_slices('eons')
+    })
 
     return render(
         request,
