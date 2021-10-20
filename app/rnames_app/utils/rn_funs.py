@@ -9,7 +9,7 @@ from bisect import (bisect_left, bisect_right)
 
 ################################################################
 # strictly searches for maximum compromise between all binnings
-def bifu_c(ntts, xnames_raw):
+def bifu_c(col, ntts, xnames_raw):
     return ntts
 
 def bifu_c2  (col, ntts, used_ts, xnames_raw):
@@ -43,10 +43,9 @@ def bifu_c2  (col, ntts, used_ts, xnames_raw):
 
 ################################################################
 # strictly searches for youngest binnings
-def bifu_y(ntts, xnames_raw):
-    k_reference_year = 5
-    max_y = max(ntts[:, k_reference_year])
-    return ntts[ntts[:, k_reference_year] == max_y]
+def bifu_y(col, ntts, xnames_raw):
+    max_y = max(ntts[:, col.ntts.reference_year])
+    return ntts[ntts[:, col.ntts.reference_year] == max_y]
 
 def bifu_y2  (col, ntts, used_ts, xnames_raw):
     i_name = ntts[0, 0]
@@ -80,21 +79,13 @@ def bifu_y2  (col, ntts, used_ts, xnames_raw):
 
 ################################################################
 # strictly searches for shortest binnings
-def bifu_s(ntts, xnames_raw):
-    # ntts columns [reference_id, name_1, name_2, ts, ts_index, reference_year]
-    # xnames ['name', 'strat_qualifier', 'ref', 'combi']
-    k_reference_id = 0
-    k_ts = 3
-    k_ts_index = 4
-    k_reference_year = 5
-    xk_ref = 2
-
+def bifu_s(col, ntts, xnames_raw):
     rows = []
 
-    for ref in pd.unique(ntts[:, k_reference_id]):
-        cptx = ntts[ntts[:, k_reference_id]== ref]
-        ts_min = cptx[0, k_ts_index]
-        ts_max = cptx[np.size(cptx, 0) - 1, k_ts_index]
+    for ref in pd.unique(ntts[:, col.ntts.reference_id]):
+        cptx = ntts[ntts[:, col.ntts.reference_id]== ref]
+        ts_min = cptx[0, col.ntts.ts_index]
+        ts_max = cptx[np.size(cptx, 0) - 1, col.ntts.ts_index]
 
         ts_x = ts_max - ts_min
         rows.append((ref, ts_x))
@@ -102,10 +93,10 @@ def bifu_s(ntts, xnames_raw):
     rows = np.array(rows)
     min_ts = np.min(rows[:, 1])
     short_ref = rows[rows[:, 1] == min_ts]
-    bio_setb = ntts[np.isin(ntts[:, k_reference_id], short_ref[:, 0])]
+    bio_setb = ntts[np.isin(ntts[:, col.ntts.reference_id], short_ref[:, 0])]
     # search for youngest reference among those
-    max_y = np.max(bio_setb[:, k_reference_year])
-    return bio_setb[bio_setb[:, k_reference_year] == max_y]
+    max_y = np.max(bio_setb[:, col.ntts.reference_year])
+    return bio_setb[bio_setb[:, col.ntts.reference_year] == max_y]
 
 def bifu_s2(col, ntts, used_ts, xnames_raw):
     i_name = ntts[0, 0]
