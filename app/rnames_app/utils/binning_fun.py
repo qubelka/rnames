@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 #from rnames_app.utils import rn_funs
 from bisect import (bisect_left, bisect_right)
+from types import SimpleNamespace
 from .rn_funs import *
 
 def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
@@ -331,6 +332,10 @@ def bin_unique_names_1(ibs, x1, used_ts, xnames_raw):
     if x1.empty:
         return pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
 
+    col = SimpleNamespace()
+    col.ntts = SimpleNamespace(**{k: v for v, k in enumerate(x1.columns)})
+    col.xnames = SimpleNamespace(**{k: v for v, k in enumerate(xnames_raw.columns)})
+
     rows = []
     x1 = x1.sort_values(by=['name_1', 'reference_year'])
     xnames_raw = xnames_raw.sort_values(by='name')
@@ -347,13 +352,13 @@ def bin_unique_names_1(ibs, x1, used_ts, xnames_raw):
         xnames_end = bisect_right(xnames_list, name)
 
         if ibs == 0:
-            x3a = bifu_s2(x1[x1_begin:x1_end], used_ts, xnames_raw[xnames_begin:xnames_end])
+            x3a = bifu_s2(col, x1[x1_begin:x1_end], used_ts, xnames_raw[xnames_begin:xnames_end])
             rows.append(x3a)
         if ibs == 1:
-            x3a = bifu_y2(x1[x1_begin:x1_end], used_ts, xnames_raw[xnames_begin:xnames_end])
+            x3a = bifu_y2(col, x1[x1_begin:x1_end], used_ts, xnames_raw[xnames_begin:xnames_end])
             rows.append(x3a)
         if ibs == 2:
-            x3a = bifu_c2(x1[x1_begin:x1_end], used_ts, xnames_raw[xnames_begin:xnames_end])
+            x3a = bifu_c2(col, x1[x1_begin:x1_end], used_ts, xnames_raw[xnames_begin:xnames_end])
             rows.append(x3a)
 
 
