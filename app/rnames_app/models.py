@@ -387,3 +387,9 @@ class TimeSlice(BaseModel):
     def __str__(self):
         return '%s %d %s' % (self.scheme, self.order, self.name)
 
+    def get_absolute_url(self):
+        """
+        Returns the url to access a particular name instance.
+        """
+        return reverse('timeslice-detail', args=[str(self.id)])
+
