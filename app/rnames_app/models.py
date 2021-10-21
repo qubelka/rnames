@@ -381,7 +381,7 @@ class TimeSlice(BaseModel):
     scheme = models.CharField(max_length=200, blank=False)
 
     class Meta:
-        ordering = ['scheme', 'name']
+        ordering = ['scheme', 'order']
         unique_together= [['scheme', 'order']]
 
     def __str__(self):
