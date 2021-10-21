@@ -13,7 +13,7 @@ from .rn_funs import *
 from .binning_fun import *
 from .tools import Task
 
-def main_binning_fun(cron_relations, time_slices):
+def main_binning_fun(cron_relations, cron_columns, time_slices):
     pd.set_option('display.max_columns', 30)
     pd.set_option('display.max_rows', 5)
     start = time.time()
@@ -27,6 +27,8 @@ def main_binning_fun(cron_relations, time_slices):
 
     for k in time_slices.keys():
         time_slices[k] = make_ts_df(time_slices[k])
+
+    cron_relations = pd.DataFrame(cron_relations, columns=cron_columns)
 
     # In[3]:
 
