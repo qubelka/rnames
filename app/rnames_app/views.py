@@ -57,7 +57,7 @@ def external(request):
     num_opinions = Relation.objects.is_active().count()
 
     def time_slices(scheme):
-        return list(TimeSlice.objects.filter(scheme=scheme).order_by('order').values_list('name', flat=True))
+        return list(TimeSlice.objects.is_active().filter(scheme=scheme).order_by('order').values_list('name', flat=True))
 
     rels = get_cron_relations()
 
