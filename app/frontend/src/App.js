@@ -1,10 +1,9 @@
 import React from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadServerData, initServer } from './services/server'
 import { makeId } from './utilities'
 import { initMapvalues } from './store/map/actions'
-import { addRef } from './store/references/actions'
 import { addRel } from './store/relations/actions'
 import { addSname } from './store/snames/actions'
 import { Reference } from './components/Reference'
@@ -12,19 +11,6 @@ import { Sname } from './components/Sname'
 import { Relation } from './components/Relation'
 import { ReferenceForm } from './components/ReferenceForm'
 
-const blankRef = () => {
-	return {
-		id: makeId('reference'),
-		first_author: '',
-		year: 0,
-		title: '',
-		doi: '',
-		link: '',
-		exists: false,
-		queried: false,
-		names: [],
-	}
-}
 const blankSname = () => {
 	return {
 		id: makeId('structured_name'),
@@ -42,6 +28,9 @@ const blankRel = () => {
 const App = () => {
 	const state = useSelector(v => v)
 	const dispatch = useDispatch()
+
+	const [displayRefForm, setDisplayRefForm] = useState('none')
+
 	useEffect(() => {
 		initServer()
 		const serverData = loadServerData()
@@ -55,11 +44,6 @@ const App = () => {
 		dispatch(initMapvalues(map))
 	}, [])
 
-	const addNewRef = e => {
-		const ref = blankRef()
-		dispatch(addRef(ref))
-	}
-
 	const addSnameHandler = e => {
 		const sname = blankSname()
 		dispatch(addSname(sname))
@@ -69,15 +53,19 @@ const App = () => {
 		dispatch(addRel(blankRel()))
 	}
 
+	const showNewReferenceForm = () => {
+		setDisplayRefForm(displayRefForm === 'none' ? 'block' : 'none')
+	}
+
 	return (
 		<>
 			<div>
 				<h2>References</h2>
-				{state.ref.map(data => (
-					<Reference {...{ key: data.id, data }} />
+				{state.ref.map(reference => (
+					<Reference {...{ key: reference.id, reference }} />
 				))}
-				<ReferenceForm />
-				<button type='button' onClick={addNewRef}>
+				<ReferenceForm {...{ displayRefForm, showNewReferenceForm }} />
+				<button type='button' onClick={showNewReferenceForm}>
 					Add new reference
 				</button>
 			</div>

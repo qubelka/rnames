@@ -1,23 +1,21 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
-import { addRef, updateRef } from '../store/references/actions'
+import { addRef } from '../store/references/actions'
 import { NameList } from './NameList'
 import { makeId } from '../utilities'
 
-export const ReferenceForm = () => {
+export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 	const dispatch = useDispatch()
 
-    const [id, setId] = useState(null)
-    const [firstAuthor, setFirstAuthor] = useState('')
-    const [year, setYear] = useState(0)
-    const [title, setTitle] = useState('')
-    const [doi, setDoi] = useState('')
-    const [link, setLink] = useState('')
-    const [exists, setExists] = useState(false)
-    const [queried, setQueried] = useState(false)
-    const [names, setNames] = useState([])
-
+	const [firstAuthor, setFirstAuthor] = useState('')
+	const [year, setYear] = useState(0)
+	const [title, setTitle] = useState('')
+	const [doi, setDoi] = useState('')
+	const [link, setLink] = useState('')
+	const [exists, setExists] = useState(false)
+	const [queried, setQueried] = useState(false)
+	const [names, setNames] = useState([])
 
 	const doiSubmit = async e => {
 		e.preventDefault()
@@ -30,12 +28,14 @@ export const ReferenceForm = () => {
 
 			if (response.author.length === 0) return
 
-            setQueried(true)
-            setFirstAuthor(`${response.author[0].given} ${response.author[0].family}`)
-            setYear(response.created['date-parts'][0][0])
-            setTitle(response.title[0])
-            setDoi(response.DOI)
-            setLink(response.URL)
+			setQueried(true)
+			setFirstAuthor(
+				`${response.author[0].given} ${response.author[0].family}`
+			)
+			setYear(response.created['date-parts'][0][0])
+			setTitle(response.title[0])
+			setDoi(response.DOI)
+			setLink(response.URL)
 		} catch (err) {
 			// Do something with this later
 			console.log(err.response.data)
@@ -43,34 +43,35 @@ export const ReferenceForm = () => {
 	}
 
 	const handleManualSubmit = e => {
-        e.preventDefault()
+		e.preventDefault()
+        console.log(makeId('reference'))
         /**
-         * Change setId after adding 'save' / 'edit' buttons, 
-         * shouldn't create new id for existing reference
-         */
-        setId(makeId('reference'))
-        const newReference = {
-            id,
-            firstAuthor,
-            year,
-            title,
-            doi,
-            link,
-            exists,
-            queried,
-            names
-        }
-        dispatch(addRef({...newReference}))
-        setId(null)
-        setFirstAuthor('')
-        setYear(0)
-        setTitle('')
-        setDoi('')
-        setLink('')
-        setExists(false)
-        setQueried(false)
-        setNames([])
-    }
+		 * Change setId after adding 'save' / 'edit' buttons,
+		 * shouldn't create new id for existing reference
+		 */
+		const newReference = {
+			id: makeId('reference'),
+			firstAuthor,
+			year,
+			title,
+			doi,
+			link,
+			exists,
+			queried,
+			names,
+		}
+        dispatch(addRef({ ...newReference }))
+
+		setFirstAuthor('')
+		setYear(0)
+		setTitle('')
+		setDoi('')
+		setLink('')
+		setExists(false)
+		setQueried(false)
+		setNames([])
+        showNewReferenceForm()
+	}
 
 	if (queried)
 		return (
@@ -115,29 +116,25 @@ export const ReferenceForm = () => {
 						value={link}
 						onChange={e => setLink(e.target.value)}
 					/>
+                    <br />
+                    <button type='submit'>Save reference</button>
 				</form>
-                <button type='submit'>Save reference</button>
 			</div>
 		)
 
 	return (
-		<div>
-			<form onSubmit={doiSubmit}>
-				<label htmlFor='doi'>doi</label>
-				<input
-					type='text'
-					name='doi'
-					value={doi}
-					onChange={e => setDoi(e.target.value)}
-				/>
-				<button type='submit'>get</button>
-				<button
-					type='button'
-					onClick={() => setQueried(true)}
-				>
-					Manual Entry
-				</button>
-			</form>
-		</div>
+		<form onSubmit={doiSubmit} style={{ display: displayRefForm }}>
+			<label htmlFor='doi'>doi</label>
+			<input
+				type='text'
+				name='doi'
+				value={doi}
+				onChange={e => setDoi(e.target.value)}
+			/>
+			<button type='submit'>get</button>
+			<button type='button' onClick={() => setQueried(true)}>
+				Manual Entry
+			</button>
+		</form>
 	)
 }
