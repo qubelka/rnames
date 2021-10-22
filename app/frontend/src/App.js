@@ -10,6 +10,7 @@ import { addSname } from './store/snames/actions'
 import { Reference } from './components/Reference'
 import { Sname } from './components/Sname'
 import { Relation } from './components/Relation'
+import { ReferenceForm } from './components/ReferenceForm'
 
 const blankRef = () => {
 	return {
@@ -75,6 +76,7 @@ const App = () => {
 				{state.ref.map(data => (
 					<Reference {...{ key: data.id, data }} />
 				))}
+				<ReferenceForm />
 				<button type='button' onClick={addNewRef}>
 					Add new reference
 				</button>
