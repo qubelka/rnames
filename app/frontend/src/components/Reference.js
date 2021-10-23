@@ -1,4 +1,5 @@
 import React from 'react'
+import { NameList } from './NameList'
 
 export const Reference = ({ reference }) => {
 	return (
@@ -8,6 +9,7 @@ export const Reference = ({ reference }) => {
 			<p>title: {reference.title}</p>
 			<p>doi: {reference.doi}</p>
 			<p>link: {reference.link}</p>
+			<NameList data={reference} />
 		</div>
 	)
 }
