@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import { addRef } from '../store/references/actions'
-import { NameList } from './NameList'
 import { makeId } from '../utilities'
 
 export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 	const dispatch = useDispatch()
 
+	const [id, setId] = useState(null)
 	const [firstAuthor, setFirstAuthor] = useState('')
 	const [year, setYear] = useState(0)
 	const [title, setTitle] = useState('')
@@ -16,6 +16,11 @@ export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 	const [exists, setExists] = useState(false)
 	const [queried, setQueried] = useState(false)
 	const [names, setNames] = useState([])
+
+	useEffect(() => {
+		if (!id) return
+		addNewReference()
+	}, [id])
 
 	const doiSubmit = async e => {
 		e.preventDefault()
@@ -42,15 +47,9 @@ export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 		}
 	}
 
-	const handleManualSubmit = e => {
-		e.preventDefault()
-        console.log(makeId('reference'))
-        /**
-		 * Change setId after adding 'save' / 'edit' buttons,
-		 * shouldn't create new id for existing reference
-		 */
+	const addNewReference = () => {
 		const newReference = {
-			id: makeId('reference'),
+			id,
 			firstAuthor,
 			year,
 			title,
@@ -61,7 +60,7 @@ export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 			names,
 		}
         dispatch(addRef({ ...newReference }))
-
+		setId(null)
 		setFirstAuthor('')
 		setYear(0)
 		setTitle('')
@@ -71,6 +70,15 @@ export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 		setQueried(false)
 		setNames([])
         showNewReferenceForm()
+	}
+
+	const handleManualSubmit = e => {
+		e.preventDefault()
+		if (!id) {
+			setId(makeId('reference'))
+			return
+		}
+		addNewReference()
 	}
 
 	if (queried)
