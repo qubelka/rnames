@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadServerData } from '../services/server'
 import { formatStructuredName } from '../utilities'
-import { addRel, updateRel, deleteRel } from '../store/relations/actions'
+import { updateRel, deleteRel } from '../store/relations/actions'
 import { Dropdown } from './Dropdown'
 
 export const Relation = ({ data }) => {
