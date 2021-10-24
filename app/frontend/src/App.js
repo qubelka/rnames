@@ -30,6 +30,7 @@ const App = () => {
 	const dispatch = useDispatch()
 
 	const [displayRefForm, setDisplayRefForm] = useState('none')
+	const [newRefButtonIsDisabled, setNewRefButtonIsDisabled] = useState(false)
 
 	useEffect(() => {
 		initServer()
@@ -55,6 +56,7 @@ const App = () => {
 
 	const showNewReferenceForm = () => {
 		setDisplayRefForm(displayRefForm === 'none' ? 'block' : 'none')
+		setNewRefButtonIsDisabled(!newRefButtonIsDisabled)
 	}
 
 	return (
@@ -64,8 +66,19 @@ const App = () => {
 				{state.ref.map(reference => (
 					<Reference {...{ key: reference.id, reference }} />
 				))}
-				<ReferenceForm {...{ displayRefForm, showNewReferenceForm }} />
-				<button type='button' onClick={showNewReferenceForm}>
+				<ReferenceForm
+					{...{
+						displayRefForm,
+						showNewReferenceForm,
+						newRefButtonIsDisabled,
+						setNewRefButtonIsDisabled,
+					}}
+				/>
+				<button
+					type='button'
+					onClick={showNewReferenceForm}
+					disabled={newRefButtonIsDisabled}
+				>
 					Add new reference
 				</button>
 			</div>

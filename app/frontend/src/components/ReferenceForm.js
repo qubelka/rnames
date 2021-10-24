@@ -4,7 +4,12 @@ import axios from 'axios'
 import { addRef } from '../store/references/actions'
 import { makeId } from '../utilities'
 
-export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
+export const ReferenceForm = ({
+	displayRefForm,
+	showNewReferenceForm,
+	newRefButtonIsDisabled,
+	setNewRefButtonIsDisabled,
+}) => {
 	const dispatch = useDispatch()
 
 	const [id, setId] = useState(null)
@@ -59,7 +64,7 @@ export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 			queried,
 			names,
 		}
-        dispatch(addRef({ ...newReference }))
+		dispatch(addRef({ ...newReference }))
 		setId(null)
 		setFirstAuthor('')
 		setYear(0)
@@ -69,7 +74,7 @@ export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 		setExists(false)
 		setQueried(false)
 		setNames([])
-        showNewReferenceForm()
+		showNewReferenceForm()
 	}
 
 	const handleManualSubmit = e => {
@@ -78,6 +83,7 @@ export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 			setId(makeId('reference'))
 			return
 		}
+		setNewRefButtonIsDisabled(!newRefButtonIsDisabled)
 		addNewReference()
 	}
 
@@ -124,8 +130,8 @@ export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 						value={link}
 						onChange={e => setLink(e.target.value)}
 					/>
-                    <br />
-                    <button type='submit'>Save reference</button>
+					<br />
+					<button type='submit'>Save reference</button>
 				</form>
 			</div>
 		)
