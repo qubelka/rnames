@@ -82,7 +82,9 @@ export const Sname = ({ data }) => {
 				onChange={e => update(e, 'reference_id')}
 			/>
 			<br />
-			<button type='button' onClick={deleteSnameHandler}>Poista</button>
+			<button type='button' onClick={deleteSnameHandler}>
+				Delete
+			</button>
 		</div>
 	)
 }

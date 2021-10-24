@@ -55,7 +55,9 @@ export const Relation = ({ data }) => {
 				onChange={e => update(e, 'name2')}
 			/>
 			<br />
-			<button type='button' onClick={deleteRelHandler}>Poista</button>
+			<button type='button' onClick={deleteRelHandler}>
+				Delete
+			</button>
 		</div>
 	)
 }
