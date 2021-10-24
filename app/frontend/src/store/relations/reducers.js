@@ -9,6 +9,9 @@ export const relReducer = (state = [], { type, rel }) => {
 		case 'UPDATE':
 			ret = state.map(v => (v.id === rel.id ? rel : v))
 			break
+		case 'DELETE':
+			ret = state.filter(v => (v.id !== rel.id))
+			break
 		default:
 			ret = state
 			break

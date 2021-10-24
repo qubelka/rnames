@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadServerData } from '../services/server'
 import { formatStructuredName } from '../utilities'
-import { updateRel } from '../store/relations/actions'
+import { addRel, updateRel, deleteRel } from '../store/relations/actions'
 import { Dropdown } from './Dropdown'
 
 export const Relation = ({ data }) => {
@@ -28,6 +28,10 @@ export const Relation = ({ data }) => {
 	const refOptions = state.ref
 		.concat(...loadServerData('references'))
 		.map(v => [v.id, v.title])
+	
+	const deleteRelHandler = () => {
+		dispatch(deleteRel(data))
+	}
 
 	return (
 		<div>
@@ -50,6 +54,8 @@ export const Relation = ({ data }) => {
 				value={data.name2}
 				onChange={e => update(e, 'name2')}
 			/>
+			<br />
+			<button type='button' onClick={deleteRelHandler}>Poista</button>
 		</div>
 	)
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadServerData } from '../services/server'
 import { formatQualifier } from '../utilities'
-import { updateSname } from '../store/snames/actions'
+import { updateSname, deleteSname } from '../store/snames/actions'
 import { Dropdown } from './Dropdown'
 
 export const Sname = ({ data }) => {
@@ -44,6 +44,10 @@ export const Sname = ({ data }) => {
 		dispatch(updateSname(r))
 	}
 
+	const deleteSnameHandler = () => {
+		dispatch(deleteSname(data))
+	}
+
 	return (
 		<div>
 			<label htmlFor='name'>Name</label>
@@ -77,6 +81,8 @@ export const Sname = ({ data }) => {
 				value={data.reference_id}
 				onChange={e => update(e, 'reference_id')}
 			/>
+			<br />
+			<button type='button' onClick={deleteSnameHandler}>Poista</button>
 		</div>
 	)
 }
