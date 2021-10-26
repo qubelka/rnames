@@ -17,6 +17,17 @@ def main_binning_fun(cron_relations, time_slices):
     pd.set_option('display.max_columns', 30)
     pd.set_option('display.max_rows', 5)
     start = time.time()
+
+    # Create a data frame from the ordered list of time slice scheme names
+    def make_ts_df(values):
+        index = np.arange(0, len(values), 1)
+        df = pd.DataFrame({'ts': values, 'ts_index': index}, index=index)
+        df = df.append({'ts' : 'not specified' , 'ts_index' : len(values)} , ignore_index=True)
+        return df
+
+    for k in time_slices.keys():
+        time_slices[k] = make_ts_df(time_slices[k])
+
     # In[3]:
 
 
