@@ -51,10 +51,6 @@ from contextlib import redirect_stdout
 #    return render(request, 'name_list.html', {'names': names})
 
 def external(request):
-
-    # Generate counts of some of the main objects
-    num_opinions = Relation.objects.is_active().count()
-
     def time_slices(scheme):
         return list(TimeSlice.objects.is_active().filter(scheme=scheme).order_by('order').values_list('name', flat=True))
 
