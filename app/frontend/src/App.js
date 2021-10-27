@@ -10,6 +10,7 @@ import { Reference } from './components/Reference'
 import { Sname } from './components/Sname'
 import { Relation } from './components/Relation'
 import { ReferenceForm } from './components/ReferenceForm'
+import { SnameForm } from './components/SnameForm'
 
 const blankSname = () => {
 	return {
@@ -76,6 +77,7 @@ const App = () => {
 				{state.sname.map(data => (
 					<Sname {...{ key: data.id, data }} />
 				))}
+				<SnameForm />
 				<button type='button' onClick={addSnameHandler}>
 					Add new structured name
 				</button>

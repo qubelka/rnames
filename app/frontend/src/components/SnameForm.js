@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { formatQualifier } from '../utilities'
-import { Dropdown } from './Dropdown'
 import { parseId, makeId } from '../utilities'
 import { addName } from '../store/names/actions'
 import { addSname } from '../store/snames/actions'
+import { Datalist } from './Datalist'
 
-export const Sname = () => {
+export const SnameForm = () => {
 	const dispatch = useDispatch()
 	const state = useSelector(v => v)
 
@@ -61,16 +61,12 @@ export const Sname = () => {
 		if (!qualifierFromDb || !referenceFromDb) return
 
 		let nameId, locationId
-		if (names.filter(v => v[1] === name).length !== 0) {
-			console.log('NAME FOUND FROM DB')
-		} else {
+		if (names.filter(v => v[1] === name).length === 0) {
 			nameId = makeId('name')
 			dispatch(addName({ id: nameId, name: name, variant: 'name' }))
 		}
 
-		if (locations.filter(v => v[1] === location).length !== 0) {
-			console.log('LOCATION FOUND FROM DB')
-		} else {
+		if (locations.filter(v => v[1] === location).length === 0) {
 			locationId = makeId('location')
 			dispatch(
 				addName({ id: locationId, name: location, variant: 'location' })
@@ -97,7 +93,7 @@ export const Sname = () => {
 	return (
 		<div>
 			<label htmlFor='name'>Name</label>
-			<Dropdown
+			<Datalist
 				name='name'
 				options={names}
 				value={name}
@@ -105,7 +101,7 @@ export const Sname = () => {
 			/>
 			<br />
 			<label htmlFor='qualifier'>Qualifier</label>
-			<Dropdown
+			<Datalist
 				name='qualifier'
 				options={qualifiers}
 				value={qualifier}
@@ -113,7 +109,7 @@ export const Sname = () => {
 			/>
 			<br />
 			<label htmlFor='location'>Location</label>
-			<Dropdown
+			<Datalist
 				name='location'
 				options={locations}
 				value={location}
@@ -121,7 +117,7 @@ export const Sname = () => {
 			/>
 			<br />
 			<label htmlFor='reference'>Reference</label>
-			<Dropdown
+			<Datalist
 				name='reference'
 				options={references}
 				value={reference}
