@@ -29,8 +29,7 @@ const App = () => {
 	const state = useSelector(v => v)
 	const dispatch = useDispatch()
 
-	const [displayRefForm, setDisplayRefForm] = useState('none')
-	const [newRefButtonIsDisabled, setNewRefButtonIsDisabled] = useState(false)
+	const [displayRefForm, setDisplayRefForm] = useState('block')
 
 	useEffect(() => {
 		initServer()
@@ -56,7 +55,6 @@ const App = () => {
 
 	const showNewReferenceForm = () => {
 		setDisplayRefForm(displayRefForm === 'none' ? 'block' : 'none')
-		setNewRefButtonIsDisabled(!newRefButtonIsDisabled)
 	}
 
 	return (
@@ -70,17 +68,8 @@ const App = () => {
 					{...{
 						displayRefForm,
 						showNewReferenceForm,
-						newRefButtonIsDisabled,
-						setNewRefButtonIsDisabled,
 					}}
 				/>
-				<button
-					type='button'
-					onClick={showNewReferenceForm}
-					disabled={newRefButtonIsDisabled}
-				>
-					Add new reference
-				</button>
 			</div>
 			<div>
 				<h2>Structured Names</h2>
