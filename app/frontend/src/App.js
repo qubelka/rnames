@@ -31,6 +31,9 @@ const App = () => {
 	const dispatch = useDispatch()
 
 	const [displayRefForm, setDisplayRefForm] = useState('block')
+	const [displaySnameForm, setDisplaySnameForm] = useState('none')
+	const [newSnameButtonIsDisabled, setNewSnameButtonIsDisabled] =
+		useState(false)
 
 	useEffect(() => {
 		initServer()
@@ -58,6 +61,11 @@ const App = () => {
 		setDisplayRefForm(displayRefForm === 'none' ? 'block' : 'none')
 	}
 
+	const showNewSnameForm = () => {
+		setDisplaySnameForm(displaySnameForm === 'none' ? 'block' : 'none')
+		setNewSnameButtonIsDisabled(!newSnameButtonIsDisabled)
+	}
+
 	return (
 		<>
 			<div>
@@ -74,11 +82,22 @@ const App = () => {
 			</div>
 			<div>
 				<h2>Structured Names</h2>
-				{state.sname.map(data => (
-					<Sname {...{ key: data.id, data }} />
+				{state.sname.map(sname => (
+					<Sname {...{ key: sname.id, sname }} />
 				))}
-				<SnameForm />
-				<button type='button' onClick={addSnameHandler}>
+				<SnameForm
+					{...{
+						displaySnameForm,
+						showNewSnameForm,
+						newSnameButtonIsDisabled,
+						setNewSnameButtonIsDisabled,
+					}}
+				/>
+				<button
+					type='button'
+					onClick={showNewSnameForm}
+					disabled={newSnameButtonIsDisabled}
+				>
 					Add new structured name
 				</button>
 			</div>
