@@ -5,6 +5,11 @@ import { parseId, makeId } from '../utilities'
 import { addName } from '../store/names/actions'
 import { addSname } from '../store/snames/actions'
 import { Datalist } from './Datalist'
+import {
+	selectAllLocations,
+	selectAllNames,
+	selectAllReferences,
+} from '../store/snames/selectors'
 
 export const SnameForm = ({
 	displaySnameForm,
@@ -20,16 +25,7 @@ export const SnameForm = ({
 	const [qualifier, setQualifier] = useState('')
 	const [reference, setReference] = useState('')
 
-	const names = useSelector(v => {
-		return Object.entries(v.map)
-			.filter(([key]) => parseId(key).type === 'db_name')
-			.map(v => [v[1].id, v[1].name])
-			.concat(
-				v.names
-					.filter(name => name.variant === 'name')
-					.map(v => [v.id, v.name])
-			)
-	})
+	const names = useSelector(selectAllNames)
 
 	const qualifiers = useSelector(v => {
 		return Object.entries(v.map)
@@ -37,23 +33,8 @@ export const SnameForm = ({
 			.map(v => [v[1].id, formatQualifier(v[1], state)])
 	})
 
-	const locations = useSelector(v => {
-		return Object.entries(v.map)
-			.filter(([key]) => parseId(key).type === 'db_location')
-			.map(v => [v[1].id, v[1].name])
-			.concat(
-				v.names
-					.filter(name => name.variant === 'location')
-					.map(v => [v.id, v.name])
-			)
-	})
-
-	const references = useSelector(v => {
-		return Object.entries(v.map)
-			.filter(([key]) => parseId(key).type === 'db_reference')
-			.map(v => [v[1].id, v[1].title])
-			.concat(v.ref.map(ref => [ref.id, ref.title]))
-	})
+	const locations = useSelector(selectAllLocations)
+	const references = useSelector(selectAllReferences)
 
 	const handleSnameAddition = () => {
 		const qualifierFromDb = qualifiers.find(
