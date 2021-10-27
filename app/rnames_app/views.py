@@ -1164,7 +1164,7 @@ def timeslice_edit(request, pk):
         if form.is_valid():
             timeslice = form.save(commit=False)
             timeslice.save()
-            return redirect('timeslice_detail', pk=timeslice.pk)
+            return redirect('timeslice-detail', pk=timeslice.pk)
     else:
         form = TimeSliceForm(instance=timeslice)
     return render(request, 'timeslice_edit.html', {'form': form})
