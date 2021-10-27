@@ -6,7 +6,12 @@ import { addName } from '../store/names/actions'
 import { addSname } from '../store/snames/actions'
 import { Datalist } from './Datalist'
 
-export const SnameForm = () => {
+export const SnameForm = ({
+	displaySnameForm,
+	showNewSnameForm,
+	newSnameButtonIsDisabled,
+	setNewSnameButtonIsDisabled,
+}) => {
 	const dispatch = useDispatch()
 	const state = useSelector(v => v)
 
@@ -88,10 +93,12 @@ export const SnameForm = () => {
 		setQualifier('')
 		setLocation('')
 		setReference('')
+		showNewSnameForm()
+		setNewSnameButtonIsDisabled(!newSnameButtonIsDisabled)
 	}
 
 	return (
-		<div>
+		<div style={{ display: displaySnameForm }}>
 			<label htmlFor='name'>Name</label>
 			<Datalist
 				name='name'
