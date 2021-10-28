@@ -382,7 +382,6 @@ class TimeSlice(BaseModel):
 
     class Meta:
         ordering = ['scheme', 'order']
-        unique_together= [['scheme', 'order']]
 
     def __str__(self):
         return '%s %d %s' % (self.scheme, self.order, self.name)

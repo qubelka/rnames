@@ -9,6 +9,9 @@ export const snameReducer = (state = [], { type, sname }) => {
 		case 'UPDATE':
 			ret = state.map(v => (v.id === sname.id ? sname : v))
 			break
+		case 'DELETE':
+			ret = state.filter(v => (v.id !== sname.id))
+			break
 		default:
 			ret = state
 			break

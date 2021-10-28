@@ -40,7 +40,6 @@ from .filters import UserFilter
 import sys
 from subprocess import run, PIPE
 from .utils.root_binning import main_binning_fun
-from .utils.tools import (get_cron_relations)
 from io import StringIO
 from contextlib import redirect_stdout
 # , APINameFilter
@@ -52,16 +51,49 @@ from contextlib import redirect_stdout
 #    return render(request, 'name_list.html', {'names': names})
 
 def external(request):
-
-    # Generate counts of some of the main objects
-    num_opinions = Relation.objects.is_active().count()
-
     def time_slices(scheme):
-        return list(TimeSlice.objects.filter(scheme=scheme).order_by('order').values_list('name', flat=True))
+        return list(TimeSlice.objects.is_active().filter(scheme=scheme).order_by('order').values_list('name', flat=True))
 
-    rels = get_cron_relations()
+    queryset_list = list(Relation.objects.is_active().select_related().values_list(
+        'id',
+        'reference',
+        'reference__year',
+        'name_one__id',
+        'name_one__location__name',
+        'name_one__name__name',
+        'name_one__qualifier__level',
+        'name_one__qualifier__qualifier_name__name',
+        'name_one__qualifier__stratigraphic_qualifier__name',
 
-    result = main_binning_fun(rels[0], {
+        'name_two__id',
+        'name_two__location__name',
+        'name_two__name__name',
+        'name_two__qualifier__level',
+        'name_two__qualifier__qualifier_name__name',
+        'name_two__qualifier__stratigraphic_qualifier__name',
+    ))
+
+    cols = [
+        'id',
+        'reference_id',
+        'reference_year',
+
+        'name_1_id',
+        'locality_name_1',
+        'name_1',
+        'level_1',
+        'qualifier_name_1',
+        'strat_qualifier_1',
+
+        'name_2_id',
+        'locality_name_2',
+        'name_2',
+        'level_2',
+        'qualifier_name_2',
+        'strat_qualifier_2',
+    ]
+
+    result = main_binning_fun(queryset_list, cols, {
         'rassm': time_slices('rasmussen'),
         'berg': time_slices('bergstrom'),
         'webby': time_slices('webby'),
@@ -76,7 +108,6 @@ def external(request):
         request,
         'binning_done.html',
         context={
-            'dl_duration': rels[1],
             'duration': result['duration'],
             'berg': result['berg'].to_html(classes='w3-table'),
             'webby': result['webby'].to_html(classes='w3-table'),
@@ -1133,7 +1164,7 @@ def timeslice_edit(request, pk):
         if form.is_valid():
             timeslice = form.save(commit=False)
             timeslice.save()
-            return redirect('timeslice_detail', pk=timeslice.pk)
+            return redirect('timeslice-detail', pk=timeslice.pk)
     else:
         form = TimeSliceForm(instance=timeslice)
     return render(request, 'timeslice_edit.html', {'form': form})
