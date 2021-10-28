@@ -4,16 +4,6 @@ import time
 import pandas as pd
 import numpy as np
 
-def get_cron_relations():
-    url = "http://karilint.pythonanywhere.com/rnames/api/relations/?format=json"
-    start = time.time()
-    cron_relations = pd.read_json(url)
-    #cron_relations = pd.read_csv("view_cron_relations.csv") # from file
-    end = time.time()
-    print("Downloaded ", len(cron_relations), "relations. Download time: ", end - start, "seconds")
-    cron_relations.to_csv("cron_relations.csv", index = False, header=True)
-    return (cron_relations, end - start)
-
 def binning_outputs_equal(a, b):
     fa = pd.read_csv(a)
     fb = pd.read_csv(b)
