@@ -35,6 +35,12 @@ export const mapReducer = (state = {}, action) => {
 		case 'INITIALIZE_MAP_VALUES': {
 			return action.map
 		}
+		case 'DELETE': {
+			v = action.sname || action.rel
+			let updatedState = { ...state }
+			delete updatedState[v.id]
+			return updatedState
+		}
 
 		default:
 			return state
