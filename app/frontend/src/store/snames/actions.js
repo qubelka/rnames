@@ -1,4 +1,4 @@
-import { ADD, UPDATE } from '../action-types'
+import { ADD, DELETE, UPDATE } from '../action-types'
 
 export const addSname = sname => {
 	return {
@@ -10,6 +10,13 @@ export const addSname = sname => {
 export const updateSname = sname => {
 	return {
 		type: UPDATE,
+		sname,
+	}
+}
+
+export const deleteSname = sname => {
+	return {
+		type: DELETE,
 		sname,
 	}
 }
