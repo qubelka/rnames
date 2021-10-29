@@ -17,7 +17,7 @@ export const Submit = () => {
 		).value
 
 		axios({
-			url: '/tentative_submit_path',
+			url: '/wizard_submit',
 			method: 'POST',
 			headers: {
 				'X-CSRFToken': csrfmiddlewaretoken,
