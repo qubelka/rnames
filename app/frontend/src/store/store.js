@@ -5,6 +5,7 @@ import { refReducer } from './references/reducers'
 import { snameReducer } from './snames/reducers'
 import { relReducer } from './relations/reducers'
 import { mapReducer } from './map/reducers'
+import { nameReducer } from './names/reducers'
 
 const devTools =
 	process.env.NODE_ENV === 'production'
@@ -17,6 +18,7 @@ export const store = createStore(
 		sname: snameReducer,
 		rel: relReducer,
 		map: mapReducer,
+		names: nameReducer,
 	}),
 	devTools
 )

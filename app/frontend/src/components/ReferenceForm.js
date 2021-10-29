@@ -4,15 +4,9 @@ import axios from 'axios'
 import { addRef } from '../store/references/actions'
 import { makeId } from '../utilities'
 
-export const ReferenceForm = ({
-	displayRefForm,
-	showNewReferenceForm,
-	newRefButtonIsDisabled,
-	setNewRefButtonIsDisabled,
-}) => {
+export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 	const dispatch = useDispatch()
 
-	const [id, setId] = useState(null)
 	const [firstAuthor, setFirstAuthor] = useState('')
 	const [year, setYear] = useState(0)
 	const [title, setTitle] = useState('')
@@ -20,12 +14,6 @@ export const ReferenceForm = ({
 	const [link, setLink] = useState('')
 	const [exists, setExists] = useState(false)
 	const [queried, setQueried] = useState(false)
-	const [names, setNames] = useState([])
-
-	useEffect(() => {
-		if (!id) return
-		addNewReference()
-	}, [id])
 
 	const doiSubmit = async e => {
 		e.preventDefault()
@@ -52,9 +40,10 @@ export const ReferenceForm = ({
 		}
 	}
 
-	const addNewReference = () => {
+	const handleManualSubmit = e => {
+		e.preventDefault()
 		const newReference = {
-			id,
+			id: makeId('reference'),
 			firstAuthor,
 			year,
 			title,
@@ -62,10 +51,9 @@ export const ReferenceForm = ({
 			link,
 			exists,
 			queried,
-			names,
 		}
 		dispatch(addRef({ ...newReference }))
-		setId(null)
+
 		setFirstAuthor('')
 		setYear(0)
 		setTitle('')
@@ -73,18 +61,7 @@ export const ReferenceForm = ({
 		setLink('')
 		setExists(false)
 		setQueried(false)
-		setNames([])
 		showNewReferenceForm()
-	}
-
-	const handleManualSubmit = e => {
-		e.preventDefault()
-		if (!id) {
-			setId(makeId('reference'))
-			return
-		}
-		setNewRefButtonIsDisabled(!newRefButtonIsDisabled)
-		addNewReference()
 	}
 
 	if (queried)

@@ -11,6 +11,7 @@ import { Sname } from './components/Sname'
 import { Relation } from './components/Relation'
 import { Submit } from './components/Submit'
 import { ReferenceForm } from './components/ReferenceForm'
+import { SnameForm } from './components/SnameForm'
 
 const blankSname = () => {
 	return {
@@ -30,8 +31,10 @@ const App = () => {
 	const state = useSelector(v => v)
 	const dispatch = useDispatch()
 
-	const [displayRefForm, setDisplayRefForm] = useState('none')
-	const [newRefButtonIsDisabled, setNewRefButtonIsDisabled] = useState(false)
+	const [displayRefForm, setDisplayRefForm] = useState('block')
+	const [displaySnameForm, setDisplaySnameForm] = useState('none')
+	const [newSnameButtonIsDisabled, setNewSnameButtonIsDisabled] =
+		useState(false)
 
 	useEffect(() => {
 		initServer()
@@ -57,7 +60,11 @@ const App = () => {
 
 	const showNewReferenceForm = () => {
 		setDisplayRefForm(displayRefForm === 'none' ? 'block' : 'none')
-		setNewRefButtonIsDisabled(!newRefButtonIsDisabled)
+	}
+
+	const showNewSnameForm = () => {
+		setDisplaySnameForm(displaySnameForm === 'none' ? 'block' : 'none')
+		setNewSnameButtonIsDisabled(!newSnameButtonIsDisabled)
 	}
 
 	return (
@@ -71,24 +78,27 @@ const App = () => {
 					{...{
 						displayRefForm,
 						showNewReferenceForm,
-						newRefButtonIsDisabled,
-						setNewRefButtonIsDisabled,
+					}}
+				/>
+			</div>
+			<div>
+				<h2>Structured Names</h2>
+				{state.sname.map(sname => (
+					<Sname {...{ key: sname.id, sname }} />
+				))}
+				<SnameForm
+					{...{
+						displaySnameForm,
+						showNewSnameForm,
+						newSnameButtonIsDisabled,
+						setNewSnameButtonIsDisabled,
 					}}
 				/>
 				<button
 					type='button'
-					onClick={showNewReferenceForm}
-					disabled={newRefButtonIsDisabled}
+					onClick={showNewSnameForm}
+					disabled={newSnameButtonIsDisabled}
 				>
-					Add new reference
-				</button>
-			</div>
-			<div>
-				<h2>Structured Names</h2>
-				{state.sname.map(data => (
-					<Sname {...{ key: data.id, data }} />
-				))}
-				<button type='button' onClick={addSnameHandler}>
 					Add new structured name
 				</button>
 			</div>
