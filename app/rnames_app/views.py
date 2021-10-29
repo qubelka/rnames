@@ -30,18 +30,17 @@ from rest_framework.response import Response
 #from .utils.utils import YourClassOrFunction
 from rest_framework import status, generics
 from .models import (Binning, Location, Name, Qualifier, QualifierName,
-                     Relation, Reference, StratigraphicQualifier, StructuredName)
+                     Relation, Reference, StratigraphicQualifier, StructuredName, TimeSlice)
 from .filters import (BinningSchemeFilter, LocationFilter, NameFilter, QualifierFilter, QualifierNameFilter,
-                      ReferenceFilter, RelationFilter, StratigraphicQualifierFilter, StructuredNameFilter)
+                      ReferenceFilter, RelationFilter, StratigraphicQualifierFilter, StructuredNameFilter, TimeSliceFilter)
 from .forms import (ColorfulContactForm, ContactForm, LocationForm, NameForm, QualifierForm, QualifierNameForm, ReferenceForm,
-                    ReferenceRelationForm, ReferenceStructuredNameForm, RelationForm, StratigraphicQualifierForm, StructuredNameForm)
+                    ReferenceRelationForm, ReferenceStructuredNameForm, RelationForm, StratigraphicQualifierForm, StructuredNameForm, TimeSliceForm)
 from django.contrib.auth.models import User
 from .filters import UserFilter
 
 import sys
 from subprocess import run, PIPE
 from .utils.root_binning import main_binning_fun
-from .utils.tools import (get_cron_relations, get_time_slices)
 from io import StringIO
 from contextlib import redirect_stdout
 # , APINameFilter
@@ -53,19 +52,63 @@ from contextlib import redirect_stdout
 #    return render(request, 'name_list.html', {'names': names})
 
 def external(request):
+    def time_slices(scheme):
+        return list(TimeSlice.objects.is_active().filter(scheme=scheme).order_by('order').values_list('name', flat=True))
 
-    # Generate counts of some of the main objects
-    num_opinions = Relation.objects.is_active().count()
+    queryset_list = list(Relation.objects.is_active().select_related().values_list(
+        'id',
+        'reference',
+        'reference__year',
+        'name_one__id',
+        'name_one__location__name',
+        'name_one__name__name',
+        'name_one__qualifier__level',
+        'name_one__qualifier__qualifier_name__name',
+        'name_one__qualifier__stratigraphic_qualifier__name',
 
-    # inp = request.POST.get('param', 'K') # This doesn't appear to be used anywhere in binning
-    rels = get_cron_relations()
-    result = main_binning_fun(rels[0], get_time_slices())
+        'name_two__id',
+        'name_two__location__name',
+        'name_two__name__name',
+        'name_two__qualifier__level',
+        'name_two__qualifier__qualifier_name__name',
+        'name_two__qualifier__stratigraphic_qualifier__name',
+    ))
+
+    cols = [
+        'id',
+        'reference_id',
+        'reference_year',
+
+        'name_1_id',
+        'locality_name_1',
+        'name_1',
+        'level_1',
+        'qualifier_name_1',
+        'strat_qualifier_1',
+
+        'name_2_id',
+        'locality_name_2',
+        'name_2',
+        'level_2',
+        'qualifier_name_2',
+        'strat_qualifier_2',
+    ]
+
+    result = main_binning_fun(queryset_list, cols, {
+        'rassm': time_slices('rasmussen'),
+        'berg': time_slices('bergstrom'),
+        'webby': time_slices('webby'),
+        'stages': time_slices('stages'),
+        'periods': time_slices('periods'),
+        'epochs': time_slices('epochs'),
+        'eras': time_slices('eras'),
+        'eons': time_slices('eons')
+    })
 
     return render(
         request,
         'binning_done.html',
         context={
-            'dl_duration': rels[1],
             'duration': result['duration'],
             'berg': result['berg'].to_html(classes='w3-table'),
             'webby': result['webby'].to_html(classes='w3-table'),
@@ -1103,6 +1146,65 @@ def user_search(request):
     user_list = User.objects.all()
     user_filter = UserFilter(request.GET, queryset=user_list)
     return render(request, 'user_list.html', {'filter': user_filter})
+
+class timeslice_delete(DeleteView):
+    model = TimeSlice
+    success_url = reverse_lazy('timeslice-list')
+
+
+def timeslice_detail(request, pk):
+    ts = get_object_or_404(TimeSlice, pk=pk, is_active=1)
+    return render(request, 'timeslice_detail.html', {'timeslice': ts})
+
+
+@login_required
+def timeslice_edit(request, pk):
+    timeslice = get_object_or_404(TimeSlice, pk=pk, is_active=1)
+    if request.method == "POST":
+        form = TimeSliceForm(request.POST, instance=timeslice)
+        if form.is_valid():
+            timeslice = form.save(commit=False)
+            timeslice.save()
+            return redirect('timeslice-detail', pk=timeslice.pk)
+    else:
+        form = TimeSliceForm(instance=timeslice)
+    return render(request, 'timeslice_edit.html', {'form': form})
+
+
+def timeslice_list(request):
+    f = TimeSliceFilter(
+        request.GET, queryset=TimeSlice.objects.is_active().order_by('scheme', 'order'))
+
+    paginator = Paginator(f.qs, 10)
+
+    page_number = request.GET.get('page')
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
+    return render(
+        request,
+        'timeslice_list.html',
+        {'page_obj': page_obj, 'filter': f, }
+    )
+
+
+@login_required
+def timeslice_new(request):
+    if request.method == "POST":
+        form = TimeSliceForm(request.POST)
+        if form.is_valid():
+            timeslice = form.save(commit=False)
+            timeslice.created_by_id = request.user.id
+            timeslice.created_on = timezone.now()
+            timeslice.save()
+            return redirect('timeslice-detail', pk=timeslice.pk)
+    else:
+        form = TimeSliceForm()
+    return render(request, 'timeslice_edit.html', {'form': form})
 
 @login_required
 def submit(request):

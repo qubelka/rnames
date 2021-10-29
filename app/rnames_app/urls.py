@@ -110,6 +110,14 @@ urlpatterns = [
          views.structuredname_new, name='structuredname-new'),
     path('rnames/structured_name/select',
          views.structuredname_select, name='structuredname-select'),
+    path('rnames/timeslices', views.timeslice_list, name='timeslice-list'),
+    path('rnames/timeslice/<int:pk>/',
+         views.timeslice_detail, name='timeslice-detail'),
+    path('rnames/timeslice/<int:pk>/delete/',
+         views.timeslice_delete.as_view(), name='timeslice-delete'),
+    path('rnames/timeslice/<int:pk>/edit/',
+         views.timeslice_edit, name='timeslice-edit'),
+    path('rnames/timeslice/new', views.timeslice_new, name='timeslice-new'),
     path('tentative_submit_path', views.submit)
 ]
 
