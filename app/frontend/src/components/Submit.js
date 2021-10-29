@@ -8,6 +8,7 @@ export const Submit = () => {
 			references: v.ref,
 			structured_names: v.sname,
 			relations: v.rel,
+			names: v.names
 		}
 	})
 
