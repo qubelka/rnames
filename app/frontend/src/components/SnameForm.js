@@ -49,12 +49,12 @@ export const SnameForm = ({
 		if (!qualifierFromDb) return
 
 		let nameId, locationId
-		if (names.filter(v => v[1] === name).length === 0) {
+		if (!names.find(v => v[1] === name)) {
 			nameId = makeId('name')
 			dispatch(addName({ id: nameId, name: name, variant: 'name' }))
 		}
 
-		if (locations.filter(v => v[1] === location).length === 0) {
+		if (!locations.find(v => v[1] === location)) {
 			locationId = makeId('location')
 			dispatch(
 				addName({ id: locationId, name: location, variant: 'location' })
