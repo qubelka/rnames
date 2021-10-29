@@ -39,21 +39,6 @@ export const selectAllLocations = createSelector(
 	}
 )
 
-export const selectDbReferences = state => {
-	return Object.entries(state.map).filter(
-		([key]) => parseId(key).type === 'db_reference'
-	)
-}
-
 export const selectRefence = state => {
-	return state.ref
+	return state.ref[0]
 }
-
-export const selectAllReferences = createSelector(
-	[selectDbReferences, selectRefence],
-	(dbReferences, reference) => {
-		return dbReferences
-			.map(v => [v[1].id, v[1].title])
-			.concat(reference.map(ref => [ref.id, ref.title]))
-	}
-)

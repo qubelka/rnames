@@ -8,7 +8,7 @@ import { Datalist } from './Datalist'
 import {
 	selectAllLocations,
 	selectAllNames,
-	selectAllReferences,
+	selectRefence,
 } from '../store/snames/selectors'
 
 export const SnameForm = ({
@@ -19,11 +19,10 @@ export const SnameForm = ({
 }) => {
 	const dispatch = useDispatch()
 	const state = useSelector(v => v)
-
+	const reference = useSelector(selectRefence)
 	const [name, setName] = useState('')
 	const [location, setLocation] = useState('')
 	const [qualifier, setQualifier] = useState('')
-	const [reference, setReference] = useState('')
 
 	const names = useSelector(selectAllNames)
 
@@ -34,17 +33,20 @@ export const SnameForm = ({
 	})
 
 	const locations = useSelector(selectAllLocations)
-	const references = useSelector(selectAllReferences)
 
 	const handleSnameAddition = () => {
+		if (!reference) {
+			// Add error message later!
+			console.log('Enter reference first!')
+			return
+		}
+
 		const qualifierFromDb = qualifiers.find(
 			dbQualifier => dbQualifier[1] === qualifier
 		)
-		const referenceFromDb = references.find(
-			dbReference => dbReference[1] === reference
-		)
 
-		if (!qualifierFromDb || !referenceFromDb) return
+		// Add error message later!
+		if (!qualifierFromDb) return
 
 		let nameId, locationId
 		if (names.filter(v => v[1] === name).length === 0) {
@@ -66,14 +68,13 @@ export const SnameForm = ({
 				locationId ||
 				locations.find(dbLocation => dbLocation[1] === location)[0],
 			qualifier_id: qualifierFromDb[0],
-			reference_id: referenceFromDb[0],
+			reference_id: reference.id,
 			remarks: '',
 		}
 		dispatch(addSname(newSname))
 		setName('')
 		setQualifier('')
 		setLocation('')
-		setReference('')
 		showNewSnameForm()
 		setNewSnameButtonIsDisabled(!newSnameButtonIsDisabled)
 	}
@@ -104,13 +105,6 @@ export const SnameForm = ({
 				onChange={e => setLocation(e.target.value)}
 			/>
 			<br />
-			<label htmlFor='reference'>Reference</label>
-			<Datalist
-				name='reference'
-				options={references}
-				value={reference}
-				onChange={e => setReference(e.target.value)}
-			/>
 			<button type='button' onClick={handleSnameAddition}>
 				Save
 			</button>
