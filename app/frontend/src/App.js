@@ -10,6 +10,7 @@ import { addSname } from './store/snames/actions'
 import { Reference } from './components/Reference'
 import { Sname } from './components/Sname'
 import { Relation } from './components/Relation'
+import { Submit } from './components/Submit'
 
 const blankRef = () => {
 	return {
@@ -97,6 +98,7 @@ const App = () => {
 					Add new relation
 				</button>
 			</div>
+			<Submit />
 		</>
 	)
 }
