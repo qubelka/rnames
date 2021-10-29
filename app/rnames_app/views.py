@@ -14,12 +14,13 @@ import mpltern
 from mpltern.ternary.datasets import get_scatter_points
 import numpy as np
 # end
+import json
 
 from django.db import connection
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.http import HttpResponse
+from django.http import (HttpResponse, JsonResponse)
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.utils import timezone
@@ -1102,3 +1103,9 @@ def user_search(request):
     user_list = User.objects.all()
     user_filter = UserFilter(request.GET, queryset=user_list)
     return render(request, 'user_list.html', {'filter': user_filter})
+
+@login_required
+def submit(request):
+    data = json.loads(request.body)
+    print(data)
+    return JsonResponse({'message': 'ok'})

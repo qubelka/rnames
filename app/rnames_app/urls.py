@@ -110,6 +110,7 @@ urlpatterns = [
          views.structuredname_new, name='structuredname-new'),
     path('rnames/structured_name/select',
          views.structuredname_select, name='structuredname-select'),
+    path('tentative_submit_path', views.submit)
 ]
 
 # Add Django site authentication urls (for login, logout, password management)
