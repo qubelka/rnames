@@ -5,7 +5,7 @@ import axios from 'axios'
 export const Submit = () => {
 	const data = useSelector(v => {
 		return {
-			references: v.ref,
+			reference: v.ref[0],
 			structured_names: v.sname,
 			relations: v.rel,
 			names: v.names,
@@ -21,7 +21,7 @@ export const Submit = () => {
 
 		const submit_data = {
 			names: data.names.map(v => parseIds(v, ['id'])),
-			references: data.references.map(v => parseIds(v, ['id'])),
+			reference: parseIds(data.reference, ['id']),
 			relations: data.relations.map(v =>
 				parseIds(v, ['id', 'name1', 'name2'])
 			),
