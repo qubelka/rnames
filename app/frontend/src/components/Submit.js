@@ -8,11 +8,36 @@ export const Submit = () => {
 			references: v.ref,
 			structured_names: v.sname,
 			relations: v.rel,
-			names: v.names
+			names: v.names,
 		}
 	})
 
 	const submit = async () => {
+		const parseIds = (obj, keys = []) => {
+			const ret = { ...obj }
+			keys.forEach(k => (ret[k] = JSON.parse(ret[k])))
+			return ret
+		}
+
+		const submit_data = {
+			names: data.names.map(v => parseIds(v, ['id'])),
+			references: data.references.map(v => parseIds(v, ['id'])),
+			relations: data.relations.map(v =>
+				parseIds(v, ['id', 'name1', 'name2'])
+			),
+			structured_names: data.structured_names.map(v =>
+				parseIds(v, [
+					'id',
+					'location_id',
+					'name_id',
+					'qualifier_id',
+					'reference_id',
+				])
+			),
+		}
+
+		console.log(submit_data)
+
 		const csrfmiddlewaretoken = document.querySelector(
 			'[name=csrfmiddlewaretoken]'
 		).value
@@ -23,7 +48,7 @@ export const Submit = () => {
 			headers: {
 				'X-CSRFToken': csrfmiddlewaretoken,
 			},
-			data,
+			data: submit_data,
 		})
 			.then(res => console.log(res))
 			.catch(err => console.log(err))
