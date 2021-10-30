@@ -239,6 +239,8 @@ def main_binning_fun(cron_relations, cron_columns, time_slices):
         'duration': time.time() - start,
         'berg': robin_b,
         'webby': robin_w,
+        'stages': robin_s,
+        'periods': robin_p,
         'binned_stages': binned_stages,
         'binned_periods': binned_periods
     }

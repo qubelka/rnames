@@ -43,6 +43,8 @@ from subprocess import run, PIPE
 from .utils.root_binning import main_binning_fun
 from io import StringIO
 from contextlib import redirect_stdout
+from types import SimpleNamespace
+import time
 # , APINameFilter
 
 
@@ -104,6 +106,36 @@ def external(request):
         'eras': time_slices('eras'),
         'eons': time_slices('eons')
     })
+
+    def update(obj, oldest, youngest, ts_count, refs, rule):
+        obj.oldest = oldest
+        obj.youngest = youngest
+        obj.ts_count = ts_count
+        obj.refs = refs
+        obj.rule = rule
+        obj.save()
+
+    def create(name, scheme, oldest, youngest, ts_count, refs, rule):
+        obj = Binning(name=name, binning_scheme=scheme, oldest=oldest, youngest=youngest, ts_count=ts_count, refs=refs, rule=rule)
+        obj.save()
+
+    def process_result(df, scheme):
+        col = SimpleNamespace(**{k: v for v, k in enumerate(df.columns)})
+
+        for row in df.values:
+            name = row[col.name]
+            data = Binning.objects.is_active().filter(name=name, binning_scheme=scheme)
+            if len(data) == 0:
+                create(name, scheme, row[col.oldest], row[col.youngest], row[col.ts_count], row[col.refs], row[col.rule])
+            else:
+                update(data[0], row[col.oldest], row[col.youngest], row[col.ts_count], row[col.refs], row[col.rule])
+
+    start = time.time()
+    process_result(result['berg'], 'x_robinb')
+    process_result(result['webby'], 'robin_w')
+    process_result(result['stages'], 'robin_s')
+    process_result(result['periods'], 'robin_p')
+    end = time.time()
 
     return render(
         request,
