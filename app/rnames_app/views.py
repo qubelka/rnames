@@ -1314,4 +1314,13 @@ def submit(request):
     for value in relations:
         value.save()
 
-    return JsonResponse({'message': 'ok'})
+    return render(
+        request,
+        'wizard_result.html', {
+            'reference': reference,
+            'names': names.values(),
+            'locations': locations.values(),
+            'structured_names': structured_names.values(),
+            'relations': relations
+        }
+    )

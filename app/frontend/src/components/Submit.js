@@ -50,7 +50,8 @@ export const Submit = () => {
 			},
 			data: submit_data,
 		})
-			.then(res => console.log(res))
+			// Django cleans fields when filling templates so this is safe
+			.then(res => document.body.innerHTML = res.data)
 			.catch(err => console.log(err))
 	}
 
