@@ -347,15 +347,31 @@ def bin_unique_names_1(ibs, x1, used_ts, xnames_raw):
         xnames_begin = bisect_left(xnames_list, name)
         xnames_end = bisect_right(xnames_list, name)
 
+        data = x1[x1_begin:x1_end]
+        xnames = xnames_raw[xnames_begin:xnames_end]
+
+        data = data[~np.isin(data[:, col.ntts.reference_id], xnames[:, col.xnames.ref])]
+
+        if data.size == 0:
+            continue
+
         if ibs == 0:
-            x3a = bifu_s2(col, x1[x1_begin:x1_end], used_ts, xnames_raw[xnames_begin:xnames_end])
-            rows.append(x3a)
+            data = bifu_s2(col, data, used_ts, xnames)
         if ibs == 1:
-            x3a = bifu_y2(col, x1[x1_begin:x1_end], used_ts, xnames_raw[xnames_begin:xnames_end])
-            rows.append(x3a)
+            data = bifu_y2(col, data, used_ts, xnames)
         if ibs == 2:
-            x3a = bifu_c2(col, x1[x1_begin:x1_end], used_ts, xnames_raw[xnames_begin:xnames_end])
-            rows.append(x3a)
+            data = bifu_c2(col, data, used_ts, xnames)
+
+        refs_f = ', '.join(map(str, np.unique(data[:, col.ntts.reference_id])))
+
+        youngest_value = np.max(data[:, col.ntts.youngest_index])
+        oldest_value = np.min(data[:, col.ntts.oldest_index])
+        ts_c = oldest_value - youngest_value
+
+        youngest = np.argmax(data[:, col.ntts.youngest_index])
+        oldest = np.argmin(data[:, col.ntts.oldest_index])
+
+        rows.append((name, data[oldest, col.ntts.oldest], data[youngest, col.ntts.youngest], ts_c, refs_f))
 
 
     x3 = pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
