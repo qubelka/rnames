@@ -1208,6 +1208,119 @@ def timeslice_new(request):
 
 @login_required
 def submit(request):
+    names = {}
+    locations = {}
+    structured_names = {}
+    relations = []
+
     data = json.loads(request.body)
-    print(data)
-    return JsonResponse({'message': 'ok'})
+
+    reference = Reference(
+        first_author=data['reference']['firstAuthor'],
+        year=data['reference']['year'],
+        title=data['reference']['title'],
+        doi=data['reference']['doi'],
+        link=data['reference']['link']
+    )
+
+    for name_data in data['names']:
+        ty = name_data['id']['type']
+        value = name_data['id']['value']
+        name = name_data['name']
+
+        if ty == 'name':
+            names[value] = Name(name=name)
+        if ty == 'location':
+            locations[value] = Location(name=name)
+
+    for structured_name_data in data['structured_names']:
+        id = structured_name_data['id']['value']
+
+        name_id = structured_name_data['name_id']['value']
+        name_type = structured_name_data['name_id']['type']
+
+        location_id = structured_name_data['location_id']['value']
+        location_type = structured_name_data['location_id']['type']
+
+        if location_type == 'db_location':
+            location = Location.objects.get(pk=location_id)
+        elif location_type == 'location':
+            location = locations[location_id]
+        else:
+            location = None
+
+        if name_type == 'db_name':
+            name = Name.objects.get(pk=name_id)
+        elif name_type == 'name':
+            name = names[name_id]
+        else:
+            name = None
+
+        # Wizard doesn't allow creating new qualifiers so this is always a value that exists
+        # in the database
+        qualifier = Qualifier.objects.get(pk=structured_name_data['qualifier_id']['value'])
+
+        structured_names[id] = StructuredName(
+            name=name,
+            qualifier=qualifier,
+            location=location,
+            reference=reference
+            # remarks = ''
+        )
+
+    for relation_data in data['relations']:
+        name_one_id = relation_data['name1']['value']
+        name_one_type = relation_data['name1']['type']
+
+        name_two_id = relation_data['name2']['value']
+        name_two_type = relation_data['name2']['type']
+
+        if name_one_type == 'db_structured_name':
+            name_one = StructuredName.objects.get(pk=name_one_id)
+        elif name_one_type == 'structured_name':
+            name_one = structured_names[name_one_id]
+        else:
+            name_one = None
+
+        if name_two_type == 'db_structured_name':
+            name_two = StructuredName.objects.get(pk=name_two_id)
+        elif name_two_type == 'structured_name':
+            name_two = structured_names[name_two_id]
+        else:
+            name_two = None
+
+        belongs_to = 0 # Todo
+
+        relation = Relation(
+            name_one=name_one,
+            name_two=name_two,
+            belongs_to=belongs_to,
+            reference=reference
+        )
+
+        relations.append(relation)
+
+    reference.save()
+
+    for value in names.values():
+        value.save()
+
+    for value in locations.values():
+        value.save()
+
+    for value in structured_names.values():
+        value.save()
+
+    for value in relations:
+        value.save()
+
+    return render(
+        request,
+        'wizard_result.html', {
+            'reference': reference,
+            'names': names.values(),
+            'locations': locations.values(),
+            'structured_names': structured_names.values(),
+            'relations': relations
+        }
+    )
