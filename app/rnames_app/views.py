@@ -141,7 +141,8 @@ def external(request):
         request,
         'binning_done.html',
         context={
-            'duration': result['duration'],
+            'duration': round(result['duration']),
+            'update_duration': round(end - start),
             'berg': result['berg'].to_html(classes='w3-table'),
             'webby': result['webby'].to_html(classes='w3-table'),
             'periods': result['binned_periods'].to_html(classes='w3-table'),
