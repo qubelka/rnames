@@ -89,7 +89,6 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
         xnames_raw1 = xnamesc.drop_duplicates()
     xnames_raw = xnamesc
     xnames_raw["combi"] = xnames_raw1["name"] + xnames_raw1["ref"].astype(str).copy()
-    #xnames_raw.to_csv("xnames.csv", index = False, header=True)
     #xnamelist = xnames_raw["combi"].tolist()
 
     ##############################################################
@@ -141,7 +140,6 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
                               & ~(c_rels["qualifier_name_1"]==t_scheme)
                               & ~(c_rels["qualifier_name_2"]==t_scheme),
                               ["reference_id","name_1","name_2", "reference_year"]]
-    cr_g.to_csv("x_cr_g.csv", index = False, header=True)
     ### Rule 5:  indirect relations of non-bio* to resis_4 with link to bio* (route via resi_4)
     results['rule_5'] = rule5(results, cr_g, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
 
@@ -247,7 +245,6 @@ def rule0(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     resi_0 = resi_0.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
     print("rule 0 has ", len(resi_0), "binned relations")
     print("Rule 0:  relations among named biostratigraphical units that have direct relations to binning scheme")
-    resi_0.to_csv("x_rule0.csv", index = False, header=True)
     return resi_0
 
 def rule1(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
@@ -282,7 +279,6 @@ def rule1(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     resi_1 = resi_1.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
     print("rule 1 has ", len(resi_1), "binned relations")
     print("Rule 1: direct relations of named units to binning scheme")
-    resi_1.to_csv("x_rule1.csv", index = False, header=True)
     return resi_1
 
 def rule2(results, c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
@@ -321,7 +317,6 @@ def rule2(results, c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     resi_2 = resi_2[~resi_2["name"].isin(resi_0["name"])] # filter non-bio rule 0
     print("rule 2 has ", len(resi_2), "binned relations")
     print("Rule 2:  relations among named biostratigraphical units that have indirect relations to binning scheme")
-    resi_2.to_csv("x_rule2.csv", index = False, header=True)
     return resi_2
 
 def bin_unique_names_1(ibs, x1, used_ts, xnames_raw):
@@ -446,7 +441,6 @@ def rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     resi_3 = resi_3[~resi_3["name"].isin(resi_1["name"])] # filter non-bio rule 1
     print("rule 3 has ", len(resi_3), "binned relations")
     print("Rule 3:  relations among named biostratigraphical units that have direct relations to binning scheme")
-    resi_3.to_csv("x_rule3.csv", index = False, header=True)
     return resi_3
 
 def merge_time_info(x1, used_ts):
@@ -479,7 +473,6 @@ def rule4(results, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b
     ### Rule 4: indirect relations of non-bio via resis_bio to binning scheme
     ### except direct chronostratigraphy links
 
-    #resis_bio.to_csv('resis_bio.csv') # all binnings via bio only = Bio*
     cr_d = c_rels.loc[~(c_rels["strat_qualifier_1"]=="Biostratigraphy")
                               & (c_rels["strat_qualifier_2"]=="Biostratigraphy")
                               & ~(c_rels["qualifier_name_1"]==t_scheme)
@@ -545,7 +538,6 @@ def rule4(results, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b
     resi_4 = resi_4[~resi_4["name"].isin(combi_x["name"])] # filter non-bio rule 1
     print("rule 4 has ", len(resi_4), "binned relations")
     print("Rule 4:  relations among named non-biostratigraphical units that have direct relations to binning scheme")
-    resi_4.to_csv("x_rule4.csv", index = False, header=True)
     return resi_4
 
 def rule5(results, cr_g, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
@@ -614,7 +606,6 @@ def rule5(results, cr_g, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_
     print("rule 5 has ", len(resi_5), "binned relations")
     print("Rule 5:  relations among named non-biostratigraphical units that have indirect relations to binning scheme")
     print("via biostratigraphical units.")
-    resi_5.to_csv("x_rule5.csv", index = False, header=True)
     return resi_5
 
 def rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme):
@@ -626,7 +617,6 @@ def rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme):
 
     ## search for shortest time bins among 5 & 6
     resis_nbio = pd.concat([resi_0, resi_2], axis=0)
-    resis_nbio.to_csv('resis_nbio.csv') # all binnings via bio non bio only
 
     x1 = pd.merge(resis_nbio, cr_g, left_on="name", right_on="name_1")
     x1 = merge_time_info(x1, used_ts)
@@ -635,11 +625,9 @@ def rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme):
     x1 =  x1.loc[~(x1["name_1"]=="not specified")]
     x1["rule"] = 6.6 # only for control
     x1 = x1.drop_duplicates()
-    x1.to_csv("x_x1.csv", index = False, header=True)
 
     x2 = cr_g[~cr_g["name_1"].isin(x1["name_1"])] # all not yet binned in cr_g
     x2 = pd.DataFrame.drop_duplicates(x2)
-    x2.to_csv("x_x2.csv", index = False, header=True)
     resi_6 = pd.DataFrame([] * 6, index=["name", "oldest", "youngest", "ts_count", "refs", "rule"])
     resi_6 = pd.DataFrame.transpose(resi_6)
     for ibs in runrange:
@@ -690,7 +678,6 @@ def rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme):
     print("rule 6 has ", len(resi_6), "binned relations")
     print("Rule 6:  relations among named non-biostratigraphical units that have indirect relations to binning scheme")
     print("via non-biostratigraphical units.")
-    resi_6.to_csv("x_rule6.csv", index = False, header=True)
     return resi_6
 
 def shortestTimeBins(results, used_ts):
@@ -721,7 +708,6 @@ def shortestTimeBins(results, used_ts):
     com_56_r = cas[['name', 'oldest_x', 'youngest_x', 'ts_count_x', 'refs', 'rule_x']]
     com_56_r.columns = ['name', 'oldest', 'youngest', 'ts_count', 'refs', 'rule']
     com_56_r.loc[:,'rule'] = "5, 6" # this is the place where the erreor message come from, may be in line 815 add the value
-    #com_56_r.to_csv("x_com_56_r.csv", index = False, header=True)
 
     # all where names of 5 and 6 in common and time length is identical
     car = com_a.loc[com_a["ts_count_x"]==com_a["ts_count_y"],
@@ -764,7 +750,6 @@ def shortestTimeBins(results, used_ts):
                            index=["name", "oldest", "youngest", "ts_count", "refs", "rule"])
         com_56_d = pd.concat([com_56_d, com_56_da], axis=1, sort=True)
     com_56_d = com_56_d.transpose()
-    #com_56_d.to_csv("x_com_56_d.csv", index = False, header=True)
 
     # all where names of 5 and 6 in common and duration is not similar
     # we take the complete range
@@ -804,21 +789,16 @@ def shortestTimeBins(results, used_ts):
         res_oldest = ts_numbered.iloc[old_min] [0]
         rows.append((i_name, res_oldest,res_youngest, ts_c, refs_f, "5, 6"))
     com_56_s = pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs", "rule"])
-    #com_56_s.to_csv("x_com_56_s.csv", index = False, header=True)
 
     # all where 5 and 6 are not in common
     combi_56a = pd.concat([com_56_r, com_56_d, com_56_s], axis=0, sort=False)
     bnu = combi_56a["name"]
     c6 = resi_6[~resi_6["name"].isin(bnu)]
     c5 = resi_5[~resi_5["name"].isin(bnu)]
-    #c6.to_csv("x_c6.csv", index = False, header=True)
-    #c5.to_csv("x_c5.csv", index = False, header=True)
 
     combi_56 = pd.concat([com_56_r, com_56_d, com_56_s], axis=0, sort=False)
-    #combi_56.to_csv("combi_56.csv", index = False, header=True)
     combi_names = pd.concat([resi_0, resi_1, resi_2, resi_3, resi_4,
                              c5, combi_56, c6], axis=0, sort=False)
-    combi_names.to_csv("x_combi_names.csv", index = False, header=True)
 
     return(combi_names)
 
