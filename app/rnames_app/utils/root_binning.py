@@ -11,7 +11,7 @@ import numpy as np
 from bisect import (bisect_left, bisect_right)
 from .rn_funs import *
 from .binning_fun import *
-from .tools import (binning_outputs_equal, Task)
+from .tools import Task
 
 def main_binning_fun(cron_relations, cron_columns, time_slices):
     pd.set_option('display.max_columns', 30)
@@ -108,12 +108,6 @@ def main_binning_fun(cron_relations, cron_columns, time_slices):
     robin_s.to_csv("x_robins.csv", index = False, header=True)
     robin_p.to_csv("x_robinp.csv", index = False, header=True)
 
-    binning_outputs_equal('x_robinb.csv', 'rnames_app/utils/ref/x_robinb.csv')
-    binning_outputs_equal('x_robinw.csv', 'rnames_app/utils/ref/x_robinw.csv')
-    binning_outputs_equal('x_robins.csv', 'rnames_app/utils/ref/x_robins.csv')
-    binning_outputs_equal('x_robinp.csv', 'rnames_app/utils/ref/x_robinp.csv')
-
-
     berg_ts = time_slices['berg']
     webby_ts = time_slices['webby']
     stages_ts = time_slices['stages']
@@ -200,7 +194,6 @@ def main_binning_fun(cron_relations, cron_columns, time_slices):
 
     binned_stages =  binned_stages[~binned_stages["name"].isin(stages_ts["ts"])]
     binned_stages.to_csv("x_binned_stages.csv", index = False, header=True)
-    binning_outputs_equal('x_binned_stages.csv', 'rnames_app/utils/ref/x_binned_stages.csv')
 
     # In[10]:
 
@@ -231,7 +224,6 @@ def main_binning_fun(cron_relations, cron_columns, time_slices):
     binned_periods.loc[:,'refs'] = refs
     binned_periods =  binned_periods[~binned_periods["name"].isin(periods_ts["ts"])]
     binned_periods.to_csv("x_binned_periods.csv", index = False, header=True)
-    binning_outputs_equal('x_binned_periods.csv', 'rnames_app/utils/ref/x_binned_periods.csv')
 
     # In[ ]:
 
