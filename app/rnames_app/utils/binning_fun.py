@@ -167,53 +167,6 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
           "binned names. It took ", round(dura, 2), "+", round(dura2, 2),  "minutes.")
     return combi_names
 
-def bin_unique_names_0(ibs, cr_x, used_ts, xnames_raw):
-    col = SimpleNamespace()
-    col.ntts = SimpleNamespace(**{k: v for v, k in enumerate(cr_x.columns)})
-    col.xnames = SimpleNamespace(**{k: v for v, k in enumerate(xnames_raw.columns)})
-
-    bnu = pd.unique(cr_x["name_1"])
-    cr_x = cr_x.sort_values(by = ['name_1', 'reference_id', 'ts_index'])
-    cr_x = cr_x.values
-
-    xnames_raw = xnames_raw.sort_values(by='name')
-    xnames_raw = xnames_raw.values
-
-    rows = []
-    for name in bnu:
-        data = cr_x[bisect_left(cr_x[:, 1], name):bisect_right(cr_x[:, 1], name)]
-        xnames = xnames_raw[bisect_left(xnames_raw[:, 0], name):bisect_right(xnames_raw[:, 0], name)]
-
-        data = data[~np.isin(data[:, col.ntts.reference_id], xnames[:, col.xnames.ref])]
-
-        if data.size == 0:
-            continue
-
-        # select all references
-        if ibs == 0:
-            data = bifu_s(col, data, xnames)
-        if ibs == 1:
-            data = bifu_y(col, data, xnames)
-        if ibs == 2:
-            data = bifu_c(col, data, xnames)
-
-        # and collect the references which have that opinions
-        refs_f = ', '.join(map(str, np.unique(data[:, col.ntts.reference_id])))
-
-        # youngest, oldest and ts_count
-        ts_max = np.max(data[:, col.ntts.ts_index])
-        ts_min = np.min(data[:, col.ntts.ts_index])
-        ts_c = ts_max - ts_min
-
-        youngest = data[data[:, col.ntts.ts_index] == ts_max]
-        oldest = data[data[:, col.ntts.ts_index] == ts_min]
-
-        rows.append((name, oldest[0, col.ntts.ts], youngest[0, col.ntts.ts], ts_c, refs_f))
-
-    ret = pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
-    return ret.dropna()
-
-
 def rule0(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     cr_x = c_rels_d.loc[((c_rels_d["strat_qualifier_1"]=="Chronostratigraphy"))
                               & ((c_rels_d["qualifier_name_2"]==t_scheme)),
@@ -319,61 +272,6 @@ def rule2(results, c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     print("Rule 2:  relations among named biostratigraphical units that have indirect relations to binning scheme")
     return resi_2
 
-def bin_unique_names_1(ibs, x1, used_ts, xnames_raw):
-    if x1.empty:
-        return pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
-
-    col = SimpleNamespace()
-    col.ntts = SimpleNamespace(**{k: v for v, k in enumerate(x1.columns)})
-    col.xnames = SimpleNamespace(**{k: v for v, k in enumerate(xnames_raw.columns)})
-
-    rows = []
-    x1 = x1.sort_values(by=['name_1', 'reference_year'])
-    xnames_raw = xnames_raw.sort_values(by='name')
-    x1_list = list(x1['name_1'])
-    xnames_list = list(xnames_raw['name'])
-
-    x1 = x1.values
-    xnames_raw = xnames_raw.values
-
-    for name in np.unique(x1_list):
-        x1_begin = bisect_left(x1_list, name)
-        x1_end = bisect_right(x1_list, name)
-        xnames_begin = bisect_left(xnames_list, name)
-        xnames_end = bisect_right(xnames_list, name)
-
-        data = x1[x1_begin:x1_end]
-        xnames = xnames_raw[xnames_begin:xnames_end]
-
-        data = data[~np.isin(data[:, col.ntts.reference_id], xnames[:, col.xnames.ref])]
-
-        if data.size == 0:
-            continue
-
-        if ibs == 0:
-            data = bifu_s2(col, data, xnames)
-        if ibs == 1:
-            data = bifu_y2(col, data, xnames)
-        if ibs == 2:
-            data = bifu_c2(col, data, xnames)
-
-        refs_f = ', '.join(map(str, np.unique(data[:, col.ntts.reference_id])))
-
-        youngest_value = np.max(data[:, col.ntts.youngest_index])
-        oldest_value = np.min(data[:, col.ntts.oldest_index])
-        ts_c = oldest_value - youngest_value
-
-        youngest = np.argmax(data[:, col.ntts.youngest_index])
-        oldest = np.argmin(data[:, col.ntts.oldest_index])
-
-        rows.append((name, data[oldest, col.ntts.oldest], data[youngest, col.ntts.youngest], ts_c, refs_f))
-
-
-    x3 = pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
-    x3 = pd.DataFrame.drop_duplicates(x3)
-    x3 = x3.dropna()
-    return x3
-
 def rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     resi_1 = results["rule_1"]
     #rule_3 all relations between biostrat and biostrat that refer indirectly to binning scheme
@@ -442,28 +340,6 @@ def rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     print("rule 3 has ", len(resi_3), "binned relations")
     print("Rule 3:  relations among named biostratigraphical units that have direct relations to binning scheme")
     return resi_3
-
-def merge_time_info(x1, used_ts):
-    columns = ['name_1', 'name_2', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count', 'refs',
-        'rule', 'reference_id', "reference_year"]
-    x1 = pd.merge(x1, used_ts, how= 'inner', left_on="oldest", right_on="ts") # time bin info is added here
-    x1.rename(inplace=True, columns={'ts_index': 'oldest_index'})
-    x1 = pd.merge(x1, used_ts, how= 'inner', left_on="youngest", right_on="ts") # time bin info is added here
-    x1.rename(inplace=True, columns={'ts_index': 'youngest_index'})
-    x1 = x1[columns]
-
-    # Swap name_1 and name_2 columns
-    x1.rename(inplace=True, columns={
-        'name_1': 'name_2',
-        'name_2': 'name_1'
-    })
-
-    # x1 columns are now [name_2, name_1...]
-    # x1m picks [name_1, name_2...]
-    x1m = x1[columns]
-    # Reset x1 column order for concatenation
-    x1.columns = columns
-    return pd.concat((x1,x1m), axis=0)
 
 def rule4(results, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     resi_0 = results["rule_0"]
@@ -876,3 +752,126 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
         rows.append((i_name, x_oldest[0, k_ts], x_youngest[0, k_ts], float(ts_c), refs_f))
 
     return pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
+
+def merge_time_info(x1, used_ts):
+    columns = ['name_1', 'name_2', 'oldest', 'oldest_index', 'youngest', 'youngest_index', 'ts_count', 'refs',
+        'rule', 'reference_id', "reference_year"]
+    x1 = pd.merge(x1, used_ts, how= 'inner', left_on="oldest", right_on="ts") # time bin info is added here
+    x1.rename(inplace=True, columns={'ts_index': 'oldest_index'})
+    x1 = pd.merge(x1, used_ts, how= 'inner', left_on="youngest", right_on="ts") # time bin info is added here
+    x1.rename(inplace=True, columns={'ts_index': 'youngest_index'})
+    x1 = x1[columns]
+
+    # Swap name_1 and name_2 columns
+    x1.rename(inplace=True, columns={
+        'name_1': 'name_2',
+        'name_2': 'name_1'
+    })
+
+    # x1 columns are now [name_2, name_1...]
+    # x1m picks [name_1, name_2...]
+    x1m = x1[columns]
+    # Reset x1 column order for concatenation
+    x1.columns = columns
+    return pd.concat((x1,x1m), axis=0)
+
+def bin_unique_names_0(ibs, cr_x, used_ts, xnames_raw):
+    col = SimpleNamespace()
+    col.ntts = SimpleNamespace(**{k: v for v, k in enumerate(cr_x.columns)})
+    col.xnames = SimpleNamespace(**{k: v for v, k in enumerate(xnames_raw.columns)})
+
+    bnu = pd.unique(cr_x["name_1"])
+    cr_x = cr_x.sort_values(by = ['name_1', 'reference_id', 'ts_index'])
+    cr_x = cr_x.values
+
+    xnames_raw = xnames_raw.sort_values(by='name')
+    xnames_raw = xnames_raw.values
+
+    rows = []
+    for name in bnu:
+        data = cr_x[bisect_left(cr_x[:, 1], name):bisect_right(cr_x[:, 1], name)]
+        xnames = xnames_raw[bisect_left(xnames_raw[:, 0], name):bisect_right(xnames_raw[:, 0], name)]
+
+        data = data[~np.isin(data[:, col.ntts.reference_id], xnames[:, col.xnames.ref])]
+
+        if data.size == 0:
+            continue
+
+        # select all references
+        if ibs == 0:
+            data = bifu_s(col, data, xnames)
+        if ibs == 1:
+            data = bifu_y(col, data, xnames)
+        if ibs == 2:
+            data = bifu_c(col, data, xnames)
+
+        # and collect the references which have that opinions
+        refs_f = ', '.join(map(str, np.unique(data[:, col.ntts.reference_id])))
+
+        # youngest, oldest and ts_count
+        ts_max = np.max(data[:, col.ntts.ts_index])
+        ts_min = np.min(data[:, col.ntts.ts_index])
+        ts_c = ts_max - ts_min
+
+        youngest = data[data[:, col.ntts.ts_index] == ts_max]
+        oldest = data[data[:, col.ntts.ts_index] == ts_min]
+
+        rows.append((name, oldest[0, col.ntts.ts], youngest[0, col.ntts.ts], ts_c, refs_f))
+
+    ret = pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
+    return ret.dropna()
+
+def bin_unique_names_1(ibs, x1, used_ts, xnames_raw):
+    if x1.empty:
+        return pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
+
+    col = SimpleNamespace()
+    col.ntts = SimpleNamespace(**{k: v for v, k in enumerate(x1.columns)})
+    col.xnames = SimpleNamespace(**{k: v for v, k in enumerate(xnames_raw.columns)})
+
+    rows = []
+    x1 = x1.sort_values(by=['name_1', 'reference_year'])
+    xnames_raw = xnames_raw.sort_values(by='name')
+    x1_list = list(x1['name_1'])
+    xnames_list = list(xnames_raw['name'])
+
+    x1 = x1.values
+    xnames_raw = xnames_raw.values
+
+    for name in np.unique(x1_list):
+        x1_begin = bisect_left(x1_list, name)
+        x1_end = bisect_right(x1_list, name)
+        xnames_begin = bisect_left(xnames_list, name)
+        xnames_end = bisect_right(xnames_list, name)
+
+        data = x1[x1_begin:x1_end]
+        xnames = xnames_raw[xnames_begin:xnames_end]
+
+        data = data[~np.isin(data[:, col.ntts.reference_id], xnames[:, col.xnames.ref])]
+
+        if data.size == 0:
+            continue
+
+        if ibs == 0:
+            data = bifu_s2(col, data, xnames)
+        if ibs == 1:
+            data = bifu_y2(col, data, xnames)
+        if ibs == 2:
+            data = bifu_c2(col, data, xnames)
+
+        refs_f = ', '.join(map(str, np.unique(data[:, col.ntts.reference_id])))
+
+        youngest_value = np.max(data[:, col.ntts.youngest_index])
+        oldest_value = np.min(data[:, col.ntts.oldest_index])
+        ts_c = oldest_value - youngest_value
+
+        youngest = np.argmax(data[:, col.ntts.youngest_index])
+        oldest = np.argmin(data[:, col.ntts.oldest_index])
+
+        rows.append((name, data[oldest, col.ntts.oldest], data[youngest, col.ntts.youngest], ts_c, refs_f))
+
+
+    x3 = pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
+    x3 = pd.DataFrame.drop_duplicates(x3)
+    x3 = x3.dropna()
+    return x3
