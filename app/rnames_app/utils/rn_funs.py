@@ -23,6 +23,7 @@ def bifu_y(col, ntts, xnames_raw):
 
 def bifu_y2  (col, ntts, xnames_raw):
     max_y = np.max(ntts[:, col.ntts.reference_year])
+    # ntts is sorted by reference year so binary search can be used
     return ntts[bisect_left(ntts[:, col.ntts.reference_year], max_y):bisect_right(ntts[:, col.ntts.reference_year], max_y)]
 
 ################################################################
@@ -32,6 +33,9 @@ def bifu_s(col, ntts, xnames_raw):
 
     for ref in pd.unique(ntts[:, col.ntts.reference_id]):
         cptx = ntts[ntts[:, col.ntts.reference_id]== ref]
+        # ntts is sorted by reference id and ts_index
+        # Since cptx only contains entries with same reference id the minimum and maximun
+        # ts index for any given reference id is found on the first and last rows.
         ts_min = cptx[0, col.ntts.ts_index]
         ts_max = cptx[np.size(cptx, 0) - 1, col.ntts.ts_index]
 
@@ -48,11 +52,15 @@ def bifu_s(col, ntts, xnames_raw):
 
 def bifu_s2(col, ntts, xnames_raw):
     # select all references
-    sorted_refs = ntts[ntts[:, col.ntts.reference_id].argsort()]
     rows = []
     min_delta = np.inf
+
     # search for shortest range
+    # Append all reference ids matching the shortest found range (min_delta) to rows
+    # If shorter range is found, clear rows and lower min_delta to the new range
+    sorted_refs = ntts[ntts[:, col.ntts.reference_id].argsort()]
     for r_yx in np.unique(ntts[:, col.ntts.reference_id]):
+        # sorted_refs is sorted by reference id so finding all entries matching the refs can be done quickly with binary search
         cptx = sorted_refs[bisect_left(sorted_refs[:, col.ntts.reference_id], r_yx):bisect_right(sorted_refs[:, col.ntts.reference_id], r_yx)]
         ts_x = np.max(cptx[:, col.ntts.youngest_index]) - np.min(cptx[:, col.ntts.oldest_index])
         if ts_x == min_delta:
@@ -65,4 +73,5 @@ def bifu_s2(col, ntts, xnames_raw):
     bio_setb = ntts[np.isin(ntts[:, col.ntts.reference_id], rows)]
     # search for youngest reference among those
     max_y = max(bio_setb[:, col.ntts.reference_year])
+    # ntts is sorted by reference year so binary search can be used
     return bio_setb[bisect_left(bio_setb[:, col.ntts.reference_year], max_y):bisect_right(bio_setb[:, col.ntts.reference_year], max_y)]

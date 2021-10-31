@@ -781,6 +781,8 @@ def bin_unique_names_0(ibs, cr_x, used_ts, xnames_raw):
     col.xnames = SimpleNamespace(**{k: v for v, k in enumerate(xnames_raw.columns)})
 
     bnu = pd.unique(cr_x["name_1"])
+    # Data is sorted to quickly find the range in the dataframe matching a given name
+    # The data is further sorted to enable quick filtering in bifu_s
     cr_x = cr_x.sort_values(by = ['name_1', 'reference_id', 'ts_index'])
     cr_x = cr_x.values
 
@@ -830,6 +832,10 @@ def bin_unique_names_1(ibs, x1, used_ts, xnames_raw):
     col.xnames = SimpleNamespace(**{k: v for v, k in enumerate(xnames_raw.columns)})
 
     rows = []
+    # Data is sorted by name and reference year
+    # Only rows matching the name are passed to the binning functions.
+    # Finding these ranges can be done quickly from the sorted data with binary search
+    # Within each name the rows are sorted by reference year allowing fast filtering in the binning functions.
     x1 = x1.sort_values(by=['name_1', 'reference_year'])
     xnames_raw = xnames_raw.sort_values(by='name')
     x1_list = list(x1['name_1'])
