@@ -12,7 +12,7 @@ from bisect import (bisect_left, bisect_right)
 def bifu_c(col, ntts, xnames_raw):
     return ntts
 
-def bifu_c2  (col, ntts, used_ts, xnames_raw):
+def bifu_c2  (col, ntts, xnames_raw):
     return ntts
 
 ################################################################
@@ -21,7 +21,7 @@ def bifu_y(col, ntts, xnames_raw):
     max_y = max(ntts[:, col.ntts.reference_year])
     return ntts[ntts[:, col.ntts.reference_year] == max_y]
 
-def bifu_y2  (col, ntts, used_ts, xnames_raw):
+def bifu_y2  (col, ntts, xnames_raw):
     max_y = np.max(ntts[:, col.ntts.reference_year])
     return ntts[bisect_left(ntts[:, col.ntts.reference_year], max_y):bisect_right(ntts[:, col.ntts.reference_year], max_y)]
 
@@ -46,7 +46,7 @@ def bifu_s(col, ntts, xnames_raw):
     max_y = np.max(bio_setb[:, col.ntts.reference_year])
     return bio_setb[bio_setb[:, col.ntts.reference_year] == max_y]
 
-def bifu_s2(col, ntts, used_ts, xnames_raw):
+def bifu_s2(col, ntts, xnames_raw):
     # select all references
     sorted_refs = ntts[ntts[:, col.ntts.reference_id].argsort()]
     rows = []

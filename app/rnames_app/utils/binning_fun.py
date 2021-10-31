@@ -351,11 +351,11 @@ def bin_unique_names_1(ibs, x1, used_ts, xnames_raw):
             continue
 
         if ibs == 0:
-            data = bifu_s2(col, data, used_ts, xnames)
+            data = bifu_s2(col, data, xnames)
         if ibs == 1:
-            data = bifu_y2(col, data, used_ts, xnames)
+            data = bifu_y2(col, data, xnames)
         if ibs == 2:
-            data = bifu_c2(col, data, used_ts, xnames)
+            data = bifu_c2(col, data, xnames)
 
         refs_f = ', '.join(map(str, np.unique(data[:, col.ntts.reference_id])))
 
