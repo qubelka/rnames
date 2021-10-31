@@ -175,7 +175,7 @@ def rule0(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     cr_x =  cr_x.loc[~(cr_x["name_1"]=="not specified")]
 
     for ibs in runrange:
-        resi_0 = bin_unique_names_0(ibs, cr_x, used_ts, xnames_raw)
+        resi_0 = bin_unique_names_0(ibs, cr_x, xnames_raw)
         resi_0["rule"] = 0.0
         resi_0 = resi_0.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
         resi_0 =  resi_0[~resi_0["name"].isin(used_ts["ts"])]
@@ -209,7 +209,7 @@ def rule1(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     cr_a =  cr_a.loc[~(cr_a["name_1"]=="not specified")]
 
     for ibs in runrange:
-        resi_1 = bin_unique_names_0(ibs, cr_a, used_ts, xnames_raw)
+        resi_1 = bin_unique_names_0(ibs, cr_a, xnames_raw)
         resi_1["rule"] = 1.0
         resi_1 = resi_1.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
         resi_1 =  resi_1[~resi_1["name"].isin(used_ts["ts"])]
@@ -245,7 +245,7 @@ def rule2(results, c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     cr_c =  cr_c.loc[~(cr_c["name_1"]=="not specified")]
 
     for ibs in runrange:
-        resi_2 = bin_unique_names_0(ibs, cr_c, used_ts, xnames_raw)
+        resi_2 = bin_unique_names_0(ibs, cr_c, xnames_raw)
         resi_2["rule"] = 2.0
         resi_2 = resi_2.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
         resi_2 =  resi_2[~resi_2["name"].isin(used_ts["ts"])]
@@ -295,7 +295,7 @@ def rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     resi_3 = pd.DataFrame.transpose(resi_3)
     for ibs in runrange:
         for k in np.arange(1,5,1):
-            x3 = bin_unique_names_1(ibs, x1, used_ts, xnames_raw)
+            x3 = bin_unique_names_1(ibs, x1, xnames_raw)
             x3["rule"] = 3.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_3["name"])] # filter for already binned names
             resi_3 = pd.concat([resi_3, x3b], axis=0, sort=True) # appended to previous ruling
@@ -371,7 +371,7 @@ def rule4(results, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b
     resi_4 = pd.DataFrame.transpose(resi_4)
     for ibs in runrange:
         for k in np.arange(1,5,1):
-            x3 = bin_unique_names_1(ibs, x1, used_ts, xnames_raw)
+            x3 = bin_unique_names_1(ibs, x1, xnames_raw)
             x3["rule"] = 4.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_4["name"])] # filter for already binned names
             resi_4 = pd.concat([resi_4, x3b], axis=0, sort=True) # appended to previous ruling
@@ -438,7 +438,7 @@ def rule5(results, cr_g, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_
     resi_5 = pd.DataFrame.transpose(resi_5)
     for ibs in runrange:
         for k in np.arange(1,5,1):
-            x3 = bin_unique_names_1(ibs, x1, used_ts, xnames_raw)
+            x3 = bin_unique_names_1(ibs, x1, xnames_raw)
             x3["rule"] = 5.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_5["name"])] # filter for already binned names
             resi_5 = pd.concat([resi_5, x3b], axis=0, sort=True) # appended to previous ruling
@@ -508,7 +508,7 @@ def rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme):
     resi_6 = pd.DataFrame.transpose(resi_6)
     for ibs in runrange:
         for k in np.arange(1,5,1):
-            x3 = bin_unique_names_1(ibs, x1, used_ts, xnames_raw)
+            x3 = bin_unique_names_1(ibs, x1, xnames_raw)
             x3["rule"] = 6.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_6["name"])] # filter for already binned names
             resi_6 = pd.concat([resi_6, x3b], axis=0, sort=True) # appended to previous ruling; these are now binned
@@ -775,7 +775,7 @@ def merge_time_info(x1, used_ts):
     x1.columns = columns
     return pd.concat((x1,x1m), axis=0)
 
-def bin_unique_names_0(ibs, cr_x, used_ts, xnames_raw):
+def bin_unique_names_0(ibs, cr_x, xnames_raw):
     col = SimpleNamespace()
     col.ntts = SimpleNamespace(**{k: v for v, k in enumerate(cr_x.columns)})
     col.xnames = SimpleNamespace(**{k: v for v, k in enumerate(xnames_raw.columns)})
@@ -823,7 +823,7 @@ def bin_unique_names_0(ibs, cr_x, used_ts, xnames_raw):
     ret = pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
     return ret.dropna()
 
-def bin_unique_names_1(ibs, x1, used_ts, xnames_raw):
+def bin_unique_names_1(ibs, x1, xnames_raw):
     if x1.empty:
         return pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
 
