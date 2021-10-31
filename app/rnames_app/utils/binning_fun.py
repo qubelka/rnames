@@ -697,6 +697,7 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
 
     xal = pd.merge(pd.merge(resi_s,resi_y,on='name'),resi_c,on='name')
 
+    # Sort x2 so binary search can be used to quickly find ranges
     x2 = x2.sort_values(by=['name', 'b_scheme'])
     x2 = x2.values
     used_ts = used_ts.values
@@ -785,7 +786,7 @@ def bin_unique_names_0(ibs, cr_x, xnames_raw):
     # The data is further sorted to enable quick filtering in bifu_s
     cr_x = cr_x.sort_values(by = ['name_1', 'reference_id', 'ts_index'])
     cr_x = cr_x.values
-
+    # References is sorted by name to find rows matching a name with binary search
     xnames_raw = xnames_raw.sort_values(by='name')
     xnames_raw = xnames_raw.values
 
@@ -837,6 +838,7 @@ def bin_unique_names_1(ibs, x1, xnames_raw):
     # Finding these ranges can be done quickly from the sorted data with binary search
     # Within each name the rows are sorted by reference year allowing fast filtering in the binning functions.
     x1 = x1.sort_values(by=['name_1', 'reference_year'])
+    # References is sorted by name to find rows matching a name with binary search
     xnames_raw = xnames_raw.sort_values(by='name')
     x1_list = list(x1['name_1'])
     xnames_list = list(xnames_raw['name'])
