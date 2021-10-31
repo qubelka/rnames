@@ -132,9 +132,9 @@ def external(request):
 
     start = time.time()
     process_result(result['berg'], 'x_robinb')
-    process_result(result['webby'], 'x_robin_w')
-    process_result(result['stages'], 'x_robin_s')
-    process_result(result['periods'], 'x_robin_p')
+    process_result(result['webby'], 'x_robinw')
+    process_result(result['stages'], 'x_robins')
+    process_result(result['periods'], 'x_robinp')
     end = time.time()
 
     return render(
