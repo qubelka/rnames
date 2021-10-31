@@ -160,7 +160,7 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
     ##################################################################################
     ## search for shortest time bins among 5 & 6
     start = time.time()
-    combi_names = shortestTimeBins(results, used_ts)
+    combi_names = shortest_time_bins(results, used_ts)
     end = time.time()
     dura2 = (end - start)/60
     print("We find", len(combi_names),
@@ -556,7 +556,7 @@ def rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme):
     print("via non-biostratigraphical units.")
     return resi_6
 
-def shortestTimeBins(results, used_ts):
+def shortest_time_bins(results, used_ts):
     resi_0 = results["rule_0"]
     resi_1 = results["rule_1"]
     resi_2 = results["rule_2"]
