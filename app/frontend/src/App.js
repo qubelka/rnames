@@ -13,16 +13,6 @@ import { Submit } from './components/Submit'
 import { ReferenceForm } from './components/ReferenceForm'
 import { SnameForm } from './components/SnameForm'
 
-const blankSname = () => {
-	return {
-		id: makeId('structured_name'),
-		name_id: -1,
-		qualifier_id: -1,
-		location_id: -1,
-		reference_id: -1,
-		remarks: '',
-	}
-}
 const blankRel = () => {
 	return { id: makeId('relation'), name1: -1, name2: -1, reference_id: -1 }
 }
@@ -49,11 +39,6 @@ const App = () => {
 		dispatch(initMapvalues(map))
 	}, [])
 
-	const addSnameHandler = e => {
-		const sname = blankSname()
-		dispatch(addSname(sname))
-	}
-
 	const addRelHandler = e => {
 		dispatch(addRel(blankRel()))
 	}
@@ -71,15 +56,34 @@ const App = () => {
 		<>
 			<div>
 				<h2>References</h2>
-				{state.ref.map(reference => (
-					<Reference {...{ key: reference.id, reference }} />
-				))}
-				<ReferenceForm
-					{...{
-						displayRefForm,
-						showNewReferenceForm,
-					}}
-				/>
+				{state.ref.length === 0 ? (
+					<ReferenceForm
+						{...{
+							displayRefForm,
+							showNewReferenceForm,
+						}}
+					/>
+				) : (
+					state.ref.map(reference =>
+						reference.edit ? (
+							<ReferenceForm
+								key={reference.id}
+								reference={reference}
+								displayRefForm={displayRefForm}
+								showNewReferenceForm={showNewReferenceForm}
+								isQueried={true}
+							/>
+						) : (
+							<Reference
+								{...{
+									key: reference.id,
+									reference,
+									showNewReferenceForm,
+								}}
+							/>
+						)
+					)
+				)}
 			</div>
 			<div>
 				<h2>Structured Names</h2>
