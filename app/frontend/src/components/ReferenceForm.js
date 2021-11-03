@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import { addRef } from '../store/references/actions'
 import { makeId } from '../utilities'
+import { Notification } from './Notification'
 
 export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 	const dispatch = useDispatch()
@@ -14,6 +15,14 @@ export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 	const [link, setLink] = useState('')
 	const [exists, setExists] = useState(false)
 	const [queried, setQueried] = useState(false)
+	const [notification, setNotification] = useState(null)
+
+	const notify = (message, type='error') => {
+		setNotification({ message, type })
+		setTimeout(() => {
+		  setNotification(null)
+		}, 7000)
+	}
 
 	const doiSubmit = async e => {
 		e.preventDefault()
@@ -35,8 +44,7 @@ export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 			setDoi(response.DOI)
 			setLink(response.URL)
 		} catch (err) {
-			// Do something with this later
-			console.log(err.response.data)
+			notify(`No resources found with ${doi}`)
 		}
 	}
 
@@ -114,18 +122,21 @@ export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 		)
 
 	return (
-		<form onSubmit={doiSubmit} style={{ display: displayRefForm }}>
-			<label htmlFor='doi'>doi</label>
-			<input
-				type='text'
-				name='doi'
-				value={doi}
-				onChange={e => setDoi(e.target.value)}
-			/>
-			<button type='submit'>get</button>
-			<button type='button' onClick={() => setQueried(true)}>
-				Manual Entry
-			</button>
-		</form>
+		<>
+			<Notification notification={notification}/>
+			<form onSubmit={doiSubmit} style={{ display: displayRefForm }}>
+				<label htmlFor='doi'>doi</label>
+				<input
+					type='text'
+					name='doi'
+					value={doi}
+					onChange={e => setDoi(e.target.value)}
+				/>
+				<button type='submit'>get</button>
+				<button type='button' onClick={() => setQueried(true)}>
+					Manual Entry
+				</button>
+			</form>
+		</>
 	)
 }
