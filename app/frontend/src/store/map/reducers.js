@@ -14,6 +14,12 @@ export const mapReducer = (state = {}, action) => {
 			break
 		}
 
+		case 'DELETE_NAME': {
+			let updatedState = { ...state }
+			delete updatedState[action.nameId]
+			return updatedState
+		}
+
 		case 'ADD': {
 			v = action.ref || action.sname || action.rel
 			k = v.id

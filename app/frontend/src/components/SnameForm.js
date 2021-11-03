@@ -7,6 +7,7 @@ import { Datalist } from './Datalist'
 import {
 	selectAllLocations,
 	selectAllNames,
+	selectMap,
 	selectRefence,
 } from '../store/snames/selectors'
 
@@ -22,7 +23,7 @@ export const SnameForm = ({
 	const [location, setLocation] = useState('')
 	const [qualifier, setQualifier] = useState('')
 
-	const map = useSelector(v => v.map)
+	const map = useSelector(selectMap)
 	const names = useSelector(selectAllNames)
 
 	const qualifiers = useSelector(v => {
