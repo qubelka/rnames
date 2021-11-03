@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { formatQualifier } from '../utilities'
 import { parseId, makeId } from '../utilities'
 import { addName } from '../store/names/actions'
 import { addSname } from '../store/snames/actions'
@@ -8,6 +7,7 @@ import { Datalist } from './Datalist'
 import {
 	selectAllLocations,
 	selectAllNames,
+	selectMap,
 	selectRefence,
 } from '../store/snames/selectors'
 
@@ -18,18 +18,18 @@ export const SnameForm = ({
 	setNewSnameButtonIsDisabled,
 }) => {
 	const dispatch = useDispatch()
-	const state = useSelector(v => v)
 	const reference = useSelector(selectRefence)
 	const [name, setName] = useState('')
 	const [location, setLocation] = useState('')
 	const [qualifier, setQualifier] = useState('')
 
+	const map = useSelector(selectMap)
 	const names = useSelector(selectAllNames)
 
 	const qualifiers = useSelector(v => {
 		return Object.entries(v.map)
 			.filter(([key]) => parseId(key).type === 'db_qualifier')
-			.map(v => [v[1].id, formatQualifier(v[1], state)])
+			.map(v => [v[1].id, map[v[1].qualifier_name_id].name])
 	})
 
 	const locations = useSelector(selectAllLocations)

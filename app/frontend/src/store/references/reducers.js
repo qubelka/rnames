@@ -35,6 +35,10 @@ export const refReducer = (state = [], action) => {
 
 			break
 		}
+		case 'DELETE': {
+			ret = state.filter(v => v.id !== action.ref.id)
+			break
+		}
 		default:
 			ret = state
 			break
