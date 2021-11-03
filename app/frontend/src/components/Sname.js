@@ -18,8 +18,13 @@ export const Sname = ({ sname }) => {
 	const dispatch = useDispatch()
 	const map = useSelector(selectMap)
 	const relations = useSelector(selectRelations)
-	const filteredSnames = useSelector(state => {
-		return state.sname.filter(v => v.id !== sname.id)
+	const snameNames = useSelector(state => {
+		return state.sname.filter(v => v.id !== sname.id).map(v => v.name_id)
+	})
+	const snameLocations = useSelector(state => {
+		return state.sname
+			.filter(v => v.id !== sname.id)
+			.map(v => v.location_id)
 	})
 	const qualifier_name_id = map[sname.qualifier_id].qualifier_name_id
 
@@ -34,24 +39,26 @@ export const Sname = ({ sname }) => {
 			return true
 		})
 
-		let canDeleteName = true
-		let canDeleteLocation = true
-		filteredSnames.forEach(v => {
-			if (v.name_id === sname.name_id) {
+		let canDeleteName = snameNames.every(name => {
+			if (name === sname.name_id) {
 				console.log(NAME_DELETE_ERROR_MSG)
-				canDeleteName = false
+				return false
 			}
+			return true
+		})
 
-			if (v.location_id === sname.location_id) {
+		let canDeleteLocation = snameLocations.every(location => {
+			if (location === sname.location_id) {
 				console.log(LOCATION_DELETE_ERROR_MSG)
-				canDeleteLocation = false
+				return false
 			}
+			return true
 		})
 
 		if (!canDelete) return
-		dispatch(deleteSname(sname))
 		if (canDeleteName) dispatch(deleteName(sname.name_id))
 		if (canDeleteLocation) dispatch(deleteName(sname.location_id))
+		dispatch(deleteSname(sname))
 	}
 
 	return (
