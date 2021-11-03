@@ -42,7 +42,7 @@ export const mapReducer = (state = {}, action) => {
 			return action.map
 		}
 		case 'DELETE': {
-			v = action.sname || action.rel
+			v = action.sname || action.rel || action.ref
 			let updatedState = { ...state }
 			delete updatedState[v.id]
 			return updatedState

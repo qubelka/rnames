@@ -1,4 +1,4 @@
-import { ADD, UPDATE } from '../action-types'
+import { ADD, DELETE, UPDATE } from '../action-types'
 
 export const addRef = ref => {
 	return {
@@ -10,6 +10,13 @@ export const addRef = ref => {
 export const updateRef = ref => {
 	return {
 		type: UPDATE,
+		ref,
+	}
+}
+
+export const deleteRef = ref => {
+	return {
+		type: DELETE,
 		ref,
 	}
 }

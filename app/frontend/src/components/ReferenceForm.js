@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
-import { addRef, updateRef } from '../store/references/actions'
+import { addRef, deleteRef, updateRef } from '../store/references/actions'
 import { makeId } from '../utilities'
 
 export const ReferenceForm = ({
@@ -55,6 +55,21 @@ export const ReferenceForm = ({
 		}
 	}
 
+	const clearFields = () => {
+		setFirstAuthor('')
+		setYear(0)
+		setTitle('')
+		setDoi('')
+		setLink('')
+		setExists(false)
+		setQueried(false)
+	}
+
+	const handleNewDoiSearch = () => {
+		clearFields()
+		dispatch(deleteRef(reference))
+	}
+
 	const handleManualSubmit = e => {
 		e.preventDefault()
 		const newReference = {
@@ -74,13 +89,7 @@ export const ReferenceForm = ({
 			dispatch(updateRef({ ...newReference, id: reference.id }))
 		}
 
-		setFirstAuthor('')
-		setYear(0)
-		setTitle('')
-		setDoi('')
-		setLink('')
-		setExists(false)
-		setQueried(false)
+		clearFields()
 		showNewReferenceForm()
 	}
 
@@ -129,6 +138,16 @@ export const ReferenceForm = ({
 					/>
 					<br />
 					<button type='submit'>Save reference</button>
+					{reference ? (
+						<>
+							<br />
+							<button type='button' onClick={handleNewDoiSearch}>
+								Make new doi search
+							</button>
+						</>
+					) : (
+						''
+					)}
 				</form>
 			</div>
 		)
