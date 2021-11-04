@@ -1,0 +1,15 @@
+import { SELECT_STRUCTURED_NAME } from '../action-types.js'
+
+export const selectedStructuredNamesReducer = (
+	state = [],
+	{ type, structured_name_id }
+) => {
+	if (structured_name_id === undefined) return state
+
+	switch (type) {
+		case SELECT_STRUCTURED_NAME:
+			return state.concat(structured_name_id)
+		default:
+			return state
+	}
+}

@@ -12,6 +12,7 @@ import { Relation } from './components/Relation'
 import { Submit } from './components/Submit'
 import { ReferenceForm } from './components/ReferenceForm'
 import { SnameForm } from './components/SnameForm'
+import { SelectedStructuredNames } from './components/SelectedStructuredNames'
 
 const blankRel = () => {
 	return { id: makeId('relation'), name1: -1, name2: -1, reference_id: -1 }
@@ -108,6 +109,9 @@ const App = () => {
 				>
 					Add new structured name
 				</button>
+			</div>
+			<div>
+				<SelectedStructuredNames />
 			</div>
 			<div>
 				<h2>Relations</h2>
