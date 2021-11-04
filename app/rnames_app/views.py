@@ -1348,10 +1348,10 @@ def submit(request):
         location.full_clean()
 
     for structured_name in structured_names.values():
-        structured_name.full_clean(exclude=['name', 'location'])
+        structured_name.full_clean(exclude=['name', 'location', 'reference'])
 
     for relation in relations:
-        relation.full_clean(exclude=['name_one', 'name_two'])
+        relation.full_clean(exclude=['name_one', 'name_two', 'reference'])
 
     reference.save()
 
