@@ -1276,14 +1276,14 @@ def submit(request):
         location_type = structured_name_data['location_id']['type']
 
         if location_type == 'db_location':
-            location = Location.objects.get(pk=location_id)
+            location = Location.objects.is_active().get(pk=location_id)
         elif location_type == 'location':
             location = locations[location_id]
         else:
             location = None
 
         if name_type == 'db_name':
-            name = Name.objects.get(pk=name_id)
+            name = Name.objects.is_active().get(pk=name_id)
         elif name_type == 'name':
             name = names[name_id]
         else:
@@ -1294,7 +1294,7 @@ def submit(request):
 
         # Wizard doesn't allow creating new qualifiers so this is always a value that exists
         # in the database
-        qualifier = Qualifier.objects.get(pk=structured_name_data['qualifier_id']['value'])
+        qualifier = Qualifier.objects.is_active().get(pk=structured_name_data['qualifier_id']['value'])
 
         structured_names[id] = StructuredName(
             name=name,
@@ -1312,14 +1312,14 @@ def submit(request):
         name_two_type = relation_data['name2']['type']
 
         if name_one_type == 'db_structured_name':
-            name_one = StructuredName.objects.get(pk=name_one_id)
+            name_one = StructuredName.objects.is_active().get(pk=name_one_id)
         elif name_one_type == 'structured_name':
             name_one = structured_names[name_one_id]
         else:
             name_one = None
 
         if name_two_type == 'db_structured_name':
-            name_two = StructuredName.objects.get(pk=name_two_id)
+            name_two = StructuredName.objects.is_active().get(pk=name_two_id)
         elif name_two_type == 'structured_name':
             name_two = structured_names[name_two_id]
         else:
