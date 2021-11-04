@@ -24,7 +24,7 @@ export const RelationSelector = () => {
 			return {
 				...v,
 				formattedName1: formatStructuredName(state.map[v.name1], state),
-				formattedName2: formatStructuredName(state.map[v.name1], state),
+				formattedName2: formatStructuredName(state.map[v.name2], state),
 			}
 		}),
 	])
