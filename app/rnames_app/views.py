@@ -20,7 +20,7 @@ from django.db import connection
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.http import (HttpResponse, JsonResponse)
+from django.http import (HttpResponse, JsonResponse, HttpResponseBadRequest)
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.utils import timezone
@@ -1256,24 +1256,15 @@ def submit(request):
         link=data['reference']['link']
     )
 
-    reference.full_clean()
-    reference.save()
-
     for name_data in data['names']:
         ty = name_data['id']['type']
         value = name_data['id']['value']
         name = name_data['name']
 
         if ty == 'name':
-            entry = Name(name=name)
-            entry.full_clean()
-            entry.save()
-            names[value] = entry
+            names[value] = Name(name=name)
         if ty == 'location':
-            entry = Location(name=name)
-            entry.full_clean()
-            entry.save()
-            locations[value] = entry
+            locations[value] = Location(name=name)
 
     for structured_name_data in data['structured_names']:
         id = structured_name_data['id']['value']
@@ -1302,17 +1293,13 @@ def submit(request):
         # in the database
         qualifier = Qualifier.objects.get(pk=structured_name_data['qualifier_id']['value'])
 
-        entry = StructuredName(
+        structured_names[id] = StructuredName(
             name=name,
             qualifier=qualifier,
             location=location,
             reference=reference
             # remarks = ''
         )
-
-        entry.full_clean()
-        entry.save()
-        structured_names[id] = entry
 
     for relation_data in data['relations']:
         name_one_id = relation_data['name1']['value']
@@ -1344,9 +1331,35 @@ def submit(request):
             reference=reference
         )
 
-        relation.full_clean()
-        relation.save()
         relations.append(relation)
+
+    reference.full_clean()
+
+    for name in names.values():
+        name.full_clean()
+
+    for location in locations.values():
+        location.full_clean()
+
+    for structured_name in structured_names.values():
+        structured_name.full_clean(exclude=['name', 'location'])
+
+    for relation in relations:
+        relation.full_clean(exclude=['name_one', 'name_two'])
+
+    reference.save()
+
+    for name in names.values():
+        name.save()
+
+    for location in locations.values():
+        location.save()
+
+    for structured_name in structured_names.values():
+        structured_name.save()
+
+    for relation in relations:
+        relation.save()
 
     return render(
         request,
