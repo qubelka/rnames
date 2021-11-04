@@ -9,7 +9,6 @@ import { formatStructuredName, parseId } from '../utilities'
 
 export const SelectedStructuredNames = () => {
 	const selection = useSelector(state => {
-		console.log(state.selectedStructuredNames)
 		return state.selectedStructuredNames
 			.filter(v => parseId(v).type !== 'structured_name')
 			.map(v => {
