@@ -1256,15 +1256,24 @@ def submit(request):
         link=data['reference']['link']
     )
 
+    reference.full_clean()
+    reference.save()
+
     for name_data in data['names']:
         ty = name_data['id']['type']
         value = name_data['id']['value']
         name = name_data['name']
 
         if ty == 'name':
-            names[value] = Name(name=name)
+            entry = Name(name=name)
+            entry.full_clean()
+            entry.save()
+            names[value] = entry
         if ty == 'location':
-            locations[value] = Location(name=name)
+            entry = Location(name=name)
+            entry.full_clean()
+            entry.save()
+            locations[value] = entry
 
     for structured_name_data in data['structured_names']:
         id = structured_name_data['id']['value']
@@ -1293,13 +1302,17 @@ def submit(request):
         # in the database
         qualifier = Qualifier.objects.get(pk=structured_name_data['qualifier_id']['value'])
 
-        structured_names[id] = StructuredName(
+        entry = StructuredName(
             name=name,
             qualifier=qualifier,
             location=location,
             reference=reference
             # remarks = ''
         )
+
+        entry.full_clean()
+        entry.save()
+        structured_names[id] = entry
 
     for relation_data in data['relations']:
         name_one_id = relation_data['name1']['value']
@@ -1331,21 +1344,9 @@ def submit(request):
             reference=reference
         )
 
+        relation.full_clean()
+        relation.save()
         relations.append(relation)
-
-    reference.save()
-
-    for value in names.values():
-        value.save()
-
-    for value in locations.values():
-        value.save()
-
-    for value in structured_names.values():
-        value.save()
-
-    for value in relations:
-        value.save()
 
     return render(
         request,
