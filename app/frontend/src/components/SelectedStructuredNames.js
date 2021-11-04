@@ -38,14 +38,6 @@ export const SelectedStructuredNames = () => {
 
 	return (
 		<>
-			<h2>Selected existing structured names</h2>
-			{selection.map(v => (
-				<div key={v.id}>
-					<button onClick={() => handleDelete(v.id)}>Deselect</button>
-					<span>{v.formattedName}</span>
-				</div>
-			))}
-
 			<label>Select existing name</label>
 			<input list={dataListId} value={search} onChange={handleChange} />
 			<datalist id={dataListId}>
@@ -53,6 +45,12 @@ export const SelectedStructuredNames = () => {
 					<option key={v.id}>{v.formattedName}</option>
 				))}
 			</datalist>
+			{selection.map(v => (
+				<div key={v.id}>
+					<button onClick={() => handleDelete(v.id)}>Deselect</button>
+					<span>{v.formattedName}</span>
+				</div>
+			))}
 		</>
 	)
 }
