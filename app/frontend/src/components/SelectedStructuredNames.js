@@ -41,7 +41,7 @@ export const SelectedStructuredNames = () => {
 			<h2>Selected existing structured names</h2>
 			{selection.map(v => (
 				<div key={v.id}>
-					<button onClick={() => handleDelete(v.id)}>Delete</button>
+					<button onClick={() => handleDelete(v.id)}>Deselect</button>
 					<span>{v.formattedName}</span>
 				</div>
 			))}
