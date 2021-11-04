@@ -1289,6 +1289,9 @@ def submit(request):
         else:
             name = None
 
+        if name == None or location == None:
+            return HttpResponseBadRequest()
+
         # Wizard doesn't allow creating new qualifiers so this is always a value that exists
         # in the database
         qualifier = Qualifier.objects.get(pk=structured_name_data['qualifier_id']['value'])
@@ -1321,6 +1324,9 @@ def submit(request):
             name_two = structured_names[name_two_id]
         else:
             name_two = None
+
+        if name_one == None or name_two == None:
+            return HttpResponseBadRequest()
 
         belongs_to = 0 # Todo
 
