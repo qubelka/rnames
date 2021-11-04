@@ -103,7 +103,7 @@ export const RelationSelector = () => {
 				<h3>Relations</h3>
 				{relations.map(v => (
 					<p key={v.id}>
-						{`${v.formattedName1} <===> ${v.formattedName1}`}
+						{`${v.formattedName1} <===> ${v.formattedName2}`}
 					</p>
 				))}
 			</div>
