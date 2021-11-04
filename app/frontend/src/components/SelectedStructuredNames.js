@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectStructuredName } from '../store/selected_structured_names/actions'
+import {
+	selectStructuredName,
+	deselectStructuredName,
+} from '../store/selected_structured_names/actions'
 import { loadServerData } from '../services/server'
 import { formatStructuredName } from '../utilities'
 
 export const SelectedStructuredNames = () => {
 	const selection = useSelector(state => {
-		console.log(state.selectedStructuredNames)
-
 		return state.selectedStructuredNames.map(v => {
 			return {
 				id: v,
@@ -16,7 +17,7 @@ export const SelectedStructuredNames = () => {
 		})
 	})
 
-	const [ search, setSearch ] = useState('')
+	const [search, setSearch] = useState('')
 	const dbNames = loadServerData('structured_names') || []
 	const dispatch = useDispatch()
 	const dataListId = 'selectedStructuredNamesDataList'
@@ -31,12 +32,19 @@ export const SelectedStructuredNames = () => {
 		}
 	}
 
+	const handleDelete = id => dispatch(deselectStructuredName(id))
+
 	return (
 		<>
 			<h2>Selected existing structured names</h2>
 			{selection.map(v => (
-				<p key={v.id}>{v.formattedName}</p>
+				<>
+					<button onClick={() => handleDelete(v.id)}>Delete</button>
+					<span key={v.id}>{v.formattedName}</span>
+					<br />
+				</>
 			))}
+
 			<label>Select existing name</label>
 			<input list={dataListId} value={search} onChange={handleChange} />
 			<datalist id={dataListId}>

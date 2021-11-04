@@ -1,4 +1,7 @@
-import { SELECT_STRUCTURED_NAME } from '../action-types.js'
+import {
+	SELECT_STRUCTURED_NAME,
+	DESELECT_STRUCTURED_NAME,
+} from '../action-types.js'
 
 export const selectedStructuredNamesReducer = (
 	state = [],
@@ -9,6 +12,8 @@ export const selectedStructuredNamesReducer = (
 	switch (type) {
 		case SELECT_STRUCTURED_NAME:
 			return state.concat(structured_name_id)
+		case DESELECT_STRUCTURED_NAME:
+			return state.filter(v => v !== structured_name_id)
 		default:
 			return state
 	}
