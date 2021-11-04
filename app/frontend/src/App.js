@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadServerData, initServer } from './services/server'
-import { makeId } from './utilities'
+import { makeId, formatStructuredName } from './utilities'
 import { initMapvalues } from './store/map/actions'
 import { addRel } from './store/relations/actions'
 import { addSname } from './store/snames/actions'
@@ -34,7 +34,10 @@ const App = () => {
 		serverData.locations.forEach(v => (map[v.id] = v))
 		serverData.qualifier_names.forEach(v => (map[v.id] = v))
 		serverData.qualifiers.forEach(v => (map[v.id] = v))
-		serverData.structured_names.forEach(v => (map[v.id] = v))
+		serverData.structured_names.forEach(v => {
+			map[v.id] = v
+			v.formattedName = formatStructuredName(v, {map})
+		})
 		serverData.references.forEach(v => (map[v.id] = v))
 		dispatch(initMapvalues(map))
 	}, [])
