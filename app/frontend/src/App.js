@@ -13,10 +13,7 @@ import { Submit } from './components/Submit'
 import { ReferenceForm } from './components/ReferenceForm'
 import { SnameForm } from './components/SnameForm'
 import { SelectedStructuredNames } from './components/SelectedStructuredNames'
-
-const blankRel = () => {
-	return { id: makeId('relation'), name1: -1, name2: -1, reference_id: -1 }
-}
+import { RelationSelector } from './components/RelationSelector'
 
 const App = () => {
 	const state = useSelector(v => v)
@@ -113,15 +110,7 @@ const App = () => {
 			<div>
 				<SelectedStructuredNames />
 			</div>
-			<div>
-				<h2>Relations</h2>
-				{state.rel.map(data => (
-					<Relation {...{ key: data.id, data }} />
-				))}
-				<button type='button' onClick={addRelHandler}>
-					Add new relation
-				</button>
-			</div>
+			<RelationSelector />
 			<Submit />
 		</>
 	)
