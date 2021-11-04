@@ -18,7 +18,7 @@ export const SelectedStructuredNames = () => {
 				}
 			})
 	})
-
+	const relations = useSelector(v => v.rel)
 	const [search, setSearch] = useState('')
 	const dbNames = loadServerData('structured_names') || []
 	const dispatch = useDispatch()
@@ -34,7 +34,10 @@ export const SelectedStructuredNames = () => {
 		}
 	}
 
-	const handleDelete = id => dispatch(deselectStructuredName(id))
+	const handleDelete = id => {
+		if (!relations.find(v => v.name1 === id || v.name2 === id))
+			dispatch(deselectStructuredName(id))
+	}
 
 	return (
 		<>
