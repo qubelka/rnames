@@ -10,6 +10,9 @@ export const nameReducer = (names = [], action) => {
 				name.id === action.nameId ? action.name : name
 			)
 		}
+		case 'DELETE_NAME': {
+			return names.filter(name => name.id !== action.nameId)
+		}
 		default:
 			return names
 	}

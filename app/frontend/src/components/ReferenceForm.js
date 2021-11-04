@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
-import { addRef } from '../store/references/actions'
+import { addRef, deleteRef, updateRef } from '../store/references/actions'
 import { makeId } from '../utilities'
 import { Notification } from './Notification'
 
-export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
+export const ReferenceForm = ({
+	displayRefForm,
+	showNewReferenceForm,
+	reference = undefined,
+	isQueried = false,
+}) => {
 	const dispatch = useDispatch()
 
 	const [firstAuthor, setFirstAuthor] = useState('')
@@ -14,10 +19,20 @@ export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 	const [doi, setDoi] = useState('')
 	const [link, setLink] = useState('')
 	const [exists, setExists] = useState(false)
-	const [queried, setQueried] = useState(false)
+	const [queried, setQueried] = useState(isQueried)
 	const [notification, setNotification] = useState(null)
 
-	const notify = (message, type='error') => {
+	useEffect(() => {
+		if (!reference) return
+		setFirstAuthor(reference.firstAuthor)
+		setYear(reference.year)
+		setTitle(reference.title)
+		setDoi(reference.doi)
+		setLink(reference.link)
+		setExists(reference.exists)
+	}, [])
+  
+  const notify = (message, type='error') => {
 		setNotification({ message, type })
 		setTimeout(() => {
 		  setNotification(null)
@@ -48,20 +63,7 @@ export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 		}
 	}
 
-	const handleManualSubmit = e => {
-		e.preventDefault()
-		const newReference = {
-			id: makeId('reference'),
-			firstAuthor,
-			year,
-			title,
-			doi,
-			link,
-			exists,
-			queried,
-		}
-		dispatch(addRef({ ...newReference }))
-
+	const clearFields = () => {
 		setFirstAuthor('')
 		setYear(0)
 		setTitle('')
@@ -69,6 +71,33 @@ export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 		setLink('')
 		setExists(false)
 		setQueried(false)
+	}
+
+	const handleNewDoiSearch = () => {
+		clearFields()
+		dispatch(deleteRef(reference))
+	}
+
+	const handleManualSubmit = e => {
+		e.preventDefault()
+		const newReference = {
+			firstAuthor,
+			year,
+			title,
+			doi,
+			link,
+			exists,
+			queried,
+			edit: false,
+		}
+
+		if (!reference) {
+			dispatch(addRef({ ...newReference, id: makeId('reference') }))
+		} else {
+			dispatch(updateRef({ ...newReference, id: reference.id }))
+		}
+
+		clearFields()
 		showNewReferenceForm()
 	}
 
@@ -117,6 +146,16 @@ export const ReferenceForm = ({ displayRefForm, showNewReferenceForm }) => {
 					/>
 					<br />
 					<button type='submit'>Save reference</button>
+					{reference ? (
+						<>
+							<br />
+							<button type='button' onClick={handleNewDoiSearch}>
+								Make new doi search
+							</button>
+						</>
+					) : (
+						''
+					)}
 				</form>
 			</div>
 		)

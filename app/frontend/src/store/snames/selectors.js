@@ -42,3 +42,6 @@ export const selectAllLocations = createSelector(
 export const selectRefence = state => {
 	return state.ref[0]
 }
+
+export const selectMap = state => state.map
+export const selectRelations = state => state.rel
