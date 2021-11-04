@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { deleteSname } from '../store/snames/actions'
 import { selectMap, selectRelations } from '../store/snames/selectors'
 import { deleteName } from '../store/names/actions'
+import { deselectStructuredName } from '../store/selected_structured_names/actions'
 
 const NAME_DELETE_ERROR_MSG =
 	'The structured name you are trying to delete contains a recently created name, \
@@ -58,6 +59,7 @@ export const Sname = ({ sname }) => {
 		if (!canDelete) return
 		if (canDeleteName) dispatch(deleteName(sname.name_id))
 		if (canDeleteLocation) dispatch(deleteName(sname.location_id))
+		dispatch(deselectStructuredName(sname.id))
 		dispatch(deleteSname(sname))
 	}
 
