@@ -11,6 +11,7 @@ import {
 	selectRefence,
 } from '../store/snames/selectors'
 import { selectStructuredName } from '../store/selected_structured_names/actions'
+import { Notification } from './Notification'
 
 export const SnameForm = ({
 	displaySnameForm,
@@ -23,6 +24,7 @@ export const SnameForm = ({
 	const [name, setName] = useState('')
 	const [location, setLocation] = useState('')
 	const [qualifier, setQualifier] = useState('')
+	const [notification, setNotification] = useState(null)
 
 	const map = useSelector(selectMap)
 	const names = useSelector(selectAllNames)
@@ -33,22 +35,29 @@ export const SnameForm = ({
 			.map(v => [v[1].id, map[v[1].qualifier_name_id].name])
 	})
 
+	const notify = (message, type='error') => {
+		setNotification({ message, type })
+		setTimeout(() => {
+		setNotification(null)
+		}, 7000)
+	}
+
 	const locations = useSelector(selectAllLocations)
 
 	const handleSnameAddition = () => {
 		if (!reference) {
-			// Add error message later!
-			console.log('Enter reference first!')
+			notify('Enter reference before saving a structured name.')
 			return
 		}
 
 		const qualifierFromDb = qualifiers.find(
 			dbQualifier => dbQualifier[1] === qualifier
 		)
-
-		// Add error message later!
-		if (!qualifierFromDb) return
-
+		
+		if (!qualifierFromDb) {
+			notify('Choose a qualifier from the dropdown menu.')
+			return
+		}
 		let nameId, locationId
 		if (!names.find(v => v[1] === name)) {
 			nameId = makeId('name')
@@ -83,6 +92,7 @@ export const SnameForm = ({
 
 	return (
 		<div style={{ display: displaySnameForm }}>
+			<Notification notification={notification}/>
 			<label htmlFor='name'>Name</label>
 			<Datalist
 				name='name'

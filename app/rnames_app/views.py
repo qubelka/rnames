@@ -20,7 +20,7 @@ from django.db import connection
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.http import (HttpResponse, JsonResponse)
+from django.http import (HttpResponse, JsonResponse, HttpResponseBadRequest)
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.utils import timezone
@@ -1256,24 +1256,15 @@ def submit(request):
         link=data['reference']['link']
     )
 
-    reference.full_clean()
-    reference.save()
-
     for name_data in data['names']:
         ty = name_data['id']['type']
         value = name_data['id']['value']
         name = name_data['name']
 
         if ty == 'name':
-            entry = Name(name=name)
-            entry.full_clean()
-            entry.save()
-            names[value] = entry
+            names[value] = Name(name=name)
         if ty == 'location':
-            entry = Location(name=name)
-            entry.full_clean()
-            entry.save()
-            locations[value] = entry
+            locations[value] = Location(name=name)
 
     for structured_name_data in data['structured_names']:
         id = structured_name_data['id']['value']
@@ -1285,34 +1276,33 @@ def submit(request):
         location_type = structured_name_data['location_id']['type']
 
         if location_type == 'db_location':
-            location = Location.objects.get(pk=location_id)
+            location = Location.objects.is_active().get(pk=location_id)
         elif location_type == 'location':
             location = locations[location_id]
         else:
             location = None
 
         if name_type == 'db_name':
-            name = Name.objects.get(pk=name_id)
+            name = Name.objects.is_active().get(pk=name_id)
         elif name_type == 'name':
             name = names[name_id]
         else:
             name = None
 
+        if name == None or location == None:
+            return HttpResponseBadRequest()
+
         # Wizard doesn't allow creating new qualifiers so this is always a value that exists
         # in the database
-        qualifier = Qualifier.objects.get(pk=structured_name_data['qualifier_id']['value'])
+        qualifier = Qualifier.objects.is_active().get(pk=structured_name_data['qualifier_id']['value'])
 
-        entry = StructuredName(
+        structured_names[id] = StructuredName(
             name=name,
             qualifier=qualifier,
             location=location,
             reference=reference
             # remarks = ''
         )
-
-        entry.full_clean()
-        entry.save()
-        structured_names[id] = entry
 
     for relation_data in data['relations']:
         name_one_id = relation_data['name1']['value']
@@ -1322,18 +1312,21 @@ def submit(request):
         name_two_type = relation_data['name2']['type']
 
         if name_one_type == 'db_structured_name':
-            name_one = StructuredName.objects.get(pk=name_one_id)
+            name_one = StructuredName.objects.is_active().get(pk=name_one_id)
         elif name_one_type == 'structured_name':
             name_one = structured_names[name_one_id]
         else:
             name_one = None
 
         if name_two_type == 'db_structured_name':
-            name_two = StructuredName.objects.get(pk=name_two_id)
+            name_two = StructuredName.objects.is_active().get(pk=name_two_id)
         elif name_two_type == 'structured_name':
             name_two = structured_names[name_two_id]
         else:
             name_two = None
+
+        if name_one == None or name_two == None:
+            return HttpResponseBadRequest()
 
         belongs_to = 0 # Todo
 
@@ -1344,9 +1337,35 @@ def submit(request):
             reference=reference
         )
 
-        relation.full_clean()
-        relation.save()
         relations.append(relation)
+
+    reference.full_clean()
+
+    for name in names.values():
+        name.full_clean()
+
+    for location in locations.values():
+        location.full_clean()
+
+    for structured_name in structured_names.values():
+        structured_name.full_clean(exclude=['name', 'location', 'reference'])
+
+    for relation in relations:
+        relation.full_clean(exclude=['name_one', 'name_two', 'reference'])
+
+    reference.save()
+
+    for name in names.values():
+        name.save()
+
+    for location in locations.values():
+        location.save()
+
+    for structured_name in structured_names.values():
+        structured_name.save()
+
+    for relation in relations:
+        relation.save()
 
     return render(
         request,
