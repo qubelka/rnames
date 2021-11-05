@@ -45,7 +45,6 @@ export const SnameForm = ({
 
 	const handleSnameAddition = () => {
 		if (!reference) {
-			// Add error message later!
 			notify('Enter reference before saving a structured name.')
 			return
 		}
@@ -53,8 +52,7 @@ export const SnameForm = ({
 		const qualifierFromDb = qualifiers.find(
 			dbQualifier => dbQualifier[1] === qualifier
 		)
-
-		// Add error message later!
+		
 		if (!qualifierFromDb) {
 			notify('Choose a qualifier from the dropdown menu.')
 			return
