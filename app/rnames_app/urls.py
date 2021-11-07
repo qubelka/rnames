@@ -118,7 +118,8 @@ urlpatterns = [
     path('rnames/timeslice/<int:pk>/edit/',
          views.timeslice_edit, name='timeslice-edit'),
     path('rnames/timeslice/new', views.timeslice_new, name='timeslice-new'),
-    path('wizard_submit', views.submit)
+    path('wizard_submit', views.submit),
+    path('wizard', views.wizard, name='wizard')
 ]
 
 # Add Django site authentication urls (for login, logout, password management)

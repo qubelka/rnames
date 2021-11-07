@@ -1377,3 +1377,8 @@ def submit(request):
             'relations': relations
         }
     )
+
+@login_required
+def wizard(request):
+    return render(request, '../frontend/templates/frontend/index.html')
+
