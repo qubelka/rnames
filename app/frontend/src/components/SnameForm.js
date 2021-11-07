@@ -77,7 +77,7 @@ export const SnameForm = ({
 				locationId ||
 				locations.find(dbLocation => dbLocation[1] === location)[0],
 			qualifier_id: qualifierFromDb[0],
-			reference_id: reference.id,
+			reference_id: -1,
 			remarks: '',
 		}
 		dispatch(addSname(newSname))
