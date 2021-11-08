@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
-import { replaceEmptyStringsWithNullInReference } from '../validations'
+import { updateRefForSubmission } from '../validations'
 
 export const Submit = () => {
 	const data = useSelector(v => {
@@ -34,9 +34,7 @@ export const Submit = () => {
 			return ret
 		}
 
-		const refWithNullValues = replaceEmptyStringsWithNullInReference(
-			data.reference
-		)
+		const refWithNullValues = updateRefForSubmission(data.reference)
 
 		const submit_data = {
 			names: data.names.map(v => parseIds(v, ['id'])),

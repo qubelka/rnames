@@ -22,19 +22,13 @@ export const referenceFormIsValid = (firstAuthor, year, title, doi, link) => {
 	}
 
 	if (year !== '') {
-		yearValidation: {
-			if (year) {
-				const yearAsNumber = parseInt(year, 10)
-				if (isNaN(yearAsNumber) || !yearAsNumber) {
-					console.log('Year must be an integer number')
-					valid = false
-					break yearValidation
-				}
+		if (year) {
+			// 1800 - 2099
+			const yearRegex = /(18|19|20)\d{2}/
 
-				if (yearAsNumber < 1800 || yearAsNumber > 2100) {
-					console.log('Please provide correct year value')
-					valid = false
-				}
+			if (!yearRegex.test(year)) {
+				console.log('Please provide correct year value')
+				valid = false
 			}
 		}
 	}
@@ -80,13 +74,14 @@ export const referenceFormIsValid = (firstAuthor, year, title, doi, link) => {
 }
 
 /* All fields except the title can be null.*/
-export const replaceEmptyStringsWithNullInReference = reference => {
+export const updateRefForSubmission = reference => {
 	const updatedReference = { ...reference }
 	Object.keys(updatedReference).forEach(k => {
 		if (updatedReference[k] === '') {
 			updatedReference[k] = null
 		}
 	})
+	updatedReference.year = Number.parseInt(updatedReference.year, 10)
 	return updatedReference
 }
 
