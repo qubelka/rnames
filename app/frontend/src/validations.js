@@ -24,15 +24,9 @@ export const referenceFormIsValid = (firstAuthor, year, title, doi, link) => {
 	if (year !== '') {
 		yearValidation: {
 			if (year) {
-				if (year === '0') {
-					console.log('Please provide correct year value')
-					valid = false
-					break yearValidation
-				}
-
-				const yearAsNumber = Number(year)
-				if (!yearAsNumber) {
-					console.log('Year must be number')
+				const yearAsNumber = parseInt(year, 10)
+				if (isNaN(yearAsNumber) || !yearAsNumber) {
+					console.log('Year must be an integer number')
 					valid = false
 					break yearValidation
 				}

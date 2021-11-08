@@ -21,7 +21,7 @@ export const Submit = () => {
 			return
 		}
 
-		if (data.structured_names.length === 0 || data.relations.length === 0) {
+		if (data.relations.length === 0) {
 			console.log(
 				'Please add structured names and relations before submitting'
 			)
