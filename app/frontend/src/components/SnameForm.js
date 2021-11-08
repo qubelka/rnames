@@ -10,6 +10,7 @@ import {
 	selectMap,
 	selectRefence,
 } from '../store/snames/selectors'
+import { selectStructuredName } from '../store/selected_structured_names/actions'
 import { Notification } from './Notification'
 
 export const SnameForm = ({
@@ -81,6 +82,7 @@ export const SnameForm = ({
 			remarks: '',
 		}
 		dispatch(addSname(newSname))
+		dispatch(selectStructuredName(newSname.id))
 		setName('')
 		setQualifier('')
 		setLocation('')
