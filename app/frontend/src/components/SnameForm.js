@@ -34,10 +34,10 @@ export const SnameForm = ({
 			.map(v => [v[1].id, map[v[1].qualifier_name_id].name])
 	})
 
-	const notify = (message, type='error') => {
+	const notify = (message, type = 'error') => {
 		setNotification({ message, type })
 		setTimeout(() => {
-		setNotification(null)
+			setNotification(null)
 		}, 7000)
 	}
 
@@ -52,7 +52,7 @@ export const SnameForm = ({
 		const qualifierFromDb = qualifiers.find(
 			dbQualifier => dbQualifier[1] === qualifier
 		)
-		
+
 		if (!qualifierFromDb) {
 			notify('Choose a qualifier from the dropdown menu.')
 			return
@@ -77,7 +77,7 @@ export const SnameForm = ({
 				locationId ||
 				locations.find(dbLocation => dbLocation[1] === location)[0],
 			qualifier_id: qualifierFromDb[0],
-			reference_id: reference.id,
+			reference_id: -1,
 			remarks: '',
 		}
 		dispatch(addSname(newSname))
@@ -90,7 +90,7 @@ export const SnameForm = ({
 
 	return (
 		<div style={{ display: displaySnameForm }}>
-			<Notification notification={notification}/>
+			<Notification notification={notification} />
 			<label htmlFor='name'>Name</label>
 			<Datalist
 				name='name'
