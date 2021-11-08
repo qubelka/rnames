@@ -24,7 +24,7 @@ export const referenceFormIsValid = (firstAuthor, year, title, doi, link) => {
 	if (year !== '') {
 		if (year) {
 			// 1800 - 2099
-			const yearRegex = /(18|19|20)\d{2}/
+			const yearRegex = /^(18|19|20)\d{2}$/
 
 			if (!yearRegex.test(year)) {
 				console.log('Please provide correct year value')
