@@ -65,13 +65,10 @@ export const Sname = ({ sname }) => {
 
 	return (
 		<div>
-			<p>{map[sname.name_id].name}</p>
-			<p>{map[qualifier_name_id].name}</p>
-			<p>{map[sname.location_id].name}</p>
-
 			<button type='button' onClick={deleteSnameHandler}>
 				Delete
 			</button>
+			<span>{map[sname.name_id].name}</span> / <span>{map[qualifier_name_id].name}</span> / <span>{map[sname.location_id].name}</span>
 		</div>
 	)
 }
