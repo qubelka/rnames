@@ -89,13 +89,6 @@ export const doiFormIsValid = doi => {
 	if (doi === '') {
 		console.log('Please provide the doi number')
 		return false
-	} else {
-		if (doi.substring(0, 3) !== '10.') {
-			console.log(
-				'Enter the DOI number that begins with 10 followed by a period'
-			)
-			return false
-		}
 	}
 	return true
 }
