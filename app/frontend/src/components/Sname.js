@@ -4,6 +4,7 @@ import { deleteSname } from '../store/snames/actions'
 import { selectMap, selectRelations } from '../store/snames/selectors'
 import { deleteName } from '../store/names/actions'
 import { deselectStructuredName } from '../store/selected_structured_names/actions'
+import { formatStructuredName } from '../utilities'
 
 const NAME_DELETE_ERROR_MSG =
 	'The structured name you are trying to delete contains a recently created name, \
@@ -68,7 +69,7 @@ export const Sname = ({ sname }) => {
 			<button type='button' onClick={deleteSnameHandler}>
 				Delete
 			</button>
-			<span>{map[sname.name_id].name}</span> / <span>{map[qualifier_name_id].name}</span> / <span>{map[sname.location_id].name}</span>
+			<span>{formatStructuredName(sname, { map })}</span>
 		</div>
 	)
 }
