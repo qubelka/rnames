@@ -28,7 +28,6 @@ export const Sname = ({ sname }) => {
 			.filter(v => v.id !== sname.id)
 			.map(v => v.location_id)
 	})
-	const qualifier_name_id = map[sname.qualifier_id].qualifier_name_id
 
 	const deleteSnameHandler = () => {
 		let canDelete = relations.every(rel => {
