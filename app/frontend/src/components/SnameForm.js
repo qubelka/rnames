@@ -25,6 +25,7 @@ export const SnameForm = ({
 	const [location, setLocation] = useState('')
 	const [qualifier, setQualifier] = useState('')
 	const [notification, setNotification] = useState(null)
+	const [saveWithReference, setSaveWithReference] = useState(false)
 
 	const map = useSelector(selectMap)
 	const names = useSelector(selectAllNames)
@@ -81,6 +82,7 @@ export const SnameForm = ({
 			qualifier_id: qualifierFromDb[0],
 			reference_id: -1,
 			remarks: '',
+			save_with_reference_id: saveWithReference
 		}
 		dispatch(addSname(newSname))
 		dispatch(selectStructuredName(newSname.id))
@@ -115,6 +117,15 @@ export const SnameForm = ({
 				value={location}
 				onChange={e => setLocation(e.target.value)}
 			/>
+			<input
+				type='checkbox'
+				id='structured-name-form-save-with-reference'
+				value={saveWithReference}
+				onClick={e => setSaveWithReference(!saveWithReference)}
+			/>
+			<label htmlFor='structured-name-form-save-with-reference'>
+				Save with reference id
+			</label>
 			<button type='button' onClick={handleSnameAddition}>
 				Save
 			</button>
