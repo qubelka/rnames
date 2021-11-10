@@ -56,6 +56,7 @@ export const SnameForm = ({
 
 		if (!qualifierFromDb) {
 			notify('Choose a qualifier from the dropdown menu.')
+			setQualifier('')
 			return
 		}
 		let nameId, locationId
