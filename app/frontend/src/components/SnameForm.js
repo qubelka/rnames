@@ -100,7 +100,6 @@ export const SnameForm = ({
 				value={name}
 				onChange={e => setName(e.target.value)}
 			/>
-			<br />
 			<label htmlFor='qualifier'>Qualifier</label>
 			<Datalist
 				name='qualifier'
@@ -108,7 +107,6 @@ export const SnameForm = ({
 				value={qualifier}
 				onChange={e => setQualifier(e.target.value)}
 			/>
-			<br />
 			<label htmlFor='location'>Location</label>
 			<Datalist
 				name='location'
@@ -116,7 +114,6 @@ export const SnameForm = ({
 				value={location}
 				onChange={e => setLocation(e.target.value)}
 			/>
-			<br />
 			<button type='button' onClick={handleSnameAddition}>
 				Save
 			</button>
