@@ -96,9 +96,9 @@ export const updateRefForSubmission = reference => {
 	return updatedReference
 }
 
-export const doiFormIsValid = (doi, addErrorMessage) => {
+export const doiFormIsValid = (doi, notify) => {
 	if (doi === '') {
-		addErrorMessage('Please provide the doi number', 'doi')
+		notify('Please provide the doi number')
 		return false
 	}
 	return true

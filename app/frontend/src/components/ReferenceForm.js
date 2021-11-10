@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { addRef, deleteRef, updateRef } from '../store/references/actions'
 import { makeId } from '../utilities'
 import { referenceFormIsValid } from '../validations'
+import { DoiForm } from './DoiForm'
 import { InputField } from './InputField'
 
 export const ReferenceForm = ({
@@ -66,31 +67,6 @@ export const ReferenceForm = ({
 	const showErrorMsgs = () => {
 		setShowErrors(!showError)
 	}
-
-	/* 	const doiSubmit = async e => {
-		e.preventDefault()
-		if (!doiFormIsValid(doi)) return
-
-		try {
-			const result = await axios.get(
-				`https://api.crossref.org/works/${doi}`
-			)
-			const response = JSON.parse(result.request.response).message
-
-			if (response.author.length === 0) return
-
-			setQueried(true)
-			setFirstAuthor(
-				`${response.author[0].given} ${response.author[0].family}`
-			)
-			setYear(response.created['date-parts'][0][0])
-			setTitle(response.title[0])
-			setDoi(response.DOI)
-			setLink(response.URL)
-		} catch (err) {
-			notify(`No resources found with ${doi}`)
-		}
-	} */
 
 	const clearFields = () => {
 		setFirstAuthor('')
@@ -195,20 +171,17 @@ export const ReferenceForm = ({
 		)
 
 	return (
-		<>
-			<form style={{ display: displayRefForm }}>
-				<label htmlFor='doi'>doi</label>
-				<input
-					type='text'
-					name='doi'
-					value={doi}
-					onChange={e => setDoi(e.target.value)}
-				/>
-				<button type='submit'>get</button>
-				<button type='button' onClick={() => setQueried(true)}>
-					Manual Entry
-				</button>
-			</form>
-		</>
+		<DoiForm
+			{...{
+				doi,
+				setQueried,
+				setFirstAuthor,
+				setYear,
+				setTitle,
+				setDoi,
+				setLink,
+				displayRefForm,
+			}}
+		/>
 	)
 }
