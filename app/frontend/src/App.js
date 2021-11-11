@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadServerData, initServer } from './services/server'
-import { makeId } from './utilities'
+import { makeId, formatStructuredName } from './utilities'
 import { initMapvalues } from './store/map/actions'
 import { addRel } from './store/relations/actions'
 import { addSname } from './store/snames/actions'
@@ -12,10 +12,8 @@ import { Relation } from './components/Relation'
 import { Submit } from './components/Submit'
 import { ReferenceForm } from './components/ReferenceForm'
 import { SnameForm } from './components/SnameForm'
-
-const blankRel = () => {
-	return { id: makeId('relation'), name1: -1, name2: -1, reference_id: -1 }
-}
+import { SelectedStructuredNames } from './components/SelectedStructuredNames'
+import { RelationSelector } from './components/RelationSelector'
 
 const App = () => {
 	const state = useSelector(v => v)
@@ -34,7 +32,10 @@ const App = () => {
 		serverData.locations.forEach(v => (map[v.id] = v))
 		serverData.qualifier_names.forEach(v => (map[v.id] = v))
 		serverData.qualifiers.forEach(v => (map[v.id] = v))
-		serverData.structured_names.forEach(v => (map[v.id] = v))
+		serverData.structured_names.forEach(v => {
+			map[v.id] = v
+			v.formattedName = formatStructuredName(v, {map})
+		})
 		serverData.references.forEach(v => (map[v.id] = v))
 		dispatch(initMapvalues(map))
 	}, [])
@@ -107,14 +108,9 @@ const App = () => {
 				</button>
 			</div>
 			<div>
-				<h2>Relations</h2>
-				{state.rel.map(data => (
-					<Relation {...{ key: data.id, data }} />
-				))}
-				<button type='button' onClick={addRelHandler}>
-					Add new relation
-				</button>
+				<SelectedStructuredNames />
 			</div>
+			<RelationSelector />
 			<Submit />
 		</>
 	)

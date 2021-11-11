@@ -4,6 +4,7 @@ import axios from 'axios'
 import { addRef, deleteRef, updateRef } from '../store/references/actions'
 import { makeId } from '../utilities'
 import { Notification } from './Notification'
+import { referenceFormIsValid, doiFormIsValid } from '../validations'
 
 export const ReferenceForm = ({
 	displayRefForm,
@@ -14,7 +15,7 @@ export const ReferenceForm = ({
 	const dispatch = useDispatch()
 
 	const [firstAuthor, setFirstAuthor] = useState('')
-	const [year, setYear] = useState(0)
+	const [year, setYear] = useState('')
 	const [title, setTitle] = useState('')
 	const [doi, setDoi] = useState('')
 	const [link, setLink] = useState('')
@@ -31,16 +32,17 @@ export const ReferenceForm = ({
 		setLink(reference.link)
 		setExists(reference.exists)
 	}, [])
-  
-  const notify = (message, type='error') => {
+
+	const notify = (message, type = 'error') => {
 		setNotification({ message, type })
 		setTimeout(() => {
-		  setNotification(null)
+			setNotification(null)
 		}, 7000)
 	}
 
 	const doiSubmit = async e => {
 		e.preventDefault()
+		if (!doiFormIsValid(doi)) return
 
 		try {
 			const result = await axios.get(
@@ -65,7 +67,7 @@ export const ReferenceForm = ({
 
 	const clearFields = () => {
 		setFirstAuthor('')
-		setYear(0)
+		setYear('')
 		setTitle('')
 		setDoi('')
 		setLink('')
@@ -80,6 +82,9 @@ export const ReferenceForm = ({
 
 	const handleManualSubmit = e => {
 		e.preventDefault()
+		const valid = referenceFormIsValid(firstAuthor, year, title, doi, link)
+		if (!valid) return
+
 		const newReference = {
 			firstAuthor,
 			year,
@@ -162,7 +167,7 @@ export const ReferenceForm = ({
 
 	return (
 		<>
-			<Notification notification={notification}/>
+			<Notification notification={notification} />
 			<form onSubmit={doiSubmit} style={{ display: displayRefForm }}>
 				<label htmlFor='doi'>doi</label>
 				<input
