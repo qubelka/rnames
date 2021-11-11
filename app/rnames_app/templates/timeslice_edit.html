@@ -10,7 +10,7 @@
           {{ form.as_p }}
           <button type="submit" class="w3-btn w3-green">Save</button>
       </form>
-      <p><button class="w3-btn w3-grey" onClick="javascript:history.back();">Go back</button></p>
+      <p><button class="w3-button w3-border w3-light-grey" onClick="javascript:history.back();" style="width:120px"><i class="fas fa-angle-double-left"></i>&nbsp;Go back</button></p>
     {% else %}
       <p><a href="{% url 'account_login'%}?next={{request.path}}">Please login first</a></p>
     {% endif %}
