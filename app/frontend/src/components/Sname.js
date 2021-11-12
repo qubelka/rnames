@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteSname } from '../store/snames/actions'
 import { selectMap, selectRelations } from '../store/snames/selectors'
 import { deleteName } from '../store/names/actions'
+import { Notification } from './Notification'
 
 const NAME_DELETE_ERROR_MSG =
 	'The structured name you are trying to delete contains a recently created name, \
@@ -28,12 +29,22 @@ export const Sname = ({ sname }) => {
 	})
 	const qualifier_name_id = map[sname.qualifier_id].qualifier_name_id
 
+	const [notification, setNotification] = useState(null)
+
+	const notify = (message, type='error') => {
+		setNotification({message, type })
+		setTimeout(() => {
+			setNotification(null)
+		}, 7000)
+	}
+
 	const deleteSnameHandler = () => {
 		let canDelete = relations.every(rel => {
 			if (rel.name1 === sname.id || rel.name2 === sname.id) {
-				console.log(
+				/*console.log(
 					'Added relation is dependent on this sname. Please remove the relation associated with this sname first.'
-				)
+				)*/
+				notify('Added relation is dependent on this structured name. Please remove the relation associated with this structured name first.')
 				return false
 			}
 			return true
@@ -42,6 +53,9 @@ export const Sname = ({ sname }) => {
 		let canDeleteName = snameNames.every(name => {
 			if (name === sname.name_id) {
 				console.log(NAME_DELETE_ERROR_MSG)
+				notify('virhe')
+				setShowError(!showError)
+				console.log('täällä')
 				return false
 			}
 			return true
@@ -62,14 +76,17 @@ export const Sname = ({ sname }) => {
 	}
 
 	return (
-		<div>
-			<p>{map[sname.name_id].name}</p>
-			<p>{map[qualifier_name_id].name}</p>
-			<p>{map[sname.location_id].name}</p>
+		<>
+			<Notification notification={notification}/>
+			<div>
+				<p>{map[sname.name_id].name}</p>
+				<p>{map[qualifier_name_id].name}</p>
+				<p>{map[sname.location_id].name}</p>
 
-			<button type='button' onClick={deleteSnameHandler}>
-				Delete
-			</button>
-		</div>
+				<button type='button' onClick={deleteSnameHandler}>
+					Delete
+				</button>
+			</div>
+		</>
 	)
 }
