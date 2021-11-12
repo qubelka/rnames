@@ -9,13 +9,21 @@ const urlIsValid = url => {
 	return ['https:', 'http:'].includes(parsedUrl.protocol)
 }
 
-export const referenceFormIsValid = (firstAuthor, year, title, doi, link) => {
+export const referenceFormIsValid = (
+	firstAuthor,
+	year,
+	title,
+	doi,
+	link,
+	addErrorMessage
+) => {
 	let valid = true
 
 	if (firstAuthor !== '') {
 		if (firstAuthor.length > 50) {
-			console.log(
-				`Ensure the author name is at most 50 characters (name has ${firstAuthor.length} characters)`
+			addErrorMessage(
+				`Ensure the author name is at most 50 characters (name has ${firstAuthor.length} characters)`,
+				'firstAuthor'
 			)
 			valid = false
 		}
@@ -27,19 +35,20 @@ export const referenceFormIsValid = (firstAuthor, year, title, doi, link) => {
 			const yearRegex = /^(18|19|20)\d{2}$/
 
 			if (!yearRegex.test(year)) {
-				console.log('Please provide correct year value')
+				addErrorMessage('Please provide correct year value', 'year')
 				valid = false
 			}
 		}
 	}
 
 	if (title === '') {
-		console.log('Please provide the title of the reference')
+		addErrorMessage('Please provide the title of the reference', 'title')
 		valid = false
 	} else {
 		if (title.length > 250) {
-			console.log(
-				`Ensure the title is at most 250 characters (title has ${title.length} characters)`
+			addErrorMessage(
+				`Ensure the title is at most 250 characters (title has ${title.length} characters)`,
+				'title'
 			)
 			valid = false
 		}
@@ -47,8 +56,9 @@ export const referenceFormIsValid = (firstAuthor, year, title, doi, link) => {
 
 	if (doi !== '') {
 		if (doi.substring(0, 3) !== '10.') {
-			console.log(
-				'Enter the DOI number that begins with 10 followed by a period'
+			addErrorMessage(
+				'Enter the DOI number that begins with 10 followed by a period',
+				'doi'
 			)
 			valid = false
 		}
@@ -57,13 +67,14 @@ export const referenceFormIsValid = (firstAuthor, year, title, doi, link) => {
 	if (link !== '') {
 		urlValidation: {
 			if (!urlIsValid(link)) {
-				console.log('Please enter correct url')
+				addErrorMessage('Please enter correct url', 'link')
 				valid = false
 				break urlValidation
 			}
 			if (link.length > 200) {
-				console.log(
-					`Ensure the url is at most 200 characters (url has ${link.length} characters)`
+				addErrorMessage(
+					`Ensure the url is at most 200 characters (url has ${link.length} characters)`,
+					'link'
 				)
 				valid = false
 			}
@@ -85,17 +96,10 @@ export const updateRefForSubmission = reference => {
 	return updatedReference
 }
 
-export const doiFormIsValid = doi => {
+export const doiFormIsValid = (doi, notify) => {
 	if (doi === '') {
-		console.log('Please provide the doi number')
+		notify('Please provide the doi number')
 		return false
-	} else {
-		if (doi.substring(0, 3) !== '10.') {
-			console.log(
-				'Enter the DOI number that begins with 10 followed by a period'
-			)
-			return false
-		}
 	}
 	return true
 }

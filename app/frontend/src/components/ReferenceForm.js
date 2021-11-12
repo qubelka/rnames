@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import axios from 'axios'
 import { addRef, deleteRef, updateRef } from '../store/references/actions'
 import { makeId } from '../utilities'
-import { Notification } from './Notification'
-import { referenceFormIsValid, doiFormIsValid } from '../validations'
+import { referenceFormIsValid } from '../validations'
+import { DoiForm } from './DoiForm'
+import { InputField } from './InputField'
 
 export const ReferenceForm = ({
 	displayRefForm,
@@ -21,7 +21,14 @@ export const ReferenceForm = ({
 	const [link, setLink] = useState('')
 	const [exists, setExists] = useState(false)
 	const [queried, setQueried] = useState(isQueried)
-	const [notification, setNotification] = useState(null)
+	const [formFieldNotification, setFormFieldNotification] = useState({
+		firstAuthor: null,
+		year: null,
+		title: null,
+		doi: null,
+		link: null,
+	})
+	const [showError, setShowErrors] = useState(false)
 
 	useEffect(() => {
 		if (!reference) return
@@ -33,36 +40,32 @@ export const ReferenceForm = ({
 		setExists(reference.exists)
 	}, [])
 
-	const notify = (message, type = 'error') => {
-		setNotification({ message, type })
-		setTimeout(() => {
-			setNotification(null)
+	useEffect(() => {
+		const refFormTimeoutId = setTimeout(() => {
+			setFormFieldNotification({
+				firstAuthor: null,
+				year: null,
+				title: null,
+				doi: null,
+				link: null,
+			})
 		}, 7000)
+		return () => {
+			clearTimeout(refFormTimeoutId)
+		}
+	}, [showError])
+
+	const addErrorMessage = (message, field, type = 'error') => {
+		setFormFieldNotification(prev => {
+			return {
+				...prev,
+				[field]: { message, type },
+			}
+		})
 	}
 
-	const doiSubmit = async e => {
-		e.preventDefault()
-		if (!doiFormIsValid(doi)) return
-
-		try {
-			const result = await axios.get(
-				`https://api.crossref.org/works/${doi}`
-			)
-			const response = JSON.parse(result.request.response).message
-
-			if (response.author.length === 0) return
-
-			setQueried(true)
-			setFirstAuthor(
-				`${response.author[0].given} ${response.author[0].family}`
-			)
-			setYear(response.created['date-parts'][0][0])
-			setTitle(response.title[0])
-			setDoi(response.DOI)
-			setLink(response.URL)
-		} catch (err) {
-			notify(`No resources found with ${doi}`)
-		}
+	const showErrorMsgs = () => {
+		setShowErrors(!showError)
 	}
 
 	const clearFields = () => {
@@ -82,8 +85,19 @@ export const ReferenceForm = ({
 
 	const handleManualSubmit = e => {
 		e.preventDefault()
-		const valid = referenceFormIsValid(firstAuthor, year, title, doi, link)
-		if (!valid) return
+		const valid = referenceFormIsValid(
+			firstAuthor,
+			year,
+			title,
+			doi,
+			link,
+			addErrorMessage
+		)
+
+		if (!valid) {
+			showErrorMsgs()
+			return
+		}
 
 		const newReference = {
 			firstAuthor,
@@ -111,45 +125,36 @@ export const ReferenceForm = ({
 			<div>
 				<form onSubmit={handleManualSubmit}>
 					<label htmlFor='first_author'>first_author</label>
-					<input
-						type='text'
+					<InputField
 						name='first_author'
 						value={firstAuthor}
-						onChange={e => setFirstAuthor(e.target.value)}
+						setField={setFirstAuthor}
+						notification={formFieldNotification.firstAuthor}
 					/>
-					<br />
-					<label htmlFor='year'>year</label>
-					<input
-						type='text'
+					<InputField
 						name='year'
 						value={year}
-						onChange={e => setYear(e.target.value)}
+						setField={setYear}
+						notification={formFieldNotification.year}
 					/>
-					<br />
-					<label htmlFor='title'>title</label>
-					<input
-						type='text'
+					<InputField
 						name='title'
 						value={title}
-						onChange={e => setTitle(e.target.value)}
+						setField={setTitle}
+						notification={formFieldNotification.title}
 					/>
-					<br />
-					<label htmlFor='doi'>doi</label>
-					<input
-						type='text'
+					<InputField
 						name='doi'
 						value={doi}
-						onChange={e => setDoi(e.target.value)}
+						setField={setDoi}
+						notification={formFieldNotification.doi}
 					/>
-					<br />
-					<label htmlFor='link'>link</label>
-					<input
-						type='text'
+					<InputField
 						name='link'
 						value={link}
-						onChange={e => setLink(e.target.value)}
+						setField={setLink}
+						notification={formFieldNotification.link}
 					/>
-					<br />
 					<button type='submit'>Save reference</button>
 					{reference ? (
 						<>
@@ -166,21 +171,17 @@ export const ReferenceForm = ({
 		)
 
 	return (
-		<>
-			<Notification notification={notification} />
-			<form onSubmit={doiSubmit} style={{ display: displayRefForm }}>
-				<label htmlFor='doi'>doi</label>
-				<input
-					type='text'
-					name='doi'
-					value={doi}
-					onChange={e => setDoi(e.target.value)}
-				/>
-				<button type='submit'>get</button>
-				<button type='button' onClick={() => setQueried(true)}>
-					Manual Entry
-				</button>
-			</form>
-		</>
+		<DoiForm
+			{...{
+				doi,
+				setQueried,
+				setFirstAuthor,
+				setYear,
+				setTitle,
+				setDoi,
+				setLink,
+				displayRefForm,
+			}}
+		/>
 	)
 }
