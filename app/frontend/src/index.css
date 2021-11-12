@@ -17,3 +17,19 @@ div {
   padding: 6px;
   border:  1px solid lightgrey;
 }
+
+
+#relation-selector {
+  display: flex;
+  flex-direction: row;
+}
+
+#relation-selector > div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#relation-selector > div > div {
+  display: flex;
+}
