@@ -29,22 +29,22 @@ export const Sname = ({ sname }) => {
 			.map(v => v.location_id)
 	})
 
-	const [notification, setNotification] = useState(null)
+	//const [notification, setNotification] = useState(null)
 
-	const notify = (message, type='error') => {
+	/*const notify = (message, type='error') => {
 		setNotification({message, type })
 		setTimeout(() => {
 			setNotification(null)
 		}, 7000)
-	}
+	}*/
 
 	const deleteSnameHandler = () => {
 		let canDelete = relations.every(rel => {
 			if (rel.name1 === sname.id || rel.name2 === sname.id) {
-				/*console.log(
+				console.log(
 					'Added relation is dependent on this sname. Please remove the relation associated with this sname first.'
-				)*/
-				notify('Added relation is dependent on this structured name. Please remove the relation associated with this structured name first.')
+				)
+				//notify('Added relation is dependent on this structured name. Please remove the relation associated with this structured name first.')
 				return false
 			}
 			return true
@@ -52,10 +52,8 @@ export const Sname = ({ sname }) => {
 
 		let canDeleteName = snameNames.every(name => {
 			if (name === sname.name_id) {
-				console.log(NAME_DELETE_ERROR_MSG)
 				notify('virhe')
 				setShowError(!showError)
-				console.log('täällä')
 				return false
 			}
 			return true
