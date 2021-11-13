@@ -13,7 +13,7 @@ export const DuplicateNameDialog = ({
 	selectHandler,
 	cancelHandler,
 }) => {
-	const [id, setId] = useState(undefined)
+	const [id, setId] = useState(structuredName.id)
 	const [saveWithReference, setSaveWithReference] = useState(true)
 	const [remarks, setRemarks] = useState('')
 	const map = useSelector(selectMap)
