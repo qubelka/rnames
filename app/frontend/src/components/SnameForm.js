@@ -99,6 +99,7 @@ export const SnameForm = ({
 		if (findDuplicateStructuredNames(newSname).length === 0)
 			submitSname(newSname)
 		else setStructuredName(newSname)
+		setTimeout(function(){document.getElementById('sname-button').focus()}, 20)
 	}
 
 	const submitSname = newSname => {
@@ -148,6 +149,7 @@ export const SnameForm = ({
 				options={names}
 				value={name}
 				onChange={e => setName(e.target.value)}
+				id='sname-name'
 			/>
 			<label htmlFor='qualifier'>Qualifier</label>
 			<Datalist

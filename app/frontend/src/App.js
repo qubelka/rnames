@@ -51,6 +51,7 @@ const App = () => {
 	const showNewSnameForm = () => {
 		setDisplaySnameForm(displaySnameForm === 'none' ? 'block' : 'none')
 		setNewSnameButtonIsDisabled(!newSnameButtonIsDisabled)
+		setTimeout(function(){document.getElementById('sname-name').focus()}, 20)
 	}
 
 	return (
@@ -103,6 +104,7 @@ const App = () => {
 					type='button'
 					onClick={showNewSnameForm}
 					disabled={newSnameButtonIsDisabled}
+					id='sname-button'
 				>
 					Add new structured name
 				</button>
