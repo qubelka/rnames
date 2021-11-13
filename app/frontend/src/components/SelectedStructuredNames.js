@@ -25,8 +25,7 @@ export const SelectedStructuredNames = () => {
 	const dataListId = 'selectedStructuredNamesDataList'
 
 	const handleChange = e => {
-		const selectedIdNumber = Number(e.target.value)
-		const result = dbNames.find(v => selectedIdNumber === parseId(v.id).value)
+		const result = dbNames.find(v => e.target.value === v.formattedName)
 		if (result) {
 			setSearch('')
 			dispatch(selectStructuredName(result.id))
@@ -46,7 +45,7 @@ export const SelectedStructuredNames = () => {
 			<input list={dataListId} value={search} onChange={handleChange} />
 			<datalist id={dataListId}>
 				{dbNames.map(v => (
-					<option key={v.id} value={parseId(v.id).value}>{v.formattedName}</option>
+					<option key={v.id}>{v.formattedName}</option>
 				))}
 			</datalist>
 			{selection.map(v => (
