@@ -12,6 +12,8 @@ import {
 } from '../store/snames/selectors'
 import { selectStructuredName } from '../store/selected_structured_names/actions'
 import { Notification } from './Notification'
+import { loadServerData } from '../services/server'
+import { DuplicateNameDialog } from './DuplicateNameDialog'
 
 export const SnameForm = ({
 	displaySnameForm,
@@ -25,9 +27,12 @@ export const SnameForm = ({
 	const [location, setLocation] = useState('')
 	const [qualifier, setQualifier] = useState('')
 	const [notification, setNotification] = useState(null)
+	const [saveWithReference, setSaveWithReference] = useState(false)
+	const [structuredName, setStructuredName] = useState(undefined)
 
 	const map = useSelector(selectMap)
 	const names = useSelector(selectAllNames)
+	const structuredNames = useSelector(v => v.sname)
 
 	const qualifiers = useSelector(v => {
 		return Object.entries(v.map)
@@ -43,6 +48,13 @@ export const SnameForm = ({
 	}
 
 	const locations = useSelector(selectAllLocations)
+
+	const findDuplicateStructuredNames = sname =>
+		loadServerData('structured_names')
+			.concat(structuredNames)
+			.filter(v => v.qualifier_id === sname.qualifier_id)
+			.filter(v => v.location_id === sname.location_id)
+			.filter(v => v.name_id === sname.name_id)
 
 	const handleSnameAddition = () => {
 		if (!reference) {
@@ -81,14 +93,50 @@ export const SnameForm = ({
 			qualifier_id: qualifierFromDb[0],
 			reference_id: -1,
 			remarks: '',
+			save_with_reference_id: saveWithReference,
 		}
+
+		if (findDuplicateStructuredNames(newSname).length === 0)
+			submitSname(newSname)
+		else setStructuredName(newSname)
+	}
+
+	const submitSname = newSname => {
 		dispatch(addSname(newSname))
 		dispatch(selectStructuredName(newSname.id))
+		hideForm()
+	}
+
+	const hideForm = () => {
 		setName('')
 		setQualifier('')
 		setLocation('')
+		setStructuredName(undefined)
 		showNewSnameForm()
 		setNewSnameButtonIsDisabled(!newSnameButtonIsDisabled)
+	}
+
+	if (structuredName !== undefined) {
+		const duplicateNames = findDuplicateStructuredNames(structuredName)
+		const selectHandler = sname => {
+			if (sname.id === structuredName.id) {
+				submitSname(sname)
+			} else {
+				dispatch(selectStructuredName(sname.id))
+			}
+			hideForm()
+		}
+
+		return (
+			<DuplicateNameDialog
+				{...{
+					structuredName,
+					duplicateNames,
+					selectHandler,
+					cancelHandler: hideForm,
+				}}
+			/>
+		)
 	}
 
 	return (
@@ -115,6 +163,15 @@ export const SnameForm = ({
 				value={location}
 				onChange={e => setLocation(e.target.value)}
 			/>
+			<input
+				type='checkbox'
+				id='structured-name-form-save-with-reference'
+				checked={saveWithReference}
+				onChange={e => setSaveWithReference(!saveWithReference)}
+			/>
+			<label htmlFor='structured-name-form-save-with-reference'>
+				Save with reference id
+			</label>
 			<button type='button' onClick={handleSnameAddition}>
 				Save
 			</button>
