@@ -39,30 +39,6 @@ export const DuplicateNameDialog = ({
 	return (
 		<div>
 			<p>{infoMsg}</p>
-			{duplicateNames.map(v => (
-				<div key={v.id}>
-					<button
-						className={`w3-btn ${id === v.id ? 'w3-green' : ''}`}
-						onClick={() => setId(v.id)}
-					>
-						{`Select "${formatStructuredName(v, { map })}"`}
-					</button>
-					{map[v.reference_id] ? (
-						<span>
-							{'from '}
-							<a
-								target='_blank'
-								rel='noreferrer'
-								href={doiUrl(v.reference_id)}
-							>
-								{map[v.reference_id].title}
-							</a>
-						</span>
-					) : (
-						<></>
-					)}
-				</div>
-			))}
 			<div>
 				<button
 					className={`w3-btn ${
@@ -89,6 +65,30 @@ export const DuplicateNameDialog = ({
 					placeholder='Remarks...'
 				/>
 			</div>
+			{duplicateNames.map(v => (
+				<div key={v.id}>
+					<button
+						className={`w3-btn ${id === v.id ? 'w3-green' : ''}`}
+						onClick={() => setId(v.id)}
+					>
+						{`Select "${formatStructuredName(v, { map })}"`}
+					</button>
+					{map[v.reference_id] ? (
+						<span>
+							{'from '}
+							<a
+								target='_blank'
+								rel='noreferrer'
+								href={doiUrl(v.reference_id)}
+							>
+								{map[v.reference_id].title}
+							</a>
+						</span>
+					) : (
+						<></>
+					)}
+				</div>
+			))}
 			<button
 				className={`w3-btn w3-green ${
 					id !== undefined ? '' : 'w3-disabled'
