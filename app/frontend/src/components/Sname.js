@@ -44,7 +44,7 @@ export const Sname = ({ sname, notify }) => {
 				console.log(
 					'Added relation is dependent on this sname. Please remove the relation associated with this sname first.'
 				)
-				//notify('Added relation is dependent on this structured name. Please remove the relation associated with this structured name first.')
+				notify('Added relation is dependent on this structured name. Please remove the relation associated with this structured name first.')
 				return false
 			}
 			return true
