@@ -14,6 +14,7 @@ import { ReferenceForm } from './components/ReferenceForm'
 import { SnameForm } from './components/SnameForm'
 import { SelectedStructuredNames } from './components/SelectedStructuredNames'
 import { RelationSelector } from './components/RelationSelector'
+import { Notification } from './components/Notification'
 
 const App = () => {
 	const state = useSelector(v => v)
@@ -23,6 +24,8 @@ const App = () => {
 	const [displaySnameForm, setDisplaySnameForm] = useState('none')
 	const [newSnameButtonIsDisabled, setNewSnameButtonIsDisabled] =
 		useState(false)
+
+	const [notification, setNotification] = useState(null)
 
 	useEffect(() => {
 		initServer()
@@ -51,6 +54,13 @@ const App = () => {
 	const showNewSnameForm = () => {
 		setDisplaySnameForm(displaySnameForm === 'none' ? 'block' : 'none')
 		setNewSnameButtonIsDisabled(!newSnameButtonIsDisabled)
+	}
+
+	const notify = (message, type = 'error') => {
+		setNotification({ message, type })
+		setTimeout(() => {
+			setNotification(null)
+		}, 8000)
 	}
 
 	return (
@@ -88,8 +98,9 @@ const App = () => {
 			</div>
 			<div>
 				<h2>Structured Names</h2>
+				<Notification notification={notification}/>
 				{state.sname.map(sname => (
-					<Sname {...{ key: sname.id, sname }} />
+					<Sname {...{ key: sname.id, sname }} notify={notify} />
 				))}
 				<SnameForm
 					{...{

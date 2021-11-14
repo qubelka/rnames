@@ -16,7 +16,7 @@ const LOCATION_DELETE_ERROR_MSG =
 which is used in other structured names. If you want to delete this location, delete all the \
 structured names containing it.'
 
-export const Sname = ({ sname }) => {
+export const Sname = ({ sname, notify }) => {
 	const dispatch = useDispatch()
 	const map = useSelector(selectMap)
 	const relations = useSelector(selectRelations)
@@ -52,8 +52,9 @@ export const Sname = ({ sname }) => {
 
 		let canDeleteName = snameNames.every(name => {
 			if (name === sname.name_id) {
-				notify('virhe')
-				setShowError(!showError)
+				console.log(NAME_DELETE_ERROR_MSG)
+				notify(NAME_DELETE_ERROR_MSG)
+				//setShowError(!showError)
 				return false
 			}
 			return true
