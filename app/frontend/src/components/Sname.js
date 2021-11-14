@@ -63,6 +63,7 @@ export const Sname = ({ sname, notify }) => {
 		let canDeleteLocation = snameLocations.every(location => {
 			if (location === sname.location_id) {
 				console.log(LOCATION_DELETE_ERROR_MSG)
+				notify(LOCATION_DELETE_ERROR_MSG)
 				return false
 			}
 			return true
