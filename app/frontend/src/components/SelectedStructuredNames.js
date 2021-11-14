@@ -8,19 +8,34 @@ import { loadServerData } from '../services/server'
 import { formatStructuredName, parseId } from '../utilities'
 
 export const SelectedStructuredNames = () => {
-	const selection = useSelector(state => {
-		return state.selectedStructuredNames
-			.filter(v => parseId(v).type !== 'structured_name')
-			.map(v => {
+	const [selection, dbNames] = useSelector(state => {
+		const formatName = sname => {
+			const hasReference = state.map[sname.reference_id] !== undefined
+
+			return `${formatStructuredName(sname, state)} (${
+				hasReference ? `${state.map[sname.reference_id].title}, ` : ''
+			}${parseId(sname.id).value})`
+		}
+
+		return [
+			state.selectedStructuredNames
+				.filter(v => parseId(v).type !== 'structured_name')
+				.map(v => {
+					return {
+						id: v,
+						formattedName: formatName(state.map[v]),
+					}
+				}),
+			(loadServerData('structured_names') || []).map(v => {
 				return {
-					id: v,
-					formattedName: formatStructuredName(state.map[v], state),
+					...v,
+					formattedName: formatName(v),
 				}
-			})
+			}),
+		]
 	})
 	const relations = useSelector(v => v.rel)
 	const [search, setSearch] = useState('')
-	const dbNames = loadServerData('structured_names') || []
 	const dispatch = useDispatch()
 	const dataListId = 'selectedStructuredNamesDataList'
 

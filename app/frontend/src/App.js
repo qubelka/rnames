@@ -56,7 +56,7 @@ const App = () => {
 	return (
 		<>
 			<div>
-				<h2>References</h2>
+				<h2>Reference</h2>
 				{state.ref.length === 0 ? (
 					<ReferenceForm
 						{...{

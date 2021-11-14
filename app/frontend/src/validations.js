@@ -1,3 +1,16 @@
+// https://www.crossref.org/blog/dois-and-matching-regular-expressions/
+const DOI_REGEX_PATTERNS = [
+	/^10.\d{4,9}\/[-._;()/:A-Z0-9]+$/i,
+	/^10.1002\/[^\s]+$/i,
+	/^10.\d{4}\/\d+-\d+X?(\d+)\d+<[\d\w]+:[\d\w]*>\d+.\d+.\w+;\d$/i,
+	/^10.1021\/\w\w\d+$/i,
+	/^10.1207\/[\w\d]+\&\d+_\d+$/i,
+]
+
+const doiIsValid = doi => {
+	return DOI_REGEX_PATTERNS.some(regex => doi.match(regex))
+}
+
 const urlIsValid = url => {
 	let parsedUrl
 	try {
@@ -55,7 +68,7 @@ export const referenceFormIsValid = (
 	}
 
 	if (doi !== '') {
-		if (doi.substring(0, 3) !== '10.') {
+		if (!doiIsValid(doi)) {
 			addErrorMessage(
 				'Enter the DOI number that begins with 10 followed by a period',
 				'doi'
