@@ -6,6 +6,9 @@ import { deleteName } from '../store/names/actions'
 import { deselectStructuredName } from '../store/selected_structured_names/actions'
 import { formatStructuredName } from '../utilities'
 
+const CAN_DELETE_ERROR_MSG =
+	'Added relation is dependent on this structured name. Please remove the relation associated with this structured name first.'
+
 const NAME_DELETE_ERROR_MSG =
 	'The structured name you are trying to delete contains a recently created name, \
 which is used in other structured names. If you want to delete this name, delete all the \
@@ -29,22 +32,11 @@ export const Sname = ({ sname, notify }) => {
 			.map(v => v.location_id)
 	})
 
-	//const [notification, setNotification] = useState(null)
-
-	/*const notify = (message, type='error') => {
-		setNotification({message, type })
-		setTimeout(() => {
-			setNotification(null)
-		}, 7000)
-	}*/
-
 	const deleteSnameHandler = () => {
 		let canDelete = relations.every(rel => {
 			if (rel.name1 === sname.id || rel.name2 === sname.id) {
-				console.log(
-					'Added relation is dependent on this sname. Please remove the relation associated with this sname first.'
-				)
-				notify('Added relation is dependent on this structured name. Please remove the relation associated with this structured name first.')
+				console.log(CAN_DELETE_ERROR_MSG)
+				notify(CAN_DELETE_ERROR_MSG)
 				return false
 			}
 			return true
@@ -54,7 +46,6 @@ export const Sname = ({ sname, notify }) => {
 			if (name === sname.name_id) {
 				console.log(NAME_DELETE_ERROR_MSG)
 				notify(NAME_DELETE_ERROR_MSG, 'information')
-				//setShowError(!showError)
 				return false
 			}
 			return true
