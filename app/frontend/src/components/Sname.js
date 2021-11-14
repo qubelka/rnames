@@ -35,7 +35,6 @@ export const Sname = ({ sname, notify }) => {
 	const deleteSnameHandler = () => {
 		let canDelete = relations.every(rel => {
 			if (rel.name1 === sname.id || rel.name2 === sname.id) {
-				console.log(CAN_DELETE_ERROR_MSG)
 				notify(CAN_DELETE_ERROR_MSG)
 				return false
 			}
@@ -44,7 +43,6 @@ export const Sname = ({ sname, notify }) => {
 
 		let canDeleteName = snameNames.every(name => {
 			if (name === sname.name_id) {
-				console.log(NAME_DELETE_ERROR_MSG)
 				notify(NAME_DELETE_ERROR_MSG, 'information')
 				return false
 			}
@@ -53,7 +51,6 @@ export const Sname = ({ sname, notify }) => {
 
 		let canDeleteLocation = snameLocations.every(location => {
 			if (location === sname.location_id) {
-				console.log(LOCATION_DELETE_ERROR_MSG)
 				notify(LOCATION_DELETE_ERROR_MSG, 'information')
 				return false
 			}
