@@ -1,10 +1,10 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteSname } from '../store/snames/actions'
-import { selectMap, selectRelations } from '../store/snames/selectors'
+import { selectMap, selectRelations, selectNamesAddedByUser, selectLocationsAddedByUser } from '../store/snames/selectors'
 import { deleteName } from '../store/names/actions'
 import { deselectStructuredName } from '../store/selected_structured_names/actions'
-import { formatStructuredName } from '../utilities'
+import { formatStructuredName, parseId } from '../utilities'
 
 const NAME_DELETE_ERROR_MSG =
 	'The structured name you are trying to delete contains a recently created name, \
@@ -20,14 +20,8 @@ export const Sname = ({ sname }) => {
 	const dispatch = useDispatch()
 	const map = useSelector(selectMap)
 	const relations = useSelector(selectRelations)
-	const snameNames = useSelector(state => {
-		return state.sname.filter(v => v.id !== sname.id).map(v => v.name_id)
-	})
-	const snameLocations = useSelector(state => {
-		return state.sname
-			.filter(v => v.id !== sname.id)
-			.map(v => v.location_id)
-	})
+	const snameNames = useSelector(state => selectNamesAddedByUser(state, sname.id))
+	const snameLocations = useSelector(state => selectLocationsAddedByUser(state, sname.id))
 
 	const deleteSnameHandler = () => {
 		let canDelete = relations.every(rel => {
@@ -40,21 +34,32 @@ export const Sname = ({ sname }) => {
 			return true
 		})
 
-		let canDeleteName = snameNames.every(name => {
-			if (name === sname.name_id) {
-				console.log(NAME_DELETE_ERROR_MSG)
-				return false
-			}
-			return true
-		})
+		let canDeleteName
+		let canDeleteLocation
 
-		let canDeleteLocation = snameLocations.every(location => {
-			if (location === sname.location_id) {
-				console.log(LOCATION_DELETE_ERROR_MSG)
-				return false
-			}
-			return true
-		})
+		if (parseId(sname.name_id).type === 'db_name') {
+			canDeleteName = false
+		} else {
+			canDeleteName = snameNames.every(name => {
+				if (name === sname.name_id) {
+					console.log(NAME_DELETE_ERROR_MSG)
+					return false
+				}
+				return true
+			})
+		}
+
+		if (parseId(sname.location_id).type === 'db_location') {
+			canDeleteLocation = false
+		} else {
+			canDeleteLocation = snameLocations.every(location => {
+				if (location === sname.location_id) {
+					console.log(LOCATION_DELETE_ERROR_MSG)
+					return false
+				}
+				return true
+			})
+		}
 
 		if (!canDelete) return
 		if (canDeleteName) dispatch(deleteName(sname.name_id))
