@@ -1296,11 +1296,16 @@ def submit(request):
         # in the database
         qualifier = Qualifier.objects.is_active().get(pk=structured_name_data['qualifier_id']['value'])
 
+        if structured_name_data['save_with_reference_id']:
+            structured_name_reference = reference
+        else:
+            structured_name_reference = None
+
         structured_names[id] = StructuredName(
             name=name,
             qualifier=qualifier,
             location=location,
-            reference=reference
+            reference=structured_name_reference,
             # remarks = ''
         )
 
