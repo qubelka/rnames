@@ -9,12 +9,12 @@ import { formatStructuredName } from '../utilities'
 const CAN_DELETE_ERROR_MSG =
 	'Added relation is dependent on this structured name. Please remove the relation associated with this structured name first.'
 
-const NAME_DELETE_ERROR_MSG =
+const NAME_DELETE_INFO_MSG =
 	'The structured name you are trying to delete contains a recently created name, \
 which is used in other structured names. If you want to delete this name, delete all the \
 structured names containing it.'
 
-const LOCATION_DELETE_ERROR_MSG =
+const LOCATION_DELETE_INFO_MSG =
 	'The structured name you are trying to delete contains a recently created location, \
 which is used in other structured names. If you want to delete this location, delete all the \
 structured names containing it.'
@@ -43,7 +43,7 @@ export const Sname = ({ sname, notify }) => {
 
 		let canDeleteName = snameNames.every(name => {
 			if (name === sname.name_id) {
-				notify(NAME_DELETE_ERROR_MSG, 'information')
+				notify(NAME_DELETE_INFO_MSG, 'information')
 				return false
 			}
 			return true
@@ -51,7 +51,7 @@ export const Sname = ({ sname, notify }) => {
 
 		let canDeleteLocation = snameLocations.every(location => {
 			if (location === sname.location_id) {
-				notify(LOCATION_DELETE_ERROR_MSG, 'information')
+				notify(LOCATION_DELETE_INFO_MSG, 'information')
 				return false
 			}
 			return true
