@@ -1306,7 +1306,7 @@ def submit(request):
             qualifier=qualifier,
             location=location,
             reference=structured_name_reference,
-            # remarks = ''
+            remarks=structured_name_data['remarks'],
         )
 
     for relation_data in data['relations']:
