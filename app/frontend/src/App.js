@@ -68,7 +68,7 @@ const App = () => {
 		setLocationNotification({ message, type})
 		setTimeout(() => {
 			setLocationNotification(null)
-		}, 16000)
+		}, 14000)
 	}
 
 	return (
