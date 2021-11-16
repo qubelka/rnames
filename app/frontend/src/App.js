@@ -25,6 +25,7 @@ const App = () => {
 	const [newSnameButtonIsDisabled, setNewSnameButtonIsDisabled] =
 		useState(false)
 
+	const [canDeleteNotification, setCanDeleteNotification] = useState(null)
 	const [nameNotification, setNameNotification] = useState(null)
 	const [locationNotification, setLocationNotification] = useState(null)
 
@@ -55,6 +56,13 @@ const App = () => {
 	const showNewSnameForm = () => {
 		setDisplaySnameForm(displaySnameForm === 'none' ? 'block' : 'none')
 		setNewSnameButtonIsDisabled(!newSnameButtonIsDisabled)
+	}
+
+	const canDeleteNotify = (message, type = 'error') => {
+		setCanDeleteNotification({ message, type })
+		setTimeout(() => {
+			setCanDeleteNotification(null)
+		}, 6000)
 	}
 
 	const nameNotify = (message, type = 'error') => {
@@ -106,10 +114,11 @@ const App = () => {
 			</div>
 			<div>
 				<h2>Structured Names</h2>
+				<Notification notification={canDeleteNotification}/>
 				<Notification notification={nameNotification}/>
 				<Notification notification={locationNotification}/>
 				{state.sname.map(sname => (
-					<Sname {...{ key: sname.id, sname }} nameNotify={nameNotify} locationNotify={locationNotify}/>
+					<Sname {...{ key: sname.id, sname }} canDeleteNotify= {canDeleteNotify} nameNotify={nameNotify} locationNotify={locationNotify}/>
 				))}
 				<SnameForm
 					{...{
