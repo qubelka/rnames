@@ -19,7 +19,7 @@ const LOCATION_DELETE_INFO_MSG =
 which is used in other structured names. If you want to delete this location, delete all the \
 structured names containing it.'
 
-export const Sname = ({ sname, notify }) => {
+export const Sname = ({ sname, nameNotify, locationNotify }) => {
 	const dispatch = useDispatch()
 	const map = useSelector(selectMap)
 	const relations = useSelector(selectRelations)
@@ -35,7 +35,7 @@ export const Sname = ({ sname, notify }) => {
 	const deleteSnameHandler = () => {
 		let canDelete = relations.every(rel => {
 			if (rel.name1 === sname.id || rel.name2 === sname.id) {
-				notify(CAN_DELETE_ERROR_MSG)
+				nameNotify(CAN_DELETE_ERROR_MSG)
 				return false
 			}
 			return true
@@ -43,7 +43,7 @@ export const Sname = ({ sname, notify }) => {
 
 		let canDeleteName = snameNames.every(name => {
 			if (name === sname.name_id) {
-				notify(NAME_DELETE_INFO_MSG, 'information')
+				nameNotify(NAME_DELETE_INFO_MSG, 'information')
 				return false
 			}
 			return true
@@ -51,7 +51,7 @@ export const Sname = ({ sname, notify }) => {
 
 		let canDeleteLocation = snameLocations.every(location => {
 			if (location === sname.location_id) {
-				notify(LOCATION_DELETE_INFO_MSG, 'information')
+				locationNotify(LOCATION_DELETE_INFO_MSG, 'information')
 				return false
 			}
 			return true

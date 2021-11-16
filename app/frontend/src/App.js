@@ -25,7 +25,8 @@ const App = () => {
 	const [newSnameButtonIsDisabled, setNewSnameButtonIsDisabled] =
 		useState(false)
 
-	const [notification, setNotification] = useState(null)
+	const [nameNotification, setNameNotification] = useState(null)
+	const [locationNotification, setLocationNotification] = useState(null)
 
 	useEffect(() => {
 		initServer()
@@ -56,11 +57,18 @@ const App = () => {
 		setNewSnameButtonIsDisabled(!newSnameButtonIsDisabled)
 	}
 
-	const notify = (message, type = 'error') => {
-		setNotification({ message, type })
+	const nameNotify = (message, type = 'error') => {
+		setNameNotification({ message, type })
 		setTimeout(() => {
-			setNotification(null)
+			setNameNotification(null)
 		}, 8000)
+	}
+
+	const locationNotify = (message, type = 'error') => {
+		setLocationNotification({ message, type})
+		setTimeout(() => {
+			setLocationNotification(null)
+		}, 16000)
 	}
 
 	return (
@@ -98,9 +106,10 @@ const App = () => {
 			</div>
 			<div>
 				<h2>Structured Names</h2>
-				<Notification notification={notification}/>
+				<Notification notification={nameNotification}/>
+				<Notification notification={locationNotification}/>
 				{state.sname.map(sname => (
-					<Sname {...{ key: sname.id, sname }} notify={notify} />
+					<Sname {...{ key: sname.id, sname }} nameNotify={nameNotify} locationNotify={locationNotify}/>
 				))}
 				<SnameForm
 					{...{
