@@ -25,6 +25,8 @@ urlpatterns = [
     path('rnames/help', views.help_main, name='help-main'),
     path('rnames/help/database-structure',
          views.help_database_structure, name='help-database-structure'),
+    path('rnames/help/wizard',
+         views.help_wizard, name='help-wizard'),
     path('rnames/help/instruction',
          views.help_instruction, name='help-instruction'),
     path('rnames/help/structure-of-binning-algorithm',

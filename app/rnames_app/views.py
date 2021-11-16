@@ -253,6 +253,16 @@ def help_faq(request):
     )
 
 
+def help_wizard(request):
+    """
+    View function for the wizard help page of site.
+    """
+    return render(
+        request,
+        'help_wizard.html',
+    )
+
+
 def help_instruction(request):
     """
     View function for the instructions page of site.
