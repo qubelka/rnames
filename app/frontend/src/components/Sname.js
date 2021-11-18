@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteSname } from '../store/snames/actions'
-import { selectMap, selectRelations } from '../store/snames/selectors'
+import {
+	selectMap,
+	selectRelations,
+	selectNamesAddedByUser,
+	selectLocationsAddedByUser,
+} from '../store/snames/selectors'
 import { deleteName } from '../store/names/actions'
 import { deselectStructuredName } from '../store/selected_structured_names/actions'
-import { formatStructuredName } from '../utilities'
+import { formatStructuredName, parseId } from '../utilities'
 
 const CAN_DELETE_ERROR_MSG =
 	'Added relation is dependent on this structured name. Please remove the relation associated with this structured name first.'
@@ -19,18 +24,21 @@ const LOCATION_DELETE_INFO_MSG =
 which is used in other structured names. If you want to delete this location, delete all the \
 structured names containing it.'
 
-export const Sname = ({ sname, canDeleteNotify, nameNotify, locationNotify }) => {
+export const Sname = ({
+	sname,
+	canDeleteNotify,
+	nameNotify,
+	locationNotify,
+}) => {
 	const dispatch = useDispatch()
 	const map = useSelector(selectMap)
 	const relations = useSelector(selectRelations)
-	const snameNames = useSelector(state => {
-		return state.sname.filter(v => v.id !== sname.id).map(v => v.name_id)
-	})
-	const snameLocations = useSelector(state => {
-		return state.sname
-			.filter(v => v.id !== sname.id)
-			.map(v => v.location_id)
-	})
+	const snameNames = useSelector(state =>
+		selectNamesAddedByUser(state, sname.id)
+	)
+	const snameLocations = useSelector(state =>
+		selectLocationsAddedByUser(state, sname.id)
+	)
 
 	const deleteSnameHandler = () => {
 		let canDelete = relations.every(rel => {
@@ -41,21 +49,32 @@ export const Sname = ({ sname, canDeleteNotify, nameNotify, locationNotify }) =>
 			return true
 		})
 
-		let canDeleteName = snameNames.every(name => {
-			if (name === sname.name_id) {
-				nameNotify(NAME_DELETE_INFO_MSG, 'information')
-				return false
-			}
-			return true
-		})
+		let canDeleteName
+		let canDeleteLocation
 
-		let canDeleteLocation = snameLocations.every(location => {
-			if (location === sname.location_id) {
-				locationNotify(LOCATION_DELETE_INFO_MSG, 'information')
-				return false
-			}
-			return true
-		})
+		if (parseId(sname.name_id).type === 'db_name') {
+			canDeleteName = false
+		} else {
+			canDeleteName = snameNames.every(name => {
+				if (name === sname.name_id) {
+					nameNotify(NAME_DELETE_INFO_MSG, 'information')
+					return false
+				}
+				return true
+			})
+		}
+
+		if (parseId(sname.location_id).type === 'db_location') {
+			canDeleteLocation = false
+		} else {
+			canDeleteLocation = snameLocations.every(location => {
+				if (location === sname.location_id) {
+					locationNotify(LOCATION_DELETE_INFO_MSG, 'information')
+					return false
+				}
+				return true
+			})
+		}
 
 		if (!canDelete) return
 		if (canDeleteName) dispatch(deleteName(sname.name_id))
