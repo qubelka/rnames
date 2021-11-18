@@ -5,6 +5,7 @@ class IndexViewTest(TestCase):
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/index/')
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'index.html')
 
     def test_view_uses_correct_template(self):
         response = self.client.get(reverse('index'))
@@ -15,6 +16,7 @@ class NameListViewTest(TestCase):
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/rnames/')
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'name_list.html')
 
     def test_view_uses_correct_template(self):
         response = self.client.get(reverse('name-list'))
@@ -25,6 +27,7 @@ class BinningViewTest(TestCase):
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/rnames/binning/')
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'binning.html')
 
     def test_view_uses_correct_template(self):
         response = self.client.get(reverse('binning'))
@@ -35,6 +38,7 @@ class HelpMainViewTest(TestCase):
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/rnames/help')
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'help.html')
 
     def test_view_uses_correct_template(self):
         response = self.client.get(reverse('help-main'))
@@ -45,6 +49,7 @@ class HelpFaqViewTest(TestCase):
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/rnames/help/faq')
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'help_faq.html')
 
     def test_view_uses_correct_template(self):
         response = self.client.get(reverse('help-faq'))
@@ -55,6 +60,7 @@ class HelpDatabaseStructureViewTest(TestCase):
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/rnames/help/database-structure')
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'help_database_structure.html')
 
     def test_view_uses_correct_template(self):
         response = self.client.get(reverse('help-database-structure'))
@@ -65,6 +71,7 @@ class HelpStructureOfBinningAlgorithmViewTest(TestCase):
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/rnames/help/structure-of-binning-algorithm')
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'help_structure_of_binning_algorithm.html')
 
     def test_view_uses_correct_template(self):
         response = self.client.get(reverse('help-structure-of-binning-algorithm'))
@@ -75,6 +82,7 @@ class ReferenceListViewTest(TestCase):
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/rnames/references')
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'reference_list.html')
 
     def test_view_uses_correct_template(self):
         response = self.client.get(reverse('reference-list'))
@@ -85,6 +93,7 @@ class StructuredNameListViewTest(TestCase):
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/rnames/structured_names')
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'structuredname_list.html')
 
     def test_view_uses_correct_template(self):
         response = self.client.get(reverse('structuredname-list'))
@@ -95,6 +104,7 @@ class RelationListViewTest(TestCase):
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/rnames/relations')
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'relation_list.html')
 
     def test_view_uses_correct_template(self):
         response = self.client.get(reverse('relation-list'))
@@ -105,6 +115,7 @@ class LocationListViewTest(TestCase):
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/rnames/locations')
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'location_list.html')
 
     def test_view_uses_correct_template(self):
         response = self.client.get(reverse('location-list'))
@@ -115,6 +126,7 @@ class QualifierListViewTest(TestCase):
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/rnames/qualifiers')
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'qualifier_list.html')
 
     def test_view_uses_correct_template(self):
         response = self.client.get(reverse('qualifier-list'))
@@ -135,6 +147,7 @@ class StratigraphicQualifierListViewTest(TestCase):
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/rnames/stratigraphic_qualifiers')
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'stratigraphic_qualifier_list.html')
 
     def test_view_uses_correct_template(self):
         response = self.client.get(reverse('stratigraphic-qualifier-list'))
@@ -145,6 +158,7 @@ class TimeSliceListViewTest(TestCase):
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/rnames/timeslices')
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'timeslice_list.html')
 
     def test_view_uses_correct_template(self):
         response = self.client.get(reverse('timeslice-list'))
