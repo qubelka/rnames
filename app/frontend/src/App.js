@@ -14,6 +14,7 @@ import { ReferenceForm } from './components/ReferenceForm'
 import { SnameForm } from './components/SnameForm'
 import { SelectedStructuredNames } from './components/SelectedStructuredNames'
 import { RelationSelector } from './components/RelationSelector'
+import { Notification } from './components/Notification'
 
 const App = () => {
 	const state = useSelector(v => v)
@@ -23,6 +24,10 @@ const App = () => {
 	const [displaySnameForm, setDisplaySnameForm] = useState('none')
 	const [newSnameButtonIsDisabled, setNewSnameButtonIsDisabled] =
 		useState(false)
+
+	const [canDeleteNotification, setCanDeleteNotification] = useState(null)
+	const [nameNotification, setNameNotification] = useState(null)
+	const [locationNotification, setLocationNotification] = useState(null)
 
 	useEffect(() => {
 		initServer()
@@ -52,6 +57,27 @@ const App = () => {
 		setDisplaySnameForm(displaySnameForm === 'none' ? 'block' : 'none')
 		setNewSnameButtonIsDisabled(!newSnameButtonIsDisabled)
 		setTimeout(function(){document.getElementById('sname-name').focus()}, 20)
+	}
+
+	const canDeleteNotify = (message, type = 'error') => {
+		setCanDeleteNotification({ message, type })
+		setTimeout(() => {
+			setCanDeleteNotification(null)
+		}, 6000)
+	}
+
+	const nameNotify = (message, type = 'error') => {
+		setNameNotification({ message, type })
+		setTimeout(() => {
+			setNameNotification(null)
+		}, 8000)
+	}
+
+	const locationNotify = (message, type = 'error') => {
+		setLocationNotification({ message, type})
+		setTimeout(() => {
+			setLocationNotification(null)
+		}, 14000)
 	}
 
 	return (
@@ -89,8 +115,11 @@ const App = () => {
 			</div>
 			<div>
 				<h2>Structured Names</h2>
+				<Notification notification={canDeleteNotification}/>
+				<Notification notification={nameNotification}/>
+				<Notification notification={locationNotification}/>
 				{state.sname.map(sname => (
-					<Sname {...{ key: sname.id, sname }} />
+					<Sname {...{ key: sname.id, sname }} canDeleteNotify= {canDeleteNotify} nameNotify={nameNotify} locationNotify={locationNotify}/>
 				))}
 				<SnameForm
 					{...{
