@@ -11,7 +11,6 @@ import numpy as np
 from bisect import (bisect_left, bisect_right)
 from .rn_funs import *
 from .binning_fun import *
-from .tools import Task
 
 def main_binning_fun(cron_relations, cron_columns, time_slices):
     pd.set_option('display.max_columns', 30)
@@ -61,47 +60,41 @@ def main_binning_fun(cron_relations, cron_columns, time_slices):
 
     #### this goes into loop on binning_algorithm
     ### binning_algorithms: shortest, youngest, compromise, combined
-    robin_b = Task(bin_fun, {
-        'c_rels': cron_relations.copy(),
-        'binning_algorithm': "combined",
-        'binning_scheme': "b",
-        'xrange': 'Ordovician',
-        'time_slices': time_slices
-    })
+    robin_b = bin_fun(
+        c_rels=cron_relations.copy(),
+        binning_algorithm="combined",
+        binning_scheme="b",
+        xrange='Ordovician',
+        time_slices=time_slices
+    )
 
     # In[6]:
 
-    robin_w = Task(bin_fun, {
-        'c_rels': cron_relations.copy(),
-        'binning_algorithm': "combined",
-        'binning_scheme': "w",
-        'xrange': 'Ordovician',
-        'time_slices': time_slices
-    })
+    robin_w = bin_fun(
+        c_rels=cron_relations.copy(),
+        binning_algorithm="combined",
+        binning_scheme="w",
+        xrange='Ordovician',
+        time_slices=time_slices
+    )
 
     # In[7]:
 
-    robin_s = Task(bin_fun, {
-        'c_rels': cron_relations.copy(),
-        'binning_algorithm': "combined",
-        'binning_scheme': "s",
-        'xrange': 'Phanerozoic',
-        'time_slices': time_slices
-    })
+    robin_s = bin_fun(
+        c_rels=cron_relations.copy(),
+        binning_algorithm="combined",
+        binning_scheme="s",
+        xrange='Phanerozoic',
+        time_slices=time_slices
+    )
     # In[8]:
-    robin_p = Task(bin_fun, {
-        'c_rels': cron_relations.copy(),
-        'binning_algorithm': "combined",
-        'binning_scheme': "p",
-        'xrange': 'Phanerozoic',
-        'time_slices': time_slices
-    })
-
-    robin_b = robin_b.join()
-    robin_w = robin_w.join()
-    robin_s = robin_s.join()
-    robin_p = robin_p.join()
-
+    robin_p = bin_fun(
+        c_rels=cron_relations.copy(),
+        binning_algorithm="combined",
+        binning_scheme="p",
+        xrange='Phanerozoic',
+        time_slices=time_slices
+    )
 
     berg_ts = time_slices['berg']
     webby_ts = time_slices['webby']
