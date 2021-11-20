@@ -795,7 +795,7 @@ def bin_unique_names_0(ibs, cr_x, xnames_raw):
     rows = []
     for name in bnu:
         data = cr_x[bisect_left(cr_x[:, col.ntts.name_1], name):bisect_right(cr_x[:, col.ntts.name_1], name)]
-        xnames = xnames_raw[bisect_left(xnames_raw[:, 0], name):bisect_right(xnames_raw[:, 0], name)]
+        xnames = xnames_raw[bisect_left(xnames_raw[:, col.xnames.name], name):bisect_right(xnames_raw[:, col.xnames.name], name)]
 
         data = data[~np.isin(data[:, col.ntts.reference_id], xnames[:, col.xnames.ref])]
 
