@@ -179,9 +179,14 @@ def binning_info(request):
     data = {}
 
     data['binning'] = [0, 0]
+    data['update'] = [0, 0]
 
     for entry in BinningProgress.objects.all():
         if entry.name == 'error' or entry.name == 'lock' or entry.name == 'status':
+            continue
+
+        if entry.name == 'db_update':
+            data['update'] = [entry.value_one, entry.value_two]
             continue
 
         data['binning'][0] += entry.value_one

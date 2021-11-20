@@ -16,6 +16,8 @@ keys = [
 	'stage_periods',
 	'stage_combined_stages',
 	'stage_combined_periods',
+
+	'db_update'
 ]
 
 class BinningStageProgressUpdater():
@@ -67,6 +69,7 @@ class BinningProgressUpdater():
 			self.update(key='stage_combined_stages', value_one=0, value_two=1)
 			self.update(key='stage_combined_periods', value_one=0, value_two=1)
 
+			self.update(key='db_update', value_one=0, value_two=0)
 			return True
 		except:
 			return False
@@ -100,3 +103,6 @@ class BinningProgressUpdater():
 
 	def binned_periods_updater(self):
 		return BinningStageProgressUpdater(self, 'stage_combined_periods', 1)
+
+	def set_update_progress(self, current, max):
+		self.update(key='db_update', value_one=current, value_two='max')
