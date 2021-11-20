@@ -12,7 +12,7 @@ from bisect import (bisect_left, bisect_right)
 from .rn_funs import *
 from .binning_fun import *
 
-def main_binning_fun(cron_relations, cron_columns, time_slices):
+def main_binning_fun(cron_relations, cron_columns, time_slices, info):
     pd.set_option('display.max_columns', 30)
     pd.set_option('display.max_rows', 5)
     start = time.time()
@@ -65,7 +65,8 @@ def main_binning_fun(cron_relations, cron_columns, time_slices):
         binning_algorithm="combined",
         binning_scheme="b",
         xrange='Ordovician',
-        time_slices=time_slices
+        time_slices=time_slices,
+        info=info.berg_updater(),
     )
 
     # In[6]:
@@ -75,7 +76,8 @@ def main_binning_fun(cron_relations, cron_columns, time_slices):
         binning_algorithm="combined",
         binning_scheme="w",
         xrange='Ordovician',
-        time_slices=time_slices
+        time_slices=time_slices,
+        info=info.webby_updater(),
     )
 
     # In[7]:
@@ -85,7 +87,8 @@ def main_binning_fun(cron_relations, cron_columns, time_slices):
         binning_algorithm="combined",
         binning_scheme="s",
         xrange='Phanerozoic',
-        time_slices=time_slices
+        time_slices=time_slices,
+        info=info.stages_updater(),
     )
     # In[8]:
     robin_p = bin_fun(
@@ -93,7 +96,8 @@ def main_binning_fun(cron_relations, cron_columns, time_slices):
         binning_algorithm="combined",
         binning_scheme="p",
         xrange='Phanerozoic',
-        time_slices=time_slices
+        time_slices=time_slices,
+        info=info.periods_updater(),
     )
 
     berg_ts = time_slices['berg']
@@ -181,6 +185,7 @@ def main_binning_fun(cron_relations, cron_columns, time_slices):
     binned_stages.loc[:,'refs'] = refs
 
     binned_stages =  binned_stages[~binned_stages["name"].isin(stages_ts["ts"])]
+    info.binned_stages_updater().update()
 
     # In[10]:
 
@@ -210,6 +215,7 @@ def main_binning_fun(cron_relations, cron_columns, time_slices):
 
     binned_periods.loc[:,'refs'] = refs
     binned_periods =  binned_periods[~binned_periods["name"].isin(periods_ts["ts"])]
+    info.binned_periods_updater().update()
     # In[ ]:
 
     return {

@@ -41,6 +41,7 @@ from .filters import UserFilter
 import sys
 from subprocess import run, PIPE
 from .utils.root_binning import main_binning_fun
+from .utils.info import BinningProgressUpdater
 from io import StringIO
 from contextlib import redirect_stdout
 from types import SimpleNamespace
@@ -55,6 +56,11 @@ import time
 
 @login_required
 def external(request):
+    info = BinningProgressUpdater()
+
+    if not info.start_binning():
+        return # todo
+
     def time_slices(scheme):
         return list(TimeSlice.objects.is_active().filter(scheme=scheme).order_by('order').values_list('name', flat=True))
 
@@ -97,16 +103,20 @@ def external(request):
         'strat_qualifier_2',
     ]
 
-    result = main_binning_fun(queryset_list, cols, {
-        'rassm': time_slices('rasmussen'),
-        'berg': time_slices('bergstrom'),
-        'webby': time_slices('webby'),
-        'stages': time_slices('stages'),
-        'periods': time_slices('periods'),
-        'epochs': time_slices('epochs'),
-        'eras': time_slices('eras'),
-        'eons': time_slices('eons')
-    })
+    try:
+        result = main_binning_fun(queryset_list, cols, {
+            'rassm': time_slices('rasmussen'),
+            'berg': time_slices('bergstrom'),
+            'webby': time_slices('webby'),
+            'stages': time_slices('stages'),
+            'periods': time_slices('periods'),
+            'epochs': time_slices('epochs'),
+            'eras': time_slices('eras'),
+            'eons': time_slices('eons')
+        }, info)
+    except Exception as e:
+        info.set_error(str(e))
+        return # todo
 
     def update(obj, oldest, youngest, ts_count, refs, rule):
         obj.oldest = oldest
