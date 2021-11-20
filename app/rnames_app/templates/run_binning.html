@@ -6,48 +6,50 @@
   <!DOCTYPE html>
 
 <section class="w3-section">
-  <h2>Dynamic Progress Bar with Labels</h2>
-  <p>Label outside of the progress bar:</p>
+  <h2>Run binning</h2>
+  <p id="binningProgressLabel" class="w3-hide">Binning progress:</p>
 
-  <div class="w3-light-grey">
-    <div id="myBar" class="w3-container w3-green" style="height:24px;width:0%">
-    </div>
+  <div id="binningProgressBarContainer" class="w3-light-grey w3-hide">
+    <div id="binningProgressBar" class="w3-container w3-green" style="height:24px; width:0%" />
   </div>
 
-  <p id="myP">Added <span id="demo">0</span> of <span id="n">0</span> Names</p>
+  <p id="updateProgressLabel" class="w3-hide">Database update progress:</p>
+  <div id="updateProgressBarContainer" class="w3-light-grey w3-hide">
+    <div id="updateProgressBar" class="w3-container w3-green" style="height:24px; width:0%" />
+  </div>
 
-  <button class="w3-button w3-light-grey" onclick="move();this.disabled='true'">Bin Names</button>
-  <form action="/rnames/admin/binning_done" method="post">
+  <form id='binningForm' action="/rnames/admin/binning_done" method="post">
     {% csrf_token %}
-    Text:
-    <input type="text" name="param" required><br><br>
-    {{ data1 }}<br><br>
-    <input type="submit" value="Execute">
+    <input class="w3-button w3-light-grey" type="submit" value="Start">
   </form>
 
 </section>
 
 <script>
-function move() {
-  var elem = document.getElementById("myBar");
-  var width = 0;
-  var n = 123;
-  document.getElementById("n").innerHTML = n;
-  var id = setInterval(frame, 50);
-  function frame() {
-    if (width >= n) {
-      clearInterval(id);
-      document.getElementById("myP").className = "w3-text-green w3-animate-opacity";
-      document.getElementById("myP").innerHTML = "Successfully processed 1000 Names!";
-    } else {
-      width++;
-      elem.style.width = width/n * 100 + '%';
-      var num = width;
-      num = num.toFixed(0)
-      document.getElementById("demo").innerHTML = num;
-    }
-  }
-}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const binningProgressLabel = document.getElementById('binningProgressLabel')
+  const binningProgressBar = document.getElementById('binningProgressBar')
+  const binningProgressBarContainer = document.getElementById('binningProgressBarContainer')
+
+  const updateProgressLabel = document.getElementById('updateProgressLabel')
+  const updateProgressBar = document.getElementById('updateProgressBar')
+
+  document.getElementById('binningForm').addEventListener('submit', () => {
+    binningProgressBarContainer.classList.remove('w3-hide')
+    binningProgressLabel.classList.remove('w3-hide')
+
+    document.getElementById('binningForm').classList.add('w3-hide')
+
+    setInterval(async () => {
+    fetch('/rnames/admin/binning_info')
+      .then(v => v.json())
+      .then(v => {
+        binningProgressBar.style.width = `${Math.min(100 * v.binning[0] / v.binning[1], 100)}%`
+      })
+  }, 5000)
+  })
+});
 </script>
   <!-- End of binning -->
 
