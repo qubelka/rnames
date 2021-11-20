@@ -116,7 +116,14 @@ def external(request):
         }, info)
     except Exception as e:
         info.set_error(str(e))
-        return # todo
+        return render(
+            request,
+            'binning_done.html',
+            context={
+                'error': True,
+                'error_message': str(e),
+            },
+        )
 
     def update(obj, oldest, youngest, ts_count, refs, rule):
         obj.oldest = oldest
