@@ -29,7 +29,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from rest_framework.response import Response
 #from .utils.utils import YourClassOrFunction
 from rest_framework import status, generics
-from .models import (Binning, Location, Name, Qualifier, QualifierName,
+from .models import (Binning, Location, Name, Qualifier, QualifierName, BinningProgress,
                      Relation, Reference, StratigraphicQualifier, StructuredName, TimeSlice)
 from .filters import (BinningSchemeFilter, LocationFilter, NameFilter, QualifierFilter, QualifierNameFilter,
                       ReferenceFilter, RelationFilter, StratigraphicQualifierFilter, StructuredNameFilter, TimeSliceFilter)
@@ -164,6 +164,22 @@ def binning(request):
         request,
         'binning.html',
     )
+
+@login_required
+def binning_info(request):
+    data = {}
+
+    for entry in BinningProgress.objects.all():
+        if (entry.name == 'error'):
+            continue
+
+        data[entry.name] = {
+            'text': entry.text,
+            'value_one': entry.value_one,
+            'value_two': entry.value_two,
+        }
+
+    return JsonResponse(data)
 
 
 def binning_scheme_list(request):
