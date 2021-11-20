@@ -171,15 +171,14 @@ def binning(request):
 def binning_info(request):
     data = {}
 
+    data['binning'] = [0, 0]
+
     for entry in BinningProgress.objects.all():
-        if (entry.name == 'error'):
+        if entry.name == 'error' or entry.name == 'lock' or entry.name == 'status':
             continue
 
-        data[entry.name] = {
-            'text': entry.text,
-            'value_one': entry.value_one,
-            'value_two': entry.value_two,
-        }
+        data['binning'][0] += entry.value_one
+        data['binning'][1] += entry.value_two
 
     return JsonResponse(data)
 
