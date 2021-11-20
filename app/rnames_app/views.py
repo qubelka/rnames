@@ -148,6 +148,8 @@ def external(request):
     process_result(result['periods'], 'x_robinp')
     end = time.time()
 
+    info.finish_binning()
+
     return render(
         request,
         'binning_done.html',
