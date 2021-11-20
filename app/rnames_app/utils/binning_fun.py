@@ -777,6 +777,8 @@ def merge_time_info(x1, used_ts):
     return pd.concat((x1,x1m), axis=0)
 
 def bin_unique_names_0(ibs, cr_x, xnames_raw):
+    if cr_x.empty:
+        return pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
     col = SimpleNamespace()
     col.ntts = SimpleNamespace(**{k: v for v, k in enumerate(cr_x.columns)})
     col.xnames = SimpleNamespace(**{k: v for v, k in enumerate(xnames_raw.columns)})
