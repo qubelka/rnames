@@ -46,11 +46,11 @@ window.addEventListener('DOMContentLoaded', () => {
     fetch('/rnames/admin/binning_info')
       .then(v => v.json())
       .then(v => {
-        binningProgressBar.style.width = `${Math.min(100 * v.binning[0] / v.binning[1], 100)}%`
+        binningProgressBar.style.width = `${v.binning[0] / v.binning[1] * 100}%`
         if (v.binning[0] == v.binning[1]) {
           updateProgressLabel.classList.remove('w3-hide')
           updateProgressBarContainer.classList.remove('w3-hide')
-          updateProgressBar.style.width = `${Math.min(100 * v.update[0] / v.update[1], 100)}%`
+          updateProgressBar.style.width = `${v.update[0] / v.update[1] * 100}%`
         }
       })
   }, 5000)
