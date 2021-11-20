@@ -53,6 +53,7 @@ import time
 #    names = Name.objects.order_by('name')
 #    return render(request, 'name_list.html', {'names': names})
 
+@login_required
 def external(request):
     def time_slices(scheme):
         return list(TimeSlice.objects.is_active().filter(scheme=scheme).order_by('order').values_list('name', flat=True))
