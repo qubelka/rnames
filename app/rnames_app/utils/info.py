@@ -58,6 +58,15 @@ class BinningProgressUpdater():
 		try:
 			BinningProgress(name='lock').save()
 			self.update(key='status', value_one=1)
+
+			self.update(key='stage_berg', value_one=0, value_two=8)
+			self.update(key='stage_webby', value_one=0, value_two=8)
+			self.update(key='stage_stages', value_one=0, value_two=8)
+			self.update(key='stage_periods', value_one=0, value_two=8)
+
+			self.update(key='stage_combined_stages', value_one=0, value_two=1)
+			self.update(key='stage_combined_periods', value_one=0, value_two=1)
+
 			return True
 		except:
 			return False
