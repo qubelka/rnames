@@ -1,6 +1,6 @@
 import React from 'react'
 import { expect, test, beforeEach, describe, jest } from '@jest/globals'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 import axios from 'axios'
@@ -111,5 +111,4 @@ test('shows correct error msg on invalid doi and returns', async () => {
 	expect(doiNotProvidedError).toBeInTheDocument()
 	const wrongDoiError = screen.queryByText(/No resources found/i)
 	expect(wrongDoiError).not.toBeInTheDocument()
-	screen.debug()
 })
