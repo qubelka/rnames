@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 import urllib
 import base64
 import mpltern
+import traceback
 from mpltern.ternary.datasets import get_scatter_points
 import numpy as np
 # end
@@ -116,6 +117,7 @@ def external(request):
         }, info)
     except Exception as e:
         info.set_error(str(e))
+        traceback.print_exc()
         return render(
             request,
             'binning_done.html',
