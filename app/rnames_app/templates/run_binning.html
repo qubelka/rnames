@@ -42,18 +42,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('binningForm').classList.add('w3-hide')
 
-    setInterval(async () => {
-    fetch('/rnames/admin/binning_info')
+    const update = () => fetch('/rnames/admin/binning_info')
       .then(v => v.json())
       .then(v => {
         binningProgressBar.style.width = `${v.binning[0] / v.binning[1] * 100}%`
-        if (v.binning[0] == v.binning[1]) {
+        if (v.binning[0] == v.binning[1] && v.binning[1] > 0) {
           updateProgressLabel.classList.remove('w3-hide')
           updateProgressBarContainer.classList.remove('w3-hide')
           updateProgressBar.style.width = `${v.update[0] / v.update[1] * 100}%`
         }
       })
-  }, 5000)
+
+    setInterval(update, 5000)
   })
 });
 </script>

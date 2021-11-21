@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
     .then(v => v.json())
     .then(v => {
       binningProgressBar.style.width = `${v.binning[0] / v.binning[1] * 100}%`
-      if (v.binning[0] == v.binning[1]) {
+      if (v.binning[0] == v.binning[1] && v.binning[1] > 0) {
         updateProgressLabel.classList.remove('w3-hide')
         updateProgressBarContainer.classList.remove('w3-hide')
         updateProgressBar.style.width = `${v.update[0] / v.update[1] * 100}%`
