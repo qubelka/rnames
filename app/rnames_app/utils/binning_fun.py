@@ -714,11 +714,27 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
     for i_name in xal["name"].dropna().unique():
     #i=2
         x2_sub = x2[bisect_left(x2[:, 0], i_name):bisect_right(x2[:, 0], i_name)]
+        num_rows = len(x2_sub[:, k_b_scheme])
 
         # We need the oldest and youngest index in the ranges
-        x2_subs = x2_sub[bisect_left(x2_sub[:, k_b_scheme], 's'):bisect_right(x2_sub[:, k_b_scheme], 's')]
-        x2_suby = x2_sub[bisect_left(x2_sub[:, k_b_scheme], 'y'):bisect_right(x2_sub[:, k_b_scheme], 'y')]
-        x2_subc = x2_sub[bisect_left(x2_sub[:, k_b_scheme], 'c'):bisect_right(x2_sub[:, k_b_scheme], 'c')]
+        s_min, s_max = bisect_left(x2_sub[:, k_b_scheme], 's'), bisect_right(x2_sub[:, k_b_scheme], 's')
+        if s_min == num_rows:
+            x2_subs = np.empty(x2_sub)
+        else:
+            x2_subs = x2_sub[s_min:s_max]
+
+        y_min, y_max = bisect_left(x2_sub[:, k_b_scheme], 'y'), bisect_right(x2_sub[:, k_b_scheme], 'y')
+        if y_min == num_rows:
+            x2_suby = np.empty(x2_sub)
+        else:
+            x2_suby = x2_sub[y_min:y_max]
+
+        c_min, c_max = bisect_left(x2_sub[:, k_b_scheme], 'c'), bisect_right(x2_sub[:, k_b_scheme], 'c')
+        if c_min == num_rows:
+            x2_subc = np.empty(x2_sub)
+        else:
+            x2_subc = x2_sub[c_min:c_max]
+
         # youngest = max, oldest = min index
         x_range_s = np.array([np.min(x2_subs[:, k_oldest_index])])
         x_range_y = np.array([np.min(x2_suby[:, k_oldest_index])])
