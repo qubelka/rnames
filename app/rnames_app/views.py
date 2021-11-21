@@ -59,7 +59,7 @@ def external(request):
     info = BinningProgressUpdater()
 
     if not info.start_binning():
-        return # todo
+        return redirect('/rnames/admin/binning_progress')
 
     def time_slices(scheme):
         return list(TimeSlice.objects.is_active().filter(scheme=scheme).order_by('order').values_list('name', flat=True))
