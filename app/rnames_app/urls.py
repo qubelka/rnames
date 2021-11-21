@@ -13,6 +13,7 @@ urlpatterns = [
     path('rnames/admin/binning', views.run_binning, name='run-binning'),
     path('rnames/admin/binning_done', views.external, name='done-binning'),
     path('rnames/admin/binning_info', views.binning_info),
+    path('rnames/admin/binning_progress', views.binning_progress),
     path('rnames/binning/', views.binning, name='binning'),
     path('rnames/binning/schemes', views.binning_scheme_list,
          name='binning-scheme-list'),

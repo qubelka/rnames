@@ -202,6 +202,9 @@ def binning_info(request):
 
     return JsonResponse(data)
 
+@login_required
+def binning_progress(request):
+    return render(request, 'binning_progress.html')
 
 def binning_scheme_list(request):
     f = BinningSchemeFilter(
