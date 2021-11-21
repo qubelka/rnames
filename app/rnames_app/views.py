@@ -125,6 +125,13 @@ def external(request):
             },
         )
 
+    update_progress = info.db_update_progress_updater(
+        len(result['berg'])
+        + len(result['webby'])
+        + len(result['stages'])
+        + len(result['periods'])
+        )
+
     def update(obj, oldest, youngest, ts_count, refs, rule):
         obj.oldest = oldest
         obj.youngest = youngest
@@ -147,6 +154,7 @@ def external(request):
                 create(name, scheme, row[col.oldest], row[col.youngest], row[col.ts_count], row[col.refs], row[col.rule])
             else:
                 update(data[0], row[col.oldest], row[col.youngest], row[col.ts_count], row[col.refs], row[col.rule])
+            update_progress.update()
 
     start = time.time()
     process_result(result['berg'], 'x_robinb')

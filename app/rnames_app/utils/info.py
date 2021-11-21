@@ -32,6 +32,12 @@ class BinningStageProgressUpdater():
 		self.current = self.current + 1
 		self.bpu.update_stage(self.stage, self.current, self.max)
 
+class DatabaseUpdateProgressBarUpdater(BinningStageProgressUpdater):
+	def update(self):
+		self.current = self.current + 1
+		if self.current % 100 == 0:
+			self.bpu.update_stage(self.stage, self.current, self.max)
+
 
 class BinningProgressUpdater():
 	def __init__(self):
@@ -104,5 +110,5 @@ class BinningProgressUpdater():
 	def binned_periods_updater(self):
 		return BinningStageProgressUpdater(self, 'stage_combined_periods', 1)
 
-	def set_update_progress(self, current, max):
-		self.update(key='db_update', value_one=current, value_two='max')
+	def db_update_progress_updater(self, max):
+		return DatabaseUpdateProgressBarUpdater(self, 'db_update', max)
