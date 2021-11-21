@@ -10,7 +10,7 @@ from bisect import (bisect_left, bisect_right)
 from types import SimpleNamespace
 from .rn_funs import *
 
-def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
+def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices, info):
 
     print("We begin with six search algorithms binning all relations within the given binning scheme with references.")
     print("This takes a few minutes....")
@@ -106,17 +106,20 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
 
     #rule 0 = all direct relations between chronostrat names and binning scheme
     results['rule_0'] = rule0(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
+    info.update()
 
     ##############################################################
     ##############################################################
     #rule 1 = all direct relations between biostrat names and binning scheme
     results['rule_1'] = rule1(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
+    info.update()
 
     ##############################################################
     ##############################################################
     ### Rule_2: direct relations between non-bio* with binning scheme
     ### except chronostratigraphy
     results['rule_2'] = rule2(results, c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
+    info.update()
 
     ##############################################################
     ##############################################################
@@ -126,6 +129,7 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
     ##############################################################
     #rule_3 all relations between biostrat and biostrat that refer indirectly to binning scheme
     results['rule_3'] = rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
+    info.update()
 
     ##############################################################
     resis_bio = pd.concat([results['rule_1'], results['rule_3']], axis=0)
@@ -133,6 +137,7 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
     ### Rule 4: indirect relations of non-bio via resis_bio to binning scheme
     ### except direct chronostratigraphy links
     results['rule_4'] = rule4(results, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
+    info.update()
 
     ##################################################################################
     cr_g = c_rels.loc[~(c_rels["strat_qualifier_1"]=="Biostratigraphy")
@@ -142,11 +147,13 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
                               ["reference_id","name_1","name_2", "reference_year"]]
     ### Rule 5:  indirect relations of non-bio* to resis_4 with link to bio* (route via resi_4)
     results['rule_5'] = rule5(results, cr_g, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
+    info.update()
 
     ##################################################################################
     ### Rule 6: indirect relations of non-bio* to resis_bio to binning scheme (route via resis_bio)
     #rule 6 corrected at 23.03.2020
     results['rule_6'] = rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme)
+    info.update()
 
     end = time.time()
     dura = (end - start)/60
@@ -162,6 +169,7 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
     start = time.time()
     combi_names = shortest_time_bins(results, used_ts)
     end = time.time()
+    info.update()
     dura2 = (end - start)/60
     print("We find", len(combi_names),
           "binned names. It took ", round(dura, 2), "+", round(dura2, 2),  "minutes.")
@@ -777,6 +785,8 @@ def merge_time_info(x1, used_ts):
     return pd.concat((x1,x1m), axis=0)
 
 def bin_unique_names_0(ibs, cr_x, xnames_raw):
+    if cr_x.empty:
+        return pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
     col = SimpleNamespace()
     col.ntts = SimpleNamespace(**{k: v for v, k in enumerate(cr_x.columns)})
     col.xnames = SimpleNamespace(**{k: v for v, k in enumerate(xnames_raw.columns)})
@@ -792,8 +802,16 @@ def bin_unique_names_0(ibs, cr_x, xnames_raw):
 
     rows = []
     for name in bnu:
-        data = cr_x[bisect_left(cr_x[:, 1], name):bisect_right(cr_x[:, 1], name)]
-        xnames = xnames_raw[bisect_left(xnames_raw[:, 0], name):bisect_right(xnames_raw[:, 0], name)]
+        cr_x_begin = bisect_left(cr_x[:, col.ntts.name_1], name)
+        cr_x_end = bisect_right(cr_x[:, col.ntts.name_1], name)
+        xnames_begin = bisect_left(xnames_raw[:, col.xnames.name], name)
+        xnames_end = bisect_right(xnames_raw[:, col.xnames.name], name)
+
+        if xnames_begin == len(xnames_raw[col.xnames.name]):
+            continue
+
+        data = cr_x[cr_x_begin:cr_x_end]
+        xnames = xnames_raw[xnames_begin:xnames_end]
 
         data = data[~np.isin(data[:, col.ntts.reference_id], xnames[:, col.xnames.ref])]
 
@@ -851,6 +869,9 @@ def bin_unique_names_1(ibs, x1, xnames_raw):
         x1_end = bisect_right(x1_list, name)
         xnames_begin = bisect_left(xnames_list, name)
         xnames_end = bisect_right(xnames_list, name)
+
+        if xnames_begin == len(xnames_raw):
+            continue
 
         data = x1[x1_begin:x1_end]
         xnames = xnames_raw[xnames_begin:xnames_end]
