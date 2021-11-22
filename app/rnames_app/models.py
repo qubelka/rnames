@@ -457,3 +457,10 @@ class TimeSlice(BaseModel):
         Returns the url to access a particular name instance.
         """
         return reverse('timeslice-detail', args=[str(self.id)])
+
+
+class BinningProgress(models.Model):
+    name = models.CharField(max_length=1000, unique=True)
+    text = models.CharField(max_length=1000, default='')
+    value_one = models.IntegerField(default=0)
+    value_two = models.IntegerField(default=0)
