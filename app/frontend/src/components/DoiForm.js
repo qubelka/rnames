@@ -22,6 +22,11 @@ export const DoiForm = ({
 		loadServerData('references')
 		.filter(v => v.doi === doi)
 
+	const findDuplicateLinks = doi =>
+		loadServerData('references')
+		.filter(v => v.link === doi)
+
+
 	useEffect(() => {
 		if (!notification) return
 
@@ -36,7 +41,7 @@ export const DoiForm = ({
 	const doiSubmit = async e => {
 		e.preventDefault()
 		if (!doiFormIsValid(doi, notify)) return
-		if (findDuplicateDois(doi).length !== 0) {
+		if ((findDuplicateDois(doi).length !== 0) || findDuplicateLinks(doi).length !== 0) {
 			notify('An existing reference is using the same doi.')
 			return
 		}

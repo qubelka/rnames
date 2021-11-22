@@ -34,6 +34,10 @@ export const ReferenceForm = ({
 	loadServerData('references')
 	.filter(v => v.doi === doi)
 
+	const findDuplicateLinks = doi =>
+	loadServerData('references')
+	.filter(v => v.link === doi)
+
 	useEffect(() => {
 		if (!reference) return
 		setFirstAuthor(reference.firstAuthor)
@@ -97,7 +101,7 @@ export const ReferenceForm = ({
 			link,
 			addErrorMessage
 		)
-		if (findDuplicateDois(doi).length !== 0) {
+		if ((findDuplicateDois(doi).length !== 0) || (findDuplicateLinks(doi).length !== 0)) {
 			addErrorMessage('An existing reference is using the same doi.', 'doi')
 			showErrorMsgs()
 			return
