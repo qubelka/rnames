@@ -10,7 +10,7 @@ from bisect import (bisect_left, bisect_right)
 from types import SimpleNamespace
 from .rn_funs import *
 
-def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
+def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices, info):
 
     print("We begin with six search algorithms binning all relations within the given binning scheme with references.")
     print("This takes a few minutes....")
@@ -88,7 +88,8 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
         xnamesc = pd.concat((xnamesa,xnamesb), axis=0)
         xnames_raw1 = xnamesc.drop_duplicates()
     xnames_raw = xnamesc
-    xnames_raw["combi"] = xnames_raw1["name"] + xnames_raw1["ref"].astype(str).copy()
+    if len(c_rels_a) > 0 or len(c_rels_b) > 0:
+        xnames_raw["combi"] = xnames_raw1["name"] + xnames_raw1["ref"].astype(str).copy()
     #xnamelist = xnames_raw["combi"].tolist()
 
     ##############################################################
@@ -106,17 +107,20 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
 
     #rule 0 = all direct relations between chronostrat names and binning scheme
     results['rule_0'] = rule0(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
+    info.update()
 
     ##############################################################
     ##############################################################
     #rule 1 = all direct relations between biostrat names and binning scheme
     results['rule_1'] = rule1(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
+    info.update()
 
     ##############################################################
     ##############################################################
     ### Rule_2: direct relations between non-bio* with binning scheme
     ### except chronostratigraphy
     results['rule_2'] = rule2(results, c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
+    info.update()
 
     ##############################################################
     ##############################################################
@@ -126,6 +130,7 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
     ##############################################################
     #rule_3 all relations between biostrat and biostrat that refer indirectly to binning scheme
     results['rule_3'] = rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
+    info.update()
 
     ##############################################################
     resis_bio = pd.concat([results['rule_1'], results['rule_3']], axis=0)
@@ -133,6 +138,7 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
     ### Rule 4: indirect relations of non-bio via resis_bio to binning scheme
     ### except direct chronostratigraphy links
     results['rule_4'] = rule4(results, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
+    info.update()
 
     ##################################################################################
     cr_g = c_rels.loc[~(c_rels["strat_qualifier_1"]=="Biostratigraphy")
@@ -142,11 +148,13 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
                               ["reference_id","name_1","name_2", "reference_year"]]
     ### Rule 5:  indirect relations of non-bio* to resis_4 with link to bio* (route via resi_4)
     results['rule_5'] = rule5(results, cr_g, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme)
+    info.update()
 
     ##################################################################################
     ### Rule 6: indirect relations of non-bio* to resis_bio to binning scheme (route via resis_bio)
     #rule 6 corrected at 23.03.2020
     results['rule_6'] = rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme)
+    info.update()
 
     end = time.time()
     dura = (end - start)/60
@@ -162,6 +170,7 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices):
     start = time.time()
     combi_names = shortest_time_bins(results, used_ts)
     end = time.time()
+    info.update()
     dura2 = (end - start)/60
     print("We find", len(combi_names),
           "binned names. It took ", round(dura, 2), "+", round(dura2, 2),  "minutes.")
@@ -679,11 +688,6 @@ def shortest_time_bins(results, used_ts):
     return(combi_names)
 
 def merge_cc(resi_s, resi_y, resi_c, used_ts):
-    k_oldest_index = 2
-    k_youngest_index = 4
-    k_ref = 6
-    k_b_scheme = 8
-
     resi = pd.concat([resi_s, resi_y, resi_c])
     x2 = pd.merge(resi, used_ts, how= 'inner', left_on="oldest", right_on="ts")
     x2 = x2[['name', 'oldest', 'ts_index', 'youngest', 'ts_count',
@@ -699,6 +703,7 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
 
     # Sort x2 so binary search can be used to quickly find ranges
     x2 = x2.sort_values(by=['name', 'b_scheme'])
+    col = SimpleNamespace(**{k: v for v, k in enumerate(x2.columns)})
     x2 = x2.values
     used_ts = used_ts.values
 
@@ -707,20 +712,20 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
         x2_sub = x2[bisect_left(x2[:, 0], i_name):bisect_right(x2[:, 0], i_name)]
 
         # We need the oldest and youngest index in the ranges
-        x2_subs = x2_sub[bisect_left(x2_sub[:, k_b_scheme], 's'):bisect_right(x2_sub[:, k_b_scheme], 's')]
-        x2_suby = x2_sub[bisect_left(x2_sub[:, k_b_scheme], 'y'):bisect_right(x2_sub[:, k_b_scheme], 'y')]
-        x2_subc = x2_sub[bisect_left(x2_sub[:, k_b_scheme], 'c'):bisect_right(x2_sub[:, k_b_scheme], 'c')]
+        x2_subs = x2_sub[x2_sub[:, col.b_scheme] == 's']
+        x2_suby = x2_sub[x2_sub[:, col.b_scheme] == 'y']
+        x2_subc = x2_sub[x2_sub[:, col.b_scheme] == 'c']
         # youngest = max, oldest = min index
-        x_range_s = np.array([np.min(x2_subs[:, k_oldest_index])])
-        x_range_y = np.array([np.min(x2_suby[:, k_oldest_index])])
-        x_range_c = np.array([np.min(x2_subc[:, k_oldest_index])])
+        x_range_s = np.array([np.min(x2_subs[:, col.oldest_index])])
+        x_range_y = np.array([np.min(x2_suby[:, col.oldest_index])])
+        x_range_c = np.array([np.min(x2_subc[:, col.oldest_index])])
 
-        if np.min(x2_subs[:, k_oldest_index]) != np.max(x2_subs[:, k_youngest_index]):
-            x_range_s = np.arange(np.min(x2_subs[:, k_oldest_index]), np.max(x2_subs[:, k_youngest_index])+1,1)
-        if np.min(x2_suby[:, k_oldest_index]) != max(x2_suby[:, k_youngest_index]):
-            x_range_y = np.arange(np.min(x2_suby[:, k_oldest_index]), np.max(x2_suby[:, k_youngest_index])+1,1)
-        if np.min(x2_subc[:, k_oldest_index]) != max(x2_subc[:, k_youngest_index]):
-            x_range_c = np.arange(np.min(x2_subc[:, k_oldest_index]), np.max(x2_subc[:, k_youngest_index])+1,1)
+        if np.min(x2_subs[:, col.oldest_index]) != np.max(x2_subs[:, col.youngest_index]):
+            x_range_s = np.arange(np.min(x2_subs[:, col.oldest_index]), np.max(x2_subs[:, col.youngest_index])+1,1)
+        if np.min(x2_suby[:, col.oldest_index]) != max(x2_suby[:, col.youngest_index]):
+            x_range_y = np.arange(np.min(x2_suby[:, col.oldest_index]), np.max(x2_suby[:, col.youngest_index])+1,1)
+        if np.min(x2_subc[:, col.oldest_index]) != max(x2_subc[:, col.youngest_index]):
+            x_range_c = np.arange(np.min(x2_subc[:, col.oldest_index]), np.max(x2_subc[:, col.youngest_index])+1,1)
 
         rax = np.concatenate((x_range_s, x_range_s, x_range_c))
         # filter for third quantile, only bins with highest score
@@ -744,7 +749,7 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
         ts_c = rax_sub_max - rax_sub_min
 
         refs = set()
-        for ref in x2_sub[:, k_ref]:
+        for ref in x2_sub[:, col.refs]:
             for r in ref.split(', '):
                 refs.add(r)
 
@@ -777,6 +782,8 @@ def merge_time_info(x1, used_ts):
     return pd.concat((x1,x1m), axis=0)
 
 def bin_unique_names_0(ibs, cr_x, xnames_raw):
+    if cr_x.empty:
+        return pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
     col = SimpleNamespace()
     col.ntts = SimpleNamespace(**{k: v for v, k in enumerate(cr_x.columns)})
     col.xnames = SimpleNamespace(**{k: v for v, k in enumerate(xnames_raw.columns)})
@@ -792,8 +799,16 @@ def bin_unique_names_0(ibs, cr_x, xnames_raw):
 
     rows = []
     for name in bnu:
-        data = cr_x[bisect_left(cr_x[:, 1], name):bisect_right(cr_x[:, 1], name)]
-        xnames = xnames_raw[bisect_left(xnames_raw[:, 0], name):bisect_right(xnames_raw[:, 0], name)]
+        cr_x_begin = bisect_left(cr_x[:, col.ntts.name_1], name)
+        cr_x_end = bisect_right(cr_x[:, col.ntts.name_1], name)
+        xnames_begin = bisect_left(xnames_raw[:, col.xnames.name], name)
+        xnames_end = bisect_right(xnames_raw[:, col.xnames.name], name)
+
+        if xnames_begin == len(xnames_raw[col.xnames.name]):
+            continue
+
+        data = cr_x[cr_x_begin:cr_x_end]
+        xnames = xnames_raw[xnames_begin:xnames_end]
 
         data = data[~np.isin(data[:, col.ntts.reference_id], xnames[:, col.xnames.ref])]
 
@@ -851,6 +866,9 @@ def bin_unique_names_1(ibs, x1, xnames_raw):
         x1_end = bisect_right(x1_list, name)
         xnames_begin = bisect_left(xnames_list, name)
         xnames_end = bisect_right(xnames_list, name)
+
+        if xnames_begin == len(xnames_raw):
+            continue
 
         data = x1[x1_begin:x1_end]
         xnames = xnames_raw[xnames_begin:xnames_end]

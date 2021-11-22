@@ -132,7 +132,6 @@ export const ReferenceForm = ({
 		return (
 			<div>
 				<form onSubmit={handleManualSubmit}>
-					<label htmlFor='first_author'>first_author</label>
 					<InputField
 						name='first_author'
 						value={firstAuthor}

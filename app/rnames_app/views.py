@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 import urllib
 import base64
 import mpltern
+import traceback
 from mpltern.ternary.datasets import get_scatter_points
 import numpy as np
 # end
@@ -29,7 +30,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from rest_framework.response import Response
 #from .utils.utils import YourClassOrFunction
 from rest_framework import status, generics
-from .models import (Binning, Location, Name, Qualifier, QualifierName,
+from .models import (Binning, Location, Name, Qualifier, QualifierName, BinningProgress,
                      Relation, Reference, StratigraphicQualifier, StructuredName, TimeSlice)
 from .filters import (BinningSchemeFilter, LocationFilter, NameFilter, QualifierFilter, QualifierNameFilter,
                       ReferenceFilter, RelationFilter, StratigraphicQualifierFilter, StructuredNameFilter, TimeSliceFilter)
@@ -41,6 +42,7 @@ from .filters import UserFilter
 import sys
 from subprocess import run, PIPE
 from .utils.root_binning import main_binning_fun
+from .utils.info import BinningProgressUpdater
 from io import StringIO
 from contextlib import redirect_stdout
 from types import SimpleNamespace
@@ -53,7 +55,13 @@ import time
 #    names = Name.objects.order_by('name')
 #    return render(request, 'name_list.html', {'names': names})
 
+@login_required
 def external(request):
+    info = BinningProgressUpdater()
+
+    if not info.start_binning():
+        return redirect('/rnames/admin/binning_progress')
+
     def time_slices(scheme):
         return list(TimeSlice.objects.is_active().filter(scheme=scheme).order_by('order').values_list('name', flat=True))
 
@@ -96,16 +104,35 @@ def external(request):
         'strat_qualifier_2',
     ]
 
-    result = main_binning_fun(queryset_list, cols, {
-        'rassm': time_slices('rasmussen'),
-        'berg': time_slices('bergstrom'),
-        'webby': time_slices('webby'),
-        'stages': time_slices('stages'),
-        'periods': time_slices('periods'),
-        'epochs': time_slices('epochs'),
-        'eras': time_slices('eras'),
-        'eons': time_slices('eons')
-    })
+    try:
+        result = main_binning_fun(queryset_list, cols, {
+            'rassm': time_slices('rasmussen'),
+            'berg': time_slices('bergstrom'),
+            'webby': time_slices('webby'),
+            'stages': time_slices('stages'),
+            'periods': time_slices('periods'),
+            'epochs': time_slices('epochs'),
+            'eras': time_slices('eras'),
+            'eons': time_slices('eons')
+        }, info)
+    except Exception as e:
+        info.set_error(str(e))
+        traceback.print_exc()
+        return render(
+            request,
+            'binning_done.html',
+            context={
+                'error': True,
+                'error_message': str(e),
+            },
+        )
+
+    update_progress = info.db_update_progress_updater(
+        len(result['berg'])
+        + len(result['webby'])
+        + len(result['stages'])
+        + len(result['periods'])
+        )
 
     def update(obj, oldest, youngest, ts_count, refs, rule):
         obj.oldest = oldest
@@ -129,6 +156,7 @@ def external(request):
                 create(name, scheme, row[col.oldest], row[col.youngest], row[col.ts_count], row[col.refs], row[col.rule])
             else:
                 update(data[0], row[col.oldest], row[col.youngest], row[col.ts_count], row[col.refs], row[col.rule])
+            update_progress.update()
 
     start = time.time()
     process_result(result['berg'], 'x_robinb')
@@ -137,16 +165,14 @@ def external(request):
     process_result(result['periods'], 'x_robinp')
     end = time.time()
 
+    info.finish_binning()
+
     return render(
         request,
         'binning_done.html',
         context={
             'duration': round(result['duration']),
             'update_duration': round(end - start),
-            'berg': result['berg'].to_html(classes='w3-table'),
-            'webby': result['webby'].to_html(classes='w3-table'),
-            'periods': result['periods'].to_html(classes='w3-table'),
-            'stages': result['stages'].to_html(classes='w3-table')
         },
     )
 
@@ -158,6 +184,29 @@ def binning(request):
         'binning.html',
     )
 
+@login_required
+def binning_info(request):
+    data = {}
+
+    data['binning'] = [0, 0]
+    data['update'] = [0, 0]
+
+    for entry in BinningProgress.objects.all():
+        if entry.name == 'error' or entry.name == 'lock' or entry.name == 'status':
+            continue
+
+        if entry.name == 'db_update':
+            data['update'] = [entry.value_one, entry.value_two]
+            continue
+
+        data['binning'][0] += entry.value_one
+        data['binning'][1] += entry.value_two
+
+    return JsonResponse(data)
+
+@login_required
+def binning_progress(request):
+    return render(request, 'binning_progress.html')
 
 def binning_scheme_list(request):
     f = BinningSchemeFilter(
@@ -1306,12 +1355,17 @@ def submit(request):
         # in the database
         qualifier = Qualifier.objects.is_active().get(pk=structured_name_data['qualifier_id']['value'])
 
+        if structured_name_data['save_with_reference_id']:
+            structured_name_reference = reference
+        else:
+            structured_name_reference = None
+
         structured_names[id] = StructuredName(
             name=name,
             qualifier=qualifier,
             location=location,
-            reference=reference
-            # remarks = ''
+            reference=structured_name_reference,
+            remarks=structured_name_data['remarks'],
         )
 
     for relation_data in data['relations']:
