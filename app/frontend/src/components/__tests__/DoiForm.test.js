@@ -6,8 +6,10 @@ import userEvent from '@testing-library/user-event'
 import axios from 'axios'
 import { DoiForm } from '../DoiForm'
 import { foundDoiResponseData } from '../test/data/crossapiResponse'
+import * as utilities from '../../utilities.js'
 
 jest.mock('axios')
+jest.mock('../../utilities.js')
 
 const doi = '10.1002/spp2.1267'
 const setQueried = () => {}
@@ -47,6 +49,8 @@ describe('When reference form set to visible', () => {
 			request: { response: JSON.stringify(foundDoiResponseData) },
 		}
 		axios.get.mockImplementationOnce(() => Promise.resolve(data))
+		utilities.findDuplicateDois.mockImplementationOnce(doi => [])
+		utilities.findDuplicateLinks.mockImplementationOnce(doi => [])
 		const getButton = screen.getAllByRole('button')[0]
 		userEvent.click(getButton)
 		const notification = await screen.queryByText(/no resources found/i)
@@ -56,6 +60,8 @@ describe('When reference form set to visible', () => {
 	test('error msg gets printed on unsuccefful response from crossrefapi', async () => {
 		const data = { request: { response: 'Resource not found' } }
 		axios.get.mockImplementationOnce(() => Promise.resolve(data))
+		utilities.findDuplicateDois.mockImplementationOnce(doi => [])
+		utilities.findDuplicateLinks.mockImplementationOnce(doi => [])
 		const getButton = screen.getAllByRole('button')[0]
 		userEvent.click(getButton)
 		const notification = await screen.findByText(/no resources found/i)
