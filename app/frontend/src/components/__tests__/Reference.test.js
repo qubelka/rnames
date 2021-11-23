@@ -19,7 +19,7 @@ const ref = {
 	exists: false,
 	queried: true,
 	edit: false,
-	id: '{"type":"refernce","value":1}',
+	id: '{"type":"reference","value":1}',
 }
 
 describe('Reference', () => {

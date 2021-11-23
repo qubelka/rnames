@@ -1,15 +1,18 @@
 import React from 'react'
 import { expect, test, beforeEach, describe, jest } from '@jest/globals'
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 import configureStore from 'redux-mock-store'
+import axios from 'axios'
 import { ReferenceForm } from '../ReferenceForm'
 import { Provider } from 'react-redux'
 import { refReducer } from '../../store/references/reducers'
 import * as utilities from '../../utilities.js'
+import { foundDoiResponseData } from '../test/data/crossapiResponse'
 
 const mockStore = configureStore([])
+jest.mock('axios')
 jest.mock('../../utilities.js')
 
 describe('When no reference information provided, ReferenceForm', () => {
@@ -22,7 +25,7 @@ describe('When no reference information provided, ReferenceForm', () => {
 		render(
 			<Provider store={store}>
 				<ReferenceForm
-					displayRefForm='none'
+					displayRefForm='block'
 					showNewReferenceForm={() => {}}
 					isQueried={true}
 				/>
@@ -122,6 +125,90 @@ describe('When no reference information provided, ReferenceForm', () => {
 			'An existing reference is using the same doi.'
 		)
 		expect(notification).toBeInTheDocument()
+	})
+})
+
+describe('When user is editing an existing reference, ReferenceForm', () => {
+	let store
+	const ref = {
+		firstAuthor: 'Shunxin Zhang',
+		year: 2018,
+		title: 'The stratigraphic position and the age of the Ordovician organic-rich intervals in the northern Hudson Bay, Hudson Strait, and Foxe basins—evidence from graptolites',
+		doi: '10.1139/cjes-2017-0266',
+		link: 'http://dx.doi.org/10.1139/cjes-2017-0266',
+		exists: false,
+		queried: true,
+		edit: true,
+		id: '{"type":"reference","value":1}',
+	}
+	beforeEach(() => {
+		store = mockStore({
+			ref: refReducer,
+		})
+		store.dispatch = jest.fn()
+		render(
+			<Provider store={store}>
+				<ReferenceForm
+					reference={ref}
+					displayRefForm='block'
+					showNewReferenceForm={() => {}}
+					isQueried={true}
+				/>
+			</Provider>
+		)
+	})
+
+	test('has buttons for saving reference and making new doi search', () => {
+		const btns = screen.getAllByRole('button')
+		expect(btns).toHaveLength(2)
+	})
+
+	test('does not create a new reference on save', async () => {
+		utilities.findDuplicateDois.mockImplementationOnce(doi => [])
+		utilities.findDuplicateLinks.mockImplementationOnce(doi => [])
+		const inputFields = screen.getAllByRole('textbox')
+		const saveReferenceBtn = screen.getByRole('button', {
+			name: 'Save reference',
+		})
+		userEvent.clear(inputFields[1])
+		userEvent.type(inputFields[1], '2017')
+		userEvent.click(saveReferenceBtn)
+		expect(store.dispatch).toHaveBeenCalledTimes(1)
+		expect(store.dispatch).not.toHaveBeenCalledWith({
+			ref: expect.anything(),
+			type: 'ADD',
+		})
+	})
+
+	test('updates an existing reference on save', async () => {
+		utilities.findDuplicateDois.mockImplementationOnce(doi => [])
+		utilities.findDuplicateLinks.mockImplementationOnce(doi => [])
+		const inputFields = screen.getAllByRole('textbox')
+		const saveReferenceBtn = screen.getByRole('button', {
+			name: 'Save reference',
+		})
+		userEvent.clear(inputFields[0])
+		userEvent.type(inputFields[0], 'Colmenar, J.')
+		userEvent.click(saveReferenceBtn)
+		expect(store.dispatch).toHaveBeenCalledTimes(1)
+		expect(store.dispatch).toHaveBeenCalledWith({
+			ref: { ...ref, firstAuthor: 'Colmenar, J.', edit: false },
+			type: 'UPDATE',
+		})
+	})
+
+	test('shows new empty DoiForm on "Make new doi search" button click', async () => {
+		const makeNewDoiSearchBtn = screen.queryByRole('button', {
+			name: 'Make new doi search',
+		})
+		userEvent.click(makeNewDoiSearchBtn)
+		const doiForm = await screen
+			.queryByText('Manual Entry', { exact: false })
+			.closest('form')
+		expect(doiForm).toBeInTheDocument()
+		const inputFields = screen.getAllByRole('textbox')
+		expect(inputFields).toHaveLength(1)
+		expect(inputFields[0].value).toBe('')
 	})
 })
 
