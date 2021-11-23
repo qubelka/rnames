@@ -67,6 +67,61 @@ describe('When reference form set to visible', () => {
 		const notification = await screen.findByText(/no resources found/i)
 		expect(notification).toBeInTheDocument()
 	})
+
+	test('error msg does not get printed if no doi or link duplicates found', async () => {
+		const data = {
+			request: { response: JSON.stringify(foundDoiResponseData) },
+		}
+		axios.get.mockImplementationOnce(() => Promise.resolve(data))
+		utilities.findDuplicateDois.mockImplementationOnce(doi => [])
+		utilities.findDuplicateLinks.mockImplementationOnce(doi => [])
+		const getButton = screen.getAllByRole('button')[0]
+		userEvent.click(getButton)
+		const notification = await screen.queryByText(
+			'An existing reference is using the same doi.'
+		)
+		expect(notification).not.toBeInTheDocument()
+	})
+
+	test('error msg gets printed if link duplicates found', async () => {
+		const data = {
+			request: { response: JSON.stringify(foundDoiResponseData) },
+		}
+		axios.get.mockImplementationOnce(() => Promise.resolve(data))
+		utilities.findDuplicateDois.mockImplementationOnce(doi => [])
+		utilities.findDuplicateLinks.mockImplementationOnce(doi => [
+			{
+				title: 'Katian (Ordovician) to Aeronian (Silurian, Llandovery) graptolite biostratigraphy of the\nYD\n\u20101 drill core, Yuanan County, Hubei Province, China',
+				link: 'http://dx.doi.org/10.1002/spp2.1267',
+			},
+		])
+		const getButton = screen.getAllByRole('button')[0]
+		userEvent.click(getButton)
+		const notification = await screen.queryByText(
+			'An existing reference is using the same doi.'
+		)
+		expect(notification).toBeInTheDocument()
+	})
+
+	test('error msg gets printed if doi duplicates found', async () => {
+		const data = {
+			request: { response: JSON.stringify(foundDoiResponseData) },
+		}
+		axios.get.mockImplementationOnce(() => Promise.resolve(data))
+		utilities.findDuplicateDois.mockImplementationOnce(doi => [
+			{
+				title: 'Katian (Ordovician) to Aeronian (Silurian, Llandovery) graptolite biostratigraphy of the\nYD\n\u20101 drill core, Yuanan County, Hubei Province, China',
+				doi: '10.1002/spp2.1267',
+			},
+		])
+		utilities.findDuplicateLinks.mockImplementationOnce(doi => [])
+		const getButton = screen.getAllByRole('button')[0]
+		userEvent.click(getButton)
+		const notification = await screen.queryByText(
+			'An existing reference is using the same doi.'
+		)
+		expect(notification).toBeInTheDocument()
+	})
 })
 
 describe('When reference form set to invisible', () => {
