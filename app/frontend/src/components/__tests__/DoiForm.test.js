@@ -91,7 +91,7 @@ describe('When reference form set to visible', () => {
 		utilities.findDuplicateDois.mockImplementationOnce(doi => [])
 		utilities.findDuplicateLinks.mockImplementationOnce(doi => [
 			{
-				title: 'Katian (Ordovician) to Aeronian (Silurian, Llandovery) graptolite biostratigraphy of the\nYD\n\u20101 drill core, Yuanan County, Hubei Province, China',
+				title: 'Katian (Ordovician) to Aeronian (Silurian, Llandovery) graptolite biostratigraphy of the YD-1 drill core, Yuanan County, Hubei Province, China',
 				link: 'http://dx.doi.org/10.1002/spp2.1267',
 			},
 		])
@@ -110,7 +110,7 @@ describe('When reference form set to visible', () => {
 		axios.get.mockImplementationOnce(() => Promise.resolve(data))
 		utilities.findDuplicateDois.mockImplementationOnce(doi => [
 			{
-				title: 'Katian (Ordovician) to Aeronian (Silurian, Llandovery) graptolite biostratigraphy of the\nYD\n\u20101 drill core, Yuanan County, Hubei Province, China',
+				title: 'Katian (Ordovician) to Aeronian (Silurian, Llandovery) graptolite biostratigraphy of the YD-1 drill core, Yuanan County, Hubei Province, China',
 				doi: '10.1002/spp2.1267',
 			},
 		])

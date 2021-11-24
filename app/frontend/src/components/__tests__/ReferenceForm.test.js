@@ -99,7 +99,7 @@ describe('When no reference information provided, ReferenceForm', () => {
 		utilities.findDuplicateDois.mockImplementationOnce(doi => [])
 		utilities.findDuplicateLinks.mockImplementationOnce(doi => [
 			{
-				title: 'Katian (Ordovician) to Aeronian (Silurian, Llandovery) graptolite biostratigraphy of the\nYD\n\u20101 drill core, Yuanan County, Hubei Province, China',
+				title: 'Katian (Ordovician) to Aeronian (Silurian, Llandovery) graptolite biostratigraphy of the YD-1 drill core, Yuanan County, Hubei Province, China',
 				link: 'http://dx.doi.org/10.1002/spp2.1267',
 			},
 		])
@@ -114,7 +114,7 @@ describe('When no reference information provided, ReferenceForm', () => {
 	test('prints error msg if doi duplicates found', async () => {
 		utilities.findDuplicateDois.mockImplementationOnce(doi => [
 			{
-				title: 'Katian (Ordovician) to Aeronian (Silurian, Llandovery) graptolite biostratigraphy of the\nYD\n\u20101 drill core, Yuanan County, Hubei Province, China',
+				title: 'Katian (Ordovician) to Aeronian (Silurian, Llandovery) graptolite biostratigraphy of the YD-1 drill core, Yuanan County, Hubei Province, China',
 				doi: '10.1002/spp2.1267',
 			},
 		])
@@ -209,6 +209,84 @@ describe('When user is editing an existing reference, ReferenceForm', () => {
 		const inputFields = screen.getAllByRole('textbox')
 		expect(inputFields).toHaveLength(1)
 		expect(inputFields[0].value).toBe('')
+	})
+})
+
+describe('When user has found reference information via doi search, ReferenceForm', () => {
+	let store
+	const data = {
+		request: { response: JSON.stringify(foundDoiResponseData) },
+	}
+	beforeEach(() => {
+		store = mockStore({
+			ref: refReducer,
+		})
+		store.dispatch = jest.fn()
+		render(
+			<Provider store={store}>
+				<ReferenceForm
+					displayRefForm='block'
+					showNewReferenceForm={() => {}}
+				/>
+			</Provider>
+		)
+		axios.get.mockImplementationOnce(() => Promise.resolve(data))
+		utilities.findDuplicateDois.mockImplementationOnce(doi => [])
+		utilities.findDuplicateLinks.mockImplementationOnce(doi => [])
+	})
+
+	test('has one button for saving the reference', async () => {
+		const doiInputField = screen.getByRole('textbox')
+		const getButton = screen.getAllByRole('button')[0]
+		userEvent.type(doiInputField, '10.1002/spp2.1267')
+		userEvent.click(getButton)
+		await waitFor(() => {
+			const btns = screen.getAllByRole('button')
+			expect(btns).toHaveLength(1)
+			expect(btns[0]).toHaveAttribute('type', 'submit')
+			expect(btns[0]).toHaveTextContent(/save/i)
+		})
+	})
+
+	test('autofills found information into input fields', async () => {
+		const doiInputField = screen.getByRole('textbox')
+		const getButton = screen.getAllByRole('button')[0]
+		userEvent.type(doiInputField, '10.1002/spp2.1267')
+		userEvent.click(getButton)
+		await waitFor(() => {
+			const author = screen.getByDisplayValue('Jörg Maletz')
+			const year = screen.getByDisplayValue('2020')
+			const title = screen.getByDisplayValue(
+				'Katian (Ordovician) to Aeronian (Silurian, Llandovery) graptolite biostratigraphy of the YD-1 drill core, Yuanan County, Hubei Province, China'
+			)
+			const doi = screen.getByDisplayValue('10.1002/spp2.1267')
+			const link = screen.getByDisplayValue(
+				'http://dx.doi.org/10.1002/spp2.1267'
+			)
+			expect(author).toBeInTheDocument()
+			expect(year).toBeInTheDocument()
+			expect(title).toBeInTheDocument()
+			expect(doi).toBeInTheDocument()
+			expect(link).toBeInTheDocument()
+		})
+	})
+
+	test('creats a new reference on save', async () => {
+		const doiInputField = screen.getByRole('textbox')
+		const getButton = screen.getAllByRole('button')[0]
+		userEvent.type(doiInputField, '10.1002/spp2.1267')
+		userEvent.click(getButton)
+		await waitFor(() => {
+			utilities.findDuplicateDois.mockImplementationOnce(doi => [])
+			utilities.findDuplicateLinks.mockImplementationOnce(doi => [])
+			const saveReferenceBtn = screen.getByRole('button')
+			userEvent.click(saveReferenceBtn)
+			expect(store.dispatch).toHaveBeenCalledTimes(1)
+			expect(store.dispatch).toHaveBeenCalledWith({
+				ref: expect.anything(),
+				type: 'ADD',
+			})
+		})
 	})
 })
 
