@@ -142,6 +142,7 @@ export const ReferenceForm = ({
 						value={firstAuthor}
 						setField={setFirstAuthor}
 						notification={formFieldNotification.firstAuthor}
+						autoFocus={true}
 					/>
 					<InputField
 						name='year'

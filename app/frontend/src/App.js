@@ -56,7 +56,7 @@ const App = () => {
 	const showNewSnameForm = () => {
 		setDisplaySnameForm(displaySnameForm === 'none' ? 'block' : 'none')
 		setNewSnameButtonIsDisabled(!newSnameButtonIsDisabled)
-		setTimeout(function(){document.getElementById('sname-name').focus()}, 20)
+		setTimeout(function(){document.getElementById('sname-name').focus()}, 200)
 	}
 
 	const canDeleteNotify = (message, type = 'error') => {

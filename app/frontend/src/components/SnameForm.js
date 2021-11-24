@@ -115,6 +115,7 @@ export const SnameForm = ({
 		setStructuredName(undefined)
 		showNewSnameForm()
 		setNewSnameButtonIsDisabled(!newSnameButtonIsDisabled)
+		setTimeout(function(){document.getElementById('sname-button').focus()}, 200)
 	}
 
 	if (structuredName !== undefined) {

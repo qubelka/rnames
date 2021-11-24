@@ -32,6 +32,7 @@ export const DuplicateNameDialog = ({
 		} else {
 			selectHandler(duplicateNames.find(v => v.id === id))
 		}
+		setTimeout(function(){document.getElementById('sname-button').focus()}, 200)
 	}
 
 	const checkboxId = 'duplicate-name-dialog-save-with-reference'
