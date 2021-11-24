@@ -64,8 +64,7 @@ describe('When reference form set to visible', () => {
 		utilities.findDuplicateLinks.mockImplementationOnce(doi => [])
 		const getButton = screen.getAllByRole('button')[0]
 		userEvent.click(getButton)
-		const notification = await screen.findByText(/no resources found/i)
-		expect(notification).toBeInTheDocument()
+		await screen.findByText(/no resources found/i)
 	})
 
 	test('error msg does not get printed if no doi or link duplicates found', async () => {

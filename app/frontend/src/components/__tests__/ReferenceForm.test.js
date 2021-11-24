@@ -56,8 +56,7 @@ describe('When no reference information provided, ReferenceForm', () => {
 	test('reflects the user input', async () => {
 		const inputFields = screen.getAllByRole('textbox')
 		userEvent.type(inputFields[0], 'Úna C. Farrell')
-		const firstAuthor = await screen.findByDisplayValue('Úna C. Farrell')
-		expect(firstAuthor).toBeInTheDocument()
+		await screen.findByDisplayValue('Úna C. Farrell')
 	})
 
 	test('creats a new reference on save', async () => {
@@ -361,10 +360,7 @@ describe('ReferenceForm validates input and', () => {
 	test('prints correct error if title is missing', async () => {
 		const saveReferenceBtn = screen.getByRole('button')
 		userEvent.click(saveReferenceBtn)
-		const missingTitleError = await screen.findByText(
-			'Please provide the title of the reference'
-		)
-		expect(missingTitleError).toBeInTheDocument()
+		await screen.findByText('Please provide the title of the reference')
 	})
 
 	test('prints correct error if title is more than 250 characters long', async () => {
@@ -375,10 +371,9 @@ describe('ReferenceForm validates input and', () => {
 			"Beyond Beecher's Trilobite Bed: Widespread pyritization of soft tissues in the Late Ordovician Taconic foreland basin.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 		)
 		userEvent.click(saveReferenceBtn)
-		const titleLengthError = await screen.findByText(
+		await screen.findByText(
 			'Ensure the title is at most 250 characters (title has 251 characters)'
 		)
-		expect(titleLengthError).toBeInTheDocument()
 	})
 
 	test('prints correct error if author name is more than 50 characters long', async () => {
@@ -389,10 +384,9 @@ describe('ReferenceForm validates input and', () => {
 		)
 		const saveReferenceBtn = screen.getByRole('button')
 		userEvent.click(saveReferenceBtn)
-		const firstAuthorLengthError = await screen.findByText(
+		await screen.findByText(
 			'Ensure the author name is at most 50 characters (name has 51 characters)'
 		)
-		expect(firstAuthorLengthError).toBeInTheDocument()
 	})
 
 	test('prints correct error if provided year is invalid', async () => {
@@ -400,10 +394,7 @@ describe('ReferenceForm validates input and', () => {
 		userEvent.type(inputFields[1], '1799')
 		const saveReferenceBtn = screen.getByRole('button')
 		userEvent.click(saveReferenceBtn)
-		const yearError = await screen.findByText(
-			'Please provide correct year value'
-		)
-		expect(yearError).toBeInTheDocument()
+		await screen.findByText('Please provide correct year value')
 	})
 
 	test('prints correct error if provided doi number is invalid', async () => {
@@ -411,10 +402,9 @@ describe('ReferenceForm validates input and', () => {
 		userEvent.type(inputFields[3], '10.0')
 		const saveReferenceBtn = screen.getByRole('button')
 		userEvent.click(saveReferenceBtn)
-		const doiError = await screen.findByText(
+		await screen.findByText(
 			'Enter the DOI number that begins with 10 followed by a period'
 		)
-		expect(doiError).toBeInTheDocument()
 	})
 
 	test('prints correct error if provided link is invalid', async () => {
@@ -422,10 +412,7 @@ describe('ReferenceForm validates input and', () => {
 		userEvent.type(inputFields[4], 'javascript:alert("hello")')
 		const saveReferenceBtn = screen.getByRole('button')
 		userEvent.click(saveReferenceBtn)
-		const urlValidationError = await screen.findByText(
-			'Please enter correct url'
-		)
-		expect(urlValidationError).toBeInTheDocument()
+		await screen.findByText('Please enter correct url')
 	})
 
 	test('prints correct error if provided link is more than 200 characters long', async () => {
@@ -436,9 +423,8 @@ describe('ReferenceForm validates input and', () => {
 		)
 		const saveReferenceBtn = screen.getByRole('button')
 		userEvent.click(saveReferenceBtn)
-		const urlLengthError = await screen.findByText(
+		await screen.findByText(
 			'Ensure the url is at most 200 characters (url has 201 characters)'
 		)
-		expect(urlLengthError).toBeInTheDocument()
 	})
 })
