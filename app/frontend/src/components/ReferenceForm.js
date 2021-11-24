@@ -5,6 +5,7 @@ import { makeId } from '../utilities'
 import { referenceFormIsValid } from '../validations'
 import { DoiForm } from './DoiForm'
 import { InputField } from './InputField'
+import { findDuplicateDois, findDuplicateLinks } from '../utilities'
 
 export const ReferenceForm = ({
 	displayRefForm,
@@ -95,7 +96,17 @@ export const ReferenceForm = ({
 			link,
 			addErrorMessage
 		)
-
+		if (
+			findDuplicateDois(doi).length !== 0 ||
+			findDuplicateLinks(doi).length !== 0
+		) {
+			addErrorMessage(
+				'An existing reference is using the same doi.',
+				'doi'
+			)
+			showErrorMsgs()
+			return
+		}
 		if (!valid) {
 			showErrorMsgs()
 			return
