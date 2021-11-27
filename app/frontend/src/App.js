@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadServerData, initServer } from './services/server'
 import { makeId, formatStructuredName } from './utilities'
@@ -28,6 +28,7 @@ const App = () => {
 	const [canDeleteNotification, setCanDeleteNotification] = useState(null)
 	const [nameNotification, setNameNotification] = useState(null)
 	const [locationNotification, setLocationNotification] = useState(null)
+	const [deleteCreatedSname, setDeleteCreatedSname] = useState(false)
 
 	useEffect(() => {
 		initServer()
@@ -56,7 +57,6 @@ const App = () => {
 	const showNewSnameForm = () => {
 		setDisplaySnameForm(displaySnameForm === 'none' ? 'block' : 'none')
 		setNewSnameButtonIsDisabled(!newSnameButtonIsDisabled)
-		setTimeout(function(){document.getElementById('sname-name').focus()}, 200)
 	}
 
 	const canDeleteNotify = (message, type = 'error') => {
@@ -80,6 +80,11 @@ const App = () => {
 		}, 14000)
 	}
 
+	const addSnameRef = useRef(null)
+	const setFocusOnSnameButton = () => {
+		addSnameRef.current.focus()
+	}
+
 	return (
 		<>
 			<div>
@@ -89,6 +94,7 @@ const App = () => {
 						{...{
 							displayRefForm,
 							showNewReferenceForm,
+							setFocusOnSnameButton
 						}}
 					/>
 				) : (
@@ -107,6 +113,7 @@ const App = () => {
 									key: reference.id,
 									reference,
 									showNewReferenceForm,
+									setFocusOnSnameButton
 								}}
 							/>
 						)
@@ -119,7 +126,7 @@ const App = () => {
 				<Notification notification={nameNotification}/>
 				<Notification notification={locationNotification}/>
 				{state.sname.map(sname => (
-					<Sname {...{ key: sname.id, sname }} canDeleteNotify= {canDeleteNotify} nameNotify={nameNotify} locationNotify={locationNotify}/>
+					<Sname {...{ key: sname.id, sname }} canDeleteNotify= {canDeleteNotify} nameNotify={nameNotify} locationNotify={locationNotify} deleteCreatedSname setDeleteCreatedSname={setDeleteCreatedSname}/>
 				))}
 				<SnameForm
 					{...{
@@ -127,6 +134,10 @@ const App = () => {
 						showNewSnameForm,
 						newSnameButtonIsDisabled,
 						setNewSnameButtonIsDisabled,
+						setFocusOnSnameButton,
+						displayRefForm,
+						deleteCreatedSname,
+						setDeleteCreatedSname
 					}}
 				/>
 				<button
@@ -134,6 +145,7 @@ const App = () => {
 					onClick={showNewSnameForm}
 					disabled={newSnameButtonIsDisabled}
 					id='sname-button'
+					ref={addSnameRef}
 				>
 					Add new structured name
 				</button>

@@ -12,6 +12,7 @@ export const ReferenceForm = ({
 	showNewReferenceForm,
 	reference = undefined,
 	isQueried = false,
+	setFocusOnSnameButton
 }) => {
 	const dispatch = useDispatch()
 
@@ -78,9 +79,7 @@ export const ReferenceForm = ({
 		setExists(false)
 		setQueried(false)
 	}
-	const changeFocusSnameSave = () => {
-		setTimeout(function(){document.getElementById('sname-button').focus()}, 20)
-	}
+
 	const handleNewDoiSearch = () => {
 		clearFields()
 		dispatch(deleteRef(reference))
@@ -131,6 +130,7 @@ export const ReferenceForm = ({
 
 		clearFields()
 		showNewReferenceForm()
+		document.getElementById('sname-button').focus()
 	}
 
 	if (queried)
@@ -168,7 +168,7 @@ export const ReferenceForm = ({
 						setField={setLink}
 						notification={formFieldNotification.link}
 					/>
-					<button type='submit' onClick={changeFocusSnameSave}>Save reference</button>
+					<button type='submit' onClick={setFocusOnSnameButton}>Save reference</button>
 					{reference ? (
 						<>
 							<br />
