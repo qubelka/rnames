@@ -319,3 +319,383 @@ describe('When reference provided, SnameForm', () => {
 		})
 	})
 })
+
+describe('When no reference provided, SnameForm', () => {
+	let store
+	beforeEach(() => {
+		store = mockStore({
+			ref: refReducer([], { type: 'INIT', ref: {} }),
+			sname: snameReducer([], { type: 'INIT', sname: {} }),
+			map: mapReducer(initialMapState, { type: 'INIT' }),
+			names: nameReducer([], { type: 'INIT' }),
+		})
+		store.dispatch = jest.fn()
+		render(
+			<Provider store={store}>
+				<SnameForm
+					displaySnameForm='block'
+					showNewSnameForm={() => {}}
+					newSnameButtonIsDisabled={true}
+					setNewSnameButtonIsDisabled={() => {}}
+				/>
+			</Provider>
+		)
+		utilities.findDuplicateStructuredNames.mockImplementation(
+			(sname, structuredNames) => []
+		)
+	})
+	test('does not allow to add new sname', async () => {
+		const saveButton = screen.getByRole('button', { name: /save/i })
+		userEvent.click(saveButton)
+		const refNotProvidedError = await screen.findByText(
+			/Enter reference before saving a structured name/i
+		)
+		expect(refNotProvidedError).toBeInTheDocument()
+	})
+})
+
+test('does not add duplicate names', () => {
+	const mapStateWithNameAdded = {
+		...initialMapState,
+		'{"type":"name","value":200}': {
+			id: '{"type":"name","value":200}',
+			name: 'newName',
+			variant: 'name',
+		},
+	}
+
+	const store = mockStore({
+		ref: refReducer([], { type: 'ADD', ref: reference }),
+		sname: snameReducer([], { type: 'INIT', sname: {} }),
+		map: mapReducer(mapStateWithNameAdded, { type: 'INIT' }),
+		names: nameReducer([], {
+			type: 'ADD_NAME',
+			name: {
+				id: '{"type":"name","value":200}',
+				name: 'newName',
+				variant: 'name',
+			},
+		}),
+	})
+
+	store.dispatch = jest.fn()
+	render(
+		<Provider store={store}>
+			<SnameForm
+				displaySnameForm='block'
+				showNewSnameForm={() => {}}
+				newSnameButtonIsDisabled={true}
+				setNewSnameButtonIsDisabled={() => {}}
+			/>
+		</Provider>
+	)
+	utilities.findDuplicateStructuredNames.mockImplementation(
+		(sname, structuredNames) => []
+	)
+
+	const saveButton = screen.getByRole('button', { name: /save/i })
+	const inputFields = screen.getAllByRole('combobox')
+	const nameInput = inputFields[0]
+	const qualifierInput = inputFields[1]
+	const locationInput = inputFields[2]
+	const qualifierDropdown = screen.getByTestId('datalist-test-id-qualifier')
+	const selectedQualifierOption = qualifierDropdown
+		.querySelector('option[value="Bio_Brachiopoda"]')
+		.getAttribute('value')
+	const locationDropdown = screen.getByTestId('datalist-test-id-location')
+	const selectedLocationOption = locationDropdown
+		.querySelector('option[value="Alabama"]')
+		.getAttribute('value')
+	userEvent.type(nameInput, 'newName')
+	userEvent.type(qualifierInput, selectedQualifierOption)
+	userEvent.type(locationInput, selectedLocationOption)
+	userEvent.click(saveButton)
+	expect(store.dispatch).toHaveBeenCalledTimes(2)
+	expect(store.dispatch).toHaveBeenNthCalledWith(1, {
+		type: 'ADD',
+		sname: {
+			id: expect.anything(),
+			name_id: '{"type":"name","value":200}',
+			location_id: '{"type":"db_location","value":37}',
+			qualifier_id: '{"type":"db_qualifier","value":36}',
+			reference_id: -1,
+			remarks: '',
+			save_with_reference_id: false,
+		},
+	})
+})
+
+test('does not add duplicate locations', () => {
+	const mapStateWithNameAdded = {
+		...initialMapState,
+		'{"type":"location","value":201}': {
+			id: '{"type":"location","value":201}',
+			name: 'newLocation',
+			variant: 'location',
+		},
+	}
+
+	const store = mockStore({
+		ref: refReducer([], { type: 'ADD', ref: reference }),
+		sname: snameReducer([], { type: 'INIT', sname: {} }),
+		map: mapReducer(mapStateWithNameAdded, { type: 'INIT' }),
+		names: nameReducer([], {
+			type: 'ADD_NAME',
+			name: {
+				id: '{"type":"location","value":201}',
+				name: 'newLocation',
+				variant: 'location',
+			},
+		}),
+	})
+
+	store.dispatch = jest.fn()
+	render(
+		<Provider store={store}>
+			<SnameForm
+				displaySnameForm='block'
+				showNewSnameForm={() => {}}
+				newSnameButtonIsDisabled={true}
+				setNewSnameButtonIsDisabled={() => {}}
+			/>
+		</Provider>
+	)
+	utilities.findDuplicateStructuredNames.mockImplementation(
+		(sname, structuredNames) => []
+	)
+
+	const saveButton = screen.getByRole('button', { name: /save/i })
+	const inputFields = screen.getAllByRole('combobox')
+	const nameInput = inputFields[0]
+	const qualifierInput = inputFields[1]
+	const locationInput = inputFields[2]
+	const nameDropdown = screen.getByTestId('datalist-test-id-name')
+	const selectedNameOption = nameDropdown
+		.querySelector('option[value="1b"]')
+		.getAttribute('value')
+	const qualifierDropdown = screen.getByTestId('datalist-test-id-qualifier')
+	const selectedQualifierOption = qualifierDropdown
+		.querySelector('option[value="Bio_Brachiopoda"]')
+		.getAttribute('value')
+	userEvent.type(nameInput, selectedNameOption)
+	userEvent.type(qualifierInput, selectedQualifierOption)
+	userEvent.type(locationInput, 'newLocation')
+	userEvent.click(saveButton)
+	expect(store.dispatch).toHaveBeenCalledTimes(2)
+	expect(store.dispatch).toHaveBeenNthCalledWith(1, {
+		type: 'ADD',
+		sname: {
+			id: expect.anything(),
+			name_id: '{"type":"db_name","value":241}',
+			location_id: '{"type":"location","value":201}',
+			qualifier_id: '{"type":"db_qualifier","value":36}',
+			reference_id: -1,
+			remarks: '',
+			save_with_reference_id: false,
+		},
+	})
+})
+
+describe('When user tries to create duplicate structured name', () => {
+	test('prevents submission and shows notification', async () => {
+		const store = mockStore({
+			ref: refReducer([], { type: 'ADD', ref: reference }),
+			sname: snameReducer([], { type: 'INIT', sname: {} }),
+			map: mapReducer(initialMapState, { type: 'INIT' }),
+			names: nameReducer([], { type: 'INIT' }),
+		})
+
+		store.dispatch = jest.fn()
+		render(
+			<Provider store={store}>
+				<SnameForm
+					displaySnameForm='block'
+					showNewSnameForm={() => {}}
+					newSnameButtonIsDisabled={true}
+					setNewSnameButtonIsDisabled={() => {}}
+				/>
+			</Provider>
+		)
+		utilities.findDuplicateStructuredNames.mockImplementation(
+			(sname, structuredNames) => [
+				{
+					id: '{"type":"structured_name","value":100}',
+					name_id: '{"type":"db_name","value":241}',
+					location_id: '{"type":"db_location","value":37}',
+					qualifier_id: '{"type":"db_qualifier","value":36}',
+					reference_id: -1,
+					remarks: '',
+					save_with_reference_id: false,
+				},
+			]
+		)
+		const saveButton = screen.getByRole('button', { name: /save/i })
+		const inputFields = screen.getAllByRole('combobox')
+		const nameInput = inputFields[0]
+		const qualifierInput = inputFields[1]
+		const locationInput = inputFields[2]
+		const nameDropdown = screen.getByTestId('datalist-test-id-name')
+		const selectedNameOption = nameDropdown
+			.querySelector('option[value="1b"]')
+			.getAttribute('value')
+		const qualifierDropdown = screen.getByTestId(
+			'datalist-test-id-qualifier'
+		)
+		const selectedQualifierOption = qualifierDropdown
+			.querySelector('option[value="Bio_Brachiopoda"]')
+			.getAttribute('value')
+		const locationDropdown = screen.getByTestId('datalist-test-id-location')
+		const selectedLocationOption = locationDropdown
+			.querySelector('option[value="Alabama"]')
+			.getAttribute('value')
+		userEvent.type(nameInput, selectedNameOption)
+		userEvent.type(qualifierInput, selectedQualifierOption)
+		userEvent.type(locationInput, selectedLocationOption)
+		userEvent.click(saveButton)
+		const duplicateSnameError = await screen.findByText(
+			/You are attempting to create a duplicate structured name/i
+		)
+		expect(store.dispatch).not.toHaveBeenCalled()
+		expect(duplicateSnameError).toBeInTheDocument()
+	})
+
+	test('allows user to select option for making duplicate sname', async () => {
+		const store = mockStore({
+			ref: refReducer([], { type: 'ADD', ref: reference }),
+			sname: snameReducer([], { type: 'INIT', sname: {} }),
+			map: mapReducer(initialMapState, { type: 'INIT' }),
+			names: nameReducer([], { type: 'INIT' }),
+		})
+
+		store.dispatch = jest.fn()
+		render(
+			<Provider store={store}>
+				<SnameForm
+					displaySnameForm='block'
+					showNewSnameForm={() => {}}
+					newSnameButtonIsDisabled={true}
+					setNewSnameButtonIsDisabled={() => {}}
+				/>
+			</Provider>
+		)
+		utilities.findDuplicateStructuredNames.mockImplementation(
+			(sname, structuredNames) => [
+				{
+					id: '{"type":"structured_name","value":100}',
+					name_id: '{"type":"db_name","value":241}',
+					location_id: '{"type":"db_location","value":37}',
+					qualifier_id: '{"type":"db_qualifier","value":36}',
+					reference_id: -1,
+					remarks: '',
+					save_with_reference_id: false,
+				},
+			]
+		)
+		const saveButton = screen.getByRole('button', { name: /save/i })
+		const inputFields = screen.getAllByRole('combobox')
+		const nameInput = inputFields[0]
+		const qualifierInput = inputFields[1]
+		const locationInput = inputFields[2]
+		const nameDropdown = screen.getByTestId('datalist-test-id-name')
+		const selectedNameOption = nameDropdown
+			.querySelector('option[value="1b"]')
+			.getAttribute('value')
+		const qualifierDropdown = screen.getByTestId(
+			'datalist-test-id-qualifier'
+		)
+		const selectedQualifierOption = qualifierDropdown
+			.querySelector('option[value="Bio_Brachiopoda"]')
+			.getAttribute('value')
+		const locationDropdown = screen.getByTestId('datalist-test-id-location')
+		const selectedLocationOption = locationDropdown
+			.querySelector('option[value="Alabama"]')
+			.getAttribute('value')
+		userEvent.type(nameInput, selectedNameOption)
+		userEvent.type(qualifierInput, selectedQualifierOption)
+		userEvent.type(locationInput, selectedLocationOption)
+		userEvent.click(saveButton)
+		const okButton = await screen.findByText(/ok/i)
+		userEvent.click(okButton)
+		expect(store.dispatch).toHaveBeenCalledTimes(2)
+		expect(store.dispatch).toHaveBeenNthCalledWith(1, {
+			type: 'ADD',
+			sname: {
+				id: expect.anything(),
+				name_id: '{"type":"db_name","value":241}',
+				location_id: '{"type":"db_location","value":37}',
+				qualifier_id: '{"type":"db_qualifier","value":36}',
+				reference_id: -1,
+				remarks: '',
+				save_with_reference_id: true,
+			},
+		})
+	})
+
+	test('allows to choose existing structured name instead of creating a new one', async () => {
+		const store = mockStore({
+			ref: refReducer([], { type: 'ADD', ref: reference }),
+			sname: snameReducer([], { type: 'INIT', sname: {} }),
+			map: mapReducer(initialMapState, { type: 'INIT' }),
+			names: nameReducer([], { type: 'INIT' }),
+		})
+
+		store.dispatch = jest.fn()
+		render(
+			<Provider store={store}>
+				<SnameForm
+					displaySnameForm='block'
+					showNewSnameForm={() => {}}
+					newSnameButtonIsDisabled={true}
+					setNewSnameButtonIsDisabled={() => {}}
+				/>
+			</Provider>
+		)
+		utilities.findDuplicateStructuredNames.mockImplementation(
+			(sname, structuredNames) => [
+				{
+					id: '{"type":"structured_name","value":100}',
+					name_id: '{"type":"db_name","value":241}',
+					location_id: '{"type":"db_location","value":37}',
+					qualifier_id: '{"type":"db_qualifier","value":36}',
+					reference_id: -1,
+					remarks: '',
+					save_with_reference_id: false,
+				},
+			]
+		)
+		const saveButton = screen.getByRole('button', { name: /save/i })
+		const inputFields = screen.getAllByRole('combobox')
+		const nameInput = inputFields[0]
+		const qualifierInput = inputFields[1]
+		const locationInput = inputFields[2]
+		const nameDropdown = screen.getByTestId('datalist-test-id-name')
+		const selectedNameOption = nameDropdown
+			.querySelector('option[value="1b"]')
+			.getAttribute('value')
+		const qualifierDropdown = screen.getByTestId(
+			'datalist-test-id-qualifier'
+		)
+		const selectedQualifierOption = qualifierDropdown
+			.querySelector('option[value="Bio_Brachiopoda"]')
+			.getAttribute('value')
+		const locationDropdown = screen.getByTestId('datalist-test-id-location')
+		const selectedLocationOption = locationDropdown
+			.querySelector('option[value="Alabama"]')
+			.getAttribute('value')
+		userEvent.type(nameInput, selectedNameOption)
+		userEvent.type(qualifierInput, selectedQualifierOption)
+		userEvent.type(locationInput, selectedLocationOption)
+		userEvent.click(saveButton)
+		const selectExistingSnameButton = await screen.findAllByRole('button', {
+			name: /select/i,
+		})
+		userEvent.click(selectExistingSnameButton[0])
+		const okButton = screen.getByText(/ok/i)
+		userEvent.click(okButton)
+		expect(store.dispatch).toHaveBeenCalledTimes(1)
+		expect(store.dispatch).toHaveBeenCalledWith({
+			type: 'SELECT_STRUCTURED_NAME',
+			structured_name_id: '{"type":"structured_name","value":100}',
+		})
+	})
+})
