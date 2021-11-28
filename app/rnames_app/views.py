@@ -129,17 +129,20 @@ def binning_process():
         + len(result['periods'])
     )
 
+    create_objects = []
+    update_objects = []
+
     def update(obj, oldest, youngest, ts_count, refs, rule):
         obj.oldest = oldest
         obj.youngest = youngest
         obj.ts_count = ts_count
         obj.refs = refs
         obj.rule = rule
-        obj.save()
+        update_objects.append(obj)
 
     def create(name, scheme, oldest, youngest, ts_count, refs, rule):
         obj = Binning(name=name, binning_scheme=scheme, oldest=oldest, youngest=youngest, ts_count=ts_count, refs=refs, rule=rule)
-        obj.save()
+        create_objects.append(obj)
 
     def process_result(df, scheme):
         col = SimpleNamespace(**{k: v for v, k in enumerate(df.columns)})
@@ -157,6 +160,10 @@ def binning_process():
     process_result(result['webby'], 'x_robinw')
     process_result(result['stages'], 'x_robins')
     process_result(result['periods'], 'x_robinp')
+
+    Binning.objects.bulk_create(create_objects, 100)
+    Binning.objects.bulk_update(update_objects, ['oldest', 'youngest', 'ts_count', 'refs', 'rule'], 100)
+
     info.finish_binning()
 
 @login_required
