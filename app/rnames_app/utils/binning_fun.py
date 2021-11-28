@@ -705,6 +705,7 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
     x2 = x2.sort_values(by=['name', 'b_scheme'])
     col = column_names_as_props(x2)
     x2 = x2.values
+    used_ts_col = column_names_as_props(used_ts)
     used_ts = used_ts.values
 
     for i_name in xal["name"].dropna().unique():
@@ -733,18 +734,14 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
         rq = round(np.quantile(rax_counts[1], 0.75),0)
         rax_counts = rax_counts[0][rax_counts[1] >= rq]
 
-        # used_ts column indices
-        k_ts = 0
-        k_ts_index = 1
-
         # Inner join on table with only one column is identical to filtering
         rax_sub = used_ts[np.isin(used_ts[:, 1], rax_counts)]
 
-        rax_sub_max = np.max(rax_sub[:, k_ts_index])
-        rax_sub_min = np.min(rax_sub[:, k_ts_index])
+        rax_sub_max = np.max(rax_sub[:, used_ts_col.ts_index])
+        rax_sub_min = np.min(rax_sub[:, used_ts_col.ts_index])
 
-        x_youngest = rax_sub[rax_sub[:, k_ts_index] == rax_sub_max]
-        x_oldest = rax_sub[rax_sub[:, k_ts_index] == rax_sub_min]
+        x_youngest = rax_sub[rax_sub[:, used_ts_col.ts_index] == rax_sub_max]
+        x_oldest = rax_sub[rax_sub[:, used_ts_col.ts_index] == rax_sub_min]
 
         ts_c = rax_sub_max - rax_sub_min
 
@@ -755,7 +752,7 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
 
         refs_f = ', '.join(list(refs))
 
-        rows.append((i_name, x_oldest[0, k_ts], x_youngest[0, k_ts], float(ts_c), refs_f))
+        rows.append((i_name, x_oldest[0, used_ts_col.ts], x_youngest[0, used_ts_col.ts], float(ts_c), refs_f))
 
     return pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
 
