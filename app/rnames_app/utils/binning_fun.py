@@ -703,7 +703,7 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
 
     # Sort x2 so binary search can be used to quickly find ranges
     x2 = x2.sort_values(by=['name', 'b_scheme'])
-    col = SimpleNamespace(**{k: v for v, k in enumerate(x2.columns)})
+    col = column_names_as_props(x2)
     x2 = x2.values
     used_ts = used_ts.values
 
@@ -781,12 +781,15 @@ def merge_time_info(x1, used_ts):
     x1.columns = columns
     return pd.concat((x1,x1m), axis=0)
 
+def column_names_as_props(df):
+    return SimpleNamespace(**{k: v for v, k in enumerate(df.columns)})
+
 def bin_unique_names_0(ibs, cr_x, xnames_raw):
     if cr_x.empty:
         return pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
     col = SimpleNamespace()
-    col.ntts = SimpleNamespace(**{k: v for v, k in enumerate(cr_x.columns)})
-    col.xnames = SimpleNamespace(**{k: v for v, k in enumerate(xnames_raw.columns)})
+    col.ntts = column_names_as_props(cr_x)
+    col.xnames = column_names_as_props(xnames_raw)
 
     bnu = pd.unique(cr_x["name_1"])
     # Data is sorted to quickly find the range in the dataframe matching a given name
@@ -844,8 +847,8 @@ def bin_unique_names_1(ibs, x1, xnames_raw):
         return pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
 
     col = SimpleNamespace()
-    col.ntts = SimpleNamespace(**{k: v for v, k in enumerate(x1.columns)})
-    col.xnames = SimpleNamespace(**{k: v for v, k in enumerate(xnames_raw.columns)})
+    col.ntts = column_names_as_props(x1)
+    col.xnames = column_names_as_props(xnames_raw)
 
     rows = []
     # Data is sorted by name and reference year
