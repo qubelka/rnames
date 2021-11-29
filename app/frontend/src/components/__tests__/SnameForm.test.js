@@ -11,6 +11,9 @@ import { refReducer } from '../../store/references/reducers'
 import { mapReducer } from '../../store/map/reducers'
 import { nameReducer } from '../../store/names/reducers'
 import * as utilities from '../../utilities.js'
+import { addSname } from '../../store/snames/actions'
+import { addRef } from '../../store/references/actions'
+import { addName } from '../../store/names/actions'
 
 const mockStore = configureStore([])
 jest.spyOn(utilities, 'findDuplicateStructuredNames')
@@ -70,7 +73,7 @@ describe('When reference provided, SnameForm', () => {
 	let store
 	beforeEach(() => {
 		store = mockStore({
-			ref: refReducer([], { type: 'ADD', ref: reference }),
+			ref: refReducer([], addRef(reference)),
 			sname: snameReducer([], { type: 'INIT', sname: {} }),
 			map: mapReducer(initialMapState, { type: 'INIT' }),
 			names: nameReducer([], { type: 'INIT' }),
@@ -365,17 +368,17 @@ test('does not add duplicate names', () => {
 	}
 
 	const store = mockStore({
-		ref: refReducer([], { type: 'ADD', ref: reference }),
+		ref: refReducer([], addRef(reference)),
 		sname: snameReducer([], { type: 'INIT', sname: {} }),
 		map: mapReducer(mapStateWithNameAdded, { type: 'INIT' }),
-		names: nameReducer([], {
-			type: 'ADD_NAME',
-			name: {
+		names: nameReducer(
+			[],
+			addName({
 				id: '{"type":"name","value":200}',
 				name: 'newName',
 				variant: 'name',
-			},
-		}),
+			})
+		),
 	})
 
 	store.dispatch = jest.fn()
@@ -436,17 +439,17 @@ test('does not add duplicate locations', () => {
 	}
 
 	const store = mockStore({
-		ref: refReducer([], { type: 'ADD', ref: reference }),
+		ref: refReducer([], addRef(reference)),
 		sname: snameReducer([], { type: 'INIT', sname: {} }),
 		map: mapReducer(mapStateWithNameAdded, { type: 'INIT' }),
-		names: nameReducer([], {
-			type: 'ADD_NAME',
-			name: {
+		names: nameReducer(
+			[],
+			addName({
 				id: '{"type":"location","value":201}',
 				name: 'newLocation',
 				variant: 'location',
-			},
-		}),
+			})
+		),
 	})
 
 	store.dispatch = jest.fn()
@@ -499,7 +502,7 @@ test('does not add duplicate locations', () => {
 describe('When user tries to create duplicate structured name', () => {
 	test('prevents submission and shows notification', async () => {
 		const store = mockStore({
-			ref: refReducer([], { type: 'ADD', ref: reference }),
+			ref: refReducer([], addRef(reference)),
 			sname: snameReducer([], { type: 'INIT', sname: {} }),
 			map: mapReducer(initialMapState, { type: 'INIT' }),
 			names: nameReducer([], { type: 'INIT' }),
@@ -561,7 +564,7 @@ describe('When user tries to create duplicate structured name', () => {
 
 	test('allows user to select option for making duplicate sname', async () => {
 		const store = mockStore({
-			ref: refReducer([], { type: 'ADD', ref: reference }),
+			ref: refReducer([], addRef(reference)),
 			sname: snameReducer([], { type: 'INIT', sname: {} }),
 			map: mapReducer(initialMapState, { type: 'INIT' }),
 			names: nameReducer([], { type: 'INIT' }),
@@ -633,7 +636,7 @@ describe('When user tries to create duplicate structured name', () => {
 
 	test('allows to choose existing structured name instead of creating a new one', async () => {
 		const store = mockStore({
-			ref: refReducer([], { type: 'ADD', ref: reference }),
+			ref: refReducer([], addRef(reference)),
 			sname: snameReducer([], { type: 'INIT', sname: {} }),
 			map: mapReducer(initialMapState, { type: 'INIT' }),
 			names: nameReducer([], { type: 'INIT' }),

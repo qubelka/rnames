@@ -9,6 +9,8 @@ import { Sname } from '../Sname'
 import { snameReducer } from '../../store/snames/reducers'
 import { mapReducer } from '../../store/map/reducers'
 import { relReducer } from '../../store/relations/reducers'
+import { addSname } from '../../store/snames/actions'
+import { addRel } from '../../store/relations/actions'
 
 const mockStore = configureStore([])
 const structured_name = {
@@ -46,11 +48,8 @@ describe('Sname', () => {
 	let store
 	beforeEach(() => {
 		store = mockStore({
-			map: mapReducer(initialMapState, {
-				type: 'ADD',
-				sname: structured_name,
-			}),
-			sname: snameReducer([], { type: 'ADD', sname: structured_name }),
+			map: mapReducer(initialMapState, addSname(structured_name)),
+			sname: snameReducer([], addSname(structured_name)),
 			rel: relReducer([], { type: 'INIT', rel: {} }),
 		})
 		store.dispatch = jest.fn()
@@ -109,8 +108,8 @@ test('does not delete sname if there is a relation dependency', () => {
 			type: 'ADD',
 			sname: structured_name,
 		}),
-		sname: snameReducer([], { type: 'ADD', sname: structured_name }),
-		rel: relReducer([], { type: 'ADD', rel: relation }),
+		sname: snameReducer([], addSname(structured_name)),
+		rel: relReducer([], addRel(relation)),
 	})
 	store.dispatch = jest.fn()
 	render(
@@ -137,11 +136,8 @@ test('deletes name created by user if no dependencies found', () => {
 		name_id: '{"type":"name","value":1}',
 	}
 	const store = mockStore({
-		map: mapReducer(initialMapState, {
-			type: 'ADD',
-			sname: sname_with_new_name,
-		}),
-		sname: snameReducer([], { type: 'ADD', sname: sname_with_new_name }),
+		map: mapReducer(initialMapState, addSname(sname_with_new_name)),
+		sname: snameReducer([], addSname(sname_with_new_name)),
 		rel: relReducer([], { type: 'INIT', rel: {} }),
 	})
 	store.dispatch = jest.fn()
@@ -174,14 +170,8 @@ test('deletes location created by user if no dependencies found', () => {
 		location_id: '{"type":"location","value":1}',
 	}
 	const store = mockStore({
-		map: mapReducer(initialMapState, {
-			type: 'ADD',
-			sname: sname_with_new_location,
-		}),
-		sname: snameReducer([], {
-			type: 'ADD',
-			sname: sname_with_new_location,
-		}),
+		map: mapReducer(initialMapState, addSname(sname_with_new_location)),
+		sname: snameReducer([], addSname(sname_with_new_location)),
 		rel: relReducer([], { type: 'INIT', rel: {} }),
 	})
 	store.dispatch = jest.fn()
@@ -215,14 +205,11 @@ test('deletes both name and location created by user if no dependencies found', 
 		location_id: '{"type":"location","value":2}',
 	}
 	const store = mockStore({
-		map: mapReducer(initialMapState, {
-			type: 'ADD',
-			sname: sname_with_new_name_and_location,
-		}),
-		sname: snameReducer([], {
-			type: 'ADD',
-			sname: sname_with_new_name_and_location,
-		}),
+		map: mapReducer(
+			initialMapState,
+			addSname(sname_with_new_name_and_location)
+		),
+		sname: snameReducer([], addSname(sname_with_new_name_and_location)),
 		rel: relReducer([], { type: 'INIT', rel: {} }),
 	})
 	store.dispatch = jest.fn()
@@ -260,10 +247,7 @@ test('does not delete name created by user if dependency found', () => {
 		name_id: '{"type":"name","value":1}',
 	}
 	const store = mockStore({
-		map: mapReducer(initialMapState, {
-			type: 'ADD',
-			sname: sname_with_new_name,
-		}),
+		map: mapReducer(initialMapState, addSname(sname_with_new_name)),
 		sname: snameReducer(
 			[
 				{
@@ -276,7 +260,7 @@ test('does not delete name created by user if dependency found', () => {
 					save_with_reference_id: false,
 				},
 			],
-			{ type: 'ADD', sname: sname_with_new_name }
+			addSname(sname_with_new_name)
 		),
 		rel: relReducer([], { type: 'INIT', rel: {} }),
 	})
@@ -310,10 +294,7 @@ test('does not delete location created by user if dependency found', () => {
 		location_id: '{"type":"location","value":1}',
 	}
 	const store = mockStore({
-		map: mapReducer(initialMapState, {
-			type: 'ADD',
-			sname: sname_with_new_location,
-		}),
+		map: mapReducer(initialMapState, addSname(sname_with_new_location)),
 		sname: snameReducer(
 			[
 				{
@@ -326,10 +307,7 @@ test('does not delete location created by user if dependency found', () => {
 					save_with_reference_id: false,
 				},
 			],
-			{
-				type: 'ADD',
-				sname: sname_with_new_location,
-			}
+			addSname(sname_with_new_location)
 		),
 		rel: relReducer([], { type: 'INIT', rel: {} }),
 	})
