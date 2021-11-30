@@ -13,6 +13,19 @@
 
 <title>{% block title %}RNames{% endblock %}</title>
 <style>
+
+  .w3-theme {color:#F5F3EC !important; background-color:#665848 !important}
+  .w3-theme-b1 {color:#F5F3EC !important; background-color:#665848 !important; }
+  .w3-theme-b1:hover {color:#665848 !important; background-color:#F5F3EC !important}
+
+  .top-header {padding-right: 3%; padding-left: 3%;}
+  .header-right {width: 200px;}
+  .header-right .w3-button {padding-top: 0px; padding-bottom: 0px;}
+  .header-left h2 {padding-left: 16px;}
+
+  .w3-bar-item {padding-top: 5px; padding-bottom: 5px;}
+
+
   * {box-sizing: border-box}
 
   body {
@@ -125,9 +138,34 @@
 </head>
 <body>
 
-<header id="top" class="w3-text-white w3-left-align">
-  <h2>RNames</h2>
-</header>
+<div class="top-header w3-container w3-theme">
+	<div class="header w3-display-container" style="height: 98px;">
+    <div class="header-left w3-display-left">
+      <h2>RNames</h2>
+    </div>
+    	<div class="header-right w3-display-right">
+        <div class="menu-item w3-display-container w3-hide-medium">
+          <div class="menu-item-left w3-display-left">
+            <div class="w3-dropdown-hover w3-theme">
+            	<button class="w3-button w3-theme-b1"><h4>Help <i class="fa fa-caret-down"></i></h4></button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4" style="right:0; width: 250px;">
+                  	<a href="{% url 'help-faq' %}" class="w3-bar-item w3-button w3-padding">FAQ</a>
+                  	<a href="{% url 'help-database-structure' %}" class="w3-bar-item w3-button w3-padding">Database Structure</a>
+                  	<a href="{% url 'help-wizard' %}" class="w3-bar-item w3-button w3-padding">Data entry with Wizard</a>
+                  	<a href="{% url 'help-instruction' %}" class="w3-bar-item w3-button w3-padding">Data entry in Three Steps</a>
+                  	<a href="{% url 'help-structure-of-binning-algorithm' %}" class="w3-bar-item w3-button w3-padding">Binning algorithm</a>
+                </div>
+            </div>
+          </div>
+          <div class="menu-item-right w3-display-right">
+            <a href="{% url 'account_login' %}?next={{request.path}}" class="w3-button w3-theme-b1"><h4>Login</h4></a>
+          </div>
+        </div>
+        <i class="fa fa-bars w3-button w3-theme-b1 w3-hide-large w3-xlarge w3-right" onclick="w3_open()"></i>
+      </div>
+  </div>
+</div>
+
 
 <section class="w3-section">
   <header class="w3-hide"><h1>Main Menu</h1></header>
