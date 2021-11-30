@@ -135,12 +135,11 @@ export const SnameForm = ({
 		if(newSnameButtonIsDisabled){
 			nameRef.current.focus()
 		}
-		if (displayRefForm === 'none' && newSnameButtonIsDisabled) {
+
+		if (displayRefForm === 'none') {
 			setFocusOnSnameButton()
 		}
-		if (displayRefForm === 'none' && !newSnameButtonIsDisabled) {
-			setFocusOnSnameButton()
-		}
+
 		if (displaySnameForm === 'block' && newSnameButtonIsDisabled) {
 			nameRef.current.focus()
 		}

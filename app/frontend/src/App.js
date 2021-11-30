@@ -126,7 +126,7 @@ const App = () => {
 				<Notification notification={nameNotification}/>
 				<Notification notification={locationNotification}/>
 				{state.sname.map(sname => (
-					<Sname {...{ key: sname.id, sname }} canDeleteNotify= {canDeleteNotify} nameNotify={nameNotify} locationNotify={locationNotify} deleteCreatedSname setDeleteCreatedSname={setDeleteCreatedSname}/>
+					<Sname {...{ key: sname.id, sname }} canDeleteNotify= {canDeleteNotify} nameNotify={nameNotify} locationNotify={locationNotify} setDeleteCreatedSname={setDeleteCreatedSname}/>
 				))}
 				<SnameForm
 					{...{
