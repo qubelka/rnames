@@ -12,8 +12,8 @@ import {
 } from '../store/snames/selectors'
 import { selectStructuredName } from '../store/selected_structured_names/actions'
 import { Notification } from './Notification'
-import { loadServerData } from '../services/server'
 import { DuplicateNameDialog } from './DuplicateNameDialog'
+import { findDuplicateStructuredNames } from '../utilities'
 
 const NameDataList = React.forwardRef(
 	({ name, names, onChangeHandler }, ref) => {
@@ -67,13 +67,6 @@ export const SnameForm = ({
 
 	const locations = useSelector(selectAllLocations)
 
-	const findDuplicateStructuredNames = sname =>
-		loadServerData('structured_names')
-			.concat(structuredNames)
-			.filter(v => v.qualifier_id === sname.qualifier_id)
-			.filter(v => v.location_id === sname.location_id)
-			.filter(v => v.name_id === sname.name_id)
-
 	const handleSnameAddition = () => {
 		if (!reference) {
 			notify('Enter reference before saving a structured name.')
@@ -114,7 +107,9 @@ export const SnameForm = ({
 			save_with_reference_id: saveWithReference,
 		}
 
-		if (findDuplicateStructuredNames(newSname).length === 0)
+		if (
+			findDuplicateStructuredNames(newSname, structuredNames).length === 0
+		)
 			submitSname(newSname)
 		else setStructuredName(newSname)
 		}
@@ -171,7 +166,10 @@ export const SnameForm = ({
 	}, [deleteCreatedSname])
 
 	if (structuredName !== undefined) {
-		const duplicateNames = findDuplicateStructuredNames(structuredName)
+		const duplicateNames = findDuplicateStructuredNames(
+			structuredName,
+			structuredNames
+		)
 		const selectHandler = sname => {
 			if (sname.id === structuredName.id) {
 				submitSname(sname)
