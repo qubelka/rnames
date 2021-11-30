@@ -19,7 +19,7 @@ import json
 
 from django.db import connection
 from django.db.models import Q
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import (HttpResponse, JsonResponse, HttpResponseBadRequest)
 from django.shortcuts import render, get_object_or_404, redirect
@@ -231,6 +231,7 @@ def binning_scheme_list(request):
     )
 
 
+@login_required
 def export_csv_binnings(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="rnames_binnings.csv"'
@@ -257,6 +258,7 @@ def export_csv_binnings(request):
     return response
 
 
+@login_required
 def export_csv_references(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="rnames_references.csv"'
@@ -421,6 +423,7 @@ def location_detail(request, pk):
 
 
 @login_required
+@permission_required('rnames_app.change_location', raise_exception=True)
 def location_edit(request, pk):
     location = get_object_or_404(Location, pk=pk, is_active=1)
     if request.method == "POST":
@@ -456,6 +459,7 @@ def location_list(request):
 
 
 @login_required
+@permission_required('rnames_app.add_location', raise_exception=True)
 def location_new(request):
     if request.method == "POST":
         form = LocationForm(request.POST)
@@ -481,6 +485,7 @@ def name_detail(request, pk):
 
 
 @login_required
+@permission_required('rnames_app.change_name', raise_exception=True)
 def name_edit(request, pk):
     name = get_object_or_404(Name, pk=pk, is_active=1)
     if request.method == "POST":
@@ -518,6 +523,7 @@ def name_list(request):
 
 
 @login_required
+@permission_required('rnames_app.add_name', raise_exception=True)
 def name_new(request):
     if request.method == "POST":
         form = NameForm(request.POST)
@@ -563,6 +569,7 @@ def qualifier_list(request):
 
 
 @login_required
+@permission_required('rnames_app.add_qualifier', raise_exception=True)
 def qualifier_new(request):
     if request.method == "POST":
         form = QualifierForm(request.POST)
@@ -576,6 +583,7 @@ def qualifier_new(request):
 
 
 @login_required
+@permission_required('rnames_app.change_qualifier', raise_exception=True)
 def qualifier_edit(request, pk):
     qualifier = get_object_or_404(Qualifier, pk=pk, is_active=1)
     if request.method == "POST":
@@ -600,6 +608,7 @@ def qualifiername_detail(request, pk):
 
 
 @login_required
+@permission_required('rnames_app.change_qualifiername', raise_exception=True)
 def qualifiername_edit(request, pk):
     qualifiername = get_object_or_404(QualifierName, pk=pk, is_active=1)
     if request.method == "POST":
@@ -637,6 +646,7 @@ def qualifiername_list(request):
 
 
 @login_required
+@permission_required('rnames_app.add_qualifiername', raise_exception=True)
 def qualifiername_new(request):
     if request.method == "POST":
         form = QualifierNameForm(request.POST)
@@ -683,6 +693,7 @@ def reference_detail(request, pk):
 
 
 @login_required
+@permission_required('rnames_app.change_reference', raise_exception=True)
 def reference_edit(request, pk):
     reference = get_object_or_404(Reference, pk=pk, is_active=1)
     if request.method == "POST":
@@ -733,6 +744,7 @@ def reference_list(request):
 
 
 @login_required
+@permission_required('rnames_app.add_reference', raise_exception=True)
 def reference_new(request):
     if request.method == "POST":
         form = ReferenceForm(request.POST)
@@ -913,6 +925,7 @@ def relation_sql_detail(request, name_one, name_two):
 
 
 @login_required
+@permission_required('rnames_app.change_relation', raise_exception=True)
 def relation_edit(request, pk):
     relation = get_object_or_404(Relation, pk=pk, is_active=1)
     if request.method == "POST":
@@ -953,6 +966,7 @@ def relation_list(request):
 
 
 @login_required
+@permission_required('rnames_app.add_relation', raise_exception=True)
 def relation_new(request, reference_id):
     if request.method == "POST":
         form = RelationForm(request.POST)
@@ -997,6 +1011,7 @@ def stratigraphic_qualifier_detail(request, pk):
 
 
 @login_required
+@permission_required('rnames_app.change_stratigraphicqualifier', raise_exception=True)
 def stratigraphic_qualifier_edit(request, pk):
     stratigraphicqualifier = get_object_or_404(
         StratigraphicQualifier, pk=pk, is_active=1)
@@ -1036,6 +1051,7 @@ def stratigraphic_qualifier_list(request):
 
 
 @login_required
+@permission_required('rnames_app.add_stratigraphicqualifier', raise_exception=True)
 def stratigraphic_qualifier_new(request):
     if request.method == "POST":
         form = StratigraphicQualifierForm(request.POST)
@@ -1175,6 +1191,7 @@ def structuredname_list(request):
 
 
 @login_required
+@permission_required('rnames_app.add_structuredname', raise_exception=True)
 def structuredname_new(request):
     if request.method == "POST":
         form = StructuredNameForm(request.POST)
@@ -1188,6 +1205,7 @@ def structuredname_new(request):
 
 
 @login_required
+@permission_required('rnames_app.change_structuredname', raise_exception=True)
 def structuredname_edit(request, pk):
     structuredname = get_object_or_404(StructuredName, pk=pk, is_active=1)
     if request.method == "POST":
@@ -1239,6 +1257,7 @@ def user_search(request):
     user_filter = UserFilter(request.GET, queryset=user_list)
     return render(request, 'user_list.html', {'filter': user_filter})
 
+
 class timeslice_delete(DeleteView):
     model = TimeSlice
     success_url = reverse_lazy('timeslice-list')
@@ -1250,6 +1269,7 @@ def timeslice_detail(request, pk):
 
 
 @login_required
+@permission_required('rnames_app.change_timeslice', raise_exception=True)
 def timeslice_edit(request, pk):
     timeslice = get_object_or_404(TimeSlice, pk=pk, is_active=1)
     if request.method == "POST":
@@ -1285,6 +1305,7 @@ def timeslice_list(request):
 
 
 @login_required
+@permission_required('rnames_app.add_timeslice', raise_exception=True)
 def timeslice_new(request):
     if request.method == "POST":
         form = TimeSliceForm(request.POST)
