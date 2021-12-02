@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { makeId, formatStructuredName } from '../utilities'
 import { addRel, deleteRel } from '../store/relations/actions'
 import { BelongsToSelector } from './BelongsToSelector'
+import { Relation } from './Relation'
 
 export const RelationSelector = () => {
 	const dispatch = useDispatch()
@@ -108,11 +109,22 @@ export const RelationSelector = () => {
 			</div>
 			<div>
 				<h3>Relations</h3>
-				{relations.map(v => (
-					<p key={v.id}>
-						{`${v.formattedName1} <===> ${v.formattedName2}`}
-					</p>
-				))}
+				<table>
+					<tr>
+						<th>Structured Name 1</th>
+						<th>Swap</th>
+						<th>Belongs To</th>
+						<th>Structured Name 2</th>
+					</tr>
+					{relations.map(v => (
+						<Relation
+							key={v.id}
+							relation={v}
+							formattedName1={v.formattedName1}
+							formattedName2={v.formattedName2}
+						/>
+					))}
+				</table>
 			</div>
 		</>
 	)
