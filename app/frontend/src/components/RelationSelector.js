@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { makeId, formatStructuredName } from '../utilities'
 import { addRel, deleteRel } from '../store/relations/actions'
+import { BelongsToSelector } from './BelongsToSelector'
 
 export const RelationSelector = () => {
 	const dispatch = useDispatch()
@@ -55,6 +56,7 @@ export const RelationSelector = () => {
 					id: makeId('relation'),
 					name1: idA,
 					name2: idB,
+					belongs_to: 0,
 					reference_id: -1,
 				})
 			)
@@ -94,6 +96,11 @@ export const RelationSelector = () => {
 									toggleRelation(primaryName, v.id)
 								}
 							>
+								<BelongsToSelector
+									idA={primaryName}
+									idB={v.id}
+									relation={relationExists(primaryName, v.id)}
+								/>
 								{v.formattedName}
 							</div>
 						))}
