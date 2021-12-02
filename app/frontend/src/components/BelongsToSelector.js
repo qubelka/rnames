@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { addRel, updateRel, deleteRel } from '../store/relations/actions'
+import { addRel, updateRel } from '../store/relations/actions'
 import { makeId } from '../utilities'
 
 export const BelongsToSelector = ({ idA, idB, relation = undefined }) => {
