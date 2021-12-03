@@ -101,10 +101,19 @@ export const ReferenceForm = ({
 			return
 		}
 
-		if (findDuplicateDois(doi) || findDuplicateDois(link)) {
+		if (findDuplicateDois(doi)) {
 			addErrorMessage(
 				'An existing reference is using the same doi.',
 				'doi'
+			)
+			showErrorMsgs()
+			return
+		}
+
+		if (findDuplicateDois(link)) {
+			addErrorMessage(
+				'An existing reference is using the same permanent link.',
+				'link'
 			)
 			showErrorMsgs()
 			return
