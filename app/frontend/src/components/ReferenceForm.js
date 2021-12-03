@@ -103,7 +103,12 @@ export const ReferenceForm = ({
 
 		if (findDuplicateDois(doi)) {
 			addErrorMessage(
-				'An existing reference is using the same doi.',
+				<>
+					An existing reference is using the same doi: &nbsp;
+					<a
+						href={`https://www.doi.org/${doi}`}
+					>{`https://www.doi.org/${doi}`}</a>
+				</>,
 				'doi'
 			)
 			showErrorMsgs()
