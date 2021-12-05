@@ -177,6 +177,7 @@ def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices, inf
     return combi_names
 
 def rule0(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
+    #rule 0 = all direct relations between chronostrat names and binning scheme
     cr_x = c_rels_d.loc[((c_rels_d["strat_qualifier_1"]=="Chronostratigraphy"))
                               & ((c_rels_d["qualifier_name_2"]==t_scheme)),
                               ["reference_id","name_1","name_2", "ts", "ts_index", "reference_year"]]
