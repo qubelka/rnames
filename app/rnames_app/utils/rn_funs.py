@@ -75,8 +75,15 @@ def bifu_s2(col, ntts, xnames_raw):
     sorted_refs = ntts[ntts[:, col.ntts.reference_id].argsort()]
     for r_yx in np.unique(ntts[:, col.ntts.reference_id]):
         # sorted_refs is sorted by reference id so finding all entries matching the refs can be done quickly with binary search
-        cptx = sorted_refs[bisect_left(sorted_refs[:, col.ntts.reference_id], r_yx):bisect_right(sorted_refs[:, col.ntts.reference_id], r_yx)]
+        # Select rows with this reference
+        cptx_begin = bisect_left(sorted_refs[:, col.ntts.reference_id], r_yx)
+        cptx_end = bisect_right(sorted_refs[:, col.ntts.reference_id], r_yx)
+        cptx = sorted_refs[cptx_begin:cptx_end]
+
+        # Calculate range delta
         ts_x = np.max(cptx[:, col.ntts.youngest_index]) - np.min(cptx[:, col.ntts.oldest_index])
+
+
         if ts_x == min_delta:
             rows.append(r_yx)
         if ts_x < min_delta:
