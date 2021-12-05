@@ -736,9 +736,7 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
         rax_counts = np.unique(rax, return_counts=True) #rax_counts[0] is ts_bins, rax_counts[1] is counts
         rq = round(np.quantile(rax_counts[1], 0.75),0)
         rax_counts = rax_counts[0][rax_counts[1] >= rq]
-
-        # Inner join on table with only one column is identical to filtering
-        rax_sub = used_ts[np.isin(used_ts[:, 1], rax_counts)]
+        rax_sub = used_ts[np.isin(used_ts[:, 1], rax_counts)] # Inner join on table with only one column is identical to filtering
 
         rax_sub_max = np.max(rax_sub[:, used_ts_col.ts_index])
         rax_sub_min = np.min(rax_sub[:, used_ts_col.ts_index])
@@ -766,6 +764,8 @@ def merge_time_info(x1, used_ts):
     x1.rename(inplace=True, columns={'ts_index': 'oldest_index'})
     x1 = pd.merge(x1, used_ts, how= 'inner', left_on="youngest", right_on="ts") # time bin info is added here
     x1.rename(inplace=True, columns={'ts_index': 'youngest_index'})
+
+    # Select appropriate columns
     x1 = x1[columns]
 
     # Swap name_1 and name_2 columns
@@ -782,6 +782,10 @@ def merge_time_info(x1, used_ts):
     return pd.concat((x1,x1m), axis=0)
 
 def column_names_as_props(df):
+    # This function returns an object whose properties are the data frame's columns
+    # and their values are the columns index.
+    # E.g., for data frame with columns [name, reference, count] the returned object
+    # has obj.name = 0, obj.reference = 1, and obj.count = 2
     return SimpleNamespace(**{k: v for v, k in enumerate(df.columns)})
 
 def result_selector_1(name, data, col):
