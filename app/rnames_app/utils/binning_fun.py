@@ -698,7 +698,6 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
     x2 = x2[['name', 'oldest', 'oldest_index', 'youngest', 'ts_index','ts_count',
              'refs', 'rule', "b_scheme"]]
     x2.rename(inplace=True, columns={'ts_index': 'youngest_index'})
-    rows = []
 
     xal = pd.merge(pd.merge(resi_s,resi_y,on='name'),resi_c,on='name')
 
@@ -712,6 +711,9 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
     # Use data frames' underlying ndarrays directly
     x2 = x2.values
     used_ts = used_ts.values
+
+    # Array to store results
+    rows = []
 
     for i_name in xal["name"].dropna().unique():
     #i=2
