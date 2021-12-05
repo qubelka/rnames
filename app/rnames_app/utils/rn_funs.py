@@ -32,7 +32,9 @@ def bifu_y(col, ntts, xnames_raw):
 def bifu_y2  (col, ntts, xnames_raw):
     max_y = np.max(ntts[:, col.ntts.reference_year])
     # ntts is sorted by reference year so binary search can be used
-    return ntts[bisect_left(ntts[:, col.ntts.reference_year], max_y):bisect_right(ntts[:, col.ntts.reference_year], max_y)]
+    max_y_begin = bisect_left(ntts[:, col.ntts.reference_year], max_y)
+    max_y_end = bisect_right(ntts[:, col.ntts.reference_year], max_y)
+    return ntts[max_y_begin:max_y_end]
 
 ################################################################
 # strictly searches for shortest binnings
