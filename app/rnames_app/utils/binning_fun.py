@@ -9,6 +9,7 @@ import numpy as np
 from bisect import (bisect_left, bisect_right)
 from types import SimpleNamespace
 from .rn_funs import *
+from .tools import (data_frames_equal)
 
 def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices, info):
 
