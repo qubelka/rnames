@@ -17,6 +17,7 @@ import numpy as np
 # end
 import json
 
+from django import db
 from django.db import connection
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required, permission_required
@@ -46,6 +47,7 @@ from .utils.info import BinningProgressUpdater
 from io import StringIO
 from contextlib import redirect_stdout
 from types import SimpleNamespace
+import multiprocessing as mp
 import time
 # , APINameFilter
 
@@ -55,12 +57,12 @@ import time
 #    names = Name.objects.order_by('name')
 #    return render(request, 'name_list.html', {'names': names})
 
-@login_required
-def external(request):
+def binning_process():
+    connection.connect()
     info = BinningProgressUpdater()
 
     if not info.start_binning():
-        return redirect('/rnames/admin/binning_progress')
+        return
 
     def time_slices(scheme):
         return list(TimeSlice.objects.is_active().filter(scheme=scheme).order_by('order').values_list('name', flat=True))
@@ -118,21 +120,17 @@ def external(request):
     except Exception as e:
         info.set_error(str(e))
         traceback.print_exc()
-        return render(
-            request,
-            'binning_done.html',
-            context={
-                'error': True,
-                'error_message': str(e),
-            },
-        )
+        return
 
     update_progress = info.db_update_progress_updater(
         len(result['berg'])
         + len(result['webby'])
         + len(result['stages'])
         + len(result['periods'])
-        )
+    )
+
+    create_objects = []
+    update_objects = []
 
     def update(obj, oldest, youngest, ts_count, refs, rule):
         obj.oldest = oldest
@@ -140,11 +138,11 @@ def external(request):
         obj.ts_count = ts_count
         obj.refs = refs
         obj.rule = rule
-        obj.save()
+        update_objects.append(obj)
 
     def create(name, scheme, oldest, youngest, ts_count, refs, rule):
         obj = Binning(name=name, binning_scheme=scheme, oldest=oldest, youngest=youngest, ts_count=ts_count, refs=refs, rule=rule)
-        obj.save()
+        create_objects.append(obj)
 
     def process_result(df, scheme):
         col = SimpleNamespace(**{k: v for v, k in enumerate(df.columns)})
@@ -158,23 +156,22 @@ def external(request):
                 update(data[0], row[col.oldest], row[col.youngest], row[col.ts_count], row[col.refs], row[col.rule])
             update_progress.update()
 
-    start = time.time()
     process_result(result['berg'], 'x_robinb')
     process_result(result['webby'], 'x_robinw')
     process_result(result['stages'], 'x_robins')
     process_result(result['periods'], 'x_robinp')
-    end = time.time()
+
+    Binning.objects.bulk_create(create_objects, 100)
+    Binning.objects.bulk_update(update_objects, ['oldest', 'youngest', 'ts_count', 'refs', 'rule'], 100)
 
     info.finish_binning()
 
-    return render(
-        request,
-        'binning_done.html',
-        context={
-            'duration': round(result['duration']),
-            'update_duration': round(end - start),
-        },
-    )
+@login_required
+def external(request):
+    db.connections.close_all()
+    handle = mp.Process(target=binning_process)
+    handle.start()
+    return redirect('/rnames/admin/binning_progress')
 
 
 def binning(request):
