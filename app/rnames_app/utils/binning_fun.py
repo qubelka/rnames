@@ -798,10 +798,12 @@ def result_selector_1(name, data, col):
 def result_selector_2(name, data, col):
     refs_f = ', '.join(map(str, np.unique(data[:, col.reference_id])))
 
+    # youngest, oldest and ts_count
     youngest_value = np.max(data[:, col.youngest_index])
     oldest_value = np.min(data[:, col.oldest_index])
     ts_c = youngest_value - oldest_value
 
+    # find index of rows with maximum youngest_index and minimum oldest_index
     youngest = np.argmax(data[:, col.youngest_index])
     oldest = np.argmin(data[:, col.oldest_index])
 
