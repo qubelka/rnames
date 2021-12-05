@@ -796,6 +796,7 @@ def column_names_as_props(df):
     return SimpleNamespace(**{k: v for v, k in enumerate(df.columns)})
 
 def result_selector_1(name, data, col):
+    # Concatenate references
     refs_f = ', '.join(map(str, np.unique(data[:, col.reference_id])))
 
     # youngest, oldest and ts_count
@@ -809,6 +810,7 @@ def result_selector_1(name, data, col):
     return (name, oldest[0, col.ts], youngest[0, col.ts], ts_c, refs_f)
 
 def result_selector_2(name, data, col):
+    # Concatenate references
     refs_f = ', '.join(map(str, np.unique(data[:, col.reference_id])))
 
     # youngest, oldest and ts_count
@@ -861,6 +863,7 @@ def bin_names(ibs, ntts, xnames_raw, bifu_s=bifu_s, bifu_y=bifu_y, bifu_c=bifu_c
         if data.size == 0:
             continue
 
+        # Filter data based on binning function in question
         if ibs == 0:
             data = bifu_s(col.ntts, data)
         if ibs == 1:
@@ -868,6 +871,7 @@ def bin_names(ibs, ntts, xnames_raw, bifu_s=bifu_s, bifu_y=bifu_y, bifu_c=bifu_c
         if ibs == 2:
             data = bifu_c(col.ntts, data)
 
+        # Use selector function to produce final result
         rows.append(result_selector(name, data, col.ntts))
 
     ret = pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
