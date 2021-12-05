@@ -17,19 +17,19 @@ from bisect import (bisect_left, bisect_right)
 
 ################################################################
 # strictly searches for maximum compromise between all binnings
-def bifu_c(col, ntts, xnames_raw):
+def bifu_c(col, ntts):
     return ntts
 
-def bifu_c2  (col, ntts, xnames_raw):
+def bifu_c2  (col, ntts):
     return ntts
 
 ################################################################
 # strictly searches for youngest binnings
-def bifu_y(col, ntts, xnames_raw):
+def bifu_y(col, ntts):
     max_y = max(ntts[:, col.ntts.reference_year])
     return ntts[ntts[:, col.ntts.reference_year] == max_y]
 
-def bifu_y2  (col, ntts, xnames_raw):
+def bifu_y2  (col, ntts):
     max_y = np.max(ntts[:, col.ntts.reference_year])
     # ntts is sorted by reference year so binary search can be used
     max_y_begin = bisect_left(ntts[:, col.ntts.reference_year], max_y)
@@ -38,7 +38,7 @@ def bifu_y2  (col, ntts, xnames_raw):
 
 ################################################################
 # strictly searches for shortest binnings
-def bifu_s(col, ntts, xnames_raw):
+def bifu_s(col, ntts):
     rows = []
 
     for ref in pd.unique(ntts[:, col.ntts.reference_id]):
@@ -64,7 +64,7 @@ def bifu_s(col, ntts, xnames_raw):
     max_y = np.max(bio_setb[:, col.ntts.reference_year])
     return bio_setb[bio_setb[:, col.ntts.reference_year] == max_y]
 
-def bifu_s2(col, ntts, xnames_raw):
+def bifu_s2(col, ntts):
     # select all references
     rows = []
     min_delta = np.inf

@@ -818,11 +818,11 @@ def bin_unique_names_0(ibs, cr_x, xnames_raw):
 
         # select all references
         if ibs == 0:
-            data = bifu_s(col, data, xnames)
+            data = bifu_s(col, data)
         if ibs == 1:
-            data = bifu_y(col, data, xnames)
+            data = bifu_y(col, data)
         if ibs == 2:
-            data = bifu_c(col, data, xnames)
+            data = bifu_c(col, data)
 
         # and collect the references which have that opinions
         refs_f = ', '.join(map(str, np.unique(data[:, col.ntts.reference_id])))
@@ -880,11 +880,11 @@ def bin_unique_names_1(ibs, x1, xnames_raw):
             continue
 
         if ibs == 0:
-            data = bifu_s2(col, data, xnames)
+            data = bifu_s2(col, data)
         if ibs == 1:
-            data = bifu_y2(col, data, xnames)
+            data = bifu_y2(col, data)
         if ibs == 2:
-            data = bifu_c2(col, data, xnames)
+            data = bifu_c2(col, data)
 
         refs_f = ', '.join(map(str, np.unique(data[:, col.ntts.reference_id])))
 
