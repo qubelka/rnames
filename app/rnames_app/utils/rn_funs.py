@@ -49,11 +49,15 @@ def bifu_s(col, ntts, xnames_raw):
 
         ts_x = ts_max - ts_min
         rows.append((ref, ts_x))
-
     rows = np.array(rows)
+
+    # Select references with minimal time slice delta
     min_ts = np.min(rows[:, 1])
     short_ref = rows[rows[:, 1] == min_ts]
+
+    # Select rows whose reference has minimal time slice delta
     bio_setb = ntts[np.isin(ntts[:, col.ntts.reference_id], short_ref[:, 0])]
+
     # search for youngest reference among those
     max_y = np.max(bio_setb[:, col.ntts.reference_year])
     return bio_setb[bio_setb[:, col.ntts.reference_year] == max_y]
