@@ -800,7 +800,7 @@ def result_selector_2(name, data, col):
 
     youngest_value = np.max(data[:, col.youngest_index])
     oldest_value = np.min(data[:, col.oldest_index])
-    ts_c = oldest_value - youngest_value
+    ts_c = youngest_value - oldest_value
 
     youngest = np.argmax(data[:, col.youngest_index])
     oldest = np.argmin(data[:, col.oldest_index])
