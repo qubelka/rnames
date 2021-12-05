@@ -9,7 +9,6 @@ import numpy as np
 from bisect import (bisect_left, bisect_right)
 from types import SimpleNamespace
 from .rn_funs import *
-from .tools import (data_frames_equal)
 
 def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices, info):
 
@@ -186,9 +185,7 @@ def rule0(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     cr_x =  cr_x.loc[~(cr_x["name_1"]=="not specified")]
 
     for ibs in runrange:
-        resi_0 = bin_unique_names_0(ibs, cr_x, xnames_raw)
-        test = bin_names(ibs, cr_x, xnames_raw, bifu_s=bifu_s3)
-        data_frames_equal(resi_0, test)
+        resi_0 = bin_names(ibs, cr_x, xnames_raw)
         resi_0["rule"] = 0.0
         resi_0 = resi_0.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
         resi_0 =  resi_0[~resi_0["name"].isin(used_ts["ts"])]
@@ -222,9 +219,7 @@ def rule1(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     cr_a =  cr_a.loc[~(cr_a["name_1"]=="not specified")]
 
     for ibs in runrange:
-        resi_1 = bin_unique_names_0(ibs, cr_a, xnames_raw)
-        test = bin_names(ibs, cr_a, xnames_raw, bifu_s=bifu_s3)
-        data_frames_equal(resi_1, test)
+        resi_1 = bin_names(ibs, cr_a, xnames_raw)
         resi_1["rule"] = 1.0
         resi_1 = resi_1.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
         resi_1 =  resi_1[~resi_1["name"].isin(used_ts["ts"])]
@@ -260,9 +255,7 @@ def rule2(results, c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     cr_c =  cr_c.loc[~(cr_c["name_1"]=="not specified")]
 
     for ibs in runrange:
-        resi_2 = bin_unique_names_0(ibs, cr_c, xnames_raw)
-        test = bin_names(ibs, cr_c, xnames_raw, bifu_s=bifu_s3)
-        data_frames_equal(resi_2, test)
+        resi_2 = bin_names(ibs, cr_c, xnames_raw)
         resi_2["rule"] = 2.0
         resi_2 = resi_2.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
         resi_2 =  resi_2[~resi_2["name"].isin(used_ts["ts"])]
@@ -312,9 +305,7 @@ def rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     resi_3 = pd.DataFrame.transpose(resi_3)
     for ibs in runrange:
         for k in np.arange(1,5,1):
-            x3 = bin_unique_names_1(ibs, x1, xnames_raw)
-            test = bin_names(ibs, x1, xnames_raw, bifu_s=bifu_s4, result_selector=result_selector_2)
-            data_frames_equal(x3, test)
+            x3 = bin_names(ibs, x1, xnames_raw, bifu_s=bifu_s2, result_selector=result_selector_2)
             x3["rule"] = 3.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_3["name"])] # filter for already binned names
             resi_3 = pd.concat([resi_3, x3b], axis=0, sort=True) # appended to previous ruling
@@ -390,9 +381,7 @@ def rule4(results, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b
     resi_4 = pd.DataFrame.transpose(resi_4)
     for ibs in runrange:
         for k in np.arange(1,5,1):
-            x3 = bin_unique_names_1(ibs, x1, xnames_raw)
-            test = bin_names(ibs, x1, xnames_raw, bifu_s=bifu_s4, result_selector=result_selector_2)
-            data_frames_equal(x3, test)
+            x3 = bin_names(ibs, x1, xnames_raw, bifu_s=bifu_s2, result_selector=result_selector_2)
             x3["rule"] = 4.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_4["name"])] # filter for already binned names
             resi_4 = pd.concat([resi_4, x3b], axis=0, sort=True) # appended to previous ruling
@@ -459,9 +448,7 @@ def rule5(results, cr_g, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_
     resi_5 = pd.DataFrame.transpose(resi_5)
     for ibs in runrange:
         for k in np.arange(1,5,1):
-            x3 = bin_unique_names_1(ibs, x1, xnames_raw)
-            test = bin_names(ibs, x1, xnames_raw, bifu_s=bifu_s4, result_selector=result_selector_2)
-            data_frames_equal(x3, test)
+            x3 = bin_names(ibs, x1, xnames_raw, bifu_s=bifu_s2, result_selector=result_selector_2)
             x3["rule"] = 5.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_5["name"])] # filter for already binned names
             resi_5 = pd.concat([resi_5, x3b], axis=0, sort=True) # appended to previous ruling
@@ -531,9 +518,7 @@ def rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme):
     resi_6 = pd.DataFrame.transpose(resi_6)
     for ibs in runrange:
         for k in np.arange(1,5,1):
-            x3 = bin_unique_names_1(ibs, x1, xnames_raw)
-            test = bin_names(ibs, x1, xnames_raw, bifu_s=bifu_s4, result_selector=result_selector_2)
-            data_frames_equal(x3, test)
+            x3 = bin_names(ibs, x1, xnames_raw, bifu_s=bifu_s2, result_selector=result_selector_2)
             x3["rule"] = 6.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_6["name"])] # filter for already binned names
             resi_6 = pd.concat([resi_6, x3b], axis=0, sort=True) # appended to previous ruling; these are now binned
@@ -871,124 +856,3 @@ def bin_names(ibs, ntts, xnames_raw, bifu_s=bifu_s, bifu_y=bifu_y, bifu_c=bifu_c
     ret = pd.DataFrame.drop_duplicates(ret)
     ret.dropna()
     return ret
-
-def bin_unique_names_0(ibs, cr_x, xnames_raw):
-    if cr_x.empty:
-        return pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
-    col = SimpleNamespace()
-    col.ntts = column_names_as_props(cr_x)
-    col.xnames = column_names_as_props(xnames_raw)
-
-    bnu = pd.unique(cr_x["name_1"])
-    # Data is sorted to quickly find the range in the dataframe matching a given name
-    # The data is further sorted to enable quick filtering in bifu_s
-    cr_x = cr_x.sort_values(by = ['name_1', 'reference_id', 'ts_index'])
-    cr_x = cr_x.values
-    # References is sorted by name to find rows matching a name with binary search
-    xnames_raw = xnames_raw.sort_values(by='name')
-    xnames_raw = xnames_raw.values
-
-    rows = []
-    for name in bnu:
-        cr_x_begin = bisect_left(cr_x[:, col.ntts.name_1], name)
-        cr_x_end = bisect_right(cr_x[:, col.ntts.name_1], name)
-        xnames_begin = bisect_left(xnames_raw[:, col.xnames.name], name)
-        xnames_end = bisect_right(xnames_raw[:, col.xnames.name], name)
-
-        if xnames_begin == len(xnames_raw[:, col.xnames.name]):
-            continue
-
-        data = cr_x[cr_x_begin:cr_x_end]
-        xnames = xnames_raw[xnames_begin:xnames_end]
-
-        data = data[~np.isin(data[:, col.ntts.reference_id], xnames[:, col.xnames.ref])]
-
-        if data.size == 0:
-            continue
-
-        # select all references
-        if ibs == 0:
-            data = bifu_s(col, data)
-        if ibs == 1:
-            data = bifu_y(col, data)
-        if ibs == 2:
-            data = bifu_c(col, data)
-
-        # and collect the references which have that opinions
-        refs_f = ', '.join(map(str, np.unique(data[:, col.ntts.reference_id])))
-
-        # youngest, oldest and ts_count
-        ts_max = np.max(data[:, col.ntts.ts_index])
-        ts_min = np.min(data[:, col.ntts.ts_index])
-        ts_c = ts_max - ts_min
-
-        youngest = data[data[:, col.ntts.ts_index] == ts_max]
-        oldest = data[data[:, col.ntts.ts_index] == ts_min]
-
-        rows.append((name, oldest[0, col.ntts.ts], youngest[0, col.ntts.ts], ts_c, refs_f))
-
-    ret = pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
-    return ret.dropna()
-
-def bin_unique_names_1(ibs, x1, xnames_raw):
-    if x1.empty:
-        return pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
-
-    col = SimpleNamespace()
-    col.ntts = column_names_as_props(x1)
-    col.xnames = column_names_as_props(xnames_raw)
-
-    rows = []
-    # Data is sorted by name and reference year
-    # Only rows matching the name are passed to the binning functions.
-    # Finding these ranges can be done quickly from the sorted data with binary search
-    # Within each name the rows are sorted by reference year allowing fast filtering in the binning functions.
-    x1 = x1.sort_values(by=['name_1', 'reference_year'])
-    # References is sorted by name to find rows matching a name with binary search
-    xnames_raw = xnames_raw.sort_values(by='name')
-    x1_list = list(x1['name_1'])
-    xnames_list = list(xnames_raw['name'])
-
-    x1 = x1.values
-    xnames_raw = xnames_raw.values
-
-    for name in np.unique(x1_list):
-        x1_begin = bisect_left(x1_list, name)
-        x1_end = bisect_right(x1_list, name)
-        xnames_begin = bisect_left(xnames_list, name)
-        xnames_end = bisect_right(xnames_list, name)
-
-        if xnames_begin == len(xnames_raw[:, col.xnames.name]):
-            continue
-
-        data = x1[x1_begin:x1_end]
-        xnames = xnames_raw[xnames_begin:xnames_end]
-
-        data = data[~np.isin(data[:, col.ntts.reference_id], xnames[:, col.xnames.ref])]
-
-        if data.size == 0:
-            continue
-
-        if ibs == 0:
-            data = bifu_s2(col, data)
-        if ibs == 1:
-            data = bifu_y2(col, data)
-        if ibs == 2:
-            data = bifu_c2(col, data)
-
-        refs_f = ', '.join(map(str, np.unique(data[:, col.ntts.reference_id])))
-
-        youngest_value = np.max(data[:, col.ntts.youngest_index])
-        oldest_value = np.min(data[:, col.ntts.oldest_index])
-        ts_c = oldest_value - youngest_value
-
-        youngest = np.argmax(data[:, col.ntts.youngest_index])
-        oldest = np.argmin(data[:, col.ntts.oldest_index])
-
-        rows.append((name, data[oldest, col.ntts.oldest], data[youngest, col.ntts.youngest], ts_c, refs_f))
-
-
-    x3 = pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
-    x3 = pd.DataFrame.drop_duplicates(x3)
-    x3 = x3.dropna()
-    return x3
