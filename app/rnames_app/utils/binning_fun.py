@@ -187,6 +187,8 @@ def rule0(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
 
     for ibs in runrange:
         resi_0 = bin_unique_names_0(ibs, cr_x, xnames_raw)
+        test = bin_names(ibs, cr_x, xnames_raw, bifu_s=bifu_s3)
+        data_frames_equal(resi_0, test)
         resi_0["rule"] = 0.0
         resi_0 = resi_0.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
         resi_0 =  resi_0[~resi_0["name"].isin(used_ts["ts"])]
@@ -221,6 +223,8 @@ def rule1(c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
 
     for ibs in runrange:
         resi_1 = bin_unique_names_0(ibs, cr_a, xnames_raw)
+        test = bin_names(ibs, cr_a, xnames_raw, bifu_s=bifu_s3)
+        data_frames_equal(resi_1, test)
         resi_1["rule"] = 1.0
         resi_1 = resi_1.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
         resi_1 =  resi_1[~resi_1["name"].isin(used_ts["ts"])]
@@ -257,6 +261,8 @@ def rule2(results, c_rels_d, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
 
     for ibs in runrange:
         resi_2 = bin_unique_names_0(ibs, cr_c, xnames_raw)
+        test = bin_names(ibs, cr_c, xnames_raw, bifu_s=bifu_s3)
+        data_frames_equal(resi_2, test)
         resi_2["rule"] = 2.0
         resi_2 = resi_2.loc(axis=1)["name", "oldest", "youngest", "ts_count", "refs", "rule"]
         resi_2 =  resi_2[~resi_2["name"].isin(used_ts["ts"])]
@@ -307,6 +313,8 @@ def rule3(results, c_rels, t_scheme, runrange, used_ts, xnames_raw, b_scheme):
     for ibs in runrange:
         for k in np.arange(1,5,1):
             x3 = bin_unique_names_1(ibs, x1, xnames_raw)
+            test = bin_names(ibs, x1, xnames_raw, bifu_s=bifu_s4, result_selector=result_selector_2)
+            data_frames_equal(x3, test)
             x3["rule"] = 3.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_3["name"])] # filter for already binned names
             resi_3 = pd.concat([resi_3, x3b], axis=0, sort=True) # appended to previous ruling
@@ -383,6 +391,8 @@ def rule4(results, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_raw, b
     for ibs in runrange:
         for k in np.arange(1,5,1):
             x3 = bin_unique_names_1(ibs, x1, xnames_raw)
+            test = bin_names(ibs, x1, xnames_raw, bifu_s=bifu_s4, result_selector=result_selector_2)
+            data_frames_equal(x3, test)
             x3["rule"] = 4.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_4["name"])] # filter for already binned names
             resi_4 = pd.concat([resi_4, x3b], axis=0, sort=True) # appended to previous ruling
@@ -450,6 +460,8 @@ def rule5(results, cr_g, resis_bio, c_rels, t_scheme, runrange, used_ts, xnames_
     for ibs in runrange:
         for k in np.arange(1,5,1):
             x3 = bin_unique_names_1(ibs, x1, xnames_raw)
+            test = bin_names(ibs, x1, xnames_raw, bifu_s=bifu_s4, result_selector=result_selector_2)
+            data_frames_equal(x3, test)
             x3["rule"] = 5.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_5["name"])] # filter for already binned names
             resi_5 = pd.concat([resi_5, x3b], axis=0, sort=True) # appended to previous ruling
@@ -520,6 +532,8 @@ def rule6(results, cr_g, runrange, used_ts, xnames_raw, b_scheme):
     for ibs in runrange:
         for k in np.arange(1,5,1):
             x3 = bin_unique_names_1(ibs, x1, xnames_raw)
+            test = bin_names(ibs, x1, xnames_raw, bifu_s=bifu_s4, result_selector=result_selector_2)
+            data_frames_equal(x3, test)
             x3["rule"] = 6.0+((k-1)*0.1)
             x3b = x3[~x3["name"].isin(resi_6["name"])] # filter for already binned names
             resi_6 = pd.concat([resi_6, x3b], axis=0, sort=True) # appended to previous ruling; these are now binned
