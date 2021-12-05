@@ -11,7 +11,7 @@ from types import SimpleNamespace
 from .rn_funs import *
 
 def bin_fun (c_rels, binning_scheme, binning_algorithm, xrange, time_slices, info):
-
+    # info parameter is only used to update server on binning status
     print("We begin with six search algorithms binning all relations within the given binning scheme with references.")
     print("This takes a few minutes....")
     start = time.time()
@@ -704,9 +704,13 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
 
     # Sort x2 so binary search can be used to quickly find ranges
     x2 = x2.sort_values(by=['name', 'b_scheme'])
+
+    # Create props to access column names easily
     col = column_names_as_props(x2)
-    x2 = x2.values
     used_ts_col = column_names_as_props(used_ts)
+
+    # Use data frames' underlying ndarrays directly
+    x2 = x2.values
     used_ts = used_ts.values
 
     for i_name in xal["name"].dropna().unique():
@@ -738,14 +742,15 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
         rax_counts = rax_counts[0][rax_counts[1] >= rq]
         rax_sub = used_ts[np.isin(used_ts[:, 1], rax_counts)] # Inner join on table with only one column is identical to filtering
 
-        rax_sub_max = np.max(rax_sub[:, used_ts_col.ts_index])
-        rax_sub_min = np.min(rax_sub[:, used_ts_col.ts_index])
+        max_ts_index = np.max(rax_sub[:, used_ts_col.ts_index])
+        min_ts_index = np.min(rax_sub[:, used_ts_col.ts_index])
 
-        x_youngest = rax_sub[rax_sub[:, used_ts_col.ts_index] == rax_sub_max]
-        x_oldest = rax_sub[rax_sub[:, used_ts_col.ts_index] == rax_sub_min]
+        x_youngest = rax_sub[rax_sub[:, used_ts_col.ts_index] == max_ts_index]
+        x_oldest = rax_sub[rax_sub[:, used_ts_col.ts_index] == min_ts_index]
 
-        ts_c = rax_sub_max - rax_sub_min
+        ts_c = max_ts_index - min_ts_index
 
+        # Collect unique references and concatenate them
         refs = set()
         for ref in x2_sub[:, col.refs]:
             for r in ref.split(', '):
@@ -824,9 +829,12 @@ def bin_names(ibs, ntts, xnames_raw, bifu_s=bifu_s, bifu_y=bifu_y, bifu_c=bifu_c
     col.xnames = column_names_as_props(xnames_raw)
 
     bnu = pd.unique(ntts["name_1"])
+
+    # Sort tables so ranges can be selected
     ntts = ntts.sort_values(by = ['name_1'])
     xnames_raw = xnames_raw.sort_values(by='name')
 
+    # Use data frame's numpy ndarrays directly
     ntts = ntts.values
     xnames_raw = xnames_raw.values
 
@@ -845,12 +853,12 @@ def bin_names(ibs, ntts, xnames_raw, bifu_s=bifu_s, bifu_y=bifu_y, bifu_c=bifu_c
         data = ntts[ntts_begin:ntts_end]
         xnames = xnames_raw[xnames_begin:xnames_end]
 
+        # filter for references with "not specified"
         data = data[~np.isin(data[:, col.ntts.reference_id], xnames[:, col.xnames.ref])]
 
         if data.size == 0:
             continue
 
-        # select all references
         if ibs == 0:
             data = bifu_s(col.ntts, data)
         if ibs == 1:
