@@ -8,12 +8,9 @@ import numpy as np
 from bisect import (bisect_left, bisect_right)
 
 
-# col variable contains properties ntts and xnames. These variables have all of their data frame
-# column names as property names with the column index as their assigned value.
-
-# ntts is is a combination of names, binning scheme, and time slice information. The ndarray only
-# ever contains entries for a single name, and the entries are further sorted depending
-# on the function.
+# col variable contains column names as property names with the column index as their assigned value.
+# ntts is a numpy ndarray which contains a combination of names, binning scheme, and time slice
+# information. The ndarray only ever contains entries for a single name
 
 ################################################################
 # strictly searches for maximum compromise between all binnings
