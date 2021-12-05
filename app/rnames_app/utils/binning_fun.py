@@ -782,6 +782,67 @@ def merge_time_info(x1, used_ts):
 def column_names_as_props(df):
     return SimpleNamespace(**{k: v for v, k in enumerate(df.columns)})
 
+def bin_names(ibs, ntts, xnames_raw, bifu_s=bifu_s, bifu_y=bifu_y, bifu_c=bifu_c):
+    if ntts.empty:
+        return pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
+
+    col = SimpleNamespace()
+    col.ntts = column_names_as_props(ntts)
+    col.xnames = column_names_as_props(xnames_raw)
+
+    bnu = pd.unique(ntts["name_1"])
+    ntts = ntts.sort_values(by = ['name_1'])
+    xnames_raw = xnames_raw.sort_values(by='name')
+
+    ntts = ntts.values
+    xnames_raw = xnames_raw.values
+
+    rows = []
+    for name in bnu:
+        # Select appropriate ranges from tables
+        ntts_begin = bisect_left(ntts[:, col.ntts.name_1], name)
+        ntts_end = bisect_right(ntts[:, col.ntts.name_1], name)
+        xnames_begin = bisect_left(xnames_raw[:, col.xnames.name], name)
+        xnames_end = bisect_right(xnames_raw[:, col.xnames.name], name)
+
+        # No references for this name
+        if xnames_begin == len(xnames_raw[:, col.xnames.name]):
+            continue
+
+        data = ntts[ntts_begin:ntts_end]
+        xnames = xnames_raw[xnames_begin:xnames_end]
+
+        data = data[~np.isin(data[:, col.ntts.reference_id], xnames[:, col.xnames.ref])]
+
+        if data.size == 0:
+            continue
+
+        # select all references
+        if ibs == 0:
+            data = bifu_s(col, data)
+        if ibs == 1:
+            data = bifu_y(col, data)
+        if ibs == 2:
+            data = bifu_c(col, data)
+
+        # and collect the references which have that opinions
+        refs_f = ', '.join(map(str, np.unique(data[:, col.ntts.reference_id])))
+
+        # youngest, oldest and ts_count
+        ts_max = np.max(data[:, col.ntts.ts_index])
+        ts_min = np.min(data[:, col.ntts.ts_index])
+        ts_c = ts_max - ts_min
+
+        youngest = data[data[:, col.ntts.ts_index] == ts_max]
+        oldest = data[data[:, col.ntts.ts_index] == ts_min]
+
+        rows.append((name, oldest[0, col.ntts.ts], youngest[0, col.ntts.ts], ts_c, refs_f))
+
+    ret = pd.DataFrame(rows, columns=["name", "oldest", "youngest", "ts_count", "refs"])
+    ret = pd.DataFrame.drop_duplicates(ret)
+    ret.dropna()
+    return ret
+
 def bin_unique_names_0(ibs, cr_x, xnames_raw):
     if cr_x.empty:
         return pd.DataFrame([], columns=["name", "oldest", "youngest", "ts_count", "refs"])
