@@ -711,12 +711,14 @@ def merge_cc(resi_s, resi_y, resi_c, used_ts):
 
     for i_name in xal["name"].dropna().unique():
     #i=2
-        x2_sub = x2[bisect_left(x2[:, 0], i_name):bisect_right(x2[:, 0], i_name)]
+        # Select range from data table
+        x2_sub = x2[bisect_left(x2[:, col.name], i_name):bisect_right(x2[:, col.name], i_name)]
 
         # We need the oldest and youngest index in the ranges
         x2_subs = x2_sub[x2_sub[:, col.b_scheme] == 's']
         x2_suby = x2_sub[x2_sub[:, col.b_scheme] == 'y']
         x2_subc = x2_sub[x2_sub[:, col.b_scheme] == 'c']
+
         # youngest = max, oldest = min index
         x_range_s = np.array([np.min(x2_subs[:, col.oldest_index])])
         x_range_y = np.array([np.min(x2_suby[:, col.oldest_index])])
