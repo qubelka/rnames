@@ -23,18 +23,18 @@ def bifu_c(col, ntts):
 ################################################################
 # strictly searches for youngest binnings
 def bifu_y(col, ntts):
-    max_y = max(ntts[:, col.ntts.reference_year])
-    return ntts[ntts[:, col.ntts.reference_year] == max_y]
+    max_y = max(ntts[:, col.reference_year])
+    return ntts[ntts[:, col.reference_year] == max_y]
 
 ################################################################
 # strictly searches for shortest binnings
 def bifu_s(col, ntts):
     rows = []
 
-    for ref in pd.unique(ntts[:, col.ntts.reference_id]):
-        cptx = ntts[ntts[:, col.ntts.reference_id]== ref]
-        ts_min = np.min(cptx[:, col.ntts.ts_index])
-        ts_max = np.max(cptx[:, col.ntts.ts_index])
+    for ref in pd.unique(ntts[:, col.reference_id]):
+        cptx = ntts[ntts[:, col.reference_id]== ref]
+        ts_min = np.min(cptx[:, col.ts_index])
+        ts_max = np.max(cptx[:, col.ts_index])
         ts_x = ts_max - ts_min
         rows.append((ref, ts_x))
     rows = np.array(rows)
@@ -44,11 +44,11 @@ def bifu_s(col, ntts):
     short_ref = rows[rows[:, 1] == min_ts]
 
     # Select rows whose reference has minimal time slice delta
-    bio_setb = ntts[np.isin(ntts[:, col.ntts.reference_id], short_ref[:, 0])]
+    bio_setb = ntts[np.isin(ntts[:, col.reference_id], short_ref[:, 0])]
 
     # search for youngest reference among those
-    max_y = np.max(bio_setb[:, col.ntts.reference_year])
-    return bio_setb[bio_setb[:, col.ntts.reference_year] == max_y]
+    max_y = np.max(bio_setb[:, col.reference_year])
+    return bio_setb[bio_setb[:, col.reference_year] == max_y]
 
 def bifu_s2(col, ntts):
     # select all references
@@ -58,16 +58,16 @@ def bifu_s2(col, ntts):
     # search for shortest range
     # Append all reference ids matching the shortest found range (min_delta) to rows
     # If shorter range is found, clear rows and lower min_delta to the new range
-    sorted_refs = ntts[ntts[:, col.ntts.reference_id].argsort()]
-    for r_yx in np.unique(ntts[:, col.ntts.reference_id]):
+    sorted_refs = ntts[ntts[:, col.reference_id].argsort()]
+    for r_yx in np.unique(ntts[:, col.reference_id]):
         # sorted_refs is sorted by reference id so finding all entries matching the refs can be done quickly with binary search
         # Select rows with this reference
-        cptx_begin = bisect_left(sorted_refs[:, col.ntts.reference_id], r_yx)
-        cptx_end = bisect_right(sorted_refs[:, col.ntts.reference_id], r_yx)
+        cptx_begin = bisect_left(sorted_refs[:, col.reference_id], r_yx)
+        cptx_end = bisect_right(sorted_refs[:, col.reference_id], r_yx)
         cptx = sorted_refs[cptx_begin:cptx_end]
 
         # Calculate range delta
-        ts_x = np.max(cptx[:, col.ntts.youngest_index]) - np.min(cptx[:, col.ntts.oldest_index])
+        ts_x = np.max(cptx[:, col.youngest_index]) - np.min(cptx[:, col.oldest_index])
 
         if ts_x == min_delta:
             rows.append(r_yx)
@@ -76,8 +76,8 @@ def bifu_s2(col, ntts):
             min_delta = ts_x
             rows.append(r_yx)
 
-    bio_setb = ntts[np.isin(ntts[:, col.ntts.reference_id], rows)]
+    bio_setb = ntts[np.isin(ntts[:, col.reference_id], rows)]
     # search for youngest reference among those
-    max_y = max(bio_setb[:, col.ntts.reference_year])
+    max_y = max(bio_setb[:, col.reference_year])
     # ntts is sorted by reference year so binary search can be used
-    return bio_setb[bio_setb[:, col.ntts.reference_year] == max_y]
+    return bio_setb[bio_setb[:, col.reference_year] == max_y]

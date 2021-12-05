@@ -844,11 +844,11 @@ def bin_names(ibs, ntts, xnames_raw, bifu_s=bifu_s, bifu_y=bifu_y, bifu_c=bifu_c
 
         # select all references
         if ibs == 0:
-            data = bifu_s(col, data)
+            data = bifu_s(col.ntts, data)
         if ibs == 1:
-            data = bifu_y(col, data)
+            data = bifu_y(col.ntts, data)
         if ibs == 2:
-            data = bifu_c(col, data)
+            data = bifu_c(col.ntts, data)
 
         rows.append(result_selector(name, data, col.ntts))
 
