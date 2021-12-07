@@ -83,11 +83,13 @@
   /* - 100px comes from header-container height being 100px and padding 70px comes from footer height + 20px */
   .navigation {
     padding: 20px 0px 70px 0px !important;
-    overflow: scroll !important;
+    overflow: scroll;
     height: calc(100% - 100px) !important;
     z-index: 3 !important;
     width: 250px !important;
     background-color: #F5F3EC !important;
+    overflow-y: auto;
+    overflow-x: auto;
   }
 
   .navigation .w3-bar-item {
