@@ -31,12 +31,12 @@ export const BelongsToSelector = ({ idA, idB, relation = undefined }) => {
 
 	const rightToLeft = e => {
 		e.stopPropagation()
-		update(idB, idA, 1)
+		update(idA, idB, 1)
 	}
 
 	const leftToRight = e => {
 		e.stopPropagation()
-		update(idA, idB, 1)
+		update(idB, idA, 1)
 	}
 
 	const noInclusion = e => {
@@ -54,7 +54,7 @@ export const BelongsToSelector = ({ idA, idB, relation = undefined }) => {
 		<>
 			<div
 				className={`w3-btn ${
-					belongsTo && relation.name1 == idB ? 'w3-green' : 'w3-white'
+					belongsTo && relation.name1 == idA ? 'w3-green' : 'w3-white'
 				}`}
 				onClick={rightToLeft}
 			>
@@ -70,7 +70,7 @@ export const BelongsToSelector = ({ idA, idB, relation = undefined }) => {
 			</div>
 			<div
 				className={`w3-btn ${
-					belongsTo && relation.name1 == idA ? 'w3-green' : 'w3-white'
+					belongsTo && relation.name1 == idB ? 'w3-green' : 'w3-white'
 				}`}
 				onClick={leftToRight}
 			>
