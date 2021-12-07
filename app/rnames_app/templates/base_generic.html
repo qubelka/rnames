@@ -8,6 +8,8 @@
 <meta name="description" content="RNames is a stratigraphical database">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;300&display=swap">
 <!-- Place your kit's code here -->
 <script src="https://kit.fontawesome.com/5768ea2a16.js" crossorigin="anonymous"></script>
 
@@ -40,7 +42,7 @@
   .header-button .w3-button:hover {color:#665848 !important; background-color:#F5F3EC !important}
 
   .header-left .w3-display-container {
-    width: 200px;
+    width: 220px;
   }
 
   .header-right {
@@ -119,10 +121,6 @@
     max-width: 900px;
     padding: 50px 32px;
   }
-
-
-
-
 
 /* old css belove to be deleted or edited */
 
@@ -234,7 +232,21 @@
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
-  
+
+ .title-logo {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 60px;
+  text-align: right;
+ }
+
+ .title-logo::first-letter {
+   color: #C1A788;
+ }
+
+ .help-button, .user-button {
+   font-family: 'Work Sans', sans-serif;
+ } 
+
 </style>
 
 <!-- css used for Django select2 -->
@@ -250,7 +262,7 @@
           <i class="fa fa-bars w3-button w3-theme-b1 w3-hide-large w3-xlarge w3-bar-item" onclick="w3_open()"></i>
         </div>
         <div class="w3-display-right">
-          <h2 class="w3-bar-item">RNames</h2>
+          <h2 class="title-logo">RNames</h2>
         </div>
       </div>
       
@@ -259,7 +271,7 @@
         <div class="menu-item w3-display-container w3-hide-medium w3-hide-small">
           <div class="menu-item-left w3-display-left">
             <div class="w3-dropdown-hover list w3-theme">
-              <button class="w3-button w3-theme-b1"><h4>Help <i class="fa fa-caret-down"></i></h4></button>
+              <button class="w3-button w3-theme-b1"><h4 class="help-button">Help <i class="fa fa-caret-down"></i></h4></button>
               <div class="help-dropdown list w3-dropdown-content w3-bar-block w3-card-4">
                   <a href="{% url 'help-faq' %}" class="w3-bar-item w3-button w3-padding">FAQ</a>
                   <a href="{% url 'help-database-structure' %}" class="w3-bar-item w3-button w3-padding">Database Structure</a>
@@ -273,7 +285,7 @@
             <div class="w3-dropdown-hover list w3-theme">
             {% if user.is_authenticated %}
             <div class="w3-dropdown-hover w3-theme">
-              <button class="w3-button w3-theme-b1"><h4>{{ user.get_username }} <i class="fa fa-caret-down"></i></h4></button>
+              <button class="w3-button w3-theme-b1"><h4 class="user-button">{{ user.get_username }} <i class="fa fa-caret-down"></i></h4></button>
               <div class="logout-dropdown list w3-dropdown-content w3-bar-block w3-card-4">
                 <a href="{% url 'account_logout' %}?next={% url 'index' %}" class="w3-bar-item w3-button w3-padding">Logout</a>
               </div>
