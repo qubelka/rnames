@@ -37,6 +37,7 @@ export const Relation = ({ relation, formattedName1, formattedName2 }) => {
 					className='w3-check'
 					type='checkbox'
 					onChange={belongs}
+					checked={relation.belongs_to}
 				/>
 			</td>
 			<td>{formattedName2}</td>
