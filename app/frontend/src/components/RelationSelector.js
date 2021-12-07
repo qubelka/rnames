@@ -110,20 +110,24 @@ export const RelationSelector = () => {
 			<div>
 				<h3>Relations</h3>
 				<table>
-					<tr>
-						<th>Structured Name 1</th>
-						<th>Swap</th>
-						<th>Belongs To</th>
-						<th>Structured Name 2</th>
-					</tr>
-					{relations.map(v => (
-						<Relation
-							key={v.id}
-							relation={v}
-							formattedName1={v.formattedName1}
-							formattedName2={v.formattedName2}
-						/>
-					))}
+					<thead>
+						<tr>
+							<th>Structured Name 1</th>
+							<th>Swap</th>
+							<th>Belongs To</th>
+							<th>Structured Name 2</th>
+						</tr>
+					</thead>
+					<tbody>
+						{relations.map(v => (
+							<Relation
+								key={v.id}
+								relation={v}
+								formattedName1={v.formattedName1}
+								formattedName2={v.formattedName2}
+							/>
+						))}
+					</tbody>
 				</table>
 			</div>
 		</>
