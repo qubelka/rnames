@@ -37,9 +37,10 @@
     height: 100px;
   }
 
-  .header-button {color:#F5F3EC !important; background-color:#665848 !important;}
-
-  .header-button .w3-button:hover {color:#665848 !important; background-color:#F5F3EC !important}
+  .header-button .w3-button:hover {
+    background-color:#F5F3EC !important; 
+    color:#665848 !important;
+  }
 
   .header-left .w3-display-container {
     width: 220px;
@@ -73,7 +74,7 @@
     font-family: Arial, Helvetica, sans-serif !important;
   }
 
-  .list .w3-button:hover {
+  .list-item .w3-button:hover {
     background-color: #e6dcd0 !important;
   }
 
@@ -259,7 +260,7 @@
   <div class="header w3-display-container">
     <div class="header-left w3-display-left">
       <div class="w3-display-container">
-        <div class="w3-display-left list">
+        <div class="w3-display-left header-button">
           <i class="fa fa-bars w3-button w3-theme-b1 w3-hide-large w3-xlarge w3-bar-item" onclick="w3_open()"></i>
         </div>
         <div class="w3-display-right">
@@ -271,9 +272,11 @@
       <div class="header-right w3-display-right">
         <div class="menu-item w3-display-container w3-hide-medium w3-hide-small">
           <div class="menu-item-left w3-display-left">
-            <div class="w3-dropdown-hover list w3-theme">
-              <button class="w3-button w3-theme-b1"><h4 class="help-button">Help <i class="fa fa-caret-down"></i></h4></button>
-              <div class="help-dropdown list w3-dropdown-content w3-bar-block w3-card-4">
+            <div class="w3-dropdown-hover w3-theme">
+              <div class="header-button">
+                <button class="w3-button w3-theme-b1"><h4 class="help-button">Help <i class="fa fa-caret-down"></i></h4></button>
+              </div>
+              <div class="help-dropdown list-item w3-dropdown-content w3-bar-block w3-card-4">
                   <a href="{% url 'help-faq' %}" class="w3-bar-item w3-button w3-padding">FAQ</a>
                   <a href="{% url 'help-database-structure' %}" class="w3-bar-item w3-button w3-padding">Database Structure</a>
                   <a href="{% url 'help-wizard' %}" class="w3-bar-item w3-button w3-padding">Data entry with Wizard</a>
@@ -283,18 +286,20 @@
             </div>
           </div>
           <div class="menu-item-right w3-display-right">
-            <div class="w3-dropdown-hover list w3-theme">
             {% if user.is_authenticated %}
             <div class="w3-dropdown-hover w3-theme">
-              <button class="w3-button w3-theme-b1"><h4 class="user-button">{{ user.get_username }} <i class="fa fa-caret-down"></i></h4></button>
-              <div class="logout-dropdown list w3-dropdown-content w3-bar-block w3-card-4">
+              <div class="header-button">
+                <button class="w3-button w3-theme-b1"><h4 class="user-button">{{ user.get_username }} <i class="fa fa-caret-down"></i></h4></button>
+              </div>
+              <div class="logout-dropdown list-item w3-dropdown-content w3-bar-block w3-card-4">
                 <a href="{% url 'account_logout' %}?next={% url 'index' %}" class="w3-bar-item w3-button w3-padding">Logout</a>
               </div>
             </div>
             {% else %}
-            <a href="{% url 'account_login' %}?next={{request.path}}" class="w3-button w3-theme-b1"><h4>Login</h4></a>
-            {% endif %}
+            <div class="header-button">
+              <a href="{% url 'account_login' %}?next={{request.path}}" class="w3-button w3-theme-b1"><h4>Login</h4></a>
             </div>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -303,7 +308,7 @@
 
 
 <div class="page-container w3-container">
-  <div class="navigation list w3-theme-beige w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card" id="mySidebar">
+  <div class="navigation list-item w3-theme-beige w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card" id="mySidebar">
     <h4 class="w3-bar-item">Databases</h4>
     <a class="w3-bar-item w3-button" href="{% url 'relation-list' %}">Relations</a>
     <a class="w3-bar-item w3-button" href="{% url 'structuredname-list' %}">Structured Names</a>
