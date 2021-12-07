@@ -270,6 +270,7 @@
             </div>
           </div>
           <div class="menu-item-right w3-display-right">
+            <div class="w3-dropdown-hover list w3-theme">
             {% if user.is_authenticated %}
             <div class="w3-dropdown-hover w3-theme">
               <button class="w3-button w3-theme-b1"><h4>{{ user.get_username }} <i class="fa fa-caret-down"></i></h4></button>
@@ -280,6 +281,7 @@
             {% else %}
             <a href="{% url 'account_login' %}?next={{request.path}}" class="w3-button w3-theme-b1"><h4>Login</h4></a>
             {% endif %}
+            </div>
           </div>
         </div>
       </div>
