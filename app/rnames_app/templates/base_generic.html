@@ -35,6 +35,10 @@
     height: 100px;
   }
 
+  .header-button {color:#F5F3EC !important; background-color:#665848 !important;}
+
+  .header-button .w3-button:hover {color:#665848 !important; background-color:#F5F3EC !important}
+
   .header-left .w3-display-container {
     width: 200px;
   }
@@ -78,11 +82,12 @@
 
   /* - 100px comes from header-container height being 100px and padding 70px comes from footer height + 20px */
   .navigation {
-    padding: 20px 0px 70px 0px;
-    overflow: scroll;
+    padding: 20px 0px 70px 0px !important;
+    overflow: scroll !important;
     height: calc(100% - 100px) !important;
-    z-index: 3;
-    width: 250px;
+    z-index: 3 !important;
+    width: 250px !important;
+    background-color: #F5F3EC !important;
   }
 
   .navigation .w3-bar-item {
@@ -239,7 +244,7 @@
   <div class="header w3-display-container">
     <div class="header-left w3-display-left">
       <div class="w3-display-container">
-        <div class="w3-display-left">
+        <div class="w3-display-left list">
           <i class="fa fa-bars w3-button w3-theme-b1 w3-hide-large w3-xlarge w3-bar-item" onclick="w3_open()"></i>
         </div>
         <div class="w3-display-right">
@@ -251,7 +256,7 @@
       <div class="header-right w3-display-right">
         <div class="menu-item w3-display-container w3-hide-medium w3-hide-small">
           <div class="menu-item-left w3-display-left">
-            <div class="w3-dropdown-hover w3-theme">
+            <div class="w3-dropdown-hover list w3-theme">
               <button class="w3-button w3-theme-b1"><h4>Help <i class="fa fa-caret-down"></i></h4></button>
               <div class="help-dropdown list w3-dropdown-content w3-bar-block w3-card-4">
                   <a href="{% url 'help-faq' %}" class="w3-bar-item w3-button w3-padding">FAQ</a>
@@ -322,10 +327,12 @@
       {% endblock %}
     </div>
   </div>
- 
-  <footer class="w3-container w3-text-white w3-center" style="position: absolute; z-index: 4; width: 100%;">
+ <!--
+  <footer class="w3-text-white w3-center">
     <p>© 2019 RNames <a href="#top">Back to Top</a></p>
   </footer>
+ -->
+  
 </div>
 
 

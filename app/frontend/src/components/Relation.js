@@ -34,7 +34,7 @@ export const Relation = ({ data }) => {
 	}
 
 	return (
-		<div>
+		<div className='frontend-div'>
 			<label htmlFor='reference'>Reference</label>
 			<Dropdown
 				name='reference'
