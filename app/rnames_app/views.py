@@ -1414,7 +1414,7 @@ def submit(request):
         if name_one == None or name_two == None:
             return HttpResponseBadRequest()
 
-        belongs_to = 0 # Todo
+        belongs_to = relation_data['belongs_to']
 
         relation = Relation(
             name_one=name_one,
