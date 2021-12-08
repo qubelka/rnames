@@ -200,6 +200,10 @@ def binning_info(request):
     data['update'] = [0, 0]
 
     for entry in BinningProgress.objects.all():
+        if entry.name == 'status':
+            data['status'] = entry.value_one
+            continue
+
         if entry.name == 'error' or entry.name == 'lock' or entry.name == 'status':
             continue
 
@@ -1484,7 +1488,7 @@ def submit(request):
         if name_one == None or name_two == None:
             return HttpResponseBadRequest()
 
-        belongs_to = 0 # Todo
+        belongs_to = relation_data['belongs_to']
 
         relation = Relation(
             name_one=name_one,
