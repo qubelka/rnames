@@ -23,11 +23,7 @@ export const RelationSelector = () => {
 				return a.id < b.id ? -1 : 1
 			}),
 		state.rel.map(v => {
-			return {
-				...v,
-				formattedName1: formatStructuredName(state.map[v.name1], state),
-				formattedName2: formatStructuredName(state.map[v.name2], state),
-			}
+			return { ...v }
 		}),
 	])
 
@@ -120,12 +116,7 @@ export const RelationSelector = () => {
 					</thead>
 					<tbody>
 						{relations.map(v => (
-							<Relation
-								key={v.id}
-								relation={v}
-								formattedName1={v.formattedName1}
-								formattedName2={v.formattedName2}
-							/>
+							<Relation key={v.id} relation={v} />
 						))}
 					</tbody>
 				</table>

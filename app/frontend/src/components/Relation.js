@@ -1,9 +1,16 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { formatStructuredName } from '../utilities'
 import { updateRel } from '../store/relations/actions'
 
-export const Relation = ({ relation, formattedName1, formattedName2 }) => {
+export const Relation = ({ relation }) => {
 	const dispatch = useDispatch()
+	const [formattedName1, formattedName2] = useSelector(state => {
+		return [
+			formatStructuredName(state.map[relation.name1], state),
+			formatStructuredName(state.map[relation.name2], state),
+		]
+	})
 
 	const swap = () => {
 		dispatch(
@@ -19,7 +26,7 @@ export const Relation = ({ relation, formattedName1, formattedName2 }) => {
 		dispatch(
 			updateRel({
 				...relation,
-				belongs_to: relation.belongs_to == 1 ? 0 : 1
+				belongs_to: relation.belongs_to == 1 ? 0 : 1,
 			})
 		)
 	}
