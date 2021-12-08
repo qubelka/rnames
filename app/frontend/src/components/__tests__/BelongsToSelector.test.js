@@ -18,8 +18,6 @@ const nonInclusiveRelation = {
 	name2: sname2Id,
 	belongs_to: 0,
 	reference_id: -1,
-	formattedName1: 'Abercwmeiddaw / Formation / Saskatchewan',
-	formattedName2: 'Basisletta / Member / Norway',
 }
 
 describe('When pair of structured names is added, but no relations formed', () => {
@@ -120,5 +118,73 @@ describe('When pair of structured names with non inclusive relation added', () =
 	test('shows "noInclusion" button as selected', () => {
 		const noInclusion = screen.getByText('↔')
 		expect(noInclusion).toHaveClass('w3-btn w3-green')
+	})
+
+	test('updates relation and creates rightToLeft inclusion on "rightToLeft" button click', () => {
+		const rightToLeft = screen.getByText('←')
+		userEvent.click(rightToLeft)
+		expect(store.dispatch).toHaveBeenCalledTimes(1)
+		expect(store.dispatch).toHaveBeenCalledWith({
+			type: 'UPDATE',
+			rel: {
+				id: expect.anything(),
+				name1: sname1Id,
+				name2: sname2Id,
+				belongs_to: 1,
+				reference_id: -1,
+			},
+		})
+	})
+
+	test('updates relation and creates leftToRight inclusion on "leftToRight" button click', () => {
+		const leftToRight = screen.getByText('→')
+		userEvent.click(leftToRight)
+		expect(store.dispatch).toHaveBeenCalledTimes(1)
+		expect(store.dispatch).toHaveBeenCalledWith({
+			type: 'UPDATE',
+			rel: {
+				id: expect.anything(),
+				name1: sname2Id,
+				name2: sname1Id,
+				belongs_to: 1,
+				reference_id: -1,
+			},
+		})
+	})
+})
+
+describe('When pair of structured names with inclusive relation added', () => {
+	const inclusiveRelation = { ...nonInclusiveRelation, belongs_to: 1 }
+
+	test('shows "rightToLeft" button as selected when sname1 is on the left side', () => {
+		const store = mockStore()
+		store.dispatch = jest.fn()
+		render(
+			<Provider store={store}>
+				<BelongsToSelector
+					idA={sname1Id}
+					idB={sname2Id}
+					relation={inclusiveRelation}
+				/>
+			</Provider>
+		)
+		const rightToLeft = screen.getByText('←')
+		expect(rightToLeft).toHaveClass('w3-btn w3-green')
+	})
+
+	test('shows "leftToRight" button as selected when sname1 is on the right side', () => {
+		const store = mockStore()
+		store.dispatch = jest.fn()
+		render(
+			<Provider store={store}>
+				<BelongsToSelector
+					idA={sname2Id}
+					idB={sname1Id}
+					relation={inclusiveRelation}
+				/>
+			</Provider>
+		)
+		const leftToRight = screen.getByText('→')
+		expect(leftToRight).toHaveClass('w3-btn w3-green')
 	})
 })
