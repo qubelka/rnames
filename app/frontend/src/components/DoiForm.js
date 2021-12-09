@@ -33,10 +33,7 @@ export const DoiForm = ({
 	const doiSubmit = async e => {
 		e.preventDefault()
 		if (!doiFormIsValid(doi, notify)) return
-		if (
-			findDuplicateDois(doi).length !== 0 ||
-			findDuplicateLinks(doi).length !== 0
-		) {
+		if (findDuplicateDois(doi)) {
 			notify('An existing reference is using the same doi.')
 			return
 		}
@@ -68,6 +65,7 @@ export const DoiForm = ({
 				value={doi}
 				setField={setDoi}
 				notification={notification}
+				autoFocus={true}
 			/>
 			<button type='submit'>get</button>
 			<button type='button' onClick={() => setQueried(true)}>

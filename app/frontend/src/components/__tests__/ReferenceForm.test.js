@@ -18,6 +18,7 @@ jest.mock('../../utilities.js')
 describe('When no reference information provided, ReferenceForm', () => {
 	let store
 	beforeEach(() => {
+		jest.clearAllMocks()
 		store = mockStore({
 			ref: refReducer,
 		})
@@ -28,13 +29,15 @@ describe('When no reference information provided, ReferenceForm', () => {
 					displayRefForm='block'
 					showNewReferenceForm={() => {}}
 					isQueried={true}
+					setFocusOnSnameButton={() => {}}
 				/>
+				<button id='sname-button'>Add new structured name</button>
 			</Provider>
 		)
 	})
 
 	test('has submit button', () => {
-		const saveReferenceBtn = screen.getByRole('button')
+		const saveReferenceBtn = screen.getByRole('button', { name: /save/i })
 		expect(saveReferenceBtn).toBeInTheDocument()
 		expect(saveReferenceBtn).toHaveAttribute('type', 'submit')
 	})
@@ -59,11 +62,12 @@ describe('When no reference information provided, ReferenceForm', () => {
 		await screen.findByDisplayValue('Úna C. Farrell')
 	})
 
-	test('creats a new reference on save', async () => {
-		utilities.findDuplicateDois.mockImplementationOnce(doi => [])
-		utilities.findDuplicateLinks.mockImplementationOnce(doi => [])
+	test('creates a new reference on save', async () => {
+		utilities.findDuplicateDois
+			.mockImplementationOnce(value => false)
+			.mockImplementationOnce(value => false)
 		const inputFields = screen.getAllByRole('textbox')
-		const saveReferenceBtn = screen.getByRole('button')
+		const saveReferenceBtn = screen.getByRole('button', { name: /save/i })
 		userEvent.type(
 			inputFields[2],
 			"Beyond Beecher's Trilobite Bed: Widespread pyritization of soft tissues in the Late Ordovician Taconic foreland basin"
@@ -84,46 +88,48 @@ describe('When no reference information provided, ReferenceForm', () => {
 	})
 
 	test('does not print error msg if no doi or link duplicates found', async () => {
-		utilities.findDuplicateDois.mockImplementationOnce(doi => [])
-		utilities.findDuplicateLinks.mockImplementationOnce(doi => [])
-		const saveReferenceBtn = screen.getByRole('button')
+		utilities.findDuplicateDois
+			.mockImplementationOnce(value => false)
+			.mockImplementationOnce(value => false)
+		const inputFields = screen.getAllByRole('textbox')
+		const saveReferenceBtn = screen.getByRole('button', { name: /save/i })
+		userEvent.type(
+			inputFields[2],
+			"Beyond Beecher's Trilobite Bed: Widespread pyritization of soft tissues in the Late Ordovician Taconic foreland basin"
+		)
 		userEvent.click(saveReferenceBtn)
 		const notification = await screen.queryByText(
-			'An existing reference is using the same doi.'
+			/An existing reference is using the same doi/i
 		)
 		expect(notification).not.toBeInTheDocument()
 	})
 
-	test('prints error msg if link duplicates found', async () => {
-		utilities.findDuplicateDois.mockImplementationOnce(doi => [])
-		utilities.findDuplicateLinks.mockImplementationOnce(doi => [
-			{
-				title: 'Katian (Ordovician) to Aeronian (Silurian, Llandovery) graptolite biostratigraphy of the YD-1 drill core, Yuanan County, Hubei Province, China',
-				link: 'http://dx.doi.org/10.1002/spp2.1267',
-			},
-		])
-		const saveReferenceBtn = screen.getByRole('button')
-		userEvent.click(saveReferenceBtn)
-		const notification = await screen.queryByText(
-			'An existing reference is using the same doi.'
+	test('prints error msg if doi duplicates found', async () => {
+		utilities.findDuplicateDois.mockImplementationOnce(value => true)
+		const inputFields = screen.getAllByRole('textbox')
+		userEvent.type(
+			inputFields[2],
+			"Beyond Beecher's Trilobite Bed: Widespread pyritization of soft tissues in the Late Ordovician Taconic foreland basin"
 		)
-		expect(notification).toBeInTheDocument()
+		const saveReferenceBtn = screen.getByRole('button', { name: /save/i })
+		userEvent.click(saveReferenceBtn)
+		await screen.findByText(/An existing reference is using the same doi/i)
 	})
 
-	test('prints error msg if doi duplicates found', async () => {
-		utilities.findDuplicateDois.mockImplementationOnce(doi => [
-			{
-				title: 'Katian (Ordovician) to Aeronian (Silurian, Llandovery) graptolite biostratigraphy of the YD-1 drill core, Yuanan County, Hubei Province, China',
-				doi: '10.1002/spp2.1267',
-			},
-		])
-		utilities.findDuplicateLinks.mockImplementationOnce(doi => [])
-		const saveReferenceBtn = screen.getByRole('button')
-		userEvent.click(saveReferenceBtn)
-		const notification = await screen.queryByText(
-			'An existing reference is using the same doi.'
+	test('prints error msg if link duplicates found', async () => {
+		utilities.findDuplicateDois
+			.mockImplementationOnce(value => false)
+			.mockImplementationOnce(value => true)
+		const inputFields = screen.getAllByRole('textbox')
+		userEvent.type(
+			inputFields[2],
+			"Beyond Beecher's Trilobite Bed: Widespread pyritization of soft tissues in the Late Ordovician Taconic foreland basin"
 		)
-		expect(notification).toBeInTheDocument()
+		const saveReferenceBtn = screen.getByRole('button', { name: /save/i })
+		userEvent.click(saveReferenceBtn)
+		await screen.findByText(
+			/An existing reference is using the same permanent link/i
+		)
 	})
 })
 
@@ -152,22 +158,28 @@ describe('When user is editing an existing reference, ReferenceForm', () => {
 					displayRefForm='block'
 					showNewReferenceForm={() => {}}
 					isQueried={true}
+					setFocusOnSnameButton={() => {}}
 				/>
+				<button id='sname-button'>Add new structured name</button>
 			</Provider>
 		)
 	})
 
 	test('has buttons for saving reference and making new doi search', () => {
 		const btns = screen.getAllByRole('button')
-		expect(btns).toHaveLength(2)
+		const btnsWithtoutTestBtn = btns.filter(
+			btn => btn.id !== 'sname-button'
+		)
+		expect(btnsWithtoutTestBtn).toHaveLength(2)
 	})
 
 	test('does not create a new reference on save', async () => {
-		utilities.findDuplicateDois.mockImplementationOnce(doi => [])
-		utilities.findDuplicateLinks.mockImplementationOnce(doi => [])
+		utilities.findDuplicateDois
+			.mockImplementationOnce(value => false)
+			.mockImplementationOnce(value => false)
 		const inputFields = screen.getAllByRole('textbox')
 		const saveReferenceBtn = screen.getByRole('button', {
-			name: 'Save reference',
+			name: /save/i,
 		})
 		userEvent.clear(inputFields[1])
 		userEvent.type(inputFields[1], '2017')
@@ -180,12 +192,11 @@ describe('When user is editing an existing reference, ReferenceForm', () => {
 	})
 
 	test('updates an existing reference on save', async () => {
-		utilities.findDuplicateDois.mockImplementationOnce(doi => [])
-		utilities.findDuplicateLinks.mockImplementationOnce(doi => [])
+		utilities.findDuplicateDois
+			.mockImplementationOnce(value => false)
+			.mockImplementationOnce(value => false)
 		const inputFields = screen.getAllByRole('textbox')
-		const saveReferenceBtn = screen.getByRole('button', {
-			name: 'Save reference',
-		})
+		const saveReferenceBtn = screen.getByRole('button', { name: /save/i })
 		userEvent.clear(inputFields[0])
 		userEvent.type(inputFields[0], 'Colmenar, J.')
 		userEvent.click(saveReferenceBtn)
@@ -226,12 +237,15 @@ describe('When user has found reference information via doi search, ReferenceFor
 				<ReferenceForm
 					displayRefForm='block'
 					showNewReferenceForm={() => {}}
+					setFocusOnSnameButton={() => {}}
 				/>
+				<button id='sname-button'>Add new structured name</button>
 			</Provider>
 		)
 		axios.get.mockImplementationOnce(() => Promise.resolve(data))
-		utilities.findDuplicateDois.mockImplementationOnce(doi => [])
-		utilities.findDuplicateLinks.mockImplementationOnce(doi => [])
+		utilities.findDuplicateDois
+			.mockImplementationOnce(value => false)
+			.mockImplementationOnce(value => false)
 	})
 
 	test('has one button for saving the reference', async () => {
@@ -241,9 +255,12 @@ describe('When user has found reference information via doi search, ReferenceFor
 		userEvent.click(getButton)
 		await waitFor(() => {
 			const btns = screen.getAllByRole('button')
-			expect(btns).toHaveLength(1)
-			expect(btns[0]).toHaveAttribute('type', 'submit')
-			expect(btns[0]).toHaveTextContent(/save/i)
+			const btnsWithtoutTestBtn = btns.filter(
+				btn => btn.id !== 'sname-button'
+			)
+			expect(btnsWithtoutTestBtn).toHaveLength(1)
+			expect(btnsWithtoutTestBtn[0]).toHaveAttribute('type', 'submit')
+			expect(btnsWithtoutTestBtn[0]).toHaveTextContent(/save/i)
 		})
 	})
 
@@ -276,9 +293,12 @@ describe('When user has found reference information via doi search, ReferenceFor
 		userEvent.type(doiInputField, '10.1002/spp2.1267')
 		userEvent.click(getButton)
 		await waitFor(() => {
-			utilities.findDuplicateDois.mockImplementationOnce(doi => [])
-			utilities.findDuplicateLinks.mockImplementationOnce(doi => [])
-			const saveReferenceBtn = screen.getByRole('button')
+			utilities.findDuplicateDois
+				.mockImplementationOnce(value => false)
+				.mockImplementationOnce(value => false)
+			const saveReferenceBtn = screen.getByRole('button', {
+				name: /save/i,
+			})
 			userEvent.click(saveReferenceBtn)
 			expect(store.dispatch).toHaveBeenCalledTimes(1)
 			expect(store.dispatch).toHaveBeenCalledWith({
@@ -302,16 +322,20 @@ describe('ReferenceForm validates input and', () => {
 					displayRefForm='none'
 					showNewReferenceForm={() => {}}
 					isQueried={true}
+					setFocusOnSnameButton={() => {}}
 				/>
+				<button id='sname-button'>Add new structured name</button>
 			</Provider>
 		)
-		utilities.findDuplicateDois.mockImplementationOnce(doi => [])
-		utilities.findDuplicateLinks.mockImplementationOnce(doi => [])
+		jest.clearAllMocks()
+		utilities.findDuplicateDois
+			.mockImplementationOnce(value => false)
+			.mockImplementationOnce(value => false)
 	})
 
 	test('does not print error msg if user provides correct data for reference', async () => {
 		const inputFields = screen.getAllByRole('textbox')
-		const saveReferenceBtn = screen.getByRole('button')
+		const saveReferenceBtn = screen.getByRole('button', { name: /save/i })
 		userEvent.type(inputFields[0], 'Úna C. Farrell')
 		userEvent.type(inputFields[1], '2009')
 		userEvent.type(
@@ -358,14 +382,14 @@ describe('ReferenceForm validates input and', () => {
 	})
 
 	test('prints correct error if title is missing', async () => {
-		const saveReferenceBtn = screen.getByRole('button')
+		const saveReferenceBtn = screen.getByRole('button', { name: /save/i })
 		userEvent.click(saveReferenceBtn)
 		await screen.findByText('Please provide the title of the reference')
 	})
 
 	test('prints correct error if title is more than 250 characters long', async () => {
 		const inputFields = screen.getAllByRole('textbox')
-		const saveReferenceBtn = screen.getByRole('button')
+		const saveReferenceBtn = screen.getByRole('button', { name: /save/i })
 		userEvent.type(
 			inputFields[2],
 			"Beyond Beecher's Trilobite Bed: Widespread pyritization of soft tissues in the Late Ordovician Taconic foreland basin.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
@@ -382,7 +406,7 @@ describe('ReferenceForm validates input and', () => {
 			inputFields[0],
 			'Úna C. Farrellaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
 		)
-		const saveReferenceBtn = screen.getByRole('button')
+		const saveReferenceBtn = screen.getByRole('button', { name: /save/i })
 		userEvent.click(saveReferenceBtn)
 		await screen.findByText(
 			'Ensure the author name is at most 50 characters (name has 51 characters)'
@@ -392,7 +416,7 @@ describe('ReferenceForm validates input and', () => {
 	test('prints correct error if provided year is invalid', async () => {
 		const inputFields = screen.getAllByRole('textbox')
 		userEvent.type(inputFields[1], '1799')
-		const saveReferenceBtn = screen.getByRole('button')
+		const saveReferenceBtn = screen.getByRole('button', { name: /save/i })
 		userEvent.click(saveReferenceBtn)
 		await screen.findByText('Please provide correct year value')
 	})
@@ -400,7 +424,7 @@ describe('ReferenceForm validates input and', () => {
 	test('prints correct error if provided doi number is invalid', async () => {
 		const inputFields = screen.getAllByRole('textbox')
 		userEvent.type(inputFields[3], '10.0')
-		const saveReferenceBtn = screen.getByRole('button')
+		const saveReferenceBtn = screen.getByRole('button', { name: /save/i })
 		userEvent.click(saveReferenceBtn)
 		await screen.findByText(
 			'Enter the DOI number that begins with 10 followed by a period'
@@ -410,7 +434,7 @@ describe('ReferenceForm validates input and', () => {
 	test('prints correct error if provided link is invalid', async () => {
 		const inputFields = screen.getAllByRole('textbox')
 		userEvent.type(inputFields[4], 'javascript:alert("hello")')
-		const saveReferenceBtn = screen.getByRole('button')
+		const saveReferenceBtn = screen.getByRole('button', { name: /save/i })
 		userEvent.click(saveReferenceBtn)
 		await screen.findByText('Please enter correct url')
 	})
@@ -421,7 +445,7 @@ describe('ReferenceForm validates input and', () => {
 			inputFields[4],
 			'http://www.somesite.com/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
 		)
-		const saveReferenceBtn = screen.getByRole('button')
+		const saveReferenceBtn = screen.getByRole('button', { name: /save/i })
 		userEvent.click(saveReferenceBtn)
 		await screen.findByText(
 			'Ensure the url is at most 200 characters (url has 201 characters)'
