@@ -64,7 +64,7 @@ export const RelationSelector = () => {
 		<>
 			<h2>Create relations</h2>
 			<div id='relation-selector'>
-				<div>
+				<div data-testid='relselector-left-test-id'>
 					{structuredNames.map(v => (
 						<div
 							key={v.id}
@@ -78,7 +78,7 @@ export const RelationSelector = () => {
 					))}
 				</div>
 
-				<div>
+				<div data-testid='relselector-right-test-id'>
 					{structuredNames
 						.filter(v => v.id !== primaryName)
 						.map(v => (
@@ -98,7 +98,7 @@ export const RelationSelector = () => {
 									idB={v.id}
 									relation={relationExists(primaryName, v.id)}
 								/>
-								{v.formattedName}
+								<p>{v.formattedName}</p>
 							</div>
 						))}
 				</div>
