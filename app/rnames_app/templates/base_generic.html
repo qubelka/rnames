@@ -31,6 +31,10 @@
     text-align: right;
   }
 
+  .title-logo a {
+    text-decoration: none;
+  }
+
   .title-logo::first-letter {
     color: #C1A788;
   }
@@ -286,7 +290,7 @@
           <i class="fa fa-bars w3-button w3-theme-b1 w3-hide-large w3-xlarge w3-bar-item" onclick="w3_open()"></i>
         </div>
         <div class="w3-left">
-          <h2 class="title-logo">RNames</h2>
+          <h2 class="title-logo"><a href="{% url 'index' %}">RNames</a></h2>
         </div>
       </div>
       
