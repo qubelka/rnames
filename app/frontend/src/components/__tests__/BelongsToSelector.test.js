@@ -10,6 +10,15 @@ import { makeId } from '../../utilities'
 
 const mockStore = configureStore([])
 
+const activeButtonClass = 'w3-btn w3-green'
+const nonActiveButtonClass = 'w3-btn w3-white'
+
+const belongsToSelectorInclusionButtonsTestIds = {
+	noInclusion: 'noInclusion-test-id',
+	rightToLeft: 'rightToLeft-test-id',
+	leftToRight: 'leftToRight-test-id',
+}
+
 const sname1Id = '{"type":"structured_name","value":1}'
 const sname2Id = '{"type":"db_structured_name","value":4422}'
 const nonInclusiveRelation = {
@@ -33,25 +42,39 @@ describe('When pair of structured names is added, but no relations formed', () =
 	})
 
 	test('shows three buttons for different inclusion options', () => {
-		const rightToLeft = screen.getByText('←')
-		const noInclusion = screen.getByText('↔')
-		const leftToRight = screen.getByText('→')
+		const rightToLeft = screen.getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.rightToLeft
+		)
+		const noInclusion = screen.getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.noInclusion
+		)
+		const leftToRight = screen.getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.leftToRight
+		)
 		expect(rightToLeft).toBeInTheDocument()
 		expect(noInclusion).toBeInTheDocument()
 		expect(leftToRight).toBeInTheDocument()
 	})
 
 	test('no option is rendered as selected', () => {
-		const rightToLeft = screen.getByText('←')
-		const noInclusion = screen.getByText('↔')
-		const leftToRight = screen.getByText('→')
-		expect(rightToLeft).toHaveClass('w3-btn w3-white')
-		expect(noInclusion).toHaveClass('w3-btn w3-white')
-		expect(leftToRight).toHaveClass('w3-btn w3-white')
+		const rightToLeft = screen.getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.rightToLeft
+		)
+		const noInclusion = screen.getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.noInclusion
+		)
+		const leftToRight = screen.getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.leftToRight
+		)
+		expect(rightToLeft).toHaveClass(`${nonActiveButtonClass}`)
+		expect(noInclusion).toHaveClass(`${nonActiveButtonClass}`)
+		expect(leftToRight).toHaveClass(`${nonActiveButtonClass}`)
 	})
 
 	test('creates new relation and rightToLeft inclusion on "rightToLeft" button click', () => {
-		const rightToLeft = screen.getByText('←')
+		const rightToLeft = screen.getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.rightToLeft
+		)
 		userEvent.click(rightToLeft)
 		expect(store.dispatch).toHaveBeenCalledTimes(1)
 		expect(store.dispatch).toHaveBeenCalledWith({
@@ -67,7 +90,9 @@ describe('When pair of structured names is added, but no relations formed', () =
 	})
 
 	test('creates new relation with no inclusion on "noInclusion" button click', () => {
-		const noInclusion = screen.getByText('↔')
+		const noInclusion = screen.getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.noInclusion
+		)
 		userEvent.click(noInclusion)
 		expect(store.dispatch).toHaveBeenCalledTimes(1)
 		expect(store.dispatch).toHaveBeenCalledWith({
@@ -83,7 +108,9 @@ describe('When pair of structured names is added, but no relations formed', () =
 	})
 
 	test('creates new relation and leftToRight inclusion on "leftToRight" button click', () => {
-		const leftToRight = screen.getByText('→')
+		const leftToRight = screen.getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.leftToRight
+		)
 		userEvent.click(leftToRight)
 		expect(store.dispatch).toHaveBeenCalledTimes(1)
 		expect(store.dispatch).toHaveBeenCalledWith({
@@ -116,12 +143,16 @@ describe('When pair of structured names with non inclusive relation added', () =
 	})
 
 	test('shows "noInclusion" button as selected', () => {
-		const noInclusion = screen.getByText('↔')
+		const noInclusion = screen.getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.noInclusion
+		)
 		expect(noInclusion).toHaveClass('w3-btn w3-green')
 	})
 
 	test('updates relation and creates rightToLeft inclusion on "rightToLeft" button click', () => {
-		const rightToLeft = screen.getByText('←')
+		const rightToLeft = screen.getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.rightToLeft
+		)
 		userEvent.click(rightToLeft)
 		expect(store.dispatch).toHaveBeenCalledTimes(1)
 		expect(store.dispatch).toHaveBeenCalledWith({
@@ -137,7 +168,9 @@ describe('When pair of structured names with non inclusive relation added', () =
 	})
 
 	test('updates relation and creates leftToRight inclusion on "leftToRight" button click', () => {
-		const leftToRight = screen.getByText('→')
+		const leftToRight = screen.getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.leftToRight
+		)
 		userEvent.click(leftToRight)
 		expect(store.dispatch).toHaveBeenCalledTimes(1)
 		expect(store.dispatch).toHaveBeenCalledWith({
@@ -171,12 +204,16 @@ describe('When pair of structured names with inclusive relation added and sname1
 	})
 
 	test('shows "rightToLeft" button as selected', () => {
-		const rightToLeft = screen.getByText('←')
-		expect(rightToLeft).toHaveClass('w3-btn w3-green')
+		const rightToLeft = screen.getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.rightToLeft
+		)
+		expect(rightToLeft).toHaveClass(`${activeButtonClass}`)
 	})
 
 	test('updates relation and creates leftToRight inclusion on "leftToRight" button click', () => {
-		const leftToRight = screen.getByText('→')
+		const leftToRight = screen.getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.leftToRight
+		)
 		userEvent.click(leftToRight)
 		expect(store.dispatch).toHaveBeenCalledTimes(1)
 		expect(store.dispatch).toHaveBeenCalledWith({
@@ -192,7 +229,9 @@ describe('When pair of structured names with inclusive relation added and sname1
 	})
 
 	test('updates relation and removes inclusion on "noInclusion" button click', () => {
-		const noInclusion = screen.getByText('↔')
+		const noInclusion = screen.getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.noInclusion
+		)
 		userEvent.click(noInclusion)
 		expect(store.dispatch).toHaveBeenCalledTimes(1)
 		expect(store.dispatch).toHaveBeenCalledWith({
@@ -231,12 +270,16 @@ describe('When pair of structured names with inclusive relation added and sname1
 	})
 
 	test('shows "leftToRight" button as selected', () => {
-		const leftToRight = screen.getByText('→')
-		expect(leftToRight).toHaveClass('w3-btn w3-green')
+		const leftToRight = screen.getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.leftToRight
+		)
+		expect(leftToRight).toHaveClass(`${activeButtonClass}`)
 	})
 
 	test('updates relation and creates rightToLeft inclusion on "rightToLeft" button click', () => {
-		const rightToLeft = screen.getByText('←')
+		const rightToLeft = screen.getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.rightToLeft
+		)
 		userEvent.click(rightToLeft)
 		expect(store.dispatch).toHaveBeenCalledTimes(1)
 		expect(store.dispatch).toHaveBeenCalledWith({
@@ -252,7 +295,9 @@ describe('When pair of structured names with inclusive relation added and sname1
 	})
 
 	test('updates relation and removes inclusion on "noInclusion" button click', () => {
-		const noInclusion = screen.getByText('↔')
+		const noInclusion = screen.getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.noInclusion
+		)
 		userEvent.click(noInclusion)
 		expect(store.dispatch).toHaveBeenCalledTimes(1)
 		expect(store.dispatch).toHaveBeenCalledWith({
