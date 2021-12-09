@@ -1,0 +1,357 @@
+import React from 'react'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import { expect, test, beforeEach, describe, jest } from '@jest/globals'
+import { render, screen, within } from '@testing-library/react'
+import '@testing-library/jest-dom'
+import userEvent from '@testing-library/user-event'
+import { Provider } from 'react-redux'
+import { refReducer } from '../../store/references/reducers'
+import { snameReducer } from '../../store/snames/reducers'
+import { relReducer } from '../../store/relations/reducers'
+import { selectedStructuredNamesReducer } from '../../store/selected_structured_names/reducers'
+import { makeId } from '../../utilities'
+import { mapReducer } from '../../store/map/reducers'
+import { nameReducer } from '../../store/names/reducers'
+import { initMapvalues } from '../../store/map/actions'
+import { RelationSelector } from '../RelationSelector'
+import { selectStructuredName } from '../../store/selected_structured_names/actions'
+import { addSname } from '../../store/snames/actions'
+
+const activeButtonClass = 'w3-btn w3-green'
+const nonActiveButtonClass = 'w3-btn w3-white'
+
+const belongsToSelectorInclusionButtonsTestIds = {
+	noInclusion: 'noInclusion-test-id',
+	rightToLeft: 'rightToLeft-test-id',
+	leftToRight: 'leftToRight-test-id',
+}
+
+const relationSelectorSidesTestIds = {
+	left: 'relselector-left-test-id',
+	right: 'relselector-right-test-id',
+}
+
+const dbStructuredName1 = {
+	id: '{"type":"db_structured_name","value":1296}',
+	name_id: '{"type":"db_name","value":1126}',
+	location_id: '{"type":"db_location","value":70}',
+	qualifier_id: '{"type":"db_qualifier","value":7}',
+	reference_id: '{"type":"db_reference","value":0}',
+	remarks: null,
+}
+
+const dbSname1Formatted = 'Yeoman / Formation / Saskatchewan'
+
+const dbStructuredName2 = {
+	id: '{"type":"db_structured_name","value":5031}',
+	location_id: '{"type":"db_location","value":1}',
+	name_id: '{"type":"db_name","value":4644}',
+	qualifier_id: '{"type":"db_qualifier","value":5}',
+	reference_id: '{"type":"db_reference","value":0}',
+	remarks: null,
+}
+
+const dbSname2Formatted = 'Aalenian / Stage / Global'
+
+const structuredName = {
+	id: '{"type":"structured_name","value":1}',
+	name_id: '{"type":"db_name","value":3437}',
+	location_id: '{"type":"db_location","value":9}',
+	qualifier_id: '{"type":"db_qualifier","value":3}',
+	reference_id: -1,
+	remarks: '',
+	save_with_reference_id: false,
+}
+
+const snameFormatted = 'Abercwmeiddaw / Epoch / Korea'
+
+const relation = {
+	id: makeId('relation'),
+	name1: dbStructuredName1.id,
+	name2: makeId('structured_name'),
+	reference_id: -1,
+}
+
+const initialMapState = {
+	[dbStructuredName1.id]: {
+		...dbStructuredName1,
+	},
+	[dbStructuredName1.name_id]: {
+		id: [dbStructuredName1.name_id],
+		name: 'Yeoman',
+	},
+	[dbStructuredName1.location_id]: {
+		id: [dbStructuredName1.location_id],
+		name: 'Saskatchewan',
+	},
+	[dbStructuredName1.qualifier_id]: {
+		id: [dbStructuredName1.qualifier_id],
+		level: 2,
+		qualifier_name_id: '{"type":"db_qualifier_name","value":7}',
+		stratigraphic_qualifier_id: 2,
+	},
+	'{"type":"db_qualifier_name","value":7}': {
+		id: '{"type":"db_qualifier_name","value":7}',
+		name: 'Formation',
+	},
+	[dbStructuredName2.id]: {
+		...dbStructuredName2,
+	},
+	[dbStructuredName2.name_id]: {
+		id: [dbStructuredName2.name_id],
+		name: 'Aalenian',
+	},
+	[dbStructuredName2.location_id]: {
+		id: [dbStructuredName2.location_id],
+		name: 'Global',
+	},
+	[dbStructuredName2.qualifier_id]: {
+		id: [dbStructuredName2.qualifier_id],
+		level: 5,
+		qualifier_name_id: '{"type":"db_qualifier_name","value":5}',
+		stratigraphic_qualifier_id: 1,
+	},
+	'{"type":"db_qualifier_name","value":5}': {
+		id: '{"type":"db_qualifier_name","value":5}',
+		name: 'Stage',
+	},
+	[structuredName.id]: {
+		...structuredName,
+	},
+	[structuredName.name_id]: {
+		id: [structuredName.name_id],
+		name: 'Abercwmeiddaw',
+	},
+	[structuredName.location_id]: {
+		id: [structuredName.location_id],
+		name: 'Korea',
+	},
+	[structuredName.qualifier_id]: {
+		id: [structuredName.qualifier_id],
+		level: 4,
+		qualifier_name_id: '{"type":"db_qualifier_name","value":3}',
+		stratigraphic_qualifier_id: 1,
+	},
+	'{"type":"db_qualifier_name","value":3}': {
+		id: '{"type":"db_qualifier_name","value":3}',
+		name: 'Epoch',
+	},
+}
+
+/** RelationSelector tests use real store instead of the mocked one. */
+
+describe('When some structured names have been selected, but no relations formed, RelationSelector', () => {
+	let store
+	beforeEach(() => {
+		store = createStore(
+			combineReducers({
+				ref: refReducer,
+				sname: snameReducer,
+				rel: relReducer,
+				map: mapReducer,
+				names: nameReducer,
+				selectedStructuredNames: selectedStructuredNamesReducer,
+			}),
+			applyMiddleware(thunk)
+		)
+		store.dispatch(addSname(structuredName))
+		store.dispatch(initMapvalues(initialMapState))
+		store.dispatch(selectStructuredName(structuredName.id))
+		store.dispatch(selectStructuredName(dbStructuredName2.id))
+		store.dispatch(selectStructuredName(dbStructuredName1.id))
+		render(
+			<Provider store={store}>
+				<RelationSelector />
+			</Provider>
+		)
+	})
+
+	test('has "Create relations" heading', () => {
+		const createRelationsHeading = screen.getByRole('heading', {
+			name: /Create relations/i,
+		})
+		expect(createRelationsHeading).toBeInTheDocument()
+	})
+
+	test('has "Relations" heading', () => {
+		const relationsHeading = screen.getByRole('heading', {
+			name: /^Relations/i,
+		})
+		expect(relationsHeading).toBeInTheDocument()
+	})
+
+	test('on the left side has all the selected structured names as options', () => {
+		const relationSelectorOnTheLeft = screen.getByTestId(
+			relationSelectorSidesTestIds.left
+		)
+		const options = [dbSname1Formatted, dbSname2Formatted, snameFormatted]
+
+		expect(relationSelectorOnTheLeft.childNodes).toHaveLength(3)
+		for (let value in relationSelectorOnTheLeft.childNodes.values()) {
+			expect(options).toContain(value)
+		}
+	})
+
+	test('on the right side has all the selected structured names as options except the primary one', () => {
+		const relationSelectorOnTheRight = screen.getByTestId(
+			relationSelectorSidesTestIds.right
+		)
+		const options = [dbSname1Formatted, dbSname2Formatted, snameFormatted]
+		expect(relationSelectorOnTheRight.childNodes).toHaveLength(2)
+		for (let value in relationSelectorOnTheRight.childNodes.values()) {
+			expect(options).toContain(value)
+		}
+	})
+
+	test('does not render any relations under "Relations" heading', async () => {
+		const relationsList = screen.getByRole('table')
+		expect(relationsList.tBodies[0].innerHTML).toEqual('')
+	})
+
+	test('shows correct labels for relations list table columns', () => {
+		const relationsList = screen.getByRole('table')
+		const labels = [
+			'Structured Name 1',
+			'Swap',
+			'Belongs To',
+			'Structured Name 2',
+		]
+		const tableHead = relationsList.tHead.childNodes[0]
+		labels.forEach(label => {
+			const domLabel = within(tableHead).getByText(label)
+			expect(domLabel).toBeInTheDocument()
+		})
+	})
+
+	test('selects "noInclusion" as deafult when user creates relation', async () => {
+		const relationSelectorOnTheRight = screen.getByTestId(
+			relationSelectorSidesTestIds.right
+		)
+		const firstOption = relationSelectorOnTheRight.childNodes[0]
+		userEvent.click(firstOption)
+		const noInclusionButton = await within(firstOption).findByTestId(
+			belongsToSelectorInclusionButtonsTestIds.noInclusion
+		)
+		const rightToLeftButton = within(firstOption).getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.rightToLeft
+		)
+		const leftToRightButton = within(firstOption).getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.leftToRight
+		)
+		expect(noInclusionButton).toHaveClass(`${activeButtonClass}`)
+		expect(rightToLeftButton).toHaveClass(`${nonActiveButtonClass}`)
+		expect(leftToRightButton).toHaveClass(`${nonActiveButtonClass}`)
+	})
+
+	test('allows to select "rightToLeft" inclusion when creating relation', () => {
+		const relationSelectorOnTheRight = screen.getByTestId(
+			relationSelectorSidesTestIds.right
+		)
+		const firstOption = relationSelectorOnTheRight.childNodes[0]
+		const rightToLeftButton = within(firstOption).getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.rightToLeft
+		)
+		const noInclusionButton = within(firstOption).getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.noInclusion
+		)
+		const leftToRightButton = within(firstOption).getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.leftToRight
+		)
+		userEvent.click(rightToLeftButton)
+		expect(rightToLeftButton).toHaveClass(`${activeButtonClass}`)
+		expect(leftToRightButton).toHaveClass(`${nonActiveButtonClass}`)
+		expect(noInclusionButton).toHaveClass(`${nonActiveButtonClass}`)
+	})
+
+	test('allows to select "leftToRight" inclusion when creating relation', () => {
+		const relationSelectorOnTheRight = screen.getByTestId(
+			relationSelectorSidesTestIds.right
+		)
+		const firstOption = relationSelectorOnTheRight.childNodes[0]
+		const rightToLeftButton = within(firstOption).getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.rightToLeft
+		)
+		const noInclusionButton = within(firstOption).getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.noInclusion
+		)
+		const leftToRightButton = within(firstOption).getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.leftToRight
+		)
+		userEvent.click(leftToRightButton)
+		expect(leftToRightButton).toHaveClass(`${activeButtonClass}`)
+		expect(rightToLeftButton).toHaveClass(`${nonActiveButtonClass}`)
+		expect(noInclusionButton).toHaveClass(`${nonActiveButtonClass}`)
+	})
+
+	test('allows to select "noInclusion" as option when creating relation', () => {
+		const relationSelectorOnTheRight = screen.getByTestId(
+			relationSelectorSidesTestIds.right
+		)
+		const firstOption = relationSelectorOnTheRight.childNodes[0]
+		const rightToLeftButton = within(firstOption).getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.rightToLeft
+		)
+		const noInclusionButton = within(firstOption).getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.noInclusion
+		)
+		const leftToRightButton = within(firstOption).getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.leftToRight
+		)
+		userEvent.click(noInclusionButton)
+		expect(noInclusionButton).toHaveClass(`${activeButtonClass}`)
+		expect(rightToLeftButton).toHaveClass(`${nonActiveButtonClass}`)
+		expect(leftToRightButton).toHaveClass(`${nonActiveButtonClass}`)
+	})
+
+	test('adds relation to relations list after creation', async () => {
+		const relationSelectorOnTheRight = screen.getByTestId(
+			relationSelectorSidesTestIds.right
+		)
+		const firstOption = relationSelectorOnTheRight.childNodes[0]
+		const firstOptionsFormattedName = firstOption.lastChild.innerHTML
+		userEvent.click(firstOption)
+		const relationsList = screen.getByRole('table')
+		await within(relationsList).findByText(firstOptionsFormattedName)
+	})
+
+	test('does not check "Belongs to" checkbox if relation does not have inclusion', async () => {
+		const relationSelectorOnTheRight = screen.getByTestId(
+			relationSelectorSidesTestIds.right
+		)
+		const firstOption = relationSelectorOnTheRight.childNodes[0]
+		userEvent.click(firstOption)
+		const checkbox = await screen.getByRole('checkbox')
+		expect(checkbox).not.toBeChecked()
+	})
+
+	test('checks "Belongs to" checkbox if relation has rightToLeft inclusion', async () => {
+		const relationSelectorOnTheRight = screen.getByTestId(
+			relationSelectorSidesTestIds.right
+		)
+		const firstOption = relationSelectorOnTheRight.childNodes[0]
+		const rightToLeftButton = within(firstOption).getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.rightToLeft
+		)
+		userEvent.click(rightToLeftButton)
+		const checkbox = await screen.getByRole('checkbox')
+		expect(checkbox).toBeChecked()
+	})
+
+	test('checks "Belongs to" checkbox if relation has leftToRight inclusion', async () => {
+		const relationSelectorOnTheRight = screen.getByTestId(
+			relationSelectorSidesTestIds.right
+		)
+		const firstOption = relationSelectorOnTheRight.childNodes[0]
+		const leftToRightButton = within(firstOption).getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.leftToRight
+		)
+		userEvent.click(leftToRightButton)
+		const checkbox = await screen.getByRole('checkbox')
+		expect(checkbox).toBeChecked()
+	})
+
+	test('shows primary sname on the left side of relations list when "rightToLeft" inclusion selected', () => {
+		screen.debug()
+	})
+})
