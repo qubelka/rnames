@@ -153,11 +153,11 @@ describe('When pair of structured names with non inclusive relation added', () =
 	})
 })
 
-describe('When pair of structured names with inclusive relation added', () => {
+describe('When pair of structured names with inclusive relation added and sname1 is on the left side', () => {
 	const inclusiveRelation = { ...nonInclusiveRelation, belongs_to: 1 }
-
-	test('shows "rightToLeft" button as selected when sname1 is on the left side', () => {
-		const store = mockStore()
+	let store
+	beforeEach(() => {
+		store = mockStore()
 		store.dispatch = jest.fn()
 		render(
 			<Provider store={store}>
@@ -168,23 +168,102 @@ describe('When pair of structured names with inclusive relation added', () => {
 				/>
 			</Provider>
 		)
+	})
+
+	test('shows "rightToLeft" button as selected', () => {
 		const rightToLeft = screen.getByText('←')
 		expect(rightToLeft).toHaveClass('w3-btn w3-green')
 	})
 
-	test('shows "leftToRight" button as selected when sname1 is on the right side', () => {
-		const store = mockStore()
+	test('updates relation and creates leftToRight inclusion on "leftToRight" button click', () => {
+		const leftToRight = screen.getByText('→')
+		userEvent.click(leftToRight)
+		expect(store.dispatch).toHaveBeenCalledTimes(1)
+		expect(store.dispatch).toHaveBeenCalledWith({
+			type: 'UPDATE',
+			rel: {
+				id: expect.anything(),
+				name1: sname2Id,
+				name2: sname1Id,
+				belongs_to: 1,
+				reference_id: -1,
+			},
+		})
+	})
+
+	test('updates relation and removes inclusion on "noInclusion" button click', () => {
+		const noInclusion = screen.getByText('↔')
+		userEvent.click(noInclusion)
+		expect(store.dispatch).toHaveBeenCalledTimes(1)
+		expect(store.dispatch).toHaveBeenCalledWith({
+			type: 'UPDATE',
+			rel: {
+				id: expect.anything(),
+				name1: sname1Id,
+				name2: sname2Id,
+				belongs_to: 0,
+				reference_id: -1,
+			},
+		})
+	})
+})
+
+describe('When pair of structured names with inclusive relation added and sname1 is on the right side', () => {
+	const inclusiveRelation = {
+		...nonInclusiveRelation,
+		belongs_to: 1,
+		name1: sname2Id,
+		name2: sname1Id,
+	}
+	let store
+	beforeEach(() => {
+		store = mockStore()
 		store.dispatch = jest.fn()
 		render(
 			<Provider store={store}>
 				<BelongsToSelector
-					idA={sname2Id}
-					idB={sname1Id}
+					idA={sname1Id}
+					idB={sname2Id}
 					relation={inclusiveRelation}
 				/>
 			</Provider>
 		)
+	})
+
+	test('shows "leftToRight" button as selected', () => {
 		const leftToRight = screen.getByText('→')
 		expect(leftToRight).toHaveClass('w3-btn w3-green')
+	})
+
+	test('updates relation and creates rightToLeft inclusion on "rightToLeft" button click', () => {
+		const rightToLeft = screen.getByText('←')
+		userEvent.click(rightToLeft)
+		expect(store.dispatch).toHaveBeenCalledTimes(1)
+		expect(store.dispatch).toHaveBeenCalledWith({
+			type: 'UPDATE',
+			rel: {
+				id: expect.anything(),
+				name1: sname1Id,
+				name2: sname2Id,
+				belongs_to: 1,
+				reference_id: -1,
+			},
+		})
+	})
+
+	test('updates relation and removes inclusion on "noInclusion" button click', () => {
+		const noInclusion = screen.getByText('↔')
+		userEvent.click(noInclusion)
+		expect(store.dispatch).toHaveBeenCalledTimes(1)
+		expect(store.dispatch).toHaveBeenCalledWith({
+			type: 'UPDATE',
+			rel: {
+				id: expect.anything(),
+				name1: sname2Id,
+				name2: sname1Id,
+				belongs_to: 0,
+				reference_id: -1,
+			},
+		})
 	})
 })
