@@ -61,7 +61,7 @@ export const RelationSelector = () => {
 	}
 
 	return (
-		<>
+		<div className='frontend-div'>
 			<h2>Create relations</h2>
 			<div id='relation-selector'>
 				<div className='frontend-div'>
@@ -121,6 +121,6 @@ export const RelationSelector = () => {
 					</tbody>
 				</table>
 			</div>
-		</>
+		</div>
 	)
 }

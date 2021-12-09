@@ -86,7 +86,7 @@ const App = () => {
 	}
 
 	return (
-		<>
+		<div className='frontend-div'>
 			<div className='frontend-div'>
 				<h2>Reference</h2>
 				{state.ref.length === 0 ? (
@@ -155,7 +155,7 @@ const App = () => {
 			</div>
 			<RelationSelector />
 			<Submit />
-		</>
+		</div>
 	)
 }
 
