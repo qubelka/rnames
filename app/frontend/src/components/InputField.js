@@ -54,7 +54,6 @@ export const InputField = ({
 				autoFocus={autoFocus}
 			/>
 			<Notification notification={notification} />
-			<br />
 		</div>
 	)
 }
