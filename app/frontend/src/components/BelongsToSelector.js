@@ -54,7 +54,7 @@ export const BelongsToSelector = ({ idA, idB, relation = undefined }) => {
 		<>
 			<div
 				className={`w3-button w3-bar-item ${
-					belongsTo && relation.name1 == idA ? 'w3-grey' : 'w3-white'
+					belongsTo && relation.name1 === idA ? 'w3-grey' : 'w3-white'
 				}`}
 				onClick={rightToLeft}
 			>
@@ -70,7 +70,7 @@ export const BelongsToSelector = ({ idA, idB, relation = undefined }) => {
 			</div>
 			<div
 				className={`w3-button w3-bar-item ${
-					belongsTo && relation.name1 == idB ? 'w3-grey' : 'w3-white'
+					belongsTo && relation.name1 === idB ? 'w3-grey' : 'w3-white'
 				}`}
 				onClick={leftToRight}
 			>
