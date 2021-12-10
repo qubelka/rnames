@@ -190,6 +190,8 @@ export const SnameForm = ({
 		)
 	}
 
+	if (displaySnameForm == 'none') return <></>
+
 	return (
 		<div style={{ display: displaySnameForm }}>
 			<Notification notification={notification} />
