@@ -26,7 +26,7 @@ export const Relation = ({ relation }) => {
 		dispatch(
 			updateRel({
 				...relation,
-				belongs_to: relation.belongs_to == 1 ? 0 : 1,
+				belongs_to: relation.belongs_to === 1 ? 0 : 1,
 			})
 		)
 	}
