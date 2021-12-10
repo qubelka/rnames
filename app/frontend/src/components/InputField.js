@@ -2,6 +2,7 @@ import React from 'react'
 import { Notification } from './Notification'
 
 export const HorizontalInputField = ({
+	label,
 	name,
 	value,
 	notification,
@@ -13,7 +14,7 @@ export const HorizontalInputField = ({
 			<div className='w3-quarter'>
 				<label htmlFor={name}>
 					<p>
-						<b>{name}</b>
+						<b>{label || name}</b>
 					</p>
 				</label>
 			</div>
@@ -34,6 +35,7 @@ export const HorizontalInputField = ({
 }
 
 export const InputField = ({
+	label,
 	name,
 	value,
 	notification,
@@ -43,7 +45,7 @@ export const InputField = ({
 	return (
 		<div className='w3-row'>
 			<label htmlFor={name}>
-				<b>{name}</b>
+				<b>{label || name}</b>
 			</label>
 			<input
 				className='w3-input w3-border w3-border-dark-grey'
