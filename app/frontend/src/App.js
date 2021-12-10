@@ -99,37 +99,39 @@ const App = () => {
 			<h3>
 				<b>Reference</b>
 			</h3>
-			<div className='w3-panel w3-padding-24 w3-light-grey w3-container'>
-				{state.ref.length === 0 ? (
-					<ReferenceForm
-						{...{
-							displayRefForm,
-							showNewReferenceForm,
-							setFocusOnSnameButton,
-						}}
-					/>
-				) : (
-					state.ref.map(reference =>
-						reference.edit ? (
-							<ReferenceForm
-								key={reference.id}
-								reference={reference}
-								displayRefForm={displayRefForm}
-								showNewReferenceForm={showNewReferenceForm}
-								isQueried={true}
-							/>
-						) : (
-							<Reference
-								{...{
-									key: reference.id,
-									reference,
-									showNewReferenceForm,
-									setFocusOnSnameButton,
-								}}
-							/>
+			<div className='w3-panel w3-padding-24 w3-light-grey'>
+				<div className=' w3-container'>
+					{state.ref.length === 0 ? (
+						<ReferenceForm
+							{...{
+								displayRefForm,
+								showNewReferenceForm,
+								setFocusOnSnameButton,
+							}}
+						/>
+					) : (
+						state.ref.map(reference =>
+							reference.edit ? (
+								<ReferenceForm
+									key={reference.id}
+									reference={reference}
+									displayRefForm={displayRefForm}
+									showNewReferenceForm={showNewReferenceForm}
+									isQueried={true}
+								/>
+							) : (
+								<Reference
+									{...{
+										key: reference.id,
+										reference,
+										showNewReferenceForm,
+										setFocusOnSnameButton,
+									}}
+								/>
+							)
 						)
-					)
-				)}
+					)}
+				</div>
 			</div>
 			<h3>
 				<b>Structured Names</b>
