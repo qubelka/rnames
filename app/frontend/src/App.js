@@ -120,8 +120,8 @@ const App = () => {
 					)
 				)}
 			</div>
-			<div>
-				<h2>Structured Names</h2>
+			<h3><b>Structured Names</b></h3>
+			<div className='w3-panel w3-light-grey'>
 				<Notification notification={canDeleteNotification}/>
 				<Notification notification={nameNotification}/>
 				<Notification notification={locationNotification}/>
@@ -141,7 +141,7 @@ const App = () => {
 					}}
 				/>
 				<button
-					type='button'
+					className='w3-button w3-grey'
 					onClick={showNewSnameForm}
 					disabled={newSnameButtonIsDisabled}
 					id='sname-button'

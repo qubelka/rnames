@@ -193,47 +193,68 @@ export const SnameForm = ({
 	if (displaySnameForm == 'none') return <></>
 
 	return (
-		<div style={{ display: displaySnameForm }}>
-			<Notification notification={notification} />
-			<label htmlFor='name'>Name</label>
-			<NameDataList
-				ref={nameRef}
-				name={name}
-				names={names}
-				onChangeHandler={e => setName(e.target.value)}
-			/>
-			<label htmlFor='qualifier'>Qualifier</label>
-			<Datalist
-				name='qualifier'
-				options={qualifiers}
-				value={qualifier}
-				onChange={e => setQualifier(e.target.value)}
-			/>
-			<label htmlFor='location'>Location</label>
-			<Datalist
-				name='location'
-				options={locations}
-				value={location}
-				onChange={e => setLocation(e.target.value)}
-			/>
-			<input
-				type='checkbox'
-				id='structured-name-form-save-with-reference'
-				checked={saveWithReference}
-				onChange={e => setSaveWithReference(!saveWithReference)}
-			/>
-			<label htmlFor='structured-name-form-save-with-reference'>
-				Save with reference id
-			</label>
-			<button
-				type='button'
-				onClick={() => {
-					handleSnameAddition()
-					setFocusOnSnameButton()
-				}}
-			>
-				Save
-			</button>
-		</div>
+		<>
+			<div className='w3-row'>
+				<Notification notification={notification} />
+				<div className='w3-third w3-container'>
+					<label htmlFor='name'>
+						<b>Name</b>
+					</label>
+					<NameDataList
+						ref={nameRef}
+						name={name}
+						names={names}
+						onChangeHandler={e => setName(e.target.value)}
+					/>
+				</div>
+				<div className='w3-third w3-container'>
+					<label htmlFor='qualifier'>
+						<b>Qualifier</b>
+					</label>
+					<Datalist
+						name='qualifier'
+						options={qualifiers}
+						value={qualifier}
+						onChange={e => setQualifier(e.target.value)}
+					/>
+				</div>
+				<div className='w3-third w3-container'>
+					<label htmlFor='location'>
+						<b>Location</b>
+					</label>
+					<Datalist
+						name='location'
+						options={locations}
+						value={location}
+						onChange={e => setLocation(e.target.value)}
+					/>
+				</div>
+			</div>
+			<div className='w3-container'>
+				<input
+					type='checkbox'
+					className='w3-check'
+					id='structured-name-form-save-with-reference'
+					checked={saveWithReference}
+					onChange={e => setSaveWithReference(!saveWithReference)}
+				/>
+				<label htmlFor='structured-name-form-save-with-reference'>
+					Save with reference id
+				</label>
+				
+			</div>
+			<div className='w3-container'>
+				<button
+					type='button'
+					className='w3-button w3-grey'
+					onClick={() => {
+						handleSnameAddition()
+						setFocusOnSnameButton()
+					}}
+				>
+					Save
+				</button>
+			</div>
+		</>
 	)
 }
