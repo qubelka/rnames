@@ -17,6 +17,7 @@ import { initMapvalues } from '../../store/map/actions'
 import { RelationSelector } from '../RelationSelector'
 import { selectStructuredName } from '../../store/selected_structured_names/actions'
 import { addSname } from '../../store/snames/actions'
+import { addRel } from '../../store/relations/actions'
 
 const activeButtonClass = 'w3-btn w3-green'
 const nonActiveButtonClass = 'w3-btn w3-white'
@@ -69,7 +70,7 @@ const snameFormatted = 'Abercwmeiddaw / Epoch / Korea'
 const relation = {
 	id: makeId('relation'),
 	name1: dbStructuredName1.id,
-	name2: makeId('structured_name'),
+	name2: structuredName.id,
 	reference_id: -1,
 }
 
@@ -116,9 +117,6 @@ const initialMapState = {
 		id: '{"type":"db_qualifier_name","value":5}',
 		name: 'Stage',
 	},
-	[structuredName.id]: {
-		...structuredName,
-	},
 	[structuredName.name_id]: {
 		id: [structuredName.name_id],
 		name: 'Abercwmeiddaw',
@@ -155,16 +153,16 @@ describe('When some structured names have been selected, but no relations formed
 			}),
 			applyMiddleware(thunk)
 		)
-		store.dispatch(addSname(structuredName))
-		store.dispatch(initMapvalues(initialMapState))
-		store.dispatch(selectStructuredName(structuredName.id))
-		store.dispatch(selectStructuredName(dbStructuredName2.id))
-		store.dispatch(selectStructuredName(dbStructuredName1.id))
 		render(
 			<Provider store={store}>
 				<RelationSelector />
 			</Provider>
 		)
+		store.dispatch(initMapvalues(initialMapState))
+		store.dispatch(addSname(structuredName))
+		store.dispatch(selectStructuredName(structuredName.id))
+		store.dispatch(selectStructuredName(dbStructuredName2.id))
+		store.dispatch(selectStructuredName(dbStructuredName1.id))
 	})
 
 	test('has "Create relations" heading', () => {
@@ -321,7 +319,7 @@ describe('When some structured names have been selected, but no relations formed
 		)
 		const firstOption = relationSelectorOnTheRight.childNodes[0]
 		userEvent.click(firstOption)
-		const checkbox = await screen.getByRole('checkbox')
+		const checkbox = await screen.findByRole('checkbox')
 		expect(checkbox).not.toBeChecked()
 	})
 
@@ -334,7 +332,7 @@ describe('When some structured names have been selected, but no relations formed
 			belongsToSelectorInclusionButtonsTestIds.rightToLeft
 		)
 		userEvent.click(rightToLeftButton)
-		const checkbox = await screen.getByRole('checkbox')
+		const checkbox = await screen.findByRole('checkbox')
 		expect(checkbox).toBeChecked()
 	})
 
@@ -347,11 +345,110 @@ describe('When some structured names have been selected, but no relations formed
 			belongsToSelectorInclusionButtonsTestIds.leftToRight
 		)
 		userEvent.click(leftToRightButton)
-		const checkbox = await screen.getByRole('checkbox')
+		const checkbox = await screen.findByRole('checkbox')
 		expect(checkbox).toBeChecked()
 	})
 
-	test('shows primary sname on the left side of relations list when "rightToLeft" inclusion selected', () => {
-		screen.debug()
+	test('shows primary sname on the left side of relations list when "rightToLeft" inclusion selected', async () => {
+		const relationSelectorOnTheRight = screen.getByTestId(
+			relationSelectorSidesTestIds.right
+		)
+		const firstOption = relationSelectorOnTheRight.childNodes[0]
+		const rightToLeftButton = within(firstOption).getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.rightToLeft
+		)
+		const relationsList = screen.getByRole('table')
+		userEvent.click(rightToLeftButton)
+		expect(relationsList.rows[1].cells[0].innerHTML).toEqual(
+			`${snameFormatted}`
+		)
+	})
+
+	test('shows primary sname on the right side of relations list when "leftToRight" inclusion selected', async () => {
+		const relationSelectorOnTheRight = screen.getByTestId(
+			relationSelectorSidesTestIds.right
+		)
+		const firstOption = relationSelectorOnTheRight.childNodes[0]
+		const leftToRightButton = within(firstOption).getByTestId(
+			belongsToSelectorInclusionButtonsTestIds.leftToRight
+		)
+		const relationsList = screen.getByRole('table')
+		userEvent.click(leftToRightButton)
+		expect(relationsList.rows[1].cells[0].innerHTML).toEqual(
+			`${dbSname1Formatted}`
+		)
+		expect(relationsList.rows[1].cells[3].innerHTML).toEqual(
+			`${snameFormatted}`
+		)
+	})
+})
+
+describe('When some structured names have been selected and relations formed, RelationSelector', () => {
+	let store
+	beforeEach(() => {
+		store = createStore(
+			combineReducers({
+				ref: refReducer,
+				sname: snameReducer,
+				rel: relReducer,
+				map: mapReducer,
+				names: nameReducer,
+				selectedStructuredNames: selectedStructuredNamesReducer,
+			}),
+			applyMiddleware(thunk)
+		)
+
+		render(
+			<Provider store={store}>
+				<RelationSelector />
+			</Provider>
+		)
+		store.dispatch(initMapvalues(initialMapState))
+		store.dispatch(addSname(structuredName))
+		store.dispatch(selectStructuredName(structuredName.id))
+		store.dispatch(selectStructuredName(dbStructuredName2.id))
+		store.dispatch(selectStructuredName(dbStructuredName1.id))
+		store.dispatch(addRel(relation))
+	})
+
+	test('shows correct structured names as selected', () => {
+		const relationSelectorOnTheLeft = screen.getByTestId(
+			relationSelectorSidesTestIds.left
+		)
+		const relationSelectorOnTheRight = screen.getByTestId(
+			relationSelectorSidesTestIds.right
+		)
+		const selectedSname1 = within(relationSelectorOnTheLeft).getByText(
+			snameFormatted
+		)
+		const selectedSname2 = within(relationSelectorOnTheRight).getByText(
+			dbSname1Formatted
+		).parentNode
+
+		expect(selectedSname1).toHaveClass(`${activeButtonClass}`)
+		expect(selectedSname2).toHaveClass(`${activeButtonClass}`)
+	})
+
+	test('allows to remove the selection', () => {
+		const relationSelectorOnTheRight = screen.getByTestId(
+			relationSelectorSidesTestIds.right
+		)
+		const selectedSname2 = within(relationSelectorOnTheRight).getByText(
+			dbSname1Formatted
+		).parentNode
+		userEvent.click(selectedSname2)
+		expect(selectedSname2).not.toHaveClass(`${activeButtonClass}`)
+	})
+
+	test('removes the relation from relation list after deselcting structured name', async () => {
+		const relationSelectorOnTheRight = screen.getByTestId(
+			relationSelectorSidesTestIds.right
+		)
+		const selectedSname2 = within(relationSelectorOnTheRight).getByText(
+			dbSname1Formatted
+		).parentNode
+		userEvent.click(selectedSname2)
+		const relationsList = await screen.findByRole('table')
+		expect(relationsList.tBodies[0].innerHTML).toEqual('')
 	})
 })
