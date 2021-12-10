@@ -151,6 +151,7 @@ export const ReferenceForm = ({
 			<div>
 				<form onSubmit={handleManualSubmit}>
 					<HorizontalInputField
+						label='First author'
 						name='first_author'
 						value={firstAuthor}
 						setField={setFirstAuthor}
@@ -158,24 +159,28 @@ export const ReferenceForm = ({
 						autoFocus={true}
 					/>
 					<HorizontalInputField
+						label='Year'
 						name='year'
 						value={year}
 						setField={setYear}
 						notification={formFieldNotification.year}
 					/>
 					<HorizontalInputField
+						label='Title'
 						name='title'
 						value={title}
 						setField={setTitle}
 						notification={formFieldNotification.title}
 					/>
 					<HorizontalInputField
+						label='DOI'
 						name='doi'
 						value={doi}
 						setField={setDoi}
 						notification={formFieldNotification.doi}
 					/>
 					<HorizontalInputField
+						label='Link'
 						name='link'
 						value={link}
 						setField={setLink}
