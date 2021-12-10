@@ -159,7 +159,7 @@ export const SnameForm = ({
 
 	useEffect(() => {
 		if (deleteCreatedSname) {
-			nameRef.current.focus()
+			nameRef.current && nameRef.current.focus()
 			setDeleteCreatedSname(false)
 		}
 	}, [deleteCreatedSname])
