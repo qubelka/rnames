@@ -72,14 +72,14 @@ export const DoiForm = ({
 				/>
 				<div className='w3-bar w3-margin-top'>
 					<button type='submit' className='w3-button w3-grey'>
-						get
+						Search
 					</button>
 					<button
 						type='button'
 						className='w3-button w3-grey'
 						onClick={() => setQueried(true)}
 					>
-						Manual Entry
+						Manual entry
 					</button>
 				</div>
 			</form>

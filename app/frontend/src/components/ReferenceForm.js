@@ -189,13 +189,13 @@ export const ReferenceForm = ({
 					<div className='w3-bar w3-margin-top'>
 						<div className='w3-quarter'>
 							<button className='w3-button w3-grey' type='submit' onClick={setFocusOnSnameButton}>
-								Save reference
+								Save
 							</button>
 						</div>
 						{reference ? (
 							<div className='w3-rest'>
 								<button className='w3-button w3-grey' type='button' onClick={handleNewDoiSearch}>
-									Make new doi search
+									Make new DOI search
 								</button>
 							</div>
 						) : <></>}
