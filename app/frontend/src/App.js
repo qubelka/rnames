@@ -89,7 +89,7 @@ const App = () => {
 		<>
 			<h2><b>Data Entry</b></h2>
 			<h3><b>Reference</b></h3>
-			<div className='w3-panel w3-light-grey'>
+			<div className='w3-panel w3-padding-24 w3-light-grey'>
 				<div className='w3-container'>
 					{state.ref.length === 0 ? (
 						<ReferenceForm
@@ -124,7 +124,7 @@ const App = () => {
 				</div>
 			</div>
 			<h3><b>Structured Names</b></h3>
-			<div className='w3-panel w3-light-grey'>
+			<div className='w3-panel w3-padding-24 w3-light-grey'>
 				<Notification notification={canDeleteNotification}/>
 				<Notification notification={nameNotification}/>
 				<Notification notification={locationNotification}/>
