@@ -58,6 +58,9 @@ export const DoiForm = ({
 		}
 	}
 
+	if (displayRefForm == 'none')
+		return <></>
+
 	return (
 		<form onSubmit={doiSubmit} style={{ display: displayRefForm }}>
 			<InputField
