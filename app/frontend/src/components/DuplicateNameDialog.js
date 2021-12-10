@@ -37,9 +37,9 @@ export const DuplicateNameDialog = ({
 	const checkboxId = 'duplicate-name-dialog-save-with-reference'
 
 	return (
-		<div className='frontend-div'>
+		<div>
 			<p>{infoMsg}</p>
-			<div className='frontend-div'>
+			<div>
 				<button
 					className={`w3-btn ${
 						id === structuredName.id ? 'w3-green' : ''

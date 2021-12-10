@@ -148,7 +148,7 @@ export const ReferenceForm = ({
 
 	if (queried)
 		return (
-			<div className='frontend-div'>
+			<div>
 				<form onSubmit={handleManualSubmit}>
 					<InputField
 						name='first_author'
