@@ -10,7 +10,7 @@
 <!-- Write your comments here -->
   <article>
     {% if user.is_authenticated %}
-      <h2>Add/Edit Relation</h2>
+      <h1>Add/Edit Relation</h1>
       <form method="POST" class="relation-form">{% csrf_token %}
         <table class="w3-table-all">
           {{ form.as_table }}
