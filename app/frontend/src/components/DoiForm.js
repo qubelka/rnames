@@ -58,22 +58,31 @@ export const DoiForm = ({
 		}
 	}
 
-	if (displayRefForm == 'none')
-		return <></>
+	if (displayRefForm == 'none') return <></>
 
 	return (
-		<form onSubmit={doiSubmit} style={{ display: displayRefForm }}>
-			<InputField
-				name='doi'
-				value={doi}
-				setField={setDoi}
-				notification={notification}
-				autoFocus={true}
-			/>
-			<button type='submit'>get</button>
-			<button type='button' onClick={() => setQueried(true)}>
-				Manual Entry
-			</button>
-		</form>
+		<>
+			<form onSubmit={doiSubmit} style={{ display: displayRefForm }}>
+				<InputField
+					name='doi'
+					value={doi}
+					setField={setDoi}
+					notification={notification}
+					autoFocus={true}
+				/>
+				<div className='w3-bar'>
+					<button type='submit' className='w3-button w3-grey'>
+						get
+					</button>
+					<button
+						type='button'
+						className='w3-button w3-grey'
+						onClick={() => setQueried(true)}
+					>
+						Manual Entry
+					</button>
+				</div>
+			</form>
+		</>
 	)
 }
