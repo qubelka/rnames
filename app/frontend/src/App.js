@@ -80,10 +80,16 @@ const App = () => {
 		}, 14000)
 	}
 
+	const [addSnameFocus, setAddSnameFocus] = useState(0)
+
 	const addSnameRef = useRef(null)
 	const setFocusOnSnameButton = () => {
-		addSnameRef.current.focus()
+		setAddSnameFocus(addSnameFocus + 1)
 	}
+	useEffect(() => {
+		if (addSnameFocus > 0 && addSnameRef.current)
+			addSnameRef.current.focus()
+	}, [addSnameFocus])
 
 	return (
 		<>
