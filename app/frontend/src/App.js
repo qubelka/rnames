@@ -40,7 +40,7 @@ const App = () => {
 		serverData.qualifiers.forEach(v => (map[v.id] = v))
 		serverData.structured_names.forEach(v => {
 			map[v.id] = v
-			v.formattedName = formatStructuredName(v, {map})
+			v.formattedName = formatStructuredName(v, { map })
 		})
 		serverData.references.forEach(v => (map[v.id] = v))
 		dispatch(initMapvalues(map))
@@ -74,7 +74,7 @@ const App = () => {
 	}
 
 	const locationNotify = (message, type = 'error') => {
-		setLocationNotification({ message, type})
+		setLocationNotification({ message, type })
 		setTimeout(() => {
 			setLocationNotification(null)
 		}, 14000)
@@ -87,8 +87,12 @@ const App = () => {
 
 	return (
 		<>
-			<h2><b>Data Entry</b></h2>
-			<h3><b>Reference</b></h3>
+			<h2>
+				<b>Data Entry</b>
+			</h2>
+			<h3>
+				<b>Reference</b>
+			</h3>
 			<div className='w3-panel w3-padding-24 w3-light-grey'>
 				<div className='w3-container'>
 					{state.ref.length === 0 ? (
@@ -96,7 +100,7 @@ const App = () => {
 							{...{
 								displayRefForm,
 								showNewReferenceForm,
-								setFocusOnSnameButton
+								setFocusOnSnameButton,
 							}}
 						/>
 					) : (
@@ -115,7 +119,7 @@ const App = () => {
 										key: reference.id,
 										reference,
 										showNewReferenceForm,
-										setFocusOnSnameButton
+										setFocusOnSnameButton,
 									}}
 								/>
 							)
@@ -123,13 +127,21 @@ const App = () => {
 					)}
 				</div>
 			</div>
-			<h3><b>Structured Names</b></h3>
+			<h3>
+				<b>Structured Names</b>
+			</h3>
 			<div className='w3-panel w3-padding-24 w3-light-grey'>
-				<Notification notification={canDeleteNotification}/>
-				<Notification notification={nameNotification}/>
-				<Notification notification={locationNotification}/>
+				<Notification notification={canDeleteNotification} />
+				<Notification notification={nameNotification} />
+				<Notification notification={locationNotification} />
 				{state.sname.map(sname => (
-					<Sname {...{ key: sname.id, sname }} canDeleteNotify= {canDeleteNotify} nameNotify={nameNotify} locationNotify={locationNotify} setDeleteCreatedSname={setDeleteCreatedSname}/>
+					<Sname
+						{...{ key: sname.id, sname }}
+						canDeleteNotify={canDeleteNotify}
+						nameNotify={nameNotify}
+						locationNotify={locationNotify}
+						setDeleteCreatedSname={setDeleteCreatedSname}
+					/>
 				))}
 				<SnameForm
 					{...{
@@ -140,10 +152,12 @@ const App = () => {
 						setFocusOnSnameButton,
 						displayRefForm,
 						deleteCreatedSname,
-						setDeleteCreatedSname
+						setDeleteCreatedSname,
 					}}
 				/>
-				{newSnameButtonIsDisabled ? <></> :
+				{newSnameButtonIsDisabled ? (
+					<></>
+				) : (
 					<button
 						className='w3-button w3-grey'
 						onClick={showNewSnameForm}
@@ -153,7 +167,7 @@ const App = () => {
 					>
 						Add new structured name
 					</button>
-				}
+				)}
 				<hr className='w3-border-top w3-border-grey' />
 				<SelectedStructuredNames />
 			</div>
