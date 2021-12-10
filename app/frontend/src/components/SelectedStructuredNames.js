@@ -57,8 +57,10 @@ export const SelectedStructuredNames = () => {
 
 	return (
 		<>
-			<label>Select existing name</label>
+			<label><b>Select existing name</b></label>
 			<input
+				className='w3-input w3-border w3-border-dark-grey'
+				type='text'
 				list={dataListId}
 				value={search}
 				onChange={handleChange}
@@ -71,8 +73,10 @@ export const SelectedStructuredNames = () => {
 			</datalist>
 			{selection.map(v => (
 				<div key={v.id}>
-					<button onClick={() => handleDelete(v.id)}>Deselect</button>
 					<span>{v.formattedName}</span>
+					<button className='w3-button w3-grey w3-circle' type='button' onClick={() => handleDelete(v.id)}>
+						<i title='Delete' className='fa fa-trash'></i>
+					</button>
 				</div>
 			))}
 		</>

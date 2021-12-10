@@ -149,8 +149,7 @@ const App = () => {
 				>
 					Add new structured name
 				</button>
-			</div>
-			<div>
+				<hr className='w3-border-top w3-border-grey' />
 				<SelectedStructuredNames />
 			</div>
 			<RelationSelector />
