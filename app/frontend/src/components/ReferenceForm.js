@@ -4,7 +4,7 @@ import { addRef, deleteRef, updateRef } from '../store/references/actions'
 import { makeId } from '../utilities'
 import { referenceFormIsValid } from '../validations'
 import { DoiForm } from './DoiForm'
-import { InputField } from './InputField'
+import { HorizontalInputField } from './InputField'
 import { findDuplicateDois, findDuplicateLinks } from '../utilities'
 
 export const ReferenceForm = ({
@@ -150,50 +150,51 @@ export const ReferenceForm = ({
 		return (
 			<div>
 				<form onSubmit={handleManualSubmit}>
-					<InputField
+					<HorizontalInputField
 						name='first_author'
 						value={firstAuthor}
 						setField={setFirstAuthor}
 						notification={formFieldNotification.firstAuthor}
 						autoFocus={true}
 					/>
-					<InputField
+					<HorizontalInputField
 						name='year'
 						value={year}
 						setField={setYear}
 						notification={formFieldNotification.year}
 					/>
-					<InputField
+					<HorizontalInputField
 						name='title'
 						value={title}
 						setField={setTitle}
 						notification={formFieldNotification.title}
 					/>
-					<InputField
+					<HorizontalInputField
 						name='doi'
 						value={doi}
 						setField={setDoi}
 						notification={formFieldNotification.doi}
 					/>
-					<InputField
+					<HorizontalInputField
 						name='link'
 						value={link}
 						setField={setLink}
 						notification={formFieldNotification.link}
 					/>
-					<button type='submit' onClick={setFocusOnSnameButton}>
-						Save reference
-					</button>
-					{reference ? (
-						<>
-							<br />
-							<button type='button' onClick={handleNewDoiSearch}>
-								Make new doi search
+					<div className='w3-bar'>
+						<div className='w3-quarter'>
+							<button className='w3-button w3-grey' type='submit' onClick={setFocusOnSnameButton}>
+								Save reference
 							</button>
-						</>
-					) : (
-						''
-					)}
+						</div>
+						{reference ? (
+							<div className='w3-rest'>
+								<button className='w3-button w3-grey' type='button' onClick={handleNewDoiSearch}>
+									Make new doi search
+								</button>
+							</div>
+						) : <></>}
+					</div>
 				</form>
 			</div>
 		)
