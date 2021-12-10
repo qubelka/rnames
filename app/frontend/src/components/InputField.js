@@ -1,11 +1,20 @@
 import React from 'react'
 import { Notification } from './Notification'
 
-export const InputField = ({ name, value, notification, setField, autoFocus }) => {
+export const InputField = ({
+	name,
+	value,
+	notification,
+	setField,
+	autoFocus,
+}) => {
 	return (
-		<>
-			<label htmlFor={name}>{name}</label>
+		<div className='w3-row'>
+			<label htmlFor={name}>
+				<b>{name}</b>
+			</label>
 			<input
+				className='w3-input w3-border w3-border-dark-grey'
 				type='text'
 				name={name}
 				value={value}
@@ -14,6 +23,6 @@ export const InputField = ({ name, value, notification, setField, autoFocus }) =
 			/>
 			<Notification notification={notification} />
 			<br />
-		</>
+		</div>
 	)
 }
