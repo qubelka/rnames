@@ -143,15 +143,17 @@ const App = () => {
 						setDeleteCreatedSname
 					}}
 				/>
-				<button
-					className='w3-button w3-grey'
-					onClick={showNewSnameForm}
-					disabled={newSnameButtonIsDisabled}
-					id='sname-button'
-					ref={addSnameRef}
-				>
-					Add new structured name
-				</button>
+				{newSnameButtonIsDisabled ? <></> :
+					<button
+						className='w3-button w3-grey'
+						onClick={showNewSnameForm}
+						disabled={newSnameButtonIsDisabled}
+						id='sname-button'
+						ref={addSnameRef}
+					>
+						Add new structured name
+					</button>
+				}
 				<hr className='w3-border-top w3-border-grey' />
 				<SelectedStructuredNames />
 			</div>
