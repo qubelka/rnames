@@ -17,7 +17,7 @@ import { findDuplicateStructuredNames } from '../utilities'
 
 const NameDataList = React.forwardRef(
 	({ name, names, onChangeHandler }, ref) => {
-		return(
+		return (
 			<Datalist
 				name='name'
 				options={names}
@@ -37,7 +37,7 @@ export const SnameForm = ({
 	setFocusOnSnameButton,
 	displayRefForm,
 	deleteCreatedSname,
-	setDeleteCreatedSname
+	setDeleteCreatedSname,
 }) => {
 	const dispatch = useDispatch()
 	const reference = useSelector(selectRefence)
@@ -112,7 +112,7 @@ export const SnameForm = ({
 		)
 			submitSname(newSname)
 		else setStructuredName(newSname)
-		}
+	}
 
 	const submitSname = newSname => {
 		dispatch(addSname(newSname))
@@ -132,7 +132,7 @@ export const SnameForm = ({
 
 	const nameRef = useRef(null)
 	useEffect(() => {
-		if(newSnameButtonIsDisabled){
+		if (newSnameButtonIsDisabled) {
 			nameRef.current.focus()
 		}
 
@@ -146,19 +146,19 @@ export const SnameForm = ({
 	}, [newSnameButtonIsDisabled])
 
 	useEffect(() => {
-		if(displayRefForm === 'none' && newSnameButtonIsDisabled) {
+		if (displayRefForm === 'none' && newSnameButtonIsDisabled) {
 			nameRef.current.focus()
 		}
 	}, [displayRefForm])
 
 	useEffect(() => {
-		if(displaySnameForm === 'block' && newSnameButtonIsDisabled) {
+		if (displaySnameForm === 'block' && newSnameButtonIsDisabled) {
 			nameRef.current.focus()
 		}
 	}, [displaySnameForm])
 
 	useEffect(() => {
-		if(deleteCreatedSname) {
+		if (deleteCreatedSname) {
 			nameRef.current.focus()
 			setDeleteCreatedSname(false)
 		}
@@ -223,9 +223,13 @@ export const SnameForm = ({
 			<label htmlFor='structured-name-form-save-with-reference'>
 				Save with reference id
 			</label>
-			<button type='button' onClick={() => {
-				handleSnameAddition()
-				setFocusOnSnameButton()}}>
+			<button
+				type='button'
+				onClick={() => {
+					handleSnameAddition()
+					setFocusOnSnameButton()
+				}}
+			>
 				Save
 			</button>
 		</div>
