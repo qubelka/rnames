@@ -57,7 +57,9 @@ export const SelectedStructuredNames = () => {
 
 	return (
 		<>
-			<label><b>Select existing name</b></label>
+			<label>
+				<b>Select existing name</b>
+			</label>
 			<input
 				className='w3-input w3-border w3-border-dark-grey'
 				type='text'
@@ -73,10 +75,16 @@ export const SelectedStructuredNames = () => {
 			</datalist>
 			{selection.map(v => (
 				<div key={v.id}>
-					<span>{v.formattedName}</span>
-					<button className='w3-button w3-grey w3-circle' type='button' onClick={() => handleDelete(v.id)}>
-						<i title='Deselect' className='fa fa-trash'></i>
-					</button>
+					<p>
+						{v.formattedName}
+						<button
+							className='w3-button w3-grey w3-circle'
+							type='button'
+							onClick={() => handleDelete(v.id)}
+						>
+							<i title='Deselect' className='fa fa-trash'></i>
+						</button>
+					</p>
 				</div>
 			))}
 		</>
