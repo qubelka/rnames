@@ -75,7 +75,7 @@ export const SelectedStructuredNames = () => {
 				<div key={v.id}>
 					<span>{v.formattedName}</span>
 					<button className='w3-button w3-grey w3-circle' type='button' onClick={() => handleDelete(v.id)}>
-						<i title='Delete' className='fa fa-trash'></i>
+						<i title='Deselect' className='fa fa-trash'></i>
 					</button>
 				</div>
 			))}
