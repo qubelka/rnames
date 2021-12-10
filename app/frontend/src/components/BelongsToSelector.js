@@ -53,24 +53,24 @@ export const BelongsToSelector = ({ idA, idB, relation = undefined }) => {
 	return (
 		<>
 			<div
-				className={`w3-btn ${
-					belongsTo && relation.name1 == idA ? 'w3-green' : 'w3-white'
+				className={`w3-button w3-bar-item ${
+					belongsTo && relation.name1 == idA ? 'w3-grey' : 'w3-white'
 				}`}
 				onClick={rightToLeft}
 			>
 				←
 			</div>
 			<div
-				className={`w3-btn ${
-					relation && !belongsTo ? 'w3-green' : 'w3-white'
+				className={`w3-button w3-bar-item ${
+					relation && !belongsTo ? 'w3-grey' : 'w3-white'
 				}`}
 				onClick={noInclusion}
 			>
 				↔
 			</div>
 			<div
-				className={`w3-btn ${
-					belongsTo && relation.name1 == idB ? 'w3-green' : 'w3-white'
+				className={`w3-button w3-bar-item ${
+					belongsTo && relation.name1 == idB ? 'w3-grey' : 'w3-white'
 				}`}
 				onClick={leftToRight}
 			>

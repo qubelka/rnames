@@ -61,15 +61,17 @@ export const RelationSelector = () => {
 	}
 
 	return (
-		<div className='frontend-div'>
-			<h2>Create relations</h2>
-			<div id='relation-selector'>
-				<div>
+		<>
+			<h3>
+				<b>Create relations</b>
+			</h3>
+			<div id='relation-selector' className='w3-row'>
+				<div className='w3-half w3-light-grey'>
 					{structuredNames.map(v => (
 						<div
 							key={v.id}
-							className={`w3-btn ${
-								v.id === primaryName ? 'w3-green' : ''
+							className={`w3-button w3-bar hide-overflow ${
+								v.id === primaryName ? 'w3-grey' : ''
 							}`}
 							onClick={() => setPrimaryName(v.id)}
 						>
@@ -77,34 +79,36 @@ export const RelationSelector = () => {
 						</div>
 					))}
 				</div>
-
-				<div>
+				<div className='w3-half w3-light-grey'>
 					{structuredNames
 						.filter(v => v.id !== primaryName)
 						.map(v => (
-							<div
-								key={v.id}
-								className={`w3-btn ${
-									relationExists(primaryName, v.id)
-										? 'w3-green'
-										: ''
-								}`}
-								onClick={() =>
-									toggleRelation(primaryName, v.id)
-								}
-							>
+							<div className='w3-bar hide-overflow' key={v.id}>
 								<BelongsToSelector
 									idA={primaryName}
 									idB={v.id}
 									relation={relationExists(primaryName, v.id)}
 								/>
-								{v.formattedName}
+								<div
+									className={`w3-button w3-bar hide-overflow ${
+										relationExists(primaryName, v.id)
+											? 'w3-grey'
+											: ''
+									}`}
+									onClick={() =>
+										toggleRelation(primaryName, v.id)
+									}
+								>
+									{v.formattedName}
+								</div>
 							</div>
 						))}
 				</div>
 			</div>
+			<h3>
+				<b>Relations</b>
+			</h3>
 			<div>
-				<h3>Relations</h3>
 				<table>
 					<thead>
 						<tr>
@@ -121,6 +125,6 @@ export const RelationSelector = () => {
 					</tbody>
 				</table>
 			</div>
-		</div>
+		</>
 	)
 }
