@@ -54,7 +54,7 @@ export const Reference = ({ reference, showNewReferenceForm }) => {
 					showNewReferenceForm()
 				}}
 			>
-				edit
+				Edit
 			</button>
 		</>
 	)
