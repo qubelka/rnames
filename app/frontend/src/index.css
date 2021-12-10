@@ -12,12 +12,11 @@ code {
     monospace;
 }
 
-div {
+.frontend-div {
   margin:  6px;
   padding: 6px;
   border:  1px solid lightgrey;
 }
-
 
 #relation-selector {
   display: flex;
