@@ -6,7 +6,7 @@ export const Reference = ({ reference, showNewReferenceForm }) => {
 	const dispatch = useDispatch()
 
 	return (
-		<div>
+		<div className='frontend-div'>
 			<p>first_author: {reference.firstAuthor}</p>
 			<p>year: {reference.year}</p>
 			<p>title: {reference.title}</p>
