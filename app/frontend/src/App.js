@@ -87,6 +87,7 @@ const App = () => {
 
 	return (
 		<div className='frontend-div'>
+			<h1>Data Entry</h1>
 			<div className='frontend-div'>
 				<h2>Reference</h2>
 				{state.ref.length === 0 ? (
