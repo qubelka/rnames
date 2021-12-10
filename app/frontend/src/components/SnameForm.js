@@ -231,19 +231,18 @@ export const SnameForm = ({
 				</div>
 			</div>
 			<div className='w3-container'>
-				<input
-					type='checkbox'
-					className='w3-check'
-					id='structured-name-form-save-with-reference'
-					checked={saveWithReference}
-					onChange={e => setSaveWithReference(!saveWithReference)}
-				/>
-				<label htmlFor='structured-name-form-save-with-reference'>
-					Save with reference id
-				</label>
-				
-			</div>
-			<div className='w3-container'>
+				<p>
+					<input
+						type='checkbox'
+						className='w3-check'
+						id='structured-name-form-save-with-reference'
+						checked={saveWithReference}
+						onChange={e => setSaveWithReference(!saveWithReference)}
+					/>
+					<label htmlFor='structured-name-form-save-with-reference'>
+						Save with reference id
+					</label>
+				</p>
 				<button
 					type='button'
 					className='w3-button w3-grey'
