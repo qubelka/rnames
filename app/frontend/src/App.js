@@ -87,6 +87,7 @@ const App = () => {
 
 	return (
 		<>
+			<h1>Data entry</h1>
 			<div>
 				<h2>Reference</h2>
 				{state.ref.length === 0 ? (
