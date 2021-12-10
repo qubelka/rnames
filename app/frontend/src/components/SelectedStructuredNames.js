@@ -52,13 +52,18 @@ export const SelectedStructuredNames = () => {
 	const handleDelete = id => {
 		if (!relations.find(v => v.name1 === id || v.name2 === id))
 			dispatch(deselectStructuredName(id))
-			document.getElementById('select-existing-name').focus()
+		document.getElementById('select-existing-name').focus()
 	}
 
 	return (
 		<>
 			<label>Select existing name</label>
-			<input list={dataListId} value={search} onChange={handleChange} id='select-existing-name'/>
+			<input
+				list={dataListId}
+				value={search}
+				onChange={handleChange}
+				id='select-existing-name'
+			/>
 			<datalist id={dataListId}>
 				{dbNames.map(v => (
 					<option key={v.id}>{v.formattedName}</option>
