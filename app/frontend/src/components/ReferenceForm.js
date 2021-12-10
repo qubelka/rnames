@@ -186,7 +186,7 @@ export const ReferenceForm = ({
 						setField={setLink}
 						notification={formFieldNotification.link}
 					/>
-					<div className='w3-bar'>
+					<div className='w3-bar w3-margin-top'>
 						<div className='w3-quarter'>
 							<button className='w3-button w3-grey' type='submit' onClick={setFocusOnSnameButton}>
 								Save reference

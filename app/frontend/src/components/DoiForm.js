@@ -70,7 +70,7 @@ export const DoiForm = ({
 					notification={notification}
 					autoFocus={true}
 				/>
-				<div className='w3-bar'>
+				<div className='w3-bar w3-margin-top'>
 					<button type='submit' className='w3-button w3-grey'>
 						get
 					</button>
