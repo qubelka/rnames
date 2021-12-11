@@ -32,7 +32,7 @@ export const Relation = ({ relation }) => {
 	}
 
 	return (
-		<div className='w3-row'>
+		<div className='w3-row v-center'>
 			<div className='w3-col s5 w3-center hide-overflow'>
 				<p>{formattedName1}</p>
 			</div>
@@ -43,7 +43,7 @@ export const Relation = ({ relation }) => {
 			</div>
 			<div className='w3-col s1 w3-center'>
 				<input
-					className='w3-check'
+					className='w3-check check-notop'
 					type='checkbox'
 					onChange={belongs}
 					checked={relation.belongs_to}

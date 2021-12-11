@@ -3,3 +3,24 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.v-center {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.h-center {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.check-notop {
+  top: 0 !important;
+}
