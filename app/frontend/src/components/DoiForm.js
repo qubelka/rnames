@@ -71,16 +71,20 @@ export const DoiForm = ({
 					autoFocus={true}
 				/>
 				<div className='w3-bar w3-margin-top'>
-					<button type='submit' className='w3-button w3-grey'>
-						Search
-					</button>
-					<button
-						type='button'
-						className='w3-button w3-grey'
-						onClick={() => setQueried(true)}
-					>
-						Manual entry
-					</button>
+					<div className='w3-quarter'>
+						<button type='submit' className='w3-button w3-grey'>
+							Search
+						</button>
+					</div>
+					<div className='w3-rest'>
+						<button
+							type='button'
+							className='w3-button w3-grey'
+							onClick={() => setQueried(true)}
+						>
+							Manual entry
+						</button>
+					</div>
 				</div>
 			</form>
 		</>
