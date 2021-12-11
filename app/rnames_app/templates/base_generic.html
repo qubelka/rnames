@@ -42,7 +42,14 @@
   .help-button, .login-button {
     font-family: 'Work Sans', sans-serif !important;
     font-weight: bold !important;
-  } 
+  }
+  
+  .main-container {
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 50px;
+    overflow: hidden;
+  }
 
   /* header style */
   .header-container {
@@ -118,7 +125,7 @@
   .page-container {
     margin-top: 100px !important;
     padding: 0 !important;
-    }
+  }
 
   /* - 100px comes from header-container height being 100px and padding 70px comes from footer height + 20px */
   .navigation {
@@ -176,8 +183,11 @@
 
   /* Style the footer */
   footer {
-    background-color: #777;
     padding: 10px;
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+    width: 100%;
   }
 
   /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
@@ -281,112 +291,110 @@
 </head>
 
 <body>
-<div class="header-container w3-container w3-theme">
-  <div class="header w3-display-container">
-    <div class="header-left w3-display-left">
-      <div class="w3-container">
-        <div class="header-button w3-left">
-          <i class="fa fa-bars w3-button w3-theme-b1 w3-hide-large w3-xlarge w3-bar-item" onclick="w3_open()"></i>
+<div class="main-container">
+  <div class="header-container w3-container w3-theme">
+    <div class="header w3-display-container">
+      <div class="header-left w3-display-left">
+        <div class="w3-container">
+          <div class="header-button w3-left">
+            <i class="fa fa-bars w3-button w3-theme-b1 w3-hide-large w3-xlarge w3-bar-item" onclick="w3_open()"></i>
+          </div>
+          <div class="w3-left">
+            <h2 class="title-logo"><a href="{% url 'index' %}">RNames</a></h2>
+          </div>
         </div>
-        <div class="w3-left">
-          <h2 class="title-logo"><a href="{% url 'index' %}">RNames</a></h2>
-        </div>
-      </div>
       
-    </div>
-      <div class="header-right w3-display-right">
-        <div class="menu-item w3-display-container w3-hide-medium w3-hide-small">
-          <div class="menu-item-left w3-display-left">
-            <div class="w3-dropdown-hover w3-theme">
+      </div>
+        <div class="header-right w3-display-right">
+          <div class="menu-item w3-display-container w3-hide-medium w3-hide-small">
+            <div class="menu-item-left w3-display-left">
+              <div class="w3-dropdown-hover w3-theme">
+                <div class="header-button header-text-button">
+                  <button class="w3-button w3-theme-b1"><h4 class="help-button">Help <i class="fa fa-caret-down"></i></h4></button>
+                </div>
+                <div class="help-dropdown list-item w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="{% url 'help-faq' %}" class="w3-bar-item w3-button w3-padding">FAQ</a>
+                    <a href="{% url 'help-database-structure' %}" class="w3-bar-item w3-button w3-padding">Database Structure</a>
+                    <a href="{% url 'help-wizard' %}" class="w3-bar-item w3-button w3-padding">Data entry with Wizard</a>
+                    <a href="{% url 'help-instruction' %}" class="w3-bar-item w3-button w3-padding">Data entry in Three Steps</a>
+                    <a href="{% url 'help-structure-of-binning-algorithm' %}" class="w3-bar-item w3-button w3-padding">Binning algorithm</a>
+                </div>
+              </div>
+            </div>
+            <div class="menu-item-right w3-display-right">
+              {% if user.is_authenticated %}
+              <div class="w3-dropdown-hover w3-theme">
+                <div class="header-button">
+                  <button class="w3-button">
+                    <h4><i class="fas fa-user-circle fa-lg"></i> <i class="fa fa-caret-down"></i></h4>
+                  </button>
+                </div>
+                <div class="logout-dropdown list-item w3-dropdown-content w3-bar-block w3-card-4">
+                  <p class="w3-bar-item w3-padding"><b>Signed in as: </b>{{ user.get_username }}</p>
+                  <hr>
+                  <a href="{% url 'account_logout' %}?next={% url 'index' %}" class="w3-bar-item w3-button w3-padding">Logout</a>
+                </div>
+              </div>
+              {% else %}
               <div class="header-button header-text-button">
-                <button class="w3-button w3-theme-b1"><h4 class="help-button">Help <i class="fa fa-caret-down"></i></h4></button>
+                <a href="{% url 'account_login' %}?next={{request.path}}" class="w3-button w3-theme-b1"><h4 class="login-button">Login</h4></a>
               </div>
-              <div class="help-dropdown list-item w3-dropdown-content w3-bar-block w3-card-4">
-                  <a href="{% url 'help-faq' %}" class="w3-bar-item w3-button w3-padding">FAQ</a>
-                  <a href="{% url 'help-database-structure' %}" class="w3-bar-item w3-button w3-padding">Database Structure</a>
-                  <a href="{% url 'help-wizard' %}" class="w3-bar-item w3-button w3-padding">Data entry with Wizard</a>
-                  <a href="{% url 'help-instruction' %}" class="w3-bar-item w3-button w3-padding">Data entry in Three Steps</a>
-                  <a href="{% url 'help-structure-of-binning-algorithm' %}" class="w3-bar-item w3-button w3-padding">Binning algorithm</a>
-              </div>
+              {% endif %}
             </div>
-          </div>
-          <div class="menu-item-right w3-display-right">
-            {% if user.is_authenticated %}
-            <div class="w3-dropdown-hover w3-theme">
-              <div class="header-button">
-                <button class="w3-button">
-                  <h4><i class="fas fa-user-circle fa-lg"></i> <i class="fa fa-caret-down"></i></h4>
-                </button>
-              </div>
-              <div class="logout-dropdown list-item w3-dropdown-content w3-bar-block w3-card-4">
-                <p class="w3-bar-item w3-padding"><b>Signed in as: </b>{{ user.get_username }}</p>
-                <hr>
-                <a href="{% url 'account_logout' %}?next={% url 'index' %}" class="w3-bar-item w3-button w3-padding">Logout</a>
-              </div>
-            </div>
-            {% else %}
-            <div class="header-button header-text-button">
-              <a href="{% url 'account_login' %}?next={{request.path}}" class="w3-button w3-theme-b1"><h4 class="login-button">Login</h4></a>
-            </div>
-            {% endif %}
           </div>
         </div>
+    </div>
+  </div>
+
+
+  <div class="page-container w3-container">
+    <div class="navigation list-item w3-theme-beige w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card" id="mySidebar">
+      <h4 class="w3-bar-item">Databases</h4>
+      <a class="w3-bar-item w3-button" href="{% url 'relation-list' %}">Relations</a>
+      <a class="w3-bar-item w3-button" href="{% url 'structuredname-list' %}">Structured Names</a>
+      <a class="w3-bar-item w3-button" href="{% url 'name-list' %}">Names</a>
+      <a class="w3-bar-item w3-button" href="{% url 'qualifier-list' %}">Qualifiers</a>
+      <a class="w3-bar-item w3-button" href="{% url 'qualifiername-list' %}">Qualifier Names</a>
+      <a class="w3-bar-item w3-button" href="{% url 'stratigraphic-qualifier-list' %}">Stratigraphic Qualifiers</a>
+      <a class="w3-bar-item w3-button" href="{% url 'location-list' %}">Locations</a>
+      <a class="w3-bar-item w3-button" href="{% url 'reference-list' %}">References</a>
+      <a class="w3-bar-item w3-button" href="{% url 'timeslice-list' %}">Time Slices</a>
+      <h4 class="w3-bar-item">Wizard</h4>
+      <a class="w3-bar-item w3-button" href="{% url 'wizard_home' %}">Wizard</a>
+      <h4 class="w3-bar-item">Binning</h4>
+      <a class="w3-bar-item w3-button" href="{% url 'binning' %}">Binning Scheme</a>
+      <a class="w3-bar-item w3-button" href="{% url 'run-binning' %}">Run binning</a>
+      <div class="w3-hide-large">
+        <h4 class="w3-bar-item">Help</h4>
+        <a href="{% url 'help-faq' %}" class="w3-bar-item w3-button">FAQ</a>
+        <a href="{% url 'help-database-structure' %}" class="w3-bar-item w3-button">Database Structure</a>
+        <a href="{% url 'help-wizard' %}" class="w3-bar-item w3-button">Data entry with Wizard</a>
+        <a href="{% url 'help-instruction' %}" class="w3-bar-item w3-button">Data entry in Three Steps</a>
+        <a href="{% url 'help-structure-of-binning-algorithm' %}" class="w3-bar-item w3-button">Binning algorithm</a>
+        <hr>
+      {% if user.is_authenticated %}
+        <p class="w3-bar-item w3-padding"><b>Signed in as: </b>{{ user.get_username }}</p>
+        <a href="{% url 'account_logout' %}?next={% url 'index' %}" class="w3-bar-item w3-button">Logout</a>
+        {% else %}
+        <a href="{% url 'account_login' %}?next={{request.path}}" class="w3-bar-item w3-button">Login</a>
+        {% endif %}
       </div>
+    </div>
+
+    <!-- Invisible overlay to close the side navigation -->
+    <div class="close-nav w3-overlay w3-hide-large" onclick="w3_close()" id="myOverlay"></div>
+  
+    <div class="main-content w3-main">
+      <div class="content w3-container">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+    <footer class="w3-container w3-center w3-theme">
+      <p>2021 - RNames</p>
+    </footer>
   </div>
 </div>
-
-
-<div class="page-container w3-container">
-  <div class="navigation list-item w3-theme-beige w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card" id="mySidebar">
-    <h4 class="w3-bar-item">Databases</h4>
-    <a class="w3-bar-item w3-button" href="{% url 'relation-list' %}">Relations</a>
-    <a class="w3-bar-item w3-button" href="{% url 'structuredname-list' %}">Structured Names</a>
-    <a class="w3-bar-item w3-button" href="{% url 'name-list' %}">Names</a>
-    <a class="w3-bar-item w3-button" href="{% url 'qualifier-list' %}">Qualifiers</a>
-    <a class="w3-bar-item w3-button" href="{% url 'qualifiername-list' %}">Qualifier Names</a>
-    <a class="w3-bar-item w3-button" href="{% url 'stratigraphic-qualifier-list' %}">Stratigraphic Qualifiers</a>
-    <a class="w3-bar-item w3-button" href="{% url 'location-list' %}">Locations</a>
-    <a class="w3-bar-item w3-button" href="{% url 'reference-list' %}">References</a>
-    <a class="w3-bar-item w3-button" href="{% url 'timeslice-list' %}">Time Slices</a>
-    <h4 class="w3-bar-item">Wizard</h4>
-    <a class="w3-bar-item w3-button" href="{% url 'wizard_home' %}">Wizard</a>
-    <h4 class="w3-bar-item">Binning</h4>
-    <a class="w3-bar-item w3-button" href="{% url 'binning' %}">Binning Scheme</a>
-    <a class="w3-bar-item w3-button" href="{% url 'run-binning' %}">Run binning</a>
-    <div class="w3-hide-large">
-      <h4 class="w3-bar-item">Help</h4>
-      <a href="{% url 'help-faq' %}" class="w3-bar-item w3-button">FAQ</a>
-      <a href="{% url 'help-database-structure' %}" class="w3-bar-item w3-button">Database Structure</a>
-      <a href="{% url 'help-wizard' %}" class="w3-bar-item w3-button">Data entry with Wizard</a>
-      <a href="{% url 'help-instruction' %}" class="w3-bar-item w3-button">Data entry in Three Steps</a>
-      <a href="{% url 'help-structure-of-binning-algorithm' %}" class="w3-bar-item w3-button">Binning algorithm</a>
-      <hr>
-    {% if user.is_authenticated %}
-      <p class="w3-bar-item w3-padding"><b>Signed in as: </b>{{ user.get_username }}</p>
-      <a href="{% url 'account_logout' %}?next={% url 'index' %}" class="w3-bar-item w3-button">Logout</a>
-      {% else %}
-      <a href="{% url 'account_login' %}?next={{request.path}}" class="w3-bar-item w3-button">Login</a>
-      {% endif %}
-    </div>
-  </div>
-
-  <!-- Invisible overlay to close the side navigation -->
-  <div class="close-nav w3-overlay w3-hide-large" onclick="w3_close()" id="myOverlay"></div>
-  
-  <div class="main-content w3-main">
-    <div class="content w3-container">
-      {% block content %}
-      {% endblock %}
-    </div>
-  </div>
- <!--
-  <footer class="w3-text-white w3-center">
-    <p>© 2019 RNames <a href="#top">Back to Top</a></p>
-  </footer>
- -->
-  
-</div>
-
 
 
 <!--
