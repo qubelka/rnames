@@ -10,7 +10,7 @@ export const HorizontalInputField = ({
 	autoFocus,
 }) => {
 	return (
-		<div className='w3-row'>
+		<div className='w3-row v-center'>
 			<div className='w3-quarter'>
 				<label htmlFor={name}>
 					<p>
@@ -18,7 +18,7 @@ export const HorizontalInputField = ({
 					</p>
 				</label>
 			</div>
-			<div className='w3-rest'>
+			<div className='w3-rest flex-grow'>
 				<input
 					className='w3-input w3-border w3-border-dark-grey w3-rest'
 					type='text'

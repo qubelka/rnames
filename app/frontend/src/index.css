@@ -21,6 +21,10 @@
   flex-wrap: wrap;
 }
 
+.flex-grow {
+  flex-grow: 1;
+}
+
 .check-notop {
   top: 0 !important;
 }
