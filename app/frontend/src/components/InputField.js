@@ -10,27 +10,29 @@ export const HorizontalInputField = ({
 	autoFocus,
 }) => {
 	return (
-		<div className='w3-row v-center'>
-			<div className='w3-quarter'>
-				<label htmlFor={name}>
-					<p>
-						<b>{label || name}</b>
-					</p>
-				</label>
-			</div>
-			<div className='w3-rest flex-grow'>
-				<input
-					className='w3-input w3-border w3-border-dark-grey w3-rest'
-					type='text'
-					name={name}
-					value={value}
-					onChange={e => setField(e.target.value)}
-					autoFocus={autoFocus}
-				/>
-			</div>
+		<>
+			<div className='w3-row v-center'>
+				<div className='w3-quarter'>
+					<label htmlFor={name}>
+						<p>
+							<b>{label || name}</b>
+						</p>
+					</label>
+				</div>
+				<div className='w3-rest flex-grow'>
+					<input
+						className='w3-input w3-border w3-border-dark-grey w3-rest'
+						type='text'
+						name={name}
+						value={value}
+						onChange={e => setField(e.target.value)}
+						autoFocus={autoFocus}
+					/>
+				</div>
 
+			</div>
 			<Notification notification={notification} />
-		</div>
+		</>
 	)
 }
 
