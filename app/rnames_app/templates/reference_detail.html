@@ -44,7 +44,7 @@
     <br>
     {% if sn_list %}
       <table class="w3-table-all">
-        <caption>Reference #{{ reference.id }}: List of Structured Names</caption>
+        <caption><h2>Reference #{{ reference.id }}: List of Structured Names</h2></caption>
         <tr>
           <th>Name</th>
           <th>Qualifier</th>
@@ -80,7 +80,7 @@
     <a href="{% url 'reference-detail' pk=reference.id %}" class="w3-button w3-border w3-hover-light-grey"><i class="fas fa-undo"> Reset filter</i></a>
   </form>
   <table class="w3-table-all">
-    <caption>Reference #{{ reference.id }}: List of Relations</caption>
+    <caption><h2>Reference #{{ reference.id }}: List of Relations</h2></caption>
     <tr>
       <th>Name 1</th>
       <th>Name 2</th>

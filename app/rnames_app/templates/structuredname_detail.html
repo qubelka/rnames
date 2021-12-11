@@ -15,7 +15,7 @@
     <h2>RNames - Structured Name: {{ structuredname.id }}</h2>
   </header>
   <table class="w3-table-all">
-    <h1>Structured Name: {{ structuredname.id }}</h1>
+    <h1>Structured Name #{{ structuredname.id }}</h1>
     <tr>
       <th>Name</th>
       <td>{{ structuredname.name }}</td>
@@ -48,7 +48,7 @@
   {% if current_relations %}
   <br>
   <table class="w3-table-all">
-    <caption> List of Relations for {{ structuredname }}</caption>
+    <caption><h2>Structured Name #{{ structuredname.id }}: List of Relations</h2></caption>
     <tr>
       <th>Name</th>
       <th>Qualifier</th>
