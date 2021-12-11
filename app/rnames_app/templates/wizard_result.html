@@ -62,6 +62,7 @@
       <th>Name</th>
       <th>Qualifier</th>
       <th>Location</th>
+      <th>Remarks</th>
     </tr>
     {% for name in structured_names %}
       <tr>
@@ -69,6 +70,7 @@
         <td>{{name.name}}</td>
         <td>{{name.qualifier}}</td>
         <td>{{name.location}}</td>
+        <td>{{name.remarks}}</td>
       </tr>
     {% endfor %}
   </table>
