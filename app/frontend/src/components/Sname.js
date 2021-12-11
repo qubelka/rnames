@@ -88,10 +88,11 @@ export const Sname = ({
 
 	return (
 		<div className='w3-container'>
-			<span>{formatStructuredName(sname, { map })}</span>
-			<button className='w3-button w3-grey w3-circle' type='button' onClick={deleteSnameHandler}>
-				<i title='Delete' className='fa fa-trash'></i>
-			</button>
+			<p>{formatStructuredName(sname, { map })}
+				<button className='w3-button w3-grey w3-circle' type='button' onClick={deleteSnameHandler}>
+					<i title='Delete' className='fa fa-trash'></i>
+				</button>
+			</p>
 		</div>
 	)
 }
