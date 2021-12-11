@@ -14,6 +14,7 @@ import { selectStructuredName } from '../store/selected_structured_names/actions
 import { Notification } from './Notification'
 import { DuplicateNameDialog } from './DuplicateNameDialog'
 import { findDuplicateStructuredNames } from '../utilities'
+import { InputField } from './InputField'
 
 const NameDataList = React.forwardRef(
 	({ name, names, onChangeHandler }, ref) => {
@@ -47,6 +48,7 @@ export const SnameForm = ({
 	const [notification, setNotification] = useState(null)
 	const [saveWithReference, setSaveWithReference] = useState(false)
 	const [structuredName, setStructuredName] = useState(undefined)
+	const [remarks, setRemarks] = useState('')
 
 	const map = useSelector(selectMap)
 	const names = useSelector(selectAllNames)
@@ -103,7 +105,7 @@ export const SnameForm = ({
 				locations.find(dbLocation => dbLocation[1] === location)[0],
 			qualifier_id: qualifierFromDb[0],
 			reference_id: -1,
-			remarks: '',
+			remarks,
 			save_with_reference_id: saveWithReference,
 		}
 
@@ -229,6 +231,14 @@ export const SnameForm = ({
 						onChange={e => setLocation(e.target.value)}
 					/>
 				</div>
+			</div>
+			<div className='w3-container w3-margin-top'>
+				<InputField
+					label='Remarks'
+					name='remarks'
+					value={remarks}
+					setField={setRemarks}
+				/>
 			</div>
 			<div className='w3-container'>
 				<p>
