@@ -265,7 +265,7 @@
 }
 
 .faq .content {
-  padding: 0 18px;
+  padding: 0 18px !important;
   background-color: white;
   max-height: 0;
   overflow: hidden;
@@ -362,6 +362,7 @@
       <a href="{% url 'help-structure-of-binning-algorithm' %}" class="w3-bar-item w3-button">Binning algorithm</a>
       <hr>
     {% if user.is_authenticated %}
+      <p class="w3-bar-item w3-padding"><b>Signed in as: </b>{{ user.get_username }}</p>
       <a href="{% url 'account_logout' %}?next={% url 'index' %}" class="w3-bar-item w3-button">Logout</a>
       {% else %}
       <a href="{% url 'account_login' %}?next={{request.path}}" class="w3-bar-item w3-button">Login</a>

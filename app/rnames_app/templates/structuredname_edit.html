@@ -10,7 +10,7 @@
 <!-- Write your comments here -->
   <article>
     {% if user.is_authenticated %}
-      <h2>Add/Edit Structured Name</h2>
+      <h1>Add/Edit Structured Name</h1>
       <form method="POST" class="name-form">{% csrf_token %}
         <table class="w3-table">
           {{ form.as_table }}
