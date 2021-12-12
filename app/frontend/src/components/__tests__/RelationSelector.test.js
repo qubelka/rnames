@@ -3,6 +3,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { expect, test, beforeEach, describe, jest } from '@jest/globals'
 import { render, screen, within } from '@testing-library/react'
+import { getByText } from '@testing-library/dom'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 import { Provider } from 'react-redux'
@@ -19,8 +20,7 @@ import { selectStructuredName } from '../../store/selected_structured_names/acti
 import { addSname } from '../../store/snames/actions'
 import { addRel } from '../../store/relations/actions'
 
-const activeButtonClass = 'w3-btn w3-green'
-const nonActiveButtonClass = 'w3-btn w3-white'
+const activeButtonClass = 'w3-grey'
 
 const belongsToSelectorInclusionButtonsTestIds = {
 	noInclusion: 'noInclusion-test-id',
@@ -203,21 +203,21 @@ describe('When some structured names have been selected, but no relations formed
 	})
 
 	test('does not render any relations under "Relations" heading', async () => {
-		const relationsList = screen.getByRole('table')
-		expect(relationsList.tBodies[0].innerHTML).toEqual('')
+		const relationsList = screen.getByTestId('active-relations-list')
+		expect(relationsList.childNodes.length).toEqual(0)
 	})
 
 	test('shows correct labels for relations list table columns', () => {
-		const relationsList = screen.getByRole('table')
+		const heading = screen.getByTestId('active-relations-list').parentNode.childNodes[0]
 		const labels = [
 			'Structured Name 1',
 			'Swap',
-			'Belongs To',
+			'Belongs to',
 			'Structured Name 2',
 		]
-		const tableHead = relationsList.tHead.childNodes[0]
+
 		labels.forEach(label => {
-			const domLabel = within(tableHead).getByText(label)
+			const domLabel = getByText(heading, label)
 			expect(domLabel).toBeInTheDocument()
 		})
 	})
@@ -226,8 +226,12 @@ describe('When some structured names have been selected, but no relations formed
 		const relationSelectorOnTheRight = screen.getByTestId(
 			relationSelectorSidesTestIds.right
 		)
-		const firstOption = relationSelectorOnTheRight.childNodes[0]
-		userEvent.click(firstOption)
+
+		const nameOnRight = getByText(relationSelectorOnTheRight, dbSname1Formatted)
+		userEvent.click(nameOnRight)
+
+
+		const firstOption = nameOnRight.parentNode
 		const noInclusionButton = await within(firstOption).findByTestId(
 			belongsToSelectorInclusionButtonsTestIds.noInclusion
 		)
@@ -238,8 +242,8 @@ describe('When some structured names have been selected, but no relations formed
 			belongsToSelectorInclusionButtonsTestIds.leftToRight
 		)
 		expect(noInclusionButton).toHaveClass(`${activeButtonClass}`)
-		expect(rightToLeftButton).toHaveClass(`${nonActiveButtonClass}`)
-		expect(leftToRightButton).toHaveClass(`${nonActiveButtonClass}`)
+		expect(rightToLeftButton).not.toHaveClass(`${activeButtonClass}`)
+		expect(leftToRightButton).not.toHaveClass(`${activeButtonClass}`)
 	})
 
 	test('allows to select "rightToLeft" inclusion when creating relation', () => {
@@ -258,8 +262,8 @@ describe('When some structured names have been selected, but no relations formed
 		)
 		userEvent.click(rightToLeftButton)
 		expect(rightToLeftButton).toHaveClass(`${activeButtonClass}`)
-		expect(leftToRightButton).toHaveClass(`${nonActiveButtonClass}`)
-		expect(noInclusionButton).toHaveClass(`${nonActiveButtonClass}`)
+		expect(leftToRightButton).not.toHaveClass(`${activeButtonClass}`)
+		expect(noInclusionButton).not.toHaveClass(`${activeButtonClass}`)
 	})
 
 	test('allows to select "leftToRight" inclusion when creating relation', () => {
@@ -278,8 +282,8 @@ describe('When some structured names have been selected, but no relations formed
 		)
 		userEvent.click(leftToRightButton)
 		expect(leftToRightButton).toHaveClass(`${activeButtonClass}`)
-		expect(rightToLeftButton).toHaveClass(`${nonActiveButtonClass}`)
-		expect(noInclusionButton).toHaveClass(`${nonActiveButtonClass}`)
+		expect(rightToLeftButton).not.toHaveClass(`${activeButtonClass}`)
+		expect(noInclusionButton).not.toHaveClass(`${activeButtonClass}`)
 	})
 
 	test('allows to select "noInclusion" as option when creating relation', () => {
@@ -298,18 +302,18 @@ describe('When some structured names have been selected, but no relations formed
 		)
 		userEvent.click(noInclusionButton)
 		expect(noInclusionButton).toHaveClass(`${activeButtonClass}`)
-		expect(rightToLeftButton).toHaveClass(`${nonActiveButtonClass}`)
-		expect(leftToRightButton).toHaveClass(`${nonActiveButtonClass}`)
+		expect(rightToLeftButton).not.toHaveClass(`${activeButtonClass}`)
+		expect(leftToRightButton).not.toHaveClass(`${activeButtonClass}`)
 	})
 
 	test('adds relation to relations list after creation', async () => {
 		const relationSelectorOnTheRight = screen.getByTestId(
 			relationSelectorSidesTestIds.right
 		)
-		const firstOption = relationSelectorOnTheRight.childNodes[0]
-		const firstOptionsFormattedName = firstOption.lastChild.innerHTML
+		const firstOption = relationSelectorOnTheRight.childNodes[0].lastChild
+		const firstOptionsFormattedName = firstOption.innerHTML
 		userEvent.click(firstOption)
-		const relationsList = screen.getByRole('table')
+		const relationsList = screen.getByTestId('active-relations-list')
 		await within(relationsList).findByText(firstOptionsFormattedName)
 	})
 
@@ -317,7 +321,7 @@ describe('When some structured names have been selected, but no relations formed
 		const relationSelectorOnTheRight = screen.getByTestId(
 			relationSelectorSidesTestIds.right
 		)
-		const firstOption = relationSelectorOnTheRight.childNodes[0]
+		const firstOption = relationSelectorOnTheRight.childNodes[0].lastChild
 		userEvent.click(firstOption)
 		const checkbox = await screen.findByRole('checkbox')
 		expect(checkbox).not.toBeChecked()
@@ -357,11 +361,9 @@ describe('When some structured names have been selected, but no relations formed
 		const rightToLeftButton = within(firstOption).getByTestId(
 			belongsToSelectorInclusionButtonsTestIds.rightToLeft
 		)
-		const relationsList = screen.getByRole('table')
 		userEvent.click(rightToLeftButton)
-		expect(relationsList.rows[1].cells[0].innerHTML).toEqual(
-			`${snameFormatted}`
-		)
+		const relation = screen.getByTestId('active-relations-list').childNodes[0]
+		expect(getByText(relation.childNodes[0], snameFormatted)).toBeInTheDocument()
 	})
 
 	test('shows primary sname on the right side of relations list when "leftToRight" inclusion selected', async () => {
@@ -372,14 +374,10 @@ describe('When some structured names have been selected, but no relations formed
 		const leftToRightButton = within(firstOption).getByTestId(
 			belongsToSelectorInclusionButtonsTestIds.leftToRight
 		)
-		const relationsList = screen.getByRole('table')
 		userEvent.click(leftToRightButton)
-		expect(relationsList.rows[1].cells[0].innerHTML).toEqual(
-			`${dbSname1Formatted}`
-		)
-		expect(relationsList.rows[1].cells[3].innerHTML).toEqual(
-			`${snameFormatted}`
-		)
+		const relation = screen.getByTestId('active-relations-list').childNodes[0]
+		expect(getByText(relation.childNodes[0], dbSname1Formatted)).toBeInTheDocument()
+		expect(getByText(relation.childNodes[3], snameFormatted)).toBeInTheDocument()
 	})
 })
 
@@ -423,7 +421,7 @@ describe('When some structured names have been selected and relations formed, Re
 		)
 		const selectedSname2 = within(relationSelectorOnTheRight).getByText(
 			dbSname1Formatted
-		).parentNode
+		)
 
 		expect(selectedSname1).toHaveClass(`${activeButtonClass}`)
 		expect(selectedSname2).toHaveClass(`${activeButtonClass}`)
@@ -446,9 +444,9 @@ describe('When some structured names have been selected and relations formed, Re
 		)
 		const selectedSname2 = within(relationSelectorOnTheRight).getByText(
 			dbSname1Formatted
-		).parentNode
+		)
 		userEvent.click(selectedSname2)
-		const relationsList = await screen.findByRole('table')
-		expect(relationsList.tBodies[0].innerHTML).toEqual('')
+		const relationsList = screen.getByTestId('active-relations-list')
+		expect(relationsList.childNodes.length).toEqual(0)
 	})
 })

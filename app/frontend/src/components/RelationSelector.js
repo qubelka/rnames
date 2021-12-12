@@ -138,9 +138,11 @@ export const RelationSelector = () => {
 						</p>
 					</div>
 				</div>
-				{relations.map(v => (
-					<Relation key={v.id} relation={v} />
-				))}
+				<div data-testid='active-relations-list'>
+					{relations.map(v => (
+						<Relation key={v.id} relation={v} />
+					))}
+				</div>
 			</div>
 		</>
 	)
