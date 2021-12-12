@@ -108,7 +108,9 @@ describe('When relation without inclusion rendered', () => {
 	})
 
 	test('shows structured names forming a relation on the same row', () => {
-		const relationRow = screen.getByText(`${formattedName1}`).closest('.w3-row')
+		const relationRow = screen
+			.getByText(`${formattedName1}`)
+			.closest('.w3-row')
 		const leftName = getByText(relationRow, `${formattedName1}`)
 		const rightName = getByText(relationRow, `${formattedName2}`)
 		const swapButton = getByText(relationRow, '↔')

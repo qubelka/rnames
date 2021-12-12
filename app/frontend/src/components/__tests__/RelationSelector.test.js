@@ -208,7 +208,8 @@ describe('When some structured names have been selected, but no relations formed
 	})
 
 	test('shows correct labels for relations list table columns', () => {
-		const heading = screen.getByTestId('active-relations-list').parentNode.childNodes[0]
+		const heading = screen.getByTestId('active-relations-list').parentNode
+			.childNodes[0]
 		const labels = [
 			'Structured Name 1',
 			'Swap',
@@ -227,9 +228,11 @@ describe('When some structured names have been selected, but no relations formed
 			relationSelectorSidesTestIds.right
 		)
 
-		const nameOnRight = getByText(relationSelectorOnTheRight, dbSname1Formatted)
+		const nameOnRight = getByText(
+			relationSelectorOnTheRight,
+			dbSname1Formatted
+		)
 		userEvent.click(nameOnRight)
-
 
 		const firstOption = nameOnRight.parentNode
 		const noInclusionButton = await within(firstOption).findByTestId(
@@ -362,8 +365,11 @@ describe('When some structured names have been selected, but no relations formed
 			belongsToSelectorInclusionButtonsTestIds.rightToLeft
 		)
 		userEvent.click(rightToLeftButton)
-		const relation = screen.getByTestId('active-relations-list').childNodes[0]
-		expect(getByText(relation.childNodes[0], snameFormatted)).toBeInTheDocument()
+		const relation = screen.getByTestId('active-relations-list')
+			.childNodes[0]
+		expect(
+			getByText(relation.childNodes[0], snameFormatted)
+		).toBeInTheDocument()
 	})
 
 	test('shows primary sname on the right side of relations list when "leftToRight" inclusion selected', async () => {
@@ -375,9 +381,14 @@ describe('When some structured names have been selected, but no relations formed
 			belongsToSelectorInclusionButtonsTestIds.leftToRight
 		)
 		userEvent.click(leftToRightButton)
-		const relation = screen.getByTestId('active-relations-list').childNodes[0]
-		expect(getByText(relation.childNodes[0], dbSname1Formatted)).toBeInTheDocument()
-		expect(getByText(relation.childNodes[3], snameFormatted)).toBeInTheDocument()
+		const relation = screen.getByTestId('active-relations-list')
+			.childNodes[0]
+		expect(
+			getByText(relation.childNodes[0], dbSname1Formatted)
+		).toBeInTheDocument()
+		expect(
+			getByText(relation.childNodes[3], snameFormatted)
+		).toBeInTheDocument()
 	})
 })
 
