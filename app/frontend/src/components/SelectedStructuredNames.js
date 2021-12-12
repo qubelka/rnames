@@ -78,7 +78,7 @@ export const SelectedStructuredNames = () => {
 					<p>
 						{v.formattedName}
 						<button
-							className='w3-button w3-grey w3-circle'
+							className='w3-button w3-grey w3-circle w3-margin-left'
 							type='button'
 							onClick={() => handleDelete(v.id)}
 						>

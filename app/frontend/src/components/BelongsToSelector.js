@@ -56,6 +56,7 @@ export const BelongsToSelector = ({ idA, idB, relation = undefined }) => {
 				className={`w3-button w3-bar-item ${
 					belongsTo && relation.name1 === idA ? 'w3-grey' : ''
 				}`}
+				data-testid='rightToLeft-test-id'
 				onClick={rightToLeft}
 			>
 				←
@@ -64,6 +65,7 @@ export const BelongsToSelector = ({ idA, idB, relation = undefined }) => {
 				className={`w3-button w3-bar-item ${
 					relation && !belongsTo ? 'w3-grey' : ''
 				}`}
+				data-testid='noInclusion-test-id'
 				onClick={noInclusion}
 			>
 				↔
@@ -72,6 +74,7 @@ export const BelongsToSelector = ({ idA, idB, relation = undefined }) => {
 				className={`w3-button w3-bar-item ${
 					belongsTo && relation.name1 === idB ? 'w3-grey' : ''
 				}`}
+				data-testid='leftToRight-test-id'
 				onClick={leftToRight}
 			>
 				→
