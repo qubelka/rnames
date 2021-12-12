@@ -146,7 +146,7 @@ describe('When pair of structured names with non inclusive relation added', () =
 		const noInclusion = screen.getByTestId(
 			belongsToSelectorInclusionButtonsTestIds.noInclusion
 		)
-		expect(noInclusion).toHaveClass('w3-btn w3-green')
+		expect(noInclusion).toHaveClass(`${activeButtonClass}`)
 	})
 
 	test('updates relation and creates rightToLeft inclusion on "rightToLeft" button click', () => {

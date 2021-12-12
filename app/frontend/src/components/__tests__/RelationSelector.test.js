@@ -186,20 +186,20 @@ describe('When some structured names have been selected, but no relations formed
 		const options = [dbSname1Formatted, dbSname2Formatted, snameFormatted]
 
 		expect(relationSelectorOnTheLeft.childNodes).toHaveLength(3)
-		for (let value in relationSelectorOnTheLeft.childNodes.values()) {
-			expect(options).toContain(value)
-		}
+		relationSelectorOnTheLeft.childNodes.forEach(childNode => {
+			expect(options).toContain(childNode.innerHTML)
+		})
 	})
 
 	test('on the right side has all the selected structured names as options except the primary one', () => {
 		const relationSelectorOnTheRight = screen.getByTestId(
 			relationSelectorSidesTestIds.right
 		)
-		const options = [dbSname1Formatted, dbSname2Formatted, snameFormatted]
+		const options = [dbSname1Formatted, dbSname2Formatted]
 		expect(relationSelectorOnTheRight.childNodes).toHaveLength(2)
-		for (let value in relationSelectorOnTheRight.childNodes.values()) {
-			expect(options).toContain(value)
-		}
+		relationSelectorOnTheRight.childNodes.forEach(childNode => {
+			expect(options).toContain(childNode.childNodes[3].innerHTML)
+		})
 	})
 
 	test('does not render any relations under "Relations" heading', async () => {
