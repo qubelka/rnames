@@ -82,7 +82,7 @@ describe('When no reference information provided, ReferenceForm', () => {
 
 	test('does not show "Make new doi search" button', () => {
 		const makeNewDoiSearchBtn = screen.queryByRole('button', {
-			name: 'Make new doi search',
+			name: 'Make new DOI search',
 		})
 		expect(makeNewDoiSearchBtn).not.toBeInTheDocument()
 	})
@@ -209,7 +209,7 @@ describe('When user is editing an existing reference, ReferenceForm', () => {
 
 	test('shows new empty DoiForm on "Make new doi search" button click', async () => {
 		const makeNewDoiSearchBtn = screen.queryByRole('button', {
-			name: 'Make new doi search',
+			name: 'Make new DOI search',
 		})
 		userEvent.click(makeNewDoiSearchBtn)
 		const doiForm = await screen
