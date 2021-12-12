@@ -2,6 +2,7 @@ import React from 'react'
 import { expect, test, beforeEach, describe, jest } from '@jest/globals'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
+import { getByText } from '@testing-library/dom'
 import userEvent from '@testing-library/user-event'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
@@ -96,11 +97,7 @@ describe('When relation without inclusion rendered', () => {
 		store.dispatch = jest.fn()
 		render(
 			<Provider store={store}>
-				<table>
-					<tbody>
-						<Relation relation={relation} />
-					</tbody>
-				</table>
+				<Relation relation={relation} />
 			</Provider>
 		)
 	})
@@ -111,10 +108,13 @@ describe('When relation without inclusion rendered', () => {
 	})
 
 	test('shows structured names forming a relation on the same row', () => {
-		const relationRow = screen.getByRole('row', {
-			name: `${formattedName1} ↔ ${formattedName2}`,
-		})
-		expect(relationRow).toBeInTheDocument()
+		const relationRow = screen.getByText(`${formattedName1}`).closest('.w3-row')
+		const leftName = getByText(relationRow, `${formattedName1}`)
+		const rightName = getByText(relationRow, `${formattedName2}`)
+		const swapButton = getByText(relationRow, '↔')
+		expect(leftName).toBeInTheDocument()
+		expect(rightName).toBeInTheDocument()
+		expect(swapButton).toBeInTheDocument()
 	})
 
 	test('swaps relations on "swap" button press', () => {
@@ -161,11 +161,7 @@ describe('When relation with inclusion rendered', () => {
 		store.dispatch = jest.fn()
 		render(
 			<Provider store={store}>
-				<table>
-					<tbody>
-						<Relation relation={relationWithInclusion} />
-					</tbody>
-				</table>
+				<Relation relation={relationWithInclusion} />
 			</Provider>
 		)
 	})
