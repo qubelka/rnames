@@ -67,7 +67,7 @@ export const RelationSelector = () => {
 			</h3>
 			<div id='relation-selector' className='w3-row w3-light-grey'>
 				<div
-					className='w3-col m5 w3-padding-16 w3-light-grey'
+					className='w3-container w3-col m5 w3-padding-16 w3-light-grey'
 					data-testid='relselector-left-test-id'
 				>
 					{structuredNames.map(v => (
@@ -83,7 +83,7 @@ export const RelationSelector = () => {
 					))}
 				</div>
 				<div
-					className='w3-col m7 w3-padding-16 w3-light-grey'
+					className='w3-container w3-col m7 w3-padding-16 w3-light-grey'
 					data-testid='relselector-right-test-id'
 				>
 					{structuredNames
