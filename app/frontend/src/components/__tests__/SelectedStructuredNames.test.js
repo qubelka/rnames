@@ -139,9 +139,7 @@ describe('When no existing structured names selected', () => {
 	})
 
 	test('does not show "deselect" button', () => {
-		const deselectButton = screen.queryByRole('button', {
-			name: /Deselect/i,
-		})
+		const deselectButton = screen.queryByTitle(/deselect/i)
 		expect(deselectButton).not.toBeInTheDocument()
 	})
 
@@ -230,9 +228,7 @@ describe('When some existing structured names have been selected', () => {
 	})
 
 	test('allows to deselect the selected structured name', async () => {
-		const deselectButton = screen.getByRole('button', {
-			name: /Deselect/i,
-		})
+		const deselectButton = screen.queryByTitle(/deselect/i)
 		userEvent.click(deselectButton)
 		const selection = await screen.findAllByText(
 			/Yeoman \/ Formation \/ Saskatchewan/i
@@ -266,9 +262,7 @@ describe('When selected structured names are dependent on relation', () => {
 	})
 
 	test('does not allow to deselect the structured name', () => {
-		const deselectButton = screen.getByRole('button', {
-			name: /Deselect/i,
-		})
+		const deselectButton = screen.queryByTitle(/deselect/i)
 		userEvent.click(deselectButton)
 		expect(store.dispatch).not.toHaveBeenCalled()
 	})

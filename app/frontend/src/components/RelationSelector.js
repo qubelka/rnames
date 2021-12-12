@@ -61,15 +61,20 @@ export const RelationSelector = () => {
 	}
 
 	return (
-		<div className='frontend-div'>
-			<h2>Create relations</h2>
-			<div id='relation-selector'>
-				<div className='frontend-div' data-testid='relselector-left-test-id'>
+		<>
+			<h3>
+				<b>Create relations</b>
+			</h3>
+			<div id='relation-selector' className='w3-row w3-light-grey'>
+				<div
+					className='w3-container w3-col m5 w3-padding-16 w3-light-grey'
+					data-testid='relselector-left-test-id'
+				>
 					{structuredNames.map(v => (
 						<div
 							key={v.id}
-							className={`w3-btn ${
-								v.id === primaryName ? 'w3-green' : ''
+							className={`w3-button w3-bar hide-overflow ${
+								v.id === primaryName ? 'w3-grey' : ''
 							}`}
 							onClick={() => setPrimaryName(v.id)}
 						>
@@ -77,50 +82,68 @@ export const RelationSelector = () => {
 						</div>
 					))}
 				</div>
-
-				<div className='frontend-div' data-testid='relselector-right-test-id'>
+				<div
+					className='w3-container w3-col m7 w3-padding-16 w3-light-grey'
+					data-testid='relselector-right-test-id'
+				>
 					{structuredNames
 						.filter(v => v.id !== primaryName)
 						.map(v => (
-							<div
-								key={v.id}
-								className={`w3-btn ${
-									relationExists(primaryName, v.id)
-										? 'w3-green'
-										: ''
-								}`}
-								onClick={() =>
-									toggleRelation(primaryName, v.id)
-								}
-							>
+							<div className='w3-bar hide-overflow' key={v.id}>
 								<BelongsToSelector
 									idA={primaryName}
 									idB={v.id}
 									relation={relationExists(primaryName, v.id)}
 								/>
-								<p>{v.formattedName}</p>
+								<div
+									className={`w3-button w3-bar hide-overflow ${
+										relationExists(primaryName, v.id)
+											? 'w3-grey'
+											: ''
+									}`}
+									style={{ width: '70%' }}
+									onClick={() =>
+										toggleRelation(primaryName, v.id)
+									}
+								>
+									{v.formattedName}
+								</div>
 							</div>
 						))}
 				</div>
 			</div>
-			<div className='frontend-div'>
-				<h3>Relations</h3>
-				<table>
-					<thead>
-						<tr>
-							<th>Structured Name 1</th>
-							<th>Swap</th>
-							<th>Belongs To</th>
-							<th>Structured Name 2</th>
-						</tr>
-					</thead>
-					<tbody>
-						{relations.map(v => (
-							<Relation key={v.id} relation={v} />
-						))}
-					</tbody>
-				</table>
+			<h3>
+				<b>Relations</b>
+			</h3>
+			<div className='w3-panel w3-padding-16 w3-light-grey'>
+				<div className='w3-row'>
+					<div className='w3-col s5 w3-center'>
+						<p>
+							<b>Structured Name 1</b>
+						</p>
+					</div>
+					<div className='w3-col s1 w3-center'>
+						<p>
+							<b>Swap</b>
+						</p>
+					</div>
+					<div className='w3-col s1 w3-center'>
+						<p>
+							<b>Belongs to</b>
+						</p>
+					</div>
+					<div className='w3-col s5 w3-center'>
+						<p>
+							<b>Structured Name 2</b>
+						</p>
+					</div>
+				</div>
+				<div data-testid='active-relations-list'>
+					{relations.map(v => (
+						<Relation key={v.id} relation={v} />
+					))}
+				</div>
 			</div>
-		</div>
+		</>
 	)
 }

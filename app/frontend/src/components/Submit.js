@@ -91,7 +91,7 @@ export const Submit = () => {
 	return (
 		<>
 			<Notification notification={notification} />
-			<button onClick={e => submit()}>Submit</button>
+			<button type='button' className='w3-grey w3-button' onClick={e => submit()}>Submit</button>
 		</>
 	)
 }

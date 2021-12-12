@@ -26,28 +26,32 @@ export const Relation = ({ relation }) => {
 		dispatch(
 			updateRel({
 				...relation,
-				belongs_to: relation.belongs_to == 1 ? 0 : 1,
+				belongs_to: relation.belongs_to === 1 ? 0 : 1,
 			})
 		)
 	}
 
 	return (
-		<tr>
-			<td>{formattedName1}</td>
-			<td>
-				<button className='w3-btn' onClick={swap}>
+		<div className='w3-row v-center'>
+			<div className='w3-col s5 w3-center hide-overflow'>
+				<p>{formattedName1}</p>
+			</div>
+			<div className='w3-col s1 w3-center'>
+				<button className='w3-button' onClick={swap}>
 					↔
 				</button>
-			</td>
-			<td>
+			</div>
+			<div className='w3-col s1 w3-center'>
 				<input
-					className='w3-check'
+					className='w3-check check-notop'
 					type='checkbox'
 					onChange={belongs}
 					checked={relation.belongs_to}
 				/>
-			</td>
-			<td>{formattedName2}</td>
-		</tr>
+			</div>
+			<div className='w3-col s5 w3-center hide-overflow'>
+				<p>{formattedName2}</p>
+			</div>
+		</div>
 	)
 }

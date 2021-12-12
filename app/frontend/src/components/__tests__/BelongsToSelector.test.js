@@ -10,8 +10,7 @@ import { makeId } from '../../utilities'
 
 const mockStore = configureStore([])
 
-const activeButtonClass = 'w3-btn w3-green'
-const nonActiveButtonClass = 'w3-btn w3-white'
+const activeButtonClass = 'w3-grey'
 
 const belongsToSelectorInclusionButtonsTestIds = {
 	noInclusion: 'noInclusion-test-id',
@@ -66,9 +65,9 @@ describe('When pair of structured names is added, but no relations formed', () =
 		const leftToRight = screen.getByTestId(
 			belongsToSelectorInclusionButtonsTestIds.leftToRight
 		)
-		expect(rightToLeft).toHaveClass(`${nonActiveButtonClass}`)
-		expect(noInclusion).toHaveClass(`${nonActiveButtonClass}`)
-		expect(leftToRight).toHaveClass(`${nonActiveButtonClass}`)
+		expect(rightToLeft).not.toHaveClass(`${activeButtonClass}`)
+		expect(noInclusion).not.toHaveClass(`${activeButtonClass}`)
+		expect(leftToRight).not.toHaveClass(`${activeButtonClass}`)
 	})
 
 	test('creates new relation and rightToLeft inclusion on "rightToLeft" button click', () => {
