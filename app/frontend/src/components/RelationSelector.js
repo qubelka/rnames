@@ -66,7 +66,10 @@ export const RelationSelector = () => {
 				<b>Create relations</b>
 			</h3>
 			<div id='relation-selector' className='w3-row w3-light-grey'>
-				<div className='w3-col m5 w3-padding-16 w3-light-grey' data-testid='relselector-left-test-id'>
+				<div
+					className='w3-col m5 w3-padding-16 w3-light-grey'
+					data-testid='relselector-left-test-id'
+				>
 					{structuredNames.map(v => (
 						<div
 							key={v.id}
@@ -79,7 +82,10 @@ export const RelationSelector = () => {
 						</div>
 					))}
 				</div>
-				<div className='w3-col m7 w3-padding-16 w3-light-grey' data-testid='relselector-right-test-id'>
+				<div
+					className='w3-col m7 w3-padding-16 w3-light-grey'
+					data-testid='relselector-right-test-id'
+				>
 					{structuredNames
 						.filter(v => v.id !== primaryName)
 						.map(v => (
