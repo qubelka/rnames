@@ -86,8 +86,9 @@ const App = () => {
 	}
 
 	return (
-		<>
-			<div>
+		<div className='frontend-div'>
+			<h1>Data Entry</h1>
+			<div className='frontend-div'>
 				<h2>Reference</h2>
 				{state.ref.length === 0 ? (
 					<ReferenceForm
@@ -120,7 +121,7 @@ const App = () => {
 					)
 				)}
 			</div>
-			<div>
+			<div className='frontend-div'>
 				<h2>Structured Names</h2>
 				<Notification notification={canDeleteNotification}/>
 				<Notification notification={nameNotification}/>
@@ -150,12 +151,12 @@ const App = () => {
 					Add new structured name
 				</button>
 			</div>
-			<div>
+			<div className='frontend-div'>
 				<SelectedStructuredNames />
 			</div>
 			<RelationSelector />
 			<Submit />
-		</>
+		</div>
 	)
 }
 
