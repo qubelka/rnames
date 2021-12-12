@@ -53,6 +53,7 @@ export const BelongsToSelector = ({ idA, idB, relation = undefined }) => {
 	return (
 		<>
 			<div
+				data-testid='rightToLeft-test-id'
 				className={`w3-btn ${
 					belongsTo && relation.name1 == idA ? 'w3-green' : 'w3-white'
 				}`}
@@ -61,6 +62,7 @@ export const BelongsToSelector = ({ idA, idB, relation = undefined }) => {
 				←
 			</div>
 			<div
+				data-testid='noInclusion-test-id'
 				className={`w3-btn ${
 					relation && !belongsTo ? 'w3-green' : 'w3-white'
 				}`}
@@ -69,6 +71,7 @@ export const BelongsToSelector = ({ idA, idB, relation = undefined }) => {
 				↔
 			</div>
 			<div
+				data-testid='leftToRight-test-id'
 				className={`w3-btn ${
 					belongsTo && relation.name1 == idB ? 'w3-green' : 'w3-white'
 				}`}
